@@ -1,0 +1,40 @@
+# Media files (audio, video, large assets)
+*.mp3
+*.mp4
+*.wav
+*.avi
+*.mkv
+*.mov
+*.flv
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Executables and binaries
+*.exe
+*.dll
+*.so
+*.dylib
+ffmpeg.exe
+
+# Backups and temp files
+*.bak
+*.revert_backup
+*.tmp
+*.log
+
+# Python cache and environments
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.pytest_cache/
+checkpoints/
+scratch/
+
+# IDE and project system files
+.vscode/
+.idea/
+.gemini/

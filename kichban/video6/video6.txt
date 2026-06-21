@@ -1,0 +1,96 @@
+Slide slide_token_1a (title Layout - Access Token vs Refresh Token)
+Tiêu đề: Access Token vs Refresh Token
+Mô tả: CƠ CHẾ BẢO MẬT BACKEND CHUẨN ĐÚNG NGHĨA
+Thời lượng: 7.0s
+Voice: Tại sao các hệ thống lớn lại dùng cả Access Token lẫn Refresh Token? Dùng một cái thôi không được sao?
+
+---
+
+Slide slide_token_1a2 (title Layout - Ẩn dụ Tòa nhà)
+Tiêu đề: Ẩn dụ Tòa nhà
+Mô tả: MÔ HÌNH BẢO MẬT DỄ HIỂU NHẤT
+Thời lượng: 5.0s
+Voice: Hãy tưởng tượng cơ chế bảo mật của server giống y hệt như một tòa nhà văn phòng hiện đại.
+
+---
+
+Slide slide_token_1b (custom Layout - Đăng Nhập)
+Tiêu đề: Đăng Nhập
+Mô tả: CẤP PHÁT THẺ RA VÀO
+Thời lượng: 10.0s
+Voice: Đầu tiên, bạn trình Căn cước công dân tại quầy lễ tân để nhận thẻ ra vào nhanh. Chiếc thẻ này là Access Token.
+
+---
+
+Slide slide_token_2a (custom Layout - Thẻ Ra Vào)
+Tiêu đề: Thẻ Ra Vào
+Mô tả: ACCESS TOKEN: TIỆN LỢI & SIÊU NHANH
+Thời lượng: 11.0s
+Voice: Có thẻ này, bạn tự do quẹt qua thang máy, phòng họp. Cổng bảo vệ tự đọc thông tin trên thẻ để mở cửa, không cần gọi điện hỏi lại Lễ tân.
+
+---
+
+Slide slide_token_2b (custom Layout - Cơ chế Stateless)
+Tiêu đề: Cơ chế Stateless
+Mô tả: XÁC THỰC OFFLINE CHỈ MẤT 1MS
+Thời lượng: 11.0s
+Voice: Đó là tính chất Stateless. Trên thẻ in sẵn quyền hạn, Server chỉ giải mã chữ ký bằng Secret Key để duyệt ngay mà không cần gọi Database.
+
+---
+
+Slide slide_token_2c (custom Layout - Hiểm Họa Mất Trộm)
+Tiêu đề: Hiểm Họa Mất Trộm
+Mô tả: VÌ SAO CHỈ NÊN SỐNG 15 PHÚT?
+Thời lượng: 13.0s
+Voice: Nhưng thảm họa xảy ra khi kẻ trộm đột nhập và nhặt được thẻ của bạn. Vì thẻ này là Stateless, bảo vệ không thể thu hồi từ xa. Để giảm thiểu rủi ro bị kẻ xấu lợi dụng phá hoại, Access Token bắt buộc phải có hạn cực ngắn, chỉ đúng mười lăm phút.
+
+---
+
+Slide slide_token_3a (custom Layout - Thẻ Nhân Viên Gốc)
+Tiêu đề: Thẻ Nhân Viên Gốc
+Mô tả: REFRESH TOKEN: THẺ CHÌA KHÓA VÀNG
+Thời lượng: 10.0s
+Voice: Để bạn không phải liên tục ra quầy trình lại căn cước mỗi mười lăm phút, Lễ tân sẽ phát kèm một thẻ gốc. Đó là Refresh Token.
+
+---
+
+Slide slide_token_3b (custom Layout - Gia Hạn Ngầm)
+Tiêu đề: Gia Hạn Ngầm
+Mô tả: SILENT REFRESH KHÔNG LÀM PHIỀN USER
+Thời lượng: 12.0s
+Voice: Thẻ gốc này được cất kỹ, có hạn tới ba mươi ngày và được lưu trong database. Mỗi khi thẻ đi nhanh hết hạn, hệ thống tự động quẹt thẻ gốc để xin thẻ đi nhanh mới.
+
+---
+
+Slide slide_token_4a (custom Layout - Bảo Mật Lưu Trữ)
+Tiêu đề: Bảo Mật Lưu Trữ
+Mô tả: HTTPONLY COOKIE CHỐNG HACK XSS
+Thời lượng: 13.0s
+Voice: Để an toàn, thẻ đi nhanh có thể lưu ở bộ nhớ tạm. Nhưng thẻ gốc bắt buộc phải cất trong két sắt an toàn là HttpOnly Cookie để chống bị hacker trộm qua XSS.
+
+---
+
+Slide slide_token_4b (custom Layout - Đăng Xuất / Thu Hồi)
+Tiêu đề: Đăng Xuất / Thu Hồi
+Mô tả: HỦY THẺ LẬP TỨC KHI BÁO MẤT
+Thời lượng: 12.0s
+Voice: Nếu bạn báo mất máy hoặc bấm Đăng xuất, Lễ tân sẽ hủy thẻ gốc trong database. Kẻ gian lập tức bị chặn đứng và không thể xin cấp thẻ đi nhanh mới.
+
+---
+
+Slide slide_token_5a (cards Layout - So Sánh Tóm Tắt)
+Tiêu đề: So Sánh Tóm Tắt
+Mô tả: NHỚ NẰM LÒNG HAI LOẠI THẺ
+Thời lượng: 12.04s
+Các thẻ:
+- Access Token (Thẻ đi nhanh) (warning) | Icon: key | Hạn ngắn (15 phút) • Stateless • Lưu ở bộ nhớ tạm • Dùng để xác thực API cực nhanh.
+- Refresh Token (Thẻ gốc) (success) | Icon: refresh-cw | Hạn dài (30 ngày) • Stateful (Database) • Lưu ở HttpOnly Cookie • Dùng để cấp lại Access Token mới.
+Voice: Tóm lại: Access Token dùng ngắn hạn để đi nhanh, không cần DB. Refresh Token dùng dài hạn để gia hạn, lưu DB và cất giấu an toàn.
+
+---
+
+Slide slide_token_5b (title Layout - Cảm ơn bạn đã theo dõi!)
+Tiêu đề: Cảm ơn bạn đã theo dõi!
+Mô tả: ẤN FOLLOW @TURNIO.DEV ĐỂ XEM THÊM MẸO BACKEND
+Thời lượng: 8.0s
+Voice: Ấn Follow Turnio.dev để học thêm nhiều kiến thức thiết kế hệ thống backend thực chiến cực chất nhé!

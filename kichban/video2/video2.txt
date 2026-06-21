@@ -1,0 +1,141 @@
+================================================================================
+KỊCH BẢN CHI TIẾT: THẢM HỌA "FULL TABLE SCAN" VÀ NGHỆ THUẬT ĐÁNH INDEX DATABASE
+================================================================================
+Kênh: Turnio.dev - Mẹo lập trình Backend chất lượng cao
+Thời lượng ước tính: 60 - 75 giây (Tối ưu cho TikTok Shorts, Reels, Youtube Shorts)
+Chủ đề: Database Indexing, Full Table Scan, Tối ưu hóa truy vấn SQL, Cân bằng Đọc-Ghi.
+
+--------------------------------------------------------------------------------
+MỤC TIÊU & TƯ DUY TRUYỀN TẢI:
+- Giải thích vấn đề trực quan: Dùng ví dụ thực tế (tìm sách trong thư viện không mục lục).
+- Bản chất kỹ thuật đơn giản: So sánh độ phức tạp thời gian O(N) và O(log N) bằng cấu trúc cây B-Tree.
+- Tư duy phản biện sâu: Không có con số index "đủ", mà là bài toán đánh đổi (Trade-off) giữa tốc độ Đọc (SELECT) và tốc độ Ghi (INSERT/UPDATE/DELETE).
+
+================================================================================
+CHI TIẾT PHÂN CẢNH & LỜI BÌNH (SCRIPT OVERVIEW)
+================================================================================
+
+--------------------------------------------------------------------------------
+SLIDE 1: MỞ ĐẦU (Layout: Title)
+- Hình ảnh: Bố cục màu đen gold huyền bí, biểu tượng Database lớn ở giữa nhấp nháy mờ ảo.
+- Dải sóng: Nhấp nhô nhẹ nhàng ở góc dưới bên trái.
+- Lời bình (Script Voiceover): 
+  "Bạn đã bao giờ gặp tình trạng ứng dụng chạy chậm như rùa khi dữ liệu phình to chưa? 
+  Thủ phạm chính là thảm họa Full Table Scan."
+- Chú thích kỹ thuật: Đánh trúng nỗi đau (pain point) của mọi backend developer khi đưa sản phẩm lên Production gặp lag.
+
+--------------------------------------------------------------------------------
+SLIDE 2: MINH HỌA VẤN ĐỀ (Layout: Diagram)
+- Hình ảnh: Sơ đồ trượt dọc biểu diễn các dòng dữ liệu. 
+  Mũi tên chạy từ: Client tìm "An" -> Quét qua dòng 1 "Bình" (Sai) -> Dòng 2 "Cường" (Sai) -> Dòng 1.000.000 "An" (Màu đỏ cảnh báo).
+- Lời bình (Script Voiceover): 
+  "Hãy tưởng tượng bạn tìm một cuốn sách trong thư viện khổng lồ không có danh mục xếp lớp. 
+  Bạn phải lật từng cuốn sách một để tìm, đó chính là quét toàn bảng."
+- Chú thích kỹ thuật: Giúp người xem liên tưởng trực quan ngay lập tức. Full Table Scan chính là việc lật từng bản ghi từ đầu đến cuối bảng.
+
+--------------------------------------------------------------------------------
+SLIDE 3: BẢN CHẤT SQL (Layout: Code)
+- Hình ảnh: Khung cửa sổ code editor đen bóng `optimize_query.sql`. 
+  Code SQL thực thi truy vấn tìm kiếm bằng cột `email` (chưa đánh chỉ mục). Dòng chữ chạy highlight màu cam chỉ ra độ phức tạp O(N).
+- Lời bình (Script Voiceover): 
+  "Trong SQL, khi bạn truy vấn tìm kiếm bằng một trường không được đánh chỉ mục, 
+  Database bắt buộc phải chạy Full Table Scan với độ phức tạp là O(N)."
+- Đoạn Code hiển thị:
+  ```sql
+  -- Truy vấn trên bảng 1.000.000 dòng
+  -- Database phải đọc từng dòng từ ổ cứng (O(N))
+  SELECT * FROM users
+  WHERE email = 'contact@turnio.dev';
+  -- Thực thi: 3.200 ms (Quá chậm!)
+  ```
+
+--------------------------------------------------------------------------------
+SLIDE 4: HẬU QUẢ VẬT LÝ (Layout: Metrics)
+- Hình ảnh: Các chỉ số đo lường hiển thị to rõ rệt tăng dần theo lượng record. Dòng 10.000.000 record nhấp nháy đỏ kèm nhãn "Sập hoàn toàn".
+- Lời bình (Script Voiceover): 
+  "Với dữ liệu nhỏ, Full Table Scan chạy dưới 1 mili giây. Nhưng khi dữ liệu đạt hàng triệu dòng, 
+  CPU sẽ quá tải và ổ cứng bị nghẽn vì đọc file liên tục."
+- Chỉ số hiển thị:
+  - 100 record: 0.1ms
+  - 100.000 record: 350ms
+  - 1.000.000 record: 3.200ms (Nghẽn cổ chai!)
+  - 10.000.000 record: 32.000ms (Sập hệ thống!)
+
+--------------------------------------------------------------------------------
+SLIDE 5: GIẢI PHÁP (Layout: Diagram)
+- Hình ảnh: Sơ đồ cây B-Tree phân nhánh từ gốc (M-R) -> Nhánh trái (A-L) -> Tìm thấy "An" hiển thị màu xanh lá thành công rực rỡ.
+- Lời bình (Script Voiceover): 
+  "Giải pháp là Database Index. Index hoạt động như một cuốn mục lục sắp xếp theo cấu trúc cây B-Tree, 
+  giúp tìm kiếm tức thì chỉ qua vài bước kiểm tra."
+- Chú thích kỹ thuật: Chỉ ra bản chất của B-Tree là phân cấp tìm kiếm. Thay vì duyệt 1 triệu bản ghi, chỉ cần duyệt khoảng 20 node cây (O(log N)).
+
+--------------------------------------------------------------------------------
+SLIDE 6: CODE KHẮC PHỤC (Layout: Code)
+- Hình ảnh: Editor hiển thị lệnh `CREATE INDEX` màu vàng sáng lấp lánh và câu truy vấn mới chạy cực nhanh.
+- Lời bình (Script Voiceover): 
+  "Chỉ với một câu lệnh đơn giản để tạo index trên cột email, 
+  Database sẽ lưu trữ các giá trị email đã được sắp xếp để tra cứu siêu tốc."
+- Đoạn Code hiển thị:
+  ```sql
+  -- Tạo chỉ mục tìm kiếm B-Tree trên cột email
+  CREATE INDEX idx_users_email ON users(email);
+
+  -- Truy vấn lại sau khi đánh Index
+  SELECT * FROM users
+  WHERE email = 'contact@turnio.dev';
+  -- Thực thi: 0.08 ms (Nhanh gấp 40.000 lần!)
+  ```
+
+--------------------------------------------------------------------------------
+SLIDE 7: SO SÁNH (Layout: Split)
+- Hình ảnh: Bảng so sánh 2 cột màu đỏ cam (Thiếu Index) và màu xanh lá (Có Index) đối chọi sắc nét.
+- Lời bình (Script Voiceover): 
+  "Kết quả thay đổi chóng mặt. Thời gian truy vấn giảm từ hàng giây xuống còn một phần nhỏ của mili giây, 
+  tiết kiệm tối đa CPU cho server."
+- Chỉ số đối chiếu:
+  * Thiếu Index: Đọc toàn bộ ổ cứng | Mất 3200ms | CPU quá tải.
+  * Có Index: Chỉ đọc 3-4 nút cây | Mất 0.08ms | CPU nhàn rỗi.
+
+--------------------------------------------------------------------------------
+SLIDE 8: CẢNH BÁO TÁC DỤNG PHỤ (Layout: Cards)
+- Hình ảnh: 3 thẻ card xếp gọn hiển thị 3 nguy cơ của việc "Thừa Index" với icon ổ cứng, database, CPU.
+- Lời bình (Script Voiceover): 
+  "Nhưng khoan đã! Đừng lạm dụng đánh index cho mọi cột. 
+  Việc thừa chỉ mục sẽ gây ra những hậu quả vô cùng tai hại."
+- Nội dung các thẻ:
+  1. Chậm Ghi/Sửa: DB phải cập nhật lại toàn bộ các cây Index khi INSERT/UPDATE/DELETE.
+  2. Tốn Ổ Cứng: Index có thể nặng hơn cả bảng dữ liệu gốc.
+  3. Cạn Kiệt RAM: Đọc index tốn rất nhiều bộ nhớ đệm RAM.
+
+--------------------------------------------------------------------------------
+SLIDE 9: TƯ DUY VÀNG (Layout: Quote)
+- Hình ảnh: Khung quote viền vàng sang trọng hiện lên trang nghiêm giữa màn hình nền tối sâu thẳm.
+- Lời bình (Script Voiceover): 
+  "Vậy đánh bao nhiêu Index là đủ? Thực tế không có khái niệm đủ, 
+  mà hãy tư duy theo nguyên lý Cân Bằng Đọc Ghi."
+- Nội dung Quote:
+  "Không có khái niệm ĐỦ index, chỉ có khái niệm CÂN BẰNG. Đánh index giúp tăng tốc độ Đọc (SELECT), nhưng lại làm giảm tốc độ Ghi (INSERT/UPDATE). Hãy chỉ đánh chỉ mục cho những cột thực sự thường xuyên xuất hiện trong mệnh đề WHERE hoặc JOIN."
+
+--------------------------------------------------------------------------------
+SLIDE 10: KẾT THÚC (Layout: Title)
+- Hình ảnh: Logo avatar của kênh sáng lên với hiệu ứng vòng tròn sóng lan tỏa kích thích bấm nút Follow.
+- Lời bình (Script Voiceover): 
+  "Nhấn follow kênh Turnio.dev để cùng làm chủ hệ thống Backend hiệu năng cao nhé. Hẹn gặp lại các bạn!"
+
+================================================================================
+HƯỚNG DẪN CẤU HÌNH VÀ CÁC THIẾT LẬP HIỆU ỨNG TỐI ƯU TRÊN STUDIO
+================================================================================
+1. Chuyển đổi Kịch bản:
+   - Trên thanh công cụ trên cùng của Web App, phần "Kịch bản", nhấp vào dropdown và chọn `video2`.
+   - Hệ thống sẽ tự động nạp cấu hình slides và hiển thị preview tức thì.
+
+2. Tạo Giọng nói (Speech Synthesis):
+   - Bạn có thể bấm nút "Tạo giọng nói cho tất cả Slide" để hệ thống tự động chạy TTS với giọng đọc chuẩn miền Bắc trầm ấm của Google (`google-vi-VN-Neural2-D`), tạo âm thanh khớp từng mili giây với hoạt cảnh của từng slide.
+
+3. Điều chỉnh sóng âm nhạc khi phát (Audio Visualizer):
+   - Hãy chọn kiểu sóng **Sóng đối xứng (Siri/Bell)** hoặc **Sóng luân phiên (Rolling Wave)** trên bảng điều khiển để dải sóng chuyển động mượt mà ở góc dưới màn hình trong lúc phát thử video.
+
+4. Lưu ý khi quay màn hình bằng OBS:
+   - Mở chế độ "Xem Full Màn Hình" trên Studio để giấu các thanh công cụ biên tập.
+   - Bấm `Alt + Space` để hệ thống tự động tua lại từ Slide 1 và tự động chạy từ đầu một cách trơn tru, giúp bạn thu âm và quay màn hình một lần duy nhất mà không bị vướng chuột hay gián đoạn.
+================================================================================

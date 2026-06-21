@@ -1,0 +1,211 @@
+Slide 1a (Split Layout - Tại sao MXH không có Phân Trang?)
+Tiêu đề: Tại sao MXH không có Phân Trang?
+Mô tả:  INFINITE SCROLL VS PAGE NUMBERS
+Thời lượng: 9.0s
+Cột trái: Facebook, TikTok, Insta | Cuộn trang vô tận\nKhông có Trang 1, 2, 3\nTải động khi cuộn màn hình
+Cột phải: Shopee, Admin Web | Nút chọn Trang 1, 2, 3\nPhân trang số cố định\nNgười dùng chọn trang cụ thể
+Voice: Có bao giờ bạn thắc mắc: Tại sao lướt Facebook, TikTok hay Instagram, chúng ta chỉ việc cuộn hoài cuộn mãi, mà không bao giờ thấy nút bấm Trang 1, 2, 3 như khi đi mua sắm trên Shopee hay đọc báo không? Đằng sau sự khác biệt này là một bí mật công nghệ cực kỳ thú vị.
+
+---
+
+Slide 1b (Cards Layout - Tại sao lại như vậy?)
+Tiêu đề: Tại sao lại như vậy?
+Mô tả:  CHỈ LÀ KHÁC BIỆT GIAO DIỆN?
+Thời lượng: 8.5s
+Các thẻ:
+- UI/UX Thiết kế (type: neutral) | Icon: layout-grid | Chỉ đơn giản là lựa chọn thiết kế giao diện phù hợp hành vi người dùng?
+- Hiệu năng Database (type: neutral) | Icon: database | Hay thực chất là do cách tối ưu hóa truy vấn dữ liệu sâu bên dưới hệ thống?
+Voice: Nhiều người nghĩ đây đơn giản chỉ là lựa chọn thiết kế UI/UX để người dùng lướt cho tiện. Nhưng không! Đằng sau đó là cả một trận chiến tối ưu hiệu năng Database cực kỳ khốc liệt mà mọi lập trình viên Backend đều phải đối mặt.
+
+---
+
+Slide 1c (Split Layout - Sự khác biệt dưới Database)
+Tiêu đề: Sự khác biệt dưới Database
+Mô tả:  HIỆU NĂNG TRUY VẤN DỮ LIỆU
+Thời lượng: 9.0s
+Cột trái: OFFSET Pagination | Càng dùng càng chậm\nQuét tuần tự dữ liệu O(N)\nTốn CPU, RAM và Disk I/O nặng
+Cột phải: Cursor Pagination | Luôn luôn nhanh\nNhảy thẳng vị trí cần tìm O(log N)\nTốc độ siêu tốc và ổn định 100%
+Voice: Ẩn sau hai trải nghiệm đó là hai cơ chế truy vấn dữ liệu hoàn toàn đối lập dưới Database: OFFSET Pagination và Cursor Pagination. Một bên là quả bom nổ chậm càng dùng càng trì trệ, bên còn lại là vũ khí tối thượng giúp hệ thống chạy mượt mà như bay.
+
+---
+
+Slide trans_offset (Transition Layout - OFFSET Pagination)
+Tiêu đề: OFFSET Pagination
+Mô tả:  THẢM HỌA KHI HỆ THỐNG PHÌNH TO
+Thời lượng: 9.0s
+Voice: Đầu tiên, hãy cùng mổ xẻ cơ chế phân trang kinh điển nhất: OFFSET Pagination. Để xem tại sao cách làm quốc dân này lại là nguyên nhân hàng đầu gây sập các hệ thống Backend khi dữ liệu phình to.
+
+---
+
+
+Slide 2 (Code Layout - OFFSET Pagination)
+Tiêu đề: OFFSET Pagination
+Mô tả:  CÁCH LÀM KINH ĐIỂN NHƯNG YẾU
+Thời lượng: 8.5s
+Highlight: Dòng 3
+Code:
+-- Phân trang sử dụng LIMIT và OFFSET
+SELECT * FROM users
+ORDER BY id
+LIMIT 20 OFFSET 100;
+Voice: Đây là câu lệnh SQL quốc dân mà hầu như dev nào mới học cũng từng viết. Ý nghĩa của nó rất đơn giản: Bỏ qua 100 bản ghi đầu tiên, rồi lấy ra đúng 20 dòng tiếp theo để hiển thị.
+
+---
+
+Slide 3a (Table Layout - Database xử lý OFFSET ra sao?)
+Tiêu đề: Database xử lý OFFSET ra sao?
+Mô tả:  THỰC TẾ XỬ LÝ TUẦN TỰ O(N)
+Thời lượng: 8.5s
+Bảng:
+ID | Trạng thái | Hành động của Database
+1..100 | Bỏ qua (Skipped) | Vẫn phải đọc và kiểm tra từng dòng một
+101..120 | Lấy kết quả | Đọc nội dung thực tế trả về cho Client
+Voice: Nghe thì rất logic đúng không? Nhưng thực tế đắng lòng là: Database không hề biết nhảy cóc! Nó vẫn phải còng lưng quét qua tuần tự 100 dòng đầu tiên, rồi mới chọn ra 20 dòng tiếp theo để trả về cho bạn.
+
+---
+
+Slide 3b (Table Layout - Gánh nặng bỏ qua bản ghi)
+Tiêu đề: Gánh nặng bỏ qua bản ghi
+Mô tả: ️ DATABASE VẪN PHẢI ĐỌC DỮ LIỆU
+Thời lượng: 9.5s
+Bảng:
+Số dòng quét | Trạng thái | Tài nguyên tiêu tốn
+100 dòng đầu | Quét & Bỏ qua | Tốn CPU & Disk I/O nhẹ (0.5ms)
+OFFSET càng lớn | Quét & Bỏ qua | CPU & Disk tăng tuyến tính theo số dòng
+Voice: Tức là, nếu OFFSET bằng 100, Database quét 100 dòng rồi vứt đi. Nếu OFFSET là 10.000, nó cũng phải duyệt qua đúng 10.000 dòng rồi bỏ xó. Người dùng bấm trang càng sâu, gánh nặng quét rác của Database càng khủng khiếp.
+
+---
+
+Slide 4 (Alert Layout - Thảm họa khi dữ liệu phình to)
+Tiêu đề: Thảm họa khi dữ liệu phình to
+Mô tả:  TRUY CẬP TRANG SÂU GÂY TIMEOUT
+Thời lượng: 10.0s
+Chi tiết cảnh báo:
+CRITICAL: Quét trang thứ 50.000
+WARNING: OFFSET 1.000.000 dòng
+ERROR: Quét qua 1.000.020 bản ghi để lấy 20 dòng!
+ERROR: Query time > 8.5 giây (Sập Database!)
+Voice: Cơn ác mộng thực sự đến khi hệ thống phình to. Ở trang số 50.000, tương ứng OFFSET 1 triệu bản ghi, Database phải còng lưng quét qua 1 triệu dòng chỉ để lấy đúng 20 dòng cuối! Kết quả là query mất tới vài giây, nghẽn kết nối và sập toàn bộ hệ thống ngay lập tức!
+
+---
+
+Slide trans_cursor (Transition Layout - Cursor Pagination)
+Tiêu đề: Cursor Pagination
+Mô tả:  GIẢI PHÁP TỐI ƯU HIỆU NĂNG
+Thời lượng: 9.0s
+Voice: Để dập tắt thảm họa OFFSET, Cursor Pagination chính là vị cứu tinh. Hãy xem cơ chế con trỏ này giúp Database tìm kiếm với tốc độ ánh sáng như thế nào nhé.
+
+---
+
+
+Slide 5 (Code Layout - Giải pháp: Cursor Pagination)
+Tiêu đề: Giải pháp: Cursor Pagination
+Mô tả: ️ TRUY VẤN THÔNG MINH QUA CON TRỎ
+Thời lượng: 9.5s
+Highlight: Dòng 3
+Code:
+-- Lấy tiếp từ bản ghi cuối cùng đã đọc (Cursor)
+SELECT * FROM users
+WHERE id > 100
+ORDER BY id
+LIMIT 20;
+Voice: Giải pháp đây: Phân trang dạng con trỏ - Cursor Pagination. Thay vì bắt Database đếm và bỏ qua 100 dòng vô ích, ta chỉ thẳng: Tôi đã đọc đến ID 100 rồi, hãy lấy tiếp 20 bản ghi có ID lớn hơn 100 cho tôi!
+
+---
+
+Slide 6a (Tree Layout - Vì sao Cursor nhanh?)
+Tiêu đề: Vì sao Cursor nhanh?
+Mô tả:  DỰA VÀO ĐÁNH CHỈ MỤC B-TREE
+Thời lượng: 8.5s
+Cấu trúc cây:
+Root: ID 50 (Index)
+Left: ID 25
+Right: ID 75
+Target: ID 100 (Nhảy thẳng tới đây)
+Voice: Vì cột ID luôn được đánh Index dưới dạng cây B-Tree hoạt động như một mục lục sách. Nhờ đó, Database có thể nhảy thẳng tới vị trí ID 100 chỉ trong tích tắc mà không cần quan tâm đến hàng triệu dòng phía trước.
+
+---
+
+Slide 6b (Alert Layout - Tra cứu Index siêu tốc)
+Tiêu đề: Tra cứu Index siêu tốc
+Mô tả:  INDEX SEEK CHỈ MẤT O(log N)
+Thời lượng: 8.0s
+Chi tiết cảnh báo:
+INFO: Index Seek thành công!
+INFO: Tìm vị trí ID = 100 trong 0.05ms
+OK: Nhảy thẳng đến ID 100 và đọc 20 dòng kế bên
+OK: Bỏ qua hoàn toàn việc quét hàng triệu dòng vô ích!
+Voice: Từ độ phức tạp O(N) quét tuần tự, chúng ta chuyển sang O(log N) với Index Seek. Database nhảy thẳng đến đích chỉ trong vòng chưa đầy 0,05 mili giây, đập tan hoàn toàn gánh nặng xử lý dữ liệu thừa!
+
+---
+
+Slide 7 (Cards Layout - Ví dụ dễ hiểu: Đi tìm sách)
+Tiêu đề: Ví dụ dễ hiểu: Đi tìm sách
+Mô tả:  SO SÁNH TRỰC QUAN
+Thời lượng: 10.0s
+Các thẻ:
+- Phân trang OFFSET (type: con) | Icon: x-circle | Bạn bảo thủ thư đếm thủ công từ quyển số 1 đến quyển 100.000, rồi lấy cho bạn quyển tiếp theo.
+- Phân trang Cursor (type: pro) | Icon: check-circle | Bạn đưa mã quyển cuối cùng đã đọc, thủ thư đi thẳng tới kệ đó rút quyển tiếp theo trong 3 giây.
+Voice: Hãy tưởng tượng bạn đi mượn sách. OFFSET giống như việc bảo thủ thư: Hãy đếm giúp tôi đúng 100.000 cuốn sách rồi lấy cuốn tiếp theo. Còn Cursor là bạn đưa luôn mã cuốn sách cuối cùng đã đọc, thủ thư đi thẳng tới kệ đó rút cuốn kế tiếp trong 3 giây. Rõ ràng cách hai nhanh hơn hàng triệu lần!
+
+---
+
+Slide 8a (Diagram Layout - Cơ chế kéo trang vô tận)
+Tiêu đề: Cơ chế kéo trang vô tận
+Mô tả:  CÁCH TIKTOK & FACEBOOK HOẠT ĐỘNG
+Thời lượng: 8.5s
+Lưu đồ:
+- Client: Mở App (Yêu cầu bài viết mới) [Bắt đầu]
+- Server: Trả về 5 bài viết + nextCursor = 5 [Thực hiện]
+- Client: Cuộn trang xuống cuối, gửi cursor = 5 [Thực hiện]
+- Server: Lấy tiếp từ bài viết có ID > 5 [Thành công]
+Voice: Đây chính là bí mật giúp các ông lớn như Facebook, TikTok hay Instagram cuộn trang mượt mà không giới hạn. Mỗi lần tải, Server trả về bài viết kèm theo một con trỏ nextCursor. Khi bạn vuốt xuống, app gửi con trỏ này lên để Server lấy tiếp các bài viết phía sau một cách chính xác.
+
+---
+
+Slide 8b (Boxes Layout - Lưu giữ Con trỏ Cursor)
+Tiêu đề: Lưu giữ Con trỏ Cursor
+Mô tả:  NEXT CURSOR TRÊN ĐIỆN THOẠI
+Thời lượng: 7.5s
+Các ô:
+Bài 1..5 | nextCursor = 5 | Client Request | Bài 6..10
+Highlight: 2 (Kiểu: success)
+Voice: Nhờ lưu giữ con trỏ trực tiếp trên thiết bị của bạn, việc tải thêm bài viết diễn ra cực kỳ mượt mà. Server luôn biết chính xác điểm bắt đầu để lấy dữ liệu mới mà không cần đếm lại từ đầu.
+
+---
+
+Slide trans_compare (Transition Layout - So sánh & Lựa chọn)
+Tiêu đề: So sánh & Lựa chọn
+Mô tả:  KHI NÀO NÊN DÙNG CƠ CHẾ NÀO?
+Thời lượng: 8.0s
+Voice: Mỗi cơ chế đều có ưu và nhược điểm riêng. Vậy trong thực tế dự án, khi nào nên dùng OFFSET, và khi nào bắt buộc phải dùng Cursor?
+
+---
+
+
+Slide 9 (Cards Layout - Sao website vẫn dùng OFFSET?)
+Tiêu đề: Sao website vẫn dùng OFFSET?
+Mô tả:  LỰA CHỌN THEO ĐẶC THÙ NGHIỆP VỤ
+Thời lượng: 11.5s
+Các thẻ:
+- Mạng xã hội (Facebook, TikTok) (type: neutral) | Icon: zap | Chỉ cuộn xuống liên tục, không cần nhảy trang cụ thể. Ưu tiên tối đa Cursor để tải cực nhanh.
+- Thương mại điện tử (Shopee, Admin) (type: neutral) | Icon: database | Cần nhảy ngay sang trang 50, hiển thị tổng số trang (Total pages). Bắt buộc sử dụng OFFSET.
+Voice: Vậy tại sao Shopee hay các trang Admin quản trị vẫn dùng nút chọn trang số? Tất cả là vì nghiệp vụ! Cursor chỉ đi tiếp hoặc lùi tuần tự, không thể nhảy cóc thẳng sang trang 50, cũng không tính được tổng số trang. Vì vậy, hãy tùy bài toán thực tế để lựa chọn giải pháp tối ưu nhất!
+
+---
+
+Slide 10a (Split Layout - Tóm lại: OFFSET vs Cursor)
+Tiêu đề: Tóm lại: OFFSET vs Cursor
+Mô tả:  TỔNG KẾT ĐẶC ĐIỂM KỸ THUẬT
+Thời lượng: 10.0s
+Cột trái: OFFSET Pagination | Bỏ qua N bản ghi cũ rồi mới lấy\nHiệu năng giảm dần khi OFFSET tăng\nHỗ trợ nhảy trang tùy ý
+Cột phải: Cursor Pagination | Lấy tiếp ngay từ vị trí con trỏ\nTốc độ siêu nhanh & ổn định\nChỉ hỗ trợ cuộn tiến/lùi tuần tự
+Voice: Tóm lại, OFFSET phải đếm và bỏ qua lượng lớn dữ liệu nên cực kỳ chậm khi database phình to, nhưng hỗ trợ nhảy trang tùy ý. Còn Cursor lấy tiếp ngay từ vị trí con trỏ nên tốc độ luôn siêu nhanh và ổn định bất chấp hàng triệu bản ghi, nhưng chỉ đi tuần tự.
+
+---
+
+Slide 10b (Title Layout - Cảm ơn bạn đã theo dõi!)
+Tiêu đề: Cảm ơn bạn đã theo dõi!
+Mô tả: ẤN FOLLOW @TURNIO.DEV ĐỂ XEM THÊM MẸO BACKEND
+Thời lượng: 8.0s
+Voice: Ấn Follow ngay kênh Turnio.dev để học thêm nhiều mẹo tối ưu Backend cực chất nhé. Chúc các bạn code mượt, app chạy nhanh và hẹn gặp lại!

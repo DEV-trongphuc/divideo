@@ -1,0 +1,182 @@
+Slide slide_uuid_1a (Title Layout - Bí ẩn: UUID làm Khóa chính)
+Tiêu đề: Bí ẩn: UUID làm Khóa chính
+Mô tả: Tưởng Pro nhưng cực kỳ hại!
+Thời lượng: 7.82s
+Voice: Bạn thiết kế khóa chính Database dạng chuỗi diu diu ai đi vì nghĩ trông nó nguy hiểm và pro hơn hẳn?
+
+---
+
+Slide slide_uuid_1b (Transition Layout - Thực tế đắng lòng)
+Tiêu đề: Thực tế đắng lòng
+Mô tả:  DATABASE ĐANG CÒNG LƯNG GÁNH CHỊU
+Thời lượng: 7.75s
+Voice: Bạn thiết kế khóa chính Database dạng chuỗi U U ai đi vì nghĩ trông nó nguy hiểm và pro hơn hẳn?
+
+---
+
+Slide slide_uuid_1b2 (Transition Layout - Báo động đỏ)
+Tiêu đề: Báo động đỏ
+Mô tả:  BÁO ĐỘNG ĐỎ: TRÀN RAM HỆ THỐNG
+Thời lượng: 3.56s
+Voice: ...tàn phá tốc độ ghi đĩa!
+
+---
+
+Slide slide_uuid_1c1 (Cards Layout - Tác hại của việc lạm dụng UUID)
+Tiêu đề: Tác hại của việc lạm dụng UUID
+Mô tả:  TÁC HẠI 1: TỐN DUNG LƯỢNG LƯU TRỮ
+Thời lượng: 7.40s
+Các thẻ:
+- Tốn dung lượng lưu trữ (neutral) | Icon: hard-drive | Lưu UUID dạng chuỗi CHAR(36) tốn bộ nhớ gấp 4 lần so với INT tự tăng thông thường.
+Voice: Đằng sau sự hào nhoáng đó là hai tác hại khôn lường: đầu tiên là tốn bộ nhớ gấp 4 lần so với thông thường.
+
+---
+
+Slide slide_uuid_1c2 (Cards Layout - Tác hại của việc lạm dụng UUID)
+Tiêu đề: Tác hại của việc lạm dụng UUID
+Mô tả:  TÁC HẠI 2: THẢM HỌA PAGE SPLIT
+Thời lượng: 6.76s
+Các thẻ:
+- Tốn dung lượng lưu trữ (muted) | Icon: hard-drive | Lưu UUID dạng chuỗi CHAR(36) tốn bộ nhớ gấp 4 lần so với INT tự tăng thông thường.
+- Thảm họa Page Split (danger) | Icon: git-branch | Gây phân mảnh Index nghiêm trọng, buộc Database phải dịch chuyển dữ liệu liên tục.
+Voice: Kế tiếp là thảm họa phân mảnh index nghiêm trọng, buộc Database phải dịch chuyển dữ liệu liên tục.
+
+---
+
+Slide slide_uuid_2 (Code Layout - Cấu trúc bảng dùng UUID)
+Tiêu đề: Cấu trúc bảng dùng UUID
+Mô tả:  KIỂU DỮ LIỆU CHAR(36) VÔ HẠN
+Thời lượng: 8.84s
+Voice: Nhìn câu lệnh tạo bảng dùng CHAR(36) này quen thuộc đúng không? Hãy xem nó hoạt động dưới đĩa cứng thế nào.
+
+---
+
+Slide slide_uuid_3a (Split Layout - Cách Auto-Increment ghi đĩa)
+Tiêu đề: Cách Auto-Increment ghi đĩa
+Mô tả:  CƠ CHẾ GHI TUẦN TỰ MƯỢT MÀ
+Thời lượng: 5.96s
+Cột trái: Auto-Increment ID (Tuần tự) | Tự động chèn vào cuối trang dữ liệu Ghi đĩa tuần tự cực kỳ nhanh Không gây xáo trộn dữ liệu cũ
+Cột phải: Sequential Write O(1) | Không cần tìm kiếm vị trí chèn Hiệu năng ghi đĩa đạt tối đa Cực kỳ ổn định và mượt mà
+Voice: Khóa chính tự tăng sẽ được chèn tuần tự vào cuối các trang dữ liệu cực kỳ mượt mà.
+
+---
+
+Slide slide_uuid_3b (Split Layout - Cách UUID v4 ghi đĩa)
+Tiêu đề: Cách UUID v4 ghi đĩa
+Mô tả: ️ CƠ CHẾ GHI NGẪU NHIÊN NẶNG NỀ
+Thời lượng: 10.12s
+Cột trái: UUID v4 (Ngẫu nhiên) | Chèn ngẫu nhiên vào bất cứ trang nào Đọc ghi ngẫu nhiên cực kỳ tốn Disk I/O Phá vỡ cấu trúc lưu trữ hiện tại
+Cột phải: Random Write O(log N) | Tìm kiếm vị trí chèn mất thời gian Gây xáo trộn các bản ghi cũ Tốc độ ghi đĩa bị kéo tụt đáng kể
+Voice: Ngược lại, UUID v4 ngẫu nhiên sẽ chèn lung tung vào giữa các trang, buộc database phải đọc ghi đĩa liên tục để sắp xếp lại.
+
+---
+
+Slide slide_uuid_4a1 (Split Layout - Khi trang dữ liệu bị đầy)
+Tiêu đề: Khi trang dữ liệu bị đầy
+Mô tả:  KHI TRANG DỮ LIỆU ĐÃ ĐẦY
+Thời lượng: 10.60s
+Cột trái: Auto-Increment ghi tiếp | Trang cũ đầy dữ liệu 100% Nhẹ nhàng chèn vào đầu trang mới Không động chạm gì tới trang cũ
+Cột phải: Tối ưu hóa đĩa | Không phải di chuyển dữ liệu cũ Đĩa cứng không chịu bất cứ áp lực nào Hiệu năng ghi luôn luôn ổn định
+Voice: Hãy xem khi trang dữ liệu đã chứa đầy khóa chính. Với Auto-Increment, ta chỉ việc mở trang mới để ghi tiếp ở cuối cực kỳ đơn giản.
+
+---
+
+Slide slide_uuid_4a2 (Split Layout - Ghi tuần tự - Không xáo trộn)
+Tiêu đề: Ghi tuần tự - Không xáo trộn
+Mô tả:  HIỆU NĂNG GHI TỐI ƯU O(1)
+Thời lượng: 7.08s
+Cột trái: Ghi đĩa tuần tự | Không tìm vị trí chèn Không dịch chuyển bản ghi cũ Tải trọng ghi đĩa bằng không
+Cột phải: Ổn định 100% | Không gây trễ truy vấn SSD hoạt động bền bỉ hơn Đáp ứng lượng truy cập lớn
+Voice: Nhờ đó, đĩa cứng không chịu bất cứ áp lực xáo trộn nào, giúp hiệu năng ghi luôn đạt mức tối đa.
+
+---
+
+Slide slide_uuid_4b1 (Split Layout - UUID v4 chèn vào trang đầy)
+Tiêu đề: UUID v4 chèn vào trang đầy
+Mô tả: ️ BUỘC PHẢI CHÈN VÀO GIỮA TRANG ĐẦY
+Thời lượng: 10.60s
+Cột trái: Không có chỗ trống | Bản ghi ngẫu nhiên buộc chèn vào giữa Các slot xung quanh đã bị chiếm đóng Database rơi vào trạng thái nghẽn
+Cột phải: Chuẩn bị Page Split | Buộc phải cấp phát không gian mới Chuẩn bị di chuyển một nửa dữ liệu DISK I/O bắt đầu quá tải
+Voice: Nhưng với UUID v4 ngẫu nhiên, khi chèn vào trang đã đầy, Database buộc phải bẻ đôi trang cũ để nhét bản ghi mới vào giữa.
+
+---
+
+Slide slide_uuid_4b2a (Tree Layout - Thảm họa Page Split)
+Tiêu đề: Thảm họa Page Split
+Mô tả:  HIỆN TƯỢNG BẺ ĐÔI TRANG DỮ LIỆU
+Thời lượng: 4.52s
+Voice: Hiện tượng bẻ đôi trang này được gọi là Page Split.
+
+---
+
+Slide slide_uuid_4b2b (Tree Layout - Thảm họa Page Split)
+Tiêu đề: Thảm họa Page Split
+Mô tả:  TÀN PHÁ CẤU TRÚC B-TREE INDEX
+Thời lượng: 6.28s
+Voice: Nó tàn phá cấu trúc B-Tree Index và làm chậm toàn bộ hệ thống.
+
+---
+
+Slide slide_uuid_4c (Alert Layout - Tác hại của Page Split)
+Tiêu đề: Tác hại của Page Split
+Mô tả:  HẬU QUẢ PHÂN MẢNH TRANG DỮ LIỆU
+Thời lượng: 10.28s
+Voice: Database không chỉ gánh chi phí đĩa gấp đôi để ghi 2 trang mới mà còn lãng phí tới 50% dung lượng lưu trữ của SSD.
+
+---
+
+Slide slide_uuid_5 (Metrics Layout - Hiệu năng ghi tụt dốc không phanh)
+Tiêu đề: Hiệu năng ghi tụt dốc không phanh
+Mô tả: ️ HỆ THỐNG CÀNG LỚN, CÀNG CHẬM
+Thời lượng: 10.12s
+Voice: Khi dữ liệu lớn vượt quá dung lượng RAM của Server, tốc độ ghi của UUID v4 sẽ cắm đầu đi xuống vì bị nghẽn đĩa liên tục.
+
+---
+
+Slide slide_uuid_6a (Split Layout - Giải pháp: Chuyển sang UUID v7)
+Tiêu đề: Giải pháp: Chuyển sang UUID v7
+Mô tả: ️ GIỮ NGUYÊN HIỆU NĂNG VÀ BẢO MẬT
+Thời lượng: 10.28s
+Cột trái: UUID v4 (Lỗi thời) | Hoàn toàn ngẫu nhiên Không có tính tuần tự thời gian Gây thảm họa Page Split
+Cột phải: UUID v7 (Hiện đại) | Phần đầu chứa Timestamp (Thời gian) Phần sau là dữ liệu ngẫu nhiên Đảm bảo ghi tuần tự siêu tốc
+Voice: Thay vì dùng UUID v4, giải pháp hoàn hảo là nâng cấp lên UUID v7! Vừa an toàn bảo mật, vừa chèn tuần tự siêu tốc.
+
+---
+
+Slide slide_uuid_6b1a (Split Layout - Cấu trúc của UUID v7)
+Tiêu đề: Cấu trúc của UUID v7
+Mô tả: ️ ĐƯA TIMESTAMP LÊN ĐẦU
+Thời lượng: 5.96s
+Cột trái: 48-bit Timestamp đầu | Lưu trữ thời gian thực miligiây Tự động tăng dần theo thời gian Định hướng ghi đĩa tuần tự
+Cột phải: 74-bit Random sau | Đảm bảo tính duy nhất toàn cầu Không trùng lặp, bảo mật cao Không lộ thông tin nhạy cảm
+Voice: Cấu trúc UUID v7 đưa phần Timestamp thời gian lên đầu.
+
+---
+
+Slide slide_uuid_6b1b (Split Layout - Cấu trúc của UUID v7)
+Tiêu đề: Cấu trúc của UUID v7
+Mô tả:  ĐẢM BẢO KHÓA SAU LỚN HƠN KHÓA TRƯỚC
+Thời lượng: 5.48s
+Cột trái: 48-bit Timestamp đầu | Lưu trữ thời gian thực miligiây Tự động tăng dần theo thời gian Định hướng ghi đĩa tuần tự
+Cột phải: 74-bit Random sau | Đảm bảo tính duy nhất toàn cầu Không trùng lặp, bảo mật cao Không lộ thông tin nhạy cảm
+Voice: Đảm bảo các khóa chính sinh ra sau luôn luôn lớn hơn khóa trước.
+
+---
+
+Slide slide_uuid_6b2 (Split Layout - Ghi đĩa tuần tự siêu tốc)
+Tiêu đề: Ghi đĩa tuần tự siêu tốc
+Mô tả:  TỐI ƯU CÂY B-TREE
+Thời lượng: 9.96s
+Cột trái: Triệt tiêu Page Split | Chèn vào cuối trang dữ liệu Không bẻ đôi trang cũ Tiết kiệm 50% SSD lãng phí
+Cột phải: Hiệu năng đỉnh cao | Tốc độ chèn tương đương INT Tận dụng tối đa bộ nhớ đệm RAM Backend tải mượt mà
+Voice: Database chèn tuần tự vào cây B-Tree với chi phí tối ưu nhất, triệt tiêu hoàn toàn thảm họa Page Split phân mảnh đĩa.
+
+---
+
+Slide slide_uuid_7 (Title Layout - Cảm ơn bạn đã theo dõi!)
+Tiêu đề: Cảm ơn bạn đã theo dõi!
+Mô tả: ẤN FOLLOW @TURNIO.DEV ĐỂ XEM THÊM MẸO BACKEND
+Thời lượng: 8.68s
+Voice: Ấn Follow ngay kênh Turnio.dev để học thêm nhiều mẹo tối ưu Backend cực chất nhé. Chúc các bạn code mượt, app chạy nhanh!
+
+---

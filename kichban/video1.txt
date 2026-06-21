@@ -1,0 +1,204 @@
+Vì sao Database bỗng nhiên chậm đi hàng chục lần?
+
+Voice
+
+Có một lỗi rất phổ biến trong Backend mà hầu như lập trình viên nào cũng từng gặp. Nó không làm ứng dụng lỗi, nhưng lại khiến Database phải làm việc nhiều hơn gấp hàng trăm lần. Đó là N+1 Query.
+
+Slide 2
+Client Request
+
+↓
+
+Lấy danh sách User
+
+Voice
+
+Mọi chuyện bắt đầu rất đơn giản. Người dùng mở trang danh sách khách hàng, Backend gửi một truy vấn để lấy toàn bộ User từ Database.
+
+Slide 3
+Query 1
+SELECT * FROM users
+
+↓
+
+100 User
+
+Voice
+
+Database trả về 100 người dùng. Đến đây thì hoàn toàn bình thường và chỉ mới thực hiện đúng một câu query.
+
+Slide 4
+Với mỗi User
+
+↓
+
+Lấy Order
+
+↓
+
+Lấy Order
+
+↓
+
+Lấy Order...
+
+Voice
+
+Nhưng sau đó, Backend tiếp tục lấy danh sách đơn hàng của từng người dùng. Mỗi User lại tạo thêm một câu query riêng.
+
+Slide 5
+Tổng cộng
+
+1 Query
+
+100 Query
+
+=
+
+101 Query
+
+Voice
+
+Kết quả là thay vì chỉ một lần truy cập Database, hệ thống phải gửi tổng cộng 101 câu query chỉ để hiển thị một trang dữ liệu.
+
+Slide 6
+Khi dữ liệu còn ít
+
+10 User
+
+↓
+
+11 Query
+
+Voice
+
+Với mười người dùng, Database gần như không gặp áp lực. Website vẫn phản hồi rất nhanh nên lỗi này thường bị bỏ qua.
+
+Slide 7
+Khi dữ liệu tăng
+
+100 User
+
+↓
+
+101 Query
+
+↓
+
+Database bận hơn
+
+Voice
+
+Nhưng khi dữ liệu tăng lên một trăm người dùng, số lượng query cũng tăng theo. Database bắt đầu phải xử lý nhiều truy vấn lặp đi lặp lại.
+
+Slide 8
+Khi hệ thống lớn
+
+1000 User
+
+↓
+
+1001 Query
+
+↓
+
+CPU tăng cao
+
+↓
+
+Connection đầy
+
+Voice
+
+Đến khi có một nghìn người dùng, mỗi request đã phải thực hiện hơn một nghìn query. CPU tăng cao, Connection dần bị chiếm hết và tốc độ phản hồi giảm rõ rệt.
+
+Slide 9
+Nếu có
+
+100 người truy cập cùng lúc
+
+↓
+
+100 Request
+
+↓
+
+1001 Query mỗi Request
+
+↓
+
+100.100 Query
+
+Voice
+
+Mọi chuyện trở nên nghiêm trọng khi nhiều người truy cập cùng lúc. Một trăm request có thể tạo ra hơn một trăm nghìn query gửi xuống Database chỉ trong thời gian rất ngắn.
+
+Slide 10
+Hậu quả
+
+Database quá tải
+
+↓
+
+Response chậm
+
+↓
+
+Timeout
+
+↓
+
+Website lag
+
+Voice
+
+Khi Database không xử lý kịp, toàn bộ hệ thống bắt đầu chậm lại. API phản hồi lâu hơn, website loading liên tục và cuối cùng có thể xảy ra timeout.
+
+Slide 11
+Cách khắc phục
+
+JOIN
+
+hoặc
+
+Eager Loading
+
+↓
+
+1 Query
+
+Voice
+
+Thay vì truy vấn từng người dùng một, hãy lấy luôn dữ liệu liên quan bằng JOIN hoặc Eager Loading. Khi đó Backend chỉ cần gửi một câu query duy nhất.
+
+Slide 12
+So sánh
+
+
+
+101 Query
+
+700ms
+
+️
+
+
+
+1 Query
+
+40ms
+
+Voice
+
+Chỉ bằng cách thay đổi cách truy vấn, số lượng query giảm từ 101 xuống còn 1. Thời gian phản hồi cũng giảm từ hàng trăm mili giây xuống chỉ còn vài chục mili giây.
+
+Slide 13 (Kết)
+N+1 Query
+
+ Một lỗi nhỏ
+
+Nhưng có thể làm chậm cả hệ thống.
+
+Voice
+
+N+1 Query là một lỗi rất khó nhận ra khi dữ liệu còn ít, nhưng sẽ trở thành nút thắt cổ chai khi hệ thống phát triển. Vì vậy, trước khi nâng cấp server, hãy kiểm tra xem ứng dụng của bạn có đang mắc N+1 Query hay không.

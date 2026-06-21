@@ -1,0 +1,67 @@
+Slide 1
+Mô tả: CỨU CÁNH GOOGLE AUTHENTICATOR
+Voice: Hãy thử bật chế độ máy bay, ngắt hoàn toàn Wifi lẫn sóng di động.
+
+Slide 2
+Mô tả: CỨU CÁNH GOOGLE AUTHENTICATOR
+Voice: Kỳ lạ chưa: vào ứng dụng Authenticator vẫn thấy nó tự động nhảy mã 6 số mới toanh cứ mỗi 30 giây!
+
+Slide 3
+Mô tả: BÍ ẨN KHÔNG CẦN INTERNET
+Voice: Điện thoại hoàn toàn offline, máy chủ cũng không hề gửi tin nhắn nào. Vậy làm sao hai bên lại khớp nhau từng chữ số một? Điều kỳ diệu gì đang diễn ra đằng sau màn hình?
+
+Slide 4
+Mô tả: KHỞI ĐẦU: CÁI BẮT TAY BÍ MẬT
+Voice: Thực ra, tất cả bắt đầu từ một 'cái bắt tay bí mật'. Khi bạn bật bảo mật 2 lớp...
+
+Slide 5
+Mô tả: KHỞI ĐẦU: CÁI BẮT TAY BÍ MẬT
+Voice: ...Server sẽ bắt bạn quét một mã QR bằng camera điện thoại.
+
+Slide 6
+Mô tả: CHÌA KHÓA VÀNG SHARED SECRET
+Voice: Lúc đó, Server sẽ âm thầm chuyển sang điện thoại của bạn một chiếc 'chìa khóa vàng' – gọi là Shared Secret Key. Chiếc chìa khóa này được lưu lại ở cả Server lẫn bộ nhớ siêu bảo mật trên máy bạn. Từ đây, họ không cần liên lạc nữa.
+
+Slide 7
+Mô tả: THỜI GIAN LÀM DỮ LIỆU ĐẦU VÀO
+Voice: Nhưng không có mạng, làm sao biết khi nào đổi mã?
+
+Slide 8
+Mô tả: THỜI GIAN LÀM DỮ LIỆU ĐẦU VÀO
+Voice: Họ dùng thứ mà cả hai cùng có: Thời gian! Cả điện thoại và máy chủ đều đếm số giây Unix trôi qua kể từ năm 1970.
+
+Slide 9
+Mô tả: CHU KỲ CHUNG TIME STEP T
+Voice: Cứ lấy số giây đó chia cho 30, ta sẽ có một chu kỳ gọi là Time Step. Ví dụ: giây thứ 1.800.000 chia 30 sẽ ra chu kỳ thứ 60.000. Dù offline, đồng hồ hai thiết bị vẫn luôn tự nhảy chu kỳ giống hệt nhau.
+
+Slide 10
+Mô tả: THUẬT TOÁN BĂM HMAC-SHA1
+Voice: Bây giờ, điện thoại lấy 'Khóa bí mật' trộn chung với 'Chu kỳ thời gian' hiện tại...
+
+Slide 11
+Mô tả: THUẬT TOÁN BĂM HMAC-SHA1
+Voice: ...rồi ném vào một cỗ máy xay thuật toán cực mạnh: HMAC-SHA1.
+
+Slide 12
+Mô tả: CHUỖI MẬT MÃ 20 BYTE
+Voice: Cỗ máy này sẽ băm nhỏ và nhào trộn chúng thành một chuỗi mật mã dài loằng ngoằng tới 20 byte, tương đương 40 ký tự hexa. Chuỗi này an toàn tuyệt đối, nhưng... làm sao người dùng gõ nổi?
+
+Slide 13
+Mô tả: RÚT GỌN SỐ: DYNAMIC TRUNCATION
+Voice: Để biến chuỗi dài loằng ngoằng đó thành mã 6 số dễ gõ, thuật toán dùng một mẹo gọi là Cắt động. Nó nhìn vào ký tự cuối cùng của chuỗi băm để làm 'kim chỉ nam', chỉ ra một vị trí ngẫu nhiên ở giữa.
+
+Slide 14
+Mô tả: LẤY 6 SỐ CUỐI CÙNG
+Voice: Từ vị trí đó, nó cắt ra đúng 4 byte liên tiếp, chuyển sang dạng số nguyên, rồi lấy số dư khi chia cho 1 triệu để rút ra đúng 6 chữ số hiển thị lên màn hình điện thoại bạn.
+
+Slide 15
+Mô tả: XÁC THỰC TRÊN SERVER
+Voice: Khi bạn gõ 6 số này vào web, Server lập tức lấy Khóa bí mật và chu kỳ thời gian hiện tại của nó, tự chạy lại y hệt thuật toán trên để đối chiếu. Nếu khớp, bạn được đăng nhập.
+
+Slide 16
+Mô tả: BÍ QUYẾT LỆCH MÚI GIỜ
+Voice: Nhưng lỡ đồng hồ điện thoại bạn bị chậm vài giây thì sao? Server cực kỳ tâm lý, nó không chỉ kiểm tra chu kỳ hiện tại T, mà còn đối chiếu thêm cả chu kỳ trước T-1 và chu kỳ sau T+1 để chấp nhận độ lệch giờ.
+
+Slide 17
+Mô tả: FOLLOW @TURNIO.DEV ĐỂ THEO DÕI BÀI VIẾT MỚI
+Voice: Nếu bạn thấy cơ chế Offline này thông minh, hãy thả tim và nhấn Follow Turnio.dev để cùng khám phá thêm những bí mật Backend cực kỳ thú vị nhé. Chúc các bạn code mượt, app chạy nhanh!

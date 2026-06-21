@@ -1,0 +1,67 @@
+Slide 1
+Mô tả: THẢM HỌA TRỪ TIỀN HAI LẦN
+Voice: Bạn đã bao giờ bấm nút "Thanh toán", màn hình bỗng dưng xoay vòng xoay vòng vì mạng lag?
+
+Slide 2
+Mô tả: THẢM HỌA TRỪ TIỀN HAI LẦN
+Voice: Bạn mất kiên nhẫn bấm thêm hai ba phát nữa. Hoặc bỗng dưng tài khoản bị trừ tiền hai lần liên tiếp cho cùng một đơn hàng?
+
+Slide 3
+Mô tả: NGUYÊN NHÂN: RACE CONDITION
+Voice: Đó là thảm họa nhân đôi giao dịch. Khi request đầu chưa xong, request thứ hai lại ập đến khiến Server xử lý cả hai và trừ tiền hai lần.
+
+Slide 4
+Mô tả: THẤT BẠI: CHẶN Ở GIAO DIỆN
+Voice: Nhiều bạn nghĩ đơn giản: Chỉ cần disable nút bấm ở giao diện sau click đầu tiên là xong. Nhưng lỡ user F5 load lại trang, hoặc hacker gọi API trực tiếp bằng Postman, cURL thì sao? Giao diện chịu trói ngay!
+
+Slide 5
+Mô tả: THẤT BẠI: UNIQUE CONSTRAINT
+Voice: Vậy tạo Unique Key cho đơn hàng trong DB thì sao? Nó giúp tránh ghi đè dữ liệu, nhưng nếu ngân hàng đã trừ tiền rồi mà mạng bị đứt, khi client thử lại, DB sẽ báo lỗi trùng khóa. Khách hàng hoang mang vì bị trừ tiền mà app vẫn báo lỗi!
+
+Slide 6
+Mô tả: GIẢI PHÁP: IDEMPOTENCY KEY
+Voice: Để giải quyết tận gốc, giới Backend sử dụng một "thần hộ mệnh" gọi là: Idempotency Key.
+
+Slide 7
+Mô tả: CƠ CHẾ: KHỞI TẠO UUID
+Voice: Ý tưởng rất đơn giản: Mỗi khi bạn mở màn hình thanh toán, App sẽ tự tạo ra một mã UUID duy nhất cho giao dịch đó.
+
+Slide 8
+Mô tả: GỬI REQUEST: ĐÍNH KÈM MÃ KHÓA
+Voice: Khi bạn bấm thanh toán lần đầu, request mang theo mã khóa này gửi lên Server. Server lập tức kiểm tra trong Redis xem mã này đã từng xuất hiện chưa.
+
+Slide 9
+Mô tả: GHI NHẬN: TRẠNG THÁI PROCESSING
+Voice: Chưa có! Server liền ghi nhận khóa này vào Redis với trạng thái: PROCESSING (đang xử lý). Đây là bước khóa để chặn các request trùng lặp.
+
+Slide 10
+Mô tả: GIAO TIẾP: GỌI NGÂN HÀNG
+Voice: Sau đó, Server mới an tâm gọi sang cổng thanh toán hoặc ngân hàng để thực hiện trừ tiền.
+
+Slide 11
+Mô tả: GỬI REQUEST: CLICK LẦN HAI
+Voice: Đúng lúc này, do bạn bấm tiếp lần 2, Request thứ hai mang cùng mã khóa gửi tới Server.
+
+Slide 12
+Mô tả: XỬ LÝ: TỪ CHỐI TRÙNG LẶP
+Voice: Server check Redis, thấy mã khóa này đang có trạng thái PROCESSING. Nó lập tức từ chối request thứ hai này để tránh trừ tiền lần nữa.
+
+Slide 13
+Mô tả: HOÀN THÀNH: LƯU KẾT QUẢ
+Voice: Quay lại Request 1, sau khi ngân hàng trừ tiền thành công, Server lưu kết quả hóa đơn vào Redis và cập nhật trạng thái thành SUCCESS.
+
+Slide 14
+Mô tả: LỖI MẠNG: ĐỨT KẾT NỐI
+Voice: Nhưng xui xẻo thay, đường truyền internet từ Server về điện thoại bạn bị đứt. App của bạn vẫn báo lỗi timeout.
+
+Slide 15
+Mô tả: THỬ LẠI: LẤY TỪ CACHE
+Voice: Lúc này App sẽ tự động thử lại (Retry). Gửi lại request y hệt với mã khóa cũ. Server check Redis thấy trạng thái đã SUCCESS, liền trả ngay hóa đơn đã lưu mà không gọi ngân hàng lần nào nữa!
+
+Slide 16
+Mô tả: KẾT QUẢ: AN TOÀN TUYỆT ĐỐI
+Voice: Điện thoại nhận được hóa đơn, báo thanh toán thành công. Tài khoản của bạn chỉ bị trừ tiền đúng một lần duy nhất!
+
+Slide 17
+Mô tả: FOLLOW @TURNIO.DEV ĐỂ THEO DÕI BÀI VIẾT MỚI
+Voice: Nếu thấy cơ chế Idempotency này hữu ích, hãy thả tim và follow Turnio.dev để cùng làm chủ các kiến thức Backend xịn sò nhé. Chúc các bạn code mượt, không bug!

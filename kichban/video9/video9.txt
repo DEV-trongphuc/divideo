@@ -1,0 +1,47 @@
+Slide 1
+Mô tả: HÀNH TRÌNH CỦA DÒNG TIỀN SỐ
+Voice: Bạn bước vào quán ăn, quét mã QR để thanh toán hóa đơn từ ngân hàng Vietcombank sang Techcombank của chủ quán...
+
+Slide 2
+Mô tả: HÀNH TRÌNH CỦA DÒNG TIỀN SỐ
+Voice: Chưa đầy 5 giây, điện thoại chủ quán đã ting ting nhận được tiền. Chu trình xử lý kỳ diệu nào đã diễn ra đằng sau?
+
+Slide 3
+Mô tả: THANH TOÁN BÙ TRỪ THEO LÔ (CITAD)
+Voice: Trước đây, chuyển tiền khác ngân hàng mất vài tiếng hoặc qua đêm. Hệ thống Citad gom các giao dịch thành lô và đối soát thủ công vào cuối ngày.
+
+Slide 4
+Mô tả: MẠNG LƯỚI KẾT NỐI SPAGHETTI PHỨC TẠP
+Voice: Hơn nữa, nếu kết nối trực tiếp, mỗi ngân hàng phải xây dựng hàng chục đường truyền tới các ngân hàng khác, tạo ra ma trận kết nối cực kỳ bất khả thi.
+
+Slide 5
+Mô tả: KIẾN TRÚC HUB-AND-SPOKE TIÊU CHUẨN
+Voice: Để tối ưu, na pát ra đời đóng vai trò cổng chuyển mạch trung tâm. Tất cả ngân hàng chỉ cần kết nối tới một điểm duy nhất là na pát.
+
+Slide 6
+Mô tả: ĐỊNH TUYẾN GIAO DỊCH CHƯA ĐẦY 2 GIÂY
+Voice: Khi bạn quét mã QR, Vietcombank gửi yêu cầu tới na pát. na pát xác thực tài khoản nhận tại Techcombank và định tuyến tiền đi trong 2 giây.
+
+Slide 7
+Mô tả: REAL-TIME NET CLEARING
+Voice: Thực tế, tiền mặt không bay lập tức qua mạng. na pát chỉ thực hiện ghi nợ và bù trừ: ghi nhận Vietcombank nợ Techcombank số tiền tương ứng.
+
+Slide 8
+Mô tả: QUYẾT TOÁN CUỐI NGÀY TẠI NGÂN HÀNG NHÀ NƯỚC
+Voice: Đến giờ cắt điện, na pát tính toán số ròng chênh lệch. Vietcombank sẽ chuyển khoản bù trừ cho Techcombank qua tài khoản ký gửi tại Ngân hàng Nhà nước.
+
+Slide 9
+Mô tả: LIÊN KẾT TÀI KHOẢN QUA DIRECT DEBIT API
+Voice: Còn ví MoMo hoạt động thế nào? Khi bạn liên kết ví với ngân hàng, ngân hàng sẽ cấp cho MoMo một Token ủy quyền trích nợ tự động.
+
+Slide 10
+Mô tả: NẠP TIỀN VÀ CẬP NHẬT SỐ DƯ TỨC THÌ
+Voice: Khi ấn nạp tiền, MoMo gửi Token gọi API trích nợ. Ngân hàng trừ tiền tài khoản của bạn, cộng vào tài khoản ví của MoMo, và ví bạn tăng số dư lập tức.
+
+Slide 11
+Mô tả: PHÁP LÝ BẢO VỆ 100% TIỀN KHÁCH HÀNG
+Voice: MoMo không tự in tiền ảo! Luật quy định 100% số dư ví khách hàng phải được ký gửi tại các tài khoản đảm bảo mở tại các ngân hàng đối tác liên kết.
+
+Slide 12
+Mô tả: FOLLOW @TURNIO.DEV ĐỂ THEO DÕI BÀI VIẾT MỚI
+Voice: Ấn Follow ngay kênh Turnio.dev để học thêm nhiều mẹo tối ưu Backend cực chất nhé. Chúc các bạn code mượt, app chạy nhanh!

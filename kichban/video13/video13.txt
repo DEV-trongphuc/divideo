@@ -1,0 +1,9 @@
+Đúng bảy giờ tối, một MV ca nhạc bom tấn được phát hành. Chỉ trong một giây đầu tiên, một trăm nghìn người cùng lúc nhấn nút play.
+Nếu hệ thống chạy câu lệnh UPDATE trực tiếp xuống Database cho mỗi lượt xem, thảm họa sẽ bắt đầu. Để đảm bảo tính chính xác, Database buộc phải khóa dòng dữ liệu đó lại trước khi cộng một.
+Một trăm nghìn request phải xếp hàng đợi nhau để được cập nhật tuần tự. Hàng đợi phình to, CPU của Database vọt lên một trăm phần trăm, và toàn bộ hệ thống tê liệt hoàn toàn.
+Giải pháp là tách luồng ghi. Mọi lượt xem thay vì đi vào Database sẽ được chuyển hướng thẳng vào bộ nhớ đệm RAM tốc độ cao của Redis.
+Để lưu trữ vĩnh viễn, định kỳ mỗi một phút, một tiến trình chạy nền sẽ lấy tổng số view tăng thêm trên Redis và cập nhật gom lô một lần duy nhất xuống Database chính.
+Nhưng làm sao để ngăn chặn một người cố tình nhấn F5 liên tục để gian lận lượt xem? Hệ thống bắt buộc phải kiểm tra xem User ID hoặc IP đó đã xem video này chưa.
+Nếu lưu danh sách ID của hàng triệu người dùng vào Redis Set thông thường để check trùng, bộ nhớ RAM sẽ cạn kiệt chỉ sau vài video hot.
+Cứu tinh ở đây là HyperLogLog - thuật toán ước tính xác suất. Nó có thể đếm hàng tỷ lượt xem duy nhất với sai số cực nhỏ, nhưng chỉ tiêu tốn đúng mười hai Kilobyte bộ nhớ.
+Đó là cách các nền tảng triệu view xử lý dữ liệu thời gian thực. Hãy nhấn follow kênh Turnio chấm dev để cùng làm chủ các kỹ thuật thiết kế hệ thống backend đỉnh cao nhé.

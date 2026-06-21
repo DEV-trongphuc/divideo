@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <script>
+        window.onerror = function (message, source, lineno, colno, error) {
+            const errText = "JS Error: " + message + " at " + source + ":" + lineno + ":" + colno;
+            console.error(errText);
+            fetch('/api/log', {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain' },
+                body: errText
+            }).catch(err => { });
+            return false;
+        };
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnio.dev - TikTok 9:16 Code Studio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/styles.css?v=1.3.4">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <div class="logo-gold-glow"></div>
+                <span class="logo-tag"> Turnio.dev</span>
+                <span class="logo-title">9:16 TikTok Code Studio</span>
+            </div>
+
+            <!-- Project / Script Switcher -->
+            <div class="project-switcher">
+                <label for="script-select"><i data-lucide="folder-open"
+                        style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; color: var(--gold-primary); margin-right: 4px;"></i>Kịch
+                    bản:</label>
+                <select id="script-select" class="form-control select-sm"
+                    style="width: 140px; display: inline-block; margin-right: 4px;">
+                    <!-- Dynamically populated -->
+                </select>
+                <button id="create-script-btn" class="btn btn-secondary btn-sm">
+                    <i data-lucide="folder-plus"></i> Tạo kịch bản mới
+                </button>
+            </div>
+
+            <div class="system-status">
+                <span id="voxcpm-status-badge" class="badge warning">Initializing VoxCPM...</span>
+                <button id="download-voxcpm-btn" class="btn btn-secondary btn-sm" style="display: none;">
+                    <i data-lucide="download-cloud"></i> Tải Mô hình VoxCPM
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Body -->
+        <main class="app-body">
+            <!-- Sidebar / Control Panel -->
+            <section class="sidebar-panel">
+                <!-- Slide List -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h3>Danh sách Slide</h3>
+                        <div style="display: flex; gap: 6px;">
+                            <button id="undo-btn" class="btn btn-secondary btn-sm" title="Undo (Ctrl+Z)" disabled>
+                                <i data-lucide="undo" style="width: 14px; height: 14px;"></i>
+                            </button>
+                            <button id="redo-btn" class="btn btn-secondary btn-sm" title="Redo (Ctrl+Y)" disabled>
+                                <i data-lucide="redo" style="width: 14px; height: 14px;"></i>
+                            </button>
+                            <button id="add-slide-btn" class="btn btn-primary btn-sm">
+                                <i data-lucide="plus"></i> Thêm
+                            </button>
+                        </div>
+                    </div>
+                    <div id="slide-list" class="slide-list-container">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Slide Editor -->
+                <div class="section-card slide-editor-card">
+                    <div class="section-header">
+                        <h3>Biên tập Slide</h3>
+                        <span id="active-slide-label" class="slide-id-tag">SLIDE #1</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tiêu đề Slide</label>
+                        <input type="text" id="slide-title-input" class="form-control" placeholder="Nhập tiêu đề...">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phụ đề / Mô tả ngắn</label>
+                        <input type="text" id="slide-subtitle-input" class="form-control" placeholder="Nhập mô tả...">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Icon hiển thị tiêu đề</label>
+                        <select id="slide-icon-select" class="form-control">
+                            <option value="">-- Tự động theo tiêu đề --</option>
+                            <option value="database">Database (Cơ sở dữ liệu)</option>
+                            <option value="alert-triangle">Cảnh báo / Chậm (Alert)</option>
+                            <option value="zap">Tối ưu / Tốc độ (Zap)</option>
+                            <option value="check-circle">Thành công / Hoàn thành</option>
+                            <option value="bar-chart-2">Biểu đồ / So sánh (Chart)</option>
+                            <option value="code-2">Code / Lập trình (Code)</option>
+                            <option value="cpu">CPU / Hệ thống (CPU)</option>
+                            <option value="users">Người dùng (Users)</option>
+                            <option value="hard-drive">Kết nối / Ổ cứng (Hard Drive)</option>
+                            <option value="git-commit">Sơ đồ (Diagram)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kiểu Giao diện (Layout)</label>
+                        <div class="layout-selector">
+                            <button class="layout-btn active" data-layout="title">
+                                <i data-lucide="heading"></i>
+                                <span>Tiêu đề</span>
+                            </button>
+                            <button class="layout-btn" data-layout="code">
+                                <i data-lucide="code-2"></i>
+                                <span>Code</span>
+                            </button>
+                            <button class="layout-btn" data-layout="diagram">
+                                <i data-lucide="git-commit"></i>
+                                <span>Sơ đồ</span>
+                            </button>
+                            <button class="layout-btn" data-layout="cards">
+                                <i data-lucide="layout-grid"></i>
+                                <span>Cards</span>
+                            </button>
+                            <button class="layout-btn" data-layout="split">
+                                <i data-lucide="columns"></i>
+                                <span>So sánh</span>
+                            </button>
+                            <button class="layout-btn" data-layout="quote">
+                                <i data-lucide="quote"></i>
+                                <span>Ghi chú</span>
+                            </button>
+                            <button class="layout-btn" data-layout="metrics">
+                                <i data-lucide="trending-up"></i>
+                                <span>Chỉ số</span>
+                            </button>
+                            <button class="layout-btn" data-layout="tree">
+                                <i data-lucide="git-merge"></i>
+                                <span>Cây chỉ mục</span>
+                            </button>
+                            <button class="layout-btn" data-layout="table">
+                                <i data-lucide="table"></i>
+                                <span>Bảng dữ liệu</span>
+                            </button>
+                            <button class="layout-btn" data-layout="alert">
+                                <i data-lucide="alert-triangle"></i>
+                                <span>Cảnh báo</span>
+                            </button>
+                            <button class="layout-btn" data-layout="boxes">
+                                <i data-lucide="grid"></i>
+                                <span>Ô lưu trữ</span>
+                            </button>
+                            <button class="layout-btn" data-layout="search">
+                                <i data-lucide="search"></i>
+                                <span>Bộ quét tìm</span>
+                            </button>
+                            <button class="layout-btn" data-layout="transition">
+                                <i data-lucide="sparkles"></i>
+                                <span>Chuyển cảnh</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Layout specific inputs -->
+                    <div id="layout-inputs-container">
+                        <!-- Metrics inputs -->
+                        <div id="layout-input-metrics" class="layout-input-group" style="display: none;">
+                            <label>Danh sách Chỉ số (Mỗi dòng: Số | Nhãn)</label>
+                            <textarea id="slide-metrics-input" class="form-control" rows="5"
+                                placeholder="Ví dụ:&#10;95% | Giảm tải CPU&#10;10x | Tốc độ truy vấn&#10;0.5ms | Latency Cache"></textarea>
+                        </div>
+
+                        <!-- Code inputs -->
+                        <div id="layout-input-code" class="layout-input-group" style="display: none;">
+                            <div class="form-group">
+                                <label>Mã nguồn (SQL / JS / Python)</label>
+                                <textarea id="slide-code-input" class="form-control code-textarea" rows="8"
+                                    placeholder="Viết code vào đây..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Từ khóa nổi bật theo giây (Mỗi dòng: Từ khóa | Giây bắt đầu | Giây kết thúc |
+                                    Kiểu (bad/good/gold))</label>
+                                <textarea id="slide-code-phrase-highlights-input" class="form-control code-textarea"
+                                    rows="3"
+                                    placeholder="Ví dụ:&#10;email = '' | 7.0 | 11.5 | bad&#10;OR '1'='1' | 11.5 | 17.0 | bad"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Diagram inputs -->
+                        <div id="layout-input-diagram" class="layout-input-group" style="display: none;">
+                            <label>Các bước trong sơ đồ</label>
+                            <div id="diagram-nodes-list" class="nodes-list">
+                                <!-- Steps list -->
+                            </div>
+                            <button id="add-diagram-node" class="btn btn-secondary btn-sm mt-1">
+                                <i data-lucide="plus"></i> Thêm bước sơ đồ
+                            </button>
+                        </div>
+
+                        <!-- Cards inputs -->
+                        <div id="layout-input-cards" class="layout-input-group" style="display: none;">
+                            <label>Cấu hình 3 Cards (Tối đa 3)</label>
+                            <div id="cards-editor-container" class="cards-editor">
+                                <!-- Cards forms -->
+                            </div>
+                        </div>
+
+                        <!-- Split View inputs -->
+                        <div id="layout-input-split" class="layout-input-group" style="display: none;">
+                            <div class="form-group">
+                                <label>Tiêu đề cột Trái (Hạn chế)</label>
+                                <input type="text" id="slide-split-left-title" class="form-control"
+                                    placeholder="Ví dụ: N+1 Query (Tệ)">
+                            </div>
+                            <div class="form-group">
+                                <label>Nội dung cột Trái (Mỗi dòng một ý)</label>
+                                <textarea id="slide-split-left-text" class="form-control" rows="3"
+                                    placeholder="Ý 1&#10;Ý 2"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Tiêu đề cột Phải (Tối ưu)</label>
+                                <input type="text" id="slide-split-right-title" class="form-control"
+                                    placeholder="Ví dụ: Eager Load (Tốt)">
+                            </div>
+                            <div class="form-group">
+                                <label>Nội dung cột Phải (Mỗi dòng một ý)</label>
+                                <textarea id="slide-split-right-text" class="form-control" rows="3"
+                                    placeholder="Ý 1&#10;Ý 2"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Quote inputs -->
+                        <div id="layout-input-quote" class="layout-input-group" style="display: none;">
+                            <div class="form-group">
+                                <label>Câu nói ghi chú / Lời nhắc</label>
+                                <textarea id="slide-quote-text" class="form-control" rows="3"
+                                    placeholder="Nhập câu nhắc nhở hoặc trích dẫn cốt lõi..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Tác giả / Nguồn</label>
+                                <input type="text" id="slide-quote-author" class="form-control"
+                                    placeholder="Ví dụ: Lập trình viên thông thái, Nguyên lý số 1...">
+                            </div>
+                        </div>
+
+                        <!-- Tree inputs -->
+                        <div id="layout-input-tree" class="layout-input-group" style="display: none;">
+                            <div class="form-group">
+                                <label>Nút Gốc (Root Node)</label>
+                                <input type="text" id="slide-tree-root" class="form-control"
+                                    placeholder="Ví dụ: Gốc cây (M-R)">
+                            </div>
+                            <div class="form-group">
+                                <label>Nhánh Trái (Left Branch)</label>
+                                <input type="text" id="slide-tree-left" class="form-control"
+                                    placeholder="Ví dụ: Nhánh trái (A-L)">
+                            </div>
+                            <div class="form-group">
+                                <label>Nhánh Phải (Right Branch)</label>
+                                <input type="text" id="slide-tree-right" class="form-control"
+                                    placeholder="Ví dụ: Nhánh phải (S-Z)">
+                            </div>
+                            <div class="form-group">
+                                <label>Nút Đích / Tìm thấy (Target Node)</label>
+                                <input type="text" id="slide-tree-target" class="form-control"
+                                    placeholder="Ví dụ: Nút 'An' (Tìm thấy trong 0.08ms)">
+                            </div>
+                            <div class="form-group">
+                                <label>Đường dẫn nổi bật (Highlight Path)</label>
+                                <select id="slide-tree-highlight" class="form-control">
+                                    <option value="left">Nhánh Trái (Left)</option>
+                                    <option value="right">Nhánh Phải (Right)</option>
+                                    <option value="none">Không nổi bật</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Table inputs -->
+                        <div id="layout-input-table" class="layout-input-group" style="display: none;">
+                            <div class="form-group">
+                                <label>Tiêu đề các cột (Ngăn cách bởi dấu |)</label>
+                                <input type="text" id="slide-table-headers" class="form-control"
+                                    placeholder="Ví dụ: ID | Tên | Trạng thái">
+                            </div>
+                            <div class="form-group">
+                                <label>Các dòng dữ liệu (Mỗi dòng một hàng, ngăn cách cột bởi dấu |)</label>
+                                <textarea id="slide-table-rows" class="form-control" rows="5"
+                                    placeholder="Ví dụ:&#10;1 | An | Đang quét&#10;2 | Bình | Đang quét"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Số thứ tự dòng nổi bật (1-indexed, hoặc để trống)</label>
+                                <input type="number" id="slide-table-highlight" class="form-control"
+                                    placeholder="Ví dụ: 2">
+                            </div>
+                            <div class="form-group">
+                                <label>Kiểu dòng nổi bật (Highlight Type)</label>
+                                <select id="slide-table-highlight-type" class="form-control">
+                                    <option value="warning">Cảnh báo / Quét (Warning)</option>
+                                    <option value="success">Thành công / Tìm thấy (Success)</option>
+                                    <option value="danger">Lỗi (Danger)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Alert inputs -->
+                        <div id="layout-input-alert" class="layout-input-group" style="display: none;">
+                            <div class="form-group">
+                                <label>Mức độ Cảnh báo (Alert Level)</label>
+                                <select id="slide-alert-level" class="form-control">
+                                    <option value="danger">Nguy hiểm / Lỗi (Danger - Red)</option>
+                                    <option value="warning">Cảnh báo / Chú ý (Warning - Yellow)</option>
+                                    <option value="info">Thông tin (Info - Blue)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Thông tin bổ sung / Log error</label>
+                                <textarea id="slide-alert-detail" class="form-control" rows="3"
+                                    placeholder="Nhập chi tiết lỗi hoặc log hệ thống..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Boxes inputs -->
+                        <div id="layout-input-boxes" class="layout-input-group" style="display: none;">
+                            <div class="form-group">
+                                <label>Nhãn của các ô vuông (Ngăn cách bởi dấu |)</label>
+                                <input type="text" id="slide-boxes-labels" class="form-control"
+                                    placeholder="Ví dụ: Page 1 | Page 2 | Target | Page 4">
+                            </div>
+                            <div class="form-group">
+                                <label>Số thứ tự ô nổi bật (1-indexed, hoặc để trống)</label>
+                                <input type="number" id="slide-boxes-highlight" class="form-control"
+                                    placeholder="Ví dụ: 3">
+                            </div>
+                            <div class="form-group">
+                                <label>Kiểu ô nổi bật (Highlight Type)</label>
+                                <select id="slide-boxes-highlight-type" class="form-control">
+                                    <option value="warning">Cảnh báo / Quét (Warning - Gold)</option>
+                                    <option value="success">Thành công / Trỏ trực tiếp (Success - Green)</option>
+                                    <option value="danger">Lỗi (Danger - Red)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Search inputs -->
+                        <div id="layout-input-search" class="layout-input-group" style="display: none;">
+                            <div class="form-group">
+                                <label>Câu truy vấn đang tìm kiếm</label>
+                                <input type="text" id="slide-search-query" class="form-control"
+                                    placeholder="Ví dụ: email = 'contact@turnio.dev'">
+                            </div>
+                            <div class="form-group">
+                                <label>Dòng trạng thái tìm kiếm</label>
+                                <input type="text" id="slide-search-status" class="form-control"
+                                    placeholder="Ví dụ: Scanning 1,000,000 rows...">
+                            </div>
+                            <div class="form-group">
+                                <label>Hiệu ứng Radar quét / Trạng thái</label>
+                                <select id="slide-search-indicator" class="form-control">
+                                    <option value="scanning">Đang tìm kiếm (Scanning Radar)</option>
+                                    <option value="found">Đã tìm thấy (Green Success Mark)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Transition inputs -->
+                        <div id="layout-input-transition" class="layout-input-group" style="display: none;">
+                            <div class="form-group">
+                                <label>Câu giật tít chuyển chương / Câu hỏi (Transition Title)</label>
+                                <textarea id="slide-transition-title" class="form-control" rows="2"
+                                    placeholder="Ví dụ: Đánh index bao nhiêu là đủ?"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Tên Icon Lucide trung tâm</label>
+                                <input type="text" id="slide-transition-icon" class="form-control"
+                                    placeholder="Ví dụ: help-circle, alert-octagon, zap">
+                            </div>
+                            <div class="form-group">
+                                <label>Tông màu chủ đạo (Theme)</label>
+                                <select id="slide-transition-theme" class="form-control">
+                                    <option value="warning">Cảnh báo (Warning - Gold)</option>
+                                    <option value="danger">Thảm họa (Danger - Red)</option>
+                                    <option value="success">Tối ưu (Success - Green)</option>
+                                    <option value="info">Thông tin (Info - Blue)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="editor-divider">
+
+                    <!-- Script & Speech Synthesis -->
+                    <div class="section-header">
+                        <h3>Giọng nói & Lời bình (TTS)</h3>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kịch bản lời bình (Script)</label>
+                        <textarea id="slide-script-input" class="form-control" rows="4"
+                            placeholder="Nội dung AI sẽ đọc khi chạy slide này..."></textarea>
+                    </div>
+
+                    <div class="voice-cloning-section">
+                        <!-- TTS Mode Selector -->
+                        <div class="form-group">
+                            <label>Phương thức Thuyết minh</label>
+                            <div class="tts-mode-selector" style="display: flex; gap: 8px; margin-bottom: 12px;">
+                                <button id="tts-mode-standard-btn" type="button" class="btn btn-secondary active"
+                                    style="flex: 1; padding: 6px 12px; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                                    <i data-lucide="cpu" style="width: 14px; height: 14px;"></i> Giọng đọc Cloud (Nhanh)
+                                </button>
+                                <button id="tts-mode-voxcpm-btn" type="button" class="btn btn-secondary"
+                                    style="flex: 1; padding: 6px 12px; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                                    <i data-lucide="mic" style="width: 14px; height: 14px;"></i> Nhân bản VoxCPM (Clone)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- VoxCPM reference voice selection -->
+                        <div id="voxcpm-voice-container" class="form-group" style="display: none;">
+                            <label>Chọn Giọng mẫu VoxCPM (WAV Clone)</label>
+                            <select id="slide-ref-voice-select" class="form-control">
+                                <option value="">-- Chọn file WAV để Clone --</option>
+                                <!-- Loaded dynamically -->
+                            </select>
+                        </div>
+
+                        <!-- Standard Cloud TTS selection -->
+                        <div id="standard-voice-container" class="form-group">
+                            <label>Giọng đọc Thuyết minh (TTS)</label>
+                            <div style="display: flex; gap: 8px;">
+                                <select id="slide-voice-fallback-select" class="form-control" style="flex: 1;">
+                                    <option value="vi-VN-HoaiMyNeural">Hoài Mỹ (Nữ VN)</option>
+                                    <option value="vi-VN-NamMinhNeural">Nam Minh (Nam VN)</option>
+                                    <option value="en-US-AriaNeural">Aria (Nữ US)</option>
+                                    <option value="en-US-GuyNeural">Guy (Nam US)</option>
+                                </select>
+                                <button id="test-voice-btn" class="btn btn-secondary"
+                                    style="padding: 0 12px; display: flex; align-items: center; justify-content: center; min-width: 80px;"
+                                    title="Nghe thử giọng này">
+                                    <i data-lucide="play" style="width: 16px; height: 16px; margin-right: 4px;"></i> Thử
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="voice-record-container">
+                            <label>Hoặc ghi âm giọng mới để Clone:</label>
+                            <div class="voice-record-controls">
+                                <button id="record-btn" class="btn btn-danger">
+                                    <i data-lucide="mic"></i> Ghi âm (5s)
+                                </button>
+                                <span id="record-status" class="record-status-label">Chưa ghi âm</span>
+                                <audio id="voice-record-preview" controls style="display:none;"></audio>
+                            </div>
+                            <div id="voice-upload-row" class="voice-upload-row" style="display: none;">
+                                <input type="text" id="voice-name-input" class="form-control"
+                                    placeholder="Tên giọng clone...">
+                                <button id="upload-voice-btn" class="btn btn-success">
+                                    <i data-lucide="upload"></i> Tải lên
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="generate-audio-btn" class="btn btn-gold btn-block mt-2">
+                        <i data-lucide="volume-2"></i> Tạo giọng nói cho Slide này
+                    </button>
+                    <button id="generate-all-audio-btn" class="btn btn-secondary btn-block mt-2"
+                        style="border-color: var(--gold-glow); color: var(--gold-text);">
+                        <i data-lucide="mic"></i> Tạo giọng nói cho tất cả Slide
+                    </button>
+                    <div id="slide-audio-player-container" class="slide-audio-player-container" style="display: none;">
+                        <!-- Rendered dynamically in JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preview & Video Render Viewport -->
+            <section class="preview-panel">
+                <!-- 16:9 TikTok Canvas Frame -->
+                <div class="canvas-outer-wrapper">
+                    <div class="aspect-ratio-header">
+                        <span class="preview-title"><i data-lucide="monitor"></i> CHẾ ĐỘ PREVIEW (9:16 Vertical)</span>
+                        <select id="wave-style-select" class="btn btn-secondary btn-sm"
+                            style="padding: 2px 8px; font-size: 0.75rem; border-color: var(--border-color-hover); margin-left: 8px; background: var(--bg-dark); color: var(--text-primary); cursor: pointer; height: 28px; outline: none;">
+                            <option value="bell">Sóng đối xứng (Siri/Bell)</option>
+                            <option value="split">Sóng âm kép (Double Mounds)</option>
+                            <option value="classic">Tần số cổ điển (Left-to-Right)</option>
+                            <option value="heartbeat">Sóng luân phiên (Rolling Wave)</option>
+                            <option value="equalizer">Nhấp nhô ngẫu nhiên (Equalizer)</option>
+                        </select>
+                        <button id="toggle-overlay-btn" class="btn btn-secondary btn-sm"
+                            style="padding: 2px 8px; font-size: 0.75rem; border-color: var(--border-color-hover); margin-left: 8px;">
+                            <i data-lucide="eye"
+                                style="width: 12px; height: 12px; display: inline-block; vertical-align: middle;"></i>
+                            Hiện Phủ TikTok
+                        </button>
+                        <button id="fullscreen-btn" class="btn btn-secondary btn-sm"
+                            style="padding: 2px 8px; font-size: 0.75rem; border-color: var(--border-color-hover); margin-left: 8px;">
+                            <i data-lucide="maximize"
+                                style="width: 12px; height: 12px; display: inline-block; vertical-align: middle;"></i>
+                            Xem Full Màn Hình
+                        </button>
+                        <div class="watermark"> Turnio.dev</div>
+                    </div>
+
+                    <div id="canvas-scaler-box" class="canvas-scaler">
+                        <!-- Floating controls for Fullscreen mode -->
+                        <div class="fullscreen-controls">
+                            <button id="fs-reload-btn" class="fs-btn" title="Chạy lại từ đầu"><i
+                                    data-lucide="rotate-ccw"></i></button>
+                            <button id="fs-play-btn" class="fs-btn" title="Phát / Tạm dừng"><i
+                                    data-lucide="play"></i></button>
+                            <button id="fs-exit-btn" class="fs-btn" title="Thoát toàn màn hình"><i
+                                    data-lucide="minimize"></i></button>
+                        </div>
+
+                        <div id="tiktok-canvas" class="video-canvas-16_9">
+                            <!-- Background elements -->
+                            <div class="grid-overlay"></div>
+                            <div class="ambient-glow glow-1"></div>
+                            <div class="ambient-glow glow-2"></div>
+                            <div class="ambient-glow glow-3"></div>
+
+                            <!-- Title Header (Persistent or conditional) -->
+                            <div class="canvas-header">
+                                <span class="header-ep">TECH DISPATCH · EP. 046</span>
+                                <span class="header-topic" id="canvas-header-topic" title="Nhấp để sửa chủ đề">Optimize
+                                    Backend</span>
+                            </div>
+
+                            <!-- Interactive Slide Content Root -->
+                            <div id="slide-content-root" class="slide-content-wrapper">
+                                <!-- Content will be injected dynamically -->
+                            </div>
+
+                            <!-- Dynamic Subtitles Overlay -->
+                            <div id="canvas-subtitle-box" class="canvas-subtitle-box" style="display: none;"></div>
+
+                            <!-- Audio Visualizer Waveform Overlay -->
+                            <div class="canvas-footer">
+                                <div class="visualizer-container">
+                                    <div class="visualizer-bar bar-1"></div>
+                                    <div class="visualizer-bar bar-2"></div>
+                                    <div class="visualizer-bar bar-3"></div>
+                                    <div class="visualizer-bar bar-4"></div>
+                                    <div class="visualizer-bar bar-5"></div>
+                                    <div class="visualizer-bar bar-6"></div>
+                                    <div class="visualizer-bar bar-7"></div>
+                                    <div class="visualizer-bar bar-8"></div>
+                                    <div class="visualizer-bar bar-9"></div>
+                                    <div class="visualizer-bar bar-10"></div>
+                                    <div class="visualizer-bar bar-11"></div>
+                                    <div class="visualizer-bar bar-12"></div>
+                                </div>
+                                <div class="footer-handle">@Turnio.dev</div>
+                            </div>
+
+                            <!-- TikTok UI Simulator Overlay -->
+                            <div id="tiktok-ui-simulator" class="tiktok-ui-simulator" style="display: none;">
+                                <!-- Top tabs -->
+                                <div class="tiktok-sim-top">
+                                    <div class="sim-left-icon">
+                                        <i data-lucide="tv" style="width: 32px; height: 32px;"></i>
+                                    </div>
+                                    <div class="sim-tabs">
+                                        <span>Đang Follow</span>
+                                        <span class="active">Dành Cho Bạn</span>
+                                    </div>
+                                    <div class="sim-right-icon">
+                                        <i data-lucide="search" style="width: 32px; height: 32px;"></i>
+                                    </div>
+                                </div>
+                                <!-- Right action menu -->
+                                <div class="tiktok-sim-right">
+                                    <div class="sim-avatar">
+                                        <div class="avatar-img">T</div>
+                                        <div class="avatar-plus">+</div>
+                                    </div>
+                                    <div class="sim-action">
+                                        <i data-lucide="heart"
+                                            style="width: 44px; height: 44px; fill: white; color: white;"></i>
+                                        <span>633.0K</span>
+                                    </div>
+                                    <div class="sim-action">
+                                        <i data-lucide="message-square"
+                                            style="width: 44px; height: 44px; fill: white; color: white;"></i>
+                                        <span>10.0K</span>
+                                    </div>
+                                    <div class="sim-action">
+                                        <i data-lucide="bookmark"
+                                            style="width: 44px; height: 44px; fill: white; color: white;"></i>
+                                        <span>60.5K</span>
+                                    </div>
+                                    <div class="sim-action">
+                                        <i data-lucide="share-2"
+                                            style="width: 44px; height: 44px; fill: white; color: white;"></i>
+                                        <span>11.9K</span>
+                                    </div>
+                                    <div class="sim-disc-wrapper">
+                                        <div class="sim-disc-vinyl"></div>
+                                    </div>
+                                </div>
+                                <!-- Bottom details -->
+                                <div class="tiktok-sim-bottom">
+                                    <div class="sim-username">Turnio.dev</div>
+                                    <div class="sim-caption">Tối ưu hóa Database Index và Caching giúp API nhanh như
+                                        chớp #backend #code #tips #database #caching</div>
+                                    <div class="sim-music">
+                                        <i data-lucide="music"
+                                            style="width: 24px; height: 24px; margin-right: 8px;"></i>
+                                        <span class="music-marquee">Nhạc nền gốc - Turnio.dev</span>
+                                    </div>
+                                </div>
+                                <!-- Bottom bar -->
+                                <div class="tiktok-sim-footer">
+                                    <div class="footer-tab active"><i data-lucide="home"
+                                            style="width: 32px; height: 32px;"></i><span>Trang chủ</span></div>
+                                    <div class="footer-tab"><i data-lucide="users"
+                                            style="width: 32px; height: 32px;"></i><span>Bạn bè</span></div>
+                                    <div class="footer-add-btn">
+                                        <div class="add-plus">+</div>
+                                    </div>
+                                    <div class="footer-tab"><i data-lucide="message-circle"
+                                            style="width: 32px; height: 32px;"></i><span>Hộp thư</span></div>
+                                    <div class="footer-tab"><i data-lucide="user"
+                                            style="width: 32px; height: 32px;"></i><span>Hồ sơ</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Timeline and Studio Controls -->
+                <div class="section-card timeline-card">
+                    <div class="timeline-controls">
+                        <div class="playback-buttons">
+                            <button id="play-prev-btn" class="btn btn-secondary">
+                                <i data-lucide="skip-back"></i>
+                            </button>
+                            <button id="play-btn" class="btn btn-gold btn-large">
+                                <i data-lucide="play" id="play-icon"></i> Chạy thử Video
+                            </button>
+                            <button id="play-next-btn" class="btn btn-secondary">
+                                <i data-lucide="skip-forward"></i>
+                            </button>
+                        </div>
+
+                        <div class="timeline-info">
+                            <span id="timeline-time-display">00:00 / 00:00</span>
+                        </div>
+
+                        <div class="export-buttons" style="display: flex; gap: 12px; align-items: center;">
+                            <button id="record-video-btn" class="btn btn-danger btn-large"
+                                title="Ghi hình video trực tiếp từ trình duyệt">
+                                <i data-lucide="clapperboard"></i> Xuất Video (.webm)
+                            </button>
+                            <button id="view-video-btn" class="btn btn-success btn-large"
+                                title="Xem video .mp4 đã lưu trên máy chủ">
+                                <i data-lucide="film"></i> Xem Video (.mp4)
+                            </button>
+                            <button id="open-mp3-folder-btn" class="btn btn-secondary btn-large"
+                                style="border-color: rgba(245, 158, 11, 0.4); color: var(--gold-secondary);"
+                                title="Mở thư mục chứa các file âm thanh thuyết minh (MP3)">
+                                <i data-lucide="music-4"></i> Thư mục MP3
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Slide timeline progress segments -->
+                    <div id="timeline-progress-bar" class="timeline-progress-bar">
+                        <!-- Progress segments will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Export modal / status -->
+                <div id="export-status-box" class="export-status-box" style="display: none;">
+                    <div class="export-spinner"></div>
+                    <div class="export-text-area">
+                        <h4>Đang ghi hình video 9:16...</h4>
+                        <p>Hệ thống đang chạy qua các slide và thu âm âm thanh thực tế. Vui lòng không đóng tab.</p>
+                        <div class="progress-bar-container">
+                            <div id="export-progress" class="progress-bar-fill" style="width: 0%;"></div>
+                        </div>
+                        <p id="export-progress-text"
+                            style="margin-top: 15px; font-weight: 600; color: var(--gold-secondary); font-size: 1.1rem;">
+                            Đang chuẩn bị...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script loading -->
+    <script src="/static/app.js?v=1.3.4"></script>
+
+    <script>
+        // Init Lucide
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
