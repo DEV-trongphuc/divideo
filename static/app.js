@@ -16538,25 +16538,25 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                         
                                         <!-- Points -->
                                         <circle class="pt-vua vpoint" cx="200" cy="70" r="8" fill="#3b82f6" style="transform-origin: 200px 70px; transition:transform 0.4s;"/>
-                                        <text x="200" y="55" fill="#3b82f6" font-size="12" font-weight="bold" text-anchor="middle">vua</text>
+                                        <text x="200" y="40" fill="#3b82f6" font-size="24" font-weight="900" text-anchor="middle">vua</text>
                                         
                                         <circle class="pt-hoanghau vpoint" cx="230" cy="90" r="8" fill="#3b82f6" style="transform-origin: 230px 90px; transition:transform 0.4s;"/>
-                                        <text x="230" y="110" fill="#3b82f6" font-size="12" font-weight="bold" text-anchor="middle">hoàng hậu</text>
+                                        <text x="230" y="130" fill="#3b82f6" font-size="24" font-weight="900" text-anchor="middle">hoàng hậu</text>
                                         
                                         <circle class="pt-tao vpoint" cx="540" cy="150" r="8" fill="#10b981" style="transform-origin: 540px 150px; transition:transform 0.4s;"/>
-                                        <text x="540" y="135" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">quả táo</text>
+                                        <text x="540" y="120" fill="#10b981" font-size="24" font-weight="900" text-anchor="middle">quả táo</text>
                                         
                                         <circle class="pt-cam vpoint" cx="590" cy="170" r="8" fill="#10b981" style="transform-origin: 590px 170px; transition:transform 0.4s;"/>
-                                        <text x="590" y="190" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">quả cam</text>
+                                        <text x="590" y="210" fill="#10b981" font-size="24" font-weight="900" text-anchor="middle">quả cam</text>
                                         <!-- Distance Line between apples and oranges -->
                                         <line x1="540" y1="150" x2="590" y2="170" stroke="rgba(16,185,129,0.3)" stroke-width="2" stroke-dasharray="4,4"/>
                                     </svg>
                                     
                                     <!-- HTML Overlay Labels -->
-                                    <div class="similarity-lbl-1" style="position:absolute; left:95px; top:110px; background:rgba(245,158,11,0.9); padding:4px 8px; border-radius:4px; font-size:11px; font-weight:bold; color:#000; opacity:0; transition:opacity 0.5s; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
+                                    <div class="similarity-lbl-1" style="position:absolute; left:90px; top:115px; background:rgba(245,158,11,0.95); padding:6px 12px; border-radius:6px; font-size:15px; font-weight:900; color:#000; opacity:0; transition:opacity 0.5s; box-shadow:0 3px 8px rgba(0,0,0,0.35);">
                                         Góc hẹp = Trùng nghĩa (95%)
                                     </div>
-                                    <div class="similarity-lbl-2" style="position:absolute; left:510px; top:90px; background:rgba(16,185,129,0.9); padding:4px 8px; border-radius:4px; font-size:11px; font-weight:bold; color:#000; opacity:0; transition:opacity 0.5s; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
+                                    <div class="similarity-lbl-2" style="position:absolute; left:460px; top:85px; background:rgba(16,185,129,0.95); padding:6px 12px; border-radius:6px; font-size:15px; font-weight:900; color:#000; opacity:0; transition:opacity 0.5s; box-shadow:0 3px 8px rgba(0,0,0,0.35);">
                                         Khoảng cách ngắn = Cùng nhóm quả
                                     </div>
                                 </div>
@@ -16695,8 +16695,8 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                     
                                     <!-- Low Temp Card -->
                                     <div class="mode-low" style="flex:1; border:2px solid rgba(255,255,255,0.06); border-radius:16px; padding:20px; text-align:center; background:rgba(255,255,255,0.02); transition:all 0.5s;">
-                                        <div style="font-size:14px; font-weight:bold; color:#3b82f6; text-transform:uppercase; letter-spacing:1px;">T = 0.2</div>
-                                        <div style="font-size:28px; font-weight:900; margin-top:14px; color:#fff; line-height:1.2;">Độc đoán<br>&amp; Chuẩn xác</div>
+                                        <div class="mode-low-val" style="font-size:24px; font-weight:900; color:#3b82f6; text-transform:uppercase; letter-spacing:1px; transition:all 0.5s;">T = 0.2</div>
+                                        <div class="mode-low-title" style="font-size:20px; font-weight:900; margin-top:14px; color:#cbd5e1; line-height:1.2; transition:all 0.5s;">Độc đoán<br>&amp; Chuẩn xác</div>
                                     </div>
                                     
                                     <!-- Dial Controller -->
@@ -16705,18 +16705,18 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                             <!-- Half circular ticks -->
                                             <div class="temp-dial-knob" style="position:absolute; width:100%; height:100%; transition:transform 0.4s ease-out; transform:rotate(-60deg);">
                                                 <!-- pointer needle -->
-                                                <div style="position:absolute; top:10px; left:calc(50% - 3px); width:6px; height:50px; background:#fff; border-radius:3px; box-shadow:0 0 8px #fff;"></div>
+                                                <div style="position:absolute; top:15px; left:calc(50% - 2.5px); width:5px; height:30px; background:rgba(255,255,255,0.35); border-radius:3px; box-shadow:0 0 6px rgba(255,255,255,0.15);"></div>
                                             </div>
                                             <!-- Value label inside dial -->
-                                            <div class="temp-val-lbl" style="font-family:var(--font-mono); font-size:18px; font-weight:900; color:#3b82f6; z-index:5;">T = 0.2</div>
+                                            <div class="temp-val-lbl" style="font-family:var(--font-mono); font-size:24px; font-weight:900; color:#3b82f6; z-index:5;">T = 0.2</div>
                                         </div>
                                         <span style="font-size:11px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">Căn chỉnh tham số</span>
                                     </div>
                                     
                                     <!-- High Temp Card -->
                                     <div class="mode-high" style="flex:1; border:2px solid rgba(255,255,255,0.06); border-radius:16px; padding:20px; text-align:center; background:rgba(255,255,255,0.02); transition:all 0.5s;">
-                                        <div style="font-size:14px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; letter-spacing:1px;">T = 1.0</div>
-                                        <div style="font-size:28px; font-weight:900; margin-top:14px; color:#fff; line-height:1.2;">Sáng tạo<br>&amp; Bay bổng</div>
+                                        <div class="mode-high-val" style="font-size:24px; font-weight:900; color:var(--gold-primary); text-transform:uppercase; letter-spacing:1px; transition:all 0.5s;">T = 1.0</div>
+                                        <div class="mode-high-title" style="font-size:20px; font-weight:900; margin-top:14px; color:#cbd5e1; line-height:1.2; transition:all 0.5s;">Sáng tạo<br>&amp; Bay bổng</div>
                                     </div>
                                 </div>
                             </div>
@@ -17008,7 +17008,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                 if (name2) name2.textContent = '"nghiệp"';
                 if (name3) name3.textContent = '"quốc"';
             } else if (progress < 0.5) {
-                if (typed) typed.innerHTML = 'Tôi yêu lập <span style="color:#10b981;">trình</span>';
+                if (typed) typed.innerHTML = 'Tôi yêu lập&nbsp;<span style="color:#10b981;">trình</span>';
                 if (pb1) pb1.style.width = '88%';
                 if (pb2) pb2.style.width = '8%';
                 if (pb3) pb3.style.width = '4%';
@@ -17030,7 +17030,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                 if (name2) name2.textContent = '"app"';
                 if (name3) name3.textContent = '"game"';
             } else {
-                if (typed) typed.innerHTML = 'Tôi yêu lập trình <span style="color:#10b981;">web</span>';
+                if (typed) typed.innerHTML = 'Tôi yêu lập trình&nbsp;<span style="color:#10b981;">web</span>';
                 if (pb1) pb1.style.width = '75%';
                 if (pb2) pb2.style.width = '15%';
                 if (pb3) pb3.style.width = '10%';
@@ -17048,12 +17048,20 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
             const dial = canvas.querySelector('.temp-dial-outer');
             const knob = canvas.querySelector('.temp-dial-knob');
             const lbl = canvas.querySelector('.temp-val-lbl');
+            const lowTitle = lowCard ? lowCard.querySelector('.mode-low-title') : null;
+            const highTitle = highCard ? highCard.querySelector('.mode-high-title') : null;
+            const lowVal = lowCard ? lowCard.querySelector('.mode-low-val') : null;
+            const highVal = highCard ? highCard.querySelector('.mode-high-val') : null;
             if (progress < 0.5) {
                 if (lowCard) { lowCard.style.borderColor = '#3b82f6'; lowCard.style.background = 'rgba(59,130,246,0.08)'; lowCard.style.boxShadow = '0 0 15px rgba(59,130,246,0.2)'; }
                 if (highCard) { highCard.style.borderColor = 'rgba(255,255,255,0.06)'; highCard.style.background = 'none'; highCard.style.boxShadow = 'none'; }
                 if (dial) { dial.style.borderColor = '#3b82f6'; dial.style.boxShadow = '0 0 20px rgba(59,130,246,0.3)'; }
                 if (knob) { knob.style.transform = 'rotate(-60deg)'; }
                 if (lbl) { lbl.textContent = 'T = 0.2'; lbl.style.color = '#3b82f6'; }
+                if (lowTitle) lowTitle.style.color = '#93c5fd';
+                if (lowVal) lowVal.style.color = '#3b82f6';
+                if (highTitle) highTitle.style.color = '#475569';
+                if (highVal) highVal.style.color = '#475569';
             } else {
                 const r = -60 + 120 * Math.min(1, (progress - 0.5) / 0.25);
                 const tVal = (0.2 + 0.8 * Math.min(1, (progress - 0.5) / 0.25)).toFixed(1);
@@ -17062,6 +17070,10 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                 if (dial) { dial.style.borderColor = 'var(--gold-primary)'; dial.style.boxShadow = '0 0 20px rgba(245,158,11,0.3)'; }
                 if (knob) { knob.style.transform = `rotate(${r}deg)`; }
                 if (lbl) { lbl.textContent = `T = ${tVal}`; lbl.style.color = 'var(--gold-primary)'; }
+                if (lowTitle) lowTitle.style.color = '#475569';
+                if (lowVal) lowVal.style.color = '#475569';
+                if (highTitle) highTitle.style.color = '#fef3c7';
+                if (highVal) highVal.style.color = 'var(--gold-primary)';
             }
         }
         else if (slideId === 'slide_ai_4a') {
