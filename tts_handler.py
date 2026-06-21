@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 import asyncio
 import numpy as np
 import soundfile as sf
@@ -88,6 +89,25 @@ async def synthesize_edge_tts(text, voice, output_path):
     communicate = edge_tts.Communicate(text, voice)
     await communicate.save(output_path)
 
+def normalize_text_for_tts(text):
+    if not text:
+        return text
+    
+    whitelist = {
+        "SQL", "CPU", "RAM", "IP", "MV", "AI", "CSDL", "DB", "LLM", "TTL", "OOM", "F5", "HTTP", "API", "ID"
+    }
+    
+    def replace_word(match):
+        word = match.group(0)
+        if word.isupper() and any(c.isalpha() for c in word):
+            if word not in whitelist:
+                # Print to stdout/stderr so we can trace it in logs
+                print(f"[TTS NORMALIZER] Lowercasing word: {word}")
+                return word.lower()
+        return word
+        
+    return re.sub(r'\b[A-Za-z0-9_]+\b', replace_word, text)
+
 def synthesize_audio(text, output_path, reference_audio_path=None, voice_preference="en-US-AriaNeural"):
     """
     Synthesize audio from text.
@@ -99,6 +119,9 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
     text = text.strip()
     if not text:
         raise ValueError("Text to synthesize cannot be empty.")
+    
+    # Normalize uppercase words to prevent spelling-out by TTS
+    text = normalize_text_for_tts(text)
     
     # Map default_voxcpm to the local high-quality voice file
     if reference_audio_path == "default_voxcpm":

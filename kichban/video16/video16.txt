@@ -1,0 +1,23 @@
+[SLIDE 1]
+Intro: Rút gọn liên kết: Bí mật đằng sau bit.ly
+Lời thoại: Khi bạn gửi tin nhắn hoặc chia sẻ liên kết, các đường dẫn dài hàng trăm ký tự trông rất mất thẩm mỹ. Những dịch vụ như bit.ly hay tinyurl đã giúp rút gọn chúng thành một chuỗi chỉ có bảy ký tự ngẫu nhiên. Vậy hệ thống đứng sau làm thế nào để tạo ra hàng tỷ liên kết độc nhất mà không bị trùng lặp?
+
+[SLIDE 2]
+Cách thô sơ: Sinh ngẫu nhiên & Check trùng
+Lời thoại: Cách đơn giản nhất là sinh ngẫu nhiên bảy ký tự, sau đó kiểm tra xem nó đã tồn tại trong Database chưa. Nếu trùng, ta sinh lại. Cách làm này lúc đầu chạy tốt, nhưng khi hệ thống lớn lên với hàng tỷ liên kết, xác suất trùng lặp tăng vọt, biến câu lệnh Select kiểm tra thành gánh nặng làm sập cơ sở dữ liệu.
+
+[SLIDE 3]
+Giải pháp tối ưu: Mã hóa Base 62
+Lời thoại: Giải pháp thực tế là mã hóa. Thay vì sinh ngẫu nhiên, ta dùng hệ đếm cơ số sáu mươi hai, bao gồm chữ thường, chữ hoa và số. Với độ dài chỉ bảy ký tự, hệ cơ số này giúp ta biểu diễn được tới ba phẩy năm nghìn tỷ mã liên kết độc nhất. Đủ dùng cho cả thế giới trong hàng trăm năm!
+
+[SLIDE 4]
+Bộ sinh số thứ tự: Twitter Snowflake
+Lời thoại: Để mã hóa Base sáu mươi hai, ta cần một số thứ tự tăng dần. Nếu có nhiều máy chủ chạy cùng lúc, làm sao để cấp phát số thứ tự mà không bị trùng? Hệ thống sử dụng thuật toán Snowflake để tạo ra các số ID duy nhất dựa trên thời gian thực mà không cần một Database trung tâm điều phối.
+
+[SLIDE 5]
+Chuyển hướng người dùng: HTTP 301 vs 302
+Lời thoại: Khi người dùng click vào link ngắn, hệ thống sẽ chuyển hướng họ đến link gốc. Nếu dùng mã chuyển hướng HTTP ba trăm lẻ một, trình duyệt sẽ lưu cache và lần sau không hỏi lại server nữa. Còn nếu dùng ba trăm lẻ hai, mọi lượt click đều đi qua server để ta thu thập số liệu phân tích và đo lường chiến dịch marketing.
+
+[SLIDE 6]
+Theo dõi @Turnio.dev nhé!
+Lời thoại: Đó là nguyên lý thiết kế hệ thống rút gọn liên kết quy mô lớn. Hãy nhấn like và follow kênh Turnio chấm dev để cùng khám phá thêm nhiều bài toán hệ thống thực tế thú vị nhé.
