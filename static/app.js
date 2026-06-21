@@ -13007,6 +13007,7 @@ else if (slideId === 'slide_select_5') {
                     }
                     else if (slideId === 'slide_captcha_2b') {
                         gfxLayer.innerHTML = `
+<<<<<<< HEAD
                             <div class="image-grid-card captcha-node" style="position:absolute; left:220px; top:50px; width:460px; height:400px; display:flex; flex-direction:column; justify-content:space-between; padding:20px 25px;">
                                 <div style="width:100%; text-align:left; border-bottom:1.5px solid rgba(255,255,255,0.1); padding-bottom:10px;">
                                     <div style="font-size:12px; font-weight:bold; color:#ef4444; text-transform:uppercase; letter-spacing:0.5px;">AI OBJECT DETECTION SCAN</div>
@@ -13134,6 +13135,15 @@ else if (slideId === 'slide_select_5') {
                                             <div class="captcha-check-indicator" style="width:18px; height:10px; border-left:4px solid #00aa00; border-bottom:4px solid #00aa00; transform:rotate(-45deg) scale(0); opacity:0; transition:all 0.3s; margin-top:-3px;"></div>
                                             <div class="captcha-check-spinner" style="position:absolute; left:5px; top:5px; width:28px; height:28px; border:3px solid #3b82f6; border-top-color:transparent; border-radius:50%; animation: bufferRotateSimple 1s infinite linear; display:none;"></div>
                                         </div>
+=======
+                            <div class="checkbox-card captcha-node" style="position:absolute; left:200px; top:100px; width:500px; height:300px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px;">
+                                <div class="recaptcha-anchor" style="width:440px; height:110px; background:#fff; border:1px solid #d3d3d3; border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; box-sizing:border-box; color:#000; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+                                    <div style="display:flex; align-items:center; gap:16px;">
+                                        <div class="captcha-checkbox-box" style="width:38px; height:38px; border:2px solid #c1c1c1; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative; background:#f9f9f9; transition:all 0.3s;">
+                                            <div class="captcha-check-indicator" style="width:18px; height:10px; border-left:4px solid #00aa00; border-bottom:4px solid #00aa00; transform:rotate(-45deg) scale(0); opacity:0; transition:all 0.3s; margin-top:-3px;"></div>
+                                            <div class="captcha-check-spinner" style="position:absolute; left:5px; top:5px; width:28px; height:28px; border:3px solid #3b82f6; border-top-color:transparent; border-radius:50%; animation: bufferRotateSimple 1s infinite linear; display:none;"></div>
+                                        </div>
+>>>>>>> a36f11a6406b70cafc6fd35c096b3d6e774c9a37
                                         <span style="font-family:Roboto,helvetica,arial,sans-serif; font-size:18px; font-weight:400; color:#2c2c2c;">Tôi không phải là robot</span>
                                     </div>
                                     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
@@ -15304,7 +15314,7 @@ else if (slideId === 'slide_select_5') {
                              </svg>
 
                              <!-- Left: Concurrency Clients Stack (Positioned absolutely for layout stability) -->
-                             <div class="node-card glass-card client-1" style="position:absolute; left:80px; top:100px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
+                             <div class="node-card glass-card client-1" style="position:absolute; left:30px; top:100px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
                                  <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
                                  <div style="text-align:left;">
                                      <div style="font-size:12px; font-weight:bold; color:#fff;">Client #1</div>
@@ -15312,7 +15322,7 @@ else if (slideId === 'slide_select_5') {
                                  </div>
                              </div>
                              
-                             <div class="node-card glass-card client-2" style="position:absolute; left:80px; top:240px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
+                             <div class="node-card glass-card client-2" style="position:absolute; left:30px; top:240px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
                                  <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
                                  <div style="text-align:left;">
                                      <div style="font-size:12px; font-weight:bold; color:#fff;">Client #2</div>
@@ -15320,7 +15330,7 @@ else if (slideId === 'slide_select_5') {
                                  </div>
                              </div>
                              
-                             <div class="node-card glass-card client-3" style="position:absolute; left:80px; top:380px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
+                             <div class="node-card glass-card client-3" style="position:absolute; left:30px; top:380px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
                                  <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
                                  <div style="text-align:left;">
                                      <div style="font-size:12px; font-weight:bold; color:#fff;">Client #3</div>
@@ -15334,7 +15344,7 @@ else if (slideId === 'slide_select_5') {
                              <div class="packet-dot dot-c3" style="position:absolute; width:16px; height:16px; border-radius:50%; background:#3b82f6; box-shadow:0 0 12px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
 
                              <!-- Right: SQL DB card with locked row display (Positioned absolutely) -->
-                             <div class="node-card db-node glass-card" style="position:absolute; left:540px; top:155px; width:300px; border:2.5px solid #ef4444; border-radius:24px; padding:20px; box-shadow:0 15px 40px rgba(239,68,68,0.1); box-sizing:border-box; z-index:2;">
+                             <div class="node-card db-node glass-card" style="position:absolute; left:490px; top:155px; width:300px; border:2.5px solid #ef4444; border-radius:24px; padding:20px; box-shadow:0 15px 40px rgba(239,68,68,0.1); box-sizing:border-box; z-index:2;">
                                  <div style="display:flex; align-items:center; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; margin-bottom:12px;">
                                      <i class="db-icon" data-lucide="database" style="width:32px; height:32px; color:#ef4444;"></i>
                                      <div style="text-align:left;">
@@ -15381,14 +15391,14 @@ else if (slideId === 'slide_select_5') {
                              <!-- SVG for absolute connections -->
                              <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
                                  <!-- Connection paths -->
-                                 <path d="M 300 132 L 410 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
-                                 <path d="M 300 272 L 410 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
-                                 <path d="M 300 412 L 410 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
-                                 <path d="M 500 245 L 540 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
+                                 <path d="M 250 132 L 315 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
+                                 <path d="M 250 272 L 315 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
+                                 <path d="M 250 412 L 315 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
+                                 <path d="M 425 245 L 490 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
                              </svg>
 
                              <!-- Left: Concurrency Clients Stack -->
-                             <div class="node-card glass-card client-1" style="position:absolute; left:80px; top:100px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
+                             <div class="node-card glass-card client-1" style="position:absolute; left:30px; top:100px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
                                  <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
                                  <div style="text-align:left;">
                                      <div style="font-size:12px; font-weight:bold; color:#fff;">Client #1</div>
@@ -15396,7 +15406,7 @@ else if (slideId === 'slide_select_5') {
                                  </div>
                              </div>
                              
-                             <div class="node-card glass-card client-2" style="position:absolute; left:80px; top:240px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
+                             <div class="node-card glass-card client-2" style="position:absolute; left:30px; top:240px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
                                  <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
                                  <div style="text-align:left;">
                                      <div style="font-size:12px; font-weight:bold; color:#fff;">Client #2</div>
@@ -15404,7 +15414,7 @@ else if (slideId === 'slide_select_5') {
                                  </div>
                              </div>
                              
-                             <div class="node-card glass-card client-3" style="position:absolute; left:80px; top:380px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
+                             <div class="node-card glass-card client-3" style="position:absolute; left:30px; top:380px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
                                  <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
                                  <div style="text-align:left;">
                                      <div style="font-size:12px; font-weight:bold; color:#fff;">Client #3</div>
@@ -15413,8 +15423,8 @@ else if (slideId === 'slide_select_5') {
                              </div>
 
                              <!-- Mid: Queue Bottleneck Container -->
-                             <div style="position:absolute; left:390px; top:165px; font-size:10px; color:#ef4444; font-weight:bold; letter-spacing:0.5px; z-index:2; text-align:center; width:110px; line-height:1.2;">HÀNG CHỜ GHI<br>(BLOCKED QUEUE)</div>
-                             <div class="query-queue" style="position:absolute; left:390px; top:215px; width:110px; height:60px; background:rgba(0,0,0,0.55); border:2px dashed #ef4444; border-radius:16px; display:flex; align-items:center; justify-content:center; gap:8px; padding:5px; z-index:2; box-sizing:border-box;">
+                             <div style="position:absolute; left:315px; top:165px; font-size:10px; color:#ef4444; font-weight:bold; letter-spacing:0.5px; z-index:2; text-align:center; width:110px; line-height:1.2;">HÀNG CHỜ GHI<br>(BLOCKED QUEUE)</div>
+                             <div class="query-queue" style="position:absolute; left:315px; top:215px; width:110px; height:60px; background:rgba(0,0,0,0.55); border:2px dashed #ef4444; border-radius:16px; display:flex; align-items:center; justify-content:center; gap:8px; padding:5px; z-index:2; box-sizing:border-box;">
                                  <div class="q-dot q-dot-1" style="width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 8px #ef4444; opacity: 0; transition: all 0.3s;"></div>
                                  <div class="q-dot q-dot-2" style="width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 8px #ef4444; opacity: 0; transition: all 0.3s;"></div>
                                  <div class="q-dot q-dot-3" style="width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 8px #ef4444; opacity: 0; transition: all 0.3s;"></div>
@@ -15424,7 +15434,7 @@ else if (slideId === 'slide_select_5') {
                              <div class="packet-dot dot-serial" style="position:absolute; width:16px; height:16px; border-radius:50%; background:#10b981; box-shadow:0 0 12px #10b981; z-index:10; display:none; left:0; top:0;"></div>
 
                              <!-- Right: SQL DB card with locked row display -->
-                             <div class="node-card db-node glass-card" style="position:absolute; left:540px; top:155px; width:300px; border:2.5px solid #ef4444; border-radius:24px; padding:20px; box-shadow:0 15px 40px rgba(239,68,68,0.1); box-sizing:border-box; z-index:2;">
+                             <div class="node-card db-node glass-card" style="position:absolute; left:490px; top:155px; width:300px; border:2.5px solid #ef4444; border-radius:24px; padding:20px; box-shadow:0 15px 40px rgba(239,68,68,0.1); box-sizing:border-box; z-index:2;">
                                  <div style="display:flex; align-items:center; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; margin-bottom:12px;">
                                      <i class="db-icon" data-lucide="database" style="width:32px; height:32px; color:#ef4444;"></i>
                                      <div style="text-align:left;">
@@ -15490,7 +15500,7 @@ else if (slideId === 'slide_select_5') {
                 if (dotSerial) {
                     dotSerial.style.display = 'block';
                     const cyclePct = (progress * 4.0) % 1.0;
-                    const x = 405 + (540 - 405) * cyclePct;
+                    const x = 425 + (490 - 425) * cyclePct;
                     dotSerial.style.left = `${x}px`;
                     dotSerial.style.top = `237px`;
                     
@@ -15570,15 +15580,15 @@ else if (slideId === 'slide_select_5') {
                              </svg>
 
                              <!-- Left: Concurrency Clients Stack (Positioned absolutely) -->
-                             <div class="node-card glass-card" style="position:absolute; left:80px; top:100px; width:160px; border-left: 3px solid #3b82f6; padding:8px 12px; display:flex; align-items:center; gap:10px; z-index:2;">
+                             <div class="node-card glass-card" style="position:absolute; left:50px; top:100px; width:160px; border-left: 3px solid #3b82f6; padding:8px 12px; display:flex; align-items:center; gap:10px; z-index:2;">
                                  <i data-lucide="smartphone" style="width:20px; height:20px; color:#3b82f6;"></i>
                                  <div style="font-size:11px; color:#fff; font-weight:bold;">Client Group A</div>
                              </div>
-                             <div class="node-card glass-card" style="position:absolute; left:80px; top:220px; width:160px; border-left: 3px solid #3b82f6; padding:8px 12px; display:flex; align-items:center; gap:10px; z-index:2;">
+                             <div class="node-card glass-card" style="position:absolute; left:50px; top:220px; width:160px; border-left: 3px solid #3b82f6; padding:8px 12px; display:flex; align-items:center; gap:10px; z-index:2;">
                                  <i data-lucide="smartphone" style="width:20px; height:20px; color:#3b82f6;"></i>
                                  <div style="font-size:11px; color:#fff; font-weight:bold;">Client Group B</div>
                              </div>
-                             <div class="node-card glass-card" style="position:absolute; left:80px; top:340px; width:160px; border-left: 3px solid #3b82f6; padding:8px 12px; display:flex; align-items:center; gap:10px; z-index:2;">
+                             <div class="node-card glass-card" style="position:absolute; left:50px; top:340px; width:160px; border-left: 3px solid #3b82f6; padding:8px 12px; display:flex; align-items:center; gap:10px; z-index:2;">
                                  <i data-lucide="smartphone" style="width:20px; height:20px; color:#3b82f6;"></i>
                                  <div style="font-size:11px; color:#fff; font-weight:bold;">Client Group C</div>
                              </div>
@@ -15590,7 +15600,7 @@ else if (slideId === 'slide_select_5') {
 
                              <!-- Right Columns: Redis Node & Dimmed DB Node below -->
                              <!-- Redis Node (Green Neon) -->
-                             <div class="node-card redis-node-card glass-card" style="position:absolute; left:500px; top:100px; width:320px; border:2.5px solid #10b981; border-radius:24px; padding:18px; box-shadow:0 15px 40px rgba(16,185,129,0.15); animation: pulseGreen 2.5s infinite; text-align:left; z-index:2;">
+                             <div class="node-card redis-node-card glass-card" style="position:absolute; left:450px; top:100px; width:320px; border:2.5px solid #10b981; border-radius:24px; padding:18px; box-shadow:0 15px 40px rgba(16,185,129,0.15); animation: pulseGreen 2.5s infinite; text-align:left; z-index:2;">
                                  <div style="display:flex; align-items:center; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; margin-bottom:10px;">
                                      <i data-lucide="zap" style="width:30px; height:30px; color:#10b981;"></i>
                                      <div>
@@ -15608,7 +15618,7 @@ else if (slideId === 'slide_select_5') {
                              </div>
 
                              <!-- Dimmed SQL DB Node -->
-                             <div class="node-card sql-dimmed glass-card" style="position:absolute; left:500px; top:320px; width:320px; border:1.5px solid rgba(255,255,255,0.05); opacity:0.4; border-radius:20px; padding:15px; text-align:left; display:flex; align-items:center; gap:12px; z-index:2;">
+                             <div class="node-card sql-dimmed glass-card" style="position:absolute; left:450px; top:320px; width:320px; border:1.5px solid rgba(255,255,255,0.05); opacity:0.4; border-radius:20px; padding:15px; text-align:left; display:flex; align-items:center; gap:12px; z-index:2;">
                                  <i data-lucide="database" style="width:24px; height:24px; color:#94a3b8;"></i>
                                  <div>
                                      <div style="font-size:12px; font-weight:bold; color:#94a3b8;">PostgreSQL (DB)</div>
@@ -15631,14 +15641,14 @@ else if (slideId === 'slide_select_5') {
                              </svg>
 
                              <!-- Left: Redis Cache (RAM) -->
-                             <div class="node-card glass-card" style="position:absolute; left:80px; top:140px; width:200px; padding:18px; text-align:center; border:2px solid #10b981; border-radius:22px; z-index:2;">
+                             <div class="node-card glass-card" style="position:absolute; left:40px; top:140px; width:200px; padding:18px; text-align:center; border:2px solid #10b981; border-radius:22px; z-index:2;">
                                  <i data-lucide="zap" style="width:32px; height:32px; color:#10b981; margin:0 auto 8px auto; animation: pulseGreen 2.5s infinite;"></i>
                                  <div style="font-size:13px; font-weight:bold; color:#fff;">Redis Cache</div>
                                  <div class="redis-sync-views" style="font-family:var(--font-mono); font-size:15px; color:#10b981; font-weight:bold; margin-top:8px; background:rgba(0,0,0,0.4); border-radius:8px; padding:6px; border:1px solid rgba(16,185,129,0.2);">+15,400 views</div>
                              </div>
                              
                              <!-- Center: Sync Worker (Rotating Gear / Progress Ring) -->
-                             <div style="position:absolute; left:360px; top:145px; width:180px; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:2;">
+                             <div style="position:absolute; left:320px; top:145px; width:180px; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:2;">
                                  <div class="worker-gear-container" style="position:relative; width:64px; height:64px; display:flex; align-items:center; justify-content:center;">
                                      <i class="worker-gear" data-lucide="settings" style="width:48px; height:48px; color:var(--gold-primary); animation: rotateSync 6s linear infinite;"></i>
                                  </div>
@@ -15649,7 +15659,7 @@ else if (slideId === 'slide_select_5') {
                              </div>
                              
                              <!-- Right: SQL DB -->
-                             <div class="node-card glass-card" style="position:absolute; left:620px; top:140px; width:200px; padding:18px; text-align:center; border:2px solid #3b82f6; border-radius:22px; z-index:2;">
+                             <div class="node-card glass-card" style="position:absolute; left:580px; top:140px; width:200px; padding:18px; text-align:center; border:2px solid #3b82f6; border-radius:22px; z-index:2;">
                                  <i data-lucide="database" style="width:32px; height:32px; color:#3b82f6; margin:0 auto 8px auto;"></i>
                                  <div style="font-size:13px; font-weight:bold; color:#fff;">SQL Database</div>
                                  <div class="db-sync-views" style="font-family:var(--font-mono); font-size:11px; color:#94a3b8; margin-top:8px; background:rgba(0,0,0,0.4); border-radius:8px; padding:8px; border:1px solid rgba(59,130,246,0.15); line-height:1.2;">views = views + 15,400</div>
@@ -16825,17 +16835,17 @@ else if (slideId === 'slide_select_5') {
                     dot3.style.display = 'block';
                     
                     // Calculate linear translation positions relative to viewport root
-                    const x1 = 300 + (540 - 300) * cyclePct;
+                    const x1 = 250 + (490 - 250) * cyclePct;
                     const y1 = 132 + (272 - 132) * cyclePct;
                     dot1.style.left = `${x1}px`;
                     dot1.style.top = `${y1}px`;
                     
-                    const x2 = 300 + (540 - 300) * cyclePct;
+                    const x2 = 250 + (490 - 250) * cyclePct;
                     const y2 = 272;
                     dot2.style.left = `${x2}px`;
                     dot2.style.top = `${y2}px`;
                     
-                    const x3 = 300 + (540 - 300) * cyclePct;
+                    const x3 = 250 + (490 - 250) * cyclePct;
                     const y3 = 412 + (272 - 412) * cyclePct;
                     dot3.style.left = `${x3}px`;
                     dot3.style.top = `${y3}px`;
@@ -16897,7 +16907,7 @@ else if (slideId === 'slide_select_5') {
                 if (dotSerial) {
                     dotSerial.style.display = 'block';
                     const cyclePct = (progress * 4.0) % 1.0;
-                    const x = 405 + (540 - 405) * cyclePct;
+                    const x = 425 + (490 - 425) * cyclePct;
                     dotSerial.style.left = `${x}px`;
                     dotSerial.style.top = `237px`;
                     
@@ -16955,7 +16965,7 @@ else if (slideId === 'slide_select_5') {
                     p2.style.display = 'block';
                     p3.style.display = 'block';
                     
-                    const x = 240 + (500 - 240) * cycle;
+                    const x = 210 + (450 - 210) * cycle;
                     
                     const y1 = 132 + (180 - 132) * cycle;
                     p1.style.left = `${x}px`;
@@ -17000,7 +17010,7 @@ else if (slideId === 'slide_select_5') {
                     if (progress >= 0.7 && progress < 0.95) {
                         syncPacket.style.display = 'block';
                         const pathPct = (progress - 0.7) / 0.25;
-                        const x = 280 + (620 - 280) * pathPct;
+                        const x = 240 + (580 - 240) * pathPct;
                         syncPacket.style.left = `${x}px`;
                         syncPacket.style.top = `230px`; // aligned with paths
                     } else {
