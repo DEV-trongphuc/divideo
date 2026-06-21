@@ -13630,7 +13630,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
             slide_view_8c: [{ text: 'Quét số 0', start: 0.0, end: 5.0, class: 'active-gold' }, { text: 'Kỷ lục mới', start: 5.0, end: 11.0, class: 'active-good' }],
             slide_view_8d: [{ text: 'Chia nhiều giỏ', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Tránh sai số', start: 6.0, end: 13.0, class: 'active-good' }],
             slide_view_8e: [{ text: 'Trung bình điều hòa', start: 0.0, end: 6.5, class: 'active-gold' }, { text: 'Tính toán view', start: 6.5, end: 13.0, class: 'active-good' }],
-            slide_view_8f: [{ text: 'Google Analytics', start: 0.0, end: 5.0, class: 'active-gold' }, { text: 'YouTube Real-time', start: 5.0, end: 10.0, class: 'active-good' }]
+            slide_view_8f: [{ text: 'Google Analytics', start: 0.0, end: 5.0, class: 'active-gold' }, { text: 'YouTube Công chiếu', start: 5.0, end: 10.0, class: 'active-good' }]
         };
         if (needsTemplate) {
             canvas.innerHTML = `
@@ -14670,22 +14670,6 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                  <i class="filter-shield-icon" data-lucide="shield" style="width:36px; height:36px; color:var(--gold-primary); margin:0 auto 8px auto;"></i>
                                  <div style="font-size:13px; font-weight:bold; color:#fff;">IP Cache Filter</div>
                                  <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">Unique Check (10m TTL)</div>
-                                 
-                                 <!-- IP Registry lookup table mockup -->
-                                 <div style="background:rgba(0,0,0,0.5); border-radius:10px; padding:6px; border:1px solid rgba(255,255,255,0.06); font-family:var(--font-mono); font-size:8px; text-align:left; margin-top:10px; display:flex; flex-direction:column; gap:3px;">
-                                     <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:2px; font-weight:bold;">
-                                         <span>IP / ID</span>
-                                         <span>EXISTS?</span>
-                                     </div>
-                                     <div style="display:flex; justify-content:space-between; color:#ef4444;">
-                                         <span>1.1.1.1</span>
-                                         <span>YES (BLOCK)</span>
-                                     </div>
-                                     <div style="display:flex; justify-content:space-between; color:#10b981;">
-                                         <span>2.2.2.2</span>
-                                         <span>NO (PASS)</span>
-                                     </div>
-                                 </div>
                                  <!-- Neon red shield pulse block overlay -->
                                  <div class="filter-barrier" style="position:absolute; inset:0; background:rgba(239,68,68,0.2); backdrop-filter:blur(2px); border-radius:22px; border:2.5px solid #ef4444; display:none; align-items:center; justify-content:center; opacity:0; transition:all 0.3s ease;">
                                      <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
@@ -15187,27 +15171,15 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                
                                <div style="display:flex; justify-content:center; gap:35px; width:100%; margin-top:35px; z-index:2; box-sizing:border-box; padding:0 20px;">
                                    <!-- Left: Google Analytics Card -->
-                                   <div class="tech-card glass-card gc-ga" style="width:400px; height:240px; border:2px solid rgba(255,255,255,0.08); border-radius:28px; padding:25px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
-                                       <div style="background:rgba(245,158,11,0.15); border:2px solid rgba(245,158,11,0.4); border-radius:50%; width:56px; height:56px; display:flex; align-items:center; justify-content:center; box-shadow: 0 0 15px rgba(245,158,11,0.25);">
-                                           <!-- High-quality Custom SVG for Bar Chart -->
-                                           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                                       </div>
-                                       <div style="font-size:18px; font-weight:bold; color:#fff;">Google Analytics</div>
-                                       <div style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-top:6px;">
-                                           Đếm số lượng người dùng hoạt động đồng thời (Active Users) trong thời gian thực trên hàng triệu website toàn cầu.
-                                       </div>
+                                   <div class="tech-card glass-card gc-ga" style="width:400px; height:240px; border:2px solid rgba(255,255,255,0.08); border-radius:28px; padding:25px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; transition:all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
+                                        <img src="https://images.seeklogo.com/logo-png/46/2/google-analytics-logo-png_seeklogo-463929.png" style="width:72px; height:72px; object-fit:contain; filter:drop-shadow(0 0 12px rgba(245,158,11,0.4));" />
+                                        <div style="font-size:26px; font-weight:bold; color:#fff;">Google Analytics</div>
                                    </div>
                                    
-                                   <!-- Right: YouTube Real-time Card -->
-                                   <div class="tech-card glass-card gc-yt" style="width:400px; height:240px; border:2px solid rgba(255,255,255,0.08); border-radius:28px; padding:25px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
-                                       <div style="background:rgba(239,68,68,0.15); border:2px solid rgba(239,68,68,0.4); border-radius:50%; width:56px; height:56px; display:flex; align-items:center; justify-content:center; box-shadow: 0 0 15px rgba(239,68,68,0.25);">
-                                           <!-- High-quality Custom SVG for YouTube Play Button -->
-                                           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3" fill="#ef4444"/></svg>
-                                       </div>
-                                       <div style="font-size:18px; font-weight:bold; color:#fff;">YouTube Real-time</div>
-                                       <div style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-top:6px;">
-                                           Đếm lượt xem công chiếu (Live View) của hàng triệu người xem đồng thời mà không làm sập hay quá tải cơ sở dữ liệu.
-                                       </div>
+                                   <!-- Right: YouTube Công chiếu Card -->
+                                   <div class="tech-card glass-card gc-yt" style="width:400px; height:240px; border:2px solid rgba(255,255,255,0.08); border-radius:28px; padding:25px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; transition:all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" style="width:110px; height:auto; object-fit:contain; filter:drop-shadow(0 0 12px rgba(239,68,68,0.5));" />
+                                        <div style="font-size:26px; font-weight:bold; color:#fff;">YouTube Công chiếu</div>
                                    </div>
                                </div>
                                
@@ -15722,18 +15694,18 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                 dot2.style.display = 'block';
                 dot3.style.display = 'block';
                 // Calculate linear translation positions relative to viewport root (centered on lines)
-                const startX = 250;
-                const endX = 490;
+                const startX = 260;
+                const endX = 470;
                 const x = startX + (endX - startX) * cyclePct;
-                const y1 = 132 + (272 - 132) * cyclePct;
-                dot1.style.left = `${x - 8}px`;
-                dot1.style.top = `${y1 - 8}px`;
-                const y2 = 272;
-                dot2.style.left = `${x - 8}px`;
-                dot2.style.top = `${y2 - 8}px`;
-                const y3 = 412 + (272 - 412) * cyclePct;
-                dot3.style.left = `${x - 8}px`;
-                dot3.style.top = `${y3 - 8}px`;
+                const y1 = 112 + (230 - 112) * cyclePct;
+                dot1.style.left = `${x - 7}px`;
+                dot1.style.top = `${y1 - 7}px`;
+                const y2 = 252 + (255 - 252) * cyclePct;
+                dot2.style.left = `${x - 7}px`;
+                dot2.style.top = `${y2 - 7}px`;
+                const y3 = 392 + (280 - 392) * cyclePct;
+                dot3.style.left = `${x - 7}px`;
+                dot3.style.top = `${y3 - 7}px`;
             }
             // Row Lock state triggers
             if (progress >= 0.35) {
