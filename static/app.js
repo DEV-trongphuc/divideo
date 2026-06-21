@@ -1541,32 +1541,93 @@ function formatSubtitleHTML(subtitle) {
     return escaped;
 }
 
-function getActiveSubtitleChunk(script, animTime, duration) {
-    if (!script) return '';
-    const words = script.trim().split(/\s+/).filter(w => w.length > 0);
-    if (words.length <= 8) return script;
+function segmentScriptIntoPhrases(script) {
+    if (!script) return [];
     
-    const wordsPerChunk = 8;
-    const chunks = [];
-    for (let i = 0; i < words.length; i += wordsPerChunk) {
-        chunks.push(words.slice(i, i + wordsPerChunk).join(' '));
+    // Split by major punctuation boundaries but retain delimiters attached to previous items
+    const rawSegments = script.split(/([.,;?!\n]+)/);
+    const segments = [];
+    let currentPhrase = '';
+    
+    for (let i = 0; i < rawSegments.length; i++) {
+        const item = rawSegments[i];
+        if (!item) continue;
+        
+        if (/^[.,;?!\n\s]+$/.test(item)) {
+            currentPhrase += item;
+        } else {
+            if (currentPhrase.trim().length > 0) {
+                segments.push(currentPhrase.trim());
+            }
+            currentPhrase = item;
+        }
+    }
+    if (currentPhrase.trim().length > 0) {
+        segments.push(currentPhrase.trim());
     }
     
-    const totalWords = words.length;
-    let currentWordCount = 0;
+    const finalPhrases = [];
+    for (let i = 0; i < segments.length; i++) {
+        const phrase = segments[i];
+        const words = phrase.split(/\s+/).filter(w => w.length > 0);
+        
+        if (words.length > 10) {
+            // Split long sentences at space boundaries (max 8 words)
+            const maxWords = 8;
+            for (let j = 0; j < words.length; j += maxWords) {
+                const subWords = words.slice(j, j + maxWords);
+                finalPhrases.push(subWords.join(' '));
+            }
+        } else if (words.length > 0) {
+            finalPhrases.push(phrase);
+        }
+    }
     
-    for (let i = 0; i < chunks.length; i++) {
-        const chunk = chunks[i];
-        const chunkWords = chunk.split(/\s+/).filter(w => w.length > 0).length;
+    // Merge tiny phrases (<= 3 words) with adjacent ones if total is <= 9 words
+    const mergedPhrases = [];
+    for (let i = 0; i < finalPhrases.length; i++) {
+        const phrase = finalPhrases[i];
+        if (mergedPhrases.length === 0) {
+            mergedPhrases.push(phrase);
+        } else {
+            const lastIdx = mergedPhrases.length - 1;
+            const lastPhrase = mergedPhrases[lastIdx];
+            const lastWordCount = lastPhrase.split(/\s+/).length;
+            const currentWordCount = phrase.split(/\s+/).length;
+            
+            if (currentWordCount <= 3 && (lastWordCount + currentWordCount <= 9)) {
+                mergedPhrases[lastIdx] = lastPhrase + ' ' + phrase;
+            } else {
+                mergedPhrases.push(phrase);
+            }
+        }
+    }
+    return mergedPhrases;
+}
+
+function getActiveSubtitleChunk(script, animTime, duration) {
+    if (!script) return '';
+    
+    const phrases = segmentScriptIntoPhrases(script);
+    if (phrases.length === 0) return '';
+    if (phrases.length === 1) return phrases[0];
+    
+    const totalWords = script.trim().split(/\s+/).filter(w => w.length > 0).length;
+    if (totalWords === 0) return '';
+    
+    let currentWordCount = 0;
+    for (let i = 0; i < phrases.length; i++) {
+        const phrase = phrases[i];
+        const phraseWords = phrase.split(/\s+/).filter(w => w.length > 0).length;
         const start = (currentWordCount / totalWords) * duration;
-        currentWordCount += chunkWords;
+        currentWordCount += phraseWords;
         const end = (currentWordCount / totalWords) * duration;
         
         if (animTime >= start && animTime < end) {
-            return chunk;
+            return phrase;
         }
     }
-    return chunks[chunks.length - 1] || '';
+    return phrases[phrases.length - 1] || '';
 }
 
 function formatLeftSplitItemHTML(itemLeft) {
@@ -16110,8 +16171,8 @@ else if (slideId === 'slide_select_5') {
         if (subtitleBox) {
             if (slide.script) {
                 const duration = getSlideDuration(slide);
-                // Introduce a 0.4s lead time so subtitles appear slightly ahead of narration
-                const activeChunk = getActiveSubtitleChunk(slide.script, animTime + 0.4, duration);
+                // Introduce a 0.3s lead time so subtitles appear slightly ahead of narration
+                const activeChunk = getActiveSubtitleChunk(slide.script, animTime + 0.3, duration);
                 let scriptHTML = formatSubtitleHTML(activeChunk);
                 
                 // Retrieve currently active keywords from the DOM tags
