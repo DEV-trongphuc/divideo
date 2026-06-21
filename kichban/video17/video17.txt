@@ -1,0 +1,23 @@
+[SLIDE 1]
+Intro: Spotify gợi ý nhạc: Công nghệ đọc vị tâm trạng của bạn
+Lời thoại: Hãy tưởng tượng, vào một buổi sáng thứ Hai âm u, bạn mở Spotify và nhận được danh sách gợi ý nhạc tuần mới. Có một bài hát của một ca sĩ xa lạ cất lên, nhưng giai điệu lại đúng gu của bạn đến kỳ lạ. Làm sao Spotify hiểu được tâm trạng của bạn tốt hơn cả những người bạn thân? Đằng sau không phải là phép thuật, mà là sự kết hợp của ba thuật toán thông minh bậc nhất.
+
+[SLIDE 2]
+Thuật toán 1: Lọc cộng tác (Collaborative Filtering)
+Lời thoại: Đầu tiên là thuật toán Lọc cộng tác. Nó so khớp thói quen nghe nhạc của bạn với hàng trăm triệu người khác. Ví dụ, nếu bạn và một người dùng khác cùng thích bài hát A, B, C, và người đó thích thêm bài hát D nhưng bạn chưa từng nghe. Spotify sẽ xem người đó là "tri kỷ âm nhạc" của bạn và tự động đề xuất bài hát D vào danh sách của bạn.
+
+[SLIDE 3]
+Thuật toán 2: Phân tích văn bản (NLP Model)
+Lời thoại: Nhưng chỉ thói quen nghe nhạc là chưa đủ. Spotify liên tục quét hàng triệu bài viết, blog âm nhạc và playlist trên mạng để thu thập từ ngữ mô tả các bài hát. Nếu bài hát A và bài hát B thường xuyên được mô tả bằng các từ giống nhau như "chill", "lo-fi", hoặc "nhạc ngắm mưa", AI sẽ hiểu hai bài hát này có cùng tần số cảm xúc và nhóm chúng lại với nhau.
+
+[SLIDE 4]
+Thuật toán 3: Phân tích sóng âm (Audio Analysis bằng CNN)
+Lời thoại: Vậy nếu là một bài hát mới phát hành có không lượt nghe? Khi này Lọc cộng tác và phân tích văn bản sẽ vô dụng, gọi là lỗi Khởi đầu lạnh. Để giải quyết, Spotify dùng mạng nơ-ron tích chập CNN để trực tiếp "nghe" sóng âm của bài hát mới, phân tích nhịp độ, tông giọng và nhạc cụ để giải mã DNA âm nhạc, rồi xếp nó cạnh những bài hát quen thuộc của bạn.
+
+[SLIDE 5]
+Trái tim hệ thống: Không gian Vector & Thư viện Annoy
+Lời thoại: Cuối cùng, Spotify biến tất cả thông tin trên thành các tọa độ Vector trên một bản đồ âm nhạc hàng nghìn chiều. Cả bạn và hàng trăm triệu bài hát đều là những điểm chấm trên bản đồ này. Để tìm nhạc gợi ý ngay lập tức, Spotify sử dụng thư viện mã nguồn mở Annoy do chính họ phát triển để quét và lọc ra các bài hát nằm gần tọa độ của bạn nhất chỉ trong vài micro-giây.
+
+[SLIDE 6]
+Follow @Turnio.dev
+Lời thoại: Đó chính là lý do vì sao danh sách nhạc gợi ý của Spotify luôn chạm đúng tim đen của bạn. Hãy nhấn tim, share và Follow Turnio chấm dev để cùng khám phá thêm những bí mật thiết kế hệ thống đứng sau các ứng dụng hàng đầu nhé!

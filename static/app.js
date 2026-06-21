@@ -148,6 +148,7 @@ function getSlideIcon(slide) {
     if (slide.layout === 'diagram') return "git-commit";
     if (slide.layout === 'cards') return "layout-grid";
     if (slide.layout === 'metrics') return "trending-up";
+    if (slide.layout === 'spotify') return "music";
     return "heading";
 }
 
@@ -187,6 +188,7 @@ function getSlideHeaderEmoji(slide) {
     if (slide.layout === 'diagram') return "🎯";
     if (slide.layout === 'cards') return "🎴";
     if (slide.layout === 'metrics') return "📊";
+    if (slide.layout === 'spotify') return "🎵";
     return "💡";
 }
 
@@ -677,6 +679,22 @@ function setupEventListeners() {
         });
     }
 
+    bindInput('slide-spotify-playlist', 'spotifyPlaylist', true);
+    bindInput('slide-spotify-search-query', 'spotifySearchQuery', true);
+    bindInput('slide-spotify-active-song', 'spotifyActiveSong', true);
+    bindInput('slide-spotify-songs', 'spotifySongs', true);
+
+    const spotifyViewModeSelect = document.getElementById('slide-spotify-view-mode');
+    if (spotifyViewModeSelect) {
+        spotifyViewModeSelect.addEventListener('change', (e) => {
+            if (slides[currentSlideIndex]) {
+                slides[currentSlideIndex].spotifyViewMode = e.target.value;
+                renderActiveSlide(true);
+                debounceSave();
+            }
+        });
+    }
+
     const standardBtn = document.getElementById('tts-mode-standard-btn');
     const voxcpmBtn = document.getElementById('tts-mode-voxcpm-btn');
     const standardContainer = document.getElementById('standard-voice-container');
@@ -1150,6 +1168,17 @@ function renderActiveSlide(forceRebuild = true) {
     const transitionThemeElem = document.getElementById('slide-transition-theme');
     if (transitionThemeElem) transitionThemeElem.value = slide.transitionTheme || 'warning';
 
+    const spotifyViewModeElem = document.getElementById('slide-spotify-view-mode');
+    if (spotifyViewModeElem) spotifyViewModeElem.value = slide.spotifyViewMode || 'playlist';
+    const spotifyPlaylistElem = document.getElementById('slide-spotify-playlist');
+    if (spotifyPlaylistElem) spotifyPlaylistElem.value = slide.spotifyPlaylist || '';
+    const spotifySearchQueryElem = document.getElementById('slide-spotify-search-query');
+    if (spotifySearchQueryElem) spotifySearchQueryElem.value = slide.spotifySearchQuery || '';
+    const spotifyActiveSongElem = document.getElementById('slide-spotify-active-song');
+    if (spotifyActiveSongElem) spotifyActiveSongElem.value = slide.spotifyActiveSong || '';
+    const spotifySongsElem = document.getElementById('slide-spotify-songs');
+    if (spotifySongsElem) spotifySongsElem.value = slide.spotifySongs || '';
+
     // Set Layout Button active state
     const layoutBtns = document.querySelectorAll('.layout-btn');
     layoutBtns.forEach(btn => {
@@ -1224,6 +1253,8 @@ function showLayoutInputs(layout) {
     if (searchInputGroup) searchInputGroup.style.display = layout === 'search' ? 'block' : 'none';
     const transitionInputGroup = document.getElementById('layout-input-transition');
     if (transitionInputGroup) transitionInputGroup.style.display = layout === 'transition' ? 'block' : 'none';
+    const spotifyInputGroup = document.getElementById('layout-input-spotify');
+    if (spotifyInputGroup) spotifyInputGroup.style.display = layout === 'spotify' ? 'block' : 'none';
 
     if (layout === 'diagram') {
         renderDiagramEditor();
@@ -6490,6 +6521,11 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
             ];
 
             const keywordsData = {
+                slide_short_1: [{ text: 'Rút gọn liên kết', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '7 ký tự', start: 5.0, end: 14.5, class: 'active-good' }],
+                slide_short_2: [{ text: 'Check trùng', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Sập database', start: 6.0, end: 15.0, class: 'active-bad' }],
+                slide_short_3: [{ text: 'Base 62', start: 0.0, end: 6.0, class: 'active-good' }, { text: '3.5 nghìn tỷ', start: 6.0, end: 14.0, class: 'active-good' }],
+                slide_short_4: [{ text: 'ID tăng dần', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Snowflake', start: 6.0, end: 14.0, class: 'active-gold' }],
+                slide_short_5: [{ text: 'Chuyển hướng', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '301 vs 302', start: 5.0, end: 15.0, class: 'active-good' }],
                 slide_geo_1a: [
                     { text: 'Đặt xe', start: 0.0, end: 3.5, class: 'active-gold' },
                     { text: '3 giây', start: 3.5, end: 7.0, class: 'active-gold' }
@@ -7269,6 +7305,11 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
             const progress = isPlaying ? (animTime / getSlideDuration(slide)) : 1.0;
             
             const keywordsData = {
+                slide_short_1: [{ text: 'Rút gọn liên kết', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '7 ký tự', start: 5.0, end: 14.5, class: 'active-good' }],
+                slide_short_2: [{ text: 'Check trùng', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Sập database', start: 6.0, end: 15.0, class: 'active-bad' }],
+                slide_short_3: [{ text: 'Base 62', start: 0.0, end: 6.0, class: 'active-good' }, { text: '3.5 nghìn tỷ', start: 6.0, end: 14.0, class: 'active-good' }],
+                slide_short_4: [{ text: 'ID tăng dần', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Snowflake', start: 6.0, end: 14.0, class: 'active-gold' }],
+                slide_short_5: [{ text: 'Chuyển hướng', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '301 vs 302', start: 5.0, end: 15.0, class: 'active-good' }],
                 slide_ticket_1a_2: [
                     { text: 'Giây 0:00', start: 0.0, end: 2.5, class: 'active-gold' },
                     { text: 'Milli-giây', start: 2.5, end: 5.0, class: 'active-gold' }
@@ -9244,6 +9285,11 @@ else if (slideId === 'slide_select_5') {
             const progress = isPlaying ? (animTime / getSlideDuration(slide)) : 1.0;
 
             const keywordsData = {
+                slide_short_1: [{ text: 'Rút gọn liên kết', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '7 ký tự', start: 5.0, end: 14.5, class: 'active-good' }],
+                slide_short_2: [{ text: 'Check trùng', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Sập database', start: 6.0, end: 15.0, class: 'active-bad' }],
+                slide_short_3: [{ text: 'Base 62', start: 0.0, end: 6.0, class: 'active-good' }, { text: '3.5 nghìn tỷ', start: 6.0, end: 14.0, class: 'active-good' }],
+                slide_short_4: [{ text: 'ID tăng dần', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Snowflake', start: 6.0, end: 14.0, class: 'active-gold' }],
+                slide_short_5: [{ text: 'Chuyển hướng', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '301 vs 302', start: 5.0, end: 15.0, class: 'active-good' }],
                 slide_bank_1a_1: [
                     { text: 'Quét mã QR', start: 0.0, end: 3.0, class: 'active-gold' },
                     { text: 'Chuẩn ISO 8583', start: 3.0, end: 6.0, class: 'active-good' }
@@ -10222,6 +10268,11 @@ else if (slideId === 'slide_select_5') {
             const progress = isPlaying ? (animTime / getSlideDuration(slide)) : 1.0;
 
             const keywordsData = {
+                slide_short_1: [{ text: 'Rút gọn liên kết', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '7 ký tự', start: 5.0, end: 14.5, class: 'active-good' }],
+                slide_short_2: [{ text: 'Check trùng', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Sập database', start: 6.0, end: 15.0, class: 'active-bad' }],
+                slide_short_3: [{ text: 'Base 62', start: 0.0, end: 6.0, class: 'active-good' }, { text: '3.5 nghìn tỷ', start: 6.0, end: 14.0, class: 'active-good' }],
+                slide_short_4: [{ text: 'ID tăng dần', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Snowflake', start: 6.0, end: 14.0, class: 'active-gold' }],
+                slide_short_5: [{ text: 'Chuyển hướng', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '301 vs 302', start: 5.0, end: 15.0, class: 'active-good' }],
                 slide_idem_1: [{ text: 'Trừ tiền 2 lần', start: 0.0, end: 10.0, class: 'active-bad' }],
                 slide_idem_2: [{ text: 'Trừ tiền 2 lần', start: 0.0, end: 10.0, class: 'active-bad' }],
                 slide_idem_3: [{ text: 'Race Condition', start: 0.0, end: 10.0, class: 'active-bad' }],
@@ -11423,6 +11474,11 @@ else if (slideId === 'slide_select_5') {
             const progress = isPlaying ? (animTime / getSlideDuration(slide)) : 1.0;
 
             const keywordsData = {
+                slide_short_1: [{ text: 'Rút gọn liên kết', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '7 ký tự', start: 5.0, end: 14.5, class: 'active-good' }],
+                slide_short_2: [{ text: 'Check trùng', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Sập database', start: 6.0, end: 15.0, class: 'active-bad' }],
+                slide_short_3: [{ text: 'Base 62', start: 0.0, end: 6.0, class: 'active-good' }, { text: '3.5 nghìn tỷ', start: 6.0, end: 14.0, class: 'active-good' }],
+                slide_short_4: [{ text: 'ID tăng dần', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Snowflake', start: 6.0, end: 14.0, class: 'active-gold' }],
+                slide_short_5: [{ text: 'Chuyển hướng', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '301 vs 302', start: 5.0, end: 15.0, class: 'active-good' }],
                 slide_totp_1a_2_1: [{ text: 'Chế độ máy bay', start: 0.0, end: 5.48, class: 'active-gold' }],
                 slide_totp_1a_2: [{ text: 'Hoạt động offline', start: 0.0, end: 8.2, class: 'active-good' }],
                 slide_totp_1a_2_2: [{ text: 'Không có Internet', start: 0.0, end: 11.4, class: 'active-good' }],
@@ -12673,10 +12729,16 @@ else if (slideId === 'slide_select_5') {
             const progress = isPlaying ? (animTime / getSlideDuration(slide)) : 1.0;
 
             const keywordsData = {
+                slide_short_1: [{ text: 'Rút gọn liên kết', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '7 ký tự', start: 5.0, end: 14.5, class: 'active-good' }],
+                slide_short_2: [{ text: 'Check trùng', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Sập database', start: 6.0, end: 15.0, class: 'active-bad' }],
+                slide_short_3: [{ text: 'Base 62', start: 0.0, end: 6.0, class: 'active-good' }, { text: '3.5 nghìn tỷ', start: 6.0, end: 14.0, class: 'active-good' }],
+                slide_short_4: [{ text: 'ID tăng dần', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Snowflake', start: 6.0, end: 14.0, class: 'active-gold' }],
+                slide_short_5: [{ text: 'Chuyển hướng', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '301 vs 302', start: 5.0, end: 15.0, class: 'active-good' }],
                 slide_captcha_1a: [{ text: 'chứng minh mình là con người', start: 1.0, end: 5.1, class: 'active-good' }],
                 slide_captcha_1a2: [{ text: 'Cuộc chiến chống Bot', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'spam tự động', start: 6.0, end: 11.484, class: 'active-bad' }],
                 slide_captcha_1b: [{ text: 'bẻ cong, bóp méo', start: 3.0, end: 9.5, class: 'active-gold' }, { text: 'quét lỗi 99%', start: 9.5, end: 17.18, class: 'active-good' }],
                 slide_captcha_2a: [{ text: 'chọn hình ảnh', start: 3.0, end: 9.0, class: 'active-gold' }, { text: 'huấn luyện AI', start: 9.0, end: 19.8, class: 'active-good' }],
+                slide_captcha_2b: [{ text: 'trí tuệ nhân tạo', start: 1.0, end: 6.0, class: 'active-gold' }, { text: 'thị giác máy tính', start: 6.0, end: 11.0, class: 'active-gold' }, { text: 'vô nghĩa', start: 11.0, end: 15.0, class: 'active-bad' }],
                 slide_captcha_3a: [{ text: 'Tôi không phải là robot', start: 2.0, end: 7.5, class: 'active-good' }, { text: '1 cú click', start: 7.5, end: 12.6, class: 'active-gold' }],
                 slide_captcha_3b: [{ text: 'quỹ đạo chuột', start: 2.0, end: 9.0, class: 'active-gold' }, { text: 'uốn lượn tự nhiên', start: 9.0, end: 17.28, class: 'active-good' }],
                 slide_captcha_4a: [{ text: 'vô hình 100%', start: 0.0, end: 8.0, class: 'active-good' }, { text: 'chấm điểm tin cậy', start: 8.0, end: 19.78, class: 'active-gold' }]
@@ -12852,27 +12914,27 @@ else if (slideId === 'slide_select_5') {
                     
                     if (slideId === 'slide_captcha_1a') {
                         gfxLayer.innerHTML = `
-                            <div class="checkbox-card captcha-node" style="position:absolute; left:250px; top:130px; width:400px; height:240px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:25px;">
-                                <div class="recaptcha-anchor" style="width:320px; height:80px; background:#fff; border:1px solid #d3d3d3; border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:0 15px; box-sizing:border-box; color:#000; box-shadow: 0 4px 10px rgba(0,0,0,0.15); position:relative;">
-                                    <div style="display:flex; align-items:center; gap:12px;">
-                                        <div class="captcha-checkbox-box" style="width:28px; height:28px; border:2px solid #c1c1c1; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative; background:#f9f9f9; transition:all 0.3s;">
-                                            <div class="captcha-check-indicator" style="width:14px; height:8px; border-left:3px solid #00aa00; border-bottom:3px solid #00aa00; transform:rotate(-45deg) scale(0); opacity:0; transition:all 0.3s; margin-top:-2px;"></div>
-                                            <div class="captcha-check-spinner" style="position:absolute; left:4px; top:4px; width:20px; height:20px; border:2px solid #3b82f6; border-top-color:transparent; border-radius:50%; animation: bufferRotateSimple 1s infinite linear; display:none;"></div>
+                            <div class="checkbox-card captcha-node" style="position:absolute; left:200px; top:100px; width:500px; height:300px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px;">
+                                <div class="recaptcha-anchor" style="width:440px; height:110px; background:#fff; border:1px solid #d3d3d3; border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; box-sizing:border-box; color:#000; box-shadow: 0 4px 10px rgba(0,0,0,0.15); position:relative;">
+                                    <div style="display:flex; align-items:center; gap:16px;">
+                                        <div class="captcha-checkbox-box" style="width:38px; height:38px; border:2px solid #c1c1c1; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative; background:#f9f9f9; transition:all 0.3s;">
+                                            <div class="captcha-check-indicator" style="width:18px; height:10px; border-left:4px solid #00aa00; border-bottom:4px solid #00aa00; transform:rotate(-45deg) scale(0); opacity:0; transition:all 0.3s; margin-top:-3px;"></div>
+                                            <div class="captcha-check-spinner" style="position:absolute; left:5px; top:5px; width:28px; height:28px; border:3px solid #3b82f6; border-top-color:transparent; border-radius:50%; animation: bufferRotateSimple 1s infinite linear; display:none;"></div>
                                         </div>
-                                        <span style="font-family:Roboto,helvetica,arial,sans-serif; font-size:14px; font-weight:400; color:#2c2c2c;">Tôi không phải là robot</span>
+                                        <span style="font-family:Roboto,helvetica,arial,sans-serif; font-size:18px; font-weight:400; color:#2c2c2c;">Tôi không phải là robot</span>
                                     </div>
                                     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-                                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" style="width:32px; height:32px;" alt="recaptcha logo"/>
-                                        <span style="font-size:8px; color:#555; margin-top:2px;">reCAPTCHA</span>
-                                        <span style="font-size:7px; color:#555;">Bảo mật - Điều khoản</span>
+                                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" style="width:44px; height:44px;" alt="recaptcha logo"/>
+                                        <span style="font-size:10px; color:#555; margin-top:3px;">reCAPTCHA</span>
+                                        <span style="font-size:9px; color:#555;">Bảo mật - Điều khoản</span>
                                     </div>
                                 </div>
-                                <span class="checkbox-status-lbl" style="font-size:14px; font-weight:bold; color:var(--text-muted); text-transform:uppercase;">Bấm tích để kiểm tra</span>
+                                <span class="checkbox-status-lbl" style="font-size:18px; font-weight:bold; color:var(--text-muted); text-transform:uppercase;">Bấm tích để kiểm tra</span>
                             </div>
                             <div class="virtual-cursor" style="position:absolute; pointer-events:none; z-index:100; left:500px; top:320px; color:#3b82f6; filter:drop-shadow(0 2px 5px rgba(0,0,0,0.3)); display:flex; align-items:center; transition: all 0.1s ease;">
                                 <i data-lucide="mouse-pointer" style="width:28px; height:28px; fill:#3b82f6;"></i>
                             </div>
-                            <div class="click-ripple" style="position:absolute; width:40px; height:40px; border-radius:50%; border:3px solid #3b82f6; background:rgba(59,130,246,0.2); transform:scale(0); opacity:0; z-index:99; pointer-events:none; left:284px; top:186px;"></div>
+                            <div class="click-ripple" style="position:absolute; width:54px; height:54px; border-radius:50%; border:3px solid #3b82f6; background:rgba(59,130,246,0.2); transform:scale(0); opacity:0; z-index:99; pointer-events:none; left:242px; top:196px;"></div>
                         `;
                     }
                     else if (slideId === 'slide_captcha_1a2') {
@@ -12943,24 +13005,144 @@ else if (slideId === 'slide_select_5') {
                             </div>
                         `;
                     }
-                    else if (slideId === 'slide_captcha_3a') {
+                    else if (slideId === 'slide_captcha_2b') {
                         gfxLayer.innerHTML = `
-                            <div class="checkbox-card captcha-node" style="position:absolute; left:250px; top:130px; width:400px; height:240px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:25px;">
-                                <div class="recaptcha-anchor" style="width:320px; height:80px; background:#fff; border:1px solid #d3d3d3; border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:0 15px; box-sizing:border-box; color:#000; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-                                    <div style="display:flex; align-items:center; gap:12px;">
-                                        <div class="captcha-checkbox-box" style="width:28px; height:28px; border:2px solid #c1c1c1; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative; background:#f9f9f9; transition:all 0.3s;">
-                                            <div class="captcha-check-indicator" style="width:14px; height:8px; border-left:3px solid #00aa00; border-bottom:3px solid #00aa00; transform:rotate(-45deg) scale(0); opacity:0; transition:all 0.3s; margin-top:-2px;"></div>
-                                            <div class="captcha-check-spinner" style="position:absolute; left:4px; top:4px; width:20px; height:20px; border:2px solid #3b82f6; border-top-color:transparent; border-radius:50%; animation: bufferRotateSimple 1s infinite linear; display:none;"></div>
+                            <div class="image-grid-card captcha-node" style="position:absolute; left:220px; top:50px; width:460px; height:400px; display:flex; flex-direction:column; justify-content:space-between; padding:20px 25px;">
+                                <div style="width:100%; text-align:left; border-bottom:1.5px solid rgba(255,255,255,0.1); padding-bottom:10px;">
+                                    <div style="font-size:12px; font-weight:bold; color:#ef4444; text-transform:uppercase; letter-spacing:0.5px;">AI OBJECT DETECTION SCAN</div>
+                                    <div style="font-size:18px; font-weight:900; color:#fff; margin-top:2px;">Target: <span style="color:#ef4444;">All Objects Identified</span></div>
+                                </div>
+                                
+                                <div style="position:relative; width:100%; margin:15px 0;">
+                                    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; width:100%;">
+                                        <div class="ai-img-cell cell-1" style="height:85px; background: #1e293b; border: 1.5px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; font-size:30px; border-radius:8px; position:relative; overflow:hidden;">
+                                            🚗
+                                            <div class="ai-box" style="position:absolute; inset:2px; border:2px solid #10b981; background:rgba(16,185,129,0.15); display:none; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding:2px; box-sizing:border-box;">
+                                                <span style="font-size:7px; font-weight:900; color:#fff; background:#10b981; padding:1px 3px; border-radius:2px;">CAR:99%</span>
+                                            </div>
                                         </div>
-                                        <span style="font-family:Roboto,helvetica,arial,sans-serif; font-size:14px; font-weight:400; color:#2c2c2c;">Tôi không phải là robot</span>
+                                        <div class="ai-img-cell cell-2" style="height:85px; background: #1e293b; border: 1.5px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; font-size:30px; border-radius:8px; position:relative; overflow:hidden;">
+                                            🚶
+                                            <div class="ai-box" style="position:absolute; inset:2px; border:2px solid #10b981; background:rgba(16,185,129,0.15); display:none; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding:2px; box-sizing:border-box;">
+                                                <span style="font-size:7px; font-weight:900; color:#fff; background:#10b981; padding:1px 3px; border-radius:2px;">PED:98%</span>
+                                            </div>
+                                        </div>
+                                        <div class="ai-img-cell cell-3" style="height:85px; background: #1e293b; border: 1.5px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; font-size:30px; border-radius:8px; position:relative; overflow:hidden;">
+                                            🌴
+                                            <div class="ai-box" style="position:absolute; inset:2px; border:2px solid #10b981; background:rgba(16,185,129,0.15); display:none; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding:2px; box-sizing:border-box;">
+                                                <span style="font-size:7px; font-weight:900; color:#fff; background:#10b981; padding:1px 3px; border-radius:2px;">TREE:95%</span>
+                                            </div>
+                                        </div>
+                                        <div class="ai-img-cell cell-4" style="height:85px; background: #1e293b; border: 1.5px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; font-size:30px; border-radius:8px; position:relative; overflow:hidden;">
+                                            🚲
+                                            <div class="ai-box" style="position:absolute; inset:2px; border:2px solid #10b981; background:rgba(16,185,129,0.15); display:none; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding:2px; box-sizing:border-box;">
+                                                <span style="font-size:7px; font-weight:900; color:#fff; background:#10b981; padding:1px 3px; border-radius:2px;">BIKE:97%</span>
+                                            </div>
+                                        </div>
+                                        <div class="ai-img-cell cell-5" style="height:85px; background: #1e293b; border: 1.5px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; font-size:30px; border-radius:8px; position:relative; overflow:hidden;">
+                                            🚶
+                                            <div class="ai-box" style="position:absolute; inset:2px; border:2px solid #10b981; background:rgba(16,185,129,0.15); display:none; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding:2px; box-sizing:border-box;">
+                                                <span style="font-size:7px; font-weight:900; color:#fff; background:#10b981; padding:1px 3px; border-radius:2px;">PED:99%</span>
+                                            </div>
+                                        </div>
+                                        <div class="ai-img-cell cell-6" style="height:85px; background: #1e293b; border: 1.5px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; font-size:30px; border-radius:8px; position:relative; overflow:hidden;">
+                                            🚗
+                                            <div class="ai-box" style="position:absolute; inset:2px; border:2px solid #10b981; background:rgba(16,185,129,0.15); display:none; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding:2px; box-sizing:border-box;">
+                                                <span style="font-size:7px; font-weight:900; color:#fff; background:#10b981; padding:1px 3px; border-radius:2px;">CAR:96%</span>
+                                            </div>
+                                        </div>
+                                        <div class="ai-img-cell cell-7" style="height:85px; background: #1e293b; border: 1.5px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; font-size:30px; border-radius:8px; position:relative; overflow:hidden;">
+                                            🚦
+                                            <div class="ai-box" style="position:absolute; inset:2px; border:2px solid #10b981; background:rgba(16,185,129,0.15); display:none; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding:2px; box-sizing:border-box;">
+                                                <span style="font-size:7px; font-weight:900; color:#fff; background:#10b981; padding:1px 3px; border-radius:2px;">LIGHT:98%</span>
+                                            </div>
+                                        </div>
+                                        <div class="ai-img-cell cell-8" style="height:85px; background: #1e293b; border: 1.5px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; font-size:30px; border-radius:8px; position:relative; overflow:hidden;">
+                                            🐱
+                                            <div class="ai-box" style="position:absolute; inset:2px; border:2px solid #10b981; background:rgba(16,185,129,0.15); display:none; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding:2px; box-sizing:border-box;">
+                                                <span style="font-size:7px; font-weight:900; color:#fff; background:#10b981; padding:1px 3px; border-radius:2px;">CAT:99%</span>
+                                            </div>
+                                        </div>
+                                        <div class="ai-img-cell cell-9" style="height:85px; background: #1e293b; border: 1.5px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; font-size:30px; border-radius:8px; position:relative; overflow:hidden;">
+                                            🚶
+                                            <div class="ai-box" style="position:absolute; inset:2px; border:2px solid #10b981; background:rgba(16,185,129,0.15); display:none; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding:2px; box-sizing:border-box;">
+                                                <span style="font-size:7px; font-weight:900; color:#fff; background:#10b981; padding:1px 3px; border-radius:2px;">PED:98%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- AI Scan laser line -->
+                                    <div class="ai-scanner-line" style="position:absolute; left:0; top:-10px; width:100%; height:4px; background:#10b981; box-shadow:0 0 12px #10b981; z-index:3; opacity:0; transition:all 0.1s linear;"></div>
+                                </div>
+                                
+                                <div class="verify-footer" style="width:100%; display:flex; justify-content:space-between; align-items:center;">
+                                    <div style="font-size:10px; color:var(--text-muted);">reCAPTCHA v2 Solver API</div>
+                                    <button class="verify-btn-ai" style="background:#ef4444; border:none; padding:10px 24px; border-radius:4px; color:#fff; font-size:13px; font-weight:bold; cursor:default; box-shadow:0 4px 10px rgba(239,68,68,0.25);">AI BYPASS: 100%</button>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
+                    else if (slideId === 'slide_captcha_2b') {
+                typeLabel = "Computer Vision";
+                methodLabel = "AI_OBJECT_DETECTION";
+                headerText = "AI SCANNING IMAGE GRID CHALLENGE";
+                
+                const scanner = canvas.querySelector('.ai-scanner-line');
+                const boxes = canvas.querySelectorAll('.ai-box');
+                const verifyBtn = canvas.querySelector('.verify-btn-ai');
+                
+                if (progress < 0.15) {
+                    if (scanner) { scanner.style.opacity = '0'; scanner.style.top = '-10px'; }
+                    boxes.forEach(b => b.style.display = 'none');
+                    if (verifyBtn) { verifyBtn.style.background = '#ef4444'; verifyBtn.textContent = 'SCANNING...'; }
+                    statusText = "AI đang phân tích ảnh";
+                    codeOutput = `🧠 AI sử dụng YOLO / CNN để phát hiện vật thể.\n👤 Thử thách hình ảnh con người dán nhãn nay được AI tự động nhận diện.`;
+                } else if (progress < 0.75) {
+                    const pct = (progress - 0.15) / 0.60;
+                    if (scanner) {
+                        scanner.style.opacity = '1';
+                        const topY = -10 + (285 * pct);
+                        scanner.style.top = `${topY}px`;
+                    }
+                    
+                    boxes.forEach((b, idx) => {
+                        const row = Math.floor(idx / 3);
+                        if (pct >= (row * 0.3)) {
+                            b.style.display = 'flex';
+                        } else {
+                            b.style.display = 'none';
+                        }
+                    });
+                    
+                    statusText = "Đang phát hiện vật thể";
+                    codeOutput = `🔍 AI định vị tọa độ vật thể (Bounding Boxes).\n🧠 Trích xuất đặc trưng hình ảnh với độ chính xác cao.`;
+                } else {
+                    if (scanner) { scanner.style.opacity = '0'; }
+                    boxes.forEach(b => b.style.display = 'flex');
+                    if (verifyBtn) { verifyBtn.style.background = '#10b981'; verifyBtn.textContent = 'BYPASS SUCCESS'; }
+                    statusText = "Vượt mặt CAPTCHA thành công";
+                    codeOutput = `✅ AI vượt qua thử thách reCAPTCHA trong 0.2 giây.\n🛑 Các thử thách hình ảnh truyền thống hoàn toàn thất bại.`;
+                }
+            }
+            
+            else if (slideId === 'slide_captcha_3a') {
+                        gfxLayer.innerHTML = `
+                            <div class="checkbox-card captcha-node" style="position:absolute; left:200px; top:100px; width:500px; height:300px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px;">
+                                <div class="recaptcha-anchor" style="width:440px; height:110px; background:#fff; border:1px solid #d3d3d3; border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; box-sizing:border-box; color:#000; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+                                    <div style="display:flex; align-items:center; gap:16px;">
+                                        <div class="captcha-checkbox-box" style="width:38px; height:38px; border:2px solid #c1c1c1; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative; background:#f9f9f9; transition:all 0.3s;">
+                                            <div class="captcha-check-indicator" style="width:18px; height:10px; border-left:4px solid #00aa00; border-bottom:4px solid #00aa00; transform:rotate(-45deg) scale(0); opacity:0; transition:all 0.3s; margin-top:-3px;"></div>
+                                            <div class="captcha-check-spinner" style="position:absolute; left:5px; top:5px; width:28px; height:28px; border:3px solid #3b82f6; border-top-color:transparent; border-radius:50%; animation: bufferRotateSimple 1s infinite linear; display:none;"></div>
+                                        </div>
+                                        <span style="font-family:Roboto,helvetica,arial,sans-serif; font-size:18px; font-weight:400; color:#2c2c2c;">Tôi không phải là robot</span>
                                     </div>
                                     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-                                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" style="width:32px; height:32px;" alt="recaptcha logo"/>
-                                        <span style="font-size:8px; color:#555; margin-top:2px;">reCAPTCHA</span>
-                                        <span style="font-size:7px; color:#555;">Bảo mật - Điều khoản</span>
+                                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" style="width:44px; height:44px;" alt="recaptcha logo"/>
+                                        <span style="font-size:10px; color:#555; margin-top:3px;">reCAPTCHA</span>
+                                        <span style="font-size:9px; color:#555;">Bảo mật - Điều khoản</span>
                                     </div>
                                 </div>
-                                <span class="checkbox-status-lbl" style="font-size:14px; font-weight:bold; color:var(--text-muted); text-transform:uppercase;">Bấm tích để kiểm tra</span>
+                                <span class="checkbox-status-lbl" style="font-size:18px; font-weight:bold; color:var(--text-muted); text-transform:uppercase;">Bấm tích để kiểm tra</span>
                             </div>
                         `;
                     }
@@ -13055,12 +13237,12 @@ else if (slideId === 'slide_select_5') {
                 const cursor = canvas.querySelector('.virtual-cursor');
                 const ripple = canvas.querySelector('.click-ripple');
                 
-                // Cursor start: (500, 320), checkbox click spot is at (284, 186)
+                // Cursor start: (500, 320), checkbox click spot is at (269, 223)
                 if (progress < 0.45) {
                     const t = progress / 0.45;
                     const smoothT = t * t * (3 - 2 * t);
-                    const curX = 500 + (284 - 500) * smoothT;
-                    const curY = 320 + (186 - 320) * smoothT;
+                    const curX = 500 + (269 - 500) * smoothT;
+                    const curY = 320 + (223 - 320) * smoothT;
                     if (cursor) {
                         cursor.style.left = `${curX}px`;
                         cursor.style.top = `${curY}px`;
@@ -13084,8 +13266,8 @@ else if (slideId === 'slide_select_5') {
                     codeOutput = `🖱️ Con trỏ chuột đang di chuyển đến ô xác thực...\n⚙️ Theo dõi hành vi đường đi của chuột để phân tích.`;
                 } else if (progress < 0.75) {
                     if (cursor) {
-                        cursor.style.left = '284px';
-                        cursor.style.top = '186px';
+                        cursor.style.left = '269px';
+                        cursor.style.top = '223px';
                         cursor.style.transform = 'scale(0.9)'; // mouse down effect
                     }
                     if (checkboxBox) checkboxBox.style.borderColor = '#3b82f6';
@@ -13107,8 +13289,8 @@ else if (slideId === 'slide_select_5') {
                     codeOutput = `🔄 Đang chạy thuật toán kiểm tra chuyển động...\n⚙️ Đánh giá lịch sử trình duyệt, cookies và quỹ đạo chuột.`;
                 } else {
                     if (cursor) {
-                        cursor.style.left = '284px';
-                        cursor.style.top = '186px';
+                        cursor.style.left = '269px';
+                        cursor.style.top = '223px';
                         cursor.style.transform = 'scale(1)';
                     }
                     if (checkboxBox) {
@@ -13377,6 +13559,11 @@ else if (slideId === 'slide_select_5') {
             const progress = isPlaying ? (animTime / getSlideDuration(slide)) : 1.0;
 
             const keywordsData = {
+                slide_short_1: [{ text: 'Rút gọn liên kết', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '7 ký tự', start: 5.0, end: 14.5, class: 'active-good' }],
+                slide_short_2: [{ text: 'Check trùng', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Sập database', start: 6.0, end: 15.0, class: 'active-bad' }],
+                slide_short_3: [{ text: 'Base 62', start: 0.0, end: 6.0, class: 'active-good' }, { text: '3.5 nghìn tỷ', start: 6.0, end: 14.0, class: 'active-good' }],
+                slide_short_4: [{ text: 'ID tăng dần', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Snowflake', start: 6.0, end: 14.0, class: 'active-gold' }],
+                slide_short_5: [{ text: 'Chuyển hướng', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '301 vs 302', start: 5.0, end: 15.0, class: 'active-good' }],
                 slide_stream_1a: [{ text: 'Bí mật streaming', start: 0.0, end: 10.92, class: 'active-gold' }],
                 slide_stream_1b: [{ text: 'Kỹ thuật Backend', start: 0.0, end: 6.76, class: 'active-good' }],
                 slide_stream_2a: [{ text: 'File MP4 lớn', start: 0.0, end: 8.0, class: 'active-bad' }, { text: 'Nghẽn đứng hình', start: 8.0, end: 16.36, class: 'active-bad' }],
@@ -14362,12 +14549,18 @@ else if (slideId === 'slide_select_5') {
             if (terminalTitle) terminalTitle.textContent = headerText;
         }
 
-                        else if (slideId.startsWith('slide_view_')) {
+                        else if (slideId.startsWith('slide_view_') || slideId.startsWith('slide_short_')) {
             const progress = isPlaying ? (animTime / getSlideDuration(slide)) : 1.0;
 
             const keywordsData = {
+                slide_short_1: [{ text: 'Rút gọn liên kết', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '7 ký tự', start: 5.0, end: 14.5, class: 'active-good' }],
+                slide_short_2: [{ text: 'Check trùng', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Sập database', start: 6.0, end: 15.0, class: 'active-bad' }],
+                slide_short_3: [{ text: 'Base 62', start: 0.0, end: 6.0, class: 'active-good' }, { text: '3.5 nghìn tỷ', start: 6.0, end: 14.0, class: 'active-good' }],
+                slide_short_4: [{ text: 'ID tăng dần', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Snowflake', start: 6.0, end: 14.0, class: 'active-gold' }],
+                slide_short_5: [{ text: 'Chuyển hướng', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '301 vs 302', start: 5.0, end: 15.0, class: 'active-good' }],
                 slide_view_1: [{ text: 'MV Bom tấn', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '100.000 views/s', start: 5.0, end: 9.5, class: 'active-good' }],
                 slide_view_2: [{ text: 'SQL UPDATE', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Row Lock Contention', start: 6.0, end: 13.0, class: 'active-bad' }],
+                slide_view_2b: [{ text: 'hàng nghìn người', start: 1.0, end: 6.0, class: 'active-gold' }, { text: 'khóa ghi', start: 6.0, end: 11.0, class: 'active-bad' }, { text: 'nghẽn cổ chai', start: 11.0, end: 15.0, class: 'active-bad' }],
                 slide_view_3: [{ text: 'CPU 100%', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Gateway Timeout', start: 6.0, end: 12.0, class: 'active-bad' }],
                 slide_view_4: [{ text: 'Write-Back Cache', start: 0.0, end: 9.5, class: 'active-good' }],
                 slide_view_5: [{ text: 'Worker Sync', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Batch Update', start: 6.0, end: 11.5, class: 'active-good' }],
@@ -14554,7 +14747,494 @@ else if (slideId === 'slide_select_5') {
             
             if (viewportRoot && innerNeedsTemplate) {
                 viewportRoot.setAttribute('data-inner-slide', slideId);
-                if (slideId === 'slide_view_1') {
+                if (slideId === 'slide_short_1') {
+                    viewportRoot.innerHTML = `
+                          <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:30px;">
+                              
+                              <!-- Long URL Card -->
+                              <div class="glass-card" style="width:360px; height:240px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:25px; display:flex; flex-direction:column; justify-content:space-between; text-align:left;">
+                                  <div style="font-size:12px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">Đường dẫn gốc (Long URL)</div>
+                                  <div style="background:rgba(239,68,68,0.05); border:1.5px solid rgba(239,68,68,0.2); border-radius:12px; padding:12px; font-family:var(--font-mono); font-size:11px; color:#fff; word-break:break-all; line-height:1.4; flex:1; display:flex; align-items:center; margin:15px 0;">
+                                      https://shopee.vn/deals/electronics/special-sale/item-991823120-promo-tracker.html
+                                  </div>
+                                  <div style="font-size:10px; color:#ef4444; font-weight:bold;">Độ dài: 82 ký tự (Mất thẩm mỹ, dễ lỗi)</div>
+                              </div>
+
+                              <!-- Central Shortener Gear -->
+                              <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:80px; position:relative;">
+                                  <i data-lucide="scissors" class="short-scissors" style="width:40px; height:40px; color:#10b981; transition:transform 0.2s ease;"></i>
+                                  <!-- Flowing packet -->
+                                  <div class="short-packet" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#3b82f6; box-shadow:0 0 10px #3b82f6; z-index:10; left:50%; top:50%; transform:translate(-50%,-50%); opacity:0;"></div>
+                              </div>
+
+                              <!-- Short URL Card -->
+                              <div class="glass-card" style="width:360px; height:240px; border:2.5px solid #10b981; border-radius:24px; padding:25px; display:flex; flex-direction:column; justify-content:space-between; text-align:left; box-shadow:0 0 25px rgba(16,185,129,0.05);">
+                                  <div style="font-size:12px; font-weight:bold; color:#10b981; text-transform:uppercase; border-bottom:1px solid rgba(16,185,129,0.15); padding-bottom:8px;">Liên kết rút gọn (Short URL)</div>
+                                  <div style="background:rgba(16,185,129,0.08); border:1.5px solid rgba(16,185,129,0.25); border-radius:12px; padding:15px; font-family:var(--font-mono); font-size:18px; color:#10b981; font-weight:bold; text-align:center; margin:20px 0;">
+                                      shope.vn/3gH2kLa
+                                  </div>
+                                  <div style="font-size:10px; color:var(--text-muted); font-weight:bold;">Độ dài: Chỉ 7 ký tự (Ngắn gọn, chuyên nghiệp)</div>
+                              </div>
+
+                          </div>
+                    `;
+                }
+                else if (slideId === 'slide_short_2') {
+                    viewportRoot.innerHTML = `
+                          <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:25px;">
+                              
+                              <!-- Client Generator -->
+                              <div class="glass-card" style="width:230px; height:320px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:15px; display:flex; flex-direction:column; justify-content:space-between; text-align:center;">
+                                  <div style="font-size:11px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">Máy khách (Client)</div>
+                                  <div style="display:flex; flex-direction:column; gap:10px; flex:1; justify-content:center; align-items:center;">
+                                      <div style="font-size:9px; color:var(--text-muted); text-transform:uppercase;">Mã sinh ngẫu nhiên:</div>
+                                      <div class="rand-code-box" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px; font-family:var(--font-mono); font-size:16px; color:#fff; font-weight:bold; width:100%; box-sizing:border-box;">7aK2p9L</div>
+                                      <span style="font-size:9px; color:#f59e0b; font-weight:bold;" class="rand-attempt-lbl">Thử lần 1...</span>
+                                  </div>
+                              </div>
+
+                              <!-- Flow SVG -->
+                              <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
+                                  <!-- Path to DB -->
+                                  <path d="M 230 260 L 520 260" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3" stroke-dasharray="8 6" />
+                                  <path class="flow-line-s2" d="M 230 260 L 520 260" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="8 6" style="opacity:0;" />
+                              </svg>
+                              <div class="packet-s2" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 10px #ef4444; z-index:5; left:230px; top:260px; transform:translate(-50%,-50%); opacity:0;"></div>
+
+                              <!-- Database Checker -->
+                              <div class="db-card-s2 glass-card" style="width:280px; height:320px; border:2.5px solid #ef4444; border-radius:24px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box; z-index:2; transition:all 0.3s ease;">
+                                  <div style="display:flex; align-items:center; gap:10px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">
+                                      <i data-lucide="database" style="color:#ef4444; width:24px; height:24px;"></i>
+                                      <span style="font-size:12px; font-weight:bold; color:#fff; text-transform:uppercase;">Database Lookup</span>
+                                  </div>
+                                  <div style="background:rgba(0,0,0,0.5); border-radius:12px; padding:12px; border:1px solid rgba(255,255,255,0.06); text-align:left; font-family:var(--font-mono); font-size:10px; line-height:1.4; color:#fff; flex:1; margin:15px 0; display:flex; flex-direction:column; justify-content:center;">
+                                      <span style="color:#f59e0b;">SELECT id FROM links</span><br>
+                                      <span style="color:#f59e0b;">WHERE code = '7aK2p9L';</span><br><br>
+                                      <span class="db-status-lbl" style="color:#ef4444; font-weight:bold;">➔ TRÙNG MÃ! (Code Exists)</span>
+                                  </div>
+                              </div>
+
+                              <!-- CPU warning Box -->
+                              <div class="cpu-card-s2 glass-card" style="width:230px; height:320px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:15px; display:flex; flex-direction:column; justify-content:space-between; text-align:center;">
+                                  <div style="font-size:11px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">CPU Cơ sở dữ liệu</div>
+                                  <div style="display:flex; flex-direction:column; gap:10px; flex:1; justify-content:center; align-items:center;">
+                                      <div class="cpu-fill-s2" style="width:80px; height:80px; border-radius:50%; border:5px solid #ef4444; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:18px; font-weight:bold; color:#ef4444; box-shadow:0 0 15px rgba(239,68,68,0.15); transition:all 0.3s ease;">100%</div>
+                                      <span style="font-size:10px; color:#ef4444; font-weight:bold;" class="cpu-status-s2">COLLISION BOTTLENECK</span>
+                                  </div>
+                              </div>
+
+                          </div>
+                    `;
+                }
+                else if (slideId === 'slide_short_3') {
+                    viewportRoot.innerHTML = `
+                          <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:30px;">
+                              
+                              <!-- Math Card -->
+                              <div class="glass-card" style="width:400px; height:340px; border:2.5px solid #10b981; border-radius:24px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; text-align:left; box-sizing:border-box;">
+                                  <div style="font-size:12px; font-weight:bold; color:#10b981; text-transform:uppercase; border-bottom:1px solid rgba(16,185,129,0.15); padding-bottom:8px;">Hệ cơ số 62 (Base 62)</div>
+                                  
+                                  <div style="display:flex; flex-direction:column; gap:10px; margin:15px 0;">
+                                      <div style="background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); font-size:10px; color:#fff; font-family:var(--font-mono);">
+                                          [a-z] + [A-Z] + [0-9] = 62 ký tự
+                                      </div>
+                                      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(16,185,129,0.05); padding:8px 12px; border-radius:8px; border:1px solid rgba(16,185,129,0.15);">
+                                          <span style="font-size:11px; color:var(--text-muted);">Công thức tổ hợp 7 ký tự:</span>
+                                          <span style="font-family:var(--font-mono); font-size:13px; color:#10b981; font-weight:bold;">62<sup>7</sup></span>
+                                      </div>
+                                      <div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); border-radius:10px; padding:12px; text-align:center;">
+                                          <div style="font-size:8px; color:var(--text-muted); text-transform:uppercase; font-weight:bold;">Số mã liên kết tối đa:</div>
+                                          <div style="font-family:var(--font-mono); font-size:18px; font-weight:900; color:#10b981; margin-top:2px;">~3,5 Nghìn Tỷ mã</div>
+                                      </div>
+                                  </div>
+                                  <div style="font-size:10px; color:var(--text-muted); line-height:1.4;">
+                                      Hệ cơ số 62 giúp biểu diễn lượng dữ liệu khổng lồ với độ dài cực ngắn, đảm bảo không bao giờ lo hết tài nguyên liên kết.
+                                  </div>
+                              </div>
+
+                              <!-- Mapping Table Card -->
+                              <div class="glass-card" style="width:400px; height:340px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; text-align:left; box-sizing:border-box;">
+                                  <div style="font-size:12px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">Chuyển đổi 1-1 (Decimal ➔ Base62)</div>
+                                  
+                                  <div style="display:flex; flex-direction:column; gap:10px; margin:15px 0;">
+                                      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.02); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
+                                          <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">ID: 1</span>
+                                          <span style="font-family:var(--font-mono); font-size:13px; color:#fff; font-weight:bold;">➔ 0000001</span>
+                                      </div>
+                                      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.02); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
+                                          <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">ID: 123.456</span>
+                                          <span style="font-family:var(--font-mono); font-size:13px; color:#fff; font-weight:bold;">➔ 000w7d</span>
+                                      </div>
+                                      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.02); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
+                                          <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">ID: 999.999.999</span>
+                                          <span style="font-family:var(--font-mono); font-size:13px; color:#fff; font-weight:bold;">➔ 01A2bC9</span>
+                                      </div>
+                                  </div>
+                                  <div style="font-size:10px; color:var(--text-muted); line-height:1.4;">
+                                      Mỗi liên kết khi được lưu vào cơ sở dữ liệu sẽ tự sinh một ID số tự động tăng (Auto-Increment), sau đó được dịch sang chuỗi Base62 tương ứng. Không lo trùng lặp!
+                                  </div>
+                              </div>
+
+                          </div>
+                    `;
+                }
+                else if (slideId === 'slide_short_4') {
+                    viewportRoot.innerHTML = `
+                          <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; align-items:center; padding:10px 0;">
+                              
+                              <!-- Header Label -->
+                              <div style="font-size:11px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); padding:4px 12px; border-radius:12px; margin-bottom:10px; z-index:5;">
+                                  Bộ sinh ID phân tán không trùng lặp
+                              </div>
+
+                              <!-- Distributed Cluster Row -->
+                              <div style="display:flex; justify-content:space-around; width:100%; gap:20px; z-index:2;">
+                                  
+                                  <!-- Node 1 -->
+                                  <div class="node-s4 n1-s4 glass-card" style="width:250px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px; display:flex; flex-direction:column; align-items:center; text-align:center; box-sizing:border-box; transition:all 0.3s ease;">
+                                      <div style="background:rgba(245,158,11,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#f59e0b; border:1px solid rgba(245,158,11,0.3); margin-bottom:8px;">
+                                          <i data-lucide="server" style="width:20px; height:20px;"></i>
+                                      </div>
+                                      <div style="font-size:12px; font-weight:bold; color:#fff; margin-bottom:6px;">Server ID A (01)</div>
+                                      <div class="id-val-s4 id-n1" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:11px; color:#fff; font-weight:bold; width:100%; box-sizing:border-box;">180598129382103</div>
+                                  </div>
+
+                                  <!-- Node 2 -->
+                                  <div class="node-s4 n2-s4 glass-card" style="width:250px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px; display:flex; flex-direction:column; align-items:center; text-align:center; box-sizing:border-box; transition:all 0.3s ease;">
+                                      <div style="background:rgba(245,158,11,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#f59e0b; border:1px solid rgba(245,158,11,0.3); margin-bottom:8px;">
+                                          <i data-lucide="server" style="width:20px; height:20px;"></i>
+                                      </div>
+                                      <div style="font-size:12px; font-weight:bold; color:#fff; margin-bottom:6px;">Server ID B (02)</div>
+                                      <div class="id-val-s4 id-n2" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:11px; color:#fff; font-weight:bold; width:100%; box-sizing:border-box;">180598129382104</div>
+                                  </div>
+
+                                  <!-- Node 3 -->
+                                  <div class="node-s4 n3-s4 glass-card" style="width:250px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px; display:flex; flex-direction:column; align-items:center; text-align:center; box-sizing:border-box; transition:all 0.3s ease;">
+                                      <div style="background:rgba(245,158,11,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#f59e0b; border:1px solid rgba(245,158,11,0.3); margin-bottom:8px;">
+                                          <i data-lucide="server" style="width:20px; height:20px;"></i>
+                                      </div>
+                                      <div style="font-size:12px; font-weight:bold; color:#fff; margin-bottom:6px;">Server ID C (03)</div>
+                                      <div class="id-val-s4 id-n3" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:11px; color:#fff; font-weight:bold; width:100%; box-sizing:border-box;">180598129382105</div>
+                                  </div>
+
+                              </div>
+
+                              <!-- Snowflake bit allocation card -->
+                              <div class="glass-card" style="width:100%; max-width:790px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px; display:flex; flex-direction:column; justify-content:center; box-sizing:border-box; z-index:2; margin-top:10px;">
+                                  <div style="font-size:12px; font-weight:bold; color:#fff; margin-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px; text-transform:uppercase; text-align:center;">Cấu trúc nhị phân của Snowflake ID (64-bit)</div>
+                                  <div style="display:flex; width:100%; border:1.5px solid rgba(255,255,255,0.12); border-radius:10px; overflow:hidden; font-family:var(--font-mono); font-size:10px; font-weight:bold; text-align:center; height:32px; align-items:center;">
+                                      <div style="width:3%; background:rgba(239,68,68,0.2); color:#ef4444; height:100%; display:flex; align-items:center; justify-content:center; border-right:1px solid rgba(255,255,255,0.1);">1b</div>
+                                      <div style="width:64%; background:rgba(16,185,129,0.15); color:#10b981; height:100%; display:flex; align-items:center; justify-content:center; border-right:1px solid rgba(255,255,255,0.1);">41-bit: Timestamp (Thời gian thực)</div>
+                                      <div style="width:15%; background:rgba(59,130,246,0.15); color:#3b82f6; height:100%; display:flex; align-items:center; justify-content:center; border-right:1px solid rgba(255,255,255,0.1);">10-bit: Machine ID</div>
+                                      <div style="width:18%; background:rgba(245,158,11,0.15); color:#f59e0b; height:100%; display:flex; align-items:center; justify-content:center;">12-bit: Sequence</div>
+                                  </div>
+                              </div>
+
+                          </div>
+                    `;
+                }
+                else if (slideId === 'slide_short_5') {
+                    viewportRoot.innerHTML = `
+                          <div style="width:100%; height:100%; position:relative; box-sizing:border-box; padding:15px; display:flex; flex-direction:column; justify-content:space-between; font-family:var(--font-sans);">
+                              
+                              <!-- Header Title -->
+                              <div style="text-align:center; z-index:2; margin-bottom:5px;">
+                                  <span style="font-size:12px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); padding:4px 16px; border-radius:20px;">
+                                      Cơ chế chuyển hướng HTTP Redirect
+                                  </span>
+                              </div>
+
+                              <div style="display:flex; justify-content:space-between; width:100%; height:290px; z-index:2; position:relative;">
+                                  
+                                  <!-- Client Browser -->
+                                  <div class="step-card browser-card glass-card" style="width:230px; height:100%; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:15px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; text-align:center; transition:all 0.3s ease;">
+                                      <div style="display:flex; align-items:center; gap:6px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                                          <i data-lucide="chrome" style="color:#3b82f6; width:16px; height:16px;"></i>
+                                          <span style="font-size:11px; font-weight:bold; color:#fff; text-transform:uppercase;">Trình duyệt</span>
+                                      </div>
+                                      <div style="display:flex; flex-direction:column; gap:10px; justify-content:center; flex:1; align-items:center;">
+                                          <div class="browser-address" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:10px; color:#fff; font-weight:bold; width:100%; box-sizing:border-box; word-break:break-all;">shope.vn/3gH2kLa</div>
+                                          <!-- Cache Status Indicator -->
+                                          <div class="browser-cache-status" style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:8px; width:100%; padding:6px; font-size:9px; color:var(--text-muted); font-weight:bold; text-transform:uppercase;">Chưa lưu Cache</div>
+                                      </div>
+                                  </div>
+
+                                  <!-- Shortener Redirect Server -->
+                                  <div class="step-card redirect-srv-card glass-card" style="width:230px; height:100%; border:2.5px solid #10b981; border-radius:24px; padding:15px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; text-align:center; transition:all 0.3s ease; box-shadow:0 0 20px rgba(16,185,129,0.05);">
+                                      <div style="display:flex; align-items:center; gap:6px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                                          <i data-lucide="shuffle" style="color:#10b981; width:16px; height:16px;"></i>
+                                          <span style="font-size:11px; font-weight:bold; color:#10b981; text-transform:uppercase;">Shortener Server</span>
+                                      </div>
+                                      <div style="display:flex; flex-direction:column; gap:10px; justify-content:center; flex:1; align-items:center;">
+                                          <div class="redirect-code-box" style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:12px; color:#10b981; font-weight:bold; width:100%; box-sizing:border-box;">HTTP 302 Found</div>
+                                          <!-- Live Click Tracker -->
+                                          <div style="background:rgba(0,0,0,0.3); border-radius:8px; width:100%; padding:6px; border:1px solid rgba(255,255,255,0.04);">
+                                              <div style="font-size:8px; color:var(--text-muted); text-transform:uppercase; font-weight:bold;">Đếm lượt click:</div>
+                                              <div class="click-count-lbl" style="font-size:13px; font-weight:bold; color:#10b981; font-family:var(--font-mono); margin-top:2px;">0 clicks</div>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <!-- Target Destination Server -->
+                                  <div class="step-card target-srv-card glass-card" style="width:230px; height:100%; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:15px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; text-align:center; transition:all 0.3s ease;">
+                                      <div style="display:flex; align-items:center; gap:6px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                                          <i data-lucide="globe" style="color:#a855f7; width:16px; height:16px;"></i>
+                                          <span style="font-size:11px; font-weight:bold; color:#fff; text-transform:uppercase;">Trang đích</span>
+                                      </div>
+                                      <div style="display:flex; flex-direction:column; gap:10px; justify-content:center; flex:1; align-items:center;">
+                                          <div class="target-address" style="background:rgba(168,85,247,0.05); border:1px solid rgba(168,85,247,0.2); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:9px; color:#fff; width:100%; box-sizing:border-box; word-break:break-all;">shopee.vn/deals/electronics/sale.html</div>
+                                          <div style="font-size:10px; color:#a855f7; font-weight:bold;">➔ Mở trang thành công!</div>
+                                      </div>
+                                  </div>
+
+                              </div>
+
+                              <!-- Flow connection SVG -->
+                              <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
+                                  <path class="redirect-path-1" d="M 245 220 L 320 220" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" stroke-dasharray="6 4" />
+                                  <path class="redirect-path-2" d="M 550 220 L 625 220" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" stroke-dasharray="6 4" />
+                                  <path class="redirect-path-bypass" d="M 245 220 Q 435 90 625 220" fill="none" stroke="rgba(239,68,68,0.2)" stroke-width="2.5" stroke-dasharray="6 4" style="opacity:0;" />
+                              </svg>
+                              <!-- Packet dot -->
+                              <div class="redirect-packet" style="position:absolute; width:10px; height:10px; border-radius:50%; background:#10b981; box-shadow:0 0 8px #10b981; z-index:10; left:245px; top:220px; transform:translate(-50%,-50%); opacity:0;"></div>
+
+                          </div>
+                    `;
+                }
+                else if (slideId === 'slide_short_1') {
+                typeLabel = "URL Shortener Flow";
+                methodLabel = "URL_REDUCTION";
+                headerText = "HOW A LONG URL GETS SHORTENED TO 7 CHARACTERS";
+                
+                const packet = canvas.querySelector('.short-packet');
+                const scissors = canvas.querySelector('.short-scissors');
+                
+                if (packet && scissors) {
+                    if (progress < 0.4) {
+                        packet.style.opacity = 1;
+                        // flow from client (left: 200px) to scissors (left: 450px)
+                        const ratio = progress / 0.4;
+                        const x = 200 + (450 - 200) * ratio;
+                        packet.style.left = `${x}px`;
+                        packet.style.top = '50%';
+                        scissors.style.transform = 'rotate(0deg)';
+                    } else if (progress < 0.6) {
+                        packet.style.opacity = 1;
+                        packet.style.left = '450px';
+                        packet.style.top = '50%';
+                        // scissors snap
+                        const snapRatio = (progress - 0.4) / 0.2;
+                        const angle = 25 * Math.sin(snapRatio * Math.PI * 4);
+                        scissors.style.transform = `rotate(${angle}deg)`;
+                    } else {
+                        // flow from scissors (left: 450px) to short url (left: 700px)
+                        const ratio = (progress - 0.6) / 0.4;
+                        const x = 450 + (700 - 450) * ratio;
+                        packet.style.left = `${x}px`;
+                        packet.style.top = '50%';
+                        packet.style.opacity = 1 - ratio;
+                        scissors.style.transform = 'rotate(0deg)';
+                    }
+                }
+                
+                statusText = "Đang xử lý rút gọn";
+                codeOutput = `const longUrl = "https://shopee.vn/deals/electronics/special-sale/item-991823120-promo-tracker.html";\nconst shortCode = shorten(longUrl); // -> shope.vn/3gH2kLa`;
+            }
+            else if (slideId === 'slide_short_2') {
+                typeLabel = "Random Collision Issue";
+                methodLabel = "NAIVE_COLLISION";
+                headerText = "THE NAIVE APPROACH CAUSES CPU BOTTLENECK";
+                
+                const packet = canvas.querySelector('.packet-s2');
+                const dbCard = canvas.querySelector('.db-card-s2');
+                const cpuFill = canvas.querySelector('.cpu-fill-s2');
+                const randCodeBox = canvas.querySelector('.rand-code-box');
+                const randAttempt = canvas.querySelector('.rand-attempt-lbl');
+                const dbStatus = canvas.querySelector('.db-status-lbl');
+                
+                if (packet && dbCard && cpuFill && randCodeBox && randAttempt && dbStatus) {
+                    const cycle = (progress * 3) % 1; // 3 attempts
+                    const attemptNum = Math.min(3, Math.floor(progress * 3) + 1);
+                    
+                    randAttempt.textContent = `Thử lần ${attemptNum}...`;
+                    if (attemptNum === 1) {
+                        randCodeBox.textContent = '7aK2p9L';
+                        dbStatus.textContent = '➔ TRÙNG MÃ! (Code Exists)';
+                        dbStatus.style.color = '#ef4444';
+                    } else if (attemptNum === 2) {
+                        randCodeBox.textContent = '3wK5a1P';
+                        dbStatus.textContent = '➔ TRÙNG MÃ! (Code Exists)';
+                        dbStatus.style.color = '#ef4444';
+                    } else {
+                        randCodeBox.textContent = '9aD4s8F';
+                        dbStatus.textContent = '➔ TRÙNG MÃ! (Code Exists)';
+                        dbStatus.style.color = '#ef4444';
+                    }
+                    
+                    if (cycle < 0.6) {
+                        packet.style.opacity = 1;
+                        const ratio = cycle / 0.6;
+                        const x = 230 + (480 - 230) * ratio;
+                        packet.style.left = `${x}px`;
+                        dbCard.style.borderColor = 'rgba(255,255,255,0.06)';
+                        dbCard.style.boxShadow = 'none';
+                    } else {
+                        packet.style.opacity = 0;
+                        dbCard.style.borderColor = '#ef4444';
+                        dbCard.style.boxShadow = '0 0 20px rgba(239,68,68,0.2)';
+                    }
+                    
+                    // CPU increases
+                    const cpuVal = Math.min(100, Math.round(50 + progress * 50));
+                    cpuFill.textContent = `${cpuVal}%`;
+                    cpuFill.style.boxShadow = `0 0 15px rgba(239,68,68, ${cpuVal/100 * 0.4})`;
+                }
+                
+                statusText = "Tranh chấp cơ sở dữ liệu";
+                codeOutput = `SELECT id FROM links WHERE code = '7aK2p9L';\n-- Result: Found! Generating new code... (Looping)`;
+            }
+            else if (slideId === 'slide_short_3') {
+                typeLabel = "Base62 Encoding";
+                methodLabel = "MATHEMATICAL_MAPPING";
+                headerText = "SCALING TO 3.5 TRILLION CODES WITH BASE-62";
+                
+                statusText = "Mã hóa cơ số 62";
+                codeOutput = `const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";\nfunction encode(id) { /* maps integer auto-increment ID directly to 7-chars */ }`;
+            }
+            else if (slideId === 'slide_short_4') {
+                typeLabel = "Distributed ID Generator";
+                methodLabel = "SNOWFLAKE_GENERATOR";
+                headerText = "COORDINATED ID GENERATION IN A DISTRIBUTED SYSTEM";
+                
+                const n1 = canvas.querySelector('.n1-s4');
+                const n2 = canvas.querySelector('.n2-s4');
+                const n3 = canvas.querySelector('.n3-s4');
+                
+                const idN1 = canvas.querySelector('.id-n1');
+                const idN2 = canvas.querySelector('.id-n2');
+                const idN3 = canvas.querySelector('.id-n3');
+                
+                if (n1 && n2 && n3 && idN1 && idN2 && idN3) {
+                    const cycle = Math.min(2, Math.floor(progress * 3));
+                    // Dim/highlight server nodes sequentially
+                    if (cycle === 0) {
+                        n1.style.borderColor = 'rgba(245,158,11,0.5)'; n1.style.boxShadow = '0 0 15px rgba(245,158,11,0.15)'; n1.style.opacity = 1;
+                        n2.style.opacity = 0.5; n2.style.borderColor = 'rgba(255,255,255,0.06)'; n2.style.boxShadow = 'none';
+                        n3.style.opacity = 0.5; n3.style.borderColor = 'rgba(255,255,255,0.06)'; n3.style.boxShadow = 'none';
+                        idN1.textContent = (180598129382103 + Math.floor(progress * 10)).toString();
+                    } else if (cycle === 1) {
+                        n2.style.borderColor = 'rgba(245,158,11,0.5)'; n2.style.boxShadow = '0 0 15px rgba(245,158,11,0.15)'; n2.style.opacity = 1;
+                        n1.style.opacity = 0.5; n1.style.borderColor = 'rgba(255,255,255,0.06)'; n1.style.boxShadow = 'none';
+                        n3.style.opacity = 0.5; n3.style.borderColor = 'rgba(255,255,255,0.06)'; n3.style.boxShadow = 'none';
+                        idN2.textContent = (180598129382104 + Math.floor(progress * 10)).toString();
+                    } else {
+                        n3.style.borderColor = 'rgba(245,158,11,0.5)'; n3.style.boxShadow = '0 0 15px rgba(245,158,11,0.15)'; n3.style.opacity = 1;
+                        n1.style.opacity = 0.5; n1.style.borderColor = 'rgba(255,255,255,0.06)'; n1.style.boxShadow = 'none';
+                        n2.style.opacity = 0.5; n2.style.borderColor = 'rgba(255,255,255,0.06)'; n2.style.boxShadow = 'none';
+                        idN3.textContent = (180598129382105 + Math.floor(progress * 10)).toString();
+                    }
+                }
+                
+                statusText = "Đang cấp phát Snowflake ID";
+                codeOutput = `// Snowflake ID: Timestamp (41b) + Machine (10b) + Seq (12b)\nconst snowflakeId = snowflake.nextId(); // e.g. 180598129382103`;
+            }
+            else if (slideId === 'slide_short_5') {
+                typeLabel = "HTTP Redirection";
+                methodLabel = "REDIRECT_COMPARISON";
+                headerText = "HTTP 301 (PERMANENT) VS HTTP 302 (TEMPORARY)";
+                
+                const packet = canvas.querySelector('.redirect-packet');
+                const browserCache = canvas.querySelector('.browser-cache-status');
+                const browserAddr = canvas.querySelector('.browser-address');
+                const redirectSrvCode = canvas.querySelector('.redirect-code-box');
+                const clickCountLbl = canvas.querySelector('.click-count-lbl');
+                
+                const path1 = canvas.querySelector('.redirect-path-1');
+                const path2 = canvas.querySelector('.redirect-path-2');
+                const pathBypass = canvas.querySelector('.redirect-path-bypass');
+                
+                if (packet && browserCache && browserAddr && redirectSrvCode && clickCountLbl && path1 && path2 && pathBypass) {
+                    if (progress < 0.5) {
+                        // Mode 1: HTTP 301 Permanent Redirect
+                        redirectSrvCode.textContent = "HTTP 301 Moved";
+                        redirectSrvCode.style.background = 'rgba(245,158,11,0.08)';
+                        redirectSrvCode.style.borderColor = 'rgba(245,158,11,0.25)';
+                        redirectSrvCode.style.color = '#f59e0b';
+                        
+                        const cycle = (progress * 2) % 1; // 2 requests in first half
+                        const requestNum = Math.floor(progress * 2) + 1;
+                        
+                        path1.style.opacity = 1; path2.style.opacity = 1; pathBypass.style.opacity = 0;
+                        
+                        if (requestNum === 1) {
+                            browserCache.textContent = "Chưa lưu Cache";
+                            browserCache.style.color = 'var(--text-muted)';
+                            
+                            packet.style.opacity = 1;
+                            if (cycle < 0.5) {
+                                // browser -> shortener
+                                const ratio = cycle / 0.5;
+                                packet.style.left = `${160 + (395 - 160) * ratio}px`;
+                                packet.style.top = '220px';
+                            } else {
+                                // shortener -> destination
+                                const ratio = (cycle - 0.5) / 0.5;
+                                packet.style.left = `${395 + (630 - 395) * ratio}px`;
+                                packet.style.top = '220px';
+                            }
+                            clickCountLbl.textContent = "1 click (Tracked)";
+                        } else {
+                            // Request 2 bypasses shortener server completely due to 301 browser cache!
+                            browserCache.textContent = "Đã lưu Cache 301";
+                            browserCache.style.color = '#10b981';
+                            
+                            path1.style.opacity = 0.2; path2.style.opacity = 0.2; pathBypass.style.opacity = 1;
+                            packet.style.opacity = 1;
+                            
+                            // flow directly via quadratic curve (bypass)
+                            const t = cycle;
+                            const x = (1-t)**2 * 160 + 2*(1-t)*t * 395 + t**2 * 630;
+                            const y = (1-t)**2 * 220 + 2*(1-t)*t * 90 + t**2 * 220;
+                            packet.style.left = `${x}px`;
+                            packet.style.top = `${y}px`;
+                            
+                            clickCountLbl.textContent = "Vẫn là 1 click (UNTRACKED!)";
+                        }
+                    } else {
+                        // Mode 2: HTTP 302 Temporary Redirect (always tracks!)
+                        redirectSrvCode.textContent = "HTTP 302 Found";
+                        redirectSrvCode.style.background = 'rgba(16,185,129,0.08)';
+                        redirectSrvCode.style.borderColor = 'rgba(16,185,129,0.25)';
+                        redirectSrvCode.style.color = '#10b981';
+                        
+                        browserCache.textContent = "Không lưu Cache (302)";
+                        browserCache.style.color = 'var(--text-muted)';
+                        
+                        const cycle = ((progress - 0.5) * 2) % 1; // 2 requests in second half
+                        const requestNum = Math.floor((progress - 0.5) * 2) + 1;
+                        
+                        path1.style.opacity = 1; path2.style.opacity = 1; pathBypass.style.opacity = 0;
+                        packet.style.opacity = 1;
+                        
+                        if (cycle < 0.5) {
+                            const ratio = cycle / 0.5;
+                            packet.style.left = `${160 + (395 - 160) * ratio}px`;
+                            packet.style.top = '220px';
+                        } else {
+                            const ratio = (cycle - 0.5) / 0.5;
+                            packet.style.left = `${395 + (630 - 395) * ratio}px`;
+                            packet.style.top = '220px';
+                        }
+                        
+                        const currentClicks = 1 + requestNum;
+                        clickCountLbl.textContent = `${currentClicks} clicks (Tracked!)`;
+                    }
+                }
+                
+                statusText = "So sánh chuyển hướng HTTP";
+                codeOutput = `// HTTP 301 -> Browser caches mapping permanent\n// HTTP 302 -> Browser always queries shortener server to increment stats`;
+            }
+            else if (slideId === 'slide_view_1') {
                     viewportRoot.innerHTML = `
                          <div style="display:flex; align-items:center; justify-content:center; width:100%; height:100%; position:relative; z-index:2;">
                              <!-- YouTube & TikTok logos placed inside viewport nicely to prevent being cut off -->
@@ -14694,7 +15374,136 @@ else if (slideId === 'slide_select_5') {
                          </div>
                     `;
                 }
-                else if (slideId === 'slide_view_3') {
+                else if (slideId === 'slide_view_2b') {
+                    viewportRoot.innerHTML = `
+                         <div style="width:100%; height:100%; position:relative; box-sizing:border-box;">
+                             
+                             <!-- SVG for absolute connections -->
+                             <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
+                                 <!-- Connection paths -->
+                                 <path d="M 300 132 L 410 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
+                                 <path d="M 300 272 L 410 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
+                                 <path d="M 300 412 L 410 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
+                                 <path d="M 500 245 L 540 245" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2.5" stroke-dasharray="5 3" />
+                             </svg>
+
+                             <!-- Left: Concurrency Clients Stack -->
+                             <div class="node-card glass-card client-1" style="position:absolute; left:80px; top:100px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
+                                 <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
+                                 <div style="text-align:left;">
+                                     <div style="font-size:12px; font-weight:bold; color:#fff;">Client #1</div>
+                                     <div style="font-size:9px; color:var(--text-muted); font-family:var(--font-mono);">IP: 184.22.1.9</div>
+                                 </div>
+                             </div>
+                             
+                             <div class="node-card glass-card client-2" style="position:absolute; left:80px; top:240px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
+                                 <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
+                                 <div style="text-align:left;">
+                                     <div style="font-size:12px; font-weight:bold; color:#fff;">Client #2</div>
+                                     <div style="font-size:9px; color:var(--text-muted); font-family:var(--font-mono);">IP: 92.122.88.4</div>
+                                 </div>
+                             </div>
+                             
+                             <div class="node-card glass-card client-3" style="position:absolute; left:80px; top:380px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
+                                 <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
+                                 <div style="text-align:left;">
+                                     <div style="font-size:12px; font-weight:bold; color:#fff;">Client #3</div>
+                                     <div style="font-size:9px; color:var(--text-muted); font-family:var(--font-mono);">IP: 201.99.112.5</div>
+                                 </div>
+                             </div>
+
+                             <!-- Mid: Queue Bottleneck Container -->
+                             <div style="position:absolute; left:390px; top:165px; font-size:10px; color:#ef4444; font-weight:bold; letter-spacing:0.5px; z-index:2; text-align:center; width:110px; line-height:1.2;">HÀNG CHỜ GHI<br>(BLOCKED QUEUE)</div>
+                             <div class="query-queue" style="position:absolute; left:390px; top:215px; width:110px; height:60px; background:rgba(0,0,0,0.55); border:2px dashed #ef4444; border-radius:16px; display:flex; align-items:center; justify-content:center; gap:8px; padding:5px; z-index:2; box-sizing:border-box;">
+                                 <div class="q-dot q-dot-1" style="width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 8px #ef4444; opacity: 0; transition: all 0.3s;"></div>
+                                 <div class="q-dot q-dot-2" style="width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 8px #ef4444; opacity: 0; transition: all 0.3s;"></div>
+                                 <div class="q-dot q-dot-3" style="width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 8px #ef4444; opacity: 0; transition: all 0.3s;"></div>
+                             </div>
+
+                             <!-- Flying packet dot (single serial transaction) -->
+                             <div class="packet-dot dot-serial" style="position:absolute; width:16px; height:16px; border-radius:50%; background:#10b981; box-shadow:0 0 12px #10b981; z-index:10; display:none; left:0; top:0;"></div>
+
+                             <!-- Right: SQL DB card with locked row display -->
+                             <div class="node-card db-node glass-card" style="position:absolute; left:540px; top:155px; width:300px; border:2.5px solid #ef4444; border-radius:24px; padding:20px; box-shadow:0 15px 40px rgba(239,68,68,0.1); box-sizing:border-box; z-index:2;">
+                                 <div style="display:flex; align-items:center; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; margin-bottom:12px;">
+                                     <i class="db-icon" data-lucide="database" style="width:32px; height:32px; color:#ef4444;"></i>
+                                     <div style="text-align:left;">
+                                         <div style="font-size:14px; font-weight:bold; color:#fff;">SQL Database</div>
+                                         <div style="font-size:9px; color:var(--text-muted); font-family:var(--font-mono);">Row Lock: ACTIVE</div>
+                                     </div>
+                                 </div>
+                                 
+                                 <!-- Database Row locked graphic -->
+                                 <div style="background:rgba(0,0,0,0.5); border-radius:14px; padding:12px; border:1px solid rgba(255,255,255,0.06); position:relative; overflow:hidden;">
+                                     <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--text-muted); font-family:var(--font-mono); margin-bottom:6px; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:4px;">
+                                         <span>video_id</span>
+                                         <span>views</span>
+                                         <span>status</span>
+                                     </div>
+                                     <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:13px; color:#fff; font-weight:bold;">
+                                         <span>101</span>
+                                         <span class="db-row-views">100,000</span>
+                                         <span class="db-row-status" style="color:#ef4444;">LOCKED</span>
+                                     </div>
+
+                                     <!-- Padlock glass overlay -->
+                                     <div class="row-padlock" style="position:absolute; inset:0; background:rgba(239,68,68,0.25); backdrop-filter:blur(3px); border-radius:12px; display:flex; align-items:center; justify-content:center; border:2px solid #ef4444; transition:all 0.4s ease;">
+                                         <div style="background:#ef4444; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(239,68,68,0.5); margin-right:10px;">
+                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                         </div>
+                                         <span style="font-size:12px; font-weight:900; color:#fff; letter-spacing:1px; text-shadow:0 2px 4px rgba(0,0,0,0.5);">ROW LOCKED</span>
+                                     </div>
+                                 </div>
+
+                                 <!-- Telemetry Queue Warning -->
+                                 <div class="lock-telemetry" style="margin-top:15px; background:rgba(239,68,68,0.08); border:1.5px solid rgba(239,68,68,0.25); border-radius:10px; padding:10px 12px; font-size:11px; color:#ef4444; text-align:left;">
+                                     <div style="font-weight:bold;">HÀNG CHỜ HIỆN TẠI:</div>
+                                     <div style="color:var(--text-muted); margin-top:2px;">Queries blocked: <span class="lock-wait-count" style="font-family:var(--font-mono); font-weight:bold; color:#ef4444; font-size:13px;">99+</span></div>
+                                 </div>
+                             </div>
+                         </div>
+                    `;
+                }
+                
+                else if (slideId === 'slide_view_2b') {
+                methodLabel = "POST /api/view";
+                const q1 = canvas.querySelector('.q-dot-1');
+                const q2 = canvas.querySelector('.q-dot-2');
+                const q3 = canvas.querySelector('.q-dot-3');
+                const dotSerial = canvas.querySelector('.dot-serial');
+                const lockTelemetry = canvas.querySelector('.lock-wait-count');
+                const dbViews = canvas.querySelector('.db-row-views');
+                
+                // Animate query queue loading based on progress
+                if (q1 && q2 && q3) {
+                    if (progress >= 0.15) q1.style.opacity = '1'; else q1.style.opacity = '0';
+                    if (progress >= 0.35) q2.style.opacity = '1'; else q2.style.opacity = '0';
+                    if (progress >= 0.55) q3.style.opacity = '1'; else q3.style.opacity = '0';
+                }
+                
+                if (lockTelemetry) {
+                    const waitingCount = Math.round(3 + progress * 87);
+                    lockTelemetry.textContent = waitingCount;
+                }
+                
+                // Animate one single query sliding slowly into the Database (Serial execution)
+                if (dotSerial) {
+                    dotSerial.style.display = 'block';
+                    const cyclePct = (progress * 4.0) % 1.0;
+                    const x = 405 + (540 - 405) * cyclePct;
+                    dotSerial.style.left = `${x}px`;
+                    dotSerial.style.top = `237px`;
+                    
+                    const executedCount = Math.floor(progress * 4);
+                    if (dbViews) {
+                        dbViews.textContent = (100000 + executedCount).toLocaleString();
+                    }
+                }
+                
+                codeOutput = "🛑 NGHẼN CỔ CHAI: Khi hàng nghìn request cùng UPDATE trên 1 dòng dữ liệu...\n🔗 Hệ thống song song bị biến thành TUẦN TỰ. Chỉ 1 truy vấn được xử lý tại một thời điểm.";
+            }
+            
+            else if (slideId === 'slide_view_3') {
                     viewportRoot.innerHTML = `
                          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:25px; width:100%; box-sizing:border-box;">
                              
@@ -15036,461 +15845,428 @@ else if (slideId === 'slide_select_5') {
                          </div>
                     `;
                 }
-                 else if (slideId === 'slide_view_8b') {
-                     viewportRoot.innerHTML = `
-                          <div style="width:100%; height:100%; box-sizing:border-box; position:relative; display:flex; flex-direction:column; justify-content:space-between; font-family:var(--font-sans);">
-                              <div style="text-align:center; z-index:2; margin-top:5px;">
-                                  <span style="font-size:11px; font-weight:bold; color:var(--gold-primary); background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); padding:4px 16px; border-radius:20px;">
-                                      BƯỚC 1: BĂM ID & TUNG ĐỒNG XU (HASHING)
-                                  </span>
-                              </div>
-                              
-                              <div class="users-container" style="display:flex; justify-content:center; gap:16px; width:100%; height:320px; z-index:2; margin-top:20px; padding:0 10px; box-sizing:border-box;">
-                                  <!-- Card 1 -->
-                                  <div class="user-card glass-card u-card-0" style="width:150px; height:100%; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px 10px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; text-align:center;">
-                                      <div style="width:40px; height:40px; border-radius:50%; background:rgba(59,130,246,0.1); border:1.5px solid rgba(59,130,246,0.3); display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
-                                          <i data-lucide="user" style="color:#3b82f6; width:20px; height:20px;"></i>
-                                      </div>
-                                      <div style="font-size:11px; font-weight:bold; color:#fff; margin-bottom:5px;">user_3918</div>
-                                      <div class="coin-spin" style="width:44px; height:44px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:2.5px solid #fff; box-shadow:0 0 15px rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:13px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
-                                      <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:10px;">
-                                          <div style="font-size:7.5px; color:var(--text-muted); font-weight:bold; text-transform:uppercase;">Mã băm nhị phân</div>
-                                          <div class="hash-bits" style="font-family:var(--font-mono); font-size:10px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.3); padding:4px; border-radius:6px; letter-spacing:0.5px; word-break:break-all;"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">00</span><span class="normal-bits" style="opacity:0;">110101...</span></div>
-                                      </div>
-                                      <div class="zero-count-badge" style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:3px 8px; font-size:10px; color:#10b981; font-weight:bold; margin-top:10px; opacity:0; transform:scale(0.8); transition:all 0.4s;">
-                                          Số số 0 ở đầu: <span style="font-size:12px; font-weight:900;">2</span>
-                                      </div>
-                                  </div>
-                                  <!-- Card 2 -->
-                                  <div class="user-card glass-card u-card-1" style="width:150px; height:100%; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px 10px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; text-align:center;">
-                                      <div style="width:40px; height:40px; border-radius:50%; background:rgba(168,85,247,0.1); border:1.5px solid rgba(168,85,247,0.3); display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
-                                          <i data-lucide="user" style="color:#a855f7; width:20px; height:20px;"></i>
-                                      </div>
-                                      <div style="font-size:11px; font-weight:bold; color:#fff; margin-bottom:5px;">user_8421</div>
-                                      <div class="coin-spin" style="width:44px; height:44px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:2.5px solid #fff; box-shadow:0 0 15px rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:13px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
-                                      <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:10px;">
-                                          <div style="font-size:7.5px; color:var(--text-muted); font-weight:bold; text-transform:uppercase;">Mã băm nhị phân</div>
-                                          <div class="hash-bits" style="font-family:var(--font-mono); font-size:10px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.3); padding:4px; border-radius:6px; letter-spacing:0.5px; word-break:break-all;"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">0000</span><span class="normal-bits" style="opacity:0;">1011...</span></div>
-                                      </div>
-                                      <div class="zero-count-badge" style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:3px 8px; font-size:10px; color:#10b981; font-weight:bold; margin-top:10px; opacity:0; transform:scale(0.8); transition:all 0.4s;">
-                                          Số số 0 ở đầu: <span style="font-size:12px; font-weight:900;">4</span>
-                                      </div>
-                                  </div>
-                                  <!-- Card 3 -->
-                                  <div class="user-card glass-card u-card-2" style="width:150px; height:100%; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px 10px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; text-align:center;">
-                                      <div style="width:40px; height:40px; border-radius:50%; background:rgba(236,72,153,0.1); border:1.5px solid rgba(236,72,153,0.3); display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
-                                          <i data-lucide="user" style="color:#ec4899; width:20px; height:20px;"></i>
-                                      </div>
-                                      <div style="font-size:11px; font-weight:bold; color:#fff; margin-bottom:5px;">user_1034</div>
-                                      <div class="coin-spin" style="width:44px; height:44px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:2.5px solid #fff; box-shadow:0 0 15px rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:13px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
-                                      <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:10px;">
-                                          <div style="font-size:7.5px; color:var(--text-muted); font-weight:bold; text-transform:uppercase;">Mã băm nhị phân</div>
-                                          <div class="hash-bits" style="font-family:var(--font-mono); font-size:10px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.3); padding:4px; border-radius:6px; letter-spacing:0.5px; word-break:break-all;"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">0</span><span class="normal-bits" style="opacity:0;">1100111...</span></div>
-                                      </div>
-                                      <div class="zero-count-badge" style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:3px 8px; font-size:10px; color:#10b981; font-weight:bold; margin-top:10px; opacity:0; transform:scale(0.8); transition:all 0.4s;">
-                                          Số số 0 ở đầu: <span style="font-size:12px; font-weight:900;">1</span>
-                                      </div>
-                                  </div>
-                                  <!-- Card 4 -->
-                                  <div class="user-card glass-card u-card-3" style="width:150px; height:100%; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px 10px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; text-align:center;">
-                                      <div style="width:40px; height:40px; border-radius:50%; background:rgba(20,184,166,0.1); border:1.5px solid rgba(20,184,166,0.3); display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
-                                          <i data-lucide="user" style="color:#14b8a6; width:20px; height:20px;"></i>
-                                      </div>
-                                      <div style="font-size:11px; font-weight:bold; color:#fff; margin-bottom:5px;">user_6653</div>
-                                      <div class="coin-spin" style="width:44px; height:44px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:2.5px solid #fff; box-shadow:0 0 15px rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:13px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
-                                      <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:10px;">
-                                          <div style="font-size:7.5px; color:var(--text-muted); font-weight:bold; text-transform:uppercase;">Mã băm nhị phân</div>
-                                          <div class="hash-bits" style="font-family:var(--font-mono); font-size:10px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.3); padding:4px; border-radius:6px; letter-spacing:0.5px; word-break:break-all;"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">00000</span><span class="normal-bits" style="opacity:0;">110...</span></div>
-                                      </div>
-                                      <div class="zero-count-badge" style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:3px 8px; font-size:10px; color:#10b981; font-weight:bold; margin-top:10px; opacity:0; transform:scale(0.8); transition:all 0.4s;">
-                                          Số số 0 ở đầu: <span style="font-size:12px; font-weight:900;">5</span>
-                                      </div>
-                                  </div>
-                                  <!-- Card 5 -->
-                                  <div class="user-card glass-card u-card-4" style="width:150px; height:100%; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px 10px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; text-align:center;">
-                                      <div style="width:40px; height:40px; border-radius:50%; background:rgba(245,158,11,0.1); border:1.5px solid rgba(245,158,11,0.3); display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
-                                          <i data-lucide="user" style="color:#f59e0b; width:20px; height:20px;"></i>
-                                      </div>
-                                      <div style="font-size:11px; font-weight:bold; color:#fff; margin-bottom:5px;">user_9927</div>
-                                      <div class="coin-spin" style="width:44px; height:44px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:2.5px solid #fff; box-shadow:0 0 15px rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:13px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
-                                      <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:10px;">
-                                          <div style="font-size:7.5px; color:var(--text-muted); font-weight:bold; text-transform:uppercase;">Mã băm nhị phân</div>
-                                          <div class="hash-bits" style="font-family:var(--font-mono); font-size:10px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.3); padding:4px; border-radius:6px; letter-spacing:0.5px; word-break:break-all;"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits"></span><span class="normal-bits" style="opacity:0;">10110100...</span></div>
-                                      </div>
-                                      <div class="zero-count-badge" style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:3px 8px; font-size:10px; color:#10b981; font-weight:bold; margin-top:10px; opacity:0; transform:scale(0.8); transition:all 0.4s;">
-                                          Số số 0 ở đầu: <span style="font-size:12px; font-weight:900;">0</span>
-                                      </div>
-                                  </div>
-                              </div>
-                              
-                              <div style="position:absolute; left:30px; top:425px; width:840px; display:flex; justify-content:space-between; gap:15px; z-index:2;">
-                                  <div style="flex:1; background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.15); border-radius:12px; padding:8px 12px; display:flex; justify-content:space-between; align-items:center;">
-                                      <span style="font-size:11px; color:var(--text-muted); font-weight:bold; text-transform:uppercase;">Cơ chế:</span>
-                                      <span style="font-size:12px; font-weight:900; color:var(--gold-primary);">User ID ➡️ Băm nhị phân (0 và 1)</span>
-                                  </div>
-                              </div>
-                          </div>
-                     `;
-                 }
-                 else if (slideId === 'slide_view_8c') {
-                     viewportRoot.innerHTML = `
-                          <div style="width:100%; height:100%; box-sizing:border-box; position:relative; display:flex; flex-direction:column; justify-content:space-between; font-family:var(--font-sans);">
-                              <div style="text-align:center; z-index:2; margin-top:5px;">
-                                  <span style="font-size:11px; font-weight:bold; color:var(--gold-primary); background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); padding:4px 16px; border-radius:20px;">
-                                      BƯỚC 2: QUÉT SỐ 0 ĐẦU TIÊN & TÌM KỶ LỤC
-                                  </span>
-                              </div>
-                              
-                              <!-- Smaller User Cards Row -->
-                              <div class="users-row-s2" style="display:flex; justify-content:center; gap:12px; width:100%; z-index:2; margin-top:15px;">
-                                  <!-- User 1 -->
-                                  <div class="user-card-s2 glass-card uc-s2-0" style="width:140px; padding:10px; text-align:center; border:1.5px solid rgba(255,255,255,0.06); border-radius:16px; transition:all 0.3s ease;">
-                                      <div style="font-size:10px; color:var(--text-muted); font-weight:bold;">user_3918</div>
-                                      <div style="font-family:var(--font-mono); font-size:11px; color:#fff; background:rgba(0,0,0,0.3); padding:3px; border-radius:4px; margin:5px 0;"><span style="color:#10b981; font-weight:900;">00</span>110101...</div>
-                                      <div style="font-size:9.5px; font-weight:bold; color:#10b981;">Số 0: 2</div>
-                                  </div>
-                                  <!-- User 2 -->
-                                  <div class="user-card-s2 glass-card uc-s2-1" style="width:140px; padding:10px; text-align:center; border:1.5px solid rgba(255,255,255,0.06); border-radius:16px; transition:all 0.3s ease;">
-                                      <div style="font-size:10px; color:var(--text-muted); font-weight:bold;">user_8421</div>
-                                      <div style="font-family:var(--font-mono); font-size:11px; color:#fff; background:rgba(0,0,0,0.3); padding:3px; border-radius:4px; margin:5px 0;"><span style="color:#10b981; font-weight:900;">0000</span>1011...</div>
-                                      <div style="font-size:9.5px; font-weight:bold; color:#10b981;">Số 0: 4</div>
-                                  </div>
-                                  <!-- User 3 -->
-                                  <div class="user-card-s2 glass-card uc-s2-2" style="width:140px; padding:10px; text-align:center; border:1.5px solid rgba(255,255,255,0.06); border-radius:16px; transition:all 0.3s ease;">
-                                      <div style="font-size:10px; color:var(--text-muted); font-weight:bold;">user_1034</div>
-                                      <div style="font-family:var(--font-mono); font-size:11px; color:#fff; background:rgba(0,0,0,0.3); padding:3px; border-radius:4px; margin:5px 0;"><span style="color:#10b981; font-weight:900;">0</span>1100111...</div>
-                                      <div style="font-size:9.5px; font-weight:bold; color:#10b981;">Số 0: 1</div>
-                                  </div>
-                                  <!-- User 4 -->
-                                  <div class="user-card-s2 glass-card uc-s2-3" style="width:140px; padding:10px; text-align:center; border:1.5px solid rgba(255,255,255,0.06); border-radius:16px; transition:all 0.3s ease;">
-                                      <div style="font-size:10px; color:var(--text-muted); font-weight:bold;">user_6653</div>
-                                      <div style="font-family:var(--font-mono); font-size:11px; color:#fff; background:rgba(0,0,0,0.3); padding:3px; border-radius:4px; margin:5px 0;"><span style="color:#10b981; font-weight:900;">00000</span>110...</div>
-                                      <div style="font-size:9.5px; font-weight:bold; color:#10b981;">Số 0: 5</div>
-                                  </div>
-                                  <!-- User 5 -->
-                                  <div class="user-card-s2 glass-card uc-s2-4" style="width:140px; padding:10px; text-align:center; border:1.5px solid rgba(255,255,255,0.06); border-radius:16px; transition:all 0.3s ease;">
-                                      <div style="font-size:10px; color:var(--text-muted); font-weight:bold;">user_9927</div>
-                                      <div style="font-family:var(--font-mono); font-size:11px; color:#fff; background:rgba(0,0,0,0.3); padding:3px; border-radius:4px; margin:5px 0;">10110100...</div>
-                                      <div style="font-size:9.5px; font-weight:bold; color:#10b981;">Số 0: 0</div>
-                                  </div>
-                              </div>
-                              
-                              <!-- Central Record Display Card -->
-                              <div class="record-board-container" style="display:flex; justify-content:center; align-items:center; flex-grow:1; margin-top:20px; z-index:2;">
-                                  <div class="record-board glass-card" style="width:400px; height:180px; border:2.5px solid #fbbf24; border-radius:24px; padding:20px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; text-align:center; box-shadow:0 15px 35px rgba(245,158,11,0.15); animation: pulseGold 2.5s infinite;">
-                                      <div style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:bold; color:#fbbf24; text-transform:uppercase; letter-spacing:1px;">
-                                          <i data-lucide="trophy" style="color:#fbbf24; width:18px; height:18px;"></i>
-                                          KỶ LỤC LỚN NHẤT (MAX RECORD)
-                                      </div>
-                                      
-                                      <div class="record-display-val" style="font-family:var(--font-mono); font-size:46px; font-weight:900; color:#fbbf24; text-shadow:0 0 20px rgba(245,158,11,0.5); margin:10px 0;">
-                                          Max = 0
-                                      </div>
-                                      
-                                      <div class="record-status-txt" style="font-size:11px; color:var(--text-muted); font-weight:bold;">
-                                          Đang quét các lượt băm...
-                                      </div>
-                                  </div>
-                              </div>
-                              
-                              <!-- Scanner beam element -->
-                              <div class="scanner-beam" style="position:absolute; top:70px; left:50px; width:4px; height:60px; background:linear-gradient(to bottom, transparent, #10b981, transparent); box-shadow:0 0 12px #10b981; opacity:0; pointer-events:none; z-index:5;"></div>
-
-                              <div style="position:absolute; left:30px; top:425px; width:840px; display:flex; justify-content:space-between; gap:15px; z-index:2;">
-                                  <div style="flex:1; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.15); border-radius:12px; padding:8px 12px; display:flex; justify-content:space-between; align-items:center;">
-                                      <span style="font-size:11px; color:var(--text-muted); font-weight:bold; text-transform:uppercase;">Quy trình:</span>
-                                      <span style="font-size:12px; font-weight:900; color:#10b981;">Tìm người có chuỗi số 0 ở đầu dài nhất làm kỷ lục mới</span>
-                                  </div>
-                              </div>
-                          </div>
-                     `;
-                 }
-                 else if (slideId === 'slide_view_8d') {
-                     viewportRoot.innerHTML = `
-                          <div style="width:100%; height:100%; box-sizing:border-box; position:relative; display:flex; flex-direction:column; justify-content:space-between; font-family:var(--font-sans);">
-                              <div style="text-align:center; z-index:2; margin-top:5px;">
-                                  <span style="font-size:11px; font-weight:bold; color:var(--gold-primary); background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); padding:4px 16px; border-radius:20px;">
-                                      BƯỚC 3: GÔM VÀO NHIỀU GIỎ CHỨA (REGISTERS)
-                                  </span>
-                              </div>
-                              
-                              <!-- Top Hash Routing Node -->
-                              <div style="display:flex; justify-content:center; align-items:center; width:100%; margin-top:15px; z-index:2;">
-                                  <div class="router-node glass-card" style="width:500px; height:90px; border:2px solid #3b82f6; border-radius:18px; padding:10px 20px; box-sizing:border-box; display:flex; justify-content:space-between; align-items:center; gap:15px;">
-                                      <div style="display:flex; align-items:center; gap:8px;">
-                                          <div style="background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.3); border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center;">
-                                              <i data-lucide="shuffle" style="color:#3b82f6; width:18px; height:18px;"></i>
-                                          </div>
-                                          <div style="text-align:left;">
-                                              <div class="router-user-id" style="font-size:12px; font-weight:bold; color:#fff;">user_3918</div>
-                                              <div style="font-size:8px; color:var(--text-muted); text-transform:uppercase; font-weight:bold;">Mã băm nhị phân</div>
-                                          </div>
-                                      </div>
-                                      <div class="router-binary-box" style="font-family:var(--font-mono); font-size:13px; color:#fff; background:rgba(0,0,0,0.4); padding:6px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); letter-spacing:1px;">
-                                          <span class="router-bits-prefix" style="color:#fbbf24; font-weight:900;">0101</span><span class="router-bits-suffix" style="color:#10b981;">00110101...</span>
-                                      </div>
-                                      <div style="text-align:right; font-size:10px; font-weight:bold; color:#fbbf24; border-left:1px solid rgba(255,255,255,0.08); padding-left:15px;">
-                                          <div class="router-target-bucket">Vào Giỏ #1</div>
-                                          <div class="router-target-val" style="color:#10b981;">Kỷ lục = 3</div>
-                                      </div>
-                                  </div>
-                              </div>
-                              
-                              <!-- Connection SVG area -->
-                              <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
-                                  <path class="route-line-s3" d="M 450 160 Q 450 210 250 260" fill="none" stroke="rgba(59,130,246,0.15)" stroke-width="2.5" stroke-dasharray="6 4" />
-                              </svg>
-                              
-                              <!-- Packet dot -->
-                              <div class="route-packet-s3" style="position:absolute; width:10px; height:10px; border-radius:50%; background:#fbbf24; box-shadow:0 0 10px #fbbf24; z-index:10; left:450px; top:160px; transform:translate(-50%,-50%); opacity:0;"></div>
-
-                              <!-- Bottom Registers Grid -->
-                              <div style="display:flex; flex-direction:column; align-items:center; width:100%; z-index:2; margin-top:10px;">
-                                  <div style="font-size:10px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px;">Bảng Thanh ghi HyperLogLog (16 Giỏ chứa)</div>
-                                  <div class="registers-grid-s3" style="width:100%; max-width:820px; display:grid; grid-template-columns:repeat(8, 1fr); gap:6px; background:rgba(0,0,0,0.3); border:1.5px solid rgba(255,255,255,0.06); border-radius:18px; padding:10px; box-sizing:border-box;">
-                                      <!-- 16 registers -->
-                                      <div class="reg-box-s3 r-s3-0" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #0</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">2</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-1" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #1</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">1</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-2" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #2</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">0</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-3" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #3</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">4</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-4" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #4</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">0</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-5" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #5</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">3</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-6" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #6</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">1</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-7" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #7</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">2</span>
-                                      </div>
-                                      
-                                      <div class="reg-box-s3 r-s3-8" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #8</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">0</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-9" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #9</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">5</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-10" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #10</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">1</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-11" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #11</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">2</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-12" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #12</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">0</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-13" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #13</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">3</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-14" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #14</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">2</span>
-                                      </div>
-                                      <div class="reg-box-s3 r-s3-15" style="height:55px; border:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.02); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:all 0.3s ease;">
-                                          <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">GIỎ #15</span>
-                                          <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:900;">1</span>
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div style="position:absolute; left:30px; top:425px; width:840px; display:flex; justify-content:space-between; gap:15px; z-index:2;">
-                                  <div style="flex:1; background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.15); border-radius:12px; padding:8px 12px; display:flex; justify-content:space-between; align-items:center;">
-                                      <span style="font-size:11px; color:var(--text-muted); font-weight:bold; text-transform:uppercase;">Cơ chế phân giỏ:</span>
-                                      <span style="font-size:12px; font-weight:900; color:#3b82f6;">X bit đầu của mã băm xác định giỏ ➡️ Giảm nhiễu thống kê</span>
-                                  </div>
-                              </div>
-                          </div>
-                     `;
-                 }
-                 else if (slideId === 'slide_view_8e') {
-                     viewportRoot.innerHTML = `
-                          <div style="width:100%; height:100%; box-sizing:border-box; position:relative; display:flex; flex-direction:column; justify-content:space-between; font-family:var(--font-sans);">
-                              <div style="text-align:center; z-index:2; margin-top:5px;">
-                                  <span style="font-size:11px; font-weight:bold; color:var(--gold-primary); background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); padding:4px 16px; border-radius:20px;">
-                                      BƯỚC 4: TÍNH TOÁN VIEW CÔNG CHIẾU
-                                  </span>
-                              </div>
-                              
-                              <div style="display:flex; justify-content:space-between; align-items:center; width:100%; height:320px; z-index:2; margin-top:20px; padding:0 20px; box-sizing:border-box;">
-                                  <!-- Left: Small registers representation -->
-                                  <div class="registers-preview glass-card" style="width:320px; height:100%; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:18px 12px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between;">
-                                      <div style="font-size:11px; font-weight:bold; color:#fff; text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px; text-align:center;">
-                                          Thống kê các giỏ (m = 16)
-                                      </div>
-                                      <div class="grid-preview-s4" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:6px; flex-grow:1; margin-top:10px; align-content:center;">
-                                          <!-- 16 registers small -->
-                                          <div class="r-s4-0" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#0</span><span class="rv-s4">2</span>
-                                          </div>
-                                          <div class="r-s4-1" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#1</span><span class="rv-s4">1</span>
-                                          </div>
-                                          <div class="r-s4-2" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#2</span><span class="rv-s4">0</span>
-                                          </div>
-                                          <div class="r-s4-3" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#3</span><span class="rv-s4">4</span>
-                                          </div>
-                                          
-                                          <div class="r-s4-4" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#4</span><span class="rv-s4">0</span>
-                                          </div>
-                                          <div class="r-s4-5" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#5</span><span class="rv-s4">3</span>
-                                          </div>
-                                          <div class="r-s4-6" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#6</span><span class="rv-s4">1</span>
-                                          </div>
-                                          <div class="r-s4-7" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#7</span><span class="rv-s4">2</span>
-                                          </div>
-                                          
-                                          <div class="r-s4-8" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#8</span><span class="rv-s4">0</span>
-                                          </div>
-                                          <div class="r-s4-9" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#9</span><span class="rv-s4">5</span>
-                                          </div>
-                                          <div class="r-s4-10" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#10</span><span class="rv-s4">1</span>
-                                          </div>
-                                          <div class="r-s4-11" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#11</span><span class="rv-s4">2</span>
-                                          </div>
-                                          
-                                          <div class="r-s4-12" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#12</span><span class="rv-s4">0</span>
-                                          </div>
-                                          <div class="r-s4-13" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#13</span><span class="rv-s4">3</span>
-                                          </div>
-                                          <div class="r-s4-14" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#14</span><span class="rv-s4">2</span>
-                                          </div>
-                                          <div class="r-s4-15" style="background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.08); border-radius:6px; font-family:var(--font-mono); font-size:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:46px;">
-                                              <span style="font-size:7px; color:var(--text-muted);">#15</span><span class="rv-s4">1</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  
-                                  <!-- Center arrow / flow connection -->
-                                  <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:60px;">
-                                      <i data-lucide="calculator" style="color:#fbbf24; width:28px; height:28px; animation: floatAnimYt 3s ease-in-out infinite;"></i>
-                                      <i data-lucide="arrow-right" style="color:var(--text-muted); width:20px; height:20px; margin-top:10px;"></i>
-                                  </div>
-                                  
-                                  <!-- Right: HLL Formula and View estimation board -->
-                                  <div class="calculator-panel glass-card" style="width:440px; height:100%; border:2.5px solid #10b981; border-radius:24px; padding:18px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 10px 30px rgba(16,185,129,0.05);">
-                                      <!-- Formula -->
-                                      <div style="background:rgba(0,0,0,0.3); border-radius:12px; border:1px solid rgba(16,185,129,0.2); padding:10px; text-align:center;">
-                                          <div style="font-size:9.5px; color:#10b981; font-weight:bold; text-transform:uppercase; margin-bottom:4px;">Công thức HyperLogLog</div>
-                                          <div style="font-family:var(--font-mono); font-size:18px; font-weight:900; color:#fff; letter-spacing:0.5px;">
-                                              E = <span style="color:#fbbf24;">α_m</span> · <span style="color:#3b82f6;">m²</span> · <span style="color:#a855f7;">( Σ 2⁻ᴿⱼ )⁻¹</span>
-                                          </div>
-                                      </div>
-                                      
-                                      <!-- Result Display -->
-                                      <div style="text-align:center; margin:10px 0;">
-                                          <div style="font-size:10px; color:var(--text-muted); font-weight:bold; text-transform:uppercase; letter-spacing:0.5px;">Ước tính lượt xem công chiếu</div>
-                                          <div class="hll-final-view" style="font-family:var(--font-mono); font-size:42px; font-weight:900; color:#10b981; text-shadow:0 0 20px rgba(16,185,129,0.4);">
-                                              0
-                                          </div>
-                                      </div>
-                                      
-                                      <!-- Comparison bar -->
-                                      <div style="display:flex; justify-content:space-between; gap:10px; font-size:10px; font-weight:bold; border-top:1px solid rgba(255,255,255,0.08); padding-top:10px;">
-                                          <div style="flex:1; background:rgba(255,255,255,0.02); border-radius:8px; padding:6px; text-align:center;">
-                                              <div style="color:var(--text-muted);">VIEW THẬT</div>
-                                              <div class="hll-real-view" style="color:#fff; font-size:12px; font-family:var(--font-mono); margin-top:2px;">106,000</div>
-                                          </div>
-                                          <div style="flex:1; background:rgba(16,185,129,0.08); border-radius:8px; padding:6px; text-align:center;">
-                                              <div style="color:#10b981;">SAI SỐ THỰC TẾ</div>
-                                              <div style="color:#10b981; font-size:12px; font-family:var(--font-mono); margin-top:2px;">-0.79%</div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              
-                              <div style="position:absolute; left:30px; top:425px; width:840px; display:flex; justify-content:space-between; gap:15px; z-index:2;">
-                                  <div style="flex:1; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.15); border-radius:12px; padding:8px 12px; display:flex; justify-content:space-between; align-items:center;">
-                                      <span style="font-size:11px; color:var(--text-muted); font-weight:bold; text-transform:uppercase;">Ước tính toán học:</span>
-                                      <span style="font-size:12px; font-weight:900; color:#10b981;">Trung bình điều hòa (Harmonic Mean) giúp loại bỏ nhiễu cực trị cực hiệu quả</span>
-                                  </div>
-                              </div>
-                          </div>
-                     `;
-                 }
-                 else if (slideId === 'slide_view_8f') {
-                     viewportRoot.innerHTML = `
-                          <div style="width:100%; height:100%; box-sizing:border-box; position:relative; display:flex; flex-direction:column; justify-content:space-between; font-family:var(--font-sans);">
-                              <div style="text-align:center; z-index:2; margin-top:5px;">
-                                  <span style="font-size:11px; font-weight:bold; color:var(--gold-primary); background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); padding:4px 16px; border-radius:20px;">
-                                      ỨNG DỤNG THỰC TẾ TRONG BIG TECH
-                                  </span>
-                              </div>
-                              
-                              <div style="display:flex; justify-content:center; gap:25px; flex-grow:1; margin-top:20px; z-index:2;">
-                                  <!-- Left: Google Analytics Card -->
-                                  <div class="tech-card glass-card gc-ga" style="width:360px; height:220px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:22px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease;">
-                                      <div style="background:rgba(245,158,11,0.1); border:1.5px solid rgba(245,158,11,0.3); border-radius:50%; width:48px; height:48px; display:flex; align-items:center; justify-content:center;">
-                                          <i data-lucide="bar-chart-3" style="color:#f59e0b; width:24px; height:24px;"></i>
-                                      </div>
-                                      <div style="font-size:16px; font-weight:bold; color:#fff;">Google Analytics</div>
-                                      <div style="font-size:11px; color:var(--text-muted); line-height:1.5; margin-top:6px;">
-                                          Đếm số lượng người dùng hoạt động đồng thời (Active Users) trong thời gian thực trên hàng triệu website toàn cầu.
-                                      </div>
-                                  </div>
-                                  
-                                  <!-- Right: YouTube Real-time Card -->
-                                  <div class="tech-card glass-card gc-yt" style="width:360px; height:220px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:22px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease;">
-                                      <div style="background:rgba(239,68,68,0.1); border:1.5px solid rgba(239,68,68,0.3); border-radius:50%; width:48px; height:48px; display:flex; align-items:center; justify-content:center;">
-                                          <i data-lucide="youtube" style="color:#ef4444; width:24px; height:24px;"></i>
-                                      </div>
-                                      <div style="font-size:16px; font-weight:bold; color:#fff;">YouTube Real-time</div>
-                                      <div style="font-size:11px; color:var(--text-muted); line-height:1.5; margin-top:6px;">
-                                          Đếm lượt xem công chiếu (Live View) của hàng triệu người xem đồng thời mà không làm sập hay quá tải cơ sở dữ liệu.
-                                      </div>
-                                  </div>
-                              </div>
-                              
-                              <!-- CTA Banner -->
-                              <div class="cta-banner-s5 glass-card" style="width:100%; border:1.5px solid rgba(6,182,212,0.25); background:rgba(6,182,212,0.05); border-radius:18px; padding:12px 20px; box-sizing:border-box; display:flex; justify-content:space-between; align-items:center; gap:15px; z-index:2; margin-bottom:20px;">
-                                  <div style="text-align:left;">
-                                      <div style="font-size:11px; font-weight:bold; color:#06b6d4; text-transform:uppercase; letter-spacing:0.5px;">Bạn muốn hiểu sâu hơn về HyperLogLog?</div>
-                                      <div style="font-size:9.5px; color:var(--text-muted); margin-top:2px;">Nhấn Like hoặc Follow để ủng hộ mình ra tiếp video giải thích chi tiết code của thuật toán nhé!</div>
-                                  </div>
-                                  <div style="display:flex; gap:10px;">
-                                      <button style="background:rgba(236,72,153,0.15); border:1px solid #ec4899; color:#ec4899; font-size:10px; font-weight:bold; padding:6px 14px; border-radius:10px; display:flex; align-items:center; gap:4px; cursor:pointer;"><i data-lucide="heart" style="width:12px; height:12px; fill:#ec4899;"></i> Thả Tim</button>
-                                      <button style="background:rgba(59,130,246,0.15); border:1px solid #3b82f6; color:#3b82f6; font-size:10px; font-weight:bold; padding:6px 14px; border-radius:10px; display:flex; align-items:center; gap:4px; cursor:pointer;"><i data-lucide="bell" style="width:12px; height:12px; fill:#3b82f6;"></i> Follow</button>
-                                  </div>
-                              </div>
-                          </div>
-                     `;
-                 }
+                                   else if (slideId === 'slide_view_8b') {
+                      viewportRoot.innerHTML = `
+                           <div style="width:100%; height:100%; box-sizing:border-box; position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; font-family:var(--font-sans);">
+                               <div style="text-align:center; z-index:2; position:absolute; top:15px;">
+                                   <span style="font-size:13px; font-weight:bold; color:var(--gold-primary); background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.25); padding:6px 20px; border-radius:20px; letter-spacing:0.5px;">
+                                       BƯỚC 1: BĂM ID & TUNG ĐỒNG XU (HASHING)
+                                   </span>
+                               </div>
+                               
+                               <div class="users-container" style="display:flex; justify-content:center; align-items:center; gap:22px; width:100%; height:380px; z-index:2; margin-top:25px; padding:0 10px; box-sizing:border-box;">
+                                   <!-- Card 1 -->
+                                   <div class="user-card glass-card u-card-0" style="width:160px; height:340px; border:2px solid rgba(255,255,255,0.08); border-radius:24px; padding:20px 10px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; text-align:center; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
+                                       <div style="width:48px; height:48px; border-radius:50%; background:rgba(59,130,246,0.15); border:2px solid rgba(59,130,246,0.4); display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
+                                           <i data-lucide="user" style="color:#3b82f6; width:24px; height:24px;"></i>
+                                       </div>
+                                       <div style="font-size:13px; font-weight:bold; color:#fff; margin-bottom:5px;">user_3918</div>
+                                       <div class="coin-spin" style="width:58px; height:58px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:3px solid #fff; box-shadow:0 0 20px rgba(245,158,11,0.6); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
+                                       <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:5px; align-items:center;">
+                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:13px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 12px; border-radius:8px; letter-spacing:0.8px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">00</span><span class="normal-bits" style="opacity:0;">110101...</span></div>
+                                       </div>
+                                       <div class="zero-count-badge" style="background:rgba(16,185,129,0.15); border:1.5px solid rgba(16,185,129,0.35); border-radius:10px; padding:6px 12px; font-size:12px; color:#10b981; font-weight:bold; margin-top:5px; opacity:0; transform:scale(0.8); transition:all 0.4s; width:80%;">
+                                           Số 0 đầu: <span style="font-size:14px; font-weight:900;">2</span>
+                                       </div>
+                                   </div>
+                                   <!-- Card 2 -->
+                                   <div class="user-card glass-card u-card-1" style="width:160px; height:340px; border:2px solid rgba(255,255,255,0.08); border-radius:24px; padding:20px 10px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; text-align:center; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
+                                       <div style="width:48px; height:48px; border-radius:50%; background:rgba(168,85,247,0.15); border:2px solid rgba(168,85,247,0.4); display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
+                                           <i data-lucide="user" style="color:#a855f7; width:24px; height:24px;"></i>
+                                       </div>
+                                       <div style="font-size:13px; font-weight:bold; color:#fff; margin-bottom:5px;">user_8421</div>
+                                       <div class="coin-spin" style="width:58px; height:58px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:3px solid #fff; box-shadow:0 0 20px rgba(245,158,11,0.6); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
+                                       <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:5px; align-items:center;">
+                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:13px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 12px; border-radius:8px; letter-spacing:0.8px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">0000</span><span class="normal-bits" style="opacity:0;">1011...</span></div>
+                                       </div>
+                                       <div class="zero-count-badge" style="background:rgba(16,185,129,0.15); border:1.5px solid rgba(16,185,129,0.35); border-radius:10px; padding:6px 12px; font-size:12px; color:#10b981; font-weight:bold; margin-top:5px; opacity:0; transform:scale(0.8); transition:all 0.4s; width:80%;">
+                                           Số 0 đầu: <span style="font-size:14px; font-weight:900;">4</span>
+                                       </div>
+                                   </div>
+                                   <!-- Card 3 -->
+                                   <div class="user-card glass-card u-card-2" style="width:160px; height:340px; border:2px solid rgba(255,255,255,0.08); border-radius:24px; padding:20px 10px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; text-align:center; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
+                                       <div style="width:48px; height:48px; border-radius:50%; background:rgba(236,72,153,0.15); border:2px solid rgba(236,72,153,0.4); display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
+                                           <i data-lucide="user" style="color:#ec4899; width:24px; height:24px;"></i>
+                                       </div>
+                                       <div style="font-size:13px; font-weight:bold; color:#fff; margin-bottom:5px;">user_1034</div>
+                                       <div class="coin-spin" style="width:58px; height:58px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:3px solid #fff; box-shadow:0 0 20px rgba(245,158,11,0.6); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
+                                       <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:5px; align-items:center;">
+                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:13px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 12px; border-radius:8px; letter-spacing:0.8px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">0</span><span class="normal-bits" style="opacity:0;">1100111...</span></div>
+                                       </div>
+                                       <div class="zero-count-badge" style="background:rgba(16,185,129,0.15); border:1.5px solid rgba(16,185,129,0.35); border-radius:10px; padding:6px 12px; font-size:12px; color:#10b981; font-weight:bold; margin-top:5px; opacity:0; transform:scale(0.8); transition:all 0.4s; width:80%;">
+                                           Số 0 đầu: <span style="font-size:14px; font-weight:900;">1</span>
+                                       </div>
+                                   </div>
+                                   <!-- Card 4 -->
+                                   <div class="user-card glass-card u-card-3" style="width:160px; height:340px; border:2px solid rgba(255,255,255,0.08); border-radius:24px; padding:20px 10px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; text-align:center; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
+                                       <div style="width:48px; height:48px; border-radius:50%; background:rgba(20,184,166,0.15); border:2px solid rgba(20,184,166,0.4); display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
+                                           <i data-lucide="user" style="color:#14b8a6; width:24px; height:24px;"></i>
+                                       </div>
+                                       <div style="font-size:13px; font-weight:bold; color:#fff; margin-bottom:5px;">user_6653</div>
+                                       <div class="coin-spin" style="width:58px; height:58px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:3px solid #fff; box-shadow:0 0 20px rgba(245,158,11,0.6); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
+                                       <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:5px; align-items:center;">
+                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:13px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 12px; border-radius:8px; letter-spacing:0.8px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">00000</span><span class="normal-bits" style="opacity:0;">110...</span></div>
+                                       </div>
+                                       <div class="zero-count-badge" style="background:rgba(16,185,129,0.15); border:1.5px solid rgba(16,185,129,0.35); border-radius:10px; padding:6px 12px; font-size:12px; color:#10b981; font-weight:bold; margin-top:5px; opacity:0; transform:scale(0.8); transition:all 0.4s; width:80%;">
+                                           Số 0 đầu: <span style="font-size:14px; font-weight:900;">5</span>
+                                       </div>
+                                   </div>
+                                   <!-- Card 5 -->
+                                   <div class="user-card glass-card u-card-4" style="width:160px; height:340px; border:2px solid rgba(255,255,255,0.08); border-radius:24px; padding:20px 10px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; text-align:center; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
+                                       <div style="width:48px; height:48px; border-radius:50%; background:rgba(245,158,11,0.15); border:2px solid rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
+                                           <i data-lucide="user" style="color:#f59e0b; width:24px; height:24px;"></i>
+                                       </div>
+                                       <div style="font-size:13px; font-weight:bold; color:#fff; margin-bottom:5px;">user_9927</div>
+                                       <div class="coin-spin" style="width:58px; height:58px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:3px solid #fff; box-shadow:0 0 20px rgba(245,158,11,0.6); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
+                                       <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:5px; align-items:center;">
+                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:13px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 12px; border-radius:8px; letter-spacing:0.8px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits"></span><span class="normal-bits" style="opacity:0;">10110100...</span></div>
+                                       </div>
+                                       <div class="zero-count-badge" style="background:rgba(16,185,129,0.15); border:1.5px solid rgba(16,185,129,0.35); border-radius:10px; padding:6px 12px; font-size:12px; color:#10b981; font-weight:bold; margin-top:5px; opacity:0; transform:scale(0.8); transition:all 0.4s; width:80%;">
+                                           Số 0 đầu: <span style="font-size:14px; font-weight:900;">0</span>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                      `;
+                  }
+                  else if (slideId === 'slide_view_8c') {
+                      viewportRoot.innerHTML = `
+                           <div style="width:100%; height:100%; box-sizing:border-box; position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; font-family:var(--font-sans);">
+                               <div style="text-align:center; z-index:2; position:absolute; top:15px;">
+                                   <span style="font-size:13px; font-weight:bold; color:var(--gold-primary); background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.25); padding:6px 20px; border-radius:20px; letter-spacing:0.5px;">
+                                       BƯỚC 2: QUÉT SỐ 0 ĐẦU TIÊN & TÌM KỶ LỤC
+                                   </span>
+                               </div>
+                               
+                               <!-- Smaller User Cards Row -->
+                               <div class="users-row-s2" style="display:flex; justify-content:center; gap:18px; width:100%; z-index:2; margin-top:35px;">
+                                   <!-- User 1 -->
+                                   <div class="user-card-s2 glass-card uc-s2-0" style="width:150px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                                       <div style="font-size:12px; color:var(--text-muted); font-weight:bold; margin-bottom:5px;">user_3918</div>
+                                       <div style="font-family:var(--font-mono); font-size:13px; color:#fff; background:rgba(0,0,0,0.45); padding:6px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold;"><span style="color:#10b981; font-weight:900;">00</span>110101...</div>
+                                       <div style="font-size:12px; font-weight:bold; color:#10b981;">Số 0: 2</div>
+                                   </div>
+                                   <!-- User 2 -->
+                                   <div class="user-card-s2 glass-card uc-s2-1" style="width:150px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                                       <div style="font-size:12px; color:var(--text-muted); font-weight:bold; margin-bottom:5px;">user_8421</div>
+                                       <div style="font-family:var(--font-mono); font-size:13px; color:#fff; background:rgba(0,0,0,0.45); padding:6px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold;"><span style="color:#10b981; font-weight:900;">0000</span>1011...</div>
+                                       <div style="font-size:12px; font-weight:bold; color:#10b981;">Số 0: 4</div>
+                                   </div>
+                                   <!-- User 3 -->
+                                   <div class="user-card-s2 glass-card uc-s2-2" style="width:150px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                                       <div style="font-size:12px; color:var(--text-muted); font-weight:bold; margin-bottom:5px;">user_1034</div>
+                                       <div style="font-family:var(--font-mono); font-size:13px; color:#fff; background:rgba(0,0,0,0.45); padding:6px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold;"><span style="color:#10b981; font-weight:900;">0</span>1100111...</div>
+                                       <div style="font-size:12px; font-weight:bold; color:#10b981;">Số 0: 1</div>
+                                   </div>
+                                   <!-- User 4 -->
+                                   <div class="user-card-s2 glass-card uc-s2-3" style="width:150px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                                       <div style="font-size:12px; color:var(--text-muted); font-weight:bold; margin-bottom:5px;">user_6653</div>
+                                       <div style="font-family:var(--font-mono); font-size:13px; color:#fff; background:rgba(0,0,0,0.45); padding:6px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold;"><span style="color:#10b981; font-weight:900;">00000</span>110...</div>
+                                       <div style="font-size:12px; font-weight:bold; color:#10b981;">Số 0: 5</div>
+                                   </div>
+                                   <!-- User 5 -->
+                                   <div class="user-card-s2 glass-card uc-s2-4" style="width:150px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                                       <div style="font-size:12px; color:var(--text-muted); font-weight:bold; margin-bottom:5px;">user_9927</div>
+                                       <div style="font-family:var(--font-mono); font-size:13px; color:#fff; background:rgba(0,0,0,0.45); padding:6px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold;">10110100...</div>
+                                       <div style="font-size:12px; font-weight:bold; color:#10b981;">Số 0: 0</div>
+                                   </div>
+                               </div>
+                               
+                               <!-- Central Record Display Card -->
+                               <div class="record-board-container" style="display:flex; justify-content:center; align-items:center; margin-top:35px; z-index:2; width:100%;">
+                                   <div class="record-board glass-card" style="width:520px; height:180px; border:2.5px solid #fbbf24; border-radius:28px; padding:20px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; text-align:center; box-shadow:0 15px 40px rgba(245,158,11,0.25); animation: pulseGold 2.5s infinite;">
+                                       <div style="display:flex; align-items:center; gap:12px; font-size:15px; font-weight:bold; color:#fbbf24; text-transform:uppercase; letter-spacing:1.5px;">
+                                           <i data-lucide="trophy" style="color:#fbbf24; width:28px; height:28px;"></i>
+                                           KỶ LỤC LỚN NHẤT (MAX RECORD)
+                                       </div>
+                                       
+                                       <div class="record-display-val" style="font-family:var(--font-mono); font-size:56px; font-weight:900; color:#fbbf24; text-shadow:0 0 25px rgba(245,158,11,0.7); margin:5px 0;">
+                                           Max = 0
+                                       </div>
+                                       
+                                       <div class="record-status-txt" style="font-size:13px; color:var(--text-muted); font-weight:bold;">
+                                           Đang quét các lượt băm...
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <!-- Scanner beam element aligned exactly to small cards' binary strings height -->
+                               <div class="scanner-beam" style="position:absolute; top:88px; left:50px; width:4px; height:34px; background:linear-gradient(to bottom, transparent, #10b981, transparent); box-shadow:0 0 12px #10b981; opacity:0; pointer-events:none; z-index:5;"></div>
+                           </div>
+                      `;
+                  }
+                  else if (slideId === 'slide_view_8d') {
+                      viewportRoot.innerHTML = `
+                           <div style="width:100%; height:100%; box-sizing:border-box; position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; font-family:var(--font-sans);">
+                               <div style="text-align:center; z-index:2; position:absolute; top:15px;">
+                                   <span style="font-size:13px; font-weight:bold; color:var(--gold-primary); background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.25); padding:6px 20px; border-radius:20px; letter-spacing:0.5px;">
+                                       BƯỚC 3: GÔM VÀO NHIỀU GIỎ CHỨA (REGISTERS)
+                                   </span>
+                               </div>
+                               
+                               <!-- Top Hash Routing Node -->
+                               <div style="display:flex; justify-content:center; align-items:center; width:100%; margin-top:35px; z-index:2;">
+                                   <div class="router-node glass-card" style="width:600px; height:100px; border:2px solid #3b82f6; border-radius:24px; padding:15px 30px; box-sizing:border-box; display:flex; justify-content:space-between; align-items:center; gap:20px; box-shadow: 0 10px 30px rgba(59,130,246,0.15);">
+                                       <div style="display:flex; align-items:center; gap:12px;">
+                                           <div style="background:rgba(59,130,246,0.15); border:1.5px solid rgba(59,130,246,0.4); border-radius:50%; width:44px; height:44px; display:flex; align-items:center; justify-content:center;">
+                                               <i data-lucide="shuffle" style="color:#3b82f6; width:22px; height:22px;"></i>
+                                           </div>
+                                           <div style="text-align:left;">
+                                               <div class="router-user-id" style="font-size:14px; font-weight:bold; color:#fff; margin-bottom:2px;">user_3918</div>
+                                           </div>
+                                       </div>
+                                       <div class="router-binary-box" style="font-family:var(--font-mono); font-size:15px; color:#fff; background:rgba(0,0,0,0.55); padding:8px 18px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); letter-spacing:1.2px; font-weight:bold;">
+                                           <span class="router-bits-prefix" style="color:#fbbf24; font-weight:900;">0101</span><span class="router-bits-suffix" style="color:#10b981;">00110101...</span>
+                                       </div>
+                                       <div style="text-align:right; font-size:12px; font-weight:bold; color:#fbbf24; border-left:2px solid rgba(255,255,255,0.08); padding-left:20px; line-height:1.35;">
+                                           <div class="router-target-bucket" style="font-size:13px; font-weight:900;">Vào Giỏ #1</div>
+                                           <div class="router-target-val" style="color:#10b981; font-weight:900; margin-top:2px;">Kỷ lục = 3</div>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <!-- Connection SVG area -->
+                               <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
+                                   <path class="route-line-s3" d="M 450 160 Q 450 210 250 260" fill="none" stroke="rgba(59,130,246,0.2)" stroke-width="3" stroke-dasharray="8 6" />
+                               </svg>
+                               
+                               <!-- Packet dot -->
+                               <div class="route-packet-s3" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#fbbf24; box-shadow:0 0 12px #fbbf24; z-index:10; left:450px; top:160px; transform:translate(-50%,-50%); opacity:0;"></div>
+ 
+                               <!-- Bottom Registers Grid -->
+                               <div style="display:flex; flex-direction:column; align-items:center; width:100%; z-index:2; margin-top:35px;">
+                                   <div style="font-size:12px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; margin-bottom:10px; letter-spacing:0.8px;">Bảng Thanh ghi HyperLogLog (16 Giỏ chứa)</div>
+                                   <div class="registers-grid-s3" style="width:100%; max-width:840px; display:grid; grid-template-columns:repeat(8, 1fr); gap:8px; background:rgba(0,0,0,0.35); border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:15px; box-sizing:border-box;">
+                                       <!-- 16 registers -->
+                                       <div class="reg-box-s3 r-s3-0" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #0</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">2</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-1" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #1</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">1</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-2" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #2</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">0</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-3" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #3</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">4</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-4" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #4</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">0</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-5" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #5</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">3</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-6" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #6</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">1</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-7" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #7</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">2</span>
+                                       </div>
+                                       
+                                       <div class="reg-box-s3 r-s3-8" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #8</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">0</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-9" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #9</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">5</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-10" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #10</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">1</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-11" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #11</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">2</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-12" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #12</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">0</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-13" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #13</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">3</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-14" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #14</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">2</span>
+                                       </div>
+                                       <div class="reg-box-s3 r-s3-15" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
+                                           <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #15</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">1</span>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                      `;
+                  }
+                  else if (slideId === 'slide_view_8e') {
+                      viewportRoot.innerHTML = `
+                           <div style="width:100%; height:100%; box-sizing:border-box; position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; font-family:var(--font-sans);">
+                               <div style="text-align:center; z-index:2; position:absolute; top:15px;">
+                                   <span style="font-size:13px; font-weight:bold; color:var(--gold-primary); background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.25); padding:6px 20px; border-radius:20px; letter-spacing:0.5px;">
+                                       BƯỚC 4: TÍNH TOÁN VIEW CÔNG CHIẾU
+                                   </span>
+                               </div>
+                               
+                               <div style="display:flex; justify-content:space-between; align-items:center; width:100%; height:340px; z-index:2; margin-top:30px; padding:0 10px; box-sizing:border-box;">
+                                   <!-- Left: Small registers representation -->
+                                   <div class="registers-preview glass-card" style="width:340px; height:100%; border:2px solid rgba(255,255,255,0.08); border-radius:28px; padding:20px 15px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                                       <div style="font-size:12px; font-weight:bold; color:#fff; text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; text-align:center; letter-spacing:0.5px;">
+                                           Thống kê các giỏ (m = 16)
+                                       </div>
+                                       <div class="grid-preview-s4" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; flex-grow:1; margin-top:15px; align-content:center;">
+                                           <!-- 16 registers small -->
+                                           <div class="r-s4-0" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#0</span><span class="rv-s4" style="font-weight:900; color:#10b981;">2</span>
+                                           </div>
+                                           <div class="r-s4-1" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#1</span><span class="rv-s4" style="font-weight:900; color:#10b981;">1</span>
+                                           </div>
+                                           <div class="r-s4-2" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#2</span><span class="rv-s4" style="font-weight:900; color:#10b981;">0</span>
+                                           </div>
+                                           <div class="r-s4-3" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#3</span><span class="rv-s4" style="font-weight:900; color:#10b981;">4</span>
+                                           </div>
+                                           
+                                           <div class="r-s4-4" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#4</span><span class="rv-s4" style="font-weight:900; color:#10b981;">0</span>
+                                           </div>
+                                           <div class="r-s4-5" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#5</span><span class="rv-s4" style="font-weight:900; color:#10b981;">3</span>
+                                           </div>
+                                           <div class="r-s4-6" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#6</span><span class="rv-s4" style="font-weight:900; color:#10b981;">1</span>
+                                           </div>
+                                           <div class="r-s4-7" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#7</span><span class="rv-s4" style="font-weight:900; color:#10b981;">2</span>
+                                           </div>
+                                           
+                                           <div class="r-s4-8" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#8</span><span class="rv-s4" style="font-weight:900; color:#10b981;">0</span>
+                                           </div>
+                                           <div class="r-s4-9" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#9</span><span class="rv-s4" style="font-weight:900; color:#10b981;">5</span>
+                                           </div>
+                                           <div class="r-s4-10" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#10</span><span class="rv-s4" style="font-weight:900; color:#10b981;">1</span>
+                                           </div>
+                                           <div class="r-s4-11" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#11</span><span class="rv-s4" style="font-weight:900; color:#10b981;">2</span>
+                                           </div>
+                                           
+                                           <div class="r-s4-12" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#12</span><span class="rv-s4" style="font-weight:900; color:#10b981;">0</span>
+                                           </div>
+                                           <div class="r-s4-13" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#13</span><span class="rv-s4" style="font-weight:900; color:#10b981;">3</span>
+                                           </div>
+                                           <div class="r-s4-14" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#14</span><span class="rv-s4" style="font-weight:900; color:#10b981;">2</span>
+                                           </div>
+                                           <div class="r-s4-15" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
+                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#15</span><span class="rv-s4" style="font-weight:900; color:#10b981;">1</span>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   
+                                   <!-- Center arrow / flow connection -->
+                                   <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:60px;">
+                                       <i data-lucide="calculator" style="color:#fbbf24; width:32px; height:32px; animation: floatAnimYt 3s ease-in-out infinite;"></i>
+                                       <i data-lucide="arrow-right" style="color:var(--text-muted); width:24px; height:24px; margin-top:10px;"></i>
+                                   </div>
+                                   
+                                   <!-- Right: HLL Formula and View estimation board -->
+                                   <div class="calculator-panel glass-card" style="width:480px; height:100%; border:2.5px solid #10b981; border-radius:28px; padding:22px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 15px 40px rgba(16,185,129,0.15);">
+                                       <!-- Formula -->
+                                       <div style="background:rgba(0,0,0,0.35); border-radius:16px; border:1.5px solid rgba(16,185,129,0.25); padding:12px; text-align:center;">
+                                           <div style="font-size:11px; color:#10b981; font-weight:bold; text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px;">Công thức HyperLogLog</div>
+                                           <div style="font-family:var(--font-mono); font-size:22px; font-weight:900; color:#fff; letter-spacing:0.8px;">
+                                               E = <span style="color:#fbbf24;">α_m</span> · <span style="color:#3b82f6;">m²</span> · <span style="color:#a855f7;">( Σ 2⁻ᴿⱼ )⁻¹</span>
+                                           </div>
+                                       </div>
+                                       
+                                       <!-- Result Display -->
+                                       <div style="text-align:center; margin:15px 0;">
+                                           <div style="font-size:12px; color:var(--text-muted); font-weight:bold; text-transform:uppercase; letter-spacing:0.8px;">Ước tính lượt xem công chiếu</div>
+                                           <div class="hll-final-view" style="font-family:var(--font-mono); font-size:52px; font-weight:900; color:#10b981; text-shadow:0 0 25px rgba(16,185,129,0.65); margin:5px 0;">
+                                               0
+                                           </div>
+                                       </div>
+                                       
+                                       <!-- Comparison bar -->
+                                       <div style="display:flex; justify-content:space-between; gap:12px; font-size:11px; font-weight:bold; border-top:2px solid rgba(255,255,255,0.08); padding-top:12px; width:100%;">
+                                           <div style="flex:1; background:rgba(255,255,255,0.02); border-radius:10px; padding:8px; text-align:center; border:1px solid rgba(255,255,255,0.05);">
+                                               <div style="color:var(--text-muted);">VIEW THẬT</div>
+                                               <div class="hll-real-view" style="color:#fff; font-size:14px; font-family:var(--font-mono); margin-top:2px;">106,000</div>
+                                           </div>
+                                           <div style="flex:1; background:rgba(16,185,129,0.1); border-radius:10px; padding:8px; text-align:center; border:1px solid rgba(16,185,129,0.2);">
+                                               <div style="color:#10b981;">SAI SỐ THỰC TẾ</div>
+                                               <div style="color:#10b981; font-size:14px; font-family:var(--font-mono); margin-top:2px;">-0.79%</div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                      `;
+                  }
+                  else if (slideId === 'slide_view_8f') {
+                      viewportRoot.innerHTML = `
+                           <div style="width:100%; height:100%; box-sizing:border-box; position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; font-family:var(--font-sans);">
+                               <div style="text-align:center; z-index:2; position:absolute; top:15px;">
+                                   <span style="font-size:13px; font-weight:bold; color:var(--gold-primary); background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.25); padding:6px 20px; border-radius:20px; letter-spacing:0.5px;">
+                                       ỨNG DỤNG THỰC TẾ TRONG BIG TECH
+                                   </span>
+                               </div>
+                               
+                               <div style="display:flex; justify-content:center; gap:35px; width:100%; margin-top:35px; z-index:2; box-sizing:border-box; padding:0 20px;">
+                                   <!-- Left: Google Analytics Card -->
+                                   <div class="tech-card glass-card gc-ga" style="width:400px; height:240px; border:2px solid rgba(255,255,255,0.08); border-radius:28px; padding:25px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
+                                       <div style="background:rgba(245,158,11,0.15); border:2px solid rgba(245,158,11,0.4); border-radius:50%; width:56px; height:56px; display:flex; align-items:center; justify-content:center; box-shadow: 0 0 15px rgba(245,158,11,0.25);">
+                                           <!-- High-quality Custom SVG for Bar Chart -->
+                                           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                       </div>
+                                       <div style="font-size:18px; font-weight:bold; color:#fff;">Google Analytics</div>
+                                       <div style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-top:6px;">
+                                           Đếm số lượng người dùng hoạt động đồng thời (Active Users) trong thời gian thực trên hàng triệu website toàn cầu.
+                                       </div>
+                                   </div>
+                                   
+                                   <!-- Right: YouTube Real-time Card -->
+                                   <div class="tech-card glass-card gc-yt" style="width:400px; height:240px; border:2px solid rgba(255,255,255,0.08); border-radius:28px; padding:25px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
+                                       <div style="background:rgba(239,68,68,0.15); border:2px solid rgba(239,68,68,0.4); border-radius:50%; width:56px; height:56px; display:flex; align-items:center; justify-content:center; box-shadow: 0 0 15px rgba(239,68,68,0.25);">
+                                           <!-- High-quality Custom SVG for YouTube Play Button -->
+                                           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3" fill="#ef4444"/></svg>
+                                       </div>
+                                       <div style="font-size:18px; font-weight:bold; color:#fff;">YouTube Real-time</div>
+                                       <div style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-top:6px;">
+                                           Đếm lượt xem công chiếu (Live View) của hàng triệu người xem đồng thời mà không làm sập hay quá tải cơ sở dữ liệu.
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <!-- CTA Banner -->
+                               <div class="cta-banner-s5 glass-card" style="width:95%; border:1.5px solid rgba(6,182,212,0.35); background:rgba(6,182,212,0.06); border-radius:22px; padding:15px 25px; box-sizing:border-box; display:flex; justify-content:space-between; align-items:center; gap:20px; z-index:2; margin-top:35px; box-shadow: 0 5px 20px rgba(6,182,212,0.15);">
+                                   <div style="text-align:left;">
+                                       <div style="font-size:13px; font-weight:bold; color:#06b6d4; text-transform:uppercase; letter-spacing:0.5px;">Bạn muốn hiểu sâu hơn về HyperLogLog?</div>
+                                   </div>
+                                   <div style="display:flex; gap:12px;">
+                                       <button style="background:rgba(236,72,153,0.15); border:1.5px solid #ec4899; color:#ec4899; font-size:11px; font-weight:bold; padding:8px 18px; border-radius:12px; display:flex; align-items:center; gap:6px; cursor:pointer;"><i data-lucide="heart" style="width:14px; height:14px; fill:#ec4899;"></i> Thả Tim</button>
+                                       <button style="background:rgba(59,130,246,0.15); border:1.5px solid #3b82f6; color:#3b82f6; font-size:11px; font-weight:bold; padding:8px 18px; border-radius:12px; display:flex; align-items:center; gap:6px; cursor:pointer;"><i data-lucide="bell" style="width:14px; height:14px; fill:#3b82f6;"></i> Follow</button>
+                                   </div>
+                               </div>
+                           </div>
+                      `;
+                  }
                 lucide.createIcons({node: viewportRoot});
             }
 
@@ -15500,7 +16276,494 @@ else if (slideId === 'slide_select_5') {
 
             let methodLabel = "Idle", codeOutput = "";
 
-            if (slideId === 'slide_view_1') {
+            if (slideId === 'slide_short_1') {
+                    viewportRoot.innerHTML = `
+                          <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:30px;">
+                              
+                              <!-- Long URL Card -->
+                              <div class="glass-card" style="width:360px; height:240px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:25px; display:flex; flex-direction:column; justify-content:space-between; text-align:left;">
+                                  <div style="font-size:12px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">Đường dẫn gốc (Long URL)</div>
+                                  <div style="background:rgba(239,68,68,0.05); border:1.5px solid rgba(239,68,68,0.2); border-radius:12px; padding:12px; font-family:var(--font-mono); font-size:11px; color:#fff; word-break:break-all; line-height:1.4; flex:1; display:flex; align-items:center; margin:15px 0;">
+                                      https://shopee.vn/deals/electronics/special-sale/item-991823120-promo-tracker.html
+                                  </div>
+                                  <div style="font-size:10px; color:#ef4444; font-weight:bold;">Độ dài: 82 ký tự (Mất thẩm mỹ, dễ lỗi)</div>
+                              </div>
+
+                              <!-- Central Shortener Gear -->
+                              <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:80px; position:relative;">
+                                  <i data-lucide="scissors" class="short-scissors" style="width:40px; height:40px; color:#10b981; transition:transform 0.2s ease;"></i>
+                                  <!-- Flowing packet -->
+                                  <div class="short-packet" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#3b82f6; box-shadow:0 0 10px #3b82f6; z-index:10; left:50%; top:50%; transform:translate(-50%,-50%); opacity:0;"></div>
+                              </div>
+
+                              <!-- Short URL Card -->
+                              <div class="glass-card" style="width:360px; height:240px; border:2.5px solid #10b981; border-radius:24px; padding:25px; display:flex; flex-direction:column; justify-content:space-between; text-align:left; box-shadow:0 0 25px rgba(16,185,129,0.05);">
+                                  <div style="font-size:12px; font-weight:bold; color:#10b981; text-transform:uppercase; border-bottom:1px solid rgba(16,185,129,0.15); padding-bottom:8px;">Liên kết rút gọn (Short URL)</div>
+                                  <div style="background:rgba(16,185,129,0.08); border:1.5px solid rgba(16,185,129,0.25); border-radius:12px; padding:15px; font-family:var(--font-mono); font-size:18px; color:#10b981; font-weight:bold; text-align:center; margin:20px 0;">
+                                      shope.vn/3gH2kLa
+                                  </div>
+                                  <div style="font-size:10px; color:var(--text-muted); font-weight:bold;">Độ dài: Chỉ 7 ký tự (Ngắn gọn, chuyên nghiệp)</div>
+                              </div>
+
+                          </div>
+                    `;
+                }
+                else if (slideId === 'slide_short_2') {
+                    viewportRoot.innerHTML = `
+                          <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:25px;">
+                              
+                              <!-- Client Generator -->
+                              <div class="glass-card" style="width:230px; height:320px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:15px; display:flex; flex-direction:column; justify-content:space-between; text-align:center;">
+                                  <div style="font-size:11px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">Máy khách (Client)</div>
+                                  <div style="display:flex; flex-direction:column; gap:10px; flex:1; justify-content:center; align-items:center;">
+                                      <div style="font-size:9px; color:var(--text-muted); text-transform:uppercase;">Mã sinh ngẫu nhiên:</div>
+                                      <div class="rand-code-box" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px; font-family:var(--font-mono); font-size:16px; color:#fff; font-weight:bold; width:100%; box-sizing:border-box;">7aK2p9L</div>
+                                      <span style="font-size:9px; color:#f59e0b; font-weight:bold;" class="rand-attempt-lbl">Thử lần 1...</span>
+                                  </div>
+                              </div>
+
+                              <!-- Flow SVG -->
+                              <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
+                                  <!-- Path to DB -->
+                                  <path d="M 230 260 L 520 260" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3" stroke-dasharray="8 6" />
+                                  <path class="flow-line-s2" d="M 230 260 L 520 260" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="8 6" style="opacity:0;" />
+                              </svg>
+                              <div class="packet-s2" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 10px #ef4444; z-index:5; left:230px; top:260px; transform:translate(-50%,-50%); opacity:0;"></div>
+
+                              <!-- Database Checker -->
+                              <div class="db-card-s2 glass-card" style="width:280px; height:320px; border:2.5px solid #ef4444; border-radius:24px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box; z-index:2; transition:all 0.3s ease;">
+                                  <div style="display:flex; align-items:center; gap:10px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">
+                                      <i data-lucide="database" style="color:#ef4444; width:24px; height:24px;"></i>
+                                      <span style="font-size:12px; font-weight:bold; color:#fff; text-transform:uppercase;">Database Lookup</span>
+                                  </div>
+                                  <div style="background:rgba(0,0,0,0.5); border-radius:12px; padding:12px; border:1px solid rgba(255,255,255,0.06); text-align:left; font-family:var(--font-mono); font-size:10px; line-height:1.4; color:#fff; flex:1; margin:15px 0; display:flex; flex-direction:column; justify-content:center;">
+                                      <span style="color:#f59e0b;">SELECT id FROM links</span><br>
+                                      <span style="color:#f59e0b;">WHERE code = '7aK2p9L';</span><br><br>
+                                      <span class="db-status-lbl" style="color:#ef4444; font-weight:bold;">➔ TRÙNG MÃ! (Code Exists)</span>
+                                  </div>
+                              </div>
+
+                              <!-- CPU warning Box -->
+                              <div class="cpu-card-s2 glass-card" style="width:230px; height:320px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:15px; display:flex; flex-direction:column; justify-content:space-between; text-align:center;">
+                                  <div style="font-size:11px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">CPU Cơ sở dữ liệu</div>
+                                  <div style="display:flex; flex-direction:column; gap:10px; flex:1; justify-content:center; align-items:center;">
+                                      <div class="cpu-fill-s2" style="width:80px; height:80px; border-radius:50%; border:5px solid #ef4444; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:18px; font-weight:bold; color:#ef4444; box-shadow:0 0 15px rgba(239,68,68,0.15); transition:all 0.3s ease;">100%</div>
+                                      <span style="font-size:10px; color:#ef4444; font-weight:bold;" class="cpu-status-s2">COLLISION BOTTLENECK</span>
+                                  </div>
+                              </div>
+
+                          </div>
+                    `;
+                }
+                else if (slideId === 'slide_short_3') {
+                    viewportRoot.innerHTML = `
+                          <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:30px;">
+                              
+                              <!-- Math Card -->
+                              <div class="glass-card" style="width:400px; height:340px; border:2.5px solid #10b981; border-radius:24px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; text-align:left; box-sizing:border-box;">
+                                  <div style="font-size:12px; font-weight:bold; color:#10b981; text-transform:uppercase; border-bottom:1px solid rgba(16,185,129,0.15); padding-bottom:8px;">Hệ cơ số 62 (Base 62)</div>
+                                  
+                                  <div style="display:flex; flex-direction:column; gap:10px; margin:15px 0;">
+                                      <div style="background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); font-size:10px; color:#fff; font-family:var(--font-mono);">
+                                          [a-z] + [A-Z] + [0-9] = 62 ký tự
+                                      </div>
+                                      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(16,185,129,0.05); padding:8px 12px; border-radius:8px; border:1px solid rgba(16,185,129,0.15);">
+                                          <span style="font-size:11px; color:var(--text-muted);">Công thức tổ hợp 7 ký tự:</span>
+                                          <span style="font-family:var(--font-mono); font-size:13px; color:#10b981; font-weight:bold;">62<sup>7</sup></span>
+                                      </div>
+                                      <div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); border-radius:10px; padding:12px; text-align:center;">
+                                          <div style="font-size:8px; color:var(--text-muted); text-transform:uppercase; font-weight:bold;">Số mã liên kết tối đa:</div>
+                                          <div style="font-family:var(--font-mono); font-size:18px; font-weight:900; color:#10b981; margin-top:2px;">~3,5 Nghìn Tỷ mã</div>
+                                      </div>
+                                  </div>
+                                  <div style="font-size:10px; color:var(--text-muted); line-height:1.4;">
+                                      Hệ cơ số 62 giúp biểu diễn lượng dữ liệu khổng lồ với độ dài cực ngắn, đảm bảo không bao giờ lo hết tài nguyên liên kết.
+                                  </div>
+                              </div>
+
+                              <!-- Mapping Table Card -->
+                              <div class="glass-card" style="width:400px; height:340px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; text-align:left; box-sizing:border-box;">
+                                  <div style="font-size:12px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">Chuyển đổi 1-1 (Decimal ➔ Base62)</div>
+                                  
+                                  <div style="display:flex; flex-direction:column; gap:10px; margin:15px 0;">
+                                      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.02); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
+                                          <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">ID: 1</span>
+                                          <span style="font-family:var(--font-mono); font-size:13px; color:#fff; font-weight:bold;">➔ 0000001</span>
+                                      </div>
+                                      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.02); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
+                                          <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">ID: 123.456</span>
+                                          <span style="font-family:var(--font-mono); font-size:13px; color:#fff; font-weight:bold;">➔ 000w7d</span>
+                                      </div>
+                                      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.02); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
+                                          <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">ID: 999.999.999</span>
+                                          <span style="font-family:var(--font-mono); font-size:13px; color:#fff; font-weight:bold;">➔ 01A2bC9</span>
+                                      </div>
+                                  </div>
+                                  <div style="font-size:10px; color:var(--text-muted); line-height:1.4;">
+                                      Mỗi liên kết khi được lưu vào cơ sở dữ liệu sẽ tự sinh một ID số tự động tăng (Auto-Increment), sau đó được dịch sang chuỗi Base62 tương ứng. Không lo trùng lặp!
+                                  </div>
+                              </div>
+
+                          </div>
+                    `;
+                }
+                else if (slideId === 'slide_short_4') {
+                    viewportRoot.innerHTML = `
+                          <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; align-items:center; padding:10px 0;">
+                              
+                              <!-- Header Label -->
+                              <div style="font-size:11px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); padding:4px 12px; border-radius:12px; margin-bottom:10px; z-index:5;">
+                                  Bộ sinh ID phân tán không trùng lặp
+                              </div>
+
+                              <!-- Distributed Cluster Row -->
+                              <div style="display:flex; justify-content:space-around; width:100%; gap:20px; z-index:2;">
+                                  
+                                  <!-- Node 1 -->
+                                  <div class="node-s4 n1-s4 glass-card" style="width:250px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px; display:flex; flex-direction:column; align-items:center; text-align:center; box-sizing:border-box; transition:all 0.3s ease;">
+                                      <div style="background:rgba(245,158,11,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#f59e0b; border:1px solid rgba(245,158,11,0.3); margin-bottom:8px;">
+                                          <i data-lucide="server" style="width:20px; height:20px;"></i>
+                                      </div>
+                                      <div style="font-size:12px; font-weight:bold; color:#fff; margin-bottom:6px;">Server ID A (01)</div>
+                                      <div class="id-val-s4 id-n1" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:11px; color:#fff; font-weight:bold; width:100%; box-sizing:border-box;">180598129382103</div>
+                                  </div>
+
+                                  <!-- Node 2 -->
+                                  <div class="node-s4 n2-s4 glass-card" style="width:250px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px; display:flex; flex-direction:column; align-items:center; text-align:center; box-sizing:border-box; transition:all 0.3s ease;">
+                                      <div style="background:rgba(245,158,11,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#f59e0b; border:1px solid rgba(245,158,11,0.3); margin-bottom:8px;">
+                                          <i data-lucide="server" style="width:20px; height:20px;"></i>
+                                      </div>
+                                      <div style="font-size:12px; font-weight:bold; color:#fff; margin-bottom:6px;">Server ID B (02)</div>
+                                      <div class="id-val-s4 id-n2" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:11px; color:#fff; font-weight:bold; width:100%; box-sizing:border-box;">180598129382104</div>
+                                  </div>
+
+                                  <!-- Node 3 -->
+                                  <div class="node-s4 n3-s4 glass-card" style="width:250px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px; display:flex; flex-direction:column; align-items:center; text-align:center; box-sizing:border-box; transition:all 0.3s ease;">
+                                      <div style="background:rgba(245,158,11,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#f59e0b; border:1px solid rgba(245,158,11,0.3); margin-bottom:8px;">
+                                          <i data-lucide="server" style="width:20px; height:20px;"></i>
+                                      </div>
+                                      <div style="font-size:12px; font-weight:bold; color:#fff; margin-bottom:6px;">Server ID C (03)</div>
+                                      <div class="id-val-s4 id-n3" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:11px; color:#fff; font-weight:bold; width:100%; box-sizing:border-box;">180598129382105</div>
+                                  </div>
+
+                              </div>
+
+                              <!-- Snowflake bit allocation card -->
+                              <div class="glass-card" style="width:100%; max-width:790px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:15px; display:flex; flex-direction:column; justify-content:center; box-sizing:border-box; z-index:2; margin-top:10px;">
+                                  <div style="font-size:12px; font-weight:bold; color:#fff; margin-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px; text-transform:uppercase; text-align:center;">Cấu trúc nhị phân của Snowflake ID (64-bit)</div>
+                                  <div style="display:flex; width:100%; border:1.5px solid rgba(255,255,255,0.12); border-radius:10px; overflow:hidden; font-family:var(--font-mono); font-size:10px; font-weight:bold; text-align:center; height:32px; align-items:center;">
+                                      <div style="width:3%; background:rgba(239,68,68,0.2); color:#ef4444; height:100%; display:flex; align-items:center; justify-content:center; border-right:1px solid rgba(255,255,255,0.1);">1b</div>
+                                      <div style="width:64%; background:rgba(16,185,129,0.15); color:#10b981; height:100%; display:flex; align-items:center; justify-content:center; border-right:1px solid rgba(255,255,255,0.1);">41-bit: Timestamp (Thời gian thực)</div>
+                                      <div style="width:15%; background:rgba(59,130,246,0.15); color:#3b82f6; height:100%; display:flex; align-items:center; justify-content:center; border-right:1px solid rgba(255,255,255,0.1);">10-bit: Machine ID</div>
+                                      <div style="width:18%; background:rgba(245,158,11,0.15); color:#f59e0b; height:100%; display:flex; align-items:center; justify-content:center;">12-bit: Sequence</div>
+                                  </div>
+                              </div>
+
+                          </div>
+                    `;
+                }
+                else if (slideId === 'slide_short_5') {
+                    viewportRoot.innerHTML = `
+                          <div style="width:100%; height:100%; position:relative; box-sizing:border-box; padding:15px; display:flex; flex-direction:column; justify-content:space-between; font-family:var(--font-sans);">
+                              
+                              <!-- Header Title -->
+                              <div style="text-align:center; z-index:2; margin-bottom:5px;">
+                                  <span style="font-size:12px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); padding:4px 16px; border-radius:20px;">
+                                      Cơ chế chuyển hướng HTTP Redirect
+                                  </span>
+                              </div>
+
+                              <div style="display:flex; justify-content:space-between; width:100%; height:290px; z-index:2; position:relative;">
+                                  
+                                  <!-- Client Browser -->
+                                  <div class="step-card browser-card glass-card" style="width:230px; height:100%; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:15px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; text-align:center; transition:all 0.3s ease;">
+                                      <div style="display:flex; align-items:center; gap:6px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                                          <i data-lucide="chrome" style="color:#3b82f6; width:16px; height:16px;"></i>
+                                          <span style="font-size:11px; font-weight:bold; color:#fff; text-transform:uppercase;">Trình duyệt</span>
+                                      </div>
+                                      <div style="display:flex; flex-direction:column; gap:10px; justify-content:center; flex:1; align-items:center;">
+                                          <div class="browser-address" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:10px; color:#fff; font-weight:bold; width:100%; box-sizing:border-box; word-break:break-all;">shope.vn/3gH2kLa</div>
+                                          <!-- Cache Status Indicator -->
+                                          <div class="browser-cache-status" style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:8px; width:100%; padding:6px; font-size:9px; color:var(--text-muted); font-weight:bold; text-transform:uppercase;">Chưa lưu Cache</div>
+                                      </div>
+                                  </div>
+
+                                  <!-- Shortener Redirect Server -->
+                                  <div class="step-card redirect-srv-card glass-card" style="width:230px; height:100%; border:2.5px solid #10b981; border-radius:24px; padding:15px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; text-align:center; transition:all 0.3s ease; box-shadow:0 0 20px rgba(16,185,129,0.05);">
+                                      <div style="display:flex; align-items:center; gap:6px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                                          <i data-lucide="shuffle" style="color:#10b981; width:16px; height:16px;"></i>
+                                          <span style="font-size:11px; font-weight:bold; color:#10b981; text-transform:uppercase;">Shortener Server</span>
+                                      </div>
+                                      <div style="display:flex; flex-direction:column; gap:10px; justify-content:center; flex:1; align-items:center;">
+                                          <div class="redirect-code-box" style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:12px; color:#10b981; font-weight:bold; width:100%; box-sizing:border-box;">HTTP 302 Found</div>
+                                          <!-- Live Click Tracker -->
+                                          <div style="background:rgba(0,0,0,0.3); border-radius:8px; width:100%; padding:6px; border:1px solid rgba(255,255,255,0.04);">
+                                              <div style="font-size:8px; color:var(--text-muted); text-transform:uppercase; font-weight:bold;">Đếm lượt click:</div>
+                                              <div class="click-count-lbl" style="font-size:13px; font-weight:bold; color:#10b981; font-family:var(--font-mono); margin-top:2px;">0 clicks</div>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <!-- Target Destination Server -->
+                                  <div class="step-card target-srv-card glass-card" style="width:230px; height:100%; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:15px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; text-align:center; transition:all 0.3s ease;">
+                                      <div style="display:flex; align-items:center; gap:6px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                                          <i data-lucide="globe" style="color:#a855f7; width:16px; height:16px;"></i>
+                                          <span style="font-size:11px; font-weight:bold; color:#fff; text-transform:uppercase;">Trang đích</span>
+                                      </div>
+                                      <div style="display:flex; flex-direction:column; gap:10px; justify-content:center; flex:1; align-items:center;">
+                                          <div class="target-address" style="background:rgba(168,85,247,0.05); border:1px solid rgba(168,85,247,0.2); border-radius:8px; padding:8px 6px; font-family:var(--font-mono); font-size:9px; color:#fff; width:100%; box-sizing:border-box; word-break:break-all;">shopee.vn/deals/electronics/sale.html</div>
+                                          <div style="font-size:10px; color:#a855f7; font-weight:bold;">➔ Mở trang thành công!</div>
+                                      </div>
+                                  </div>
+
+                              </div>
+
+                              <!-- Flow connection SVG -->
+                              <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
+                                  <path class="redirect-path-1" d="M 245 220 L 320 220" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" stroke-dasharray="6 4" />
+                                  <path class="redirect-path-2" d="M 550 220 L 625 220" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" stroke-dasharray="6 4" />
+                                  <path class="redirect-path-bypass" d="M 245 220 Q 435 90 625 220" fill="none" stroke="rgba(239,68,68,0.2)" stroke-width="2.5" stroke-dasharray="6 4" style="opacity:0;" />
+                              </svg>
+                              <!-- Packet dot -->
+                              <div class="redirect-packet" style="position:absolute; width:10px; height:10px; border-radius:50%; background:#10b981; box-shadow:0 0 8px #10b981; z-index:10; left:245px; top:220px; transform:translate(-50%,-50%); opacity:0;"></div>
+
+                          </div>
+                    `;
+                }
+                else if (slideId === 'slide_short_1') {
+                typeLabel = "URL Shortener Flow";
+                methodLabel = "URL_REDUCTION";
+                headerText = "HOW A LONG URL GETS SHORTENED TO 7 CHARACTERS";
+                
+                const packet = canvas.querySelector('.short-packet');
+                const scissors = canvas.querySelector('.short-scissors');
+                
+                if (packet && scissors) {
+                    if (progress < 0.4) {
+                        packet.style.opacity = 1;
+                        // flow from client (left: 200px) to scissors (left: 450px)
+                        const ratio = progress / 0.4;
+                        const x = 200 + (450 - 200) * ratio;
+                        packet.style.left = `${x}px`;
+                        packet.style.top = '50%';
+                        scissors.style.transform = 'rotate(0deg)';
+                    } else if (progress < 0.6) {
+                        packet.style.opacity = 1;
+                        packet.style.left = '450px';
+                        packet.style.top = '50%';
+                        // scissors snap
+                        const snapRatio = (progress - 0.4) / 0.2;
+                        const angle = 25 * Math.sin(snapRatio * Math.PI * 4);
+                        scissors.style.transform = `rotate(${angle}deg)`;
+                    } else {
+                        // flow from scissors (left: 450px) to short url (left: 700px)
+                        const ratio = (progress - 0.6) / 0.4;
+                        const x = 450 + (700 - 450) * ratio;
+                        packet.style.left = `${x}px`;
+                        packet.style.top = '50%';
+                        packet.style.opacity = 1 - ratio;
+                        scissors.style.transform = 'rotate(0deg)';
+                    }
+                }
+                
+                statusText = "Đang xử lý rút gọn";
+                codeOutput = `const longUrl = "https://shopee.vn/deals/electronics/special-sale/item-991823120-promo-tracker.html";\nconst shortCode = shorten(longUrl); // -> shope.vn/3gH2kLa`;
+            }
+            else if (slideId === 'slide_short_2') {
+                typeLabel = "Random Collision Issue";
+                methodLabel = "NAIVE_COLLISION";
+                headerText = "THE NAIVE APPROACH CAUSES CPU BOTTLENECK";
+                
+                const packet = canvas.querySelector('.packet-s2');
+                const dbCard = canvas.querySelector('.db-card-s2');
+                const cpuFill = canvas.querySelector('.cpu-fill-s2');
+                const randCodeBox = canvas.querySelector('.rand-code-box');
+                const randAttempt = canvas.querySelector('.rand-attempt-lbl');
+                const dbStatus = canvas.querySelector('.db-status-lbl');
+                
+                if (packet && dbCard && cpuFill && randCodeBox && randAttempt && dbStatus) {
+                    const cycle = (progress * 3) % 1; // 3 attempts
+                    const attemptNum = Math.min(3, Math.floor(progress * 3) + 1);
+                    
+                    randAttempt.textContent = `Thử lần ${attemptNum}...`;
+                    if (attemptNum === 1) {
+                        randCodeBox.textContent = '7aK2p9L';
+                        dbStatus.textContent = '➔ TRÙNG MÃ! (Code Exists)';
+                        dbStatus.style.color = '#ef4444';
+                    } else if (attemptNum === 2) {
+                        randCodeBox.textContent = '3wK5a1P';
+                        dbStatus.textContent = '➔ TRÙNG MÃ! (Code Exists)';
+                        dbStatus.style.color = '#ef4444';
+                    } else {
+                        randCodeBox.textContent = '9aD4s8F';
+                        dbStatus.textContent = '➔ TRÙNG MÃ! (Code Exists)';
+                        dbStatus.style.color = '#ef4444';
+                    }
+                    
+                    if (cycle < 0.6) {
+                        packet.style.opacity = 1;
+                        const ratio = cycle / 0.6;
+                        const x = 230 + (480 - 230) * ratio;
+                        packet.style.left = `${x}px`;
+                        dbCard.style.borderColor = 'rgba(255,255,255,0.06)';
+                        dbCard.style.boxShadow = 'none';
+                    } else {
+                        packet.style.opacity = 0;
+                        dbCard.style.borderColor = '#ef4444';
+                        dbCard.style.boxShadow = '0 0 20px rgba(239,68,68,0.2)';
+                    }
+                    
+                    // CPU increases
+                    const cpuVal = Math.min(100, Math.round(50 + progress * 50));
+                    cpuFill.textContent = `${cpuVal}%`;
+                    cpuFill.style.boxShadow = `0 0 15px rgba(239,68,68, ${cpuVal/100 * 0.4})`;
+                }
+                
+                statusText = "Tranh chấp cơ sở dữ liệu";
+                codeOutput = `SELECT id FROM links WHERE code = '7aK2p9L';\n-- Result: Found! Generating new code... (Looping)`;
+            }
+            else if (slideId === 'slide_short_3') {
+                typeLabel = "Base62 Encoding";
+                methodLabel = "MATHEMATICAL_MAPPING";
+                headerText = "SCALING TO 3.5 TRILLION CODES WITH BASE-62";
+                
+                statusText = "Mã hóa cơ số 62";
+                codeOutput = `const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";\nfunction encode(id) { /* maps integer auto-increment ID directly to 7-chars */ }`;
+            }
+            else if (slideId === 'slide_short_4') {
+                typeLabel = "Distributed ID Generator";
+                methodLabel = "SNOWFLAKE_GENERATOR";
+                headerText = "COORDINATED ID GENERATION IN A DISTRIBUTED SYSTEM";
+                
+                const n1 = canvas.querySelector('.n1-s4');
+                const n2 = canvas.querySelector('.n2-s4');
+                const n3 = canvas.querySelector('.n3-s4');
+                
+                const idN1 = canvas.querySelector('.id-n1');
+                const idN2 = canvas.querySelector('.id-n2');
+                const idN3 = canvas.querySelector('.id-n3');
+                
+                if (n1 && n2 && n3 && idN1 && idN2 && idN3) {
+                    const cycle = Math.min(2, Math.floor(progress * 3));
+                    // Dim/highlight server nodes sequentially
+                    if (cycle === 0) {
+                        n1.style.borderColor = 'rgba(245,158,11,0.5)'; n1.style.boxShadow = '0 0 15px rgba(245,158,11,0.15)'; n1.style.opacity = 1;
+                        n2.style.opacity = 0.5; n2.style.borderColor = 'rgba(255,255,255,0.06)'; n2.style.boxShadow = 'none';
+                        n3.style.opacity = 0.5; n3.style.borderColor = 'rgba(255,255,255,0.06)'; n3.style.boxShadow = 'none';
+                        idN1.textContent = (180598129382103 + Math.floor(progress * 10)).toString();
+                    } else if (cycle === 1) {
+                        n2.style.borderColor = 'rgba(245,158,11,0.5)'; n2.style.boxShadow = '0 0 15px rgba(245,158,11,0.15)'; n2.style.opacity = 1;
+                        n1.style.opacity = 0.5; n1.style.borderColor = 'rgba(255,255,255,0.06)'; n1.style.boxShadow = 'none';
+                        n3.style.opacity = 0.5; n3.style.borderColor = 'rgba(255,255,255,0.06)'; n3.style.boxShadow = 'none';
+                        idN2.textContent = (180598129382104 + Math.floor(progress * 10)).toString();
+                    } else {
+                        n3.style.borderColor = 'rgba(245,158,11,0.5)'; n3.style.boxShadow = '0 0 15px rgba(245,158,11,0.15)'; n3.style.opacity = 1;
+                        n1.style.opacity = 0.5; n1.style.borderColor = 'rgba(255,255,255,0.06)'; n1.style.boxShadow = 'none';
+                        n2.style.opacity = 0.5; n2.style.borderColor = 'rgba(255,255,255,0.06)'; n2.style.boxShadow = 'none';
+                        idN3.textContent = (180598129382105 + Math.floor(progress * 10)).toString();
+                    }
+                }
+                
+                statusText = "Đang cấp phát Snowflake ID";
+                codeOutput = `// Snowflake ID: Timestamp (41b) + Machine (10b) + Seq (12b)\nconst snowflakeId = snowflake.nextId(); // e.g. 180598129382103`;
+            }
+            else if (slideId === 'slide_short_5') {
+                typeLabel = "HTTP Redirection";
+                methodLabel = "REDIRECT_COMPARISON";
+                headerText = "HTTP 301 (PERMANENT) VS HTTP 302 (TEMPORARY)";
+                
+                const packet = canvas.querySelector('.redirect-packet');
+                const browserCache = canvas.querySelector('.browser-cache-status');
+                const browserAddr = canvas.querySelector('.browser-address');
+                const redirectSrvCode = canvas.querySelector('.redirect-code-box');
+                const clickCountLbl = canvas.querySelector('.click-count-lbl');
+                
+                const path1 = canvas.querySelector('.redirect-path-1');
+                const path2 = canvas.querySelector('.redirect-path-2');
+                const pathBypass = canvas.querySelector('.redirect-path-bypass');
+                
+                if (packet && browserCache && browserAddr && redirectSrvCode && clickCountLbl && path1 && path2 && pathBypass) {
+                    if (progress < 0.5) {
+                        // Mode 1: HTTP 301 Permanent Redirect
+                        redirectSrvCode.textContent = "HTTP 301 Moved";
+                        redirectSrvCode.style.background = 'rgba(245,158,11,0.08)';
+                        redirectSrvCode.style.borderColor = 'rgba(245,158,11,0.25)';
+                        redirectSrvCode.style.color = '#f59e0b';
+                        
+                        const cycle = (progress * 2) % 1; // 2 requests in first half
+                        const requestNum = Math.floor(progress * 2) + 1;
+                        
+                        path1.style.opacity = 1; path2.style.opacity = 1; pathBypass.style.opacity = 0;
+                        
+                        if (requestNum === 1) {
+                            browserCache.textContent = "Chưa lưu Cache";
+                            browserCache.style.color = 'var(--text-muted)';
+                            
+                            packet.style.opacity = 1;
+                            if (cycle < 0.5) {
+                                // browser -> shortener
+                                const ratio = cycle / 0.5;
+                                packet.style.left = `${160 + (395 - 160) * ratio}px`;
+                                packet.style.top = '220px';
+                            } else {
+                                // shortener -> destination
+                                const ratio = (cycle - 0.5) / 0.5;
+                                packet.style.left = `${395 + (630 - 395) * ratio}px`;
+                                packet.style.top = '220px';
+                            }
+                            clickCountLbl.textContent = "1 click (Tracked)";
+                        } else {
+                            // Request 2 bypasses shortener server completely due to 301 browser cache!
+                            browserCache.textContent = "Đã lưu Cache 301";
+                            browserCache.style.color = '#10b981';
+                            
+                            path1.style.opacity = 0.2; path2.style.opacity = 0.2; pathBypass.style.opacity = 1;
+                            packet.style.opacity = 1;
+                            
+                            // flow directly via quadratic curve (bypass)
+                            const t = cycle;
+                            const x = (1-t)**2 * 160 + 2*(1-t)*t * 395 + t**2 * 630;
+                            const y = (1-t)**2 * 220 + 2*(1-t)*t * 90 + t**2 * 220;
+                            packet.style.left = `${x}px`;
+                            packet.style.top = `${y}px`;
+                            
+                            clickCountLbl.textContent = "Vẫn là 1 click (UNTRACKED!)";
+                        }
+                    } else {
+                        // Mode 2: HTTP 302 Temporary Redirect (always tracks!)
+                        redirectSrvCode.textContent = "HTTP 302 Found";
+                        redirectSrvCode.style.background = 'rgba(16,185,129,0.08)';
+                        redirectSrvCode.style.borderColor = 'rgba(16,185,129,0.25)';
+                        redirectSrvCode.style.color = '#10b981';
+                        
+                        browserCache.textContent = "Không lưu Cache (302)";
+                        browserCache.style.color = 'var(--text-muted)';
+                        
+                        const cycle = ((progress - 0.5) * 2) % 1; // 2 requests in second half
+                        const requestNum = Math.floor((progress - 0.5) * 2) + 1;
+                        
+                        path1.style.opacity = 1; path2.style.opacity = 1; pathBypass.style.opacity = 0;
+                        packet.style.opacity = 1;
+                        
+                        if (cycle < 0.5) {
+                            const ratio = cycle / 0.5;
+                            packet.style.left = `${160 + (395 - 160) * ratio}px`;
+                            packet.style.top = '220px';
+                        } else {
+                            const ratio = (cycle - 0.5) / 0.5;
+                            packet.style.left = `${395 + (630 - 395) * ratio}px`;
+                            packet.style.top = '220px';
+                        }
+                        
+                        const currentClicks = 1 + requestNum;
+                        clickCountLbl.textContent = `${currentClicks} clicks (Tracked!)`;
+                    }
+                }
+                
+                statusText = "So sánh chuyển hướng HTTP";
+                codeOutput = `// HTTP 301 -> Browser caches mapping permanent\n// HTTP 302 -> Browser always queries shortener server to increment stats`;
+            }
+            else if (slideId === 'slide_view_1') {
                 methodLabel = "LIVE EVENT";
                 const viewsCount = 100000 + Math.round(progress * 13450);
                 const phoneCounter = canvas.querySelector('.phone-view-counter');
@@ -15609,6 +16872,44 @@ else if (slideId === 'slide_select_5') {
 
                 codeOutput = "💻 Cách làm ngây thơ: Thực hiện UPDATE SQL trực tiếp cho mỗi request.\n🔒 Hệ quản trị CSDL buộc phải LOCK dòng dữ liệu để đảm bảo nhất quán.";
             }
+            else if (slideId === 'slide_view_2b') {
+                methodLabel = "POST /api/view";
+                const q1 = canvas.querySelector('.q-dot-1');
+                const q2 = canvas.querySelector('.q-dot-2');
+                const q3 = canvas.querySelector('.q-dot-3');
+                const dotSerial = canvas.querySelector('.dot-serial');
+                const lockTelemetry = canvas.querySelector('.lock-wait-count');
+                const dbViews = canvas.querySelector('.db-row-views');
+                
+                // Animate query queue loading based on progress
+                if (q1 && q2 && q3) {
+                    if (progress >= 0.15) q1.style.opacity = '1'; else q1.style.opacity = '0';
+                    if (progress >= 0.35) q2.style.opacity = '1'; else q2.style.opacity = '0';
+                    if (progress >= 0.55) q3.style.opacity = '1'; else q3.style.opacity = '0';
+                }
+                
+                if (lockTelemetry) {
+                    const waitingCount = Math.round(3 + progress * 87);
+                    lockTelemetry.textContent = waitingCount;
+                }
+                
+                // Animate one single query sliding slowly into the Database (Serial execution)
+                if (dotSerial) {
+                    dotSerial.style.display = 'block';
+                    const cyclePct = (progress * 4.0) % 1.0;
+                    const x = 405 + (540 - 405) * cyclePct;
+                    dotSerial.style.left = `${x}px`;
+                    dotSerial.style.top = `237px`;
+                    
+                    const executedCount = Math.floor(progress * 4);
+                    if (dbViews) {
+                        dbViews.textContent = (100000 + executedCount).toLocaleString();
+                    }
+                }
+                
+                codeOutput = "🛑 NGHẼN CỔ CHAI: Khi hàng nghìn request cùng UPDATE trên 1 dòng dữ liệu...\n🔗 Hệ thống song song bị biến thành TUẦN TỰ. Chỉ 1 truy vấn được xử lý tại một thời điểm.";
+            }
+            
             else if (slideId === 'slide_view_3') {
                 methodLabel = "DB OVERLOAD";
                 const cpuText = canvas.querySelector('.cpu-text');
@@ -15972,7 +17273,7 @@ else if (slideId === 'slide_select_5') {
                 
                 codeOutput = "🔍 Bước 2: Quét chuỗi băm để đếm số lượng số 0 liên tiếp ở đầu trước khi gặp số 1 đầu tiên.\n🏆 Kỷ lục lớn nhất (Max) trong các lượt băm tạm thời đạt được là 5.";
             }
-            else if (slideId === 'slide_view_8d') {
+                        else if (slideId === 'slide_view_8d') {
                 methodLabel = "MULTI_BUCKETS";
                 
                 const routerUserId = canvas.querySelector('.router-user-id');
@@ -16080,7 +17381,7 @@ else if (slideId === 'slide_select_5') {
                 
                 codeOutput = "🗂️ Bước 3: HLL dùng các bit đầu của mã băm làm chỉ số giỏ (index) để chia đều luồng dữ liệu.\n💡 Mỗi giỏ lưu giữ kỷ lục số 0 ở đầu riêng biệt. Gom từ hàng nghìn giỏ giúp loại bỏ nhiễu thống kê.";
             }
-            else if (slideId === 'slide_view_8e') {
+else if (slideId === 'slide_view_8e') {
                 methodLabel = "ESTIMATION";
                 
                 const viewEl = canvas.querySelector('.hll-final-view');
@@ -16150,10 +17451,19 @@ else if (slideId === 'slide_select_5') {
             const progress = isPlaying ? (animTime / getSlideDuration(slide)) : 1.0;
 
             const keywordsData = {
+                slide_short_1: [{ text: 'Rút gọn liên kết', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '7 ký tự', start: 5.0, end: 14.5, class: 'active-good' }],
+                slide_short_2: [{ text: 'Check trùng', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Sập database', start: 6.0, end: 15.0, class: 'active-bad' }],
+                slide_short_3: [{ text: 'Base 62', start: 0.0, end: 6.0, class: 'active-good' }, { text: '3.5 nghìn tỷ', start: 6.0, end: 14.0, class: 'active-good' }],
+                slide_short_4: [{ text: 'ID tăng dần', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Snowflake', start: 6.0, end: 14.0, class: 'active-gold' }],
+                slide_short_5: [{ text: 'Chuyển hướng', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '301 vs 302', start: 5.0, end: 15.0, class: 'active-good' }],
                 slide_ai_1a: [
                     { text: 'AI không đọc chữ', start: 1.0, end: 7.0, class: 'active-gold' },
                     { text: 'Bí mật về Token', start: 7.0, end: 13.0, class: 'active-good' },
                     { text: 'TOKENIZATION', start: 13.0, end: 18.0, class: 'active-good' }
+                ],
+                slide_ai_1a2: [
+                    { text: 'Chia nhỏ sâu hơn', start: 1.0, end: 5.0, class: 'active-gold' },
+                    { text: 'Tách ký tự & âm tiết', start: 5.0, end: 10.0, class: 'active-good' }
                 ],
                 slide_ai_1b: [
                     { text: 'Ghép cặp Byte', start: 1.0, end: 7.0, class: 'active-gold' },
@@ -16334,6 +17644,47 @@ else if (slideId === 'slide_select_5') {
                             </div>
                         `;
                     }
+                    else if (slideId === 'slide_ai_1a2') {
+                        gfxLayer.innerHTML = `
+                            <div style="display:flex; flex-direction:column; align-items:center; gap:25px; width:100%; max-width:820px; font-family:var(--font-sans);">
+                                <h3 style="color:var(--gold-primary); font-size:18px; font-weight:900; margin:0; text-transform:uppercase;">Subword & Character Splitting</h3>
+                                <div style="display:flex; flex-direction:column; gap:16px; background:rgba(15,23,42,0.6); border:2.5px solid rgba(255,255,255,0.08); border-radius:24px; padding:25px 30px; width:680px; box-sizing:border-box;">
+                                    <!-- Row 1: Original Word -->
+                                    <div class="split-row-1" style="display:flex; justify-content:space-between; align-items:center; opacity:0; transition:all 0.5s; transform:translateY(10px);">
+                                        <span style="font-size:14px; font-weight:bold; color:var(--text-muted);">Từ gốc:</span>
+                                        <span style="font-family:var(--font-mono); font-size:20px; font-weight:bold; color:#fff; background:rgba(255,255,255,0.05); padding:4px 16px; border-radius:8px;">tokenization</span>
+                                    </div>
+                                    <!-- Row 2: Subwords -->
+                                    <div class="split-row-2" style="display:flex; justify-content:space-between; align-items:center; opacity:0; transition:all 0.5s; transform:translateY(10px);">
+                                        <span style="font-size:14px; font-weight:bold; color:var(--text-muted);">Mảnh từ (Subwords):</span>
+                                        <span style="font-family:var(--font-mono); font-size:18px; font-weight:bold; color:#3b82f6;">
+                                            <span style="border:1.5px solid rgba(59,130,246,0.3); background:rgba(59,130,246,0.1); padding:4px 10px; border-radius:8px; margin-right:8px;">token</span>
+                                            <span style="border:1.5px solid rgba(59,130,246,0.3); background:rgba(59,130,246,0.1); padding:4px 10px; border-radius:8px;">##ization</span>
+                                        </span>
+                                    </div>
+                                    <!-- Row 3: Characters -->
+                                    <div class="split-row-3" style="display:flex; justify-content:space-between; align-items:center; opacity:0; transition:all 0.5s; transform:translateY(10px);">
+                                        <span style="font-size:14px; font-weight:bold; color:var(--text-muted);">Ký tự (Characters):</span>
+                                        <span style="font-family:var(--font-mono); font-size:16px; font-weight:bold; color:#10b981; display:flex; gap:4px;">
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">t</span>
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">o</span>
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">k</span>
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">e</span>
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">n</span>
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">i</span>
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">z</span>
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">a</span>
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">t</span>
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">i</span>
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">o</span>
+                                            <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">n</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
                     else if (slideId === 'slide_ai_1b') {
                         gfxLayer.innerHTML = `
                             <div style="display:flex; flex-direction:column; align-items:center; gap:25px; width:100%; max-width:820px;">
@@ -16654,6 +18005,35 @@ else if (slideId === 'slide_select_5') {
                     }
                 }
             }
+            else if (slideId === 'slide_ai_1a2') {
+                const s1 = canvas.querySelector('.split-row-1');
+                const s2 = canvas.querySelector('.split-row-2');
+                const s3 = canvas.querySelector('.split-row-3');
+                if (s1 && s2 && s3) {
+                    if (progress >= 0.15) {
+                        s1.style.opacity = '1';
+                        s1.style.transform = 'translateY(0)';
+                    } else {
+                        s1.style.opacity = '0';
+                        s1.style.transform = 'translateY(10px)';
+                    }
+                    if (progress >= 0.45) {
+                        s2.style.opacity = '1';
+                        s2.style.transform = 'translateY(0)';
+                    } else {
+                        s2.style.opacity = '0';
+                        s2.style.transform = 'translateY(10px)';
+                    }
+                    if (progress >= 0.75) {
+                        s3.style.opacity = '1';
+                        s3.style.transform = 'translateY(0)';
+                    } else {
+                        s3.style.opacity = '0';
+                        s3.style.transform = 'translateY(10px)';
+                    }
+                }
+            }
+            
             else if (slideId === 'slide_ai_1b') {
                 const s1 = canvas.querySelector('.bpe-step-1');
                 const s2 = canvas.querySelector('.bpe-step-2');
@@ -16871,6 +18251,488 @@ else if (slideId === 'slide_select_5') {
                 }
             }
         }
+        else if (slideId.startsWith('slide_spotify_')) {
+            const progress = isPlaying ? (animTime / getSlideDuration(slide)) : 1.0;
+
+            const keywordsData = {
+                slide_short_1: [{ text: 'Rút gọn liên kết', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '7 ký tự', start: 5.0, end: 14.5, class: 'active-good' }],
+                slide_short_2: [{ text: 'Check trùng', start: 0.0, end: 6.0, class: 'active-bad' }, { text: 'Sập database', start: 6.0, end: 15.0, class: 'active-bad' }],
+                slide_short_3: [{ text: 'Base 62', start: 0.0, end: 6.0, class: 'active-good' }, { text: '3.5 nghìn tỷ', start: 6.0, end: 14.0, class: 'active-good' }],
+                slide_short_4: [{ text: 'ID tăng dần', start: 0.0, end: 6.0, class: 'active-gold' }, { text: 'Snowflake', start: 6.0, end: 14.0, class: 'active-gold' }],
+                slide_short_5: [{ text: 'Chuyển hướng', start: 0.0, end: 5.0, class: 'active-gold' }, { text: '301 vs 302', start: 5.0, end: 15.0, class: 'active-good' }],
+                slide_spotify_1: [
+                    { text: 'buổi sáng thứ Hai', start: 1.0, end: 6.0, class: 'active-gold' },
+                    { text: 'Spotify', start: 6.0, end: 11.0, class: 'active-good' },
+                    { text: 'gợi ý nhạc', start: 11.0, end: 17.0, class: 'active-good' },
+                    { text: 'thuật toán', start: 17.0, end: 24.5, class: 'active-gold' }
+                ],
+                slide_spotify_2a: [
+                    { text: 'Lọc cộng tác', start: 1.0, end: 6.0, class: 'active-good' },
+                    { text: 'thói quen nghe nhạc', start: 6.0, end: 12.0, class: 'active-gold' },
+                    { text: 'ghi nhận', start: 12.0, end: 17.5, class: 'active-good' }
+                ],
+                slide_spotify_2b: [
+                    { text: 'tri kỷ âm nhạc', start: 1.5, end: 8.0, class: 'active-good' },
+                    { text: 'dự đoán', start: 8.0, end: 14.0, class: 'active-gold' },
+                    { text: 'đề xuất', start: 14.0, end: 19.5, class: 'active-good' }
+                ],
+                slide_spotify_3: [
+                    { text: 'Phân tích văn bản', start: 1.0, end: 6.0, class: 'active-gold' },
+                    { text: 'tần số cảm xúc', start: 6.0, end: 14.0, class: 'active-good' },
+                    { text: 'ghép chúng lại', start: 14.0, end: 22.5, class: 'active-good' }
+                ],
+                slide_spotify_4: [
+                    { text: 'Phân tích sóng âm', start: 1.0, end: 7.0, class: 'active-good' },
+                    { text: 'Khởi đầu lạnh', start: 7.0, end: 14.0, class: 'active-bad' },
+                    { text: 'mạng nơ-ron tích chập', start: 14.0, end: 23.5, class: 'active-gold' }
+                ],
+                slide_spotify_5a: [
+                    { text: 'Vector đa chiều', start: 1.0, end: 7.0, class: 'active-good' },
+                    { text: 'gu nhạc tương đồng', start: 7.0, end: 14.0, class: 'active-gold' },
+                    { text: 'hút lại gần', start: 14.0, end: 21.5, class: 'active-good' }
+                ],
+                slide_spotify_5b: [
+                    { text: 'Quét tọa độ', start: 1.0, end: 7.0, class: 'active-gold' },
+                    { text: 'Annoy', start: 7.0, end: 14.0, class: 'active-good' },
+                    { text: 'micro-giây', start: 14.0, end: 21.5, class: 'active-good' }
+                ]
+            };
+
+            if (needsTemplate) {
+                if (slideId === 'slide_spotify_1') {
+                    canvas.innerHTML = `
+                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center;">
+                            <div class="glass-card spotify-phone-mockup" style="width:460px; height:620px; border:2.5px solid rgba(255,255,255,0.08); border-radius:36px; padding:30px; display:flex; flex-direction:column; justify-content:space-between; background:#121212; position:relative; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.9);">
+                                <div class="rainy-overlay" style="position:absolute; inset:0; opacity:0.18; background: repeating-linear-gradient(170deg, transparent, transparent 15px, rgba(255,255,255,0.06) 15px, rgba(255,255,255,0.06) 30px); pointer-events:none;"></div>
+                                <div style="display:flex; justify-content:space-between; align-items:center; z-index:2; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px;">
+                                    <span style="font-size:14px; font-weight:bold; color:#b3b3b3; letter-spacing:1.5px;">DISCOVER WEEKLY</span>
+                                    <i data-lucide="music-2" style="color:#1db954; width:24px; height:24px;"></i>
+                                </div>
+                                <div style="position:relative; width:260px; height:260px; margin:20px auto; display:flex; align-items:center; justify-content:center; z-index:2;">
+                                    <div class="vinyl-glow" style="position:absolute; inset:0; background:radial-gradient(circle, rgba(29,185,84,0.35) 0%, transparent 70%); filter:blur(22px);"></div>
+                                    <div class="vinyl-disc-s1" style="width:240px; height:240px; border-radius:50%; background:repeating-radial-gradient(circle, #222 0px, #222 4px, #111 4px, #111 8px); border:4px solid #000; display:flex; align-items:center; justify-content:center; animation: vinyl-spin 12s linear infinite; animation-play-state:running; box-shadow: 0 12px 36px rgba(0,0,0,0.65);">
+                                        <div style="width:76px; height:76px; border-radius:50%; background:#1db954; border:4px solid #121212; display:flex; align-items:center; justify-content:center;">
+                                            <span style="font-size:28px;">🌧️</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="z-index:2; text-align:center; margin-bottom:10px;">
+                                    <div style="font-size:25px; font-weight:bold; color:#fff;" class="song-title-s1">Rainy Day Melancholy</div>
+                                    <div style="font-size:17px; color:#b3b3b3; margin-top:6px;" class="artist-name-s1">Ca sĩ ẩn danh (Unknown Artist)</div>
+                                </div>
+                                <div class="mood-card-s1 glass-card" style="z-index:2; background:rgba(255,255,255,0.04); border:1.5px solid rgba(255,255,255,0.08); border-radius:20px; padding:18px; display:flex; align-items:center; gap:18px;">
+                                    <div class="mood-icon-s1" style="font-size:46px;">😢</div>
+                                    <div style="text-align:left;">
+                                        <div style="font-size:16px; font-weight:bold; color:#fff;">Tâm trạng của bạn: Buồn</div>
+                                        <div style="font-size:13px; color:#b3b3b3; margin-top:4px;" class="mood-desc-s1">Một ngày thứ Hai u ám...</div>
+                                    </div>
+                                </div>
+                                <div style="z-index:2; margin-top:12px;">
+                                    <div style="width:100%; height:8px; background:#535353; border-radius:4px; position:relative; overflow:hidden;">
+                                        <div class="prog-fill-s1" style="height:100%; background:#1db954; width:0%;"></div>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; font-size:13.5px; color:#b3b3b3; margin-top:8px;">
+                                        <span class="elapsed-s1">0:00</span>
+                                        <span>3:15</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                else if (slideId === 'slide_spotify_2a') {
+                    canvas.innerHTML = `
+                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:35px;">
+                            <div class="glass-card profile-card-s2a active-user" style="width:290px; height:430px; border:2.5px solid #1db954; border-radius:24px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; text-align:center; z-index:2; box-shadow:0 0 30px rgba(29,185,84,0.15); transition: all 0.3s;">
+                                <div style="font-size:14px; font-weight:bold; color:#1db954; text-transform:uppercase; border-bottom:1px solid rgba(29,185,84,0.15); padding-bottom:10px;">Hồ sơ của bạn (You)</div>
+                                <div style="display:flex; flex-direction:column; gap:20px; align-items:center; justify-content:center; flex:1;">
+                                    <div style="width:90px; height:90px; border-radius:50%; background:#1db954; color:#000; font-size:44px; display:flex; align-items:center; justify-content:center; font-weight:bold;">U</div>
+                                    <div style="font-size:18px; font-weight:bold; color:#fff;">Gu âm nhạc của bạn</div>
+                                    <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;" class="tags-container-s2a">
+                                        <span style="font-size:13px; background:rgba(29,185,84,0.12); border:1px solid #1db954; color:#1db954; padding:5px 12px; border-radius:20px; font-weight:bold;">Lofi Chill</span>
+                                        <span style="font-size:13px; background:rgba(29,185,84,0.12); border:1px solid #1db954; color:#1db954; padding:5px 12px; border-radius:20px; font-weight:bold;">Acoustic</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="width:300px; display:flex; flex-direction:column; gap:24px; align-items:center; z-index:2;">
+                                <div class="activity-log-title" style="font-size:14px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.25); padding:8px 20px; border-radius:18px; letter-spacing:1px;">Đo lường hành vi</div>
+                                <div class="activity-box-s2a glass-card" style="width:100%; height:270px; padding:24px; display:flex; flex-direction:column; justify-content:space-around; text-align:left; gap:12px; box-sizing:border-box;">
+                                    <div style="display:flex; align-items:center; gap:14px; font-size:15.5px; opacity:0.3; transition:opacity 0.3s;" class="act-item-1">
+                                        <i data-lucide="heart" style="color:#1db954; width:24px; height:24px; fill:#1db954;"></i>
+                                        <span>Lưu vào Thư viện</span>
+                                    </div>
+                                    <div style="display:flex; align-items:center; gap:14px; font-size:15.5px; opacity:0.3; transition:opacity 0.3s;" class="act-item-2">
+                                        <i data-lucide="repeat-2" style="color:#f59e0b; width:24px; height:24px;"></i>
+                                        <span>Nghe lặp lại >3 lần</span>
+                                    </div>
+                                    <div style="display:flex; align-items:center; gap:14px; font-size:15.5px; opacity:0.3; transition:opacity 0.3s;" class="act-item-3">
+                                        <i data-lucide="skip-forward" style="color:#ef4444; width:24px; height:24px;"></i>
+                                        <span>Bỏ qua nhanh (<15s)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-card profile-card-s2b" style="width:290px; height:430px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; text-align:center; z-index:2; transition: all 0.3s;">
+                                <div style="font-size:14px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px;">Hàng triệu User khác</div>
+                                <div style="display:flex; flex-direction:column; gap:20px; align-items:center; justify-content:center; flex:1;">
+                                    <div style="width:90px; height:90px; border-radius:50%; background:#282828; color:#fff; font-size:44px; display:flex; align-items:center; justify-content:center; font-weight:bold;">O</div>
+                                    <div style="font-size:18px; font-weight:bold; color:#fff;">Gu tương quan tương tự</div>
+                                    <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+                                        <span style="font-size:13px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#fff; padding:5px 12px; border-radius:20px; font-weight:bold;">Pop</span>
+                                        <span style="font-size:13px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#fff; padding:5px 12px; border-radius:20px; font-weight:bold;">Lofi Chill</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                else if (slideId === 'slide_spotify_2b') {
+                    canvas.innerHTML = `
+                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center;">
+                            <div style="position:relative; width:800px; height:360px; display:flex; align-items:center; justify-content:center; z-index:2;">
+                                <div class="venn-circle left-venn" style="position:absolute; left:120px; width:290px; height:290px; border-radius:50%; border:2.5px solid #1db954; background:rgba(29,185,84,0.03); display:flex; flex-direction:column; align-items:flex-start; padding:40px; box-sizing:border-box; justify-content:center; transition:all 0.4s;">
+                                    <span style="font-weight:900; color:#1db954; font-size:16px; margin-bottom:15px;">BẠN (YOU)</span>
+                                    <div style="display:flex; flex-direction:column; gap:10px;">
+                                        <span style="font-size:13.5px; color:#fff;">🎵 Bài hát A</span>
+                                        <span style="font-size:13.5px; color:#fff;">🎵 Bài hát B</span>
+                                        <span style="font-size:13.5px; color:#fff;">🎵 Bài hát C</span>
+                                        <span style="font-size:13.5px; color:#1db954; font-weight:bold; opacity:0; transition:opacity 0.4s;" class="song-d-dest">✨ Bài hát D (Đề xuất)</span>
+                                    </div>
+                                </div>
+                                <div style="position:absolute; z-index:10; font-size:13px; font-weight:bold; color:#1db954; background:rgba(18,18,18,0.92); border:1.5px solid #1db954; padding:8px 16px; border-radius:16px; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; box-shadow:0 8px 24px rgba(0,0,0,0.5);">
+                                    Giao Thoa Thói Quen<br><span style="font-size:11px; color:#b3b3b3;">(Đồng gu A, B, C)</span>
+                                </div>
+                                <div class="venn-circle right-venn" style="position:absolute; right:120px; width:290px; height:290px; border-radius:50%; border:2.5px solid var(--gold-primary); background:rgba(245,158,11,0.03); display:flex; flex-direction:column; align-items:flex-end; padding:40px; box-sizing:border-box; justify-content:center; text-align:right; transition:all 0.4s;">
+                                    <span style="font-weight:900; color:var(--gold-primary); font-size:16px; margin-bottom:15px;">TRI KỶ ÂM NHẠC</span>
+                                    <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-end;">
+                                        <span style="font-size:13.5px; color:#fff;">Bài hát A 🎵</span>
+                                        <span style="font-size:13.5px; color:#fff;">Bài hát B 🎵</span>
+                                        <span style="font-size:13.5px; color:#fff;">Bài hát C 🎵</span>
+                                        <span style="font-size:14.5px; color:#1db954; font-weight:bold; background:rgba(29,185,84,0.12); border:1.5px dashed #1db954; padding:5px 10px; border-radius:8px;" class="song-d-badge">🔥 Bài hát D</span>
+                                    </div>
+                                </div>
+                                <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:5;">
+                                    <path class="recommend-line" d="M 525 210 Q 400 280 275 210" fill="none" stroke="#1db954" stroke-width="3.5" stroke-dasharray="8 5" style="opacity:0;" />
+                                </svg>
+                                <div class="recommend-packet" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#1db954; box-shadow:0 0 12px #1db954; z-index:10; left:525px; top:210px; opacity:0; transform:translate(-50%,-50%);"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+                else if (slideId === 'slide_spotify_3') {
+                    canvas.innerHTML = `
+                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:30px;">
+                            <div class="glass-card web-crawler-card" style="width:380px; height:340px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:20px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; text-align:left; z-index:2; transition:all 0.3s;">
+                                <div style="font-size:12px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">Báo chí & Playlist xã hội</div>
+                                <div style="background:rgba(0,0,0,0.4); border-radius:12px; padding:18px; border:1px solid rgba(255,255,255,0.05); font-family:var(--font-mono); font-size:12px; line-height:1.6; color:#b3b3b3; flex:1; margin:15px 0; overflow:hidden;" class="crawler-text-box">
+                                    Bài viết 1: "Một chiều mưa <strong style="color:var(--gold-primary);">chill</strong> cực kỳ với bản nhạc <strong style="color:var(--gold-primary);">lo-fi</strong> buồn..."<br><br>
+                                    Bài viết 2: "Giai điệu này rất hợp làm <strong style="color:var(--gold-primary);">nhạc ngắm mưa</strong> thư giãn..."
+                                </div>
+                            </div>
+                            <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
+                                <path d="M 460 220 L 530 220" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3" stroke-dasharray="6 4" />
+                            </svg>
+                            <div class="scrape-packet" style="position:absolute; width:12px; height:12px; border-radius:50%; background:var(--gold-primary); box-shadow:0 0 10px var(--gold-primary); z-index:5; left:460px; top:220px; opacity:0; transform:translate(-50%,-50%);"></div>
+                            <div class="glass-card nlp-engine-card" style="width:380px; height:340px; border:2.5px solid var(--gold-primary); border-radius:24px; padding:20px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; z-index:2; text-align:center; transition:all 0.3s;">
+                                <div style="font-size:12px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; border-bottom:1px solid rgba(245,158,11,0.25); padding-bottom:8px;">Trình bóc tách từ khóa (NLP)</div>
+                                <div style="display:flex; flex-direction:column; gap:15px; flex:1; justify-content:center; align-items:center;">
+                                    <span style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">Phân tích ngữ cảnh cảm xúc:</span>
+                                    <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;" class="keyword-tags-s3">
+                                        <span class="kw-tag kw-1" style="font-size:13px; font-weight:bold; padding:5px 12px; border-radius:8px; background:rgba(245,158,11,0.1); border:1.5px solid rgba(245,158,11,0.3); color:#fff; transition:all 0.3s ease;">chill</span>
+                                        <span class="kw-tag kw-2" style="font-size:13px; font-weight:bold; padding:5px 12px; border-radius:8px; background:rgba(245,158,11,0.1); border:1.5px solid rgba(245,158,11,0.3); color:#fff; transition:all 0.3s ease;">lo-fi</span>
+                                        <span class="kw-tag kw-3" style="font-size:13px; font-weight:bold; padding:5px 12px; border-radius:8px; background:rgba(245,158,11,0.1); border:1.5px solid rgba(245,158,11,0.3); color:#fff; transition:all 0.3s ease;">nhạc ngắm mưa</span>
+                                    </div>
+                                    <div class="nlp-status-lbl" style="font-size:13.5px; color:#10b981; font-weight:bold; margin-top:12px; opacity:0; transition:opacity 0.3s;">➔ Phát hiện cùng tần số!</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                else if (slideId === 'slide_spotify_4') {
+                    canvas.innerHTML = `
+                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:10px 0; gap:25px;">
+                            <div class="glass-card wave-analyzer-card" style="width:100%; max-width:780px; height:180px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:18px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden;">
+                                <div style="font-size:13.5px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; text-align:left;">Mạng nơ-ron phân tích sóng âm (CNN Audio)</div>
+                                <div style="display:flex; align-items:center; justify-content:space-between; height:80px; padding:0 15px; position:relative;" class="waveform-container-s4">
+                                    <div class="wave-bar" style="width:8px; height:20px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-bar" style="width:8px; height:40px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-bar" style="width:8px; height:70px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-bar" style="width:8px; height:30px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-bar" style="width:8px; height:50px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-bar" style="width:8px; height:80px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-bar" style="width:8px; height:60px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-bar" style="width:8px; height:25px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-bar" style="width:8px; height:40px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-bar" style="width:8px; height:65px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-bar" style="width:8px; height:35px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-bar" style="width:8px; height:75px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
+                                    <div class="wave-scanner" style="position:absolute; left:0%; top:0; bottom:0; width:4px; background:#1db954; box-shadow:0 0 15px #1db954; pointer-events:none;"></div>
+                                </div>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; width:100%; max-width:780px; gap:20px;">
+                                <div class="glass-card feat-card" style="flex:1; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:12px; text-align:center;">
+                                    <div style="font-size:12px; color:var(--text-muted); text-transform:uppercase; font-weight:bold;">Tempo / Nhịp độ</div>
+                                    <div style="font-family:var(--font-mono); font-size:24px; font-weight:bold; color:#555; margin:8px 0;" class="bpm-val">-- BPM</div>
+                                    <span style="font-size:10px; color:#b3b3b3;" class="bpm-desc">Đang quét nhịp...</span>
+                                </div>
+                                <div class="glass-card feat-card" style="flex:1; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:12px; text-align:center;">
+                                    <div style="font-size:12px; color:var(--text-muted); text-transform:uppercase; font-weight:bold;">Tông nhạc / Key</div>
+                                    <div style="font-family:var(--font-mono); font-size:24px; font-weight:bold; color:#555; margin:8px 0;" class="key-val">-- Key</div>
+                                    <span style="font-size:10px; color:#b3b3b3;" class="key-desc">Đang giải mã...</span>
+                                </div>
+                                <div class="glass-card feat-card cold-start-card" style="flex:1; border:2.5px solid #ef4444; border-radius:20px; padding:12px; text-align:center; transition:all 0.3s ease; box-shadow: 0 0 20px rgba(239,68,68,0.15);">
+                                    <div style="font-size:12px; color:#fff; text-transform:uppercase; font-weight:bold;">Lỗi khởi đầu lạnh</div>
+                                    <div style="font-size:18px; font-weight:900; color:#ef4444; margin:8px 0;" class="cold-start-status">BỊ KHÓA</div>
+                                    <span style="font-size:9.5px; color:#ef4444; font-weight:bold;" class="cold-start-desc">Chưa ai nghe trước đây!</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                else if (slideId === 'slide_spotify_5a') {
+                    canvas.innerHTML = `
+                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center;">
+                            <div class="glass-card vector-space-card" style="width:100%; max-width:780px; height:340px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:20px; box-sizing:border-box; position:relative; overflow:hidden;">
+                                <div style="font-size:12px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; text-align:left;">Không gian Vector đa chiều (High-Dimensional Space)</div>
+                                <div style="position:relative; width:100%; height:250px;" class="vector-space-container">
+                                    <div style="position:absolute; inset:0; background-image: radial-gradient(rgba(255,255,255,0.03) 1.5px, transparent 1.5px); background-size: 20px 20px;"></div>
+                                    <div class="pt-node p1" style="position:absolute; left:20%; top:25%; width:16px; height:16px; border-radius:50%; background:#ef4444; box-shadow:0 0 10px #ef4444; transition: transform 0.3s;"></div>
+                                    <div class="pt-node p2" style="position:absolute; left:25%; top:65%; width:14px; height:14px; border-radius:50%; background:#ef4444; transition: transform 0.3s;"></div>
+                                    <div class="pt-node p3" style="position:absolute; left:75%; top:20%; width:16px; height:16px; border-radius:50%; background:#a855f7; box-shadow:0 0 10px #a855f7; transition: transform 0.3s;"></div>
+                                    <div class="pt-node p4" style="position:absolute; left:80%; top:75%; width:12px; height:12px; border-radius:50%; background:#a855f7; transition: transform 0.3s;"></div>
+                                    <div class="pt-node user-node" style="position:absolute; left:28%; top:45%; width:44px; height:44px; border-radius:50%; background:#1db954; box-shadow:0 0 20px #1db954; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:13px; color:#000; z-index:10; transition:all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);">Bạn</div>
+                                    <div class="pt-node song-node" style="position:absolute; left:68%; top:48%; width:36px; height:36px; border-radius:50%; background:#f59e0b; box-shadow:0 0 15px #f59e0b; z-index:10; display:flex; align-items:center; justify-content:center; font-size:16px; transition:all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);">🎵</div>
+                                    <div class="attract-ring" style="position:absolute; border:2px dashed rgba(29,185,84,0.35); border-radius:50%; width:180px; height:180px; left:28%; top:45%; transform:translate(-68px,-68px); opacity:0; pointer-events:none; transition: all 0.5s;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                else if (slideId === 'slide_spotify_5b') {
+                    canvas.innerHTML = `
+                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:25px;">
+                            <div class="glass-card annoy-space-card" style="width:380px; height:340px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:20px; box-sizing:border-box; position:relative; overflow:hidden; z-index:2;">
+                                <div style="font-size:12px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; text-align:left;">Phân rã không gian (Annoy)</div>
+                                <div style="position:relative; width:100%; height:250px;" class="annoy-space-container">
+                                    <div style="position:absolute; inset:0; background-image: radial-gradient(rgba(255,255,255,0.03) 1.5px, transparent 1.5px); background-size: 15px 15px;"></div>
+                                    <div class="annoy-slice s-1" style="position:absolute; left:48%; top:0; bottom:0; width:2px; background:rgba(245,158,11,0.4); transform:rotate(12deg); transform-origin:center; opacity:0; transition:opacity 0.4s;"></div>
+                                    <div class="annoy-slice s-2" style="position:absolute; left:0; right:0; top:48%; height:2px; background:rgba(245,158,11,0.4); transform:rotate(-8deg); transform-origin:center; opacity:0; transition:opacity 0.4s;"></div>
+                                    <div class="pt-node" style="position:absolute; left:25%; top:25%; width:10px; height:10px; border-radius:50%; background:#fff;"></div>
+                                    <div class="pt-node" style="position:absolute; left:30%; top:65%; width:10px; height:10px; border-radius:50%; background:#fff;"></div>
+                                    <div class="pt-node" style="position:absolute; left:70%; top:30%; width:10px; height:10px; border-radius:50%; background:#fff;"></div>
+                                    <div class="pt-node" style="position:absolute; left:80%; top:70%; width:10px; height:10px; border-radius:50%; background:#fff;"></div>
+                                    <div class="annoy-search-glow" style="position:absolute; left:28%; top:45%; width:100px; height:100px; border-radius:50%; border:2px dashed #1db954; background:rgba(29,185,84,0.06); transform:translate(-45px,-45px); opacity:0; transition:opacity 0.4s;"></div>
+                                </div>
+                            </div>
+                            <div class="glass-card annoy-tree-card" style="width:380px; height:340px; border:2.5px solid #1db954; border-radius:24px; padding:20px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; z-index:2; text-align:center; transition:all 0.3s;">
+                                <div style="font-size:12px; font-weight:bold; color:#1db954; text-transform:uppercase; border-bottom:1px solid rgba(29,185,84,0.2); padding-bottom:8px;">Tìm kiếm lân cận siêu tốc (ANN)</div>
+                                <div style="display:flex; flex-direction:column; gap:15px; flex:1; justify-content:center; align-items:center;">
+                                    <span style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">Thời gian quét bài hát:</span>
+                                    <div style="font-family:var(--font-mono); font-size:32px; font-weight:900; color:#b3b3b3; transition:color 0.3s;" class="annoy-speed-lbl">-- µs</div>
+                                    <div style="background:rgba(0,0,0,0.3); border-radius:12px; width:100%; padding:12px; border:1px solid rgba(255,255,255,0.05); box-sizing:border-box;">
+                                        <div style="font-size:9px; color:var(--text-muted); text-transform:uppercase;">Độ phức tạp:</div>
+                                        <div style="font-size:15px; font-weight:bold; color:#fff; font-family:var(--font-mono); margin-top:3px;">O(log N) - Phân vùng nhị phân</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                lucide.createIcons({node: canvas});
+            }
+
+            // --- ANIM FRAME UPDATE LOGIC ---
+            if (slideId === 'slide_spotify_1') {
+                const fillBar = canvas.querySelector('.prog-fill-s1');
+                const elapsedLbl = canvas.querySelector('.elapsed-s1');
+                const songTitle = canvas.querySelector('.song-title-s1');
+                const artistName = canvas.querySelector('.artist-name-s1');
+                const moodIcon = canvas.querySelector('.mood-icon-s1');
+                const moodDesc = canvas.querySelector('.mood-desc-s1');
+
+                if (fillBar) fillBar.style.width = `${progress * 100}%`;
+                
+                const totalSec = 195; // 3:15
+                const elapsedSec = Math.floor(progress * totalSec);
+                const m = Math.floor(elapsedSec / 60);
+                const s = Math.floor(elapsedSec % 60).toString().padStart(2, '0');
+                if (elapsedLbl) elapsedLbl.textContent = `${m}:${s}`;
+
+                // Animate text metadata & mood transition based on timeline
+                if (progress < 0.25) {
+                    if (songTitle) songTitle.textContent = "Monday Morning Blues";
+                    if (artistName) artistName.textContent = "Ca sĩ ẩn danh (Unknown Artist)";
+                    if (moodIcon) moodIcon.textContent = "😢";
+                    if (moodDesc) moodDesc.textContent = "Tâm trạng buồn tủi ngày mưa...";
+                } else if (progress < 0.6) {
+                    if (songTitle) songTitle.textContent = "Rainy Day Lofi Beats";
+                    if (artistName) artistName.textContent = "Lofi Coder Soundscape";
+                    if (moodIcon) moodIcon.textContent = "🤔";
+                    if (moodDesc) moodDesc.textContent = "Ủa... giai điệu này nghe quen thế?";
+                } else {
+                    if (songTitle) songTitle.textContent = "Discover Weekly Magic";
+                    if (artistName) artistName.textContent = "Đúng gu bạn đến kỳ lạ!";
+                    if (moodIcon) moodIcon.textContent = "🥰";
+                    if (moodDesc) moodDesc.textContent = "Hóa ra Spotify đọc vị mình siêu đỉnh!";
+                }
+            }
+            else if (slideId === 'slide_spotify_2a') {
+                const item1 = canvas.querySelector('.act-item-1');
+                const item2 = canvas.querySelector('.act-item-2');
+                const item3 = canvas.querySelector('.act-item-3');
+                const userCard = canvas.querySelector('.profile-card-s2a');
+                const otherCard = canvas.querySelector('.profile-card-s2b');
+
+                // sequentially light up actions
+                if (progress > 0.15 && item1) item1.style.opacity = '1';
+                if (progress > 0.45 && item2) item2.style.opacity = '1';
+                if (progress > 0.75 && item3) item3.style.opacity = '1';
+
+                // pulse cards
+                if (progress > 0.8 && userCard && otherCard) {
+                    userCard.style.boxShadow = '0 0 35px rgba(29,185,84,0.3)';
+                    otherCard.style.borderColor = 'rgba(29,185,84,0.5)';
+                    otherCard.style.boxShadow = '0 0 25px rgba(29,185,84,0.15)';
+                } else {
+                    if (userCard) userCard.style.boxShadow = '0 0 25px rgba(29,185,84,0.1)';
+                    if (otherCard) {
+                        otherCard.style.borderColor = 'rgba(255,255,255,0.06)';
+                        otherCard.style.boxShadow = 'none';
+                    }
+                }
+            }
+            else if (slideId === 'slide_spotify_2b') {
+                const recLine = canvas.querySelector('.recommend-line');
+                const recPacket = canvas.querySelector('.recommend-packet');
+                const destBadge = canvas.querySelector('.song-d-dest');
+                const rightVenn = canvas.querySelector('.right-venn');
+
+                if (progress > 0.3) {
+                    if (recLine) recLine.style.opacity = '1';
+                    if (rightVenn) {
+                        rightVenn.style.borderColor = '#1db954';
+                        rightVenn.style.boxShadow = '0 0 30px rgba(29,185,84,0.2)';
+                    }
+                    
+                    // animate packet flowing from right circle (x=525, y=210) to left circle (x=275, y=210)
+                    if (progress > 0.3 && progress < 0.8) {
+                        const ratio = (progress - 0.3) / 0.5;
+                        const x = 525 - (525 - 275) * ratio;
+                        const y = 210 + 60 * Math.sin(ratio * Math.PI);
+                        if (recPacket) {
+                            recPacket.style.left = `${x}px`;
+                            recPacket.style.top = `${y}px`;
+                            recPacket.style.opacity = '1';
+                        }
+                    } else if (progress >= 0.8) {
+                        if (recPacket) recPacket.style.opacity = '0';
+                        if (destBadge) destBadge.style.opacity = '1';
+                    }
+                }
+            }
+            else if (slideId === 'slide_spotify_3') {
+                const scrapePacket = canvas.querySelector('.scrape-packet');
+                const statusLbl = canvas.querySelector('.nlp-status-lbl');
+                const kw1 = canvas.querySelector('.kw-1');
+                const kw2 = canvas.querySelector('.kw-2');
+                const kw3 = canvas.querySelector('.kw-3');
+
+                if (progress > 0.1 && progress < 0.6) {
+                    const ratio = (progress - 0.1) / 0.5;
+                    const x = 460 + (530 - 460) * ratio;
+                    if (scrapePacket) {
+                        scrapePacket.style.left = `${x}px`;
+                        scrapePacket.style.opacity = '1';
+                    }
+                } else if (progress >= 0.6) {
+                    if (scrapePacket) scrapePacket.style.opacity = '0';
+                    if (statusLbl) statusLbl.style.opacity = '1';
+                    if (kw1) { kw1.style.background = 'rgba(29,185,84,0.15)'; kw1.style.borderColor = '#1db954'; }
+                    if (kw2) { kw2.style.background = 'rgba(29,185,84,0.15)'; kw2.style.borderColor = '#1db954'; }
+                    if (kw3) { kw3.style.background = 'rgba(29,185,84,0.15)'; kw3.style.borderColor = '#1db954'; }
+                }
+            }
+            else if (slideId === 'slide_spotify_4') {
+                const scanner = canvas.querySelector('.wave-scanner');
+                const bpmVal = canvas.querySelector('.bpm-val');
+                const bpmDesc = canvas.querySelector('.bpm-desc');
+                const keyVal = canvas.querySelector('.key-val');
+                const keyDesc = canvas.querySelector('.key-desc');
+                const coldCard = canvas.querySelector('.cold-start-card');
+                const coldStatus = canvas.querySelector('.cold-start-status');
+                const coldDesc = canvas.querySelector('.cold-start-desc');
+                const bars = canvas.querySelectorAll('.wave-bar');
+
+                if (scanner) scanner.style.left = `${progress * 100}%`;
+
+                bars.forEach((bar, idx) => {
+                    const activeIndex = Math.floor(progress * bars.length);
+                    if (idx === activeIndex) {
+                        bar.style.background = '#1db954';
+                        bar.style.transform = 'scaleY(1.3)';
+                    } else if (idx < activeIndex) {
+                        bar.style.background = 'rgba(29, 185, 84, 0.4)';
+                        bar.style.transform = 'scaleY(1)';
+                    } else {
+                        bar.style.background = '#555';
+                        bar.style.transform = 'scaleY(1)';
+                    }
+                });
+
+                if (progress > 0.3) {
+                    if (bpmVal) { bpmVal.textContent = "76 BPM"; bpmVal.style.color = "#1db954"; }
+                    if (bpmDesc) bpmDesc.textContent = "Tempo chậm thư giãn";
+                }
+                if (progress > 0.6) {
+                    if (keyVal) { keyVal.textContent = "C# Minor"; keyVal.style.color = "#1db954"; }
+                    if (keyDesc) keyDesc.textContent = "Tông buồn hợp tâm trạng";
+                }
+                if (progress > 0.85) {
+                    if (coldCard) {
+                        coldCard.style.borderColor = '#10b981';
+                        coldCard.style.boxShadow = '0 0 25px rgba(16,185,129,0.35)';
+                    }
+                    if (coldStatus) { coldStatus.textContent = "ĐÃ ĐƯỢC MỞ"; coldStatus.style.color = "#10b981"; }
+                    if (coldDesc) { coldDesc.textContent = "Giải mã sóng âm thành công!"; coldDesc.style.color = "#10b981"; }
+                }
+            }
+            else if (slideId === 'slide_spotify_5a') {
+                const userNode = canvas.querySelector('.user-node');
+                const songNode = canvas.querySelector('.song-node');
+                const attractRing = canvas.querySelector('.attract-ring');
+
+                if (progress > 0.25) {
+                    const ratio = Math.min(1, (progress - 0.25) / 0.65);
+                    const userLeft = 28 + (42 - 28) * ratio;
+                    const songLeft = 68 - (68 - 52) * ratio;
+                    
+                    if (userNode) userNode.style.left = `${userLeft}%`;
+                    if (songNode) songNode.style.left = `${songLeft}%`;
+                    if (attractRing) {
+                        attractRing.style.opacity = (1 - ratio).toString();
+                        attractRing.style.transform = `translate(-68px,-68px) scale(${1 - ratio * 0.4})`;
+                    }
+                }
+            }
+            else if (slideId === 'slide_spotify_5b') {
+                const slice1 = canvas.querySelector('.annoy-space-container .s-1');
+                const slice2 = canvas.querySelector('.annoy-space-container .s-2');
+                const searchGlow = canvas.querySelector('.annoy-search-glow');
+                const speedLbl = canvas.querySelector('.annoy-speed-lbl');
+
+                if (progress > 0.25 && slice1) slice1.style.opacity = '1';
+                if (progress > 0.5 && slice2) slice2.style.opacity = '1';
+                if (progress > 0.75) {
+                    if (searchGlow) searchGlow.style.opacity = '1';
+                    if (speedLbl) {
+                        speedLbl.textContent = "0.05 µs";
+                        speedLbl.style.color = "#10b981";
+                    }
+                }
+            }
+
+            statusText = "Đang phân tích gợi ý";
+            codeOutput = `// Spotify Collaborative Filtering\\nuserProfile.matchWith(allUsers).getNearestNeighbor();`;
+        }
 
         // Sync simulation voice script to the bottom subtitle box
         const subtitleBox = document.getElementById('canvas-subtitle-box');
@@ -16912,7 +18774,9 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
         'slide_pag_1a', 'slide_pag_1b', 'slide_pag_3a', 'slide_pag_3b', 'slide_pag_4', 'slide_pag_8a', 'slide_pag_8b'
     ];
     const isCustomSim = slide.id && (
+        (slide.id.startsWith('slide_spotify_') && slide.id !== 'slide_spotify_6') ||
         (slide.id.startsWith('slide_view_') && !slide.id.startsWith('slide_view_9')) ||
+        (slide.id.startsWith('slide_short_') && !slide.id.startsWith('slide_short_6')) ||
         (slide.id.startsWith('slide_stream_') && !slide.id.startsWith('slide_stream_10a')) ||
         (slide.id.startsWith('slide_idem_') && !slide.id.startsWith('slide_idem_15')) ||
         (slide.id.startsWith('slide_totp_') && !slide.id.startsWith('slide_totp_4')) ||
@@ -18078,6 +19942,199 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
             wrapper.appendChild(header);
             wrapper.appendChild(consoleContainer);
             root.appendChild(wrapper);
+        } else if (slide.layout === 'spotify') {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'layout-spotify-view';
+
+            const playlistTitle = slide.spotifyPlaylist || 'Giai điệu Coding';
+            const searchQuery = slide.spotifySearchQuery || '';
+            const viewMode = slide.spotifyViewMode || 'playlist';
+            
+            // Parse active song
+            const activeSongParts = (slide.spotifyActiveSong || 'Chill Beats | Lofi Girl | 3:45').split('|').map(x => x.trim());
+            const activeSongTitle = activeSongParts[0] || 'Unknown Title';
+            const activeSongArtist = activeSongParts[1] || 'Unknown Artist';
+            const activeSongDuration = activeSongParts[2] || '3:00';
+
+            // Parse list of songs
+            const songsText = slide.spotifySongs || 'Chill Beats | Lofi Girl | 3:45\nCode Flow | Synth Boy | 4:12\nCompile error | Dev Jam | 2:50';
+            const songs = songsText.split('\n').map(line => {
+                const parts = line.split('|').map(x => x.trim());
+                if (!parts[0]) return null;
+                return {
+                    title: parts[0],
+                    artist: parts[1] || 'Unknown Artist',
+                    duration: parts[2] || '3:00'
+                };
+            }).filter(Boolean);
+
+            if (viewMode === 'playlist') {
+                // Render Playlist layout
+                wrapper.innerHTML = `
+                    <div class="spotify-playlist-container">
+                        <!-- Spotify Top Bar -->
+                        <div class="spotify-header-bar">
+                            <div class="spotify-nav-arrows">
+                                <span class="nav-arrow"><i data-lucide="chevron-left"></i></span>
+                                <span class="nav-arrow"><i data-lucide="chevron-right"></i></span>
+                            </div>
+                            ${searchQuery ? `
+                                <div class="spotify-search-bar">
+                                    <i data-lucide="search"></i>
+                                    <span class="spotify-search-text">${searchQuery}</span>
+                                </div>
+                            ` : `
+                                <div class="spotify-profile-tab">
+                                    <div class="spotify-user-badge">T</div>
+                                </div>
+                            `}
+                        </div>
+
+                        <!-- Playlist Meta Banner -->
+                        <div class="spotify-playlist-hero">
+                            <div class="spotify-playlist-art">
+                                <i data-lucide="music-4"></i>
+                            </div>
+                            <div class="spotify-playlist-info">
+                                <span class="playlist-tag">PLAYLIST CÁ NHÂN</span>
+                                <h1 class="playlist-name-title">${playlistTitle}</h1>
+                                <p class="playlist-creator-desc">Tạo bởi <strong>@Turnio.dev</strong> • ${songs.length} bài hát</p>
+                            </div>
+                        </div>
+
+                        <!-- Playlist Controls -->
+                        <div class="spotify-playlist-controls">
+                            <button class="spotify-play-btn"><i data-lucide="play"></i></button>
+                            <button class="spotify-action-icon"><i data-lucide="heart"></i></button>
+                            <button class="spotify-action-icon"><i data-lucide="arrow-down-circle"></i></button>
+                            <button class="spotify-action-icon"><i data-lucide="more-horizontal"></i></button>
+                        </div>
+
+                        <!-- Tracks Table -->
+                        <div class="spotify-tracks-list">
+                            <div class="tracks-list-header">
+                                <span class="track-col-index">#</span>
+                                <span class="track-col-title">TIÊU ĐỀ</span>
+                                <span class="track-col-duration"><i data-lucide="clock"></i></span>
+                            </div>
+                            <div class="tracks-list-items">
+                                ${songs.map((song, index) => {
+                                    const isActive = song.title.toLowerCase() === activeSongTitle.toLowerCase();
+                                    return `
+                                        <div class="track-row ${isActive ? 'active-track' : ''}">
+                                            <span class="track-index">
+                                                ${isActive && isPlaying ? `
+                                                    <div class="spotify-mini-equalizer">
+                                                        <div class="eq-bar bar-1"></div>
+                                                        <div class="eq-bar bar-2"></div>
+                                                        <div class="eq-bar bar-3"></div>
+                                                    </div>
+                                                ` : (index + 1)}
+                                            </span>
+                                            <div class="track-details">
+                                                <span class="track-name">${song.title}</span>
+                                                <span class="track-artist">${song.artist}</span>
+                                            </div>
+                                            <span class="track-duration">${song.duration}</span>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spotify Bottom Playback Bar -->
+                    <div class="spotify-bottom-player">
+                        <div class="bottom-track-details">
+                            <div class="bottom-album-art"><i data-lucide="music"></i></div>
+                            <div class="bottom-track-text">
+                                <span class="bottom-track-name marquee-container">${activeSongTitle}</span>
+                                <span class="bottom-track-artist">${activeSongArtist}</span>
+                            </div>
+                            <button class="bottom-heart-btn"><i data-lucide="heart"></i></button>
+                        </div>
+                        <div class="bottom-playback-controls">
+                            <div class="bottom-control-buttons">
+                                <button class="bottom-icon-btn"><i data-lucide="shuffle"></i></button>
+                                <button class="bottom-icon-btn"><i data-lucide="skip-back"></i></button>
+                                <button class="bottom-play-circle"><i data-lucide="${isPlaying ? 'pause' : 'play'}"></i></button>
+                                <button class="bottom-icon-btn"><i data-lucide="skip-forward"></i></button>
+                                <button class="bottom-icon-btn"><i data-lucide="repeat"></i></button>
+                            </div>
+                            <div class="bottom-progress-slider">
+                                <span class="bottom-progress-time">0:00</span>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 0%;"></div>
+                                </div>
+                                <span class="bottom-total-time">${activeSongDuration}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Render full Player layout (Now Playing screen)
+                wrapper.innerHTML = `
+                    <div class="spotify-full-player-container">
+                        <!-- Header -->
+                        <div class="player-header-bar">
+                            <button class="header-icon-btn"><i data-lucide="chevron-down"></i></button>
+                            <div class="header-text-info">
+                                <span class="playing-from-tag">ĐANG PHÁT TỪ PLAYLIST</span>
+                                <span class="playing-playlist-name">${playlistTitle}</span>
+                            </div>
+                            <button class="header-icon-btn"><i data-lucide="more-vertical"></i></button>
+                        </div>
+
+                        <!-- Album Art Container -->
+                        <div class="player-album-art-wrapper">
+                            <div class="player-album-art-glow"></div>
+                            <div class="player-album-art-card">
+                                <i data-lucide="music-4" class="fallback-art-icon"></i>
+                                <div class="spotify-spinner-overlay">
+                                    <div class="spinner-vinyl"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Track Info -->
+                        <div class="player-track-info-row">
+                            <div class="player-track-details">
+                                <h1 class="player-track-name">${activeSongTitle}</h1>
+                                <p class="player-track-artist">${activeSongArtist}</p>
+                            </div>
+                            <button class="player-heart-btn"><i data-lucide="heart" class="spotify-heart-icon"></i></button>
+                        </div>
+
+                        <!-- Timeline Progress -->
+                        <div class="player-timeline-container">
+                            <div class="player-progress-bar-bg">
+                                <div class="player-progress-bar-fill" style="width: 0%;"></div>
+                                <div class="player-progress-handle" style="left: 0%;"></div>
+                            </div>
+                            <div class="player-time-labels">
+                                <span class="player-elapsed-time">0:00</span>
+                                <span class="player-duration-time">${activeSongDuration}</span>
+                            </div>
+                        </div>
+
+                        <!-- Player Controls -->
+                        <div class="player-playback-controls-row">
+                            <button class="player-control-btn spotify-green-hover"><i data-lucide="shuffle"></i></button>
+                            <button class="player-control-btn"><i data-lucide="skip-back"></i></button>
+                            <button class="player-main-play-btn"><i data-lucide="${isPlaying ? 'pause' : 'play'}"></i></button>
+                            <button class="player-control-btn"><i data-lucide="skip-forward"></i></button>
+                            <button class="player-control-btn spotify-green-hover"><i data-lucide="repeat"></i></button>
+                        </div>
+
+                        <!-- Extra device controls -->
+                        <div class="player-footer-controls">
+                            <button class="device-icon-btn"><i data-lucide="speaker"></i></button>
+                            <button class="device-icon-btn"><i data-lucide="list-music"></i></button>
+                        </div>
+                    </div>
+                `;
+            }
+            root.appendChild(wrapper);
         } else if (slide.layout === 'transition') {
             const theme = slide.transitionTheme || 'warning';
             const wrapper = document.createElement('div');
@@ -18790,6 +20847,57 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
         } else if (slide.layout === 'transition') {
             const h1 = root.querySelector('.transition-title-box h1');
             if (h1) h1.innerHTML = (slide.transitionTitle || '').replace(/\n/g, '<br>');
+        } else if (slide.layout === 'spotify') {
+            const viewMode = slide.spotifyViewMode || 'playlist';
+            const duration = getSlideDuration(slide);
+            const ratio = isPlaying && duration > 0 ? Math.min(1, animTime / duration) : 0;
+            const elapsedSeconds = isPlaying ? Math.floor(animTime) : 0;
+            const formatTime = (sec) => {
+                const m = Math.floor(sec / 60);
+                const s = Math.floor(sec % 60).toString().padStart(2, '0');
+                return `${m}:${s}`;
+            };
+
+            if (viewMode === 'playlist') {
+                const timeLabel = root.querySelector('.bottom-progress-time');
+                if (timeLabel) timeLabel.textContent = formatTime(elapsedSeconds);
+                const fillBar = root.querySelector('.progress-bar-fill');
+                if (fillBar) fillBar.style.width = `${ratio * 100}%`;
+                
+                const playCircle = root.querySelector('.bottom-play-circle i');
+                if (playCircle) {
+                    const iconName = isPlaying ? 'pause' : 'play';
+                    if (playCircle.getAttribute('data-lucide') !== iconName) {
+                        playCircle.setAttribute('data-lucide', iconName);
+                        lucide.createIcons();
+                    }
+                }
+            } else {
+                const timeLabel = root.querySelector('.player-elapsed-time');
+                if (timeLabel) timeLabel.textContent = formatTime(elapsedSeconds);
+                const fillBar = root.querySelector('.player-progress-bar-fill');
+                if (fillBar) fillBar.style.width = `${ratio * 100}%`;
+                const handle = root.querySelector('.player-progress-handle');
+                if (handle) handle.style.left = `${ratio * 100}%`;
+
+                const playBtn = root.querySelector('.player-main-play-btn i');
+                if (playBtn) {
+                    const iconName = isPlaying ? 'pause' : 'play';
+                    if (playBtn.getAttribute('data-lucide') !== iconName) {
+                        playBtn.setAttribute('data-lucide', iconName);
+                        lucide.createIcons();
+                    }
+                }
+
+                const vinyl = root.querySelector('.spinner-vinyl');
+                if (vinyl) {
+                    if (isPlaying) {
+                        vinyl.style.animationPlayState = 'running';
+                    } else {
+                        vinyl.style.animationPlayState = 'paused';
+                    }
+                }
+            }
         }
 
     // --- Dynamic Class Animations (Extremely fast, no DOM rebuilds) ---
