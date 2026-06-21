@@ -1,0 +1,8 @@
+[SLIDE 1]
+Lời thoại: Hôm nay chúng ta sẽ cùng thiết kế và tối ưu giao diện mô phỏng Spotify. Giao diện này hỗ trợ hiển thị thông tin bài hát đang phát và danh sách bài hát.
+
+[SLIDE 2]
+Lời thoại: Khi chuyển sang giao diện phát nhạc đầy đủ, đĩa nhạc vinyl sẽ xoay vòng mượt mà và thanh trượt tiến trình sẽ chạy tương ứng theo tiến trình của âm thanh.
+
+[SLIDE 3]
+Lời thoại: Mỗi bài hát đang phát sẽ có bộ cân bằng âm thanh mini equalizer nhảy động theo nhịp nhạc cực kỳ sinh động.
