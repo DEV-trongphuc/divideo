@@ -12913,27 +12913,27 @@ else if (slideId === 'slide_select_5') {
                     
                     if (slideId === 'slide_captcha_1a') {
                         gfxLayer.innerHTML = `
-                            <div class="checkbox-card captcha-node" style="position:absolute; left:250px; top:130px; width:400px; height:240px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:25px;">
-                                <div class="recaptcha-anchor" style="width:320px; height:80px; background:#fff; border:1px solid #d3d3d3; border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:0 15px; box-sizing:border-box; color:#000; box-shadow: 0 4px 10px rgba(0,0,0,0.15); position:relative;">
-                                    <div style="display:flex; align-items:center; gap:12px;">
-                                        <div class="captcha-checkbox-box" style="width:28px; height:28px; border:2px solid #c1c1c1; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative; background:#f9f9f9; transition:all 0.3s;">
-                                            <div class="captcha-check-indicator" style="width:14px; height:8px; border-left:3px solid #00aa00; border-bottom:3px solid #00aa00; transform:rotate(-45deg) scale(0); opacity:0; transition:all 0.3s; margin-top:-2px;"></div>
-                                            <div class="captcha-check-spinner" style="position:absolute; left:4px; top:4px; width:20px; height:20px; border:2px solid #3b82f6; border-top-color:transparent; border-radius:50%; animation: bufferRotateSimple 1s infinite linear; display:none;"></div>
+                            <div class="checkbox-card captcha-node" style="position:absolute; left:200px; top:100px; width:500px; height:300px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px;">
+                                <div class="recaptcha-anchor" style="width:440px; height:110px; background:#fff; border:1px solid #d3d3d3; border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; box-sizing:border-box; color:#000; box-shadow: 0 4px 10px rgba(0,0,0,0.15); position:relative;">
+                                    <div style="display:flex; align-items:center; gap:16px;">
+                                        <div class="captcha-checkbox-box" style="width:38px; height:38px; border:2px solid #c1c1c1; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative; background:#f9f9f9; transition:all 0.3s;">
+                                            <div class="captcha-check-indicator" style="width:18px; height:10px; border-left:4px solid #00aa00; border-bottom:4px solid #00aa00; transform:rotate(-45deg) scale(0); opacity:0; transition:all 0.3s; margin-top:-3px;"></div>
+                                            <div class="captcha-check-spinner" style="position:absolute; left:5px; top:5px; width:28px; height:28px; border:3px solid #3b82f6; border-top-color:transparent; border-radius:50%; animation: bufferRotateSimple 1s infinite linear; display:none;"></div>
                                         </div>
-                                        <span style="font-family:Roboto,helvetica,arial,sans-serif; font-size:14px; font-weight:400; color:#2c2c2c;">Tôi không phải là robot</span>
+                                        <span style="font-family:Roboto,helvetica,arial,sans-serif; font-size:18px; font-weight:400; color:#2c2c2c;">Tôi không phải là robot</span>
                                     </div>
                                     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-                                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" style="width:32px; height:32px;" alt="recaptcha logo"/>
-                                        <span style="font-size:8px; color:#555; margin-top:2px;">reCAPTCHA</span>
-                                        <span style="font-size:7px; color:#555;">Bảo mật - Điều khoản</span>
+                                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" style="width:44px; height:44px;" alt="recaptcha logo"/>
+                                        <span style="font-size:10px; color:#555; margin-top:3px;">reCAPTCHA</span>
+                                        <span style="font-size:9px; color:#555;">Bảo mật - Điều khoản</span>
                                     </div>
                                 </div>
-                                <span class="checkbox-status-lbl" style="font-size:14px; font-weight:bold; color:var(--text-muted); text-transform:uppercase;">Bấm tích để kiểm tra</span>
+                                <span class="checkbox-status-lbl" style="font-size:18px; font-weight:bold; color:var(--text-muted); text-transform:uppercase;">Bấm tích để kiểm tra</span>
                             </div>
                             <div class="virtual-cursor" style="position:absolute; pointer-events:none; z-index:100; left:500px; top:320px; color:#3b82f6; filter:drop-shadow(0 2px 5px rgba(0,0,0,0.3)); display:flex; align-items:center; transition: all 0.1s ease;">
                                 <i data-lucide="mouse-pointer" style="width:28px; height:28px; fill:#3b82f6;"></i>
                             </div>
-                            <div class="click-ripple" style="position:absolute; width:40px; height:40px; border-radius:50%; border:3px solid #3b82f6; background:rgba(59,130,246,0.2); transform:scale(0); opacity:0; z-index:99; pointer-events:none; left:284px; top:186px;"></div>
+                            <div class="click-ripple" style="position:absolute; width:54px; height:54px; border-radius:50%; border:3px solid #3b82f6; background:rgba(59,130,246,0.2); transform:scale(0); opacity:0; z-index:99; pointer-events:none; left:242px; top:196px;"></div>
                         `;
                     }
                     else if (slideId === 'slide_captcha_1a2') {
@@ -13006,22 +13006,22 @@ else if (slideId === 'slide_select_5') {
                     }
                     else if (slideId === 'slide_captcha_3a') {
                         gfxLayer.innerHTML = `
-                            <div class="checkbox-card captcha-node" style="position:absolute; left:250px; top:130px; width:400px; height:240px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:25px;">
-                                <div class="recaptcha-anchor" style="width:320px; height:80px; background:#fff; border:1px solid #d3d3d3; border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:0 15px; box-sizing:border-box; color:#000; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-                                    <div style="display:flex; align-items:center; gap:12px;">
-                                        <div class="captcha-checkbox-box" style="width:28px; height:28px; border:2px solid #c1c1c1; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative; background:#f9f9f9; transition:all 0.3s;">
-                                            <div class="captcha-check-indicator" style="width:14px; height:8px; border-left:3px solid #00aa00; border-bottom:3px solid #00aa00; transform:rotate(-45deg) scale(0); opacity:0; transition:all 0.3s; margin-top:-2px;"></div>
-                                            <div class="captcha-check-spinner" style="position:absolute; left:4px; top:4px; width:20px; height:20px; border:2px solid #3b82f6; border-top-color:transparent; border-radius:50%; animation: bufferRotateSimple 1s infinite linear; display:none;"></div>
+                            <div class="checkbox-card captcha-node" style="position:absolute; left:200px; top:100px; width:500px; height:300px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px;">
+                                <div class="recaptcha-anchor" style="width:440px; height:110px; background:#fff; border:1px solid #d3d3d3; border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; box-sizing:border-box; color:#000; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+                                    <div style="display:flex; align-items:center; gap:16px;">
+                                        <div class="captcha-checkbox-box" style="width:38px; height:38px; border:2px solid #c1c1c1; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative; background:#f9f9f9; transition:all 0.3s;">
+                                            <div class="captcha-check-indicator" style="width:18px; height:10px; border-left:4px solid #00aa00; border-bottom:4px solid #00aa00; transform:rotate(-45deg) scale(0); opacity:0; transition:all 0.3s; margin-top:-3px;"></div>
+                                            <div class="captcha-check-spinner" style="position:absolute; left:5px; top:5px; width:28px; height:28px; border:3px solid #3b82f6; border-top-color:transparent; border-radius:50%; animation: bufferRotateSimple 1s infinite linear; display:none;"></div>
                                         </div>
-                                        <span style="font-family:Roboto,helvetica,arial,sans-serif; font-size:14px; font-weight:400; color:#2c2c2c;">Tôi không phải là robot</span>
+                                        <span style="font-family:Roboto,helvetica,arial,sans-serif; font-size:18px; font-weight:400; color:#2c2c2c;">Tôi không phải là robot</span>
                                     </div>
                                     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-                                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" style="width:32px; height:32px;" alt="recaptcha logo"/>
-                                        <span style="font-size:8px; color:#555; margin-top:2px;">reCAPTCHA</span>
-                                        <span style="font-size:7px; color:#555;">Bảo mật - Điều khoản</span>
+                                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" style="width:44px; height:44px;" alt="recaptcha logo"/>
+                                        <span style="font-size:10px; color:#555; margin-top:3px;">reCAPTCHA</span>
+                                        <span style="font-size:9px; color:#555;">Bảo mật - Điều khoản</span>
                                     </div>
                                 </div>
-                                <span class="checkbox-status-lbl" style="font-size:14px; font-weight:bold; color:var(--text-muted); text-transform:uppercase;">Bấm tích để kiểm tra</span>
+                                <span class="checkbox-status-lbl" style="font-size:18px; font-weight:bold; color:var(--text-muted); text-transform:uppercase;">Bấm tích để kiểm tra</span>
                             </div>
                         `;
                     }
@@ -13116,12 +13116,12 @@ else if (slideId === 'slide_select_5') {
                 const cursor = canvas.querySelector('.virtual-cursor');
                 const ripple = canvas.querySelector('.click-ripple');
                 
-                // Cursor start: (500, 320), checkbox click spot is at (284, 186)
+                // Cursor start: (500, 320), checkbox click spot is at (269, 223)
                 if (progress < 0.45) {
                     const t = progress / 0.45;
                     const smoothT = t * t * (3 - 2 * t);
-                    const curX = 500 + (284 - 500) * smoothT;
-                    const curY = 320 + (186 - 320) * smoothT;
+                    const curX = 500 + (269 - 500) * smoothT;
+                    const curY = 320 + (223 - 320) * smoothT;
                     if (cursor) {
                         cursor.style.left = `${curX}px`;
                         cursor.style.top = `${curY}px`;
@@ -13145,8 +13145,8 @@ else if (slideId === 'slide_select_5') {
                     codeOutput = `🖱️ Con trỏ chuột đang di chuyển đến ô xác thực...\n⚙️ Theo dõi hành vi đường đi của chuột để phân tích.`;
                 } else if (progress < 0.75) {
                     if (cursor) {
-                        cursor.style.left = '284px';
-                        cursor.style.top = '186px';
+                        cursor.style.left = '269px';
+                        cursor.style.top = '223px';
                         cursor.style.transform = 'scale(0.9)'; // mouse down effect
                     }
                     if (checkboxBox) checkboxBox.style.borderColor = '#3b82f6';
@@ -13168,8 +13168,8 @@ else if (slideId === 'slide_select_5') {
                     codeOutput = `🔄 Đang chạy thuật toán kiểm tra chuyển động...\n⚙️ Đánh giá lịch sử trình duyệt, cookies và quỹ đạo chuột.`;
                 } else {
                     if (cursor) {
-                        cursor.style.left = '284px';
-                        cursor.style.top = '186px';
+                        cursor.style.left = '269px';
+                        cursor.style.top = '223px';
                         cursor.style.transform = 'scale(1)';
                     }
                     if (checkboxBox) {
