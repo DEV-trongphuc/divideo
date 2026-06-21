@@ -14294,74 +14294,77 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                          <div style="width:100%; height:100%; position:relative; box-sizing:border-box;">
                              
                              <!-- SVG for absolute connections (endpoints matched exactly to the absolute coords below) -->
+                             <!-- SVG Connections -->
                              <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
-                                 <!-- Connection paths -->
-                                 <path d="M 250 132 L 490 272" fill="none" stroke="rgba(59,130,246,0.35)" stroke-width="3" stroke-dasharray="6 4" />
-                                 <path d="M 250 272 L 490 272" fill="none" stroke="rgba(59,130,246,0.35)" stroke-width="3" stroke-dasharray="6 4" />
-                                 <path d="M 250 412 L 490 272" fill="none" stroke="rgba(59,130,246,0.35)" stroke-width="3" stroke-dasharray="6 4" />
+                                 <path d="M 260 112 L 470 230" fill="none" stroke="rgba(59,130,246,0.4)" stroke-width="2.5" stroke-dasharray="6 4" />
+                                 <path d="M 260 252 L 470 255" fill="none" stroke="rgba(59,130,246,0.4)" stroke-width="2.5" stroke-dasharray="6 4" />
+                                 <path d="M 260 392 L 470 280" fill="none" stroke="rgba(59,130,246,0.4)" stroke-width="2.5" stroke-dasharray="6 4" />
                              </svg>
-                             <!-- Left: Concurrency Clients Stack (Positioned absolutely for layout stability) -->
-                             <div class="node-card glass-card client-1" style="position:absolute; left:30px; top:100px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
-                                 <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
-                                 <div style="text-align:left;">
-                                     <div style="font-size:12px; font-weight:bold; color:#fff;">Client #1</div>
-                                     <div style="font-size:9px; color:var(--text-muted); font-family:var(--font-mono);">IP: 184.22.1.9</div>
+                             <!-- Left: Client Cards -->
+                             <div class="node-card glass-card client-1" style="position:absolute; left:20px; top:80px; width:240px; border-left:4px solid #3b82f6; padding:13px 16px; display:flex; align-items:center; gap:12px; z-index:2; border-radius:14px; background:rgba(59,130,246,0.05);">
+                                 <i data-lucide="monitor" style="width:26px; height:26px; color:#3b82f6; flex-shrink:0;"></i>
+                                 <div>
+                                     <div style="font-size:13px; font-weight:bold; color:#fff;">Client #1</div>
+                                     <div style="font-size:10px; color:#60a5fa; font-family:var(--font-mono); margin-top:2px;">UPDATE views+1 → SQL</div>
                                  </div>
                              </div>
-                             
-                             <div class="node-card glass-card client-2" style="position:absolute; left:30px; top:240px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
-                                 <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
-                                 <div style="text-align:left;">
-                                     <div style="font-size:12px; font-weight:bold; color:#fff;">Client #2</div>
-                                     <div style="font-size:9px; color:var(--text-muted); font-family:var(--font-mono);">IP: 92.122.88.4</div>
+                             <div class="node-card glass-card client-2" style="position:absolute; left:20px; top:220px; width:240px; border-left:4px solid #3b82f6; padding:13px 16px; display:flex; align-items:center; gap:12px; z-index:2; border-radius:14px; background:rgba(59,130,246,0.05);">
+                                 <i data-lucide="monitor" style="width:26px; height:26px; color:#3b82f6; flex-shrink:0;"></i>
+                                 <div>
+                                     <div style="font-size:13px; font-weight:bold; color:#fff;">Client #2</div>
+                                     <div style="font-size:10px; color:#60a5fa; font-family:var(--font-mono); margin-top:2px;">UPDATE views+1 → SQL</div>
                                  </div>
                              </div>
-                             
-                             <div class="node-card glass-card client-3" style="position:absolute; left:30px; top:380px; width:220px; border-left: 4px solid #3b82f6; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:2;">
-                                 <i data-lucide="smartphone" style="width:28px; height:28px; color:#3b82f6;"></i>
-                                 <div style="text-align:left;">
-                                     <div style="font-size:12px; font-weight:bold; color:#fff;">Client #3</div>
-                                     <div style="font-size:9px; color:var(--text-muted); font-family:var(--font-mono);">IP: 201.99.112.5</div>
+                             <div class="node-card glass-card client-3" style="position:absolute; left:20px; top:360px; width:240px; border-left:4px solid #3b82f6; padding:13px 16px; display:flex; align-items:center; gap:12px; z-index:2; border-radius:14px; background:rgba(59,130,246,0.05);">
+                                 <i data-lucide="monitor" style="width:26px; height:26px; color:#3b82f6; flex-shrink:0;"></i>
+                                 <div>
+                                     <div style="font-size:13px; font-weight:bold; color:#fff;">Client #3</div>
+                                     <div style="font-size:10px; color:#60a5fa; font-family:var(--font-mono); margin-top:2px;">UPDATE views+1 → SQL</div>
                                  </div>
                              </div>
-                             <!-- Mid: Flying Packets placed directly as absolute children of viewport root to avoid coordinate offset -->
-                             <div class="packet-dot dot-c1" style="position:absolute; width:16px; height:16px; border-radius:50%; background:#3b82f6; box-shadow:0 0 12px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
-                             <div class="packet-dot dot-c2" style="position:absolute; width:16px; height:16px; border-radius:50%; background:#3b82f6; box-shadow:0 0 12px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
-                             <div class="packet-dot dot-c3" style="position:absolute; width:16px; height:16px; border-radius:50%; background:#3b82f6; box-shadow:0 0 12px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
-                             <!-- Right: SQL DB card with locked row display (Positioned absolutely) -->
-                             <div class="node-card db-node glass-card" style="position:absolute; left:490px; top:155px; width:300px; border:2.5px solid #ef4444; border-radius:24px; padding:20px; box-shadow:0 15px 40px rgba(239,68,68,0.1); box-sizing:border-box; z-index:2;">
-                                 <div style="display:flex; align-items:center; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; margin-bottom:12px;">
-                                     <i class="db-icon" data-lucide="database" style="width:32px; height:32px; color:#ef4444;"></i>
-                                     <div style="text-align:left;">
-                                         <div style="font-size:14px; font-weight:bold; color:#fff;">SQL Database</div>
-                                         <div style="font-size:9px; color:var(--text-muted); font-family:var(--font-mono);">PostgreSQL / MySQL</div>
+                             <!-- Flying Packets -->
+                             <div class="packet-dot dot-c1" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#3b82f6; box-shadow:0 0 10px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
+                             <div class="packet-dot dot-c2" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#3b82f6; box-shadow:0 0 10px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
+                             <div class="packet-dot dot-c3" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#3b82f6; box-shadow:0 0 10px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
+                             <!-- Right: SQL DB Card -->
+                             <div class="node-card db-node glass-card" style="position:absolute; left:470px; top:100px; width:320px; border:2px solid #ef4444; border-radius:20px; padding:20px 22px; box-shadow:0 10px 30px rgba(239,68,68,0.15); box-sizing:border-box; z-index:2;">
+                                 <!-- DB Header -->
+                                 <div style="display:flex; align-items:center; gap:14px; border-bottom:1px solid rgba(239,68,68,0.2); padding-bottom:13px; margin-bottom:14px;">
+                                     <div style="background:rgba(239,68,68,0.15); border-radius:50%; width:46px; height:46px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                         <i class="db-icon" data-lucide="database" style="width:26px; height:26px; color:#ef4444;"></i>
+                                     </div>
+                                     <div>
+                                         <div style="font-size:15px; font-weight:bold; color:#fff;">SQL Database</div>
+                                         <div style="font-size:10px; color:#ef4444; font-family:var(--font-mono); font-weight:bold; letter-spacing:0.5px; margin-top:2px;">Row Lock: ACTIVE</div>
                                      </div>
                                  </div>
-                                 
-                                 <!-- Database Row locked graphic -->
-                                 <div style="background:rgba(0,0,0,0.5); border-radius:14px; padding:12px; border:1px solid rgba(255,255,255,0.06); position:relative; overflow:hidden;">
-                                     <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--text-muted); font-family:var(--font-mono); margin-bottom:6px; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:4px;">
+                                 <!-- Locked Row Graphic -->
+                                 <div style="background:rgba(0,0,0,0.45); border-radius:12px; padding:14px; border:1.5px solid rgba(239,68,68,0.3); position:relative; overflow:hidden;">
+                                     <div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-size:10px; color:#64748b; font-family:var(--font-mono); margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,0.06); font-weight:bold; text-transform:uppercase; letter-spacing:0.5px;">
                                          <span>video_id</span>
-                                         <span>views</span>
-                                         <span>status</span>
+                                         <span style="text-align:center;">views</span>
+                                         <span style="text-align:right;">status</span>
                                      </div>
-                                     <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:13px; color:#fff; font-weight:bold;">
+                                     <div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:bold; align-items:center;">
                                          <span>101</span>
-                                         <span class="db-row-views">100,000</span>
-                                         <span class="db-row-status" style="color:#10b981;">IDLE</span>
+                                         <span class="db-row-views" style="text-align:center; color:#10b981;">100,000</span>
+                                         <span class="db-row-status" style="text-align:right; color:#10b981;">IDLE</span>
                                      </div>
                                      <!-- Padlock glass overlay -->
-                                     <div class="row-padlock" style="position:absolute; inset:0; background:rgba(239,68,68,0.25); backdrop-filter:blur(3px); border-radius:12px; display:none; align-items:center; justify-content:center; border:2px solid #ef4444; opacity:0; transition:all 0.4s ease;">
-                                         <div style="background:#ef4444; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(239,68,68,0.5); margin-right:10px;">
+                                     <div class="row-padlock" style="position:absolute; inset:0; background:rgba(239,68,68,0.2); backdrop-filter:blur(4px); border-radius:12px; display:none; align-items:center; justify-content:center; gap:10px; border:2px solid rgba(239,68,68,0.6); opacity:0; transition:all 0.4s ease;">
+                                         <div style="background:#ef4444; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 20px rgba(239,68,68,0.7); flex-shrink:0;">
                                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                                          </div>
-                                         <span style="font-size:12px; font-weight:900; color:#fff; letter-spacing:1px; text-shadow:0 2px 4px rgba(0,0,0,0.5);">ROW LOCKED</span>
+                                         <span style="font-size:14px; font-weight:900; color:#fff; letter-spacing:1.5px;">ROW LOCKED</span>
                                      </div>
                                  </div>
-                                 <!-- Telemetry Queue Warning -->
-                                 <div class="lock-telemetry" style="margin-top:15px; background:rgba(245,158,11,0.05); border:1px solid rgba(245,158,11,0.15); border-radius:10px; padding:8px 12px; font-size:10px; color:var(--gold-primary); text-align:left; display:none;">
-                                     <div style="font-weight:bold;">QUEUE WAITING:</div>
-                                     <div style="color:var(--text-muted); margin-top:2px;">Queries blocked: <span class="lock-wait-count" style="font-family:var(--font-mono); font-weight:bold; color:var(--gold-primary);">0</span></div>
+                                 <!-- Queue Telemetry -->
+                                 <div class="lock-telemetry" style="margin-top:14px; background:rgba(245,158,11,0.06); border:1.5px solid rgba(245,158,11,0.25); border-radius:10px; padding:10px 14px; display:none;">
+                                     <div style="font-size:10px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:5px;">Hàng chờ hiện tại:</div>
+                                     <div style="display:flex; justify-content:space-between; align-items:center;">
+                                         <span style="font-size:11px; color:var(--text-muted);">Queries blocked</span>
+                                         <span class="lock-wait-count" style="font-family:var(--font-mono); font-weight:900; color:#fbbf24; font-size:18px;">0</span>
+                                     </div>
                                  </div>
                              </div>
                          </div>
@@ -14504,7 +14507,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                      </div>
                                  </div>
                                  <!-- Crashed DB Server Rack Card with working Shake animation wrapper (avoids transition conflicts) -->
-                                 <div class="shake-wrapper" style="animation: shakeAnim 0.3s infinite; transition: none; display:block;">
+                                 <div class="shake-wrapper" style="transition: none; display:block;">
                                      <div class="node-card db-crashed glass-card" style="border:2.5px solid #ef4444; padding:25px; width:340px; text-align:center; box-shadow:0 0 40px rgba(239,68,68,0.25); position:relative; box-sizing:border-box;">
                                          <div style="display:flex; justify-content:center; align-items:center; gap:12px; margin-bottom:15px;">
                                              <i data-lucide="database" style="width:40px; height:40px; color:#ef4444; animation: pulseRed 1s infinite;"></i>
