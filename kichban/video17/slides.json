@@ -8,11 +8,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video17/mp3/slide_spotify_1.mp3",
-    "duration": 21.16,
+    "duration": 21.48,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "b20c5364dc9fdeb4df354c230b51d455"
   },
   {
     "id": "slide_spotify_2a",
@@ -23,11 +23,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video17/mp3/slide_spotify_2a.mp3",
-    "duration": 18.0,
+    "duration": 15.88,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "acfb3c8fb185677be4849244babd824c"
   },
   {
     "id": "slide_spotify_2b",
@@ -38,11 +38,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video17/mp3/slide_spotify_2b.mp3",
-    "duration": 20.0,
+    "duration": 16.52,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "9cf2e8e6aa2e102ee7c092e63cd38644"
   },
   {
     "id": "slide_spotify_3",
@@ -53,11 +53,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video17/mp3/slide_spotify_3.mp3",
-    "duration": 23.0,
+    "duration": 21.48,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "d607080c897ee1ff3895d816113bc01e"
   },
   {
     "id": "slide_spotify_4",
@@ -68,11 +68,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video17/mp3/slide_spotify_4.mp3",
-    "duration": 24.0,
+    "duration": 21.0,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "7625f5f2f3172bb10634e531997039d5"
   },
   {
     "id": "slide_spotify_5a",
@@ -83,11 +83,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video17/mp3/slide_spotify_5a.mp3",
-    "duration": 22.0,
+    "duration": 16.84,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "918f72bcbbc8fd65e5f19da7824091d5"
   },
   {
     "id": "slide_spotify_5b",
@@ -98,11 +98,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video17/mp3/slide_spotify_5b.mp3",
-    "duration": 22.0,
+    "duration": 17.32,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "b6e96a1516f5430b135ff7826538c750"
   },
   {
     "id": "slide_spotify_6",
@@ -113,10 +113,10 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video17/mp3/slide_spotify_6.mp3",
-    "duration": 18.0,
+    "duration": 13.64,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "b02e15eafa76220b8131b4ace1cebae8"
   }
 ]

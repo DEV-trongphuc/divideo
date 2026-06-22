@@ -1,7 +1,7 @@
 const http = require('http');
 
 const API_BASE = 'http://127.0.0.1:5500';
-const SCRIPTS = ['video13', 'video14', 'video15', 'video16'];
+const SCRIPTS = ['video17'];
 
 function post(url, data) {
     return new Promise((resolve, reject) => {

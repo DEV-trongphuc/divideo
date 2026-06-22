@@ -745,11 +745,19 @@
     </div>
 
     <!-- Script loading -->
-    <script src="/static/app.js?v=1.3.5"></script>
+    <script src="/static/app.js?v=2.0.0"></script>
 
     <script>
         // Init Lucide
         lucide.createIcons();
+        // Auto-load plugin for the current video script
+        // loadVideoScript() is called from app.js after currentScript is set
+        // But also trigger it here as a fallback once DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof loadVideoScript === 'function' && typeof currentScript !== 'undefined') {
+                loadVideoScript(currentScript);
+            }
+        });
     </script>
 </body>
 

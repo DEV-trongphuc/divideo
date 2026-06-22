@@ -1,0 +1,88 @@
+/**
+ * Video 17: Spotify - Thuật toán gợi ý nhạc
+ * CSS riêng - chỉ load khi video17 được chọn
+ */
+
+/* ── Vinyl disc spin animation ───────────────────────────────────────────── */
+@keyframes vinyl-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* ── Spotify phone mockup ─────────────────────────────────────────────────── */
+.spotify-phone-mockup {
+    transition: box-shadow 0.3s ease;
+}
+
+/* ── Venn circles ─────────────────────────────────────────────────────────── */
+.venn-circle {
+    transition: all 0.4s ease;
+}
+.venn-circle.left-venn {
+    mix-blend-mode: screen;
+}
+.venn-circle.right-venn {
+    mix-blend-mode: screen;
+}
+
+/* ── Glass card overrides for Spotify slides ──────────────────────────────── */
+.vector-space-card,
+.annoy-space-card,
+.annoy-tree-card,
+.wave-analyzer-card,
+.web-crawler-card,
+.nlp-engine-card,
+.feat-card {
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* ── Point nodes in vector space ──────────────────────────────────────────── */
+@keyframes floatNodeY {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
+}
+
+.pt-node {
+    animation: floatNodeY 4s infinite ease-in-out;
+}
+.pt-node.p1 { animation-delay: 0.2s; }
+.pt-node.p2 { animation-delay: 0.8s; }
+.pt-node.p3 { animation-delay: 1.4s; }
+.pt-node.p4 { animation-delay: 2.0s; }
+
+/* ── Attract ring pulsing ─────────────────────────────────────────────────── */
+.attract-ring {
+    animation: attractPulse 2s ease-in-out infinite;
+}
+@keyframes attractPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(29,185,84,0); }
+    50%       { box-shadow: 0 0 0 10px rgba(29,185,84,0.08); }
+}
+
+/* ── Annoy partition slices ───────────────────────────────────────────────── */
+.annoy-slice {
+    transition: opacity 0.4s ease;
+}
+
+/* ── Keyword tags highlight ───────────────────────────────────────────────── */
+.kw-tag {
+    transition: all 0.3s ease;
+}
+
+/* ── Activity items in user profile card ─────────────────────────────────── */
+.act-item-1,
+.act-item-2,
+.act-item-3 {
+    transition: opacity 0.4s ease;
+}
+
+/* ── Profile cards ────────────────────────────────────────────────────────── */
+.profile-card-s2a,
+.profile-card-s2b {
+    transition: all 0.3s ease;
+}
+
+/* ── Cold start card ─────────────────────────────────────────────────────── */
+.cold-start-card {
+    transition: all 0.3s ease;
+}
