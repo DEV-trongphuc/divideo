@@ -1,0 +1,384 @@
+/* CSS Styles for Video 30: Cloudflare DDoS Mitigation Mechanisms */
+
+:root {
+    --cf-orange: #f38020;
+    --cf-orange-glow: rgba(243, 128, 32, 0.3);
+    --cf-bg: #0b0f19;
+    --cf-card-bg: rgba(15, 23, 42, 0.55);
+    --cf-border: rgba(255, 255, 255, 0.08);
+    --cf-text: #f8fafc;
+    --cf-text-muted: #94a3b8;
+    --cf-green: #10b981;
+    --cf-green-glow: rgba(16, 185, 129, 0.35);
+    --cf-red: #ef4444;
+    --cf-red-glow: rgba(239, 68, 68, 0.35);
+    --cf-blue: #3b82f6;
+    --cf-blue-glow: rgba(59, 130, 246, 0.35);
+    --cf-purple: #8b5cf6;
+    --cf-purple-glow: rgba(139, 92, 246, 0.35);
+    --cf-yellow: #eab308;
+    --cf-yellow-glow: rgba(234, 179, 8, 0.35);
+}
+
+/* Force container layout */
+.layout-custom-sim-view .sim-canvas-body {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+.v30-zoom-container {
+    width: 100% !important;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    zoom: 1.45;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Glassmorphic Cyber Cards */
+.v30-glass-card {
+    background: var(--cf-card-bg);
+    border: 1px solid var(--cf-border);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--cf-text);
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Subtle Pulsing Animation */
+@keyframes v30-pulse-blue {
+    0%, 100% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+}
+
+@keyframes v30-pulse-red {
+    0%, 100% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(239, 68, 68, 0.7); border-color: rgba(239, 68, 68, 0.8); }
+}
+
+@keyframes v30-pulse-green {
+    0%, 100% { box-shadow: 0 0 10px rgba(16, 185, 129, 0.2); border-color: rgba(16, 185, 129, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(16, 185, 129, 0.7); border-color: rgba(16, 185, 129, 0.8); }
+}
+
+@keyframes v30-pulse-orange {
+    0%, 100% { box-shadow: 0 0 10px rgba(243, 128, 32, 0.2); border-color: rgba(243, 128, 32, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(243, 128, 32, 0.7); border-color: rgba(243, 128, 32, 0.8); }
+}
+
+@keyframes v30-laser-scan {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* Nodes Styling */
+.v30-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid var(--cf-border);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.v30-node.active-blue {
+    border-color: var(--cf-blue);
+    background: rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 12px var(--cf-blue-glow);
+}
+
+.v30-node.active-red {
+    border-color: var(--cf-red);
+    background: rgba(239, 68, 68, 0.1);
+    box-shadow: 0 0 12px var(--cf-red-glow);
+}
+
+.v30-node.active-green {
+    border-color: var(--cf-green);
+    background: rgba(16, 185, 129, 0.1);
+    box-shadow: 0 0 12px var(--cf-green-glow);
+}
+
+.v30-node.active-orange {
+    border-color: var(--cf-orange);
+    background: rgba(243, 128, 32, 0.1);
+    box-shadow: 0 0 12px var(--cf-orange-glow);
+}
+
+.v30-node.active-yellow {
+    border-color: var(--cf-yellow);
+    background: rgba(234, 179, 8, 0.1);
+    box-shadow: 0 0 12px var(--cf-yellow-glow);
+}
+
+.v30-node.active-purple {
+    border-color: var(--cf-purple);
+    background: rgba(139, 92, 246, 0.1);
+    box-shadow: 0 0 12px var(--cf-purple-glow);
+}
+
+/* Device Avatars / Icons */
+.v30-node-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+    color: var(--cf-text);
+    transition: all 0.3s;
+}
+
+.v30-node.active-blue .v30-node-icon { color: var(--cf-blue); background: rgba(59, 130, 246, 0.15); }
+.v30-node.active-red .v30-node-icon { color: var(--cf-red); background: rgba(239, 68, 68, 0.15); }
+.v30-node.active-green .v30-node-icon { color: var(--cf-green); background: rgba(16, 185, 129, 0.15); }
+.v30-node.active-orange .v30-node-icon { color: var(--cf-orange); background: rgba(243, 128, 32, 0.15); }
+.v30-node.active-yellow .v30-node-icon { color: var(--cf-yellow); background: rgba(234, 179, 8, 0.15); }
+.v30-node.active-purple .v30-node-icon { color: var(--cf-purple); background: rgba(139, 92, 246, 0.15); }
+
+.v30-node-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cf-text);
+}
+
+.v30-node-desc {
+    font-size: 9px;
+    color: var(--cf-text-muted);
+    margin-top: 2px;
+}
+
+/* Flow Packet */
+.v30-packet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 8px currentColor;
+    transition: left 0.1s linear, top 0.1s linear;
+}
+
+.v30-packet.red {
+    color: var(--cf-red);
+    background-color: var(--cf-red);
+}
+
+.v30-packet.green {
+    color: var(--cf-green);
+    background-color: var(--cf-green);
+}
+
+.v30-packet.orange {
+    color: var(--cf-orange);
+    background-color: var(--cf-orange);
+}
+
+.v30-packet.yellow {
+    color: var(--cf-yellow);
+    background-color: var(--cf-yellow);
+}
+
+/* Server Load bar */
+.v30-progress-bar {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+.v30-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--cf-green);
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.v30-progress-fill.warning {
+    background: var(--cf-yellow);
+}
+
+.v30-progress-fill.danger {
+    background: var(--cf-red);
+}
+
+/* WAF Laser Scanner */
+.v30-waf-laser {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--cf-yellow), transparent);
+    box-shadow: 0 0 10px var(--cf-yellow);
+    pointer-events: none;
+    z-index: 5;
+    animation: v30-laser-scan 2s linear infinite;
+}
+
+/* Text status styling inside slide panels */
+.v30-status-badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.v30-status-badge.red {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+}
+
+.v30-status-badge.green {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34d399;
+}
+
+.v30-status-badge.orange {
+    background: rgba(243, 128, 32, 0.15);
+    border: 1px solid rgba(243, 128, 32, 0.3);
+    color: #fb923c;
+}
+
+/* Dashboard listing for Threat Intelligence */
+.v30-threat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.v30-threat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--cf-border);
+    font-family: 'Fira Code', monospace;
+    font-size: 10px;
+    transition: all 0.3s;
+}
+
+.v30-threat-item.blocked {
+    border-color: rgba(239, 68, 68, 0.2);
+    background: rgba(239, 68, 68, 0.03);
+}
+
+/* Challenge Page Spinner */
+.v30-challenge-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 1px solid var(--cf-border);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.v30-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(243, 128, 32, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--cf-orange);
+    animation: v30-spin 1s linear infinite;
+}
+
+@keyframes v30-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Comparison layout grid */
+.v30-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+}
+
+.v30-comparison-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--cf-border);
+    border-radius: 12px;
+    padding: 10px;
+    align-items: center;
+}
+
+/* Cloudflare Tunnel glowing connection */
+.v30-tunnel-line {
+    stroke-dasharray: 6 4;
+    animation: v30-dash 1.5s linear infinite;
+}
+
+@keyframes v30-dash {
+    to { stroke-dashoffset: -20; }
+}
+
+/* Outro CTA buttons styling */
+.v30-cta-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.v30-cta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.v30-cta-item i {
+    width: 16px;
+    height: 16px;
+    color: var(--cf-orange);
+}

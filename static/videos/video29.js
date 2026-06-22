@@ -165,20 +165,6 @@
                         </div>
                     </div>
 
-                    <!-- Bottom caption stats -->
-                    <div class="glass-card" style="padding: 12px 16px; border-radius: 18px; text-align: center; width: 100%; border-color: rgba(255,255,255,0.06); background: rgba(0,0,0,0.15);">
-                        <div style="display: flex; justify-content: space-around; align-items: center; gap: 10px;">
-                            <div>
-                                <div style="font-size: 10px; color: var(--fb-text-muted); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Người dùng hoạt động</div>
-                                <div style="font-size: 18px; font-weight: 900; color: #fff; margin-top: 1px;">> 3 Tỷ</div>
-                            </div>
-                            <div style="font-size: 20px; color: rgba(255,255,255,0.15); font-weight: 300;">|</div>
-                            <div>
-                                <div style="font-size: 10px; color: var(--fb-text-muted); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Truy vấn quan hệ</div>
-                                <div style="font-size: 18px; font-weight: 900; color: var(--fb-blue); margin-top: 1px;">Hàng tỷ / Ngày</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             `;
         }
@@ -263,7 +249,7 @@
                         <div class="v29-graph-node" id="node-a" style="left: 40px; top: 100px;">A</div>
                         
                         <!-- Node X (Orange) -->
-                        <div class="v29-graph-node" id="node-x" style="right: 40px; top: 100px;">X</div>
+                        <div class="v29-graph-node" id="node-x" style="left: 300px; top: 100px;">X</div>
 
                         <!-- Nodes C, D (Common Neighbors - Green) -->
                         <div class="v29-graph-node" id="node-c" style="left: 165px; top: 35px;">C</div>
@@ -272,12 +258,7 @@
                         <!-- Other Friend Nodes (B, E, Y) -->
                         <div class="v29-graph-node" id="node-b" style="left: 80px; top: 10px;">B</div>
                         <div class="v29-graph-node" id="node-e" style="left: 80px; top: 200px;">E</div>
-                        <div class="v29-graph-node" id="node-y" style="right: 90px; top: 200px;">Y</div>
-                    </div>
-
-                    <div style="font-size:13px; color:var(--fb-text-muted); font-weight:bold; display:flex; justify-content:center; gap:20px; width:100%;">
-                        <span>🔵 Node: Người dùng</span>
-                        <span>➖ Edge: Quan hệ bạn bè</span>
+                        <div class="v29-graph-node" id="node-y" style="left: 230px; top: 200px;">Y</div>
                     </div>
                 </div>
             `;
@@ -305,10 +286,6 @@
                             <div class="v29-list-label active-x">User X ➔</div>
                             ${renderArrayHTML_X('v29-array-x-4', [1, 2, 5, 18])}
                         </div>
-                    </div>
-
-                    <div style="font-size:13px; color:var(--fb-green); font-weight:bold; text-align:center; letter-spacing:0.5px;">
-                        ⚡ Đã được sắp xếp số: Tìm bạn chung cực nhanh!
                     </div>
                 </div>
             `;
@@ -506,11 +483,6 @@
                         <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top:10px; margin-top:12px; font-size:13px; color:var(--fb-orange); font-weight:bold; letter-spacing:0.5px;">
                             ⚠️ Không hệ thống nào lưu trữ nổi dữ liệu tĩnh này!
                         </div>
-                    </div>
-
-                    <div class="glass-card" style="padding:12px; border-radius:16px; text-align:center; border-color:rgba(52,211,153,0.25); max-width:480px; margin:0 auto; width:100%;">
-                        <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; font-weight:bold; letter-spacing:0.5px;">Giải pháp thông minh:</div>
-                        <div style="font-size:14px; font-weight:800; color:var(--fb-green); margin-top:2px; letter-spacing:0.5px;">Tính toán song song thời thực + Cache bộ nhớ đệm</div>
                     </div>
                 </div>
             `;
