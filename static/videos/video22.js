@@ -5,9 +5,29 @@
 (function () {
     'use strict';
 
-    // ── KEYWORDS DATA ──────────────────────────────────────────────────────────
-    // Empty to remove the small cluttered keyword tag cloud from the top of the canvas
-    const keywordsData = {};
+    const keywordsData = {
+        slide_spotify_shuffle_1: [],
+        slide_spotify_shuffle_2: [
+            { text: 'ngẫu nhiên toán học', start: 5.0, end: 15.0, class: 'active-bad' },
+            { text: 'kỳ vọng người nghe', start: 15.0, end: 25.0, class: 'active-good' }
+        ],
+        slide_spotify_shuffle_3: [
+            { text: 'fisher-yates shuffle', start: 4.0, end: 14.0, class: 'active-gold' },
+            { text: 'lỗi trùng cụm', start: 14.0, end: 24.5, class: 'active-bad' }
+        ],
+        slide_spotify_shuffle_4: [
+            { text: 'balanced shuffle', start: 4.0, end: 14.0, class: 'active-good' },
+            { text: 'trải đều bài hát', start: 14.0, end: 25.5, class: 'active-gold' }
+        ],
+        slide_spotify_shuffle_5: [
+            { text: 'cơ chế jitter offset', start: 4.0, end: 14.0, class: 'active-gold' },
+            { text: 'bất ngờ ngẫu nhiên', start: 14.0, end: 25.0, class: 'active-good' }
+        ],
+        slide_spotify_shuffle_6: [
+            { text: 'so sánh trực quan', start: 4.0, end: 14.0, class: 'active-gold' },
+            { text: 'cân bằng hài hòa', start: 14.0, end: 26.0, class: 'active-good' }
+        ]
+    };
 
     const customSlideIds = [
         'slide_spotify_shuffle_1', 'slide_spotify_shuffle_2', 'slide_spotify_shuffle_3', 
@@ -271,7 +291,7 @@
                     <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:25px; zoom:1.0;">
                         <!-- Comparison Card -->
                         <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:450px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
-                            <div style="font-size:20px; font-weight:bold; color:var(--gold-primary); border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px; text-align:left;">Sự khác biệt giữa Toán Học và Nhận Thức con người</div>
+                            <div style="font-size:23px; font-weight:bold; color:var(--gold-primary); border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px; text-align:left;">Sự khác biệt giữa Toán Học và Nhận Thức con người</div>
 
                             <!-- Absolute position content box -->
                             <div style="position:relative; width:820px; height:320px; margin: 10px auto 0 auto; box-sizing:border-box;">
@@ -306,7 +326,7 @@
                         <!-- Fisher-Yates Slide Card -->
                         <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:450px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
                             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px;">
-                                <div style="font-size:20px; font-weight:bold; color:var(--gold-primary);">Thuật toán Fisher-Yates Shuffle (Ngẫu nhiên tuyệt đối)</div>
+                                <div style="font-size:23px; font-weight:bold; color:var(--gold-primary);">Thuật toán Fisher-Yates Shuffle (Ngẫu nhiên tuyệt đối)</div>
                                 <div style="font-size:14px; background:rgba(59,130,246,0.15); padding:2px 10px; border-radius:6px; color:#60a5fa; font-family:monospace; font-weight:bold;">Độ phức tạp: O(N)</div>
                             </div>
 
@@ -348,7 +368,7 @@
                         <!-- Balanced Shuffle Card -->
                         <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:450px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
                             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px;">
-                                <div style="font-size:20px; font-weight:bold; color:var(--gold-primary);">Thuật toán Balanced Shuffle (Trải đều Halftoning)</div>
+                                <div style="font-size:23px; font-weight:bold; color:var(--gold-primary);">Thuật toán Balanced Shuffle (Trải đều Halftoning)</div>
                                 <div style="font-size:14px; background:rgba(16,185,129,0.12); padding:2px 10px; border-radius:6px; color:#10b981; font-family:monospace; font-weight:bold; display:flex; align-items:center; gap:4px;">
                                     <i data-lucide="check" style="width:14px; height:14px;"></i> Ngăn ngừa trùng cụm
                                 </div>
@@ -407,7 +427,7 @@
                         <!-- Jitter Slide Card -->
                         <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:450px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
                             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px;">
-                                <div style="font-size:20px; font-weight:bold; color:var(--gold-primary);">Cơ chế ngẫu nhiên Jitter Offset (Tránh cứng nhắc)</div>
+                                <div style="font-size:23px; font-weight:bold; color:var(--gold-primary);">Cơ chế ngẫu nhiên Jitter Offset (Tránh cứng nhắc)</div>
                                 <div style="font-size:14px; background:rgba(245,158,11,0.15); padding:2px 10px; border-radius:6px; color:var(--gold-primary); font-family:monospace; font-weight:bold;">Balanced + Random Jitter</div>
                             </div>
 
@@ -437,7 +457,7 @@
                         <!-- Simulator Live Card -->
                         <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:450px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
                             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px;">
-                                <div style="font-size:20px; font-weight:bold; color:var(--gold-primary);">So sánh mô phỏng các luồng phát nhạc (Shuffle Stream)</div>
+                                <div style="font-size:23px; font-weight:bold; color:var(--gold-primary);">So sánh mô phỏng các luồng phát nhạc (Shuffle Stream)</div>
                                 <div style="font-size:14px; background:rgba(29,185,84,0.15); padding:2px 10px; border-radius:6px; color:var(--spotify-green); font-family:monospace; font-weight:bold; display:flex; align-items:center; gap:4px;">
                                     <i data-lucide="music" style="width:14px; height:14px;"></i> Live Compare
                                 </div>
@@ -817,7 +837,7 @@
 
             if (progress <= 0.25) {
                 [jt0, jt1, jt2, jt3, jt4, jt5, jt6].forEach(resetJt);
-                if (consoleText) consoleText.textContent = 'Các bài hát đang được xếp cách đều cố định (ST1 -> TS1 -> CP1 -> ST2 -> TS2 -> CP2 -> ST3). Sẽ bị dễ đoán!';
+                if (consoleText) consoleText.textContent = 'Các bài hát đang được xếp cách đều cố định (Sơn Tùng → Taylor Swift → Coldplay → Sơn Tùng...). Sẽ bị dễ đoán!';
             }
             
             // Jitter start (0.25 -> 0.38): Cards vibrating
@@ -852,7 +872,7 @@
                     jt5.style.borderColor = '#1db954';
                 }
 
-                if (consoleText) consoleText.innerHTML = 'Jitter hoán vị ngẫu nhiên nhẹ: <strong>TS1 ↔ CP1</strong> và <strong>TS2 ↔ CP2</strong>...';
+                if (consoleText) consoleText.innerHTML = 'Jitter hoán vị ngẫu nhiên nhẹ: <strong>Taylor Swift ↔ Coldplay</strong>...';
             }
             
             // Settle final position (0.45 -> 1.0)
@@ -865,7 +885,7 @@
                 if (jt4) { jt4.style.transform = 'translateX(108px)'; jt4.style.borderColor = '#1db954'; }
                 if (jt5) { jt5.style.transform = 'translateX(-108px)'; jt5.style.borderColor = '#1db954'; }
 
-                if (consoleText) consoleText.innerHTML = 'Jitter hoán vị ngẫu nhiên nhẹ: <strong>TS1 ↔ CP1</strong> và <strong>TS2 ↔ CP2</strong>. Luồng phát nhạc bây giờ là: ST1 → CP1 → TS1 → ST2 → CP2 → TS2 → ST3. Vừa bất ngờ vừa không bị chùng cụm!';
+                if (consoleText) consoleText.innerHTML = 'Jitter hoán vị ngẫu nhiên nhẹ: <strong>Taylor Swift ↔ Coldplay</strong>. Luồng phát nhạc bây giờ là: Sơn Tùng → Coldplay → Taylor Swift → Sơn Tùng... Vừa bất ngờ vừa không bị chùng cụm!';
             }
         }
         else if (slideId === 'slide_spotify_shuffle_6') {
@@ -876,8 +896,12 @@
 
             if (streamBoxFY && streamBoxSpotify) {
                 // Render tracks
-                const colors = ['#ef4444', '#3b82f6', '#10b981'];
-                const names = ['ST', 'TS', 'CP'];
+                const gradients = [
+                    'linear-gradient(135deg, #ef4444, #b91c1c)', // Sơn Tùng M-TP
+                    'linear-gradient(135deg, #3b82f6, #1d4ed8)', // Taylor Swift
+                    'linear-gradient(135deg, #10b981, #047857)'  // Coldplay
+                ];
+                const names = ['Sơn Tùng', 'Taylor Swift', 'Coldplay'];
                 
                 // Fisher Yates stream containing clusters: A, A, A, B, B, C, C
                 const fySequence = [0, 0, 0, 1, 1, 2, 2];
@@ -888,11 +912,11 @@
                     let html = '';
                     seq.forEach((id, idx) => {
                         const isHighlight = isActiveClustered && (idx <= 2); // Highlight red clustering
-                        const border = isHighlight ? 'border: 2px solid #ef4444; box-shadow: 0 0 10px #ef4444;' : 'border: 1px solid rgba(255,255,255,0.05);';
+                        const border = isHighlight ? 'border: 2px solid #ef4444; box-shadow: 0 0 10px #ef4444;' : 'border: 1px solid rgba(255,255,255,0.1);';
                         const star = (!isActiveClustered && idx === 3 && progress > 0.4) ? `<i data-lucide="star" style="width:12px; height:12px; color:var(--spotify-green); fill:var(--spotify-green); position:absolute; top:-6px; right:-6px;" class="star-popup"></i>` : '';
                         html += `
-                            <div style="width:75px; height:46px; border-radius:8px; background:${colors[id]}; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:monospace; font-weight:bold; font-size:13px; color:#fff; position:relative; ${border}">
-                                ${names[id]}${idx + 1}
+                            <div style="width:90px; height:50px; border-radius:8px; background:${gradients[id]}; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:sans-serif; font-weight:bold; font-size:12px; color:#fff; position:relative; text-align:center; padding: 2px; box-sizing: border-box; box-shadow: 0 4px 10px rgba(0,0,0,0.2); ${border}">
+                                ${names[id]}
                                 ${star}
                             </div>
                         `;
