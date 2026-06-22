@@ -1,0 +1,15 @@
+=== HUONG DAN KICH HOAT CARD DO HOA RTX 3050 CHO VOXCPM ===
+
+De PyTorch nhan dang va chay tren card do hoa RTX 3050 (giup tang toc do sinh giong noi gap 30 lan, chi ton 2-5 giay moi slide), ban hay chay dung lenh sau trong terminal:
+
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121 --force-reinstall
+
+-----------------------------------------
+Sau khi cai dat xong, kiem tra lai bang cach chay:
+python diagnose.py
+
+Ban se thay dong chu bao:
+[OK] Successfully imported torch (va thiet bi se chuyen sang 'cuda')
+
+Cuoi cung, chay lai he thong bang lenh:
+node run_synthesis.js

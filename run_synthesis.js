@@ -185,45 +185,51 @@ async function main() {
     
     // 4. Trigger speech generation
     try {
-        console.log(`\n[3/3] Đang kích hoạt tạo giọng nói cho kịch bản: ${SCRIPT}...`);
-        
-        await post(`${API_BASE}/api/synthesize-all`, {
-            script: SCRIPT,
-            voice: "google-vi-VN-Neural2-D",
-            refVoice: "default_voxcpm"
-        });
-        
-        console.log(`[+] API đã nhận yêu cầu. Bắt đầu đo thời gian thực tế...`);
-        
-        let lastProgress = -1;
-        let lastCurrent = 0;
-        let lastSlideTime = Date.now();
-        
-        while (true) {
-            await sleep(1000);
-            const status = await get(`${API_BASE}/api/synthesize-all/status?script=${SCRIPT}`);
+        const scriptsToRun = SCRIPT.toLowerCase() === 'all'
+            ? ['video17', 'video18', 'video19', 'video20', 'video21', 'video22', 'video23', 'video24']
+            : [SCRIPT];
+
+        for (const currentScript of scriptsToRun) {
+            console.log(`\n[3/3] Đang kích hoạt tạo giọng nói cho kịch bản: ${currentScript}...`);
             
-            if (status.status === 'processing') {
-                if (status.current > lastCurrent) {
-                    const elapsedForSlide = ((Date.now() - lastSlideTime) / 1000).toFixed(2);
-                    console.log(`\n[+] Slide ${status.current}/${status.total} hoàn thành trong ${elapsedForSlide} giây.`);
-                    lastCurrent = status.current;
-                    lastSlideTime = Date.now();
-                }
+            await post(`${API_BASE}/api/synthesize-all`, {
+                script: currentScript,
+                voice: "google-vi-VN-Neural2-D",
+                refVoice: "default_voxcpm"
+            });
+            
+            console.log(`[+] API đã nhận yêu cầu. Bắt đầu đo thời gian thực tế...`);
+            
+            let lastProgress = -1;
+            let lastCurrent = 0;
+            let lastSlideTime = Date.now();
+            
+            while (true) {
+                await sleep(1000);
+                const status = await get(`${API_BASE}/api/synthesize-all/status?script=${currentScript}`);
                 
-                if (status.progress !== lastProgress) {
-                    const barLength = 30;
-                    const filledLength = Math.round(barLength * (status.progress / 100));
-                    const bar = '█'.repeat(filledLength) + '░'.repeat(barLength - filledLength);
-                    process.stdout.write(`\r[TIẾN ĐỘ] Progress: [${bar}] ${status.progress}% (${status.current}/${status.total} slides)`);
-                    lastProgress = status.progress;
+                if (status.status === 'processing') {
+                    if (status.current > lastCurrent) {
+                        const elapsedForSlide = ((Date.now() - lastSlideTime) / 1000).toFixed(2);
+                        console.log(`\n[+] Slide ${status.current}/${status.total} hoàn thành trong ${elapsedForSlide} giây.`);
+                        lastCurrent = status.current;
+                        lastSlideTime = Date.now();
+                    }
+                    
+                    if (status.progress !== lastProgress) {
+                        const barLength = 30;
+                        const filledLength = Math.round(barLength * (status.progress / 100));
+                        const bar = '█'.repeat(filledLength) + '░'.repeat(barLength - filledLength);
+                        process.stdout.write(`\r[TIẾN ĐỘ] Progress: [${bar}] ${status.progress}% (${status.current}/${status.total} slides)`);
+                        lastProgress = status.progress;
+                    }
+                } else if (status.status === 'completed') {
+                    console.log(`\n\n[SUCCESS] Đã tạo xong toàn bộ giọng nói cho kịch bản ${currentScript}!`);
+                    break;
+                } else if (status.status === 'failed') {
+                    console.log(`\n\n[ERROR] Tiến trình thất bại cho ${currentScript}: ${status.error}`);
+                    break;
                 }
-            } else if (status.status === 'completed') {
-                console.log(`\n\n[SUCCESS] Đã tạo xong toàn bộ giọng nói cho kịch bản ${SCRIPT}!`);
-                break;
-            } else if (status.status === 'failed') {
-                console.log(`\n\n[ERROR] Tiến trình thất bại: ${status.error}`);
-                break;
             }
         }
     } catch (error) {
