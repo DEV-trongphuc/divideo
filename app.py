@@ -363,7 +363,11 @@ def synthesize_all_thread(script_name, slides):
     os.makedirs(mp3_dir, exist_ok=True)
     os.makedirs(mp4_dir, exist_ok=True)
     
-    ffmpeg_path = os.path.abspath("ffmpeg.exe")
+    try:
+        import imageio_ffmpeg
+        ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
+    except ImportError:
+        ffmpeg_path = os.path.abspath("ffmpeg.exe")
     from concurrent.futures import ThreadPoolExecutor
 
     def process_slide(item):
