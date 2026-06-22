@@ -4685,7 +4685,7 @@ function updateEpisodeHeader() {
         const num = parseInt(match[0], 10);
         epNumStr = String(num).padStart(3, '0');
     }
-    headerEp.textContent = `TECH DISPATCH Â· EP. ${epNumStr}`;
+    headerEp.textContent = `TECH DISPATCH \u00b7 EP. ${epNumStr}`;
 }
 // Dynamically initialize the editable canvas header topic from localStorage
 function initScriptTopic() {

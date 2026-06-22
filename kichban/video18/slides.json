@@ -7,11 +7,12 @@
     "script": "Bạn vừa xem một đôi giày thể thao trên Shopee, chỉ 5 phút sau lướt Facebook lại thấy đúng đôi giày đó đập vào mắt. Cảm giác như có ai đó đang lén lút theo dõi từng hành động của mình đúng không? Đó chính là Retargeting hay quảng cáo bám đuôi, một công nghệ cực kỳ phổ biến trong AdTech. Đằng sau hiện tượng này không phải là phép thuật, mà là cuộc chơi dữ liệu của Facebook Pixel và hệ thống đấu giá siêu tốc.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 22.0,
+    "audioPath": "/kichban/video18/mp3/slide_adtech_1.mp3",
+    "duration": 22.92,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "11c2701e14ed86c8c8a451e2de79c206"
   },
   {
     "id": "slide_adtech_2",
@@ -21,11 +22,12 @@
     "script": "Mọi thứ bắt đầu khi bạn bấm vào nút Xem Giày trên Shopee. Lúc này, một đoạn mã JavaScript siêu nhỏ hoạt động tàng hình của Facebook được tích hợp trên website - gọi là Tracking Pixel - lập tức kích hoạt. Đoạn code này thu thập dữ liệu hành vi của bạn, đóng gói thông tin như ID người dùng, sản phẩm đã xem, rồi âm thầm bắn một tia dữ liệu về máy chủ Facebook qua một yêu cầu HTTP.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 21.0,
+    "audioPath": "/kichban/video18/mp3/slide_adtech_2.mp3",
+    "duration": 24.52,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "9e770da57977e4461f6f25edef4fec31"
   },
   {
     "id": "slide_adtech_3",
@@ -35,11 +37,12 @@
     "script": "Ngay khi nhận được tín hiệu từ Pixel, máy chủ Facebook lập tức cập nhật hồ sơ hành vi của bạn. Hệ thống AI sẽ tự động dán nhãn tag thích giày thể thao vào tài khoản của bạn, đồng thời đưa ID của bạn vào một danh sách đặc biệt gọi là Đối tượng tùy chỉnh - hay Custom Audience - của hãng giày đó. Từ giây phút này, bạn đã chính thức bước vào tầm ngắm của chiến dịch tiếp thị lại.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 21.0,
+    "audioPath": "/kichban/video18/mp3/slide_adtech_3.mp3",
+    "duration": 22.6,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "3658e5c14509a0b9c5f38fc5e589d802"
   },
   {
     "id": "slide_adtech_4",
@@ -49,11 +52,12 @@
     "script": "Năm phút sau, bạn mở ứng dụng Facebook. Ngay khi Newsfeed đang tải, một phiên đấu giá thời gian thực - gọi là Real-Time Bidding - diễn ra cực kỳ khốc liệt chỉ trong 0.1 giây. Các nhãn hàng cùng cạnh tranh khốc liệt để giành giật vị trí hiển thị quảng cáo trống trên màn hình của bạn. Các máy chủ Ad Exchange liên tục nhảy số để tìm ra lượt đấu thầu cao nhất.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 21.0,
+    "audioPath": "/kichban/video18/mp3/slide_adtech_4.mp3",
+    "duration": 23.24,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "77e437da1f4f37ff6a1f1d24b90e2057"
   },
   {
     "id": "slide_adtech_5",
@@ -63,11 +67,12 @@
     "script": "Nhờ vào mức giá thầu tối ưu cùng điểm chất lượng quảng cáo vượt trội, nhà quảng cáo giành chiến thắng. Facebook lập tức tải hình ảnh đôi giày bạn vừa xem lên Bảng tin kèm theo nút Mua ngay. Quy trình khép kín này diễn ra mượt mà và nhanh đến mức bạn cứ ngỡ Facebook có khả năng đọc được suy nghĩ của mình.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 18.0,
+    "audioPath": "/kichban/video18/mp3/slide_adtech_5.mp3",
+    "duration": 18.76,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "d2ab0d4d54c3ae9f78ddf7018cde8e87"
   },
   {
     "id": "slide_adtech_6",
@@ -77,10 +82,11 @@
     "script": "Quảng cáo bám đuôi là sự phối hợp hoàn hảo giữa Tracking Pixel, hồ sơ dữ liệu lớn và đấu giá thời gian thực RTB. Nếu thấy video này thú vị và bổ ích, hãy thả tim, chia sẻ và nhấn Follow Turnio chấm dev để không bỏ lỡ những kiến thức thiết kế hệ thống cực chất nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "audioPath": "/kichban/video18/mp3/slide_adtech_6.mp3",
+    "duration": 17.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "30165c61cf8e9de2f55635c3b5a1871b"
   }
 ]
