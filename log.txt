@@ -1,4 +1,4 @@
- python diagnose.py   
+S D:\divideo-main\divideo-main> python diagnose.py   
 =========================================
 === DIAGNOSING VOXCPM DEPENDENCIES ======
 =========================================
@@ -17,23 +17,144 @@
 [OK] Successfully imported huggingface_hub
 [OK] Successfully imported imageio_ffmpeg
 [OK] Successfully imported torchaudio
+[OK] Successfully imported einops
 
 --- Testing VoxCPM Import ---
-[FAIL] Failed to import VoxCPM!
-Traceback (most recent call last):
-  File "D:\divideo-main\divideo-main\diagnose.py", line 39, in <module>
-    from voxcpm import VoxCPM
-  File "D:\divideo-main\divideo-main\VoxCPM\src\voxcpm\__init__.py", line 1, in <module>
-    from .core import VoxCPM
-  File "D:\divideo-main\divideo-main\VoxCPM\src\voxcpm\core.py", line 9, in <module>
-    from .model.voxcpm import VoxCPMModel, LoRAConfig
-  File "D:\divideo-main\divideo-main\VoxCPM\src\voxcpm\model\__init__.py", line 1, in <module>
-    from .voxcpm import VoxCPMModel
-  File "D:\divideo-main\divideo-main\VoxCPM\src\voxcpm\model\voxcpm.py", line 29, in <module>
-    from einops import rearrange
-ModuleNotFoundError: No module named 'einops'
+[OK] Successfully imported VoxCPM!
 
-[ERROR] Some dependencies are missing. Please run:
-  C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\python.exe -m pip install -r requirements.txt
+[SUCCESS] All dependencies and packages are OK!
 =========================================
+PS D:\divideo-main\divideo-main> node run_synthesis.js
+==========================================================================
+=== HỆ THỐNG TỰ ĐỘNG KHỞI CHẠY & TẠO GIỌNG NÓI VOXCPM (ALL-IN-ONE) ===
+==========================================================================
+
+[1/3] Đang tự động kiểm tra và cài đặt các thư viện Python cần thiết...
+[+] Đang chạy: python -m pip install -r "D:\divideo-main\divideo-main\requirements.txt" ...
+Requirement already satisfied: Flask==3.1.3 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 1)) (3.1.3)
+Requirement already satisfied: flask-cors==6.0.5 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 2)) (6.0.5)
+Requirement already satisfied: edge-tts>=6.1.1 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 3)) (7.2.8)
+Requirement already satisfied: soundfile in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 4)) (0.14.0)
+Requirement already satisfied: librosa in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 5)) (0.11.0)
+Requirement already satisfied: pydantic in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 6)) (2.13.4)
+Requirement already satisfied: huggingface-hub in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 7)) (1.20.1)
+Requirement already satisfied: torch in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 8)) (2.12.1)
+Requirement already satisfied: transformers in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 9)) (5.12.1)
+Requirement already satisfied: safetensors in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 10)) (0.8.0)
+Requirement already satisfied: tqdm in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 11)) (4.68.3)
+Requirement already satisfied: scipy in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 12)) (1.18.0)
+Requirement already satisfied: imageio-ffmpeg in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 13)) (0.6.0)
+Requirement already satisfied: torchaudio in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 14)) (2.11.0)
+Requirement already satisfied: einops in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from -r D:\divideo-main\divideo-main\requirements.txt (line 15)) (0.8.2)
+Requirement already satisfied: blinker>=1.9.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from Flask==3.1.3->-r D:\divideo-main\divideo-main\requirements.txt (line 1)) (1.9.0)
+Requirement already satisfied: click>=8.1.3 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from Flask==3.1.3->-r D:\divideo-main\divideo-main\requirements.txt (line 1)) (8.4.1)
+Requirement already satisfied: itsdangerous>=2.2.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from Flask==3.1.3->-r D:\divideo-main\divideo-main\requirements.txt (line 1)) (2.2.0)
+Requirement already satisfied: jinja2>=3.1.2 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from Flask==3.1.3->-r D:\divideo-main\divideo-main\requirements.txt (line 1)) (3.1.6)
+Requirement already satisfied: markupsafe>=2.1.1 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from Flask==3.1.3->-r D:\divideo-main\divideo-main\requirements.txt (line 1)) (3.0.3)
+Requirement already satisfied: werkzeug>=3.1.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from Flask==3.1.3->-r D:\divideo-main\divideo-main\requirements.txt (line 1)) (3.1.8)
+Requirement already satisfied: aiohttp<4.0.0,>=3.8.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (3.14.1)
+Requirement already satisfied: certifi>=2023.11.17 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (2026.6.17)
+Requirement already satisfied: tabulate<1.0.0,>=0.4.4 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (0.10.0)
+Requirement already satisfied: typing-extensions<5.0.0,>=4.1.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (4.15.0)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (2.6.2)
+Requirement already satisfied: aiosignal>=1.4.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (1.4.0)
+Requirement already satisfied: attrs>=17.3.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (26.1.0)
+Requirement already satisfied: frozenlist>=1.1.1 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (1.8.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (6.7.1)
+Requirement already satisfied: propcache>=0.2.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (0.5.2)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (1.24.2)
+Requirement already satisfied: idna>=2.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from yarl<2.0,>=1.17.0->aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.1->-r D:\divideo-main\divideo-main\requirements.txt (line 3)) (3.18)
+Requirement already satisfied: cffi>=1.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from soundfile->-r D:\divideo-main\divideo-main\requirements.txt (line 4)) (2.0.0)
+Requirement already satisfied: numpy in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from soundfile->-r D:\divideo-main\divideo-main\requirements.txt (line 4)) (2.4.6)
+Requirement already satisfied: audioread>=2.1.9 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (3.1.0)
+Requirement already satisfied: numba>=0.51.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (0.65.1)
+Requirement already satisfied: scikit-learn>=1.1.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (1.9.0)
+Requirement already satisfied: joblib>=1.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (1.5.3)
+Requirement already satisfied: decorator>=4.3.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (5.3.1)
+Requirement already satisfied: pooch>=1.1 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (1.9.0)
+Requirement already satisfied: soxr>=0.3.2 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (1.1.0)
+Requirement already satisfied: lazy_loader>=0.1 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (0.5)
+Requirement already satisfied: msgpack>=1.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (1.2.1)
+Requirement already satisfied: standard-aifc in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (3.13.0)
+Requirement already satisfied: standard-sunau in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (3.13.0)
+Requirement already satisfied: annotated-types>=0.6.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from pydantic->-r D:\divideo-main\divideo-main\requirements.txt (line 6)) (0.7.0)
+Requirement already satisfied: pydantic-core==2.46.4 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from pydantic->-r D:\divideo-main\divideo-main\requirements.txt (line 6)) (2.46.4)
+Requirement already satisfied: typing-inspection>=0.4.2 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from pydantic->-r D:\divideo-main\divideo-main\requirements.txt (line 6)) (0.4.2)
+Requirement already satisfied: filelock>=3.10.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (3.29.4)
+Requirement already satisfied: fsspec>=2023.5.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (2026.6.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.5.1 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (1.5.1)
+Requirement already satisfied: httpx<1,>=0.23.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (0.28.1)
+Requirement already satisfied: packaging>=20.9 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (26.2)
+Requirement already satisfied: pyyaml>=5.1 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (6.0.3)
+Requirement already satisfied: typer<0.26.0,>=0.20.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (0.25.1)
+Requirement already satisfied: anyio in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from httpx<1,>=0.23.0->huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (4.14.0)
+Requirement already satisfied: httpcore==1.* in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from httpx<1,>=0.23.0->huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (1.0.9)
+Requirement already satisfied: h11>=0.16 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (0.16.0)
+Requirement already satisfied: shellingham>=1.3.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from typer<0.26.0,>=0.20.0->huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (1.5.4)
+Requirement already satisfied: rich>=13.8.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from typer<0.26.0,>=0.20.0->huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (15.0.0)
+Requirement already satisfied: annotated-doc>=0.0.2 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from typer<0.26.0,>=0.20.0->huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (0.0.4)
+Requirement already satisfied: setuptools<82 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from torch->-r D:\divideo-main\divideo-main\requirements.txt (line 8)) (81.0.0)
+Requirement already satisfied: sympy>=1.13.3 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from torch->-r D:\divideo-main\divideo-main\requirements.txt (line 8)) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from torch->-r D:\divideo-main\divideo-main\requirements.txt (line 8)) (3.6.1)
+Requirement already satisfied: regex>=2025.10.22 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from transformers->-r D:\divideo-main\divideo-main\requirements.txt (line 9)) (2026.5.9)
+Requirement already satisfied: tokenizers<=0.23.0,>=0.22.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from transformers->-r D:\divideo-main\divideo-main\requirements.txt (line 9)) (0.22.2)
+Requirement already satisfied: colorama in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from tqdm->-r D:\divideo-main\divideo-main\requirements.txt (line 11)) (0.4.6)
+Requirement already satisfied: pycparser in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from cffi>=1.0->soundfile->-r D:\divideo-main\divideo-main\requirements.txt (line 4)) (3.0)
+Requirement already satisfied: llvmlite<0.48,>=0.47.0dev0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from numba>=0.51.0->librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (0.47.0)
+Requirement already satisfied: platformdirs>=2.5.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from pooch>=1.1->librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (4.10.0)
+Requirement already satisfied: requests>=2.19.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from pooch>=1.1->librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (2.34.2)
+Requirement already satisfied: charset_normalizer<4,>=2 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from requests>=2.19.0->pooch>=1.1->librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (3.4.7)
+Requirement already satisfied: urllib3<3,>=1.26 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from requests>=2.19.0->pooch>=1.1->librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (2.7.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from rich>=13.8.0->typer<0.26.0,>=0.20.0->huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (4.2.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from rich>=13.8.0->typer<0.26.0,>=0.20.0->huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (2.20.0)
+Requirement already satisfied: mdurl~=0.1 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from markdown-it-py>=2.2.0->rich>=13.8.0->typer<0.26.0,>=0.20.0->huggingface-hub->-r D:\divideo-main\divideo-main\requirements.txt (line 7)) (0.1.2)
+Requirement already satisfied: narwhals>=2.0.1 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from scikit-learn>=1.1.0->librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (2.22.1)
+Requirement already satisfied: threadpoolctl>=3.5.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from scikit-learn>=1.1.0->librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (3.6.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from sympy>=1.13.3->torch->-r D:\divideo-main\divideo-main\requirements.txt (line 8)) (1.3.0)
+Requirement already satisfied: standard-chunk in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from standard-aifc->librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (3.13.0)
+Requirement already satisfied: audioop-lts in C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from standard-aifc->librosa->-r D:\divideo-main\divideo-main\requirements.txt (line 5)) (0.2.2)
+[+] Đã hoàn thành bước kiểm tra/cài đặt thư viện!
+
+[!] CẢNH BÁO: Không tìm thấy file checkpoint của mô hình VoxCPM (4.5GB) tại ./checkpoints/VoxCPM/
+[+] Đang tự động tải mô hình từ HuggingFace thông qua download_model.py...
+[+] Starting download of 'openbmb/VoxCPM' weights to './checkpoints/VoxCPM'...
+C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\huggingface_hub\utils\_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `snapshot_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+[-] Download failed: 401 Client Error. (Request ID: Root=1-6a392454-5f0453b25a659dbc35e64776;8b0c785c-a92b-47d4-ab2f-d81eb486eb5b)
+
+Repository Not Found for url: https://huggingface.co/api/models/openbmb/VoxCPM/revision/main.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated and your token has the required permissions.
+For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+Invalid username or password.
+[+] Đã tải mô hình thành công!
+
+[2/3] Đang khởi động Flask app.py bằng lệnh: python...
+[+] Đang chờ Flask server khởi động trên cổng 5500...
+[Flask] [-] Checkpoint not found at ./checkpoints/VoxCPM. VoxCPM disabled until checkpoints are downloaded.
+[Flask] [*] Starting TikTok Widescreen Studio server on port 5500...
+ * Serving Flask app 'app'
+ * Debug mode: on
+[Flask] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5500
+ * Running on http://192.168.12.56:5500
+[Flask] Press CTRL+C to quit
+[Flask] 127.0.0.1 - - [22/Jun/2026 19:03:52] "GET /api/voxcpm/status HTTP/1.1" 200 -
+[+] Flask server đã sẵn sàng!
+
+[3/3] Đang kích hoạt tạo giọng nói cho kịch bản: video19...
+[Flask] 127.0.0.1 - - [22/Jun/2026 19:03:52] "POST /api/synthesize-all HTTP/1.1" 200 -
+[+] API đã nhận yêu cầu. Bắt đầu đo thời gian thực tế...
+[Flask] [-] Error synthesizing slide slide_maps_1: [-] Kh�ng t�m th\u1ea5y m� h�nh VoxCPM (config.json) t\u1ea1i ./checkpoints/VoxCPM/. H�y t\u1ea3i m� h�nh tr\u01b0\u1edbc b\u1eb1ng: node run_synthesis.js
+[Flask] [-] Error synthesizing slide slide_maps_2: [-] Kh�ng t�m th\u1ea5y m� h�nh VoxCPM (config.json) t\u1ea1i ./checkpoints/VoxCPM/. H�y t\u1ea3i m� h�nh tr\u01b0\u1edbc b\u1eb1ng: node run_synthesis.js
+[Flask] 127.0.0.1 - - [22/Jun/2026 19:03:54] "GET /api/synthesize-all/status?script=video19 HTTP/1.1" 200 -
+
+
+[ERROR] Tiến trình thất bại: Error during synthesis: [-] Không tìm thấy mô hình VoxCPM (config.json) tại ./checkpoints/VoxCPM/. Hãy tải mô hình trước bằng: node run_synthesis.js
+==========================================================================
+[KẾT QUẢ] TỔNG THỜI GIAN ĐO ĐƯỢC: 1.03 giây.
+==========================================================================
+
+[+] Đang tắt Flask server...
 PS D:\divideo-main\divideo-main> 
