@@ -4700,7 +4700,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                 </div>
                             </div>
                             <!-- VIEWPORT CONTAINER -->
-                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background:radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
+                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background: transparent; border: none; border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
                                 <!-- Client Node -->
                                 <div class="client-node" style="text-align:center; width:180px; z-index:10; transition: transform 0.5s;">
                                     <div style="width:130px; height:130px; background:rgba(59, 165, 250, 0.08); border:2px solid rgba(96, 165, 250, 0.35); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px auto; box-shadow: 0 10px 25px rgba(96, 165, 250, 0.25);">
@@ -4904,7 +4904,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                 </div>
                             </div>
                             <!-- VIEWPORT CONTAINER -->
-                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background:radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
+                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background: transparent; border: none; border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
                                 <!-- Gates Aligned -->
                                 <div class="gate-1 office-gate">
                                     <div style="width:90px; height:90px; background:rgba(255,255,255,0.03); border:1.5px solid rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:12px;" class="gate-icon-1">
@@ -5083,7 +5083,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                 </div>
                             </div>
                             <!-- VIEWPORT CONTAINER -->
-                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background:radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
+                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background: transparent; border: none; border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
                                 <!-- SVG Paths for center connecting -->
                                 <svg style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1;">
                                     <path d="M 220,310 L 450,310" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3" stroke-dasharray="8 4"/>
@@ -5205,7 +5205,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                 </div>
                             </div>
                             <!-- VIEWPORT CONTAINER -->
-                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background:radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
+                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background: transparent; border: none; border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
                                 <!-- User Node (Left) -->
                                 <div style="text-align:center; width:180px; z-index: 10; flex-shrink: 0;">
                                     <div style="width:110px; height:110px; background:rgba(59,165,250,0.05); border:1.5px solid rgba(59,165,250,0.25); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px auto; box-shadow: 0 8px 16px rgba(96,165,250,0.1);">
@@ -5391,7 +5391,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                 </div>
                             </div>
                             <!-- VIEWPORT CONTAINER -->
-                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background:radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; box-sizing:border-box; padding:20px; gap:40px;">
+                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background: transparent; border: none; border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; box-sizing:border-box; padding:20px; gap:40px;">
                                 <!-- Left Card Holder -->
                                 <div class="holder-left compare-card-holder">
                                     
@@ -5506,7 +5506,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                 </div>
                             </div>
                             <!-- VIEWPORT CONTAINER -->
-                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background:radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
+                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background: transparent; border: none; border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
                                 <!-- SVG Paths for center connecting -->
                                 <svg style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1;">
                                     <path d="M 180,340 L 450,340" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3" stroke-dasharray="8 4"/>
@@ -5683,7 +5683,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                 </div>
                             </div>
                             <!-- VIEWPORT CONTAINER -->
-                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background:radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
+                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background: transparent; border: none; border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
                                 <!-- LocalStorage & Cookie Vault (Left column) -->
                                 <div style="display:flex; flex-direction:column; gap:30px; width:360px;">
                                     <div class="ls-box" style="background:rgba(15,23,42,0.65); border:1.5px solid rgba(255,255,255,0.08); padding:20px; border-radius:20px; position:relative; text-align:left;">
@@ -5913,7 +5913,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                 </div>
                             </div>
                             <!-- VIEWPORT CONTAINER -->
-                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background:radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
+                            <div class="token-viewport" style="position:relative; width:900px; height:680px; background: transparent; border: none; border-radius:40px; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:space-around; box-sizing:border-box; padding:20px 0;">
                                 <!-- Logout card (Left) -->
                                 <div style="display:flex; flex-direction:column; gap:20px; width:280px; align-items:center; z-index:10;">
                                     <div style="text-align:center;">
@@ -8820,13 +8820,13 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                 background: rgba(239,68,68,0.12);
                             }
                             .bank-keyword-tag {
-                                font-size: 26px;
+                                font-size: 22px;
                                 font-weight: 800;
                                 color: var(--text-muted);
                                 background: rgba(255,255,255,0.03);
                                 border: 2px solid rgba(255,255,255,0.06);
-                                padding: 10px 22px;
-                                border-radius: 14px;
+                                padding: 8px 18px;
+                                border-radius: 12px;
                                 transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                                 text-transform: uppercase;
                                 letter-spacing: 0.8px;
@@ -8917,27 +8917,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                             }
                         </style>
                         <div class="keywords-panel" style="width:100%; max-width:900px; display:flex; flex-wrap:wrap; justify-content:center; gap:16px; padding:15px; z-index:10; min-height:80px; align-items:center;"></div>
-                        <div class="telemetry-widgets-container" style="display:flex; justify-content:space-between; width:100%; max-width:900px; gap:20px; z-index:10; margin-bottom:10px;">
-                            <div class="latency-widget-card glass-widget" style="flex:1;">
-                                <div style="width:60px; height:60px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(245, 158, 11, 0.12); color:var(--gold-primary); flex-shrink:0; border: 1.5px solid rgba(245,158,11,0.25); box-shadow: 0 0 15px rgba(245,158,11,0.15);">
-                                    <i data-lucide="clock" style="width:32px; height:32px;"></i>
-                                </div>
-                                <div>
-                                    <div style="font-size:13px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Thời gian xử lý</div>
-                                    <div class="latency-value" style="font-size:24px; font-weight:900; color:#fff; margin-top:2px;">--</div>
-                                </div>
-                            </div>
-                            <div class="status-widget-card glass-widget" style="flex:1;">
-                                <div class="status-icon-box" style="background:rgba(16, 185, 129, 0.12); border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; color:#10b981; flex-shrink:0; border:1.5px solid rgba(16,185,129,0.25); box-shadow:0 0 15px rgba(16,185,129,0.15);">
-                                    <i data-lucide="activity" style="width:32px; height:32px;"></i>
-                                </div>
-                                <div>
-                                    <div style="font-size:13px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Trạng thái hệ thống</div>
-                                    <div class="status-value" style="font-size:24px; font-weight:900; color:#fff; margin-top:2px;">Sẵn sàng</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="map-viewport" style="position:relative; width:900px; height:680px; background:radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.6);">
+                        <div class="map-viewport" style="position:relative; width:900px; height:680px; background: transparent; border: none; border-radius:40px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.6);">
                             <div class="gfx-layer" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:5;">
                             </div>
                         </div>
@@ -9811,7 +9791,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                 </div>
                             </div>
                         </div>
-                        <div class="map-viewport" style="position:relative; width:900px; height:680px; background:radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.6);">
+                        <div class="map-viewport" style="position:relative; width:900px; height:680px; background: transparent; border: none; border-radius:40px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.6);">
                             <div class="gfx-layer" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:5;"></div>
                         </div>
                         <div class="query-panel" style="width:100%; max-width:900px; background:rgba(8, 10, 18, 0.96); border:2px solid rgba(255,255,255,0.06); border-radius:22px; padding:20px 26px; box-shadow:0 20px 40px rgba(0,0,0,0.55); text-align:center; z-index:10; font-family:var(--font-sans); box-sizing:border-box; backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; min-height:130px;">
@@ -10861,7 +10841,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                         </style>
                         <div class="keywords-panel" style="width:100%; max-width:900px; display:flex; flex-wrap:wrap; justify-content:center; gap:16px; padding:15px; z-index:10; min-height:80px; align-items:center;"></div>
                         
-                        <div class="gfx-layer" style="width: 900px; height: 500px; position: relative; background: radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <div class="gfx-layer" style="width: 900px; height: 500px; position: relative; background: transparent; border: none; border-radius:40px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                             <!-- Inner views -->
                         </div>
                         
@@ -12001,7 +11981,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                         </style>
                         <div class="keywords-panel" style="width:100%; max-width:900px; display:flex; flex-wrap:wrap; justify-content:center; gap:16px; padding:15px; z-index:10; min-height:80px; align-items:center;"></div>
                         
-                        <div class="gfx-layer" style="width: 900px; height: 500px; position: relative; background: radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <div class="gfx-layer" style="width: 900px; height: 500px; position: relative; background: transparent; border: none; border-radius:40px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                             <!-- Inner gfx views will be rendered here -->
                         </div>
                         <!-- Terminal Panel -->
@@ -12318,30 +12298,30 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                 }
                 else if (slideId === 'slide_captcha_4a') {
                     gfxLayer.innerHTML = `
-                            <div class="v3-card captcha-node" style="position:absolute; left:180px; top:50px; width:540px; height:400px; display:flex; flex-direction:column; justify-content:space-between; padding:25px 30px;">
-                                <h3 style="color:var(--gold-primary); font-size:20px; font-weight:900; margin:0; text-align:center; border-bottom:1.5px solid rgba(255,255,255,0.1); padding-bottom:12px;">reCAPTCHA v3 - PHÁT HIỆN VÔ HÌNH</h3>
+                            <div class="v3-card captcha-node" style="position:absolute; left:140px; top:30px; width:620px; height:460px; display:flex; flex-direction:column; justify-content:space-between; padding:30px 40px;">
+                                <h3 style="color:var(--gold-primary); font-size:24px; font-weight:900; margin:0; text-align:center; border-bottom:1.5px solid rgba(255,255,255,0.1); padding-bottom:16px;">reCAPTCHA v3 - PHÁT HIỆN VÔ HÌNH</h3>
                                 
-                                <div style="display:flex; justify-content:space-around; align-items:center; width:100%; margin-top:20px;">
+                                <div style="display:flex; justify-content:space-around; align-items:center; width:100%; margin-top:24px;">
                                     <!-- Human Gauge -->
-                                    <div class="glass-card" style="width:210px; padding:20px; text-align:center; border-color:rgba(16,185,129,0.2);">
-                                        <div class="score-circle-human" style="width:90px; height:90px; border-radius:50%; border:5px solid rgba(16,185,129,0.25); display:flex; flex-direction:column; align-items:center; justify-content:center; margin:0 auto 12px auto; transition:all 0.5s;">
-                                            <span style="font-size:24px; font-weight:900; color:#10b981; font-family:var(--font-mono);">0.9</span>
-                                            <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">SCORE</span>
+                                    <div class="glass-card" style="width:250px; padding:24px; text-align:center; border-color:rgba(16,185,129,0.2);">
+                                        <div class="score-circle-human" style="width:110px; height:110px; border-radius:50%; border:6px solid rgba(16,185,129,0.25); display:flex; flex-direction:column; align-items:center; justify-content:center; margin:0 auto 16px auto; transition:all 0.5s;">
+                                            <span style="font-size:32px; font-weight:900; color:#10b981; font-family:var(--font-mono);">0.9</span>
+                                            <span style="font-size:10px; color:var(--text-muted); font-weight:bold;">SCORE</span>
                                         </div>
-                                        <div style="font-weight:bold; font-size:15px; color:#10b981;">Khách truy cập</div>
-                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Lướt web mượt mà</div>
+                                        <div style="font-weight:bold; font-size:18px; color:#10b981;">Khách truy cập</div>
+                                        <div style="font-size:13px; color:var(--text-muted); margin-top:6px;">Lướt web mượt mà</div>
                                     </div>
                                     <!-- Bot Gauge -->
-                                    <div class="glass-card" style="width:210px; padding:20px; text-align:center; border-color:rgba(239,68,68,0.2);">
-                                        <div class="score-circle-bot" style="width:90px; height:90px; border-radius:50%; border:5px solid rgba(239,68,68,0.25); display:flex; flex-direction:column; align-items:center; justify-content:center; margin:0 auto 12px auto; transition:all 0.5s;">
-                                            <span style="font-size:24px; font-weight:900; color:#ef4444; font-family:var(--font-mono);">0.1</span>
-                                            <span style="font-size:8px; color:var(--text-muted); font-weight:bold;">SCORE</span>
+                                    <div class="glass-card" style="width:250px; padding:24px; text-align:center; border-color:rgba(239,68,68,0.2);">
+                                        <div class="score-circle-bot" style="width:110px; height:110px; border-radius:50%; border:6px solid rgba(239,68,68,0.25); display:flex; flex-direction:column; align-items:center; justify-content:center; margin:0 auto 16px auto; transition:all 0.5s;">
+                                            <span style="font-size:32px; font-weight:900; color:#ef4444; font-family:var(--font-mono);">0.1</span>
+                                            <span style="font-size:10px; color:var(--text-muted); font-weight:bold;">SCORE</span>
                                         </div>
-                                        <div style="font-weight:bold; font-size:15px; color:#ef4444;">Nghi ngờ Bot</div>
-                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Chặn / Thách thức ảnh</div>
+                                        <div style="font-weight:bold; font-size:18px; color:#ef4444;">Nghi ngờ Bot</div>
+                                        <div style="font-size:13px; color:var(--text-muted); margin-top:6px;">Chặn / Thách thức ảnh</div>
                                     </div>
                                 </div>
-                                <div class="v3-status-banner" style="background:rgba(255,255,255,0.03); border:2px dashed rgba(255,255,255,0.15); border-radius:12px; padding:12px; font-size:13px; text-align:center; font-weight:bold; color:var(--text-muted);">
+                                <div class="v3-status-banner" style="background:rgba(255,255,255,0.03); border:2px dashed rgba(255,255,255,0.15); border-radius:12px; padding:16px; font-size:15px; text-align:center; font-weight:bold; color:var(--text-muted); margin-top:20px;">
                                     Hệ thống chấm điểm âm thầm (0.0 đến 1.0)
                                 </div>
                             </div>
@@ -12465,8 +12445,8 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                     packet.style.display = 'block';
                     const pct = (progress - 0.1) / 0.65;
                     const pX = 300 + (600 - 300) * pct;
-                    packet.style.left = `${pX}px`;
-                    packet.style.top = `250px`;
+                    packet.style.left = `${pX - 7}px`;
+                    packet.style.top = `${250 - 7}px`;
                 }
                 if (botCard) botCard.style.transform = 'scale(1.05)';
                 if (serverCard) {
@@ -12809,7 +12789,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                         </style>
                         <div class="keywords-panel" style="width:100%; max-width:900px; display:flex; flex-wrap:wrap; justify-content:center; gap:16px; padding:15px; z-index:10; min-height:80px; align-items:center;"></div>
                         
-                        <div class="map-viewport" style="position:relative; width:900px; height:500px; background:radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.6);">
+                        <div class="map-viewport" style="position:relative; width:900px; height:500px; background: transparent; border: none; border-radius:40px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.6);">
                             <div class="gfx-layer" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:5;">
                             </div>
                         </div>
@@ -13748,7 +13728,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                         </style>
                         <div class="keywords-panel" style="width:100%; max-width:900px; display:flex; flex-wrap:wrap; justify-content:center; gap:16px; padding:15px; z-index:10; min-height:80px; align-items:center;"></div>
                         
-                        <div class="view-viewport-root grid-bg" style="width: 900px; height: 580px; position: relative; background: radial-gradient(circle at center, #1e293b 0%, #020617 100%); border:3px solid rgba(255,255,255,0.06); border-radius:40px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-sizing: border-box; padding: 20px;">
+                        <div class="view-viewport-root grid-bg" style="width: 900px; height: 580px; position: relative; background: transparent; border: none; border-radius:40px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-sizing: border-box; padding: 20px;">
                             <!-- Inner view is dynamic based on slideId -->
                         </div>
                         
@@ -14804,7 +14784,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                        <div style="font-size:13px; font-weight:bold; color:#fff; margin-bottom:5px;">user_3918</div>
                                        <div class="coin-spin" style="width:58px; height:58px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:3px solid #fff; box-shadow:0 0 20px rgba(245,158,11,0.6); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
                                        <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:5px; align-items:center;">
-                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:13px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 12px; border-radius:8px; letter-spacing:0.8px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">00</span><span class="normal-bits" style="opacity:0;">110101...</span></div>
+                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:16px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 10px; border-radius:8px; letter-spacing:0.5px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">00</span><span class="normal-bits" style="opacity:0;">110101...</span></div>
                                        </div>
                                        <div class="zero-count-badge" style="background:rgba(16,185,129,0.15); border:1.5px solid rgba(16,185,129,0.35); border-radius:10px; padding:6px 12px; font-size:12px; color:#10b981; font-weight:bold; margin-top:5px; opacity:0; transform:scale(0.8); transition:all 0.4s; width:80%;">
                                            Số 0 đầu: <span style="font-size:14px; font-weight:900;">2</span>
@@ -14818,7 +14798,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                        <div style="font-size:13px; font-weight:bold; color:#fff; margin-bottom:5px;">user_8421</div>
                                        <div class="coin-spin" style="width:58px; height:58px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:3px solid #fff; box-shadow:0 0 20px rgba(245,158,11,0.6); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
                                        <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:5px; align-items:center;">
-                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:13px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 12px; border-radius:8px; letter-spacing:0.8px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">0000</span><span class="normal-bits" style="opacity:0;">1011...</span></div>
+                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:16px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 10px; border-radius:8px; letter-spacing:0.5px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">0000</span><span class="normal-bits" style="opacity:0;">1011...</span></div>
                                        </div>
                                        <div class="zero-count-badge" style="background:rgba(16,185,129,0.15); border:1.5px solid rgba(16,185,129,0.35); border-radius:10px; padding:6px 12px; font-size:12px; color:#10b981; font-weight:bold; margin-top:5px; opacity:0; transform:scale(0.8); transition:all 0.4s; width:80%;">
                                            Số 0 đầu: <span style="font-size:14px; font-weight:900;">4</span>
@@ -14832,7 +14812,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                        <div style="font-size:13px; font-weight:bold; color:#fff; margin-bottom:5px;">user_1034</div>
                                        <div class="coin-spin" style="width:58px; height:58px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:3px solid #fff; box-shadow:0 0 20px rgba(245,158,11,0.6); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
                                        <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:5px; align-items:center;">
-                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:13px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 12px; border-radius:8px; letter-spacing:0.8px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">0</span><span class="normal-bits" style="opacity:0;">1100111...</span></div>
+                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:16px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 10px; border-radius:8px; letter-spacing:0.5px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">0</span><span class="normal-bits" style="opacity:0;">1100111...</span></div>
                                        </div>
                                        <div class="zero-count-badge" style="background:rgba(16,185,129,0.15); border:1.5px solid rgba(16,185,129,0.35); border-radius:10px; padding:6px 12px; font-size:12px; color:#10b981; font-weight:bold; margin-top:5px; opacity:0; transform:scale(0.8); transition:all 0.4s; width:80%;">
                                            Số 0 đầu: <span style="font-size:14px; font-weight:900;">1</span>
@@ -14846,24 +14826,10 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                        <div style="font-size:13px; font-weight:bold; color:#fff; margin-bottom:5px;">user_6653</div>
                                        <div class="coin-spin" style="width:58px; height:58px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:3px solid #fff; box-shadow:0 0 20px rgba(245,158,11,0.6); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
                                        <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:5px; align-items:center;">
-                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:13px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 12px; border-radius:8px; letter-spacing:0.8px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">00000</span><span class="normal-bits" style="opacity:0;">110...</span></div>
+                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:16px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 10px; border-radius:8px; letter-spacing:0.5px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits">00000</span><span class="normal-bits" style="opacity:0;">110...</span></div>
                                        </div>
                                        <div class="zero-count-badge" style="background:rgba(16,185,129,0.15); border:1.5px solid rgba(16,185,129,0.35); border-radius:10px; padding:6px 12px; font-size:12px; color:#10b981; font-weight:bold; margin-top:5px; opacity:0; transform:scale(0.8); transition:all 0.4s; width:80%;">
                                            Số 0 đầu: <span style="font-size:14px; font-weight:900;">5</span>
-                                       </div>
-                                   </div>
-                                   <!-- Card 5 -->
-                                   <div class="user-card glass-card u-card-4" style="width:160px; height:340px; border:2px solid rgba(255,255,255,0.08); border-radius:24px; padding:20px 10px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:space-between; transition:all 0.3s ease; text-align:center; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
-                                       <div style="width:48px; height:48px; border-radius:50%; background:rgba(245,158,11,0.15); border:2px solid rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
-                                           <i data-lucide="user" style="color:#f59e0b; width:24px; height:24px;"></i>
-                                       </div>
-                                       <div style="font-size:13px; font-weight:bold; color:#fff; margin-bottom:5px;">user_9927</div>
-                                       <div class="coin-spin" style="width:58px; height:58px; border-radius:50%; background:radial-gradient(circle, #fbbf24 0%, #d97706 100%); border:3px solid #fff; box-shadow:0 0 20px rgba(245,158,11,0.6); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; font-family:var(--font-mono); transition:all 0.4s ease;">$</div>
-                                       <div style="width:100%; display:flex; flex-direction:column; gap:4px; margin-top:5px; align-items:center;">
-                                           <div class="hash-bits" style="font-family:var(--font-mono); font-size:13px; color:rgba(255,255,255,0.4); background:rgba(0,0,0,0.45); padding:6px 12px; border-radius:8px; letter-spacing:0.8px; width:90%; border:1px solid rgba(255,255,255,0.05);"><span style="color:#10b981; font-weight:900; opacity:0;" class="green-bits"></span><span class="normal-bits" style="opacity:0;">10110100...</span></div>
-                                       </div>
-                                       <div class="zero-count-badge" style="background:rgba(16,185,129,0.15); border:1.5px solid rgba(16,185,129,0.35); border-radius:10px; padding:6px 12px; font-size:12px; color:#10b981; font-weight:bold; margin-top:5px; opacity:0; transform:scale(0.8); transition:all 0.4s; width:80%;">
-                                           Số 0 đầu: <span style="font-size:14px; font-weight:900;">0</span>
                                        </div>
                                    </div>
                                </div>
@@ -14880,36 +14846,30 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                </div>
                                
                                <!-- Smaller User Cards Row -->
-                               <div class="users-row-s2" style="display:flex; justify-content:center; gap:18px; width:100%; z-index:2; margin-top:35px;">
+                               <div class="users-row-s2" style="display:flex; justify-content:center; gap:22px; width:100%; z-index:2; margin-top:35px;">
                                    <!-- User 1 -->
-                                   <div class="user-card-s2 glass-card uc-s2-0" style="width:150px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                                   <div class="user-card-s2 glass-card uc-s2-0" style="width:160px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
                                        <div style="font-size:12px; color:var(--text-muted); font-weight:bold; margin-bottom:5px;">user_3918</div>
-                                       <div style="font-family:var(--font-mono); font-size:13px; color:#fff; background:rgba(0,0,0,0.45); padding:6px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold;"><span style="color:#10b981; font-weight:900;">00</span>110101...</div>
+                                       <div style="font-family:var(--font-mono); font-size:15px; color:#fff; background:rgba(0,0,0,0.45); padding:6px 2px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold; letter-spacing:0.5px;"><span style="color:#10b981; font-weight:900;">00</span>110101...</div>
                                        <div style="font-size:12px; font-weight:bold; color:#10b981;">Số 0: 2</div>
                                    </div>
                                    <!-- User 2 -->
-                                   <div class="user-card-s2 glass-card uc-s2-1" style="width:150px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                                   <div class="user-card-s2 glass-card uc-s2-1" style="width:160px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
                                        <div style="font-size:12px; color:var(--text-muted); font-weight:bold; margin-bottom:5px;">user_8421</div>
-                                       <div style="font-family:var(--font-mono); font-size:13px; color:#fff; background:rgba(0,0,0,0.45); padding:6px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold;"><span style="color:#10b981; font-weight:900;">0000</span>1011...</div>
+                                       <div style="font-family:var(--font-mono); font-size:15px; color:#fff; background:rgba(0,0,0,0.45); padding:6px 2px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold; letter-spacing:0.5px;"><span style="color:#10b981; font-weight:900;">0000</span>1011...</div>
                                        <div style="font-size:12px; font-weight:bold; color:#10b981;">Số 0: 4</div>
                                    </div>
                                    <!-- User 3 -->
-                                   <div class="user-card-s2 glass-card uc-s2-2" style="width:150px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                                   <div class="user-card-s2 glass-card uc-s2-2" style="width:160px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
                                        <div style="font-size:12px; color:var(--text-muted); font-weight:bold; margin-bottom:5px;">user_1034</div>
-                                       <div style="font-family:var(--font-mono); font-size:13px; color:#fff; background:rgba(0,0,0,0.45); padding:6px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold;"><span style="color:#10b981; font-weight:900;">0</span>1100111...</div>
+                                       <div style="font-family:var(--font-mono); font-size:15px; color:#fff; background:rgba(0,0,0,0.45); padding:6px 2px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold; letter-spacing:0.5px;"><span style="color:#10b981; font-weight:900;">0</span>1100111...</div>
                                        <div style="font-size:12px; font-weight:bold; color:#10b981;">Số 0: 1</div>
                                    </div>
                                    <!-- User 4 -->
-                                   <div class="user-card-s2 glass-card uc-s2-3" style="width:150px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                                   <div class="user-card-s2 glass-card uc-s2-3" style="width:160px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
                                        <div style="font-size:12px; color:var(--text-muted); font-weight:bold; margin-bottom:5px;">user_6653</div>
-                                       <div style="font-family:var(--font-mono); font-size:13px; color:#fff; background:rgba(0,0,0,0.45); padding:6px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold;"><span style="color:#10b981; font-weight:900;">00000</span>110...</div>
+                                       <div style="font-family:var(--font-mono); font-size:15px; color:#fff; background:rgba(0,0,0,0.45); padding:6px 2px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold; letter-spacing:0.5px;"><span style="color:#10b981; font-weight:900;">00000</span>110...</div>
                                        <div style="font-size:12px; font-weight:bold; color:#10b981;">Số 0: 5</div>
-                                   </div>
-                                   <!-- User 5 -->
-                                   <div class="user-card-s2 glass-card uc-s2-4" style="width:150px; padding:14px; text-align:center; border:2px solid rgba(255,255,255,0.08); border-radius:20px; transition:all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
-                                       <div style="font-size:12px; color:var(--text-muted); font-weight:bold; margin-bottom:5px;">user_9927</div>
-                                       <div style="font-family:var(--font-mono); font-size:13px; color:#fff; background:rgba(0,0,0,0.45); padding:6px; border-radius:6px; margin:6px 0; border:1px solid rgba(255,255,255,0.05); font-weight:bold;">10110100...</div>
-                                       <div style="font-size:12px; font-weight:bold; color:#10b981;">Số 0: 0</div>
                                    </div>
                                </div>
                                
@@ -14981,68 +14941,68 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                        <!-- 16 registers -->
                                        <div class="reg-box-s3 r-s3-0" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #0</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">2</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">2</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-1" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #1</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">1</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">1</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-2" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #2</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">0</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">0</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-3" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #3</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">4</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">4</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-4" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #4</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">0</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">0</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-5" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #5</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">3</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">3</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-6" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #6</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">1</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">1</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-7" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #7</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">2</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">2</span>
                                        </div>
                                        
                                        <div class="reg-box-s3 r-s3-8" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #8</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">0</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">0</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-9" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #9</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">5</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">5</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-10" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #10</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">1</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">1</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-11" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #11</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">2</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">2</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-12" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #12</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">0</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">0</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-13" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #13</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">3</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">3</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-14" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #14</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">2</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">2</span>
                                        </div>
                                        <div class="reg-box-s3 r-s3-15" style="height:65px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:all 0.3s ease;">
                                            <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">GIỎ #15</span>
-                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:18px; color:#fff; font-weight:900;">1</span>
+                                           <span class="reg-val-s3" style="font-family:var(--font-mono); font-size:24px; color:#fff; font-weight:900;">1</span>
                                        </div>
                                    </div>
                                </div>
@@ -15066,15 +15026,6 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                        </div>
                                        <div class="grid-preview-s4" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; flex-grow:1; margin-top:15px; align-content:center;">
                                            <!-- 16 registers small -->
-                                           <div class="r-s4-0" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
-                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#0</span><span class="rv-s4" style="font-weight:900; color:#10b981;">2</span>
-                                           </div>
-                                           <div class="r-s4-1" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
-                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#1</span><span class="rv-s4" style="font-weight:900; color:#10b981;">1</span>
-                                           </div>
-                                           <div class="r-s4-2" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
-                                               <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#2</span><span class="rv-s4" style="font-weight:900; color:#10b981;">0</span>
-                                           </div>
                                            <div class="r-s4-3" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-family:var(--font-mono); font-size:12px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:52px;">
                                                <span style="font-size:9px; color:var(--text-muted); font-weight:bold;">#3</span><span class="rv-s4" style="font-weight:900; color:#10b981;">4</span>
                                            </div>
@@ -15894,37 +15845,46 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                 const shakeSeedY = Math.cos(animTime * 24) * shakeIntensity;
                 spamCard.style.transform = `translate(${shakeSeedX}px, ${shakeSeedY}px)`;
             }
-            // Packet routing animation (aligned with corrected SVG paths)
-            // Spammer (280, 137) -> Filter (360, 270)
-            // Genuine (280, 357) -> Filter (360, 270)
-            // Filter (600, 270) -> Redis (660, 270)
+            // Packet routing animation
+            // Spammer (320, 140) -> Filter (380, 260)
+            // Genuine (320, 380) -> Filter (380, 260)
+            // Filter (600, 260) -> Real Views (700, 260)
             if (spamPk1 && spamPk2 && genuinePk) {
                 const spamCycle1 = (progress * 4.0) % 1.0;
-                const xS1 = 280 + (360 - 280) * spamCycle1;
-                const yS1 = 137 + (270 - 137) * spamCycle1;
+                // Bezier curve approximation
+                // M 320 140 C 350 140, 350 260, 380 260
+                const t1 = spamCycle1;
+                const xS1 = Math.pow(1-t1,3)*320 + 3*Math.pow(1-t1,2)*t1*350 + 3*(1-t1)*Math.pow(t1,2)*350 + Math.pow(t1,3)*380;
+                const yS1 = Math.pow(1-t1,3)*140 + 3*Math.pow(1-t1,2)*t1*140 + 3*(1-t1)*Math.pow(t1,2)*260 + Math.pow(t1,3)*260;
                 spamPk1.style.display = 'block';
                 spamPk1.style.left = `${xS1 - 6}px`;
                 spamPk1.style.top = `${yS1 - 6}px`;
+                
                 const spamCycle2 = ((progress + 0.5) * 4.0) % 1.0;
-                const xS2 = 280 + (360 - 280) * spamCycle2;
-                const yS2 = 137 + (270 - 137) * spamCycle2;
+                const t2 = spamCycle2;
+                const xS2 = Math.pow(1-t2,3)*320 + 3*Math.pow(1-t2,2)*t2*350 + 3*(1-t2)*Math.pow(t2,2)*350 + Math.pow(t2,3)*380;
+                const yS2 = Math.pow(1-t2,3)*140 + 3*Math.pow(1-t2,2)*t2*140 + 3*(1-t2)*Math.pow(t2,2)*260 + Math.pow(t2,3)*260;
                 spamPk2.style.display = 'block';
                 spamPk2.style.left = `${xS2 - 6}px`;
                 spamPk2.style.top = `${yS2 - 6}px`;
+                
                 // Genuine user sends one single packet mid-timeline
                 if (progress >= 0.25) {
                     genuinePk.style.display = 'block';
                     const genProgress = Math.min(1.0, (progress - 0.25) / 0.5);
                     if (genProgress < 0.6) {
-                        const xG = 280 + (360 - 280) * (genProgress / 0.6);
-                        const yG = 357 + (270 - 357) * (genProgress / 0.6);
-                        genuinePk.style.left = `${xG - 6}px`;
-                        genuinePk.style.top = `${yG - 6}px`;
+                        const tg = genProgress / 0.6;
+                        // M 320 380 C 350 380, 350 260, 380 260
+                        const xG = Math.pow(1-tg,3)*320 + 3*Math.pow(1-tg,2)*tg*350 + 3*(1-tg)*Math.pow(tg,2)*350 + Math.pow(tg,3)*380;
+                        const yG = Math.pow(1-tg,3)*380 + 3*Math.pow(1-tg,2)*tg*380 + 3*(1-tg)*Math.pow(tg,2)*260 + Math.pow(tg,3)*260;
+                        genuinePk.style.left = `${xG - 7}px`; // width 14
+                        genuinePk.style.top = `${yG - 7}px`;
                     } else {
                         const pathPct = (genProgress - 0.6) / 0.4;
-                        const xG = 600 + (660 - 600) * pathPct;
-                        genuinePk.style.left = `${xG - 6}px`;
-                        genuinePk.style.top = `${270 - 6}px`;
+                        // Filter (600, 260) -> Real Views (700, 260)
+                        const xG = 600 + (700 - 600) * pathPct;
+                        genuinePk.style.left = `${xG - 7}px`;
+                        genuinePk.style.top = `${260 - 7}px`;
                     }
                 } else {
                     genuinePk.style.display = 'none';
@@ -16347,8 +16307,8 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                 width: 900px;
                                 height: 500px;
                                 position: relative;
-                                background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
-                                border: 3px solid rgba(255,255,255,0.06);
+                                background: transparent;
+                                border: none;
                                 border-radius: 40px;
                                 overflow: hidden;
                                 display: flex;
@@ -16774,7 +16734,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                         </svg>
                                         
                                         <!-- Noise Overlay -->
-                                        <div class="noise-overlay-2" style="position:absolute; top:0; left:0; width:100%; height:100%; background:url('data:image/svg+xml;utf8,<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><filter id=\"noise\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.8\" numOctaves=\"4\" stitchTiles=\"stitch\"/></filter><rect width=\"100%\" height=\"100%\" fill=\"url(%23noise)\" opacity=\"0.95\"/></svg>'); mix-blend-mode: overlay; pointer-events:none;"></div>
+                                        <div class="noise-overlay-2" style="position:absolute; top:0; left:0; width:100%; height:100%; background:url('data:image/svg+xml;utf8,%3Csvg%20viewBox%3D%220%200%20100%20100%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cfilter%20id%3D%22noise%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.8%22%20numOctaves%3D%224%22%20stitchTiles%3D%22stitch%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%23noise)%22%20opacity%3D%220.95%22%2F%3E%3C%2Fsvg%3E); mix-blend-mode: overlay; pointer-events:none;"></div>
                                     </div>
                                     
                                     <!-- Diffusion Info -->
@@ -17596,7 +17556,10 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                     scriptHTML = scriptHTML.replace(re, '<span class="' + activeClass + '">$1</span>');
                 }
             });
-            subtitleBox.innerHTML = scriptHTML;
+            if (subtitleBox.dataset.lastScript !== scriptHTML) {
+                subtitleBox.dataset.lastScript = scriptHTML;
+                subtitleBox.innerHTML = '<span style="display:block; text-align:center; width:100%; animation: subtitle-smooth-appear 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;">' + scriptHTML + '</span>';
+            }
             subtitleBox.style.display = 'flex';
         } else {
             subtitleBox.style.display = 'none';
@@ -19723,7 +19686,19 @@ async function generateAudioForActiveSlide() {
     const btn = document.getElementById('generate-audio-btn');
     const originalText = btn.innerHTML;
     btn.disabled = true;
-    btn.innerHTML = '<i class="export-spinner" style="width:22px; height:22px; border-width: 2px;"></i> Đang tạo giọng mẫu...';
+    
+    const startTime = Date.now();
+    let timerInterval = setInterval(() => {
+        const elapsedSec = Math.floor((Date.now() - startTime) / 1000);
+        const m = Math.floor(elapsedSec / 60);
+        const s = elapsedSec % 60;
+        const timeStr = `${m}:${s.toString().padStart(2, '0')}`;
+        btn.innerHTML = `<i class="export-spinner" style="width:22px; height:22px; border-width: 2px;"></i> Đang tạo giọng mẫu... [${timeStr}]`;
+    }, 1000);
+
+    // Initial text before first tick
+    btn.innerHTML = `<i class="export-spinner" style="width:22px; height:22px; border-width: 2px;"></i> Đang tạo giọng mẫu... [0:00]`;
+
     try {
         const response = await fetch(`${API_BASE}/api/synthesize`, {
             method: 'POST',
@@ -19744,13 +19719,14 @@ async function generateAudioForActiveSlide() {
             renderActiveSlide();
             renderTimeline();
             await saveSlidesToServer();
-            alert('Tạo giọng nói thành công!');
+            alert(`Tạo giọng nói thành công sau ${Math.floor((Date.now() - startTime) / 1000)} giây!`);
         } else {
             alert('Lỗi tạo giọng nói: ' + data.error);
         }
     } catch (e) {
         alert('Yêu cầu thất bại: ' + e.message);
     } finally {
+        clearInterval(timerInterval);
         btn.disabled = false;
         btn.innerHTML = originalText;
     }
