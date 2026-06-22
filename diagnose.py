@@ -20,7 +20,8 @@ dependencies = [
     "pydantic",
     "huggingface_hub",
     "imageio_ffmpeg",
-    "torchaudio"
+    "torchaudio",
+    "einops"
 ]
 
 print("\n--- Testing Imports ---")

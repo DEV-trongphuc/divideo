@@ -12,5 +12,7 @@ tqdm
 scipy
 imageio-ffmpeg
 torchaudio
+einops
+
 
 
