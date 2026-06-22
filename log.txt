@@ -1,0 +1,18 @@
+--- Testing VoxCPM Import ---
+[FAIL] Failed to import VoxCPM!
+Traceback (most recent call last):
+  File "D:\divideo-main\divideo-main\diagnose.py", line 38, in <module>
+    from voxcpm import VoxCPM
+  File "D:\divideo-main\divideo-main\VoxCPM\src\voxcpm\__init__.py", line 1, in <module>
+    from .core import VoxCPM
+  File "D:\divideo-main\divideo-main\VoxCPM\src\voxcpm\core.py", line 9, in <module>
+    from .model.voxcpm import VoxCPMModel, LoRAConfig
+  File "D:\divideo-main\divideo-main\VoxCPM\src\voxcpm\model\__init__.py", line 1, in <module>
+    from .voxcpm import VoxCPMModel
+  File "D:\divideo-main\divideo-main\VoxCPM\src\voxcpm\model\voxcpm.py", line 27, in <module>
+    import torchaudio
+ModuleNotFoundError: No module named 'torchaudio'
+
+[ERROR] Some dependencies are missing. Please run:
+  C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\python.exe -m pip install -r requirements.txt
+=========================================
