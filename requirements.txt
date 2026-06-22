@@ -5,3 +5,8 @@ soundfile
 librosa
 pydantic
 huggingface-hub
+torch
+transformers
+safetensors
+tqdm
+scipy
