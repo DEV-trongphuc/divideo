@@ -198,55 +198,64 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
             print(f"[+] Found pre-encoded speaker cache {pt_path}, swapping to fast path.")
             reference_audio_path = pt_path
         
-    is_voxcpm_selected = VOXCPM_AVAILABLE and reference_audio_path and os.path.exists(reference_audio_path)
-    
-    if is_voxcpm_selected:
+    # If a reference voice is requested, we MUST use VoxCPM. No fallback to Google/Edge.
+    if reference_audio_path:
+        if not VOXCPM_AVAILABLE:
+            raise RuntimeError("[-] VoxCPM package hoặc dependencies không khả dụng. Hãy chắc chắn đã chạy pip install thành công.")
+            
+        if not os.path.exists(reference_audio_path):
+            raise FileNotFoundError(f"[-] Không tìm thấy file âm thanh giọng mẫu: {reference_audio_path}")
+            
         global voxcpm_model
         if voxcpm_model is None:
             if os.path.exists("./checkpoints/VoxCPM/config.json"):
                 init_voxcpm()
+            else:
+                raise FileNotFoundError("[-] Không tìm thấy mô hình VoxCPM (config.json) tại ./checkpoints/VoxCPM/. Hãy tải mô hình trước bằng: node run_synthesis.js")
         
-        if voxcpm_model is not None:
-            if reference_audio_path and reference_audio_path.endswith(".wav"):
-                reference_audio_path = ensure_voice_cache(reference_audio_path)
+        if voxcpm_model is None:
+            raise RuntimeError("[-] Không thể khởi tạo mô hình VoxCPM. Vui lòng kiểm tra dung lượng RAM hoặc log lỗi khởi động server.")
             
-            max_retries = 3
-            last_err = None
-            import time
-            import torch
-            
-            for attempt in range(1, max_retries + 1):
-                try:
-                    print(f"[+] VoxCPM synthesis attempt {attempt}/{max_retries} for {output_path}...")
-                    with torch.no_grad():
-                        # Check if VoxCPM model has synthesize method, else use generate method
-                        if hasattr(voxcpm_model, 'synthesize'):
-                            audio_array = voxcpm_model.synthesize(
-                                text=text,
-                                reference_audio=reference_audio_path
-                            )
-                        else:
-                            audio_array = voxcpm_model.generate(
-                                text=text,
-                                reference_wav_path=reference_audio_path,
-                                inference_timesteps=6,
-                                retry_badcase=False
-                            )
-                        print(f"[+] Synthesized to {output_path} using VoxCPM Voice Cloning: {reference_audio_path}")
-                    
-                    # Write to output file using model's sample rate (default 16000 or 48000)
-                    sample_rate = getattr(voxcpm_model.tts_model, "sample_rate", 16000)
-                    sf.write(output_path, audio_array, sample_rate)
-                    return True
-                except Exception as e:
-                    print(f"[-] VoxCPM synthesis attempt {attempt} failed: {e}", file=sys.stderr)
-                    traceback.print_exc()
-                    last_err = e
-                    if attempt < max_retries:
-                        time.sleep(1.0) # Wait 1 second before retrying
-            
-            # If we reached here, all retries failed. Do NOT fall through to other synthesizers.
-            raise RuntimeError(f"VoxCPM synthesis failed after {max_retries} attempts: {last_err}")
+        if reference_audio_path.endswith(".wav"):
+            reference_audio_path = ensure_voice_cache(reference_audio_path)
+        
+        max_retries = 3
+        last_err = None
+        import time
+        import torch
+        
+        for attempt in range(1, max_retries + 1):
+            try:
+                print(f"[+] VoxCPM synthesis attempt {attempt}/{max_retries} for {output_path}...")
+                with torch.no_grad():
+                    # Check if VoxCPM model has synthesize method, else use generate method
+                    if hasattr(voxcpm_model, 'synthesize'):
+                        audio_array = voxcpm_model.synthesize(
+                            text=text,
+                            reference_audio=reference_audio_path
+                        )
+                    else:
+                        audio_array = voxcpm_model.generate(
+                            text=text,
+                            reference_wav_path=reference_audio_path,
+                            inference_timesteps=6,
+                            retry_badcase=False
+                        )
+                    print(f"[+] Synthesized to {output_path} using VoxCPM Voice Cloning: {reference_audio_path}")
+                
+                # Write to output file using model's sample rate (default 16000 or 48000)
+                sample_rate = getattr(voxcpm_model.tts_model, "sample_rate", 16000)
+                sf.write(output_path, audio_array, sample_rate)
+                return True
+            except Exception as e:
+                print(f"[-] VoxCPM synthesis attempt {attempt} failed: {e}", file=sys.stderr)
+                traceback.print_exc()
+                last_err = e
+                if attempt < max_retries:
+                    time.sleep(1.0) # Wait 1 second before retrying
+        
+        # If we reached here, all retries failed. Do NOT fall through to other synthesizers.
+        raise RuntimeError(f"VoxCPM synthesis failed after {max_retries} attempts: {last_err}")
 
     # Try using Google TTS if requested
     if voice_preference.startswith("google-"):
