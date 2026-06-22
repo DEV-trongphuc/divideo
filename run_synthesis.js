@@ -101,14 +101,20 @@ async function main() {
     console.log("=== HỆ THỐNG TỰ ĐỘNG KHỞI CHẠY & TẠO GIỌNG NÓI VOXCPM (ALL-IN-ONE) ===");
     console.log("==========================================================================");
     
+    // Ensure we are working with paths relative to the directory of this script
+    const requirementsPath = path.join(__dirname, 'requirements.txt');
+    const downloadScriptPath = path.join(__dirname, 'download_model.py');
+    const appPath = path.join(__dirname, 'app.py');
+    const configPath = path.join(__dirname, 'checkpoints', 'VoxCPM', 'config.json');
+
     const pythonCmd = await getPythonCommand();
     
     // 1. Automatically run pip install requirements.txt first using python -m pip
     console.log("\n[1/3] Đang tự động kiểm tra và cài đặt các thư viện Python cần thiết...");
     try {
-        let pipArgs = ['-m', 'pip', 'install', '-r', 'requirements.txt'];
+        let pipArgs = ['-m', 'pip', 'install', '-r', `"${requirementsPath}"`];
         console.log(`[+] Đang chạy: ${pythonCmd} ${pipArgs.join(' ')} ...`);
-        execSync(`"${pythonCmd}" ${pipArgs.join(' ')}`, { stdio: 'inherit' });
+        execSync(`"${pythonCmd}" ${pipArgs.join(' ')}`, { stdio: 'inherit', cwd: __dirname });
         console.log("[+] Đã hoàn thành bước kiểm tra/cài đặt thư viện!");
     } catch (e) {
         console.log(`[!] Cảnh báo khi chạy pip install: ${e.message}`);
@@ -116,12 +122,11 @@ async function main() {
     }
     
     // 2. Automatically check if VoxCPM model files exist
-    const configPath = path.join('checkpoints', 'VoxCPM', 'config.json');
     if (!fs.existsSync(configPath)) {
         console.log("\n[!] CẢNH BÁO: Không tìm thấy file checkpoint của mô hình VoxCPM (4.5GB) tại ./checkpoints/VoxCPM/");
         console.log("[+] Đang tự động tải mô hình từ HuggingFace thông qua download_model.py...");
         try {
-            execSync(`"${pythonCmd}" download_model.py`, { stdio: 'inherit' });
+            execSync(`"${pythonCmd}" "${downloadScriptPath}"`, { stdio: 'inherit', cwd: __dirname });
             console.log("[+] Đã tải mô hình thành công!");
         } catch (e) {
             console.error(`\n[FATAL ERROR] Không thể tải mô hình tự động: ${e.message}`);
@@ -133,7 +138,7 @@ async function main() {
     
     // 3. Start Flask app.py
     console.log(`\n[2/3] Đang khởi động Flask app.py bằng lệnh: ${pythonCmd}...`);
-    flaskProcess = spawn(pythonCmd, ['app.py']);
+    flaskProcess = spawn(pythonCmd, [appPath], { cwd: __dirname });
     
     let serverStarted = false;
     
