@@ -218,9 +218,9 @@
         else if (slideId === 'slide_spotify_4') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:10px 0; gap:25px; zoom:1.25;">
+                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:10px 0; gap:25px; zoom:1.15;">
                             <div class="glass-card wave-analyzer-card" style="width:100%; max-width:780px; height:180px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:18px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden;">
-                                <div style="font-size:20px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; text-align:left;">Mạng nơ-ron phân tích sóng âm (CNN Audio)</div>
+                                <div style="font-size:18px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; text-align:left;">Mạng nơ-ron phân tích sóng âm (CNN Audio)</div>
                                 <div style="display:flex; align-items:center; justify-content:space-between; height:80px; padding:0 15px; position:relative;" class="waveform-container-s4">
                                     <div class="wave-bar" style="width:8px; height:20px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
                                     <div class="wave-bar" style="width:8px; height:40px; background:#555; border-radius:4px; transition:all 0.1s;"></div>
@@ -239,19 +239,19 @@
                             </div>
                             <div style="display:flex; justify-content:space-between; width:100%; max-width:780px; gap:20px;">
                                 <div class="glass-card feat-card" style="flex:1; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:12px; text-align:center;">
-                                    <div style="font-size:22px; color:var(--text-muted); text-transform:uppercase; font-weight:bold;">Tempo / Nhịp độ</div>
-                                    <div style="font-family:var(--font-mono); font-size:32px; font-weight:bold; color:#555; margin:8px 0;" class="bpm-val">-- BPM</div>
-                                    <span style="font-size:24px; color:#b3b3b3;" class="bpm-desc">Đang quét nhịp...</span>
+                                    <div style="font-size:18px; color:var(--text-muted); text-transform:uppercase; font-weight:bold;">Tempo / Nhịp độ</div>
+                                    <div style="font-family:var(--font-mono); font-size:26px; font-weight:bold; color:#555; margin:8px 0;" class="bpm-val">-- BPM</div>
+                                    <span style="font-size:16px; color:#b3b3b3;" class="bpm-desc">Đang quét nhịp...</span>
                                 </div>
                                 <div class="glass-card feat-card" style="flex:1; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:12px; text-align:center;">
-                                    <div style="font-size:22px; color:var(--text-muted); text-transform:uppercase; font-weight:bold;">Tông nhạc / Key</div>
-                                    <div style="font-family:var(--font-mono); font-size:32px; font-weight:bold; color:#555; margin:8px 0;" class="key-val">-- Key</div>
-                                    <span style="font-size:18px; color:#b3b3b3;" class="key-desc">Đang giải mã...</span>
+                                    <div style="font-size:18px; color:var(--text-muted); text-transform:uppercase; font-weight:bold;">Tông nhạc / Key</div>
+                                    <div style="font-family:var(--font-mono); font-size:26px; font-weight:bold; color:#555; margin:8px 0;" class="key-val">-- Key</div>
+                                    <span style="font-size:16px; color:#b3b3b3;" class="key-desc">Đang giải mã...</span>
                                 </div>
                                 <div class="glass-card feat-card cold-start-card" style="flex:1; border:2.5px solid #ef4444; border-radius:20px; padding:12px; text-align:center; transition:all 0.3s ease; box-shadow: 0 0 20px rgba(239,68,68,0.15);">
-                                    <div style="font-size:22px; color:#fff; text-transform:uppercase; font-weight:bold;">Lỗi khởi đầu lạnh</div>
-                                    <div style="font-size:24px; font-weight:900; color:#ef4444; margin:8px 0;" class="cold-start-status">BỊ KHÓA</div>
-                                    <span style="font-size:15px; color:#ef4444; font-weight:bold;" class="cold-start-desc">Chưa ai nghe trước đây!</span>
+                                    <div style="font-size:18px; color:#fff; text-transform:uppercase; font-weight:bold;">Lỗi khởi đầu lạnh</div>
+                                    <div style="font-size:20px; font-weight:900; color:#ef4444; margin:8px 0;" class="cold-start-status">BỊ KHÓA</div>
+                                    <span style="font-size:14px; color:#ef4444; font-weight:bold;" class="cold-start-desc">Chưa ai nghe trước đây!</span>
                                 </div>
                             </div>
                         </div>

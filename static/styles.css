@@ -671,7 +671,8 @@ textarea.form-control {
     right: 100px;
     display: flex;
     justify-content: space-between;
-    font-size: 26px; /* Reverted to normal size per user request */
+    font-size: 26px;
+    /* Reverted to normal size per user request */
     font-weight: 600;
     color: var(--text-muted);
     border-bottom: 2px solid rgba(255, 255, 255, 0.06);
@@ -5162,12 +5163,20 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     text-align: center;
     line-height: 1.4;
 }
+
 @keyframes subtitle-smooth-appear {
-    0% { opacity: 0.6; transform: translateY(4px) scale(0.98); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
+    0% {
+        opacity: 0.6;
+        transform: translateY(4px) scale(0.98);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
-.canvas-subtitle-box > span {
+.canvas-subtitle-box>span {
     transition: all 0.3s ease;
 }
 
@@ -5213,15 +5222,19 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
 .layout-custom-sim-view {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* changed from center to push title up */
+    justify-content: flex-start;
+    /* changed from center to push title up */
     align-items: center;
-    gap: 50px; /* slightly increased gap between title and card */
+    gap: 50px;
+    /* slightly increased gap between title and card */
     height: 100%;
     width: 100%;
     position: relative;
-    padding: 40px 30px 30px 30px; /* added 40px top padding so it is near top but not touching */
+    padding: 40px 30px 30px 30px;
+    /* added 40px top padding so it is near top but not touching */
     box-sizing: border-box;
-    transform: translateY(0px); /* removed -30px transform to rely on padding */
+    transform: translateY(0px);
+    /* removed -30px transform to rely on padding */
 }
 
 .sim-scene-header {
@@ -5242,9 +5255,12 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
 .sim-scene-header p {
     display: none !important;
 }
+
 .layout-custom-sim-view .sim-canvas-body {
-    zoom: 1.05; /* Reduced from 1.15 to ensure comfortable padding on portrait screen */
-    margin-top: 100px; /* Push main content down further to clear title area */
+    zoom: 1.05;
+    /* Reduced from 1.15 to ensure comfortable padding on portrait screen */
+    margin-top: 200px;
+    /* Push main content down further to clear title area */
 }
 
 /* ==========================================================================
@@ -5261,7 +5277,8 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px; /* Gap máº·c Ä‘á»‹nh */
+    gap: 30px;
+    /* Gap máº·c Ä‘á»‹nh */
 }
 
 /* Layout 1 Card (Náº±m giá»¯a) */
@@ -5285,23 +5302,50 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
 }
 
 /* --- GAP MODIFIERS (TÃ¹y chá»‰nh khoáº£ng cÃ¡ch) --- */
-.sim-gap-sm { gap: 15px !important; }
-.sim-gap-md { gap: 30px !important; }
-.sim-gap-lg { gap: 50px !important; }
+.sim-gap-sm {
+    gap: 15px !important;
+}
+
+.sim-gap-md {
+    gap: 30px !important;
+}
+
+.sim-gap-lg {
+    gap: 50px !important;
+}
 
 /* --- STANDARD CARD SIZES (KÃ­ch thÆ°á»›c tháº» tiÃªu chuáº©n) --- */
 /* DÃ¹ng káº¿t há»£p vá»›i glass-card */
-.sim-card-sm { max-width: 380px; width: 100%; }
-.sim-card-md { max-width: 580px; width: 100%; }
-.sim-card-lg { max-width: 780px; width: 100%; }
-.sim-card-xl { max-width: 980px; width: 100%; }
-.sim-card-full { width: 100%; flex: 1; }
+.sim-card-sm {
+    max-width: 380px;
+    width: 100%;
+}
+
+.sim-card-md {
+    max-width: 580px;
+    width: 100%;
+}
+
+.sim-card-lg {
+    max-width: 780px;
+    width: 100%;
+}
+
+.sim-card-xl {
+    max-width: 980px;
+    width: 100%;
+}
+
+.sim-card-full {
+    width: 100%;
+    flex: 1;
+}
 
 
 .keyword-idle {
     color: #e2e8f0;
     font-weight: 700;
-    text-shadow: 0 0 8px rgba(255,255,255,0.2);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
     transition: all 0.3s;
 }
 
@@ -5310,7 +5354,7 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
    ========================================================================== */
 .keywords-panel {
     position: absolute;
-    top: 180px;
+    top: 260px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -5318,7 +5362,7 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
+    gap: 16px 40px;
     padding: 15px;
     z-index: 50;
     min-height: 80px;
@@ -5328,18 +5372,19 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
 
 .ai-keyword-tag {
     font-family: 'Inter', 'Outfit', sans-serif;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 800;
     color: rgba(255, 255, 255, 0.4);
     background: rgba(255, 255, 255, 0.03);
     border: 2px solid rgba(255, 255, 255, 0.06);
-    padding: 10px 22px;
-    border-radius: 14px;
+    padding: 8px 18px;
+    border-radius: 12px;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-transform: uppercase;
     letter-spacing: 0.8px;
     backdrop-filter: blur(8px);
 }
+
 .ai-keyword-tag.active-good {
     color: #10b981;
     background: rgba(16, 185, 129, 0.15);
@@ -5347,6 +5392,7 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
     transform: scale(1.1) translateY(-2px);
 }
+
 .ai-keyword-tag.active-gold {
     color: var(--gold-primary);
     background: rgba(245, 158, 11, 0.15);
@@ -5354,6 +5400,7 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
     transform: scale(1.1) translateY(-2px);
 }
+
 .ai-keyword-tag.active-bad {
     color: #ef4444;
     background: rgba(239, 68, 68, 0.15);
