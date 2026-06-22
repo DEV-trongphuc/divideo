@@ -1,0 +1,83 @@
+/* Style plugin for Video 22: Spotify Shuffle Algorithm */
+
+:root {
+    --spotify-green: #1db954;
+    --spotify-black: #121212;
+    --spotify-gray: #181818;
+    --spotify-light-gray: #282828;
+    --spotify-text: #b3b3b3;
+}
+
+/* Vinyl Rotate spin animation (Slide 1) */
+.vinyl-disc-spin {
+    animation: vinyl-rotate 10s linear infinite;
+}
+@keyframes vinyl-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Clustered Warning Badge pulse */
+.cluster-alert-badge {
+    animation: alert-pulse 1s infinite alternate;
+}
+@keyframes alert-pulse {
+    0% { background-color: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.4); box-shadow: 0 0 5px rgba(239, 68, 68, 0.2); }
+    100% { background-color: rgba(239, 68, 68, 0.35); border-color: #ef4444; box-shadow: 0 0 15px rgba(239, 68, 68, 0.5); }
+}
+
+/* Song card styles in array grids */
+.song-track-card {
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.song-track-card.swapping {
+    transform: scale(1.08) translateY(-8px);
+    box-shadow: 0 8px 20px rgba(29, 185, 84, 0.3);
+    z-index: 10;
+}
+
+/* Jitter shaker keyframes (Slide 5) */
+@keyframes card-jitter-shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px) rotate(-1deg); }
+    75% { transform: translateX(4px) rotate(1deg); }
+    100% { transform: translateX(0); }
+}
+.jitter-active {
+    animation: card-jitter-shake 0.3s ease-in-out infinite alternate;
+}
+
+/* Custom indicator grid paths */
+.guide-line-glow {
+    stroke-dasharray: 6, 6;
+    animation: guide-flow 1.5s linear infinite;
+}
+@keyframes guide-flow {
+    to { stroke-dashoffset: -24; }
+}
+
+/* Star glow popup */
+@keyframes star-zoom {
+    0% { transform: scale(0) rotate(0deg); opacity: 0; }
+    50% { transform: scale(1.3) rotate(180deg); opacity: 1; }
+    100% { transform: scale(1) rotate(360deg); opacity: 1; }
+}
+.star-popup {
+    animation: star-zoom 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Equalizer bouncing (Slide 1 Playlist view) */
+@keyframes eq-bounce {
+    0% { height: 25%; }
+    100% { height: 100%; }
+}
+
+/* Playlist elements */
+.playlist-song-row {
+    transition: background 0.2s;
+}
+.playlist-song-row:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
