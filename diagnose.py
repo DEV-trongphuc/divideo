@@ -19,7 +19,8 @@ dependencies = [
     "soundfile",
     "pydantic",
     "huggingface_hub",
-    "imageio_ffmpeg"
+    "imageio_ffmpeg",
+    "torchaudio"
 ]
 
 print("\n--- Testing Imports ---")

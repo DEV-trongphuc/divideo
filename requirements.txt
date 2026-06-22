@@ -11,4 +11,6 @@ safetensors
 tqdm
 scipy
 imageio-ffmpeg
+torchaudio
+
 
