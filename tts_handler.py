@@ -108,6 +108,70 @@ def normalize_text_for_tts(text):
         
     return re.sub(r'\b[A-Za-z0-9_]+\b', replace_word, text)
 
+def ensure_voice_cache(reference_audio_path):
+    if not reference_audio_path or not reference_audio_path.endswith(".wav"):
+        return reference_audio_path
+        
+    pt_path = reference_audio_path[:-4] + ".pt"
+    if os.path.exists(pt_path):
+        return pt_path
+        
+    if not os.path.exists(reference_audio_path):
+        return reference_audio_path
+        
+    try:
+        import soundfile as sf
+        import librosa
+        import torch
+        
+        print(f"[+] Cache not found for {reference_audio_path}. Automating slice & cache generation...")
+        
+        # Load and check duration
+        data, samplerate = sf.read(reference_audio_path)
+        if len(data.shape) > 1:
+            data = data[:, 0]
+            
+        num_samples = int(10 * samplerate)
+        if len(data) > num_samples:
+            print(f"[+] Slicing reference audio {reference_audio_path} to first 10 seconds...")
+            data = data[:num_samples]
+            sf.write(reference_audio_path, data, samplerate)
+            
+        global voxcpm_model
+        if voxcpm_model is not None and hasattr(voxcpm_model, 'tts_model'):
+            model = voxcpm_model.tts_model
+            audio_vae = getattr(model, "audio_vae", None)
+            if audio_vae is not None:
+                print(f"[+] Encoding reference audio using initialized AudioVAE...")
+                audio, sr = librosa.load(reference_audio_path, sr=16000, mono=True)
+                audio_tensor = torch.from_numpy(audio).unsqueeze(0).to(model.device)
+                
+                patch_size = getattr(model, "patch_size", 4)
+                chunk_size = getattr(audio_vae, "chunk_size", 16)
+                patch_len = patch_size * chunk_size
+                
+                if audio_tensor.size(1) % patch_len != 0:
+                    padding_size = patch_len - audio_tensor.size(1) % patch_len
+                    audio_tensor = torch.nn.functional.pad(audio_tensor, (0, padding_size))
+                
+                with torch.no_grad():
+                    feat = audio_vae.encode(audio_tensor, 16000).cpu()
+                    latent_dim = getattr(audio_vae, "latent_dim", 64)
+                    ref_audio_feat = feat.view(latent_dim, -1, patch_size).permute(1, 2, 0)
+                
+                cache = {
+                    "ref_audio_feat": ref_audio_feat,
+                    "mode": "reference"
+                }
+                torch.save(cache, pt_path)
+                print(f"[+] Successfully generated and saved cache to {pt_path}")
+                return pt_path
+    except Exception as e:
+        print(f"[-] Auto cache generation failed: {e}", file=sys.stderr)
+        traceback.print_exc()
+        
+    return reference_audio_path
+
 def synthesize_audio(text, output_path, reference_audio_path=None, voice_preference="en-US-AriaNeural"):
     """
     Synthesize audio from text.
@@ -143,6 +207,9 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
                 init_voxcpm()
         
         if voxcpm_model is not None:
+            if reference_audio_path and reference_audio_path.endswith(".wav"):
+                reference_audio_path = ensure_voice_cache(reference_audio_path)
+            
             max_retries = 3
             last_err = None
             import time
