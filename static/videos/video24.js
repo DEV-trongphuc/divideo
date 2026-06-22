@@ -96,7 +96,7 @@
 
         if (slideId === 'slide_active_1') {
             canvas.innerHTML = `
-                <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; zoom:1.0;">
+                <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; zoom:1.30;">
                     
                     <!-- Center workspace row -->
                     <div style="display:flex; gap:40px; justify-content:center; align-items:center; width:840px;">
@@ -516,7 +516,10 @@
                 const t = (progress - 0.1) / 0.35;
                 // Query Packet flies Client (X=230) -> DB (X=510)
                 const x = 230 + t * 280;
-                packetHTML = `<div style="position:absolute; left:${x}px; top:205px; width:10px; height:10px; border-radius:50%; background:#8b5cf6; box-shadow:0 0 10px #8b5cf6; transform:translate(-5px,-5px);"></div>`;
+                let tailHTML = '';
+                if (x - 12 >= 230) tailHTML += `<div style="position:absolute; left:${x-12}px; top:205px; width:8px; height:8px; border-radius:50%; background:#8b5cf6; opacity:0.6; box-shadow:0 0 8px #8b5cf6; transform:translate(-4px,-4px);"></div>`;
+                if (x - 24 >= 230) tailHTML += `<div style="position:absolute; left:${x-24}px; top:205px; width:6px; height:6px; border-radius:50%; background:#8b5cf6; opacity:0.3; box-shadow:0 0 6px #8b5cf6; transform:translate(-3px,-3px);"></div>`;
+                packetHTML = `<div style="position:absolute; left:${x}px; top:205px; width:10px; height:10px; border-radius:50%; background:#8b5cf6; box-shadow:0 0 15px #8b5cf6; transform:translate(-5px,-5px);"></div>` + tailHTML;
                 
                 if (clientBadge) {
                     clientBadge.style.background = 'rgba(16,185,129,0.15)';
@@ -541,7 +544,10 @@
                 const t = (progress - 0.45) / 0.30;
                 // Query Packet flies Client (X=230) -> DB (X=510)
                 const x = 230 + t * 280;
-                packetHTML = `<div style="position:absolute; left:${x}px; top:205px; width:10px; height:10px; border-radius:50%; background:#ef4444; box-shadow:0 0 10px #ef4444; transform:translate(-5px,-5px);"></div>`;
+                let tailHTML = '';
+                if (x - 12 >= 230) tailHTML += `<div style="position:absolute; left:${x-12}px; top:205px; width:8px; height:8px; border-radius:50%; background:#ef4444; opacity:0.6; box-shadow:0 0 8px #ef4444; transform:translate(-4px,-4px);"></div>`;
+                if (x - 24 >= 230) tailHTML += `<div style="position:absolute; left:${x-24}px; top:205px; width:6px; height:6px; border-radius:50%; background:#ef4444; opacity:0.3; box-shadow:0 0 6px #ef4444; transform:translate(-3px,-3px);"></div>`;
+                packetHTML = `<div style="position:absolute; left:${x}px; top:205px; width:10px; height:10px; border-radius:50%; background:#ef4444; box-shadow:0 0 15px #ef4444; transform:translate(-5px,-5px);"></div>` + tailHTML;
 
                 if (clientBadge) {
                     clientBadge.style.background = 'rgba(239,68,68,0.15)';
@@ -567,15 +573,27 @@
                 // Bidirectional packet animation: Client -> DB, then DB -> Client
                 let x = 230;
                 let col = '#3b82f6';
+                let direction = 1;
                 if (t < 0.5) {
                     // Client -> DB
                     x = 230 + (t / 0.5) * 280;
+                    direction = 1;
                 } else {
                     // DB -> Client
                     x = 510 - ((t - 0.5) / 0.5) * 280;
                     col = '#10b981';
+                    direction = -1;
                 }
-                packetHTML = `<div style="position:absolute; left:${x}px; top:205px; width:10px; height:10px; border-radius:50%; background:${col}; box-shadow:0 0 10px ${col}; transform:translate(-5px,-5px);"></div>`;
+                let tailHTML = '';
+                const x1 = x - 12 * direction;
+                if ((direction === 1 && x1 >= 230) || (direction === -1 && x1 <= 510)) {
+                    tailHTML += `<div style="position:absolute; left:${x1}px; top:205px; width:8px; height:8px; border-radius:50%; background:${col}; opacity:0.6; box-shadow:0 0 8px ${col}; transform:translate(-4px,-4px);"></div>`;
+                }
+                const x2 = x - 24 * direction;
+                if ((direction === 1 && x2 >= 230) || (direction === -1 && x2 <= 510)) {
+                    tailHTML += `<div style="position:absolute; left:${x2}px; top:205px; width:6px; height:6px; border-radius:50%; background:${col}; opacity:0.3; box-shadow:0 0 6px ${col}; transform:translate(-3px,-3px);"></div>`;
+                }
+                packetHTML = `<div style="position:absolute; left:${x}px; top:205px; width:10px; height:10px; border-radius:50%; background:${col}; box-shadow:0 0 15px ${col}; transform:translate(-5px,-5px);"></div>` + tailHTML;
 
                 if (clientBadge) {
                     clientBadge.style.background = 'rgba(255,255,255,0.05)';
@@ -790,7 +808,13 @@
             if (progress > 0.15 && progress <= 0.35) {
                 const t = (progress - 0.15) / 0.20;
                 const x = 70 + t * 190;
-                packetsHTML += `<circle cx="${x}" cy="70" r="5" fill="#0084ff" filter="drop-shadow(0 0 6px #0084ff)"></circle>`;
+                packetsHTML += `<circle cx="${x}" cy="70" r="5.5" fill="#0084ff" filter="drop-shadow(0 0 10px #0084ff)"></circle>`;
+                if (x - 12 >= 70) {
+                    packetsHTML += `<circle cx="${x - 12}" cy="70" r="4" fill="#0084ff" opacity="0.6" filter="drop-shadow(0 0 6px #0084ff)"></circle>`;
+                }
+                if (x - 24 >= 70) {
+                    packetsHTML += `<circle cx="${x - 24}" cy="70" r="2.5" fill="#0084ff" opacity="0.3" filter="drop-shadow(0 0 4px #0084ff)"></circle>`;
+                }
                 if (t >= 0.85) gwPulse = true;
             }
 
@@ -800,7 +824,13 @@
                 gwPulse = true;
                 const t = (progress - 0.35) / 0.20;
                 const x = 315 + t * 175;
-                packetsHTML += `<circle cx="${x}" cy="70" r="5" fill="#8b5cf6" filter="drop-shadow(0 0 6px #8b5cf6)"></circle>`;
+                packetsHTML += `<circle cx="${x}" cy="70" r="5.5" fill="#8b5cf6" filter="drop-shadow(0 0 10px #8b5cf6)"></circle>`;
+                if (x - 12 >= 315) {
+                    packetsHTML += `<circle cx="${x - 12}" cy="70" r="4" fill="#8b5cf6" opacity="0.6" filter="drop-shadow(0 0 6px #8b5cf6)"></circle>`;
+                }
+                if (x - 24 >= 315) {
+                    packetsHTML += `<circle cx="${x - 24}" cy="70" r="2.5" fill="#8b5cf6" opacity="0.3" filter="drop-shadow(0 0 4px #8b5cf6)"></circle>`;
+                }
                 if (t >= 0.85) prPulse = true;
             }
 
@@ -810,7 +840,13 @@
                 prPulse = true;
                 const t = (progress - 0.55) / 0.25;
                 const x = 550 + t * 185;
-                packetsHTML += `<circle cx="${x}" cy="70" r="5" fill="#ef4444" filter="drop-shadow(0 0 6px #ef4444)"></circle>`;
+                packetsHTML += `<circle cx="${x}" cy="70" r="5.5" fill="#ef4444" filter="drop-shadow(0 0 10px #ef4444)"></circle>`;
+                if (x - 12 >= 550) {
+                    packetsHTML += `<circle cx="${x - 12}" cy="70" r="4" fill="#ef4444" opacity="0.6" filter="drop-shadow(0 0 6px #ef4444)"></circle>`;
+                }
+                if (x - 24 >= 550) {
+                    packetsHTML += `<circle cx="${x - 24}" cy="70" r="2.5" fill="#ef4444" opacity="0.3" filter="drop-shadow(0 0 4px #ef4444)"></circle>`;
+                }
                 
                 if (t >= 0.9) {
                     rdPulse = true;

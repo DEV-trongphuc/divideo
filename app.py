@@ -703,5 +703,5 @@ def client_log():
     return jsonify({"success": True})
 
 if __name__ == "__main__":
-    print("[*] Starting TikTok Widescreen Studio server on port 5500...")
-    app.run(host="0.0.0.0", port=5500, debug=True, use_reloader=False)
+    print("[*] Starting TikTok Widescreen Studio server on port 5501...")
+    app.run(host="0.0.0.0", port=5501, debug=True, use_reloader=False)

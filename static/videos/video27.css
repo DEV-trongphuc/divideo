@@ -1,0 +1,355 @@
+/* Premium CSS styles for Video 27: Zip Bomb (42.zip & Decompression) */
+
+:root {
+    --bomb-red: #ef4444;
+    --bomb-orange: #f59e0b;
+    --bomb-blue: #3b82f6;
+    --bomb-green: #10b981;
+    --glass-bg: rgba(10, 14, 24, 0.94);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Force container and parent body to stretch to 100% width of the canvas view */
+.layout-custom-sim-view .sim-canvas-body {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+.v27-zoom-container {
+    width: 100% !important;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+    zoom: 1.45; /* Stable zoom ratio */
+    overflow: hidden;
+    background: transparent; /* Transparent to blend with main canvas */
+}
+
+/* Orbiting Rings - Subtle, low opacity */
+@keyframes v27-orbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.v27-orbit-ring {
+    position: absolute;
+    border: 1px dashed rgba(255, 255, 255, 0.03);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: v27-orbit 60s linear infinite;
+}
+
+.v27-orbit-1 { width: 320px; height: 320px; }
+.v27-orbit-2 { width: 480px; height: 480px; animation-duration: 90s; animation-direction: reverse; }
+
+/* Pulsing bomb - Clean shadow, no heavy glow */
+@keyframes v27-bomb-pulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5)); }
+    50% { transform: scale(1.05); filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.6)); }
+}
+
+.v27-bomb-anim {
+    animation: v27-bomb-pulse 1.4s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+    z-index: 2;
+}
+
+/* Spark fuse */
+@keyframes v27-fuse-spark {
+    0%, 100% { opacity: 0.7; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.v27-fuse-spark {
+    animation: v27-fuse-spark 0.15s infinite;
+}
+
+/* Horizontal transit lane (Slide 2) */
+.v27-transit-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 18px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 16px;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* Percentage-based animation for wide layouts */
+@keyframes v27-mail-flow {
+    0% { left: 12%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: 78%; opacity: 0; }
+}
+
+.v27-transit-dot {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: v27-mail-flow 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Scanner box */
+.v27-scanner-box {
+    position: relative;
+    overflow: hidden;
+    border: 1.5px solid rgba(59, 130, 246, 0.25);
+    border-radius: 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 24px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    box-sizing: border-box;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes v27-scan-line {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+.v27-scan-ray {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ef4444;
+    box-shadow: 0 0 6px #ef4444;
+    animation: v27-scan-line 2.5s linear infinite;
+    pointer-events: none;
+}
+
+/* Russian Doll Nested Boxes (Left-only indentation) */
+.v27-nest-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.v27-nest-box {
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 14, 24, 0.75);
+    border-radius: 12px;
+    padding: 12px 16px; /* Increased padding */
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.4s ease;
+}
+
+.v27-nest-box.depth-1 { margin-left: 14px; width: calc(100% - 14px); }
+.v27-nest-box.depth-2 { margin-left: 14px; width: calc(100% - 14px); }
+.v27-nest-box.depth-3 { margin-left: 14px; width: calc(100% - 14px); }
+.v27-nest-box.depth-4 { margin-left: 14px; width: calc(100% - 14px); }
+
+.v27-nest-box.depth-0 { border-color: #3b82f6; }
+.v27-nest-box.depth-1 { border-color: #2563eb; }
+.v27-nest-box.depth-2 { border-color: #1d4ed8; }
+.v27-nest-box.depth-3 { border-color: #f59e0b; }
+.v27-nest-box.depth-4 { border-color: #ef4444; }
+
+.v27-nest-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+}
+
+/* Folder grid style for Slide 3 */
+.v27-folder-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    width: 100%;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.v27-folder-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 8px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.v27-folder-item.active {
+    opacity: 1;
+    transform: scale(1);
+    border-color: rgba(59, 130, 246, 0.4);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+/* Math Node Card (Slide 5) - Constrained to prevent horizontal overflow */
+.v27-math-card {
+    background: var(--glass-bg);
+    border: 1.5px solid rgba(245, 158, 11, 0.25);
+    border-radius: 20px;
+    padding: 22px;
+    width: 100%;
+    max-width: 480px; /* Constrain max-width */
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.v27-math-number {
+    font-size: 38px;
+    font-weight: 900;
+    color: #f59e0b;
+    margin: 8px 0;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+/* Redundancy text flow styling - Ticker Marquee Horizontal (Slide 6) */
+.v27-ticker-container {
+    overflow: hidden;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1.5px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 14px;
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.v27-ticker-track {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+    animation: v27-ticker-slide 12s linear infinite;
+}
+
+@keyframes v27-ticker-slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.v27-ticker-text {
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: #94a3b8;
+    padding-right: 4px;
+    transition: color 0.4s ease;
+}
+
+.v27-ticker-text.active {
+    color: #ef4444;
+}
+
+/* Hardware progress containers - Taller & Less glowing */
+.v27-progress-container {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    height: 22px; /* Taller progress bars */
+    overflow: hidden;
+    margin-top: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+}
+
+.v27-progress-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.3s ease-out, background-color 0.3s ease;
+}
+
+/* Warning alert (NO SHAKE / NO HEAVY GLOW) */
+@keyframes v27-warning-flash {
+    0%, 100% { border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.04); }
+    50% { border-color: rgba(239, 68, 68, 0.8); background: rgba(239, 68, 68, 0.12); }
+}
+
+.v27-warning-card {
+    border: 1.5px solid rgba(239, 68, 68, 0.3);
+    border-radius: 16px;
+    animation: v27-warning-flash 1.2s infinite;
+    z-index: 2;
+}
+
+/* Antivirus scanning layout - Minimal light */
+.v27-shield-active {
+    z-index: 2;
+}
+
+/* Floating animation - Very subtle */
+@keyframes v27-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.v27-floating {
+    animation: v27-float 3.5s ease-in-out infinite;
+    z-index: 2;
+}
+
+/* Glassmorphic cards - Clean borders, no heavy shadows */
+.glass-card {
+    background: var(--glass-bg);
+    border: 1.5px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Typography styles for high readability */
+.v27-zoom-container h2, 
+.v27-zoom-container h3, 
+.v27-zoom-container h4 {
+    letter-spacing: 0.6px;
+    line-height: 1.4;
+}
+
+.v27-zoom-container p, 
+.v27-zoom-container span, 
+.v27-zoom-container div {
+    letter-spacing: 0.5px; /* Better readability */
+    line-height: 1.6;
+}

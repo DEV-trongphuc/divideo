@@ -1,0 +1,520 @@
+/* CSS Styles for Video 29: Facebook Mutual Friends Graph & Two Pointer Intersection */
+
+:root {
+    --fb-blue: #1877f2;
+    --fb-blue-hover: #155dfc;
+    --fb-bg: #0b0e14;
+    --fb-card-bg: rgba(24, 25, 26, 0.95);
+    --fb-border: rgba(255, 255, 255, 0.08);
+    --fb-text: #e4e6eb;
+    --fb-text-muted: #b0b3b8;
+    --fb-green: #34d399;
+    --fb-red: #f87171;
+    --fb-orange: #fbbf24;
+}
+
+/* Force container layout */
+.layout-custom-sim-view .sim-canvas-body {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+.v29-zoom-container {
+    width: 100% !important;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    zoom: 1.45;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Floating animation - Very subtle */
+@keyframes v29-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.v29-floating {
+    animation: v29-float 3.5s ease-in-out infinite;
+}
+
+/* Glassmorphic Facebook Cards */
+.v29-fb-card {
+    background: var(--fb-card-bg);
+    border: 1.5px solid var(--fb-border);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.65);
+    border-radius: 20px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    color: var(--fb-text);
+    overflow: hidden;
+}
+
+/* FB App Header & Navigation Tabs */
+.v29-fb-header {
+    background: #242526;
+    border-bottom: 1px solid var(--fb-border);
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.v29-fb-brand {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--fb-blue);
+    letter-spacing: -0.6px;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    text-shadow: 0 0 10px rgba(24, 119, 242, 0.2);
+}
+
+.v29-fb-tabs {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    background: #242526;
+    border-bottom: 1px solid var(--fb-border);
+    padding: 6px 0;
+    width: 100%;
+}
+
+.v29-fb-tab-item {
+    color: var(--fb-text-muted);
+    font-size: 14px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.v29-fb-tab-item.active {
+    color: var(--fb-blue);
+    border-bottom: 2.5px solid var(--fb-blue);
+}
+
+.v29-fb-profile-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* Overlapping/Stacked Avatars with clean border */
+.v29-avatar-stack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 90px;
+    width: 170px;
+    margin-bottom: 4px;
+}
+
+.v29-avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    border: 3.5px solid #242526;
+    background: #1877f2;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 26px;
+    position: absolute;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.v29-avatar.user-a {
+    left: 15px;
+    z-index: 2;
+    background: linear-gradient(135deg, #1877f2 0%, #0d4eb0 100%);
+    border-color: rgba(96,165,250,0.4);
+    box-shadow: 0 0 20px rgba(24, 119, 242, 0.35);
+}
+
+.v29-avatar.user-x {
+    right: 15px;
+    z-index: 1;
+    background: linear-gradient(135deg, #fbbf24 0%, #b45309 100%);
+    border-color: rgba(251,191,36,0.4);
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+}
+
+.v29-mutual-badge {
+    background: rgba(24, 119, 242, 0.12);
+    border: 1.5px solid rgba(24, 119, 242, 0.35);
+    color: #58a4ff;
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.15);
+    transition: all 0.3s;
+}
+
+.v29-mutual-badge.highlight {
+    background: rgba(52, 211, 153, 0.12);
+    border-color: var(--fb-green);
+    color: var(--fb-green);
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.3);
+    transform: scale(1.08);
+}
+
+/* Flying User cards */
+.v29-flying-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    z-index: 5;
+    pointer-events: none;
+    transition: all 0.1s linear;
+}
+
+.v29-flying-avatar-circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--fb-blue);
+    display: inline-block;
+}
+
+/* Database Simulation (Slide 2) */
+.v29-db-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+}
+
+.v29-db-card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1.5px solid var(--fb-border);
+    border-radius: 14px;
+    padding: 12px;
+    position: relative;
+    overflow: hidden;
+    min-height: 130px;
+}
+
+.v29-db-scanline {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(248, 113, 113, 0.8);
+    box-shadow: 0 0 10px #f87171, 0 0 20px #f87171;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+@keyframes v29-sweep {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
+.v29-db-scanline.scanning {
+    opacity: 1;
+    animation: v29-sweep 1.6s infinite linear;
+}
+
+.v29-sql-box {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1.5px solid var(--fb-border);
+    border-radius: 12px;
+    padding: 14px;
+    font-family: 'Fira Code', monospace;
+    font-size: 12px;
+    color: #f87171;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
+}
+
+/* Graph network simulation (Slide 3) */
+.v29-graph-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: rgba(12, 18, 28, 0.7);
+    border: 1.5px solid var(--fb-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: inset 0 4px 20px rgba(0,0,0,0.7);
+}
+
+.v29-graph-node {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #242526;
+    border: 2px solid rgba(255,255,255,0.18);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 900;
+    color: #fff;
+    z-index: 5;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.6);
+}
+
+.v29-graph-node.active-a {
+    background: linear-gradient(135deg, #1877f2 0%, #0c3e8b 100%);
+    border-color: #60a5fa;
+    box-shadow: 0 0 20px var(--fb-blue);
+    transform: scale(1.08);
+}
+
+.v29-graph-node.active-x {
+    background: linear-gradient(135deg, #fbbf24 0%, #b45309 100%);
+    border-color: #fbbf24;
+    box-shadow: 0 0 20px var(--fb-orange);
+    transform: scale(1.08);
+}
+
+.v29-graph-node.active-mutual {
+    background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+    border-color: #34d399;
+    box-shadow: 0 0 25px var(--fb-green);
+    transform: scale(1.15);
+}
+
+.v29-graph-edge {
+    position: absolute;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    transform-origin: 0 50%;
+    z-index: 1;
+    transition: all 0.35s ease;
+}
+
+@keyframes v29-dash {
+    to { stroke-dashoffset: -20; }
+}
+
+.v29-graph-edge.active {
+    background: var(--fb-blue);
+    box-shadow: 0 0 10px var(--fb-blue);
+    height: 3px;
+    z-index: 2;
+}
+
+.v29-graph-edge.active-x {
+    background: var(--fb-orange);
+    box-shadow: 0 0 10px var(--fb-orange);
+    height: 3px;
+    z-index: 2;
+}
+
+/* Adjacency List & Two Pointer (Slide 4 & 5) */
+.v29-list-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    position: relative;
+}
+
+.v29-list-label {
+    width: 80px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 900;
+    font-family: monospace;
+    color: var(--fb-text-muted);
+}
+
+.v29-list-label.active-a {
+    color: var(--fb-blue);
+}
+
+.v29-list-label.active-x {
+    color: var(--fb-orange);
+}
+
+.v29-array-container {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1.5px solid var(--fb-border);
+    border-radius: 16px;
+    padding: 10px;
+    position: relative;
+    min-height: 54px;
+    box-sizing: border-box;
+    align-items: center;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.v29-array-node {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #242526;
+    border: 1.8px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--fb-text-muted);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.v29-array-node.active-a {
+    border-color: var(--fb-blue);
+    color: #fff;
+    background: var(--fb-blue);
+    box-shadow: 0 0 12px rgba(24, 119, 242, 0.4);
+}
+
+.v29-array-node.active-x {
+    border-color: var(--fb-orange);
+    color: #000;
+    background: var(--fb-orange);
+    box-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+}
+
+.v29-array-node.match {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-color: var(--fb-green);
+    color: #000;
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.5);
+}
+
+/* Two pointer arrows with pulsing tags */
+.v29-pointer {
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--fb-blue);
+    filter: drop-shadow(0 0 5px var(--fb-blue));
+    transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 10;
+}
+
+.v29-pointer-x {
+    position: absolute;
+    top: -22px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--fb-orange);
+    filter: drop-shadow(0 0 5px var(--fb-orange));
+    transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 10;
+}
+
+/* AI Scoring & Dashboard (Slide 8) */
+.v29-score-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.v29-score-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.v29-progress-container {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 4px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.v29-progress-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 6px;
+    transition: width 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Outro glow sparkles */
+.v29-logo-glow {
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--fb-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px rgba(24, 119, 242, 0.65);
+    animation: v29-pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes v29-pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(24, 119, 242, 0.5); transform: scale(1); }
+    50% { box-shadow: 0 0 35px rgba(24, 119, 242, 0.85); transform: scale(1.08); }
+}
+
+@keyframes v29-pulse-warn {
+    0%, 100% { border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.03); }
+    50% { border-color: rgba(239, 68, 68, 0.8); background: rgba(239, 68, 68, 0.12); }
+}
+
+.v29-alert-card {
+    border: 1.5px solid rgba(239, 68, 68, 0.3);
+    border-radius: 16px;
+    animation: v29-pulse-warn 1.2s infinite;
+    z-index: 2;
+}

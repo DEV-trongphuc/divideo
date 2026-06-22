@@ -290,59 +290,59 @@
         else if (slideId === 'slide_adtech_4') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                    <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:25px; zoom:0.83;">
+                    <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:30px; zoom:0.95;">
                         <!-- Top: Target User and Auction Clock -->
-                        <div style="width:100%; max-width:850px; display:flex; justify-content:space-between; align-items:center; gap:20px;">
-                            <div class="glass-card" style="flex:1.2; padding:18px; border:2px solid rgba(255,255,255,0.06); border-radius:16px; display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.01);">
-                                <div style="width:48px; height:48px; border-radius:50%; background:var(--gold-primary); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:bold; color:#000;">U</div>
+                        <div style="width:100%; max-width:960px; display:flex; justify-content:space-between; align-items:center; gap:30px;">
+                            <div class="glass-card" style="flex:1.2; padding:24px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.01);">
+                                <div style="width:56px; height:56px; border-radius:50%; background:var(--gold-primary); display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:bold; color:#000;">U</div>
                                 <div style="text-align:left;">
-                                    <div style="font-size:18px; font-weight:bold; color:#fff;">User ID: #890244 (Đang mở FB)</div>
-                                    <div style="font-size:14px; color:rgba(255,255,255,0.4); margin-top:2px;">Target nhãn: Thích Giày Thể Thao</div>
+                                    <div style="font-size:22px; font-weight:bold; color:#fff;">Đối tượng: #890244</div>
+                                    <div style="font-size:17px; color:var(--gold-primary); margin-top:4px; font-weight:bold;">Tag: Thích Giày Thể Thao</div>
                                 </div>
                             </div>
-                            <div class="glass-card auction-clock-card" style="flex:1; padding:18px; border:2.5px solid #ef4444; border-radius:16px; text-align:center; transition:all 0.3s; background:rgba(239,68,68,0.02); box-shadow:0 0 20px rgba(239,68,68,0.08);">
-                                <div style="font-size:15px; color:rgba(255,255,255,0.4); text-transform:uppercase; font-weight:bold; letter-spacing:0.5px;">Đấu giá siêu tốc (RTB)</div>
-                                <div style="font-family:monospace; font-size:28px; font-weight:900; color:#ef4444; margin-top:4px;" class="auction-timer">0.100 s</div>
+                            <div class="glass-card auction-clock-card" style="flex:1; padding:24px; border:2.5px solid #ef4444; border-radius:20px; text-align:center; transition:all 0.3s; background:rgba(239,68,68,0.02); box-shadow:0 0 20px rgba(239,68,68,0.08);">
+                                <div style="font-size:17px; color:rgba(255,255,255,0.4); text-transform:uppercase; font-weight:bold; letter-spacing:0.5px;">Đấu giá RTB</div>
+                                <div style="font-family:monospace; font-size:32px; font-weight:900; color:#ef4444; margin-top:4px;" class="auction-timer">0.100 s</div>
                             </div>
                         </div>
 
                         <!-- Center: Bidder cards -->
-                        <div style="display:flex; justify-content:space-between; width:100%; max-width:850px; gap:20px;">
+                        <div style="display:flex; justify-content:space-between; width:100%; max-width:960px; gap:30px;">
                             <!-- Bidder 1: Nike DSP -->
-                            <div class="glass-card bidder-card b1" style="flex:1; border:2px solid rgba(255,255,255,0.05); border-radius:18px; padding:18px; text-align:center; transition:all 0.3s;">
-                                <div style="font-size:18px; font-weight:bold; color:#fff; text-transform:uppercase;">Nike Campaign</div>
-                                <div style="font-size:14px; color:rgba(255,255,255,0.4); margin-top:4px;">Điểm thầu: 8.2 / 10</div>
-                                <div style="font-family:monospace; font-size:32px; font-weight:bold; color:#a3a3a3; margin:15px 0;" class="bid-val b1">$0.00</div>
-                                <div style="font-size:14px; color:#ef4444; font-weight:bold; opacity:0;" class="bid-status b1">THUA CUỘC</div>
+                            <div class="glass-card bidder-card b1" style="flex:1; border:2px solid rgba(255,255,255,0.05); border-radius:22px; padding:24px; text-align:center; transition:all 0.3s;">
+                                <div style="font-size:22px; font-weight:bold; color:#fff; text-transform:uppercase;">Nike DSP</div>
+                                <div style="font-size:16px; color:rgba(255,255,255,0.4); margin-top:6px;">Độ khớp: 8.2/10</div>
+                                <div style="font-family:monospace; font-size:42px; font-weight:bold; color:#a3a3a3; margin:20px 0;" class="bid-val b1">$0.00</div>
+                                <div style="font-size:16px; color:#ef4444; font-weight:bold; opacity:0;" class="bid-status b1">THUA CUỘC</div>
                             </div>
 
                             <!-- Bidder 2: Adidas DSP -->
-                            <div class="glass-card bidder-card b2" style="flex:1; border:2px solid rgba(255,255,255,0.05); border-radius:18px; padding:18px; text-align:center; transition:all 0.3s;">
-                                <div style="font-size:18px; font-weight:bold; color:#fff; text-transform:uppercase;">Adidas Promo</div>
-                                <div style="font-size:14px; color:rgba(255,255,255,0.4); margin-top:4px;">Điểm thầu: 8.5 / 10</div>
-                                <div style="font-family:monospace; font-size:32px; font-weight:bold; color:#a3a3a3; margin:15px 0;" class="bid-val b2">$0.00</div>
-                                <div style="font-size:14px; color:#ef4444; font-weight:bold; opacity:0;" class="bid-status b2">THUA CUỘC</div>
+                            <div class="glass-card bidder-card b2" style="flex:1; border:2px solid rgba(255,255,255,0.05); border-radius:22px; padding:24px; text-align:center; transition:all 0.3s;">
+                                <div style="font-size:22px; font-weight:bold; color:#fff; text-transform:uppercase;">Adidas DSP</div>
+                                <div style="font-size:16px; color:rgba(255,255,255,0.4); margin-top:6px;">Độ khớp: 8.5/10</div>
+                                <div style="font-family:monospace; font-size:42px; font-weight:bold; color:#a3a3a3; margin:20px 0;" class="bid-val b2">$0.00</div>
+                                <div style="font-size:16px; color:#ef4444; font-weight:bold; opacity:0;" class="bid-status b2">THUA CUỘC</div>
                             </div>
 
                             <!-- Bidder 3: Shopee Remarketing (Winner) -->
-                            <div class="glass-card bidder-card b3" style="flex:1; border:2px solid rgba(255,255,255,0.05); border-radius:18px; padding:18px; text-align:center; transition:all 0.3s; position:relative;">
-                                <div class="winner-badge" style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--gold-primary); color:#000; font-size:12px; font-weight:bold; padding:2px 10px; border-radius:8px; text-transform:uppercase; letter-spacing:0.5px; opacity:0; transition:all 0.3s;">Winner!</div>
-                                <div style="font-size:18px; font-weight:bold; color:#fff; text-transform:uppercase;">Shopee Remkt</div>
-                                <div style="font-size:14px; color:rgba(255,255,255,0.4); margin-top:4px;">Điểm thầu: 9.8 / 10</div>
-                                <div style="font-family:monospace; font-size:32px; font-weight:bold; color:#a3a3a3; margin:15px 0;" class="bid-val b3">$0.00</div>
-                                <div style="font-size:14px; color:#10b981; font-weight:bold; opacity:0;" class="bid-status b3">CHIẾN THẮNG</div>
+                            <div class="glass-card bidder-card b3" style="flex:1; border:2px solid rgba(255,255,255,0.05); border-radius:22px; padding:24px; text-align:center; transition:all 0.3s; position:relative;">
+                                <div class="winner-badge" style="position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:var(--gold-primary); color:#000; font-size:14px; font-weight:bold; padding:4px 14px; border-radius:10px; text-transform:uppercase; letter-spacing:0.5px; opacity:0; transition:all 0.3s;">Winner!</div>
+                                <div style="font-size:22px; font-weight:bold; color:#fff; text-transform:uppercase;">Shopee DSP</div>
+                                <div style="font-size:16px; color:rgba(255,255,255,0.4); margin-top:6px;">Độ khớp: 9.8/10</div>
+                                <div style="font-family:monospace; font-size:42px; font-weight:bold; color:#a3a3a3; margin:20px 0;" class="bid-val b3">$0.00</div>
+                                <div style="font-size:16px; color:#10b981; font-weight:bold; opacity:0;" class="bid-status b3">CHIẾN THẮNG</div>
                             </div>
                         </div>
 
                         <!-- Bottom: Log Dashboard -->
-                        <div class="glass-card rtb-log-card" style="width:100%; max-width:850px; height:180px; border:2px solid rgba(255,255,255,0.06); border-radius:16px; padding:18px; box-sizing:border-box; background:#0b0e14; text-align:left; font-family:monospace; font-size:15px; line-height:1.6; color:#a3a3a3; overflow:hidden; position:relative;">
-                            <div style="font-size:14px; font-weight:bold; color:var(--text-muted); border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px; margin-bottom:8px; text-transform:uppercase; font-family:sans-serif;">Trình theo dõi đấu giá Ad Exchange</div>
-                            <div class="log-lines-container" style="height:110px; overflow-y:hidden; display:flex; flex-direction:column; gap:4px;">
-                                <div class="log-line l1" style="opacity:0.3;">[0.005s] Nhận yêu cầu ad slot cho User: 890244 (Tags: ['Giày Thể Thao', 'Công Nghệ'])</div>
-                                <div class="log-line l2" style="opacity:0.3;">[0.020s] Phát tín hiệu đấu thầu (Bid Request) tới 3 Demand-Side Platforms (DSP)...</div>
-                                <div class="log-line l3" style="opacity:0.3;">[0.050s] Nhận phản hồi giá thầu (Bid Response): Nike ($0.45), Adidas ($0.65), Shopee ($0.85)</div>
-                                <div class="log-line l4" style="opacity:0.3;">[0.085s] Đang tính toán chất lượng quảng cáo và mức độ tương tác tối ưu của AI...</div>
-                                <div class="log-line l5" style="opacity:0.3; color:#10b981; font-weight:bold;">[0.098s] Phiên đấu giá kết thúc! Người thắng: Shopee Remarketing ($0.85 CPM). Giao quảng cáo...</div>
+                        <div class="glass-card rtb-log-card" style="width:100%; max-width:960px; height:200px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:24px; box-sizing:border-box; background:#0b0e14; text-align:left; font-family:monospace; font-size:17px; line-height:1.6; color:#a3a3a3; overflow:hidden; position:relative;">
+                            <div style="font-size:16px; font-weight:bold; color:var(--text-muted); border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; margin-bottom:12px; text-transform:uppercase; font-family:sans-serif;">Nhật ký Ad Exchange</div>
+                            <div class="log-lines-container" style="height:120px; overflow-y:hidden; display:flex; flex-direction:column; gap:6px;">
+                                <div class="log-line l1" style="opacity:0.3;">[0.005s] Request ad slot cho User: 890244</div>
+                                <div class="log-line l2" style="opacity:0.3;">[0.020s] Gửi Bid Request tới 3 DSP</div>
+                                <div class="log-line l3" style="opacity:0.3;">[0.050s] Bid Response: Nike $0.45, Adidas $0.65, Shopee $0.85</div>
+                                <div class="log-line l4" style="opacity:0.3;">[0.085s] Ad Exchange tính toán độ khớp thầu</div>
+                                <div class="log-line l5" style="opacity:0.3; color:#10b981; font-weight:bold;">[0.098s] Đấu giá kết thúc! Shopee thắng ($0.85 CPM)</div>
                             </div>
                         </div>
                     </div>

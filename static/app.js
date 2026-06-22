@@ -1,5 +1,5 @@
 // API config fallback for Live Server environments (port 5501)
-const API_BASE = (window.location.port === '5500' || window.location.port === '5000') ? '' : 'http://localhost:5500';
+const API_BASE = (window.location.port === '5501') ? '' : 'http://' + window.location.hostname + ':5501';
 // State Management & History (Undo/Redo)
 let slides = [];
 let undoStack = [];
@@ -1514,6 +1514,10 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
         root.innerHTML = '';
         const wrapper = document.createElement('div');
         wrapper.className = 'layout-custom-sim-view';
+        const slideIndex = slides.findIndex(s => s.id === slideId);
+        if (slideIndex === 0) {
+            wrapper.classList.add('first-slide');
+        }
         wrapper.setAttribute('data-slide-id', slideId);
         // Header
         const header = document.createElement('div');
@@ -1559,9 +1563,11 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
         
         if (window.VideoPlugin.keywordsData && window.VideoPlugin.keywordsData[slideId]) {
             const list = window.VideoPlugin.keywordsData[slideId];
+            const slideIndex = slides.findIndex(s => s.id === slideId);
+            const isFirstSlide = (slideIndex === 0);
             
-            // Build keywords-panel (skip on slide_spotify_1 per user request)
-            if (slideId !== 'slide_spotify_1') {
+            // Build keywords-panel (skip on slide_spotify_1 per user request, and skip on first slide of script)
+            if (slideId !== 'slide_spotify_1' && !isFirstSlide) {
                 let keywordsPanel = canvas.querySelector('.keywords-panel');
                 if (!keywordsPanel) {
                     keywordsPanel = document.createElement('div');
@@ -1583,18 +1589,26 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                         if (isActive) tag.classList.add(kw.class);
                     }
                 });
+            } else {
+                // If it is the first slide or slide_spotify_1, ensure any existing keywords-panel is removed
+                const keywordsPanel = canvas.querySelector('.keywords-panel');
+                if (keywordsPanel) {
+                    keywordsPanel.remove();
+                }
             }
 
             let titleHTML = formatTitleHTML(slide.title || '');
             let subtitleHTML = formatSubtitleHTML(slide.subtitle || '');
-            list.forEach(kw => {
-                const isActive = animTime >= kw.start && animTime <= kw.end;
-                const escText = kw.text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-                const re = new RegExp('(' + escText + ')', 'gi');
-                const spanClass = isActive ? kw.class : 'keyword-idle';
-                titleHTML = titleHTML.replace(re, '<span class="' + spanClass + '">$1</span>');
-                subtitleHTML = subtitleHTML.replace(re, '<span class="' + spanClass + '">$1</span>');
-            });
+            if (!isFirstSlide) {
+                list.forEach(kw => {
+                    const isActive = animTime >= kw.start && animTime <= kw.end;
+                    const escText = kw.text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+                    const re = new RegExp('(' + escText + ')', 'gi');
+                    const spanClass = isActive ? kw.class : 'keyword-idle';
+                    titleHTML = titleHTML.replace(re, '<span class="' + spanClass + '">$1</span>');
+                    subtitleHTML = subtitleHTML.replace(re, '<span class="' + spanClass + '">$1</span>');
+                });
+            }
             const headerEl = root.querySelector('.sim-scene-header');
             if (headerEl && slideId !== 'slide_pag_1a') {
                 const newHTML = `
@@ -1621,15 +1635,19 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
             let scriptHTML = formatSubtitleHTML(activeChunk);
             // Highlight keywords in bottom subtitle script directly from plugin data
             if (window.VideoPlugin && window.VideoPlugin.keywordsData && window.VideoPlugin.keywordsData[slide.id]) {
-                window.VideoPlugin.keywordsData[slide.id].forEach(kw => {
-                    const isActive = animTime >= kw.start && animTime <= kw.end;
-                    if (kw.text) {
-                        const escText = kw.text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-                        const re = new RegExp('(' + escText + ')', 'gi');
-                        const spanClass = isActive ? kw.class : 'keyword-idle';
-                        scriptHTML = scriptHTML.replace(re, '<span class="' + spanClass + '">$1</span>');
-                    }
-                });
+                const slideIndex = slides.findIndex(s => s.id === slide.id);
+                const isFirstSlide = (slideIndex === 0);
+                if (!isFirstSlide) {
+                    window.VideoPlugin.keywordsData[slide.id].forEach(kw => {
+                        const isActive = animTime >= kw.start && animTime <= kw.end;
+                        if (kw.text) {
+                            const escText = kw.text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+                            const re = new RegExp('(' + escText + ')', 'gi');
+                            const spanClass = isActive ? kw.class : 'keyword-idle';
+                            scriptHTML = scriptHTML.replace(re, '<span class="' + spanClass + '">$1</span>');
+                        }
+                    });
+                }
             }
             if (subtitleBox.dataset.lastScript !== scriptHTML) {
                 subtitleBox.dataset.lastScript = scriptHTML;

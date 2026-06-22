@@ -1,15 +1,22 @@
-=== HUONG DAN KICH HOAT CARD DO HOA RTX 3050 CHO VOXCPM ===
+=== CANH BAO QUAN TRONG: PHIEN BAN PYTHON KHONG TUONG THICH ===
 
-De PyTorch nhan dang va chay tren card do hoa RTX 3050 (giup tang toc do sinh giong noi gap 30 lan, chi ton 2-5 giay moi slide), ban hay chay dung lenh sau trong terminal:
+Ban dang dung Python 3.14. Day la phien ban thu nghiem qua moi, PyTorch chua co ban build ho tro cho Python 3.14 nen ban se bi loi "Could not find a version that satisfies the requirement torch".
 
-pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121 --force-reinstall
+👉 CACH KHAC PHUC:
+1. Tai va cai dat Python 3.11.9 tu link chinh thuc nay:
+   https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe
 
------------------------------------------
-Sau khi cai dat xong, kiem tra lai bang cach chay:
-python diagnose.py
+2. LUU Y QUAN TRONG KHI CAI DAT:
+   Tich chon o vuong "Add Python.exe to PATH" o phia duoi cung cua trinh cai dat truoc khi bam "Install Now".
 
-Ban se thay dong chu bao:
-[OK] Successfully imported torch (va thiet bi se chuyen sang 'cuda')
+3. Kiem tra lai:
+   Mo mot cua so Terminal moi va go:
+   python --version
+   (Man hinh phai bao dung chu: Python 3.11.9)
 
-Cuoi cung, chay lai he thong bang lenh:
-node run_synthesis.js
+4. Chay lenh cai dat torch ho tro GPU RTX 3050:
+   pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121 --force-reinstall
+
+5. Chay he thong:
+   node run_synthesis.js
+

@@ -1,0 +1,465 @@
+/* CSS Styles for Video 28: Bloom Filter - Glassmorphism Premium Edition */
+
+:root {
+    --bf-blue: #60a5fa;
+    --bf-green: #34d399;
+    --bf-red: #f87171;
+    --bf-orange: #fbbf24;
+    --glass-bg: rgba(15, 22, 42, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-glow: rgba(96, 165, 250, 0.15);
+}
+
+/* Force container layout */
+.layout-custom-sim-view .sim-canvas-body {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+.v28-zoom-container {
+    width: 100% !important;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    padding: 24px;
+    zoom: 1.45;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Floating animation - Very subtle */
+@keyframes v28-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.v28-floating {
+    animation: v28-float 3.5s ease-in-out infinite;
+    z-index: 2;
+}
+
+/* Glassmorphic cards - Blurry glass, clean borders */
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.55), 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Flying User cards for slide 1 */
+.v28-flying-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 5;
+    pointer-events: none;
+    transition: all 0.1s linear;
+}
+
+.v28-flying-avatar-circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--bf-blue);
+    display: inline-block;
+}
+
+/* RAM Comparison Bars (Slide 3 & 4) */
+.v28-ram-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    text-align: left;
+}
+
+.v28-ram-bar-outer {
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.v28-ram-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 0 10px currentColor;
+}
+
+/* Database sweep scanline for slide 2 */
+.v28-db-scanline {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(248, 113, 113, 0.8), transparent);
+    box-shadow: 0 0 10px #f87171, 0 0 20px #f87171;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+@keyframes v28-sweep {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
+.v28-db-scanline.scanning {
+    opacity: 1;
+    animation: v28-sweep 1.6s infinite linear;
+}
+
+/* Bit Array Simulation Row (Slide 4, 5, 6, 7, 8) */
+.v28-bit-array {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.v28-bit-slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.v28-bit-node {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.v28-bit-node.active-good {
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.15) 0%, rgba(4, 120, 87, 0.15) 100%);
+    border-color: var(--bf-green);
+    color: var(--bf-green);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.4);
+}
+
+.v28-bit-node.active-bad {
+    background: linear-gradient(135deg, rgba(248, 113, 113, 0.15) 0%, rgba(185, 28, 28, 0.15) 100%);
+    border-color: var(--bf-red);
+    color: var(--bf-red);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(248, 113, 113, 0.4);
+}
+
+.v28-bit-index {
+    font-size: 10px;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+/* Hash line overlay lanes */
+.v28-hash-container {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Circular Hash node circles in mapping visualization */
+.v28-hash-node {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s;
+}
+
+.v28-hash-node.active {
+    background: var(--bf-blue);
+    border-color: #60a5fa;
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.5);
+    color: #0b0f19;
+}
+
+/* Sơ đồ kiến trúc luồng dữ liệu (Slide 9) */
+.v28-flow-container {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.v28-flow-node {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 800;
+    z-index: 10;
+    background: rgba(15, 22, 42, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    width: 320px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+@keyframes v28-pulse-warn {
+    0%, 100% { border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.03); }
+    50% { border-color: rgba(239, 68, 68, 0.7); background: rgba(239, 68, 68, 0.12); }
+}
+
+.v28-alert-card {
+    border: 1.5px solid rgba(239, 68, 68, 0.3);
+    border-radius: 16px;
+    animation: v28-pulse-warn 1.2s infinite;
+    z-index: 2;
+}
+
+/* Spinner keyframe for Login checking simulation */
+@keyframes v28-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.v28-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-top-color: var(--bf-blue);
+    border-radius: 50%;
+    animation: v28-spin 0.8s linear infinite;
+}
+
+/* Typography styles for high readability */
+.v28-zoom-container h2, 
+.v28-zoom-container h3, 
+.v28-zoom-container h4 {
+    letter-spacing: 0.6px;
+    line-height: 1.4;
+}
+
+.v28-zoom-container p, 
+.v28-zoom-container span, 
+.v28-zoom-container div {
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+
+/* Premium Registration Form styles */
+.v28-form-container {
+    width: 100%;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 auto;
+}
+
+.v28-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.v28-input-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+.v28-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.v28-input-icon {
+    position: absolute;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+}
+
+.v28-input-field {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 8px 12px 8px 36px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: #fff;
+    outline: none;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+.v28-input-field:focus,
+.v28-input-field.focused {
+    border-color: var(--bf-blue);
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.v28-btn-submit {
+    width: 100%;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 9px 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    letter-spacing: 0.8px;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+/* Button States */
+.v28-btn-submit.state-default {
+    background: var(--bf-blue);
+    color: #0b0f19;
+}
+
+.v28-btn-submit.state-default:hover {
+    background: #93c5fd;
+    box-shadow: 0 0 12px rgba(96, 165, 250, 0.45);
+}
+
+.v28-btn-submit.state-loading {
+    background: rgba(96, 165, 250, 0.08);
+    color: var(--bf-blue);
+    border-color: rgba(96, 165, 250, 0.25);
+    cursor: not-allowed;
+}
+
+.v28-btn-submit.state-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--bf-green);
+    border-color: rgba(16, 185, 129, 0.25);
+    cursor: default;
+}
+
+.v28-btn-submit.state-error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--bf-red);
+    border-color: rgba(239, 68, 68, 0.25);
+    cursor: default;
+}
+
+.v28-status-alert {
+    width: 100%;
+    border-radius: 12px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-sizing: border-box;
+}
+
+.v28-status-alert.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.v28-status-alert.alert-success {
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: var(--bf-green);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.08);
+}
+
+.v28-status-alert.alert-error {
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: var(--bf-red);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.08);
+}

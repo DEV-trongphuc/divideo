@@ -28,21 +28,24 @@
     width: 6px;
     height: 6px;
 }
+
 ::-webkit-scrollbar-track {
     background: rgba(5, 5, 7, 0.3);
 }
+
 ::-webkit-scrollbar-thumb {
     background: rgba(245, 158, 11, 0.25);
     border-radius: 99px;
     transition: background 0.2s;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(245, 158, 11, 0.5);
 }
 
 body {
     background-color: var(--bg-darker);
-    background-image: 
+    background-image:
         radial-gradient(at 10% 10%, rgba(245, 158, 11, 0.03) 0px, transparent 45%),
         radial-gradient(at 90% 90%, rgba(59, 130, 246, 0.04) 0px, transparent 45%);
     color: var(--text-primary);
@@ -779,9 +782,9 @@ textarea.form-control {
     flex-direction: column;
     justify-content: center;
     z-index: 10;
-    margin-top: 65px;
+    margin-top: 140px;
     /* Pushed titles down from the top header overlay */
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     position: relative;
     width: 100%;
     height: 100%;
@@ -5213,18 +5216,21 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     color: #10b981 !important;
     text-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
     font-weight: 800;
+    font-size: calc(100% + 3px);
 }
 
 .active-gold {
     color: var(--gold-primary) !important;
     text-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
     font-weight: 800;
+    font-size: calc(100% + 3px);
 }
 
 .active-bad {
     color: #ef4444 !important;
     text-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
     font-weight: 800;
+    font-size: calc(100% + 3px);
 }
 
 /* Hide console/terminal cards completely */
@@ -5278,8 +5284,12 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
 .layout-custom-sim-view .sim-canvas-body {
     zoom: 1.05;
     /* Reduced from 1.15 to ensure comfortable padding on portrait screen */
-    margin-top: 200px;
+    margin-top: 230px;
     /* Push main content down further to clear title area */
+}
+
+.layout-custom-sim-view.first-slide .sim-canvas-body {
+    margin-top: 100px;
 }
 
 /* ==========================================================================
@@ -5391,7 +5401,7 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
 
 .ai-keyword-tag {
     font-family: 'Inter', 'Outfit', sans-serif;
-    font-size: 24px;
+    font-size: 27px;
     font-weight: 800;
     color: rgba(255, 255, 255, 0.4);
     background: rgba(255, 255, 255, 0.03);
