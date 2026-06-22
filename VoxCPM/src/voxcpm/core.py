@@ -253,12 +253,18 @@ class VoxCPM:
                     self.denoiser.enhance(prompt_wav_path, output_path=temp_files[-1])
                     actual_prompt_path = temp_files[-1]
                 if reference_wav_path is not None:
-                    with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
-                        temp_files.append(tmp.name)
-                    self.denoiser.enhance(reference_wav_path, output_path=temp_files[-1])
-                    actual_ref_path = temp_files[-1]
+                    if reference_wav_path.endswith(".pt") or reference_wav_path.endswith(".pth"):
+                        actual_ref_path = reference_wav_path
+                    else:
+                        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
+                            temp_files.append(tmp.name)
+                        self.denoiser.enhance(reference_wav_path, output_path=temp_files[-1])
+                        actual_ref_path = temp_files[-1]
 
-            if actual_prompt_path is not None or actual_ref_path is not None:
+            if actual_ref_path is not None and (actual_ref_path.endswith(".pt") or actual_ref_path.endswith(".pth")):
+                import torch
+                fixed_prompt_cache = torch.load(actual_ref_path, map_location=self.tts_model.device)
+            elif actual_prompt_path is not None or actual_ref_path is not None:
                 if is_v2:
                     fixed_prompt_cache = self.tts_model.build_prompt_cache(
                         prompt_text=prompt_text,

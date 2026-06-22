@@ -127,6 +127,13 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
     if reference_audio_path == "default_voxcpm":
         reference_audio_path = "voices/giong_nam_tram_am.wav"
         
+    # Auto-caching: use pre-encoded prompt cache (.pt) if available
+    if reference_audio_path and reference_audio_path.endswith(".wav"):
+        pt_path = reference_audio_path[:-4] + ".pt"
+        if os.path.exists(pt_path):
+            print(f"[+] Found pre-encoded speaker cache {pt_path}, swapping to fast path.")
+            reference_audio_path = pt_path
+        
     is_voxcpm_selected = VOXCPM_AVAILABLE and reference_audio_path and os.path.exists(reference_audio_path)
     
     if is_voxcpm_selected:
