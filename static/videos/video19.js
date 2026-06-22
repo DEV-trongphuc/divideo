@@ -529,11 +529,7 @@
                                     <span style="font-size:12px; color:rgba(255,255,255,0.4);">Không định danh cá nhân</span>
                                 </div>
                             </div>
-                        </div>
                     </div>
-                `;
-            }
-        }
                 `;
             }
         }
