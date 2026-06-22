@@ -8255,3 +8255,25 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     overflow: hidden;
     transform: translateY(-200px) scale(1.22); /* Set to user requested -200px */
 }
+
+/* HyperLogLog Grid Preview Scale Up */
+.grid-preview-s4 .rv-s4 {
+    font-size: 28px !important;
+    text-shadow: 0 0 15px rgba(16,185,129,0.5);
+    line-height: 1;
+}
+
+.grid-preview-s4 div > span:first-child {
+    font-size: 11px !important;
+    margin-bottom: 3px;
+}
+
+.grid-preview-s4 div {
+    gap: 4px !important;
+}
+
+/* Enlarge Video 15 (AI Slides) text and graphics */
+div.gfx-layer[data-gfx-slide^="slide_ai_"] > div {
+    transform: scale(1.17) !important;
+    transform-origin: center center;
+}

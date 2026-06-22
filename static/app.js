@@ -14276,74 +14276,80 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                              <!-- SVG for absolute connections (endpoints matched exactly to the absolute coords below) -->
                              <!-- SVG Connections -->
                              <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
-                                 <path d="M 260 112 L 470 230" fill="none" stroke="rgba(59,130,246,0.4)" stroke-width="2.5" stroke-dasharray="6 4" />
-                                 <path d="M 260 252 L 470 255" fill="none" stroke="rgba(59,130,246,0.4)" stroke-width="2.5" stroke-dasharray="6 4" />
-                                 <path d="M 260 392 L 470 280" fill="none" stroke="rgba(59,130,246,0.4)" stroke-width="2.5" stroke-dasharray="6 4" />
+                                 <path d="M 280 112 L 470 230" fill="none" stroke="rgba(59,130,246,0.3)" stroke-width="2.5" stroke-dasharray="6,4" />
+                                 <path d="M 280 252 L 470 255" fill="none" stroke="rgba(59,130,246,0.3)" stroke-width="2.5" stroke-dasharray="6,4" />
+                                 <path d="M 280 392 L 470 280" fill="none" stroke="rgba(59,130,246,0.3)" stroke-width="2.5" stroke-dasharray="6,4" />
                              </svg>
                              <!-- Left: Client Cards -->
-                             <div class="node-card glass-card client-1" style="position:absolute; left:20px; top:80px; width:240px; border-left:4px solid #3b82f6; padding:13px 16px; display:flex; align-items:center; gap:12px; z-index:2; border-radius:14px; background:rgba(59,130,246,0.05);">
-                                 <i data-lucide="monitor" style="width:26px; height:26px; color:#3b82f6; flex-shrink:0;"></i>
-                                 <div>
-                                     <div style="font-size:13px; font-weight:bold; color:#fff;">Client #1</div>
-                                     <div style="font-size:10px; color:#60a5fa; font-family:var(--font-mono); margin-top:2px;">UPDATE views+1 → SQL</div>
+                             <div class="node-card glass-card client-1" style="position:absolute; left:20px; top:80px; width:260px; height:64px; border:1px solid rgba(59,130,246,0.3); background:linear-gradient(135deg, rgba(59,130,246,0.08), rgba(0,0,0,0.5)); padding:0 16px; display:flex; align-items:center; gap:12px; border-radius:20px; box-shadow:0 15px 35px rgba(59,130,246,0.15); z-index:2; box-sizing:border-box;">
+                                 <div style="width:40px; height:40px; border-radius:50%; background:rgba(59,130,246,0.15); border:2px solid rgba(59,130,246,0.5); display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(59,130,246,0.3); flex-shrink:0;">
+                                     <i data-lucide="monitor" style="width:20px; height:20px; color:#3b82f6;"></i>
+                                 </div>
+                                 <div style="text-align:left; flex:1;">
+                                     <div style="font-size:13px; font-weight:bold; color:#fff; letter-spacing:0.5px;">Client #1</div>
+                                     <div style="font-size:10px; color:#60a5fa; font-family:var(--font-mono); background:rgba(59,130,246,0.1); padding:3px 6px; border-radius:6px; margin-top:4px; display:inline-block; border:1px solid rgba(59,130,246,0.2); font-weight:bold;">UPDATE views+1</div>
                                  </div>
                              </div>
-                             <div class="node-card glass-card client-2" style="position:absolute; left:20px; top:220px; width:240px; border-left:4px solid #3b82f6; padding:13px 16px; display:flex; align-items:center; gap:12px; z-index:2; border-radius:14px; background:rgba(59,130,246,0.05);">
-                                 <i data-lucide="monitor" style="width:26px; height:26px; color:#3b82f6; flex-shrink:0;"></i>
-                                 <div>
-                                     <div style="font-size:13px; font-weight:bold; color:#fff;">Client #2</div>
-                                     <div style="font-size:10px; color:#60a5fa; font-family:var(--font-mono); margin-top:2px;">UPDATE views+1 → SQL</div>
+                             <div class="node-card glass-card client-2" style="position:absolute; left:20px; top:220px; width:260px; height:64px; border:1px solid rgba(59,130,246,0.3); background:linear-gradient(135deg, rgba(59,130,246,0.08), rgba(0,0,0,0.5)); padding:0 16px; display:flex; align-items:center; gap:12px; border-radius:20px; box-shadow:0 15px 35px rgba(59,130,246,0.15); z-index:2; box-sizing:border-box;">
+                                 <div style="width:40px; height:40px; border-radius:50%; background:rgba(59,130,246,0.15); border:2px solid rgba(59,130,246,0.5); display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(59,130,246,0.3); flex-shrink:0;">
+                                     <i data-lucide="monitor" style="width:20px; height:20px; color:#3b82f6;"></i>
+                                 </div>
+                                 <div style="text-align:left; flex:1;">
+                                     <div style="font-size:13px; font-weight:bold; color:#fff; letter-spacing:0.5px;">Client #2</div>
+                                     <div style="font-size:10px; color:#60a5fa; font-family:var(--font-mono); background:rgba(59,130,246,0.1); padding:3px 6px; border-radius:6px; margin-top:4px; display:inline-block; border:1px solid rgba(59,130,246,0.2); font-weight:bold;">UPDATE views+1</div>
                                  </div>
                              </div>
-                             <div class="node-card glass-card client-3" style="position:absolute; left:20px; top:360px; width:240px; border-left:4px solid #3b82f6; padding:13px 16px; display:flex; align-items:center; gap:12px; z-index:2; border-radius:14px; background:rgba(59,130,246,0.05);">
-                                 <i data-lucide="monitor" style="width:26px; height:26px; color:#3b82f6; flex-shrink:0;"></i>
-                                 <div>
-                                     <div style="font-size:13px; font-weight:bold; color:#fff;">Client #3</div>
-                                     <div style="font-size:10px; color:#60a5fa; font-family:var(--font-mono); margin-top:2px;">UPDATE views+1 → SQL</div>
+                             <div class="node-card glass-card client-3" style="position:absolute; left:20px; top:360px; width:260px; height:64px; border:1px solid rgba(59,130,246,0.3); background:linear-gradient(135deg, rgba(59,130,246,0.08), rgba(0,0,0,0.5)); padding:0 16px; display:flex; align-items:center; gap:12px; border-radius:20px; box-shadow:0 15px 35px rgba(59,130,246,0.15); z-index:2; box-sizing:border-box;">
+                                 <div style="width:40px; height:40px; border-radius:50%; background:rgba(59,130,246,0.15); border:2px solid rgba(59,130,246,0.5); display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(59,130,246,0.3); flex-shrink:0;">
+                                     <i data-lucide="monitor" style="width:20px; height:20px; color:#3b82f6;"></i>
+                                 </div>
+                                 <div style="text-align:left; flex:1;">
+                                     <div style="font-size:13px; font-weight:bold; color:#fff; letter-spacing:0.5px;">Client #3</div>
+                                     <div style="font-size:10px; color:#60a5fa; font-family:var(--font-mono); background:rgba(59,130,246,0.1); padding:3px 6px; border-radius:6px; margin-top:4px; display:inline-block; border:1px solid rgba(59,130,246,0.2); font-weight:bold;">UPDATE views+1</div>
                                  </div>
                              </div>
                              <!-- Flying Packets -->
-                             <div class="packet-dot dot-c1" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#3b82f6; box-shadow:0 0 10px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
-                             <div class="packet-dot dot-c2" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#3b82f6; box-shadow:0 0 10px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
-                             <div class="packet-dot dot-c3" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#3b82f6; box-shadow:0 0 10px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
+                             <div class="packet-dot dot-c1" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#3b82f6; box-shadow:0 0 12px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
+                             <div class="packet-dot dot-c2" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#3b82f6; box-shadow:0 0 12px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
+                             <div class="packet-dot dot-c3" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#3b82f6; box-shadow:0 0 12px #3b82f6; z-index:10; display:none; left:0; top:0;"></div>
                              <!-- Right: SQL DB Card -->
-                             <div class="node-card db-node glass-card" style="position:absolute; left:470px; top:100px; width:320px; border:2px solid #ef4444; border-radius:20px; padding:20px 22px; box-shadow:0 10px 30px rgba(239,68,68,0.15); box-sizing:border-box; z-index:2;">
+                             <div class="node-card db-node glass-card" style="position:absolute; left:470px; top:100px; width:340px; border:2px solid #ef4444; border-radius:28px; padding:24px; box-shadow:0 20px 50px rgba(239,68,68,0.2); box-sizing:border-box; z-index:2; background:linear-gradient(180deg, rgba(239,68,68,0.08), rgba(0,0,0,0.4));">
                                  <!-- DB Header -->
-                                 <div style="display:flex; align-items:center; gap:14px; border-bottom:1px solid rgba(239,68,68,0.2); padding-bottom:13px; margin-bottom:14px;">
-                                     <div style="background:rgba(239,68,68,0.15); border-radius:50%; width:46px; height:46px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                                         <i class="db-icon" data-lucide="database" style="width:26px; height:26px; color:#ef4444;"></i>
+                                 <div style="display:flex; align-items:center; gap:16px; border-bottom:1px solid rgba(239,68,68,0.2); padding-bottom:16px; margin-bottom:16px;">
+                                     <div style="background:rgba(239,68,68,0.15); border-radius:50%; width:52px; height:52px; display:flex; align-items:center; justify-content:center; flex-shrink:0; border:2px solid rgba(239,68,68,0.5); box-shadow:0 0 20px rgba(239,68,68,0.3);">
+                                         <i class="db-icon" data-lucide="database" style="width:28px; height:28px; color:#ef4444;"></i>
                                      </div>
                                      <div>
-                                         <div style="font-size:15px; font-weight:bold; color:#fff;">SQL Database</div>
-                                         <div style="font-size:10px; color:#ef4444; font-family:var(--font-mono); font-weight:bold; letter-spacing:0.5px; margin-top:2px;">Row Lock: ACTIVE</div>
+                                         <div style="font-size:16px; font-weight:bold; color:#fff; letter-spacing:0.5px;">SQL Database</div>
+                                         <div style="font-size:11px; color:#ef4444; font-family:var(--font-mono); font-weight:bold; letter-spacing:0.5px; margin-top:4px; background:rgba(239,68,68,0.1); padding:4px 8px; border-radius:6px; display:inline-block; border:1px solid rgba(239,68,68,0.2);">Row Lock: ACTIVE</div>
                                      </div>
                                  </div>
                                  <!-- Locked Row Graphic -->
-                                 <div style="background:rgba(0,0,0,0.45); border-radius:12px; padding:14px; border:1.5px solid rgba(239,68,68,0.3); position:relative; overflow:hidden;">
-                                     <div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-size:10px; color:#64748b; font-family:var(--font-mono); margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,0.06); font-weight:bold; text-transform:uppercase; letter-spacing:0.5px;">
+                                 <div style="background:rgba(0,0,0,0.5); border-radius:16px; padding:16px; border:1.5px solid rgba(239,68,68,0.3); position:relative; overflow:hidden;">
+                                     <div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-size:11px; color:#94a3b8; font-family:var(--font-mono); margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,0.08); font-weight:bold; text-transform:uppercase; letter-spacing:0.5px;">
                                          <span>video_id</span>
                                          <span style="text-align:center;">views</span>
                                          <span style="text-align:right;">status</span>
                                      </div>
-                                     <div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-family:var(--font-mono); font-size:14px; color:#fff; font-weight:bold; align-items:center;">
+                                     <div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-family:var(--font-mono); font-size:15px; color:#fff; font-weight:bold; align-items:center;">
                                          <span>101</span>
                                          <span class="db-row-views" style="text-align:center; color:#10b981;">100,000</span>
                                          <span class="db-row-status" style="text-align:right; color:#10b981;">IDLE</span>
                                      </div>
                                      <!-- Padlock glass overlay -->
-                                     <div class="row-padlock" style="position:absolute; inset:0; background:rgba(239,68,68,0.2); backdrop-filter:blur(4px); border-radius:12px; display:none; align-items:center; justify-content:center; gap:10px; border:2px solid rgba(239,68,68,0.6); opacity:0; transition:all 0.4s ease;">
-                                         <div style="background:#ef4444; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 20px rgba(239,68,68,0.7); flex-shrink:0;">
-                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                     <div class="row-padlock" style="position:absolute; inset:0; background:rgba(239,68,68,0.25); backdrop-filter:blur(4px); border-radius:14px; display:none; align-items:center; justify-content:center; gap:12px; border:2px solid rgba(239,68,68,0.6); opacity:0; transition:all 0.4s ease;">
+                                         <div style="background:#ef4444; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 25px rgba(239,68,68,0.7); flex-shrink:0;">
+                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                                          </div>
-                                         <span style="font-size:14px; font-weight:900; color:#fff; letter-spacing:1.5px;">ROW LOCKED</span>
+                                         <span style="font-size:15px; font-weight:900; color:#fff; letter-spacing:1.5px;">ROW LOCKED</span>
                                      </div>
                                  </div>
                                  <!-- Queue Telemetry -->
-                                 <div class="lock-telemetry" style="margin-top:14px; background:rgba(245,158,11,0.06); border:1.5px solid rgba(245,158,11,0.25); border-radius:10px; padding:10px 14px; display:none;">
-                                     <div style="font-size:10px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:5px;">Hàng chờ hiện tại:</div>
+                                 <div class="lock-telemetry" style="margin-top:16px; background:linear-gradient(135deg, rgba(245,158,11,0.1), rgba(245,158,11,0.02)); border:1.5px solid rgba(245,158,11,0.3); border-radius:14px; padding:12px 16px; display:none; box-shadow:0 8px 20px rgba(245,158,11,0.1);">
+                                     <div style="font-size:11px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;">Hàng chờ hiện tại:</div>
                                      <div style="display:flex; justify-content:space-between; align-items:center;">
-                                         <span style="font-size:11px; color:var(--text-muted);">Queries blocked</span>
-                                         <span class="lock-wait-count" style="font-family:var(--font-mono); font-weight:900; color:#fbbf24; font-size:18px;">0</span>
+                                         <span style="font-size:12px; color:var(--text-muted);">Queries blocked</span>
+                                         <span class="lock-wait-count" style="font-family:var(--font-mono); font-weight:900; color:#fbbf24; font-size:22px; text-shadow:0 0 10px rgba(245,158,11,0.4);">0</span>
                                      </div>
                                  </div>
                              </div>
@@ -14468,51 +14474,53 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
             }
             else if (slideId === 'slide_view_3') {
                 viewportRoot.innerHTML = `
-                         <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:25px; width:100%; box-sizing:border-box;">
+                         <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:35px; width:100%; box-sizing:border-box;">
                              
-                             <div style="display:flex; align-items:center; justify-content:center; gap:40px; width:100%;">
-                                 <!-- CPU Gauge Card (Static layout, no shake) -->
-                                 <div class="node-card glass-card" style="border:1.5px solid rgba(255,255,255,0.08); padding:20px; width:200px; display:flex; flex-direction:column; align-items:center; text-align:center;">
-                                     <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; font-weight:bold; margin-bottom:12px;">CPU Utilization</div>
+                             <div style="display:flex; align-items:center; justify-content:center; gap:50px; width:100%;">
+                                 <!-- CPU Gauge Card -->
+                                 <div class="node-card glass-card" style="border:2px solid rgba(255,255,255,0.1); padding:24px; width:220px; display:flex; flex-direction:column; align-items:center; text-align:center; background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.5)); border-radius:24px; box-shadow:0 15px 40px rgba(0,0,0,0.3);">
+                                     <div style="font-size:12px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; font-weight:bold; margin-bottom:16px;">CPU Utilization</div>
                                      
                                      <!-- Radial Gauge -->
-                                     <div style="position:relative; width:100px; height:100px;">
-                                         <svg viewBox="0 0 36 36" style="width:100%; height:100%; transform:rotate(-90deg);">
+                                     <div style="position:relative; width:120px; height:120px;">
+                                         <svg viewBox="0 0 36 36" style="width:100%; height:100%; transform:rotate(-90deg); filter:drop-shadow(0 0 8px rgba(239,68,68,0.4));">
                                              <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="3" />
                                              <path class="cpu-radial-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="0, 100" style="transition: stroke-dasharray 0.1s linear;" />
                                          </svg>
                                          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
-                                             <span class="cpu-text" style="font-family:var(--font-mono); font-size:22px; font-weight:900; color:#ef4444;">25%</span>
+                                             <span class="cpu-text" style="font-family:var(--font-mono); font-size:26px; font-weight:900; color:#ef4444; text-shadow:0 0 10px rgba(239,68,68,0.5);">25%</span>
                                          </div>
                                      </div>
                                  </div>
-                                 <!-- Crashed DB Server Rack Card with working Shake animation wrapper (avoids transition conflicts) -->
+                                 <!-- Crashed DB Server Rack Card with working Shake animation wrapper -->
                                  <div class="shake-wrapper" style="transition: none; display:block;">
-                                     <div class="node-card db-crashed glass-card" style="border:2.5px solid #ef4444; padding:25px; width:340px; text-align:center; box-shadow:0 0 40px rgba(239,68,68,0.25); position:relative; box-sizing:border-box;">
-                                         <div style="display:flex; justify-content:center; align-items:center; gap:12px; margin-bottom:15px;">
-                                             <i data-lucide="database" style="width:40px; height:40px; color:#ef4444; animation: pulseRed 1s infinite;"></i>
+                                     <div class="node-card db-crashed glass-card" style="border:2px solid #ef4444; padding:28px; width:360px; text-align:center; box-shadow:0 20px 60px rgba(239,68,68,0.25); position:relative; box-sizing:border-box; background:linear-gradient(135deg, rgba(239,68,68,0.1), rgba(0,0,0,0.6)); border-radius:24px;">
+                                         <div style="display:flex; justify-content:center; align-items:center; gap:16px; margin-bottom:20px;">
+                                             <div style="background:rgba(239,68,68,0.15); border-radius:50%; width:56px; height:56px; display:flex; align-items:center; justify-content:center; flex-shrink:0; border:2px solid rgba(239,68,68,0.5); box-shadow:0 0 25px rgba(239,68,68,0.4);">
+                                                 <i data-lucide="database" style="width:30px; height:30px; color:#ef4444; animation: pulseRed 1s infinite;"></i>
+                                             </div>
                                              <div style="text-align:left;">
-                                                 <div style="font-size:16px; font-weight:bold; color:#ef4444; text-transform:uppercase; letter-spacing:1px;">Database Critical</div>
-                                                 <div style="font-size:9px; color:var(--text-muted); font-family:var(--font-mono);">Write Pool Exhausted</div>
+                                                 <div style="font-size:18px; font-weight:bold; color:#ef4444; text-transform:uppercase; letter-spacing:1px; text-shadow:0 0 10px rgba(239,68,68,0.3);">Database Critical</div>
+                                                 <div style="font-size:11px; color:#fca5a5; font-family:var(--font-mono); margin-top:4px; font-weight:bold;">Write Pool Exhausted</div>
                                              </div>
                                          </div>
                                          
-                                         <!-- Cleaned log status widgets instead of cluttered log lines -->
-                                         <div style="display:flex; flex-direction:column; gap:10px; margin-top:15px;">
-                                             <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius:10px; padding:8px 12px; display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:11px;">
-                                                 <span style="color:var(--text-muted);">ACTIVE THREADS</span>
-                                                 <span style="color:#ef4444; font-weight:bold;">MAXED OUT (10,000)</span>
+                                         <!-- Cleaned log status widgets -->
+                                         <div style="display:flex; flex-direction:column; gap:12px; margin-top:20px;">
+                                             <div style="background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); border-radius:12px; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:12px; box-shadow:0 4px 15px rgba(239,68,68,0.1);">
+                                                 <span style="color:#fca5a5; font-weight:bold;">ACTIVE THREADS</span>
+                                                 <span style="color:#ef4444; font-weight:900; text-shadow:0 0 8px rgba(239,68,68,0.4);">MAXED OUT (10,000)</span>
                                              </div>
-                                             <div style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); border-radius:10px; padding:8px 12px; display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:11px;">
-                                                 <span style="color:var(--text-muted);">LOCK ACQUISITION</span>
-                                                 <span style="color:var(--gold-primary); font-weight:bold;">TIMEOUT ERRORS</span>
+                                             <div style="background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4); border-radius:12px; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:12px; box-shadow:0 4px 15px rgba(245,158,11,0.1);">
+                                                 <span style="color:#fcd34d; font-weight:bold;">LOCK ACQUISITION</span>
+                                                 <span style="color:var(--gold-primary); font-weight:900; text-shadow:0 0 8px rgba(245,158,11,0.4);">TIMEOUT ERRORS</span>
                                              </div>
                                          </div>
                                      </div>
                                  </div>
                              </div>
                              <!-- Timeout banner -->
-                             <div class="timeout-banner" style="background:rgba(239,68,68,0.15); border:2px solid #ef4444; padding:10px 30px; border-radius:14px; color:#ef4444; font-weight:900; font-size:16px; font-family:var(--font-mono); letter-spacing:1.5px; box-shadow:0 8px 24px rgba(0,0,0,0.5); opacity:0; transform:translateY(15px); transition:all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                             <div class="timeout-banner" style="background:linear-gradient(90deg, rgba(239,68,68,0.1), rgba(239,68,68,0.25), rgba(239,68,68,0.1)); border:2px solid #ef4444; padding:14px 40px; border-radius:16px; color:#ef4444; font-weight:900; font-size:18px; font-family:var(--font-mono); letter-spacing:2px; box-shadow:0 12px 30px rgba(239,68,68,0.3); opacity:0; transform:translateY(20px); transition:all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
                                  GATEWAY TIMEOUT 504: DB_LOCK_WAIT_TIMEOUT
                              </div>
                          </div>
@@ -14622,53 +14630,62 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                              
                              <!-- SVG connections -->
                              <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
-                                 <path d="M 280 160 L 360 270" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
-                                 <path d="M 280 380 L 360 270" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
-                                 <path d="M 600 270 L 660 270" fill="none" stroke="rgba(16,185,129,0.3)" stroke-width="3" />
+                                 <path d="M 320 140 C 350 140, 350 260, 380 260" fill="none" stroke="rgba(239,68,68,0.2)" stroke-width="2.5" stroke-dasharray="6,4" />
+                                 <path d="M 320 380 C 350 380, 350 260, 380 260" fill="none" stroke="rgba(16,185,129,0.3)" stroke-width="2.5" />
+                                 <path d="M 600 260 L 700 260" fill="none" stroke="rgba(16,185,129,0.4)" stroke-width="3" />
                              </svg>
                              <!-- Left: Two user profiles -->
                              <!-- Spammer -->
-                             <div class="node-card client-spam-card glass-card" style="position:absolute; left:60px; top:110px; width:220px; border:2px solid #ef4444; padding:12px; display:flex; align-items:center; gap:12px; box-shadow:0 8px 24px rgba(239,68,68,0.05); z-index:2;">
-                                 <i data-lucide="user-x" style="width:28px; height:28px; color:#ef4444;"></i>
-                                 <div style="text-align:left;">
-                                     <div style="font-size:12px; font-weight:bold; color:#fff;">User A (Spammer)</div>
-                                     <div style="font-size:9px; color:#ef4444; font-family:var(--font-mono); font-weight:bold;">IP: 1.1.1.1 (F5 Spam)</div>
+                             <div class="node-card client-spam-card glass-card" style="position:absolute; left:60px; top:100px; width:260px; height:80px; border:1px solid rgba(239,68,68,0.3); background:linear-gradient(135deg, rgba(239,68,68,0.08), rgba(0,0,0,0.5)); padding:0 20px; display:flex; align-items:center; gap:16px; border-radius:24px; box-shadow:0 15px 35px rgba(239,68,68,0.15); z-index:2; box-sizing:border-box;">
+                                 <div style="width:48px; height:48px; border-radius:50%; background:rgba(239,68,68,0.15); border:2px solid rgba(239,68,68,0.5); display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(239,68,68,0.3);">
+                                     <i data-lucide="user-x" style="width:24px; height:24px; color:#ef4444;"></i>
+                                 </div>
+                                 <div style="text-align:left; flex:1;">
+                                     <div style="font-size:14px; font-weight:bold; color:#fff; letter-spacing:0.5px;">User A (Spammer)</div>
+                                     <div style="font-size:11px; color:#ef4444; font-family:var(--font-mono); background:rgba(239,68,68,0.1); padding:4px 8px; border-radius:6px; margin-top:5px; display:inline-block; border:1px solid rgba(239,68,68,0.2); font-weight:bold;">IP: 1.1.1.1 (F5 Spam)</div>
                                  </div>
                              </div>
                              
                              <!-- Genuine -->
-                             <div class="node-card client-genuine-card glass-card" style="position:absolute; left:60px; top:330px; width:220px; border:2px solid #10b981; padding:12px; display:flex; align-items:center; gap:12px; z-index:2;">
-                                 <i data-lucide="user-check" style="width:28px; height:28px; color:#10b981;"></i>
-                                 <div style="text-align:left;">
-                                     <div style="font-size:12px; font-weight:bold; color:#fff;">User B (Genuine)</div>
-                                     <div style="font-size:9px; color:#10b981; font-family:var(--font-mono);">IP: 2.2.2.2 (New Play)</div>
+                             <div class="node-card client-genuine-card glass-card" style="position:absolute; left:60px; top:340px; width:260px; height:80px; border:1px solid rgba(16,185,129,0.3); background:linear-gradient(135deg, rgba(16,185,129,0.08), rgba(0,0,0,0.5)); padding:0 20px; display:flex; align-items:center; gap:16px; border-radius:24px; box-shadow:0 15px 35px rgba(16,185,129,0.15); z-index:2; box-sizing:border-box;">
+                                 <div style="width:48px; height:48px; border-radius:50%; background:rgba(16,185,129,0.15); border:2px solid rgba(16,185,129,0.5); display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(16,185,129,0.3);">
+                                     <i data-lucide="user-check" style="width:24px; height:24px; color:#10b981;"></i>
+                                 </div>
+                                 <div style="text-align:left; flex:1;">
+                                     <div style="font-size:14px; font-weight:bold; color:#fff; letter-spacing:0.5px;">User B (Genuine)</div>
+                                     <div style="font-size:11px; color:#10b981; font-family:var(--font-mono); background:rgba(16,185,129,0.1); padding:4px 8px; border-radius:6px; margin-top:5px; display:inline-block; border:1px solid rgba(16,185,129,0.2); font-weight:bold;">IP: 2.2.2.2 (New Play)</div>
                                  </div>
                              </div>
                              
-                             <!-- Center: Filter Gatekeeper Node with internal IP list -->
-                             <div class="node-card filter-node-card glass-card" style="position:absolute; left:360px; top:165px; width:240px; border:2.5px solid var(--gold-primary); border-radius:24px; padding:18px; text-align:center; box-shadow:0 15px 40px rgba(245,158,11,0.1); z-index:2;">
-                                 <i class="filter-shield-icon" data-lucide="shield" style="width:36px; height:36px; color:var(--gold-primary); margin:0 auto 8px auto;"></i>
-                                 <div style="font-size:13px; font-weight:bold; color:#fff;">IP Cache Filter</div>
-                                 <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">Unique Check (10m TTL)</div>
+                             <!-- Center: Filter Gatekeeper Node -->
+                             <div class="node-card filter-node-card glass-card" style="position:absolute; left:380px; top:180px; width:220px; height:160px; border:2px solid var(--gold-primary); background:linear-gradient(180deg, rgba(245,158,11,0.08), rgba(245,158,11,0.01)); border-radius:32px; display:flex; flex-direction:column; justify-content:center; align-items:center; box-shadow:0 20px 60px rgba(245,158,11,0.2); z-index:2; box-sizing:border-box; overflow:hidden;">
+                                 <div style="width:56px; height:56px; border-radius:50%; background:rgba(245,158,11,0.15); border:2px solid rgba(245,158,11,0.5); display:flex; align-items:center; justify-content:center; margin-bottom:12px; box-shadow:0 0 25px rgba(245,158,11,0.4);">
+                                     <i class="filter-shield-icon" data-lucide="shield" style="width:32px; height:32px; color:var(--gold-primary);"></i>
+                                 </div>
+                                 <div style="font-size:16px; font-weight:bold; color:#fff; letter-spacing:0.5px;">IP Cache Filter</div>
+                                 <div style="font-size:11px; color:var(--gold-primary); font-family:var(--font-mono); background:rgba(245,158,11,0.1); padding:4px 10px; border-radius:8px; margin-top:8px; border:1px solid rgba(245,158,11,0.2); font-weight:bold;">Unique Check (10m TTL)</div>
+                                 
                                  <!-- Neon red shield pulse block overlay -->
-                                 <div class="filter-barrier" style="position:absolute; inset:0; background:rgba(239,68,68,0.2); backdrop-filter:blur(2px); border-radius:22px; border:2.5px solid #ef4444; display:none; align-items:center; justify-content:center; opacity:0; transition:all 0.3s ease;">
-                                     <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                         <span style="font-size:10px; font-weight:900; color:#ef4444; letter-spacing:0.5px;">SPAM DETECTED</span>
+                                 <div class="filter-barrier" style="position:absolute; inset:0; background:rgba(239,68,68,0.25); backdrop-filter:blur(4px); display:none; align-items:center; justify-content:center; opacity:0; transition:all 0.3s ease; border:2px solid #ef4444; border-radius:30px;">
+                                     <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" style="filter:drop-shadow(0 0 8px #ef4444);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                         <span style="font-size:12px; font-weight:900; color:#ef4444; letter-spacing:1px; background:rgba(0,0,0,0.5); padding:4px 10px; border-radius:8px;">SPAM DETECTED</span>
                                      </div>
                                  </div>
                              </div>
                              
                              <!-- Right: Real view counter -->
-                             <div class="node-card view-counter-node glass-card" style="position:absolute; left:660px; top:215px; width:150px; padding:18px; text-align:center; border:2px solid #3b82f6; border-radius:22px; z-index:2;">
-                                 <i data-lucide="play" style="width:32px; height:32px; color:#3b82f6; margin:0 auto 8px auto;"></i>
-                                 <div style="font-size:13px; font-weight:bold; color:#fff;">Real Views</div>
-                                 <div class="filtered-view-val" style="font-family:var(--font-mono); font-size:22px; color:#3b82f6; font-weight:900; margin-top:8px; text-shadow:0 0 10px rgba(59,130,246,0.3);">100,000</div>
+                             <div class="node-card view-counter-node glass-card" style="position:absolute; left:700px; top:210px; width:160px; height:100px; padding:15px; display:flex; flex-direction:column; justify-content:center; align-items:center; border:2px solid #3b82f6; background:linear-gradient(135deg, rgba(59,130,246,0.1), rgba(0,0,0,0.5)); border-radius:24px; box-shadow:0 15px 40px rgba(59,130,246,0.2); z-index:2; box-sizing:border-box;">
+                                 <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                                     <i data-lucide="play" style="width:20px; height:20px; color:#3b82f6; fill:rgba(59,130,246,0.2);"></i>
+                                     <div style="font-size:13px; font-weight:bold; color:var(--text-muted); text-transform:uppercase;">Real Views</div>
+                                 </div>
+                                 <div class="filtered-view-val" style="font-family:var(--font-mono); font-size:26px; color:#10b981; font-weight:900; text-shadow:0 0 15px rgba(16,185,129,0.5);">100,000</div>
                              </div>
                              <!-- Flying check packets -->
-                             <div class="check-packet spam-pk-1" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 10px #ef4444; z-index:10; display:none; left:0; top:0;"></div>
-                             <div class="check-packet spam-pk-2" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 10px #ef4444; z-index:10; display:none; left:0; top:0;"></div>
-                             <div class="check-packet genuine-pk" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#10b981; box-shadow:0 0 10px #10b981; z-index:10; display:none; left:0; top:0;"></div>
+                             <div class="check-packet spam-pk-1" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 12px #ef4444; z-index:10; display:none; left:0; top:0;"></div>
+                             <div class="check-packet spam-pk-2" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#ef4444; box-shadow:0 0 12px #ef4444; z-index:10; display:none; left:0; top:0;"></div>
+                             <div class="check-packet genuine-pk" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#10b981; box-shadow:0 0 15px #10b981; z-index:10; display:none; left:0; top:0;"></div>
                          </div>
                     `;
             }
@@ -16397,24 +16414,24 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                     gfxLayer.innerHTML = `
                             <div style="display:flex; flex-direction:column; align-items:center; gap:25px; width:100%; max-width:820px; font-family:var(--font-sans);">
                                 <h3 style="color:var(--gold-primary); font-size:18px; font-weight:900; margin:0; text-transform:uppercase;">Subword & Character Splitting</h3>
-                                <div style="display:flex; flex-direction:column; gap:16px; background:rgba(15,23,42,0.6); border:2.5px solid rgba(255,255,255,0.08); border-radius:24px; padding:25px 30px; width:680px; box-sizing:border-box;">
+                                <div style="display:flex; flex-direction:column; gap:20px; background:rgba(15,23,42,0.6); border:2.5px solid rgba(255,255,255,0.08); border-radius:24px; padding:25px 30px; width:480px; box-sizing:border-box;">
                                     <!-- Row 1: Original Word -->
-                                    <div class="split-row-1" style="display:flex; justify-content:space-between; align-items:center; opacity:0; transition:all 0.5s; transform:translateY(10px);">
+                                    <div class="split-row-1" style="display:flex; flex-direction:column; align-items:flex-start; gap:8px; opacity:0; transition:all 0.5s; transform:translateY(10px);">
                                         <span style="font-size:14px; font-weight:bold; color:var(--text-muted);">Từ gốc:</span>
                                         <span style="font-family:var(--font-mono); font-size:20px; font-weight:bold; color:#fff; background:rgba(255,255,255,0.05); padding:4px 16px; border-radius:8px;">tokenization</span>
                                     </div>
                                     <!-- Row 2: Subwords -->
-                                    <div class="split-row-2" style="display:flex; justify-content:space-between; align-items:center; opacity:0; transition:all 0.5s; transform:translateY(10px);">
+                                    <div class="split-row-2" style="display:flex; flex-direction:column; align-items:flex-start; gap:8px; opacity:0; transition:all 0.5s; transform:translateY(10px);">
                                         <span style="font-size:14px; font-weight:bold; color:var(--text-muted);">Mảnh từ (Subwords):</span>
-                                        <span style="font-family:var(--font-mono); font-size:18px; font-weight:bold; color:#3b82f6;">
-                                            <span style="border:1.5px solid rgba(59,130,246,0.3); background:rgba(59,130,246,0.1); padding:4px 10px; border-radius:8px; margin-right:8px;">token</span>
+                                        <span style="font-family:var(--font-mono); font-size:18px; font-weight:bold; color:#3b82f6; display:flex; flex-wrap:wrap; gap:8px;">
+                                            <span style="border:1.5px solid rgba(59,130,246,0.3); background:rgba(59,130,246,0.1); padding:4px 10px; border-radius:8px;">token</span>
                                             <span style="border:1.5px solid rgba(59,130,246,0.3); background:rgba(59,130,246,0.1); padding:4px 10px; border-radius:8px;">##ization</span>
                                         </span>
                                     </div>
                                     <!-- Row 3: Characters -->
-                                    <div class="split-row-3" style="display:flex; justify-content:space-between; align-items:center; opacity:0; transition:all 0.5s; transform:translateY(10px);">
+                                    <div class="split-row-3" style="display:flex; flex-direction:column; align-items:flex-start; gap:8px; opacity:0; transition:all 0.5s; transform:translateY(10px);">
                                         <span style="font-size:14px; font-weight:bold; color:var(--text-muted);">Ký tự (Characters):</span>
-                                        <span style="font-family:var(--font-mono); font-size:16px; font-weight:bold; color:#10b981; display:flex; gap:4px;">
+                                        <span style="font-family:var(--font-mono); font-size:16px; font-weight:bold; color:#10b981; display:flex; flex-wrap:wrap; gap:4px;">
                                             <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">t</span>
                                             <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">o</span>
                                             <span style="border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.08); width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">k</span>
@@ -16437,18 +16454,18 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                     gfxLayer.innerHTML = `
                             <div style="display:flex; flex-direction:column; align-items:center; gap:25px; width:100%; max-width:820px;">
                                 <h3 style="color:var(--gold-primary); font-size:18px; font-weight:900; margin:0; text-transform:uppercase;">Byte-Pair Encoding (BPE)</h3>
-                                <div style="display:flex; flex-direction:column; gap:16px; background:rgba(15,23,42,0.6); border:2.5px solid rgba(255,255,255,0.08); border-radius:24px; padding:25px 30px; width:680px; box-sizing:border-box;">
-                                    <div class="bpe-step-1" style="display:flex; justify-content:space-between; align-items:center; opacity:0; transition:all 0.5s; transform:translateY(10px);">
+                                <div style="display:flex; flex-direction:column; gap:20px; background:rgba(15,23,42,0.6); border:2.5px solid rgba(255,255,255,0.08); border-radius:24px; padding:25px 30px; width:480px; box-sizing:border-box;">
+                                    <div class="bpe-step-1" style="display:flex; flex-direction:column; align-items:flex-start; gap:8px; opacity:0; transition:all 0.5s; transform:translateY(10px);">
                                         <span style="font-size:14px; font-weight:bold; color:var(--text-muted);">[1] Tách ký tự gốc:</span>
                                         <span style="font-family:var(--font-mono); font-size:18px; font-weight:bold; color:#fff; letter-spacing: 2px;">T | u | r | n | i | o | . | d | e | v</span>
                                     </div>
-                                    <div class="bpe-step-2" style="display:flex; justify-content:space-between; align-items:center; opacity:0; transition:all 0.5s; transform:translateY(10px);">
+                                    <div class="bpe-step-2" style="display:flex; flex-direction:column; align-items:flex-start; gap:8px; opacity:0; transition:all 0.5s; transform:translateY(10px);">
                                         <span style="font-size:14px; font-weight:bold; color:var(--text-muted);">[2] Ghép cặp phổ biến:</span>
                                         <span style="font-family:var(--font-mono); font-size:18px; font-weight:bold; color:var(--gold-primary); letter-spacing: 2px;">Turn | io | . | dev</span>
                                     </div>
-                                    <div class="bpe-step-3" style="display:flex; justify-content:space-between; align-items:center; opacity:0; transition:all 0.5s; transform:translateY(10px);">
+                                    <div class="bpe-step-3" style="display:flex; flex-direction:column; align-items:flex-start; gap:8px; opacity:0; transition:all 0.5s; transform:translateY(10px);">
                                         <span style="font-size:14px; font-weight:bold; color:var(--text-muted);">[3] Token từ con cuối:</span>
-                                        <span style="font-family:var(--font-mono); font-size:18px; font-weight:bold; color:#10b981; text-shadow:0 0 10px rgba(16,185,129,0.5);">"Turn" (ID: 8201) | "io" (ID: 356) | ".dev" (ID: 4192)</span>
+                                        <span style="font-family:var(--font-mono); font-size:16px; font-weight:bold; color:#10b981; text-shadow:0 0 10px rgba(16,185,129,0.5); line-height:1.4;">"Turn" (ID: 8201) | "io" (ID: 356) | ".dev" (ID: 4192)</span>
                                     </div>
                                 </div>
                             </div>
@@ -16458,7 +16475,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                     gfxLayer.innerHTML = `
                             <div style="display:flex; flex-direction:column; align-items:center; gap:16px; width:100%; max-width:820px; height:100%; justify-content:center;">
                                 <h3 style="color:var(--gold-primary); font-size:18px; font-weight:900; margin:0; text-transform:uppercase;">Vector Embedding Space</h3>
-                                <div style="position:relative; width:760px; height:240px; background:rgba(15,23,42,0.6); border:2.5px solid rgba(255,255,255,0.08); border-radius:24px; padding:15px; box-sizing:border-box;">
+                                <div style="position:relative; width:760px; height:240px; background:transparent; border:none; border-radius:24px; padding:15px; box-sizing:border-box;">
                                     <svg viewBox="0 0 760 240" style="position:absolute; top:0; left:0; width:100%; height:100%;">
                                         <!-- Axis grid -->
                                         <line x1="50" y1="200" x2="710" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
@@ -16502,7 +16519,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                     gfxLayer.innerHTML = `
                             <div style="display:flex; flex-direction:column; align-items:center; gap:20px; width:100%; max-width:820px;">
                                 <h3 style="color:var(--gold-primary); font-size:18px; font-weight:900; margin:0; text-transform:uppercase;">Self-Attention (Tra cứu ngữ cảnh)</h3>
-                                <div style="position:relative; width:760px; height:240px; display:flex; justify-content:space-between; align-items:center; background:rgba(15,23,42,0.6); border:2.5px solid rgba(255,255,255,0.08); border-radius:24px; padding:20px 40px; box-sizing:border-box;">
+                                <div style="position:relative; width:760px; height:240px; display:flex; justify-content:space-between; align-items:center; background:transparent; border:none; border-radius:24px; padding:20px 40px; box-sizing:border-box;">
                                     
                                     <!-- Query (Q) Column -->
                                     <div class="qkv-column" style="display:flex; flex-direction:column; align-items:center; gap:10px; width:180px; z-index:10;">
@@ -16568,10 +16585,10 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                     gfxLayer.innerHTML = `
                             <div style="display:flex; flex-direction:column; align-items:center; gap:20px; width:100%; max-width:820px;">
                                 <h3 style="color:var(--gold-primary); font-size:18px; font-weight:900; margin:0; text-transform:uppercase;">Next Token Prediction</h3>
-                                <div style="display:flex; gap:30px; width:760px; background:rgba(15,23,42,0.6); border:2.5px solid rgba(255,255,255,0.08); border-radius:24px; padding:25px; box-sizing:border-box;">
+                                <div style="display:flex; flex-direction:column; align-items:center; gap:20px; width:480px; background:transparent; border:none; border-radius:24px; padding:10px; box-sizing:border-box;">
                                     
                                     <!-- Chat window -->
-                                    <div style="flex:1; display:flex; flex-direction:column; gap:12px; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.05); border-radius:16px; padding:15px; justify-content:center; min-height:160px;">
+                                    <div style="width:100%; display:flex; flex-direction:column; gap:12px; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.05); border-radius:16px; padding:15px; justify-content:center; min-height:120px; box-sizing:border-box;">
                                         <div style="font-size:11px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase;">Prompt / Câu đầu vào</div>
                                         <div style="font-size:15px; color:#94a3b8; background:rgba(255,255,255,0.02); padding:10px; border-radius:8px; border-left:3px solid #3b82f6;">"Tôi yêu lập..."</div>
                                         
@@ -16582,7 +16599,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                     </div>
                                     
                                     <!-- Histogram -->
-                                    <div style="width:340px; display:flex; flex-direction:column; gap:16px; justify-content:center;">
+                                    <div style="width:100%; display:flex; flex-direction:column; gap:16px; justify-content:center; padding:15px; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.05); border-radius:16px; box-sizing:border-box;">
                                         <div style="font-size:12px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; text-align:center;">Phân phối xác suất từ tiếp theo</div>
                                         
                                         <!-- Candidate 1 -->
@@ -16626,7 +16643,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                     gfxLayer.innerHTML = `
                             <div style="display:flex; flex-direction:column; align-items:center; gap:20px; width:100%; max-width:820px;">
                                 <h3 style="color:var(--gold-primary); font-size:18px; font-weight:900; margin:0; text-transform:uppercase;">Temperature (Nhiệt độ sáng tạo)</h3>
-                                <div style="display:flex; gap:20px; align-items:center; justify-content:center; width:760px; background:rgba(15,23,42,0.6); border:2.5px solid rgba(255,255,255,0.08); border-radius:24px; padding:25px; box-sizing:border-box;">
+                                <div style="display:flex; gap:20px; align-items:center; justify-content:center; width:760px; background:transparent; border:none; border-radius:24px; padding:25px; box-sizing:border-box;">
                                     
                                     <!-- Low Temp Card -->
                                     <div class="mode-low" style="flex:1; border:2px solid rgba(255,255,255,0.06); border-radius:16px; padding:20px; text-align:center; background:rgba(255,255,255,0.02); transition:all 0.5s;">
@@ -16661,14 +16678,14 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                     gfxLayer.innerHTML = `
                         <div style="display:flex; flex-direction:column; align-items:center; gap:20px; width:100%; max-width:820px;">
                             <h3 style="color:#ef4444; font-size:18px; font-weight:900; margin:0; text-transform:uppercase;">Hallucination (Hoang Tưởng)</h3>
-                            <div style="display:flex; gap:20px; width:760px; background:rgba(15,23,42,0.6); border:2.5px solid rgba(255,255,255,0.08); border-radius:24px; padding:25px; box-sizing:border-box; position:relative; align-items:stretch;">
-                                <div style="flex:1; display:flex; flex-direction:column; gap:12px; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.05); border-radius:16px; padding:15px; justify-content:center; min-height:160px;">
+                            <div style="display:flex; flex-direction:column; gap:20px; width:480px; background:transparent; border:none; border-radius:24px; padding:10px; box-sizing:border-box; position:relative; align-items:stretch;">
+                                <div style="width:100%; display:flex; flex-direction:column; gap:12px; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.05); border-radius:16px; padding:15px; justify-content:center; min-height:120px; box-sizing:border-box;">
                                     <div style="font-size:11px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase;">Câu hỏi</div>
                                     <div style="font-size:14px; color:#94a3b8; background:rgba(255,255,255,0.02); padding:10px; border-radius:8px; border-left:3px solid #3b82f6;">&quot;Ai phát minh ra Internet?&quot;</div>
                                     <div style="font-size:11px; font-weight:bold; color:#ef4444; text-transform:uppercase; margin-top:5px;">AI trả lời</div>
                                     <div class="halluc-typed-text" style="font-size:20px; font-weight:bold; color:#fff; font-family:var(--font-mono); padding:10px; background:rgba(239,68,68,0.04); border-radius:8px; min-height:48px; display:flex; align-items:center; border:1px solid rgba(239,68,68,0.15);">...</div>
                                 </div>
-                                <div style="width:320px; display:flex; flex-direction:column; gap:14px; justify-content:center;">
+                                <div style="width:100%; display:flex; flex-direction:column; gap:14px; justify-content:center; padding:15px; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.05); border-radius:16px; box-sizing:border-box;">
                                     <div style="font-size:11px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; text-align:center;">Xác suất từ tiếp theo</div>
                                     <div style="display:flex; flex-direction:column; gap:6px;">
                                         <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:bold;">
@@ -16703,7 +16720,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                     gfxLayer.innerHTML = `
                             <div style="display:flex; flex-direction:column; align-items:center; gap:16px; width:100%; max-width:820px;">
                                 <h3 style="color:var(--gold-primary); font-size:18px; font-weight:900; margin:0; text-transform:uppercase;">Denoising Diffusion Models</h3>
-                                <div style="display:flex; gap:30px; width:760px; background:rgba(15,23,42,0.6); border:2.5px solid rgba(255,255,255,0.08); border-radius:24px; padding:20px 30px; box-sizing:border-box; align-items:center; justify-content:center;">
+                                <div style="display:flex; flex-direction:column; gap:20px; width:480px; background:transparent; border:none; border-radius:24px; padding:10px; box-sizing:border-box; align-items:center; justify-content:center;">
                                     
                                     <!-- Diffusion Canvas Box -->
                                     <div style="position:relative; width:280px; height:200px; border-radius:16px; overflow:hidden; border:2.5px solid rgba(255,255,255,0.1); background:#0a0e17; box-shadow:0 8px 25px rgba(0,0,0,0.5);">
@@ -16738,7 +16755,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                                     </div>
                                     
                                     <!-- Diffusion Info -->
-                                    <div style="flex:1; display:flex; flex-direction:column; gap:12px; height:100%; justify-content:center;">
+                                    <div style="width:100%; display:flex; flex-direction:column; gap:12px; align-items:center; justify-content:center; text-align:center;">
                                         <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:12px 18px;">
                                             <div class="diffusion-step-lbl" style="font-family:var(--font-mono); font-size:24px; font-weight:900; color:var(--gold-primary);">Step: 100</div>
                                         </div>
