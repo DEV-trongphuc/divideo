@@ -31,7 +31,7 @@
 
     const customSlideIds = [
         'slide_typing_1', 'slide_typing_2', 'slide_typing_3', 
-        'slide_typing_4', 'slide_typing_5', 'slide_typing_6'
+        'slide_typing_4', 'slide_typing_5'
     ];
 
     // Helper to calculate coordinates along a cubic bezier curve
@@ -470,62 +470,7 @@
                 </div>
             `;
         }
-        else if (slideId === 'slide_typing_6') {
-            canvas.innerHTML = `
-                <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; zoom:1.0;">
-                    <!-- Final unified visual promotion card -->
-                    <div class="glass-card cyber-grid" style="width:100%; max-width:860px; height:450px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 35px rgba(245,158,11,0.25); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box; text-align:center;">
-                        
-                        <div style="display:flex; justify-content:center; align-items:center; gap:10px; border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:10px;">
-                            <i data-lucide="check-circle" style="width:24px; height:24px; color:#10b981;"></i>
-                            <h2 style="font-size:24px; font-weight:bold; color:#fff; margin:0;">Thiết Kế Hệ Thống Chat Tối Ưu</h2>
-                        </div>
 
-                        <!-- System design stack boxes -->
-                        <div style="display:flex; justify-content:center; gap:20px; margin:20px 0;">
-                            
-                            <div style="flex:1; padding:16px; border-radius:16px; border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.02); display:flex; flex-direction:column; align-items:center; gap:8px;">
-                                <div style="width:40px; height:40px; border-radius:50%; background:rgba(16,185,129,0.15); display:flex; align-items:center; justify-content:center; color:#10b981;">
-                                    <i data-lucide="shield-check" style="width:20px; height:20px;"></i>
-                                </div>
-                                <span style="font-size:14px; font-weight:bold; color:#10b981; font-family:sans-serif;">Client Debounce</span>
-                                <p style="font-size:11px; color:#aaa; margin:0; font-family:sans-serif; line-height:1.4;">Chặn bão sự kiện tại đầu cuối, tiết kiệm 95% tài nguyên mạng truyền dẫn.</p>
-                            </div>
-
-                            <div style="flex:1; padding:16px; border-radius:16px; border:1px solid rgba(0, 132, 255, 0.3); background:rgba(0, 132, 255, 0.02); display:flex; flex-direction:column; align-items:center; gap:8px;">
-                                <div style="width:40px; height:40px; border-radius:50%; background:rgba(0, 132, 255, 0.15); display:flex; align-items:center; justify-content:center; color:#0084ff;">
-                                    <i data-lucide="zap" style="width:20px; height:20px;"></i>
-                                </div>
-                                <span style="font-size:14px; font-weight:bold; color:#0084ff; font-family:sans-serif;">Persistent WebSocket</span>
-                                <p style="font-size:11px; color:#aaa; margin:0; font-family:sans-serif; line-height:1.4;">Duy trì kết nối song công dài hạn, đẩy gói tin JSON siêu nhẹ với độ trễ thấp.</p>
-                            </div>
-
-                            <div style="flex:1; padding:16px; border-radius:16px; border:1px solid rgba(239, 68, 68, 0.3); background:rgba(239, 68, 68, 0.02); display:flex; flex-direction:column; align-items:center; gap:8px;">
-                                <div style="width:40px; height:40px; border-radius:50%; background:rgba(239, 68, 68, 0.15); display:flex; align-items:center; justify-content:center; color:#ef4444;">
-                                    <i data-lucide="git-branch" style="width:20px; height:20px;"></i>
-                                </div>
-                                <span style="font-size:14px; font-weight:bold; color:#ef4444; font-family:sans-serif;">Redis Pub/Sub</span>
-                                <p style="font-size:11px; color:#aaa; margin:0; font-family:sans-serif; line-height:1.4;">Định tuyến & phát sóng tin nhắn real-time ngang giữa các cụm server mở rộng.</p>
-                            </div>
-
-                        </div>
-
-                        <!-- Brand Promo footer -->
-                        <div style="padding:12px; border-radius:12px; background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.2); display:flex; align-items:center; justify-content:space-between; box-sizing:border-box;">
-                            <div style="display:flex; align-items:center; gap:10px;">
-                                <div style="width:32px; height:32px; border-radius:50%; background:var(--gold-primary); display:flex; align-items:center; justify-content:center; color:#000; font-weight:bold; font-size:16px;">T</div>
-                                <div style="text-align:left;">
-                                    <div style="font-size:13px; font-weight:bold; color:#fff; font-family:sans-serif;">Làm chủ System Design & Backend</div>
-                                    <div style="font-size:11px; color:rgba(255,255,255,0.45); font-family:sans-serif;">Học thực tế, hiểu bản chất cùng Turnio.dev</div>
-                                </div>
-                            </div>
-                            <div style="padding:6px 14px; border-radius:20px; background:#fff; color:#000; font-size:12px; font-weight:bold; font-family:sans-serif;">FOLLOW KÊNH</div>
-                        </div>
-
-                    </div>
-                </div>
-            `;
-        }
 
         if (typeof lucide !== 'undefined') {
             lucide.createIcons({ node: canvas });

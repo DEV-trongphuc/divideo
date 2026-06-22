@@ -88,5 +88,20 @@
     "code": "",
     "diagram": [],
     "scriptHash": ""
+  },
+  {
+    "id": "slide_active_7",
+    "layout": "title",
+    "title": "Khám Phá Presence Service cùng Turnio!",
+    "subtitle": "ẤN FOLLOW @TURNIO.DEV ĐỂ TỐI ƯU HÓA HỆ THỐNG",
+    "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng khám phá thêm nhiều bài học Backend đỉnh cao mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "default_voxcpm",
+    "audioPath": "/kichban/video24/mp3/slide_active_7.mp3",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "scriptHash": ""
   }
 ]
