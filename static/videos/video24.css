@@ -1,0 +1,128 @@
+/* Style plugin for Video 24: Messenger Active Status system using Bitmaps */
+
+:root {
+    --active-green: #10b981;
+    --inactive-gray: #4b5563;
+    --db-purple: #8b5cf6;
+    --ram-blue: #3b82f6;
+    --flash-red: #ef4444;
+}
+
+/* Green dot blinking status keyframes */
+@keyframes green-status-blink {
+    0%, 100% { transform: scale(1); opacity: 0.85; box-shadow: 0 0 4px var(--active-green); }
+    50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 10px var(--active-green); }
+}
+
+.active-dot-pulse {
+    width: 10px;
+    height: 10px;
+    background-color: var(--active-green);
+    border-radius: 50%;
+    animation: green-status-blink 1.5s infinite ease-in-out;
+}
+
+/* Database shake animation for overload */
+@keyframes db-shake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    20% { transform: translate(-2px, 2px) rotate(-0.5deg); }
+    40% { transform: translate(2px, -2px) rotate(0.5deg); }
+    60% { transform: translate(-2px, -2px) rotate(-0.5deg); }
+    80% { transform: translate(2px, 2px) rotate(0.5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.db-overloaded {
+    animation: db-shake 0.12s infinite;
+    border-color: var(--flash-red) !important;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.6) !important;
+}
+
+/* Bitmap bit cell styles */
+.bit-cell {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bit-1 {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: var(--active-green);
+    color: var(--active-green);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
+}
+
+.bit-0 {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--inactive-gray);
+}
+
+/* Pulsing bit cell for bit query demonstration */
+@keyframes bit-query-pulse {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(16, 185, 129, 0.25); }
+    50% { transform: scale(1.15); box-shadow: 0 0 25px rgba(16, 185, 129, 0.8); border-color: #10b981; background: rgba(16, 185, 129, 0.35); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(16, 185, 129, 0.25); }
+}
+
+.bit-queried {
+    animation: bit-query-pulse 0.8s infinite ease-in-out;
+}
+
+/* Comparison bar scaling animations */
+@keyframes bar-grow {
+    from { width: 0%; }
+    to { width: var(--target-width); }
+}
+
+.growth-bar {
+    height: 14px;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #ef4444, #f59e0b);
+    animation: bar-grow 1s ease-out forwards;
+}
+
+.growth-bar-optimized {
+    height: 14px;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #10b981, #059669);
+    animation: bar-grow 1s ease-out forwards;
+}
+
+/* Radial ripple wave for active bit retrieval */
+@keyframes retrieve-ripple {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+.retrieve-wave {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid var(--active-green);
+    pointer-events: none;
+    animation: retrieve-ripple 0.6s ease-out infinite;
+}
+
+/* SQL query box code highlight */
+.sql-query-box {
+    background: #0f111a;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #cbd5e1;
+    font-size: 11px;
+    line-height: 1.4;
+    padding: 10px;
+    text-align: left;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.5);
+}
