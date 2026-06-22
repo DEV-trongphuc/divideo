@@ -104,56 +104,160 @@
             if (needsTemplate) {
                 canvas.innerHTML = `
                     <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; zoom:1.0;">
-                        <!-- Spotify Phone Mockup - Scaled up significantly for maximum wow effect -->
-                        <div class="glass-card" style="width:440px; height:560px; border:2.5px solid rgba(255,255,255,0.1); border-radius:32px; padding:28px; display:flex; flex-direction:column; justify-content:space-between; background:#121212; position:relative; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.95); box-sizing:border-box;">
+                        <!-- Spotify Phone Mockup - Sized up to 440px x 600px -->
+                        <div class="glass-card" style="width:440px; height:600px; border:2.5px solid rgba(255,255,255,0.1); border-radius:32px; padding:24px; display:flex; flex-direction:column; background:#121212; position:relative; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.95); box-sizing:border-box;">
                             
-                            <!-- Header phone -->
-                            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(255,255,255,0.08); padding-bottom:10px;">
-                                <span style="font-size:14px; font-weight:bold; color:var(--spotify-green); letter-spacing:1.5px; font-family:sans-serif;">PLAYING FROM SHUFFLE</span>
-                                <i data-lucide="music-2" style="color:var(--spotify-green); width:20px; height:20px;"></i>
-                            </div>
+                            <!-- Playlist Screen -->
+                            <div class="playlist-screen" style="position:absolute; inset:24px; display:flex; flex-direction:column; justify-content:flex-start; z-index: 2; transform: none; opacity: 1;">
+                                <!-- Header -->
+                                <div style="display:flex; gap:16px; align-items:center; margin-bottom:20px;">
+                                    <div style="width:100px; height:100px; border-radius:12px; background:linear-gradient(135deg, #1db954, #191414); display:flex; align-items:center; justify-content:center; box-shadow:0 8px 16px rgba(0,0,0,0.4);">
+                                        <i data-lucide="music-4" style="color:#fff; width:48px; height:48px;"></i>
+                                    </div>
+                                    <div style="display:flex; flex-direction:column; justify-content:center; text-align:left;">
+                                        <span style="font-size:12px; font-weight:bold; color:var(--spotify-green); letter-spacing:1px;">PLAYLIST</span>
+                                        <span style="font-size:22px; font-weight:bold; color:#fff; margin-top:2px;">Mix Ngẫu Nhiên</span>
+                                        <span style="font-size:13px; color:var(--spotify-text); margin-top:4px;">Turnio.dev • 7 bài hát</span>
+                                    </div>
+                                </div>
 
-                            <!-- Warning alert box (slides down on same artist clump) -->
-                            <div class="cluster-alert-badge" style="position:absolute; top:-70px; left:28px; right:28px; padding:12px; border-radius:12px; border:1.5px solid #ef4444; color:#fff; font-size:13px; font-family:sans-serif; text-align:center; transition: all 0.5s ease-in-out; z-index:10; display:flex; align-items:center; justify-content:center; gap:8px;">
-                                <i data-lucide="alert-triangle" style="width:18px; height:18px; color:#ef4444;"></i>
-                                <span style="font-weight:bold;">Gặp cụm: Ca sĩ A hát liên tiếp!</span>
-                            </div>
+                                <!-- Action Row -->
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                                    <div style="display:flex; gap:16px; align-items:center;">
+                                        <i data-lucide="shuffle" style="color:var(--spotify-green); width:24px; height:24px; cursor:pointer;" class="pulse-glow"></i>
+                                        <i data-lucide="arrow-down-circle" style="color:var(--spotify-text); width:20px; height:20px;"></i>
+                                        <i data-lucide="user-plus" style="color:var(--spotify-text); width:20px; height:20px;"></i>
+                                    </div>
+                                    <div style="width:48px; height:48px; border-radius:50%; background:var(--spotify-green); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,0.3); cursor:pointer;">
+                                        <i data-lucide="play" style="color:#000; width:20px; height:20px; fill:#000; margin-left:2px;"></i>
+                                    </div>
+                                </div>
 
-                            <!-- Vinyl Rotating Disc (Enlarged) -->
-                            <div style="position:relative; width:240px; height:240px; margin:25px auto; display:flex; align-items:center; justify-content:center; z-index:2;">
-                                <div style="position:absolute; inset:0; background:radial-gradient(circle, rgba(29,185,84,0.3) 0%, transparent 70%); filter:blur(20px);"></div>
-                                <div class="vinyl-disc-spin" style="width:220px; height:220px; border-radius:50%; background:repeating-radial-gradient(circle, #222 0px, #222 4px, #111 4px, #111 8px); border:4px solid #000; display:flex; align-items:center; justify-content:center; box-shadow: 0 12px 30px rgba(0,0,0,0.75);">
-                                    <div style="width:70px; height:70px; border-radius:50%; background:var(--spotify-green); border:4px solid #121212; display:flex; align-items:center; justify-content:center;">
-                                        <span style="font-size:32px;">🎵</span>
+                                <!-- Song List -->
+                                <div class="song-list-container" style="flex:1; display:flex; flex-direction:column;">
+                                    <!-- Song Row 1 (Active) -->
+                                    <div class="playlist-song-row active">
+                                        <div style="display:flex; gap:12px; align-items:center; text-align:left;">
+                                            <span style="font-size:14px; font-weight:bold; color:var(--spotify-green); width:15px; text-align:center;">1</span>
+                                            <div style="display:flex; flex-direction:column;">
+                                                <span style="font-size:14px; font-weight:bold; color:var(--spotify-green);">Chúng Ta Của Tương Lai</span>
+                                                <span style="font-size:12px; color:var(--spotify-text);">Sơn Tùng M-TP</span>
+                                            </div>
+                                        </div>
+                                        <div class="eq-container">
+                                            <div class="eq-bar"></div>
+                                            <div class="eq-bar"></div>
+                                            <div class="eq-bar"></div>
+                                            <div class="eq-bar"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Song Row 2 -->
+                                    <div class="playlist-song-row">
+                                        <div style="display:flex; gap:12px; align-items:center; text-align:left;">
+                                            <span style="font-size:14px; font-weight:bold; color:var(--spotify-text); width:15px; text-align:center;">2</span>
+                                            <div style="display:flex; flex-direction:column;">
+                                                <span style="font-size:14px; font-weight:bold; color:#fff;">Hãy Trao Cho Anh</span>
+                                                <span style="font-size:12px; color:var(--spotify-text);">Sơn Tùng M-TP</span>
+                                            </div>
+                                        </div>
+                                        <i data-lucide="more-horizontal" style="color:var(--spotify-text); width:18px; height:18px;"></i>
+                                    </div>
+
+                                    <!-- Song Row 3 -->
+                                    <div class="playlist-song-row">
+                                        <div style="display:flex; gap:12px; align-items:center; text-align:left;">
+                                            <span style="font-size:14px; font-weight:bold; color:var(--spotify-text); width:15px; text-align:center;">3</span>
+                                            <div style="display:flex; flex-direction:column;">
+                                                <span style="font-size:14px; font-weight:bold; color:#fff;">Cơn Mưa Ngang Qua</span>
+                                                <span style="font-size:12px; color:var(--spotify-text);">Sơn Tùng M-TP</span>
+                                            </div>
+                                        </div>
+                                        <i data-lucide="more-horizontal" style="color:var(--spotify-text); width:18px; height:18px;"></i>
+                                    </div>
+
+                                    <!-- Song Row 4 -->
+                                    <div class="playlist-song-row">
+                                        <div style="display:flex; gap:12px; align-items:center; text-align:left;">
+                                            <span style="font-size:14px; font-weight:bold; color:var(--spotify-text); width:15px; text-align:center;">4</span>
+                                            <div style="display:flex; flex-direction:column;">
+                                                <span style="font-size:14px; font-weight:bold; color:#fff;">Cruel Summer</span>
+                                                <span style="font-size:12px; color:var(--spotify-text);">Taylor Swift</span>
+                                            </div>
+                                        </div>
+                                        <i data-lucide="more-horizontal" style="color:var(--spotify-text); width:18px; height:18px;"></i>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Song Details -->
-                            <div style="z-index:2; text-align:center;">
-                                <div style="font-size:26px; font-weight:bold; color:#fff;" class="song-title">Song by Artist A</div>
-                                <div style="font-size:18px; color:var(--spotify-text); margin-top:6px;" class="artist-name">Artist A (Album 1)</div>
-                            </div>
-
-                            <!-- Mini Player Buttons -->
-                            <div style="display:flex; justify-content:center; align-items:center; gap:25px; margin-top:15px; z-index:2;">
-                                <i data-lucide="shuffle" style="color:var(--spotify-green); width:24px; height:24px; cursor:pointer;" class="pulse-glow"></i>
-                                <i data-lucide="skip-back" style="color:#fff; width:22px; height:22px;"></i>
-                                <div style="width:50px; height:50px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,0.3);">
-                                    <i data-lucide="pause" style="color:#000; width:22px; height:22px; fill:#000;"></i>
+                            <!-- Active Player Screen -->
+                            <div class="player-screen" style="position:absolute; inset:24px; display:flex; flex-direction:column; justify-content:space-between; z-index: 1; opacity:0; transform:translateY(100px); pointer-events: none;">
+                                <!-- Header phone -->
+                                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(255,255,255,0.08); padding-bottom:10px;">
+                                    <span style="font-size:14px; font-weight:bold; color:var(--spotify-green); letter-spacing:1.5px; font-family:sans-serif;">PLAYING FROM SHUFFLE</span>
+                                    <i data-lucide="music-2" style="color:var(--spotify-green); width:20px; height:20px;"></i>
                                 </div>
-                                <i data-lucide="skip-forward" style="color:#fff; width:22px; height:22px;"></i>
-                                <i data-lucide="repeat" style="color:#fff; width:22px; height:22px;"></i>
-                            </div>
 
-                            <!-- Timeline progress slider -->
-                            <div style="z-index:2; margin-top:12px;">
-                                <div style="width:100%; height:6px; background:#535353; border-radius:3px; position:relative; overflow:hidden;">
-                                    <div class="player-prog-fill" style="height:100%; background:var(--spotify-green); width:0%;"></div>
+                                <!-- Warning alert box (slides down on same artist clump) -->
+                                <div class="cluster-alert-badge" style="position:absolute; top:-100px; left:0px; right:0px; padding:12px; border-radius:12px; border:1.5px solid #f59e0b; color:#fff; font-size:13px; font-family:sans-serif; text-align:center; transition: all 0.5s ease-in-out; z-index:10; display:flex; align-items:center; justify-content:center; gap:8px; opacity: 0; background: rgba(245, 158, 11, 0.15);">
+                                    <i data-lucide="alert-triangle" style="width:18px; height:18px; color:#f59e0b;"></i>
+                                    <span style="font-weight:bold; color:#fcd34d;">Gặp cụm: Sơn Tùng M-TP hát liên tiếp!</span>
                                 </div>
-                                <div style="display:flex; justify-content:space-between; font-size:13px; color:var(--spotify-text); margin-top:6px; font-family:monospace;">
-                                    <span class="player-time-elapsed">0:00</span>
-                                    <span>2:45</span>
+
+                                <!-- Vinyl Rotating Disc (Enlarged) -->
+                                <div style="position:relative; width:220px; height:220px; margin:20px auto; display:flex; align-items:center; justify-content:center; z-index:2;">
+                                    <div style="position:absolute; inset:0; background:radial-gradient(circle, rgba(29,185,84,0.3) 0%, transparent 70%); filter:blur(20px);"></div>
+                                    <div class="vinyl-disc-spin" style="width:200px; height:200px; border-radius:50%; background:repeating-radial-gradient(circle, #222 0px, #222 4px, #111 4px, #111 8px); border:4px solid #000; display:flex; align-items:center; justify-content:center; box-shadow: 0 12px 30px rgba(0,0,0,0.75);">
+                                        <div style="width:60px; height:60px; border-radius:50%; background:var(--spotify-green); border:4px solid #121212; display:flex; align-items:center; justify-content:center;">
+                                            <span style="font-size:28px;">🎵</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Song Details -->
+                                <div style="z-index:2; text-align:center; margin-bottom:10px;">
+                                    <div style="font-size:24px; font-weight:bold; color:#fff;" class="song-title">Chúng Ta Của Tương Lai</div>
+                                    <div style="font-size:16px; color:var(--spotify-text); margin-top:6px;" class="artist-name">Sơn Tùng M-TP</div>
+                                </div>
+
+                                <!-- Mini Player Buttons -->
+                                <div style="display:flex; justify-content:center; align-items:center; gap:25px; margin-bottom:12px; z-index:2;">
+                                    <i data-lucide="shuffle" style="color:var(--spotify-green); width:24px; height:24px; cursor:pointer;" class="pulse-glow"></i>
+                                    <i data-lucide="skip-back" style="color:#fff; width:22px; height:22px;"></i>
+                                    <div style="width:50px; height:50px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,0.3);">
+                                        <i data-lucide="pause" style="color:#000; width:22px; height:22px; fill:#000;"></i>
+                                    </div>
+                                    <i data-lucide="skip-forward" style="color:#fff; width:22px; height:22px;"></i>
+                                    <i data-lucide="repeat" style="color:#fff; width:22px; height:22px;"></i>
+                                </div>
+
+                                <!-- Timeline progress slider -->
+                                <div style="z-index:2;">
+                                    <div style="width:100%; height:6px; background:#535353; border-radius:3px; position:relative; overflow:hidden;">
+                                        <div class="player-prog-fill" style="height:100%; background:var(--spotify-green); width:0%;"></div>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; font-size:13px; color:var(--spotify-text); margin-top:6px; font-family:monospace;">
+                                        <span class="player-time-elapsed">0:00</span>
+                                        <span>2:45</span>
+                                    </div>
+                                </div>
+
+                                <!-- Next Up (blocked MTP song) -->
+                                <div class="next-up-blocked" style="margin-top:12px; padding:9px 12px; border-radius:10px; background:rgba(0,0,0,0.35); border:1px solid rgba(245,158,11,0.2); display:flex; align-items:center; justify-content:space-between; z-index:2; opacity:0; transition: opacity 0.5s ease;">
+                                    <div style="display:flex; align-items:center; gap:10px;">
+                                        <div style="width:36px; height:36px; border-radius:6px; background:linear-gradient(135deg,#ef4444,#991b1b); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            <i data-lucide="music" style="width:16px; height:16px; color:#fff;"></i>
+                                        </div>
+                                        <div style="text-align:left;">
+                                            <div style="font-size:11px; color:rgba(255,255,255,0.45); font-family:sans-serif; letter-spacing:0.5px;">TIẾP THEO</div>
+                                            <div style="font-size:13px; font-weight:bold; color:#fff;">Hãy Trao Cho Anh</div>
+                                            <div style="font-size:11px; color:var(--spotify-text);">Sơn Tùng M-TP</div>
+                                        </div>
+                                    </div>
+                                    <div class="blocked-badge" style="padding:4px 10px; border-radius:20px; background:rgba(245,158,11,0.18); border:1.5px solid rgba(245,158,11,0.6); color:#f59e0b; font-size:11px; font-weight:bold; font-family:sans-serif; display:flex; align-items:center; gap:5px; white-space:nowrap; box-shadow:0 0 8px rgba(245,158,11,0.25);">
+                                        <i data-lucide="shield-x" style="width:12px; height:12px; color:#f59e0b;"></i>
+                                        Bị chặn
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -166,38 +270,28 @@
                 canvas.innerHTML = `
                     <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:25px; zoom:1.0;">
                         <!-- Comparison Card -->
-                        <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:500px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                        <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:450px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
                             <div style="font-size:20px; font-weight:bold; color:var(--gold-primary); border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px; text-align:left;">Sự khác biệt giữa Toán Học và Nhận Thức con người</div>
 
                             <!-- Absolute position content box -->
                             <div style="position:relative; width:820px; height:320px; margin: 10px auto 0 auto; box-sizing:border-box;">
                                 
                                 <!-- Left side: Mathematical Random -->
-                                <div style="position:absolute; left:50px; top:0; width:280px; display:flex; flex-direction:column; align-items:center; gap:10px;">
-                                    <span style="font-size:15px; font-weight:bold; color:#ef4444;">1. Ngẫu nhiên Toán Học (True Random)</span>
+                                <div style="position:absolute; left:50px; top:10px; width:280px; display:flex; flex-direction:column; align-items:center; gap:15px;">
+                                    <span style="font-size:16px; font-weight:bold; color:#ef4444;">1. Ngẫu nhiên Toán Học (True Random)</span>
                                     ${makeDotCloudHTML(true)}
-                                    <div style="font-size:13px; color:#94a3b8; text-align:center; height:35px; margin-top:2px;">Có xác suất trùng hợp ngẫu nhiên.<br><span style="color:#ef4444; font-weight:bold;">Xuất hiện cụm sát nhau!</span></div>
                                 </div>
 
                                 <!-- Center: VS -->
-                                <div style="position:absolute; left:360px; top:90px; width:100px; display:flex; flex-direction:column; align-items:center; gap:20px;">
+                                <div style="position:absolute; left:360px; top:110px; width:100px; display:flex; flex-direction:column; align-items:center; gap:20px;">
                                     <i data-lucide="arrow-right-left" style="color:rgba(255,255,255,0.2); width:32px; height:32px;" class="icon-pulse"></i>
                                     <div class="vs-meter" style="padding:4px 12px; border-radius:6px; background:rgba(245,158,11,0.12); color:var(--gold-primary); font-family:monospace; font-weight:bold; font-size:15px;">VS</div>
                                 </div>
 
                                 <!-- Right side: Human Expectation of Random -->
-                                <div style="position:absolute; left:490px; top:0; width:280px; display:flex; flex-direction:column; align-items:center; gap:10px;">
-                                    <span style="font-size:15px; font-weight:bold; color:#10b981;">2. Con người kỳ vọng (Balanced)</span>
+                                <div style="position:absolute; left:490px; top:10px; width:280px; display:flex; flex-direction:column; align-items:center; gap:15px;">
+                                    <span style="font-size:16px; font-weight:bold; color:#10b981;">2. Con người kỳ vọng (Balanced)</span>
                                     ${makeDotCloudHTML(false)}
-                                    <div style="font-size:13px; color:#94a3b8; text-align:center; height:35px; margin-top:2px;">Các bài hát phải rải rác đều nhau.<br><span style="color:#10b981; font-weight:bold;">Không muốn ca sĩ lặp lại gần!</span></div>
-                                </div>
-
-                                <!-- Dynamic rating labels sliding under -->
-                                <div class="rating-bubble-left" style="position:absolute; left:70px; top:292px; width:240px; padding:6px; border-radius:8px; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); font-size:13px; color:#f87171; text-align:center; opacity:0; transition:all 0.5s;">
-                                    Người nghe phàn nàn: "Shuffle bị lỗi rồi!"
-                                </div>
-                                <div class="rating-bubble-right" style="position:absolute; left:510px; top:292px; width:240px; padding:6px; border-radius:8px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); font-size:13px; color:#34d399; text-align:center; opacity:0; transition:all 0.5s;">
-                                    Người nghe hài lòng: "Rất ngẫu nhiên!"
                                 </div>
                             </div>
                         </div>
@@ -210,7 +304,7 @@
                 canvas.innerHTML = `
                     <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:25px; zoom:1.0;">
                         <!-- Fisher-Yates Slide Card -->
-                        <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:500px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                        <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:450px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
                             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px;">
                                 <div style="font-size:20px; font-weight:bold; color:var(--gold-primary);">Thuật toán Fisher-Yates Shuffle (Ngẫu nhiên tuyệt đối)</div>
                                 <div style="font-size:14px; background:rgba(59,130,246,0.15); padding:2px 10px; border-radius:6px; color:#60a5fa; font-family:monospace; font-weight:bold;">Độ phức tạp: O(N)</div>
@@ -220,15 +314,15 @@
                             <div style="position:relative; width:820px; height:320px; margin:15px auto 0 auto; box-sizing:border-box;">
                                 
                                 <!-- Swap elements array (enlarged cards slightly) -->
-                                <div style="display:flex; gap:16px; justify-content:center; align-items:center; width:100%; position:absolute; left:0; top:55px; height:90px;" class="fy-array-box">
-                                    <!-- Colors: Red (Artist A), Blue (Artist B), Green (Artist C) -->
-                                    <div class="song-track-card track-0" style="width:100px; height:70px; background:#ef4444; border-radius:12px; border:2px solid #ef4444; display:flex; align-items:center; justify-content:center; font-family:monospace; font-weight:bold; color:#fff; font-size:16px;">A1</div>
-                                    <div class="song-track-card track-1" style="width:100px; height:70px; background:#3b82f6; border-radius:12px; border:2px solid #3b82f6; display:flex; align-items:center; justify-content:center; font-family:monospace; font-weight:bold; color:#fff; font-size:16px;">B1</div>
-                                    <div class="song-track-card track-2" style="width:100px; height:70px; background:#ef4444; border-radius:12px; border:2px solid #ef4444; display:flex; align-items:center; justify-content:center; font-family:monospace; font-weight:bold; color:#fff; font-size:16px;">A2</div>
-                                    <div class="song-track-card track-3" style="width:100px; height:70px; background:#10b981; border-radius:12px; border:2px solid #10b981; display:flex; align-items:center; justify-content:center; font-family:monospace; font-weight:bold; color:#fff; font-size:16px;">C1</div>
-                                    <div class="song-track-card track-4" style="width:100px; height:70px; background:#3b82f6; border-radius:12px; border:2px solid #3b82f6; display:flex; align-items:center; justify-content:center; font-family:monospace; font-weight:bold; color:#fff; font-size:16px;">B2</div>
-                                    <div class="song-track-card track-5" style="width:100px; height:70px; background:#ef4444; border-radius:12px; border:2px solid #ef4444; display:flex; align-items:center; justify-content:center; font-family:monospace; font-weight:bold; color:#fff; font-size:16px;">A3</div>
-                                    <div class="song-track-card track-6" style="width:100px; height:70px; background:#10b981; border-radius:12px; border:2px solid #10b981; display:flex; align-items:center; justify-content:center; font-family:monospace; font-weight:bold; color:#fff; font-size:16px;">C2</div>
+                                <div style="display:flex; gap:16px; justify-content:center; align-items:center; width:100%; position:absolute; left:0; top:100px; height:90px;" class="fy-array-box">
+                                    <!-- Colors: Red (Sơn Tùng), Blue (Taylor Swift), Green (Coldplay) -->
+                                    <div class="song-track-card track-0" style="width:100px; height:70px; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; font-family:sans-serif; font-weight:bold; color:#fff; font-size:13px; text-align:center; padding:4px; box-sizing:border-box; box-shadow:0 4px 15px rgba(239,68,68,0.25);">Sơn Tùng M-TP</div>
+                                    <div class="song-track-card track-1" style="width:100px; height:70px; background:linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; font-family:sans-serif; font-weight:bold; color:#fff; font-size:13px; text-align:center; padding:4px; box-sizing:border-box; box-shadow:0 4px 15px rgba(59,130,246,0.25);">Taylor Swift</div>
+                                    <div class="song-track-card track-2" style="width:100px; height:70px; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; font-family:sans-serif; font-weight:bold; color:#fff; font-size:13px; text-align:center; padding:4px; box-sizing:border-box; box-shadow:0 4px 15px rgba(239,68,68,0.25);">Sơn Tùng M-TP</div>
+                                    <div class="song-track-card track-3" style="width:100px; height:70px; background:linear-gradient(135deg, #10b981, #047857); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; font-family:sans-serif; font-weight:bold; color:#fff; font-size:13px; text-align:center; padding:4px; box-sizing:border-box; box-shadow:0 4px 15px rgba(16,185,129,0.25);">Coldplay</div>
+                                    <div class="song-track-card track-4" style="width:100px; height:70px; background:linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; font-family:sans-serif; font-weight:bold; color:#fff; font-size:13px; text-align:center; padding:4px; box-sizing:border-box; box-shadow:0 4px 15px rgba(59,130,246,0.25);">Taylor Swift</div>
+                                    <div class="song-track-card track-5" style="width:100px; height:70px; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; font-family:sans-serif; font-weight:bold; color:#fff; font-size:13px; text-align:center; padding:4px; box-sizing:border-box; box-shadow:0 4px 15px rgba(239,68,68,0.25);">Sơn Tùng M-TP</div>
+                                    <div class="song-track-card track-6" style="width:100px; height:70px; background:linear-gradient(135deg, #10b981, #047857); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; font-family:sans-serif; font-weight:bold; color:#fff; font-size:13px; text-align:center; padding:4px; box-sizing:border-box; box-shadow:0 4px 15px rgba(16,185,129,0.25);">Coldplay</div>
                                 </div>
 
                                 <!-- SVG overlay for swap indicator arrows -->
@@ -236,16 +330,10 @@
                                     <path d="" stroke="#f59e0b" stroke-width="2.5" fill="none" stroke-dasharray="4,4" class="swap-path-arrow" style="display:none;"></path>
                                 </svg>
 
-                                <!-- Text explanation console and warnings -->
-                                <div style="position:absolute; left:120px; top:180px; width:580px; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:15px; font-family:monospace; text-align:left; font-size:13px;">
-                                    <div style="color:var(--gold-primary); font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:4px; margin-bottom:6px;">Console: Fisher-Yates xáo trộn ngẫu nhiên</div>
-                                    <div class="fy-console-text" style="color:#d1d5db; line-height:1.5;">Đang bắt đầu xáo trộn ngẫu nhiên các phần tử...</div>
-                                </div>
-
                                 <!-- Cluster Warning Banner -->
-                                <div class="fy-cluster-alert-panel" style="position:absolute; left:210px; top:5px; width:400px; padding:8px 15px; border-radius:10px; background:rgba(239,68,68,0.12); border:1.5px solid #ef4444; color:#fff; text-align:center; font-size:13px; font-weight:bold; opacity:0; transition:all 0.4s; display:flex; align-items:center; justify-content:center; gap:8px; z-index:3;">
-                                    <i data-lucide="alert-octagon" style="width:16px; height:16px; color:#ef4444;"></i>
-                                    <span>LỖI CHÙNG CỤM: [A2] [A3] xếp cạnh nhau!</span>
+                                <div class="fy-cluster-alert-panel" style="position:absolute; left:210px; top:220px; width:400px; padding:10px 15px; border-radius:10px; background:rgba(239,68,68,0.15); border:1.5px solid #ef4444; color:#fff; text-align:center; font-size:14px; font-weight:bold; opacity:0; transition:all 0.4s; display:flex; align-items:center; justify-content:center; gap:8px; z-index:3;">
+                                    <i data-lucide="alert-octagon" style="width:18px; height:18px; color:#ef4444;"></i>
+                                    <span>LỖI TRÙNG CỤM: 2 bài hát của Sơn Tùng M-TP xếp sát nhau!</span>
                                 </div>
                             </div>
                         </div>
@@ -258,7 +346,7 @@
                 canvas.innerHTML = `
                     <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:25px; zoom:1.0;">
                         <!-- Balanced Shuffle Card -->
-                        <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:500px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                        <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:450px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
                             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px;">
                                 <div style="font-size:20px; font-weight:bold; color:var(--gold-primary);">Thuật toán Balanced Shuffle (Trải đều Halftoning)</div>
                                 <div style="font-size:14px; background:rgba(16,185,129,0.12); padding:2px 10px; border-radius:6px; color:#10b981; font-family:monospace; font-weight:bold; display:flex; align-items:center; gap:4px;">
@@ -270,24 +358,24 @@
                             <div style="position:relative; width:820px; height:320px; margin:15px auto 0 auto; box-sizing:border-box;">
                                 
                                 <!-- Grouped Artist buckets (Top row) -->
-                                <div style="position:absolute; left:10px; top:10px; display:flex; gap:30px; justify-content:center; width:100%;">
-                                    <div class="bucket-a" style="border:1px dashed rgba(239,68,68,0.4); padding:10px; border-radius:12px; display:flex; gap:6px; background:rgba(239,68,68,0.02);">
-                                        <span style="font-size:12px; color:#ef4444; font-weight:bold; writing-mode:vertical-lr; text-align:center;">Ca sĩ A</span>
-                                        <div style="width:42px; height:42px; border-radius:6px; background:#ef4444; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:13px;" class="card-b-a1">A1</div>
-                                        <div style="width:42px; height:42px; border-radius:6px; background:#ef4444; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:13px;" class="card-b-a2">A2</div>
-                                        <div style="width:42px; height:42px; border-radius:6px; background:#ef4444; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:13px;" class="card-b-a3">A3</div>
+                                <div style="position:absolute; left:41px; top:25px; display:flex; justify-content:space-between; width:738px;">
+                                    <div class="bucket-a" style="border:1.5px dashed rgba(239,68,68,0.45); padding:10px; border-radius:12px; display:flex; gap:8px; background:rgba(239,68,68,0.02); position:relative;">
+                                        <span style="font-size:13px; color:#ef4444; font-weight:bold; position:absolute; top:-25px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:sans-serif;">Sơn Tùng M-TP</span>
+                                        <div style="width:90px; height:70px; border-radius:10px; background:linear-gradient(135deg, #ef4444, #b91c1c); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);" class="card-b-a1">Sơn Tùng M-TP</div>
+                                        <div style="width:90px; height:70px; border-radius:10px; background:linear-gradient(135deg, #ef4444, #b91c1c); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);" class="card-b-a2">Sơn Tùng M-TP</div>
+                                        <div style="width:90px; height:70px; border-radius:10px; background:linear-gradient(135deg, #ef4444, #b91c1c); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);" class="card-b-a3">Sơn Tùng M-TP</div>
                                     </div>
 
-                                    <div class="bucket-b" style="border:1px dashed rgba(59,130,246,0.4); padding:10px; border-radius:12px; display:flex; gap:6px; background:rgba(59,130,246,0.02);">
-                                        <span style="font-size:12px; color:#3b82f6; font-weight:bold; writing-mode:vertical-lr; text-align:center;">Ca sĩ B</span>
-                                        <div style="width:42px; height:42px; border-radius:6px; background:#3b82f6; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:13px;" class="card-b-b1">B1</div>
-                                        <div style="width:42px; height:42px; border-radius:6px; background:#3b82f6; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:13px;" class="card-b-b2">B2</div>
+                                    <div class="bucket-b" style="border:1.5px dashed rgba(59,130,246,0.45); padding:10px; border-radius:12px; display:flex; gap:8px; background:rgba(59,130,246,0.02); position:relative;">
+                                        <span style="font-size:13px; color:#3b82f6; font-weight:bold; position:absolute; top:-25px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:sans-serif;">Taylor Swift</span>
+                                        <div style="width:90px; height:70px; border-radius:10px; background:linear-gradient(135deg, #3b82f6, #1d4ed8); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);" class="card-b-b1">Taylor Swift</div>
+                                        <div style="width:90px; height:70px; border-radius:10px; background:linear-gradient(135deg, #3b82f6, #1d4ed8); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);" class="card-b-b2">Taylor Swift</div>
                                     </div>
 
-                                    <div class="bucket-c" style="border:1px dashed rgba(16,185,129,0.4); padding:10px; border-radius:12px; display:flex; gap:6px; background:rgba(16,185,129,0.02);">
-                                        <span style="font-size:12px; color:#10b981; font-weight:bold; writing-mode:vertical-lr; text-align:center;">Ca sĩ C</span>
-                                        <div style="width:42px; height:42px; border-radius:6px; background:#10b981; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:13px;" class="card-b-c1">C1</div>
-                                        <div style="width:42px; height:42px; border-radius:6px; background:#10b981; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:13px;" class="card-b-c2">C2</div>
+                                    <div class="bucket-c" style="border:1.5px dashed rgba(16,185,129,0.45); padding:10px; border-radius:12px; display:flex; gap:8px; background:rgba(16,185,129,0.02); position:relative;">
+                                        <span style="font-size:13px; color:#10b981; font-weight:bold; position:absolute; top:-25px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:sans-serif;">Coldplay</span>
+                                        <div style="width:90px; height:70px; border-radius:10px; background:linear-gradient(135deg, #10b981, #047857); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);" class="card-b-c1">Coldplay</div>
+                                        <div style="width:90px; height:70px; border-radius:10px; background:linear-gradient(135deg, #10b981, #047857); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);" class="card-b-c2">Coldplay</div>
                                     </div>
                                 </div>
 
@@ -306,11 +394,6 @@
                                 <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;" class="alloc-lines-svg">
                                     <!-- Guides will draw here during progress -->
                                 </svg>
-
-                                <!-- Informative label overlay -->
-                                <div style="position:absolute; left:80px; top:270px; width:660px; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.15); border-radius:10px; padding:10px; font-size:12px; color:#d1d5db; text-align:center;" class="balanced-explanation">
-                                    Bước 1: Tính khoảng cách chia đều cho Ca sĩ A (Ví dụ: Tổng 7 bài / 3 bài ca sĩ A = Cứ 2.3 bài xếp 1 bài)
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -322,7 +405,7 @@
                 canvas.innerHTML = `
                     <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:25px; zoom:1.0;">
                         <!-- Jitter Slide Card -->
-                        <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:500px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                        <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:450px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
                             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px;">
                                 <div style="font-size:20px; font-weight:bold; color:var(--gold-primary);">Cơ chế ngẫu nhiên Jitter Offset (Tránh cứng nhắc)</div>
                                 <div style="font-size:14px; background:rgba(245,158,11,0.15); padding:2px 10px; border-radius:6px; color:var(--gold-primary); font-family:monospace; font-weight:bold;">Balanced + Random Jitter</div>
@@ -332,20 +415,14 @@
                             <div style="position:relative; width:820px; height:320px; margin:15px auto 0 auto; box-sizing:border-box;">
                                 
                                 <!-- Song Array layout with spacing (enlarged cards to 90px x 70px) -->
-                                <div style="display:flex; gap:18px; justify-content:center; align-items:center; width:780px; position:absolute; left:20px; top:60px; height:80px;" class="jitter-array-box">
-                                    <div class="song-track-card jt-0" style="width:90px; height:70px; background:#ef4444; border-radius:12px; border:2px solid #ef4444; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px; position:relative;">A1</div>
-                                    <div class="song-track-card jt-1" style="width:90px; height:70px; background:#3b82f6; border-radius:12px; border:2px solid #3b82f6; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px; position:relative;">B1</div>
-                                    <div class="song-track-card jt-2" style="width:90px; height:70px; background:#10b981; border-radius:12px; border:2px solid #10b981; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px; position:relative;">C1</div>
-                                    <div class="song-track-card jt-3" style="width:90px; height:70px; background:#ef4444; border-radius:12px; border:2px solid #ef4444; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px; position:relative;">A2</div>
-                                    <div class="song-track-card jt-4" style="width:90px; height:70px; background:#3b82f6; border-radius:12px; border:2px solid #3b82f6; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px; position:relative;">B2</div>
-                                    <div class="song-track-card jt-5" style="width:90px; height:70px; background:#10b981; border-radius:12px; border:2px solid #10b981; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px; position:relative;">C2</div>
-                                    <div class="song-track-card jt-6" style="width:90px; height:70px; background:#ef4444; border-radius:12px; border:2px solid #ef4444; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px; position:relative;">A3</div>
-                                </div>
-
-                                <!-- Explanation note -->
-                                <div style="position:absolute; left:120px; top:180px; width:580px; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:15px; font-family:monospace; text-align:left; font-size:13px;">
-                                    <div style="color:var(--gold-primary); font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:4px; margin-bottom:6px;">Cơ chế hoạt động của Jitter</div>
-                                    <div class="jt-console-text" style="color:#d1d5db; line-height:1.5;">Các bài hát đang được trải đều cố định theo công thức halftoning. Chuẩn bị thêm Jitter để hoán đổi nhỏ vài vị trí nhằm duy trì tính bất ngờ...</div>
+                                <div style="display:flex; gap:18px; justify-content:center; align-items:center; width:780px; position:absolute; left:20px; top:120px; height:80px;" class="jitter-array-box">
+                                    <div class="song-track-card jt-0" style="width:90px; height:70px; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; position:relative; box-shadow: 0 4px 15px rgba(239,68,68,0.25);">Sơn Tùng M-TP</div>
+                                    <div class="song-track-card jt-1" style="width:90px; height:70px; background:linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; position:relative; box-shadow: 0 4px 15px rgba(59,130,246,0.25);">Taylor Swift</div>
+                                    <div class="song-track-card jt-2" style="width:90px; height:70px; background:linear-gradient(135deg, #10b981, #047857); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; position:relative; box-shadow: 0 4px 15px rgba(16,185,129,0.25);">Coldplay</div>
+                                    <div class="song-track-card jt-3" style="width:90px; height:70px; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; position:relative; box-shadow: 0 4px 15px rgba(239,68,68,0.25);">Sơn Tùng M-TP</div>
+                                    <div class="song-track-card jt-4" style="width:90px; height:70px; background:linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; position:relative; box-shadow: 0 4px 15px rgba(59,130,246,0.25);">Taylor Swift</div>
+                                    <div class="song-track-card jt-5" style="width:90px; height:70px; background:linear-gradient(135deg, #10b981, #047857); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; position:relative; box-shadow: 0 4px 15px rgba(16,185,129,0.25);">Coldplay</div>
+                                    <div class="song-track-card jt-6" style="width:90px; height:70px; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:12px; border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; position:relative; box-shadow: 0 4px 15px rgba(239,68,68,0.25);">Sơn Tùng M-TP</div>
                                 </div>
                             </div>
                         </div>
@@ -358,7 +435,7 @@
                 canvas.innerHTML = `
                     <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:25px; zoom:1.0;">
                         <!-- Simulator Live Card -->
-                        <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:500px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                        <div class="glass-card cyber-grid" style="width:100%; max-width:880px; height:450px; padding:28px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
                             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px;">
                                 <div style="font-size:20px; font-weight:bold; color:var(--gold-primary);">So sánh mô phỏng các luồng phát nhạc (Shuffle Stream)</div>
                                 <div style="font-size:14px; background:rgba(29,185,84,0.15); padding:2px 10px; border-radius:6px; color:var(--spotify-green); font-family:monospace; font-weight:bold; display:flex; align-items:center; gap:4px;">
@@ -370,7 +447,7 @@
                             <div style="position:relative; width:820px; height:320px; margin:15px auto 0 auto; box-sizing:border-box;">
                                 
                                 <!-- Top Stream: Fisher-Yates (Absolute Random) -->
-                                <div style="position:absolute; left:20px; top:10px; width:780px; height:90px; border-radius:12px; border:1.5px solid rgba(239,68,68,0.2); background:rgba(239,68,68,0.01); padding:10px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between;">
+                                <div style="position:absolute; left:20px; top:40px; width:780px; height:90px; border-radius:12px; border:1.5px solid rgba(239,68,68,0.2); background:rgba(239,68,68,0.01); padding:10px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between;">
                                     <div style="display:flex; justify-content:space-between; align-items:center;">
                                         <span style="font-size:13px; font-weight:bold; color:#ef4444;">1. Thuật toán cũ Fisher-Yates (Lỗi trùng cụm)</span>
                                         <span style="font-size:11px; font-family:monospace; color:#ef4444;" class="stream-a-alert-lbl"></span>
@@ -381,7 +458,7 @@
                                 </div>
 
                                 <!-- Bottom Stream: Spotify Balanced Shuffle -->
-                                <div style="position:absolute; left:20px; top:130px; width:780px; height:90px; border-radius:12px; border:1.5px solid rgba(29,185,84,0.25); background:rgba(29,185,84,0.01); padding:10px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between;">
+                                <div style="position:absolute; left:20px; top:170px; width:780px; height:90px; border-radius:12px; border:1.5px solid rgba(29,185,84,0.25); background:rgba(29,185,84,0.01); padding:10px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between;">
                                     <div style="display:flex; justify-content:space-between; align-items:center;">
                                         <span style="font-size:13px; font-weight:bold; color:var(--spotify-green);">2. Thuật toán mới Spotify Shuffle (Trải đều hài hòa)</span>
                                         <span style="font-size:11px; font-family:monospace; color:var(--spotify-green); font-weight:bold;">🟢 Spaced perfectly!</span>
@@ -389,12 +466,6 @@
                                     <div style="display:flex; gap:10px; justify-content:start; overflow:hidden;" class="stream-box-spotify">
                                         <!-- Song blocks will insert here -->
                                     </div>
-                                </div>
-
-                                <!-- Summary text comparison -->
-                                <div style="position:absolute; left:50px; top:250px; width:720px; background:rgba(255,255,255,0.015); border:1px solid rgba(255,255,255,0.05); border-radius:10px; padding:10px 15px; font-size:13px; color:#d1d5db; display:flex; justify-content:space-between; align-items:center; font-family:monospace;">
-                                    <span class="sim-compare-lbl-1">Đang mô phỏng quá trình truyền phát các ca khúc...</span>
-                                    <span style="color:var(--spotify-green); font-weight:bold;" class="sim-compare-lbl-2">Tâm lý: Thấy ngẫu nhiên hơn!</span>
                                 </div>
                             </div>
                         </div>
@@ -411,11 +482,53 @@
     // ── ANIMATION UPDATE FRAME ─────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_spotify_shuffle_1') {
+            const playlistScreen = canvas.querySelector('.playlist-screen');
+            const playerScreen = canvas.querySelector('.player-screen');
             const warningBadge = canvas.querySelector('.cluster-alert-badge');
             const progressFill = canvas.querySelector('.player-prog-fill');
             const elapsedText = canvas.querySelector('.player-time-elapsed');
 
-            // 1. Vinyl play time elapsed updates
+            // 1. Dual interface transitions
+            // 0.0 -> 0.2: Playlist view active
+            // 0.2 -> 0.24: Snappy transition (Playlist slides up/fades out, Player slides up/fades in)
+            // 0.24 -> 1.0: Player view active
+            if (progress <= 0.2) {
+                if (playlistScreen) {
+                    playlistScreen.style.opacity = '1';
+                    playlistScreen.style.transform = 'translateY(0)';
+                    playlistScreen.style.pointerEvents = 'auto';
+                }
+                if (playerScreen) {
+                    playerScreen.style.opacity = '0';
+                    playerScreen.style.transform = 'translateY(100px)';
+                    playerScreen.style.pointerEvents = 'none';
+                }
+            } else if (progress > 0.2 && progress < 0.24) {
+                const t = (progress - 0.2) / 0.04;
+                if (playlistScreen) {
+                    playlistScreen.style.opacity = (1 - t).toString();
+                    playlistScreen.style.transform = `translateY(${-t * 100}px)`;
+                    playlistScreen.style.pointerEvents = 'none';
+                }
+                if (playerScreen) {
+                    playerScreen.style.opacity = t.toString();
+                    playerScreen.style.transform = `translateY(${(1 - t) * 100}px)`;
+                    playerScreen.style.pointerEvents = 'none';
+                }
+            } else {
+                if (playlistScreen) {
+                    playlistScreen.style.opacity = '0';
+                    playlistScreen.style.transform = 'translateY(-100px)';
+                    playlistScreen.style.pointerEvents = 'none';
+                }
+                if (playerScreen) {
+                    playerScreen.style.opacity = '1';
+                    playerScreen.style.transform = 'translateY(0)';
+                    playerScreen.style.pointerEvents = 'auto';
+                }
+            }
+
+            // 2. Vinyl play time elapsed updates
             const totalDuration = 165; // 2:45
             const currentSeconds = Math.floor(progress * totalDuration);
             const minutes = Math.floor(currentSeconds / 60);
@@ -427,42 +540,29 @@
                 progressFill.style.width = `${progress * 100}%`;
             }
 
-            // 2. Alert Badge drops down at progress 0.35 to represent irritation
+            // 3. Alert Badge drops down at progress > 0.35
             if (warningBadge) {
-                if (progress >= 0.35 && progress <= 0.85) {
-                    warningBadge.style.top = '70px'; // adjusted for the new enlarged mockup height
+                if (progress > 0.35) {
+                    warningBadge.style.top = '48px';
+                    warningBadge.style.opacity = '1';
                 } else {
-                    warningBadge.style.top = '-70px';
+                    warningBadge.style.top = '-100px';
+                    warningBadge.style.opacity = '0';
                 }
+            }
+
+            // 4. "Next Up" blocked song appears after warning badge at > 0.45
+            const nextUpBlock = canvas.querySelector('.next-up-blocked');
+            const blockedBadge = canvas.querySelector('.blocked-badge');
+            if (nextUpBlock) {
+                nextUpBlock.style.opacity = progress > 0.45 ? '1' : '0';
+            }
+            if (blockedBadge) {
+                blockedBadge.style.opacity = progress > 0.55 ? '1' : '0';
             }
         }
         else if (slideId === 'slide_spotify_shuffle_2') {
-            const leftBubble = canvas.querySelector('.rating-bubble-left');
-            const rightBubble = canvas.querySelector('.rating-bubble-right');
-
-            if (progress >= 0.25) {
-                if (leftBubble) {
-                    leftBubble.style.opacity = '1';
-                    leftBubble.style.transform = 'translateY(0)';
-                }
-            } else {
-                if (leftBubble) {
-                    leftBubble.style.opacity = '0';
-                    leftBubble.style.transform = 'translateY(10px)';
-                }
-            }
-
-            if (progress >= 0.65) {
-                if (rightBubble) {
-                    rightBubble.style.opacity = '1';
-                    rightBubble.style.transform = 'translateY(0)';
-                }
-            } else {
-                if (rightBubble) {
-                    rightBubble.style.opacity = '0';
-                    rightBubble.style.transform = 'translateY(10px)';
-                }
-            }
+            // Clean, visual only
         }
         else if (slideId === 'slide_spotify_shuffle_3') {
             const t0 = canvas.querySelector('.track-0');
@@ -486,19 +586,19 @@
             };
             
             // Swap timeline:
-            // 0.05 -> 0.3: Swap 1: Track-0 (Red A1) and Track-1 (Blue B1)
-            // 0.3 -> 0.55: Swap 2: Track-2 (Red A2) and Track-4 (Blue B2)
+            // 0.15 -> 0.19: Swap 1: Track-0 (Red A1) and Track-1 (Blue B1)
+            // 0.25 -> 0.29: Swap 2: Track-2 (Red A2) and Track-4 (Blue B2)
             
-            if (progress <= 0.05) {
+            if (progress <= 0.15) {
                 [t0, t1, t2, t3, t4, t5, t6].forEach(resetSwapStyles);
                 if (consoleText) consoleText.textContent = 'Bắt đầu xáo trộn ngẫu nhiên...';
                 if (clusterPanel) clusterPanel.style.opacity = '0';
                 if (swapArrow) swapArrow.style.display = 'none';
             }
             
-            // Swap 1 (Distance is 116px)
-            else if (progress > 0.05 && progress <= 0.3) {
-                const subP = (progress - 0.05) / 0.25;
+            // Swap 1 (Distance is 116px, Y offset set to 135px)
+            else if (progress > 0.15 && progress <= 0.19) {
+                const subP = (progress - 0.15) / 0.04;
                 if (t0) {
                     t0.classList.add('swapping');
                     t0.style.transform = `translateX(${subP * 116}px) translateY(-10px)`;
@@ -511,19 +611,27 @@
                 }
                 if (swapArrow) {
                     swapArrow.style.display = 'block';
-                    // Index 0 (x=112) to Index 1 (x=228). Centers: index 0 (62+50=112), index 1 (178+50=228)
-                    swapArrow.setAttribute('d', `M 112 90 Q 170 50 228 90`);
+                    swapArrow.setAttribute('d', `M 112 135 Q 170 95 228 135`);
                 }
-                if (consoleText) consoleText.textContent = 'Hoán đổi vị trí 0 (A1) và vị trí 1 (B1)...';
+                if (consoleText) consoleText.textContent = 'Hoán đổi Sơn Tùng M-TP (vị trí 0) và Taylor Swift (vị trí 1)...';
             }
             
-            // Swap 2 (Distance is 232px)
-            else if (progress > 0.3 && progress <= 0.55) {
+            // Wait/static state between swap 1 and swap 2
+            else if (progress > 0.19 && progress <= 0.25) {
+                if (t0) { t0.style.transform = `translateX(116px)`; resetSwapStyles(t0); }
+                if (t1) { t1.style.transform = `translateX(-116px)`; resetSwapStyles(t1); }
+                [t2, t4].forEach(resetSwapStyles);
+                if (swapArrow) swapArrow.style.display = 'none';
+                if (consoleText) consoleText.textContent = 'Đang tiếp tục xáo trộn ngẫu nhiên...';
+            }
+
+            // Swap 2 (Distance is 232px, Y offset set to 135px)
+            else if (progress > 0.25 && progress <= 0.29) {
                 // Settle Swap 1 physically
-                if (t0) { t0.style.transform = `translateX(116px)`; t0.classList.remove('swapping'); t0.style.borderColor = 'transparent'; }
-                if (t1) { t1.style.transform = `translateX(-116px)`; t1.classList.remove('swapping'); t1.style.borderColor = 'transparent'; }
+                if (t0) { t0.style.transform = `translateX(116px)`; resetSwapStyles(t0); }
+                if (t1) { t1.style.transform = `translateX(-116px)`; resetSwapStyles(t1); }
                 
-                const subP = (progress - 0.3) / 0.25;
+                const subP = (progress - 0.25) / 0.04;
                 if (t2) {
                     t2.classList.add('swapping');
                     t2.style.transform = `translateX(${subP * 232}px) translateY(-10px)`;
@@ -535,14 +643,14 @@
                     t4.style.borderColor = '#f59e0b';
                 }
                 if (swapArrow) {
-                    // Index 2 (x=344) to Index 4 (x=576). Centers: index 2 (244+50=294), index 4 (476+50=526)
-                    swapArrow.setAttribute('d', `M 294 90 Q 410 40 526 90`);
+                    swapArrow.style.display = 'block';
+                    swapArrow.setAttribute('d', `M 294 135 Q 410 85 526 135`);
                 }
-                if (consoleText) consoleText.textContent = 'Hoán đổi vị trí 2 (A2) và vị trí 4 (B2)...';
+                if (consoleText) consoleText.textContent = 'Hoán đổi Sơn Tùng M-TP (vị trí 2) và Taylor Swift (vị trí 4)...';
             }
 
-            // Settle all, trigger cluster warnings (0.55 -> 1.0)
-            else if (progress > 0.55) {
+            // Settle all, trigger cluster warnings (0.29 -> 1.0)
+            else {
                 if (t0) { t0.style.transform = `translateX(116px)`; resetSwapStyles(t0); }
                 if (t1) { t1.style.transform = `translateX(-116px)`; resetSwapStyles(t1); }
                 if (t2) { t2.style.transform = `translateX(232px)`; resetSwapStyles(t2); }
@@ -550,12 +658,11 @@
                 
                 if (swapArrow) swapArrow.style.display = 'none';
 
-                if (progress >= 0.75) {
-                    // Clustered adjacent: Card 4 (now A2) and Card 5 (A3) are red cards standing next to each other
+                if (progress >= 0.35) {
                     if (t4) t4.style.borderColor = '#ef4444';
                     if (t5) t5.style.borderColor = '#ef4444';
                     if (clusterPanel) clusterPanel.style.opacity = '1';
-                    if (consoleText) consoleText.innerHTML = '<span style="color:#ef4444; font-weight:bold;">Lỗi trùng lặp:</span> Ca sĩ A xuất hiện liên tục ở cuối danh sách phát phát nhạc (A2, A3). Người dùng bực bội!';
+                    if (consoleText) consoleText.innerHTML = 'Lỗi trùng cụm: Hai bài hát của Sơn Tùng M-TP nằm cạnh nhau!';
                 } else {
                     if (clusterPanel) clusterPanel.style.opacity = '0';
                     if (consoleText) consoleText.textContent = 'Hoàn tất xáo trộn ngẫu nhiên Fisher-Yates.';
@@ -591,30 +698,30 @@
             });
             slots.forEach((s) => s.innerHTML = s.className.split(' ').find(c => c.startsWith('slot-')).split('-')[1]);
 
-            // Phase 1 (0.0 -> 0.35): Spacing calculation & placing Artist A
-            if (progress <= 0.35) {
-                const subP = progress / 0.35;
-                if (explanation) explanation.innerHTML = `<strong>Bước 1:</strong> Tính toán khoảng cách trải đều cho các bài hát của <strong>Ca sĩ A</strong> (Ví dụ: 7 bài / 3 bài = cách ~2.3 vị trí)`;
+            // Phase 1 (0.0 -> 0.25): Spacing calculation & placing Artist A (Animates 0.15 -> 0.25)
+            if (progress <= 0.25) {
+                if (explanation) explanation.innerHTML = `<strong>Bước 1:</strong> Tính toán khoảng cách trải đều cho các bài hát của <strong>Sơn Tùng M-TP</strong> (Ví dụ: 7 bài / 3 bài = cách ~2.3 vị trí)`;
                 
+                const subP = progress <= 0.15 ? 0 : (progress - 0.15) / 0.10;
                 // Translations:
-                // A1 (x=100, y=30) -> Slot 0 (x=86, y=215). DX = -14px, DY = 185px.
-                // A2 (x=150, y=30) -> Slot 3 (x=410, y=215). DX = +260px, DY = 185px.
-                // A3 (x=200, y=30) -> Slot 6 (x=734, y=215). DX = +534px, DY = 185px.
-                if (a1) a1.style.transform = `translateY(${subP * 185}px) translateX(${-14 * subP}px)`;
-                if (a2) a2.style.transform = `translateY(${subP * 185}px) translateX(${260 * subP}px)`;
-                if (a3) a3.style.transform = `translateY(${subP * 185}px) translateX(${534 * subP}px)`;
+                // A1 (x_rel=10) -> Slot 0 (x_rel=0). DX = -10px, DY = 145px.
+                // A2 (x_rel=108) -> Slot 3 (x_rel=324). DX = +216px, DY = 145px.
+                // A3 (x_rel=206) -> Slot 6 (x_rel=648). DX = +442px, DY = 145px.
+                if (a1) a1.style.transform = `translateY(${subP * 145}px) translateX(${-10 * subP}px)`;
+                if (a2) a2.style.transform = `translateY(${subP * 145}px) translateX(${216 * subP}px)`;
+                if (a3) a3.style.transform = `translateY(${subP * 145}px) translateX(${442 * subP}px)`;
                 
                 // Draw connecting path guides from top card centers to bottom slot centers
-                if (svg) {
+                if (svg && progress > 0.15) {
                     svg.innerHTML = `
-                        <path d="M 100 30 Q 93 122 86 215" stroke="rgba(239,68,68,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
-                        <path d="M 150 30 Q 280 122 410 215" stroke="rgba(239,68,68,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
-                        <path d="M 200 30 Q 467 122 734 215" stroke="rgba(239,68,68,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
+                        <path d="M 96 70 Q 91 142 86 215" stroke="rgba(239,68,68,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
+                        <path d="M 194 70 Q 302 142 410 215" stroke="rgba(239,68,68,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
+                        <path d="M 292 70 Q 513 142 734 215" stroke="rgba(239,68,68,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
                     `;
                 }
             }
-            // Phase 2 (0.35 -> 0.70): Placing Artist B
-            else if (progress > 0.35 && progress <= 0.70) {
+            // Phase 2 (0.25 -> 0.45): Placing Artist B (Animates 0.35 -> 0.45)
+            else if (progress > 0.25 && progress <= 0.45) {
                 // Settle A cards into slots
                 if (a1) a1.style.opacity = '0';
                 if (a2) a2.style.opacity = '0';
@@ -622,28 +729,28 @@
                 const slot0 = canvas.querySelector('.slot-0');
                 const slot3 = canvas.querySelector('.slot-3');
                 const slot6 = canvas.querySelector('.slot-6');
-                if (slot0) slot0.innerHTML = `<div style="width:100%; height:100%; background:#ef4444; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px;">A1</div>`;
-                if (slot3) slot3.innerHTML = `<div style="width:100%; height:100%; background:#ef4444; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px;">A2</div>`;
-                if (slot6) slot6.innerHTML = `<div style="width:100%; height:100%; background:#ef4444; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px;">A3</div>`;
+                if (slot0) slot0.innerHTML = `<div style="width:100%; height:100%; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);">Sơn Tùng M-TP</div>`;
+                if (slot3) slot3.innerHTML = `<div style="width:100%; height:100%; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);">Sơn Tùng M-TP</div>`;
+                if (slot6) slot6.innerHTML = `<div style="width:100%; height:100%; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);">Sơn Tùng M-TP</div>`;
 
-                const subP = (progress - 0.35) / 0.35;
-                if (explanation) explanation.innerHTML = `<strong>Bước 2:</strong> Điền các bài hát của <strong>Ca sĩ B</strong> vào khoảng trống còn lại (Slot 1 và Slot 4)`;
-                
+                if (explanation) explanation.innerHTML = `<strong>Bước 2:</strong> Điền các bài hát của <strong>Taylor Swift</strong> vào khoảng trống còn lại (Slot 1 và Slot 4)`;
+
+                const subP = progress <= 0.35 ? 0 : (progress - 0.35) / 0.10;
                 // Translations:
-                // B1 (x=350, y=30) -> Slot 1 (x=194, y=215). DX = -156px, DY = 185px.
-                // B2 (x=400, y=30) -> Slot 4 (x=518, y=215). DX = +118px, DY = 185px.
-                if (b1) b1.style.transform = `translateY(${subP * 185}px) translateX(${-156 * subP}px)`;
-                if (b2) b2.style.transform = `translateY(${subP * 185}px) translateX(${118 * subP}px)`;
+                // B1 (x_rel=324) -> Slot 1 (x_rel=108). DX = -216px, DY = 145px.
+                // B2 (x_rel=422) -> Slot 4 (x_rel=432). DX = +10px, DY = 145px.
+                if (b1) b1.style.transform = `translateY(${subP * 145}px) translateX(${-216 * subP}px)`;
+                if (b2) b2.style.transform = `translateY(${subP * 145}px) translateX(${10 * subP}px)`;
 
-                if (svg) {
+                if (svg && progress > 0.35) {
                     svg.innerHTML = `
-                        <path d="M 350 30 Q 272 122 194 215" stroke="rgba(59,130,246,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
-                        <path d="M 400 30 Q 459 122 518 215" stroke="rgba(59,130,246,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
+                        <path d="M 410 70 Q 302 142 194 215" stroke="rgba(59,130,246,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
+                        <path d="M 508 70 Q 513 142 518 215" stroke="rgba(59,130,246,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
                     `;
                 }
             }
-            // Phase 3 (0.70 -> 1.0): Placing Artist C (balanced result)
-            else if (progress > 0.70) {
+            // Phase 3 (0.45 -> 1.0): Placing Artist C (Animates 0.55 -> 0.65)
+            else if (progress > 0.45) {
                 // Settle A and B cards
                 if (a1) a1.style.opacity = '0';
                 if (a2) a2.style.opacity = '0';
@@ -656,36 +763,36 @@
                 const slot6 = canvas.querySelector('.slot-6');
                 const slot1 = canvas.querySelector('.slot-1');
                 const slot4 = canvas.querySelector('.slot-4');
-                if (slot0) slot0.innerHTML = `<div style="width:100%; height:100%; background:#ef4444; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px;">A1</div>`;
-                if (slot3) slot3.innerHTML = `<div style="width:100%; height:100%; background:#ef4444; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px;">A2</div>`;
-                if (slot6) slot6.innerHTML = `<div style="width:100%; height:100%; background:#ef4444; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px;">A3</div>`;
-                if (slot1) slot1.innerHTML = `<div style="width:100%; height:100%; background:#3b82f6; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px;">B1</div>`;
-                if (slot4) slot4.innerHTML = `<div style="width:100%; height:100%; background:#3b82f6; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px;">B2</div>`;
+                if (slot0) slot0.innerHTML = `<div style="width:100%; height:100%; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);">Sơn Tùng M-TP</div>`;
+                if (slot3) slot3.innerHTML = `<div style="width:100%; height:100%; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);">Sơn Tùng M-TP</div>`;
+                if (slot6) slot6.innerHTML = `<div style="width:100%; height:100%; background:linear-gradient(135deg, #ef4444, #b91c1c); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);">Sơn Tùng M-TP</div>`;
+                if (slot1) slot1.innerHTML = `<div style="width:100%; height:100%; background:linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);">Taylor Swift</div>`;
+                if (slot4) slot4.innerHTML = `<div style="width:100%; height:100%; background:linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);">Taylor Swift</div>`;
 
-                const subP = (progress - 0.70) / 0.3;
-                if (explanation) explanation.innerHTML = `<strong>Bước 3:</strong> Hoàn tất chèn nốt bài hát của <strong>Ca sĩ C</strong> (Slot 2 và Slot 5). Mọi bài hát được phân bố đều nhau!`;
+                if (explanation) explanation.innerHTML = `<strong>Bước 3:</strong> Hoàn tất chèn nốt bài hát của <strong>Coldplay</strong> (Slot 2 và Slot 5). Mọi bài hát được phân bố đều nhau!`;
 
+                const subP = progress <= 0.55 ? 0 : Math.min(1, (progress - 0.55) / 0.10);
                 // Translations:
-                // C1 (x=600, y=30) -> Slot 2 (x=302, y=215). DX = -298px, DY = 185px.
-                // C2 (x=650, y=30) -> Slot 5 (x=626, y=215). DX = -24px, DY = 185px.
-                if (c1) c1.style.transform = `translateY(${subP * 185}px) translateX(${-298 * subP}px)`;
-                if (c2) c2.style.transform = `translateY(${subP * 185}px) translateX(${-24 * subP}px)`;
+                // C1 (x_rel=540) -> Slot 2 (x_rel=216). DX = -324px, DY = 145px.
+                // C2 (x_rel=638) -> Slot 5 (x_rel=540). DX = -98px, DY = 145px.
+                if (c1) c1.style.transform = `translateY(${subP * 145}px) translateX(${-324 * subP}px)`;
+                if (c2) c2.style.transform = `translateY(${subP * 145}px) translateX(${-98 * subP}px)`;
 
-                if (svg) {
+                if (svg && progress > 0.55) {
                     svg.innerHTML = `
-                        <path d="M 600 30 Q 451 122 302 215" stroke="rgba(16,185,129,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
-                        <path d="M 650 30 Q 638 122 626 215" stroke="rgba(16,185,129,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
+                        <path d="M 626 70 Q 464 142 302 215" stroke="rgba(16,185,129,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
+                        <path d="M 724 70 Q 675 142 626 215" stroke="rgba(16,185,129,${subP * 0.45})" stroke-width="2" fill="none" class="guide-line-glow"></path>
                     `;
                 }
 
-                // Settle C cards at progress > 0.95
-                if (progress > 0.95) {
+                // Settle C cards at progress > 0.65
+                if (progress > 0.65) {
                     if (c1) c1.style.opacity = '0';
                     if (c2) c2.style.opacity = '0';
                     const slot2 = canvas.querySelector('.slot-2');
                     const slot5 = canvas.querySelector('.slot-5');
-                    if (slot2) slot2.innerHTML = `<div style="width:100%; height:100%; background:#10b981; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px;">C1</div>`;
-                    if (slot5) slot5.innerHTML = `<div style="width:100%; height:100%; background:#10b981; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:monospace; font-weight:bold; font-size:14px;">C2</div>`;
+                    if (slot2) slot2.innerHTML = `<div style="width:100%; height:100%; background:linear-gradient(135deg, #10b981, #047857); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);">Coldplay</div>`;
+                    if (slot5) slot5.innerHTML = `<div style="width:100%; height:100%; background:linear-gradient(135deg, #10b981, #047857); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:bold; font-size:12px; text-align:center; padding: 4px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);">Coldplay</div>`;
                 }
             }
         }
@@ -708,27 +815,26 @@
                 }
             };
 
-            if (progress <= 0.2) {
+            if (progress <= 0.25) {
                 [jt0, jt1, jt2, jt3, jt4, jt5, jt6].forEach(resetJt);
-                if (consoleText) consoleText.textContent = 'Các bài hát đang được xếp cách đều cố định (A1 -> B1 -> C1 -> A2 -> B2 -> C2 -> A3). Sẽ bị dễ đoán!';
+                if (consoleText) consoleText.textContent = 'Các bài hát đang được xếp cách đều cố định (ST1 -> TS1 -> CP1 -> ST2 -> TS2 -> CP2 -> ST3). Sẽ bị dễ đoán!';
             }
             
-            // Jitter start (0.2 -> 0.6): Cards vibrating
-            else if (progress > 0.2 && progress <= 0.6) {
+            // Jitter start (0.25 -> 0.38): Cards vibrating
+            else if (progress > 0.25 && progress <= 0.38) {
                 [jt0, jt1, jt2, jt3, jt4, jt5, jt6].forEach((el) => {
                     if (el) el.classList.add('jitter-active');
                 });
                 if (consoleText) consoleText.textContent = 'Đang kích hoạt Jitter ngẫu nhiên... Các bài hát rung lắc chuẩn bị lệch vị trí!';
             }
             
-            // Jitter settlement (0.6 -> 1.0): apply offset swap (offset size updated for enlarged cards)
-            else if (progress > 0.6) {
-                // Settle: Swap jt-1 (B1) and jt-2 (C1), Swap jt-4 (B2) and jt-5 (C2)
+            // Jitter settlement (0.38 -> 0.45): apply offset swap
+            else if (progress > 0.38 && progress <= 0.45) {
                 [jt0, jt1, jt2, jt3, jt4, jt5, jt6].forEach((el) => {
                     if (el) el.classList.remove('jitter-active');
                 });
 
-                const subP = (progress - 0.6) / 0.4;
+                const subP = (progress - 0.38) / 0.07;
                 if (jt1) {
                     jt1.style.transform = `translateX(${subP * 108}px)`;
                     jt1.style.borderColor = '#1db954';
@@ -746,7 +852,20 @@
                     jt5.style.borderColor = '#1db954';
                 }
 
-                if (consoleText) consoleText.innerHTML = 'Jitter hoán vị ngẫu nhiên nhẹ: <strong>B1 ↔ C1</strong> và <strong>B2 ↔ C2</strong>. Luồng phát nhạc bây giờ là: A1 → C1 → B1 → A2 → C2 → B2 → A3. Vừa bất ngờ vừa không bị chùng cụm!';
+                if (consoleText) consoleText.innerHTML = 'Jitter hoán vị ngẫu nhiên nhẹ: <strong>TS1 ↔ CP1</strong> và <strong>TS2 ↔ CP2</strong>...';
+            }
+            
+            // Settle final position (0.45 -> 1.0)
+            else {
+                [jt0, jt1, jt2, jt3, jt4, jt5, jt6].forEach((el) => {
+                    if (el) el.classList.remove('jitter-active');
+                });
+                if (jt1) { jt1.style.transform = 'translateX(108px)'; jt1.style.borderColor = '#1db954'; }
+                if (jt2) { jt2.style.transform = 'translateX(-108px)'; jt2.style.borderColor = '#1db954'; }
+                if (jt4) { jt4.style.transform = 'translateX(108px)'; jt4.style.borderColor = '#1db954'; }
+                if (jt5) { jt5.style.transform = 'translateX(-108px)'; jt5.style.borderColor = '#1db954'; }
+
+                if (consoleText) consoleText.innerHTML = 'Jitter hoán vị ngẫu nhiên nhẹ: <strong>TS1 ↔ CP1</strong> và <strong>TS2 ↔ CP2</strong>. Luồng phát nhạc bây giờ là: ST1 → CP1 → TS1 → ST2 → CP2 → TS2 → ST3. Vừa bất ngờ vừa không bị chùng cụm!';
             }
         }
         else if (slideId === 'slide_spotify_shuffle_6') {
@@ -758,7 +877,7 @@
             if (streamBoxFY && streamBoxSpotify) {
                 // Render tracks
                 const colors = ['#ef4444', '#3b82f6', '#10b981'];
-                const names = ['A', 'B', 'C'];
+                const names = ['ST', 'TS', 'CP'];
                 
                 // Fisher Yates stream containing clusters: A, A, A, B, B, C, C
                 const fySequence = [0, 0, 0, 1, 1, 2, 2];
@@ -785,18 +904,18 @@
                 };
 
                 // Stream animation sequence
-                renderStream(streamBoxFY, fySequence, progress >= 0.35);
+                renderStream(streamBoxFY, fySequence, progress >= 0.20);
                 renderStream(streamBoxSpotify, spotSequence, false);
 
-                if (progress >= 0.35) {
-                    if (alertLbl) alertLbl.textContent = '⚠️ Trùng cụm: A1, A2, A3 phát liên tiếp!';
+                if (progress >= 0.20) {
+                    if (alertLbl) alertLbl.textContent = '⚠️ Trùng cụm: Sơn Tùng M-TP hát liên tiếp!';
                     if (compLbl1) compLbl1.innerHTML = '<strong>Đã phát hiện trùng:</strong> Người dùng sẽ nghi ngờ nút Shuffle.';
                 } else {
                     if (alertLbl) alertLbl.textContent = '';
                     if (compLbl1) compLbl1.textContent = 'Đang bắt đầu phát danh sách âm nhạc...';
                 }
 
-                if (progress >= 0.70) {
+                if (progress >= 0.45) {
                     if (compLbl1) compLbl1.innerHTML = '<strong>Kết quả:</strong> Spotify Shuffle tạo cảm giác ngẫu nhiên hơn bằng cách phân phối đều các nghệ sĩ.';
                 }
             }
