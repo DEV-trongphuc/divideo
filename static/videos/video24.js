@@ -419,11 +419,11 @@
                 </div>
             `;
         }
-        else if (slideId === 'slide_typing_6' || slideId === 'slide_active_6') {
+        else if (slideId === 'slide_active_6') {
             canvas.innerHTML = `
                 <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; zoom:1.0;">
                     
-                    <div class="glass-card cyber-grid" style="width:100%; max-width:860px; height:450px; padding:24px; border:2px solid rgba(239, 68, 68, 0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 35px rgba(239, 68, 68, 0.2); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                    <div class="glass-card cyber-grid" style="width:100%; max-width:860px; height:450px; padding:28px 24px; border:2px solid rgba(239, 68, 68, 0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 35px rgba(239, 68, 68, 0.2); display:flex; flex-direction:column; justify-content:flex-start; gap:40px; box-sizing:border-box;">
                         
                         <div style="display:flex; justify-content:center; align-items:center; gap:10px; border-bottom:1.5px solid rgba(239, 68, 68, 0.15); padding-bottom:8px;">
                             <i data-lucide="check-circle" style="width:24px; height:24px; color:#10b981;"></i>
@@ -431,7 +431,7 @@
                         </div>
 
                         <!-- Architecture Flow - Compact height, larger elements -->
-                        <div style="position:relative; width:800px; height:180px; margin:5px auto;">
+                        <div style="position:relative; width:800px; height:180px; margin:25px auto 0 auto;">
                             <!-- SVG lines -->
                             <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;" class="s6-svg-canvas">
                                 <!-- Client -> WS Gateway -->
@@ -472,18 +472,6 @@
                                 <span style="font-size:9px; font-family:monospace; color:#ef4444; font-weight:bold;">REDIS BITMAP</span>
                                 <div style="font-size:8px; font-family:monospace; color:#888;" class="redis-command-display">GETBIT user:status 123</div>
                             </div>
-                        </div>
-
-                        <!-- Brand Promo Outro Footer (Added to slide 6) -->
-                        <div style="padding:12px; border-radius:12px; background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.2); display:flex; align-items:center; justify-content:space-between; box-sizing:border-box;">
-                            <div style="display:flex; align-items:center; gap:10px;">
-                                <div style="width:32px; height:32px; border-radius:50%; background:#ef4444; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; font-size:16px;">T</div>
-                                <div style="text-align:left;">
-                                    <div style="font-size:13px; font-weight:bold; color:#fff; font-family:sans-serif;">Làm chủ System Design & Backend</div>
-                                    <div style="font-size:11px; color:rgba(255,255,255,0.45); font-family:sans-serif;">Học thực tế, hiểu bản chất cùng Turnio.dev</div>
-                                </div>
-                            </div>
-                            <div style="padding:6px 14px; border-radius:20px; background:#fff; color:#000; font-size:12px; font-weight:bold; font-family:sans-serif;">FOLLOW KÊNH</div>
                         </div>
 
                     </div>
@@ -782,7 +770,7 @@
                 if (barOptimized) barOptimized.style.width = '0%';
             }
         }
-        else if (slideId === 'slide_typing_6' || slideId === 'slide_active_6') {
+        else if (slideId === 'slide_active_6') {
             const packetCanvas = canvas.querySelector('.s6-packet-canvas');
             const clientDot = canvas.querySelector('.s6-client-dot');
             const gatewaySrv = canvas.querySelector('.s6-gateway-srv');

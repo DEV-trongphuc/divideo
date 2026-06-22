@@ -1004,13 +1004,13 @@
 
                 const t = (progress - 0.50) / 0.25;
                 
-                // Path 1 (Quadratic Bezier): Redis Hub (x=400, y=140) to Server B (x=620, y=65), ctrl X=510, Y=80
-                const p1X = (1 - t) * (1 - t) * 400 + 2 * (1 - t) * t * 510 + t * t * 620;
-                const p1Y = (1 - t) * (1 - t) * 140 + 2 * (1 - t) * t * 80 + t * t * 65;
+                // Path 1 (Quadratic Bezier): Redis Hub (x=400, y=160) to Server B (x=645, y=55), ctrl X=522, Y=60
+                const p1X = (1 - t) * (1 - t) * 400 + 2 * (1 - t) * t * 522 + t * t * 645;
+                const p1Y = (1 - t) * (1 - t) * 160 + 2 * (1 - t) * t * 60 + t * t * 55;
                 
-                // Path 2 (Quadratic Bezier): Redis Hub (x=400, y=180) to Server C (x=620, y=230), ctrl X=510, Y=220
-                const p2X = (1 - t) * (1 - t) * 400 + 2 * (1 - t) * t * 510 + t * t * 220;
-                const p2Y = (1 - t) * (1 - t) * 180 + 2 * (1 - t) * t * 220 + t * t * 230;
+                // Path 2 (Quadratic Bezier): Redis Hub (x=400, y=160) to Server C (x=645, y=175), ctrl X=522, Y=200
+                const p2X = (1 - t) * (1 - t) * 400 + 2 * (1 - t) * t * 522 + t * t * 645;
+                const p2Y = (1 - t) * (1 - t) * 160 + 2 * (1 - t) * t * 200 + t * t * 175;
 
                 linesHTML += `
                     <circle cx="${p1X}" cy="${p1Y}" r="5" fill="#ef4444" filter="drop-shadow(0 0 6px #ef4444)"></circle>
@@ -1033,15 +1033,15 @@
                 srvCPulse = true;
                 const t = Math.min(1, (progress - 0.75) / 0.20);
                 
-                // Path 1: Server B (x=662, y=65) to User B (x=740, y=65)
-                const p1X = 662 + t * 78;
+                // Path 1: Server B (x=687.5, y=55) to User B (x=765, y=55)
+                const p1X = 687.5 + t * 77.5;
                 
-                // Path 2: Server C (x=662, y=230) to User C (x=740, y=230)
-                const p2X = 662 + t * 78;
+                // Path 2: Server C (x=687.5, y=175) to User C (x=765, y=175)
+                const p2X = 687.5 + t * 77.5;
 
                 linesHTML += `
-                    <circle cx="${p1X}" cy="65" r="4" fill="#0084ff" filter="drop-shadow(0 0 5px #0084ff)"></circle>
-                    <circle cx="${p2X}" cy="230" r="4" fill="#0084ff" filter="drop-shadow(0 0 5px #0084ff)"></circle>
+                    <circle cx="${p1X}" cy="55" r="4" fill="#0084ff" filter="drop-shadow(0 0 5px #0084ff)"></circle>
+                    <circle cx="${p2X}" cy="175" r="4" fill="#0084ff" filter="drop-shadow(0 0 5px #0084ff)"></circle>
                 `;
 
                 if (t >= 0.85) {
@@ -1094,13 +1094,13 @@
                     <!-- Server A to Redis -->
                     <path d="M 155 150 L 345 160" stroke="rgba(255,255,255,0.06)" stroke-width="2.5" fill="none"></path>
                     <!-- Redis to Server B (Quadratic Bezier) -->
-                    <path d="M 400 140 Q 510 80 620 65" stroke="rgba(255,255,255,0.06)" stroke-width="2.5" fill="none"></path>
+                    <path d="M 400 160 Q 522 60 645 55" stroke="rgba(255,255,255,0.06)" stroke-width="2.5" fill="none"></path>
                     <!-- Redis to Server C (Quadratic Bezier) -->
-                    <path d="M 400 180 Q 510 220 620 230" stroke="rgba(255,255,255,0.06)" stroke-width="2.5" fill="none"></path>
+                    <path d="M 400 160 Q 522 200 645 175" stroke="rgba(255,255,255,0.06)" stroke-width="2.5" fill="none"></path>
                     <!-- Server B to User B -->
-                    <path d="M 662 65 L 740 65" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"></path>
+                    <path d="M 687.5 55 L 765 55" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"></path>
                     <!-- Server C to User C -->
-                    <path d="M 662 230 L 740 230" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"></path>
+                    <path d="M 687.5 175 L 765 175" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"></path>
                     ${linesHTML}
                 `;
             }
