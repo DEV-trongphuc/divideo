@@ -1,0 +1,95 @@
+/**
+ * Video 18: AdTech - Retargeting & Facebook Pixel
+ * CSS riêng - chỉ load khi video18 được chọn
+ */
+
+/* ── Floating Sneaker Animation ─────────────────────────────────────────── */
+@keyframes floatSneaker {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%       { transform: translateY(-12px) rotate(4deg); }
+}
+
+.sneaker-emoji {
+    animation: floatSneaker 3.5s infinite ease-in-out;
+    display: inline-block;
+}
+
+.prod-sneaker-s2 {
+    animation: floatSneaker 4s infinite ease-in-out;
+    display: inline-block;
+}
+
+/* ── Spinner for FB loading ──────────────────────────────────────────────── */
+@keyframes fb-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* ── Red Pulse for Pixel active indicator ───────────────────────────────── */
+@keyframes pulse-red {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* ── Bidding Arrow & Transmit dash animation ───────────────────────────── */
+@keyframes dash-flow {
+    to {
+        stroke-dashoffset: -40;
+    }
+}
+
+.flow-arrow-path {
+    animation: dash-flow 1.5s linear infinite;
+}
+
+.transmit-line {
+    animation: dash-flow 1.2s linear infinite;
+}
+
+/* ── Winner Glow Effect ─────────────────────────────────────────────────── */
+@keyframes winner-pulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(245,158,11,0.2); }
+    50%       { box-shadow: 0 0 35px rgba(245,158,11,0.5); }
+}
+
+.bidder-card.b3 {
+    transition: all 0.4s ease;
+}
+
+/* ── Custom Audience Shield Animation ───────────────────────────────────── */
+@keyframes shield-glow {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50%       { transform: scale(1.1); opacity: 1; }
+}
+
+.audience-shield {
+    transition: color 0.4s ease;
+}
+
+/* ── Transitions for cards ───────────────────────────────────────────────── */
+.phone-mockup,
+.browser-mockup,
+.profile-record-card,
+.graph-db-card,
+.bidder-card,
+.rtb-log-card,
+.metrics-card-s5 {
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+/* ── Cursor click ripple ────────────────────────────────────────────────── */
+.click-ripple {
+    transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+}
+
+/* ── Keyword Highlight Class Overrides ──────────────────────────────────── */
+.keyword-idle {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
