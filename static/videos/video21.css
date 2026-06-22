@@ -1,0 +1,245 @@
+/* Style plugin for Video 21: URL Shortener Mechanics */
+
+/* Cyber background grid with radial mask for center depth */
+.cyber-grid {
+    background-size: 30px 30px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    position: relative;
+}
+.cyber-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Compressor concentric rings rotations (Slide 1) */
+.ring-outer {
+    transform-origin: 32px 32px;
+    animation: rotate-cw 12s linear infinite;
+}
+.ring-inner {
+    transform-origin: 32px 32px;
+    animation: rotate-ccw 8s linear infinite;
+}
+
+@keyframes rotate-cw {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+@keyframes rotate-ccw {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* Scanner laser sweep (Slide 1 & Slide 3) */
+.scanner-container {
+    position: relative;
+    overflow: hidden;
+}
+.scanner-bar {
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--neon-color, #3b82f6), transparent);
+    box-shadow: 0 0 10px var(--neon-color, #3b82f6);
+    left: -5%;
+    top: 0;
+    animation: scan-loop 3s ease-in-out infinite;
+    pointer-events: none;
+}
+@keyframes scan-loop {
+    0% { left: -5%; opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { left: 105%; opacity: 0; }
+}
+
+/* Odometer / Counter flip digit (Slide 3) */
+.digit-card {
+    display: inline-block;
+    width: 24px;
+    height: 38px;
+    line-height: 38px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: var(--font-mono);
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    margin: 0 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Slot machine column stripes (Slide 2) */
+.b62-column-strip {
+    will-change: transform;
+    transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.b62-column-strip.spinning {
+    filter: blur(1.5px);
+}
+
+/* Ping circle active connection wave (Slide 1) */
+.ping-circle {
+    position: relative;
+}
+.ping-circle::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid #10b981;
+    animation: ping-wave 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+    pointer-events: none;
+}
+@keyframes ping-wave {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* Flow Arrow Indicators bouncing */
+.flow-arrow-down-1 {
+    animation: arrow-bounce-y 1.2s infinite ease-in-out;
+}
+.flow-arrow-down-2 {
+    animation: arrow-bounce-y 1.2s infinite ease-in-out 0.6s;
+}
+@keyframes arrow-bounce-y {
+    0%, 100% { transform: translateY(0); opacity: 0.3; }
+    50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* Server LED blinking status lights (Slide 4) */
+.led-blink-green {
+    animation: led-blink-g 1.2s infinite alternate;
+}
+@keyframes led-blink-g {
+    0% { background-color: #064e3b; box-shadow: 0 0 2px #10b981; }
+    100% { background-color: #10b981; box-shadow: 0 0 12px #10b981; }
+}
+
+.led-blink-orange {
+    animation: led-blink-o 0.9s infinite alternate;
+}
+@keyframes led-blink-o {
+    0% { background-color: #7c2d12; box-shadow: 0 0 2px #f97316; }
+    100% { background-color: #f97316; box-shadow: 0 0 12px #f97316; }
+}
+
+.led-blink-pink {
+    animation: led-blink-p 1s infinite alternate;
+}
+@keyframes led-blink-p {
+    0% { background-color: #500730; box-shadow: 0 0 2px #ec4899; }
+    100% { background-color: #ec4899; box-shadow: 0 0 12px #ec4899; }
+}
+
+/* Traffic Activity Bars (Slide 4) */
+@keyframes traffic-pulse {
+    0% { height: 15%; }
+    100% { height: 95%; }
+}
+
+/* Web Server Rack glowing styling */
+.server-node {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.server-node:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Hexagonal / Card Bit nodes (Slide 5) */
+.bit-node {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    background: rgba(13, 17, 28, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: var(--font-mono);
+    color: rgba(255, 255, 255, 0.25);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.bit-node.active-1 {
+    background: rgba(59, 130, 246, 0.12);
+    border-color: #3b82f6;
+    color: #93c5fd;
+    box-shadow: inset 0 0 10px rgba(59, 130, 246, 0.2), 0 0 15px rgba(59, 130, 246, 0.4);
+}
+.bit-node.active-0 {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.2);
+}
+.bit-node.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Crossover Wires path dash flows */
+.wire-path {
+    stroke-dasharray: 6, 6;
+    animation: wire-flow 2s linear infinite;
+}
+@keyframes wire-flow {
+    to { stroke-dashoffset: -20; }
+}
+
+/* Zookeeper flow coordination lines */
+.coord-path-a, .coord-path-b, .coord-path-c {
+    stroke-dasharray: 8, 8;
+    animation: line-dash-flow 1.5s linear infinite;
+}
+@keyframes line-dash-flow {
+    to { stroke-dashoffset: -32; }
+}
+
+/* Workflow Flowchart Steps styling (Slide 6) */
+.flow-step {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    border: 1.5px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.flow-step.active {
+    transform: scale(1.04);
+}
+
+/* Color Neon Borders and Glows */
+.glass-card {
+    backdrop-filter: blur(16px);
+    box-sizing: border-box;
+}
+
+.glow-blue {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+}
+.glow-green {
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.7);
+}
+.glow-gold {
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+}
+.pulse-glow {
+    animation: pulse-ring 2.5s infinite ease-in-out;
+}

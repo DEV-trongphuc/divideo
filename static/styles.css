@@ -1,13 +1,13 @@
 /* Design System & Global Variables */
 :root {
     --bg-darker: #050507;
-    --bg-dark: #0d0d11;
-    --bg-card: rgba(18, 18, 24, 0.75);
-    --border-color: rgba(245, 158, 11, 0.12);
-    --border-color-hover: rgba(245, 158, 11, 0.3);
+    --bg-dark: #0c0e14;
+    --bg-card: rgba(12, 15, 23, 0.75);
+    --border-color: rgba(245, 158, 11, 0.15);
+    --border-color-hover: rgba(245, 158, 11, 0.35);
     --gold-primary: #F59E0B;
     --gold-secondary: #FEF08A;
-    --gold-glow: rgba(245, 158, 11, 0.15);
+    --gold-glow: rgba(245, 158, 11, 0.25);
     --text-primary: #F3F4F6;
     --text-muted: #9CA3AF;
     --text-gold: #FCD34D;
@@ -17,15 +17,34 @@
     --warning-red: #EF4444;
 }
 
-/* Global Reset */
+/* Global Reset & Custom Scrollbar */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(5, 5, 7, 0.3);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(245, 158, 11, 0.25);
+    border-radius: 99px;
+    transition: background 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 158, 11, 0.5);
+}
+
 body {
     background-color: var(--bg-darker);
+    background-image: 
+        radial-gradient(at 10% 10%, rgba(245, 158, 11, 0.03) 0px, transparent 45%),
+        radial-gradient(at 90% 90%, rgba(59, 130, 246, 0.04) 0px, transparent 45%);
     color: var(--text-primary);
     font-family: var(--font-sans);
     height: 100vh;

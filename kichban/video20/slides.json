@@ -60,6 +60,21 @@
     "scriptHash": ""
   },
   {
+    "id": "slide_qrcode_4_chart",
+    "layout": "custom",
+    "title": "Tỷ lệ sửa lỗi của 4 Cấp độ",
+    "subtitle": "📊 ERROR CORRECTION RATE COMPARISON",
+    "script": "Mỗi cấp độ sửa lỗi tương ứng với tỷ lệ khôi phục dữ liệu khác nhau. Cấp độ L sửa tối đa bảy phần trăm dữ liệu bị hỏng. Cấp độ M khôi phục đến mười lăm phần trăm. Cấp độ Q bảo vệ lên đến hai mươi lăm phần trăm. Và cao nhất là cấp độ H, có khả năng phục hồi tới ba mươi phần trăm diện tích mã QR bị hư hại.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "default_voxcpm",
+    "audioPath": "/kichban/video20/mp3/slide_qrcode_4_chart.mp3",
+    "duration": 18.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "scriptHash": ""
+  },
+  {
     "id": "slide_qrcode_5",
     "layout": "custom",
     "title": "Mẹo chèn Logo:<br>Tận dụng lỗi giả để quảng bá",
