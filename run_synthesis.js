@@ -122,8 +122,14 @@ async function main() {
     }
     
     // 2. Automatically check if VoxCPM model files exist
-    if (!fs.existsSync(configPath)) {
-        console.log("\n[!] CẢNH BÁO: Không tìm thấy file checkpoint của mô hình VoxCPM (4.5GB) tại ./checkpoints/VoxCPM/");
+    const checkpointsDir = path.join(__dirname, 'checkpoints', 'VoxCPM');
+    const vaePath = path.join(checkpointsDir, 'audiovae.pth');
+    const modelPath = path.join(checkpointsDir, 'model.safetensors');
+    
+    const modelExists = fs.existsSync(configPath) && fs.existsSync(vaePath) && fs.existsSync(modelPath);
+    
+    if (!modelExists) {
+        console.log("\n[!] CẢNH BÁO: Thư mục mô hình VoxCPM bị thiếu hoặc tải chưa đầy đủ (Cần config.json, audiovae.pth, model.safetensors)...");
         console.log("[+] Đang tự động tải mô hình từ HuggingFace thông qua download_model.py...");
         try {
             execSync(`"${pythonCmd}" "${downloadScriptPath}"`, { stdio: 'inherit', cwd: __dirname });
@@ -133,7 +139,7 @@ async function main() {
             cleanExit(1);
         }
     } else {
-        console.log("\n[+] Đã phát hiện thấy mô hình VoxCPM trong thư mục checkpoints.");
+        console.log("\n[+] Đã phát hiện thấy đầy đủ mô hình VoxCPM trong thư mục checkpoints.");
     }
     
     // 3. Start Flask app.py
