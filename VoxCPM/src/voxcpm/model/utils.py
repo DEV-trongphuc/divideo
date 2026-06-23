@@ -178,9 +178,9 @@ def pick_runtime_dtype(device: str, configured_dtype: str) -> str:
         return configured_dtype
 
     if device == "privateuseone:0":
-        # Coerce to float32 for DirectML stability
-        if (configured_dtype or "").lower() in _LOW_PRECISION_DTYPES:
-            return "float32"
+        # DirectML RDNA3 supports float16 natively and it saves half the memory
+        if (configured_dtype or "").lower() == "bfloat16" or (configured_dtype or "").lower() == "bf16":
+            return "float16"
         return configured_dtype
 
     if device != "mps":

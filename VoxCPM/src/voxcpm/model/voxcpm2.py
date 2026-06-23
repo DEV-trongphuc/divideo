@@ -1142,8 +1142,9 @@ class VoxCPM2Model(nn.Module):
             )
         if not training:
             lm_dtype = get_dtype(model.config.dtype)
-            model = model.to(lm_dtype)
+            model = model.to(device=model.device, dtype=lm_dtype)
         else:  # training mode
+            model = model.to(model.device)
             for name, param in model.named_parameters():
                 if "audio_vae" in name:  # freeze VAE weights
                     param.requires_grad = False
@@ -1151,7 +1152,7 @@ class VoxCPM2Model(nn.Module):
                 if lora_config is not None:
                     if "lora" not in name:  # freeze non-LoRA weights
                         param.requires_grad = False
-        model.audio_vae = model.audio_vae.to(torch.float32)
+        model.audio_vae = model.audio_vae.to(device=model.device, dtype=torch.float32)
 
         # Try to load from safetensors first, fallback to pytorch_model.bin
         safetensors_path = os.path.join(path, "model.safetensors")
@@ -1177,9 +1178,15 @@ class VoxCPM2Model(nn.Module):
         # LoRALinear keeps weight/bias compatible with nn.Linear but adds
         # lora_A/lora_B, which are absent from base pretrained checkpoints.
         model.load_state_dict(model_state_dict, strict=False)
+        
+        # Free CPU memory from state_dict immediately
+        del model_state_dict
+        import gc
+        gc.collect()
+        
         if training:
             return model
-        return model.to(model.device).eval().optimize(disable=not optimize)
+        return model.eval().optimize(disable=not optimize)
 
     # ------------------------------------------------------------------ #
     # LoRA Weight Management
