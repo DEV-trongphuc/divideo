@@ -357,58 +357,69 @@
                                         <path class="map-park" d="M 0 0 L 220 0 L 150 150 Q 80 180 0 140 Z" />
                                         <path class="map-park" d="M 520 280 Q 600 240 700 280 L 700 380 L 480 380 Z" />
                                         <path class="map-river" d="M -20 280 C 150 300, 320 180, 720 140" />
-
-                                        <!-- City street network grid in background -->
-                                        <line x1="10" y1="50" x2="690" y2="50" class="map-grid-street" />
-                                        <line x1="10" y1="150" x2="690" y2="150" class="map-grid-street" />
-                                        <line x1="10" y1="230" x2="690" y2="230" class="map-grid-street" />
-                                        <line x1="10" y1="320" x2="690" y2="320" class="map-grid-street" />
+ 
+                                        <!-- 4. Hẻm nhỏ (Alleys) - thin dashed lines -->
+                                        <line x1="50" y1="10" x2="50" y2="430" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="3 3" style="transition: all 0.3s;" />
+                                        <line x1="290" y1="10" x2="290" y2="430" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="3 3" style="transition: all 0.3s;" />
+                                        <line x1="10" y1="320" x2="690" y2="320" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="3 3" style="transition: all 0.3s;" />
                                         
-                                        <line x1="100" y1="10" x2="100" y2="370" class="map-grid-street" />
-                                        <line x1="220" y1="10" x2="220" y2="370" class="map-grid-street" />
-                                        <line x1="340" y1="10" x2="340" y2="370" class="map-grid-street" />
-                                        <line x1="460" y1="10" x2="460" y2="370" class="map-grid-street" />
-                                        <line x1="580" y1="10" x2="580" y2="370" class="map-grid-street" />
-
-                                        <!-- High-Level Highways (Thick curvy lines) -->
-                                        <path class="highway-path" d="M 80 190 Q 350 50 620 190" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="round" style="opacity:0.85;" />
-                                        <path class="highway-path" d="M 80 190 C 220 280, 480 280, 620 190" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="round" style="opacity:0.85;" />
+                                        <path d="M 80 190 Q 150 140 215 130" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
+                                        <path d="M 215 130 Q 280 110 350 110" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
+                                        <path d="M 350 110 Q 420 110 485 130" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
+                                        <path d="M 485 130 Q 550 140 620 190" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
                                         
-                                        <!-- Curvy local alleys (nested networks, dimmed out on simplification) -->
-                                        <path d="M 80 190 Q 150 140 215 130" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
-                                        <path d="M 215 130 Q 280 110 350 110" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
-                                        <path d="M 350 110 Q 420 110 485 130" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
-                                        <path d="M 485 130 Q 550 140 620 190" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
-                                        
-                                        <path d="M 80 190 Q 130 220 170 230" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
-                                        <path d="M 170 230 Q 220 250 260 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
-                                        <path d="M 260 255 Q 310 255 350 250" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
-                                        <path d="M 350 250 Q 390 255 440 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
-                                        <path d="M 440 255 Q 480 250 530 230" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
-                                        <path d="M 530 230 Q 570 220 620 190" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
-
-                                        <!-- Alley cross street connections (shortcuts) -->
-                                        <path d="M 215 130 Q 230 190 260 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
-                                        <path d="M 485 130 Q 470 190 440 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+                                        <path d="M 80 190 Q 130 220 170 230" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
+                                        <path d="M 170 230 Q 220 250 260 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
+                                        <path d="M 260 255 Q 310 255 350 250" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
+                                        <path d="M 350 250 Q 390 255 440 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
+                                        <path d="M 440 255 Q 480 250 530 230" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
+                                        <path d="M 530 230 Q 570 220 620 190" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
+                                        <path d="M 215 130 Q 230 190 260 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
+                                        <path d="M 485 130 Q 470 190 440 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2" style="transition: all 0.3s;" />
+ 
+                                        <!-- 3. Đường phụ (Secondary Roads) - thin gray lines -->
+                                        <path d="M 120 40 Q 280 180 400 300" class="secondary-road" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" style="transition: all 0.3s;" />
+                                        <path d="M 580 40 Q 420 180 300 300" class="secondary-road" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" style="transition: all 0.3s;" />
+                                        <line x1="340" y1="10" x2="340" y2="370" class="secondary-road" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" style="transition: all 0.3s;" />
+                                        <line x1="460" y1="10" x2="460" y2="370" class="secondary-road" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" style="transition: all 0.3s;" />
+ 
+                                        <!-- 2. Đường chính (Main Roads) - medium blue lines -->
+                                        <line x1="10" y1="50" x2="690" y2="50" class="main-road" fill="none" stroke="#2563eb" stroke-width="5.5" style="transition: all 0.3s;" />
+                                        <line x1="10" y1="150" x2="690" y2="150" class="main-road" fill="none" stroke="#2563eb" stroke-width="5.5" style="transition: all 0.3s;" />
+                                        <line x1="100" y1="10" x2="100" y2="370" class="main-road" fill="none" stroke="#2563eb" stroke-width="5.5" style="transition: all 0.3s;" />
+                                        <line x1="220" y1="10" x2="220" y2="370" class="main-road" fill="none" stroke="#2563eb" stroke-width="5.5" style="transition: all 0.3s;" />
+                                        <line x1="580" y1="10" x2="580" y2="370" class="main-road" fill="none" stroke="#2563eb" stroke-width="5.5" style="transition: all 0.3s;" />
+ 
+                                        <!-- 1. Cao tốc / Quốc lộ (Highways) - thick orange curvy lines -->
+                                        <path class="highway-path" d="M 80 190 Q 350 50 620 190" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="round" style="opacity:0.85; transition: all 0.4s;" />
+                                        <path class="highway-path" d="M 80 190 C 220 280, 480 280, 620 190" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="round" style="opacity:0.85; transition: all 0.4s;" />
                                     </svg>
                                     
                                     <!-- Labels for High-Level Highways -->
                                     <div style="position:absolute; left:350px; top:65px; color:#f59e0b; font-size:15px; font-weight:bold; transform:translate(-50%, -50%); text-shadow:0 2px 4px rgba(0,0,0,0.8); pointer-events:none; z-index:10;">Cao tốc CT01</div>
                                     <div style="position:absolute; left:350px; top:295px; color:#f59e0b; font-size:15px; font-weight:bold; transform:translate(-50%, -50%); text-shadow:0 2px 4px rgba(0,0,0,0.8); pointer-events:none; z-index:10;">Quốc lộ 1A</div>
-
+ 
                                     <!-- Labels and Nodes -->
                                     <div style="position:absolute; left:80px; top:190px; width:44px; height:44px; border-radius:50%; background:#10b981; border:2px solid #fff; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:#000; z-index:5; box-shadow:0 0 15px #10b981;">A</div>
                                     <div style="position:absolute; left:620px; top:190px; width:44px; height:44px; border-radius:50%; background:#ef4444; border:2px solid #fff; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:#fff; z-index:5; box-shadow:0 0 15px #ef4444;">B</div>
                                     
                                     <!-- Map overlay legend -->
-                                    <div style="position:absolute; top:12px; right:12px; background:rgba(0,0,0,0.85); padding:10px 18px; border-radius:12px; border:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:8px; font-size:15px; z-index:10;">
-                                        <div style="display:flex; align-items:center; gap:8px;">
+                                    <div style="position:absolute; top:12px; right:12px; background:rgba(0,0,0,0.85); padding:12px 18px; border-radius:12px; border:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:8px; font-size:14px; z-index:10; transition: all 0.3s;">
+                                        <div style="display:flex; align-items:center; gap:8px;" class="legend-highway">
                                             <span style="width:24px; height:8px; background:#f59e0b; border-radius:3px; display:block;"></span>
-                                            <span style="font-weight:bold; color:#fff;">Cao tốc / Quốc lộ</span>
+                                            <span style="font-weight:bold; color:#fff;">1. Cao tốc / Quốc lộ</span>
                                         </div>
-                                        <div style="display:flex; align-items:center; gap:8px; opacity: 0.6;" class="legend-alley">
+                                        <div style="display:flex; align-items:center; gap:8px;" class="legend-main">
+                                            <span style="width:24px; height:5px; background:#2563eb; border-radius:2px; display:block;"></span>
+                                            <span style="font-weight:bold; color:#fff;">2. Đường chính</span>
+                                        </div>
+                                        <div style="display:flex; align-items:center; gap:8px;" class="legend-secondary">
                                             <span style="width:24px; height:3px; background:rgba(255,255,255,0.4); display:block;"></span>
-                                            <span style="color:#d1d5db;">Hẻm / Đường nhánh</span>
+                                            <span style="color:#d1d5db;">3. Đường phụ</span>
+                                        </div>
+                                        <div style="display:flex; align-items:center; gap:8px;" class="legend-alley">
+                                            <span style="width:24px; height:2px; background:rgba(255,255,255,0.25); border-dasharray:3 1; display:block;"></span>
+                                            <span style="color:#d1d5db;">4. Hẻm nhỏ</span>
                                         </div>
                                     </div>
                                 </div>
@@ -891,23 +902,103 @@
         }
         else if (slideId === 'slide_maps_5') {
             const alleys = canvas.querySelectorAll('.alley-road');
+            const secondaries = canvas.querySelectorAll('.secondary-road');
+            const mains = canvas.querySelectorAll('.main-road');
+            const highways = canvas.querySelectorAll('.highway-path');
+            
             const legendAlley = canvas.querySelector('.legend-alley');
+            const legendSecondary = canvas.querySelector('.legend-secondary');
+            const legendMain = canvas.querySelector('.legend-main');
+            const legendHighway = canvas.querySelector('.legend-highway');
             
-            // Animation sequence:
-            // Alleys dim out to show simplification
+            // TIMELINE FOR HIERARCHICAL ROAD SIMPLIFICATION:
+            // 0.00 -> 0.20: Initial state, all roads active
+            // 0.20 -> 0.45: Remove 4. Hẻm nhỏ (Alleys fade out & strike-through in legend)
+            // 0.45 -> 0.70: Remove 3. Đường phụ (Secondary roads fade out & strike-through)
+            // 0.70 -> 0.82: Highlight Highways & Main roads (Algorithm focuses on high-speed roads)
+            // 0.82 -> 1.00: Show solved path (CT01 glows bright green)
             
-            if (progress > 0.35) {
-                alleys.forEach(a => {
-                    a.style.opacity = '0.05';
-                    a.style.stroke = 'rgba(255,255,255,0.02)';
+            if (progress < 0.20) {
+                // Alleys
+                alleys.forEach(a => { a.style.opacity = '1'; a.style.stroke = 'rgba(255,255,255,0.15)'; });
+                if (legendAlley) { legendAlley.style.opacity = '1'; legendAlley.style.textDecoration = 'none'; }
+                // Secondary
+                secondaries.forEach(s => { s.style.opacity = '1'; s.style.stroke = 'rgba(255,255,255,0.3)'; });
+                if (legendSecondary) { legendSecondary.style.opacity = '1'; legendSecondary.style.textDecoration = 'none'; }
+                // Main
+                mains.forEach(m => { m.style.opacity = '1'; m.style.stroke = '#2563eb'; });
+                if (legendMain) { legendMain.style.opacity = '1'; legendMain.style.textDecoration = 'none'; }
+                // Highways
+                highways.forEach(h => { h.style.stroke = '#f59e0b'; h.style.strokeWidth = '11px'; h.style.opacity = '0.85'; h.style.filter = 'none'; });
+                if (legendHighway) { legendHighway.style.opacity = '1'; }
+            }
+            else if (progress >= 0.20 && progress < 0.45) {
+                // Remove Alleys
+                const ratio = (progress - 0.20) / 0.25; // 0 to 1
+                const op = (1 - ratio * 0.97).toString();
+                alleys.forEach(a => { a.style.opacity = op; });
+                if (legendAlley) { legendAlley.style.opacity = (1 - ratio * 0.8).toString(); if (ratio > 0.8) legendAlley.style.textDecoration = 'line-through'; }
+                
+                // Rest stay normal
+                secondaries.forEach(s => { s.style.opacity = '1'; s.style.stroke = 'rgba(255,255,255,0.3)'; });
+                mains.forEach(m => { m.style.opacity = '1'; });
+                highways.forEach(h => { h.style.stroke = '#f59e0b'; h.style.strokeWidth = '11px'; });
+            }
+            else if (progress >= 0.45 && progress < 0.70) {
+                // Alleys are gone
+                alleys.forEach(a => { a.style.opacity = '0.03'; });
+                if (legendAlley) { legendAlley.style.opacity = '0.2'; legendAlley.style.textDecoration = 'line-through'; }
+                
+                // Remove Secondary
+                const ratio = (progress - 0.45) / 0.25; // 0 to 1
+                const op = (1 - ratio * 0.95).toString();
+                secondaries.forEach(s => { s.style.opacity = op; });
+                if (legendSecondary) { legendSecondary.style.opacity = (1 - ratio * 0.8).toString(); if (ratio > 0.8) legendSecondary.style.textDecoration = 'line-through'; }
+                
+                // Main and Highway stay normal
+                mains.forEach(m => { m.style.opacity = '1'; });
+                highways.forEach(h => { h.style.stroke = '#f59e0b'; h.style.strokeWidth = '11px'; });
+            }
+            else if (progress >= 0.70 && progress < 0.82) {
+                // Alleys & Secondary are gone
+                alleys.forEach(a => { a.style.opacity = '0.03'; });
+                if (legendAlley) { legendAlley.style.opacity = '0.2'; legendAlley.style.textDecoration = 'line-through'; }
+                secondaries.forEach(s => { s.style.opacity = '0.05'; });
+                if (legendSecondary) { legendSecondary.style.opacity = '0.2'; legendSecondary.style.textDecoration = 'line-through'; }
+                
+                // Main dims out to focus only on Highway
+                const ratio = (progress - 0.70) / 0.12;
+                mains.forEach(m => { m.style.opacity = (1 - ratio * 0.8).toString(); });
+                if (legendMain) { legendMain.style.opacity = '0.4'; }
+                
+                // Highways highlight / prepare path search
+                highways.forEach(h => { h.style.stroke = '#f59e0b'; h.style.strokeWidth = '12px'; h.style.filter = 'drop-shadow(0 0 4px #f59e0b)'; });
+            }
+            else {
+                // progress >= 0.82
+                // Alleys, Secondary, Main are simplified
+                alleys.forEach(a => { a.style.opacity = '0.03'; });
+                secondaries.forEach(s => { s.style.opacity = '0.05'; });
+                mains.forEach(m => { m.style.opacity = '0.2'; });
+                
+                if (legendAlley) { legendAlley.style.opacity = '0.2'; legendAlley.style.textDecoration = 'line-through'; }
+                if (legendSecondary) { legendSecondary.style.opacity = '0.2'; legendSecondary.style.textDecoration = 'line-through'; }
+                if (legendMain) { legendMain.style.opacity = '0.2'; legendMain.style.textDecoration = 'line-through'; }
+                
+                // Solution highway glows green!
+                highways.forEach((h, idx) => {
+                    if (idx === 0) { // Let's make CT01 (index 0) the selected route
+                        h.style.stroke = '#10b981';
+                        h.style.strokeWidth = '14px';
+                        h.style.opacity = '1';
+                        h.style.filter = 'drop-shadow(0 0 10px #10b981)';
+                    } else {
+                        h.style.stroke = '#f59e0b';
+                        h.style.strokeWidth = '9px';
+                        h.style.opacity = '0.4';
+                        h.style.filter = 'none';
+                    }
                 });
-                if (legendAlley) legendAlley.style.opacity = '0.15';
-            } else {
-                alleys.forEach(a => {
-                    a.style.opacity = '1';
-                    a.style.stroke = 'rgba(255,255,255,0.25)';
-                });
-                if (legendAlley) legendAlley.style.opacity = '0.6';
             }
         }
         else if (slideId === 'slide_maps_6') {

@@ -53,6 +53,11 @@
                     <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:50px; zoom:0.82;">
                         <!-- Left Phone Mockup: Shopee -->
                         <div class="glass-card phone-mockup shopee-phone" style="width:400px; height:680px; border:2.5px solid #ff5722; border-radius:36px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; background:#180f0a; position:relative; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.8); transition:all 0.3s;">
+                            <!-- Pixel Sent Badge -->
+                            <div class="shopee-pixel-badge" style="position:absolute; top:80px; left:50%; transform:translateX(-50%) scale(0.8); background:rgba(16,185,129,0.15); border:1.5px solid #10b981; color:#10b981; font-size:15px; font-weight:bold; padding:6px 12px; border-radius:10px; display:flex; align-items:center; gap:6px; opacity:0; transition:all 0.3s; z-index:15;">
+                                <span style="width:8px; height:8px; border-radius:50%; background:#10b981; animation:pulse-green 1s infinite;"></span> Facebook Pixel Sent!
+                            </div>
+                            
                             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(255,87,34,0.15); padding-bottom:10px;">
                                 <span style="font-size:22px; font-weight:bold; color:#ff5722; letter-spacing:1px; display:flex; align-items:center; gap:8px;">
                                     <i data-lucide="shopping-bag" style="width:20px; height:20px; color:#ff5722;"></i> SHOPEE APP
@@ -68,11 +73,11 @@
                                     <div style="font-size:26px; font-weight:bold; color:#fff;">UltraBoost Promax</div>
                                     <div style="font-size:22px; color:#ff5722; font-weight:bold; margin-top:4px;">1.990.000 đ</div>
                                 </div>
-                                <button style="background:#ff5722; border:none; border-radius:12px; padding:12px 30px; color:#fff; font-size:20px; font-weight:bold; display:flex; align-items:center; gap:8px;">
+                                <button class="shopee-view-btn" style="background:#ff5722; border:none; border-radius:12px; padding:12px 30px; color:#fff; font-size:20px; font-weight:bold; display:flex; align-items:center; gap:8px; transition:all 0.2s;">
                                     <i data-lucide="eye" style="width:20px; height:20px;"></i> Xem sản phẩm
                                 </button>
                             </div>
-                            <div style="background:rgba(255,87,34,0.06); border:1px dashed rgba(255,87,34,0.3); border-radius:16px; padding:12px; font-size:18px; color:#ff5722; text-align:center; font-weight:bold;">
+                            <div class="shopee-click-badge" style="background:rgba(255,87,34,0.06); border:1px dashed rgba(255,87,34,0.3); border-radius:16px; padding:12px; font-size:18px; color:#ff5722; text-align:center; font-weight:bold; position:relative; transition:all 0.3s;">
                                 🖱️ User Click: View Content
                             </div>
                         </div>
@@ -88,7 +93,9 @@
                                 </defs>
                                 <path class="flow-arrow-path" d="M 10 50 L 110 50" fill="none" stroke="url(#flow-grad)" stroke-width="4.5" stroke-dasharray="10 6" />
                             </svg>
-                            <div class="flow-packet" style="position:absolute; width:18px; height:18px; border-radius:50%; background:#ff5722; box-shadow:0 0 15px #ff5722; z-index:10; left:10px; top:50%; transform:translate(-50%,-50%); opacity:0;"></div>
+                            <div class="flow-packet packet-1" style="position:absolute; width:16px; height:16px; border-radius:50%; background:#ff5722; box-shadow:0 0 15px #ff5722; z-index:10; left:10px; top:50%; transform:translate(-50%,-50%); opacity:0;"></div>
+                            <div class="flow-packet packet-2" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#ff9800; box-shadow:0 0 15px #ff9800; z-index:10; left:10px; top:50%; transform:translate(-50%,-50%); opacity:0;"></div>
+                            <div class="flow-packet packet-3" style="position:absolute; width:14px; height:14px; border-radius:50%; background:#1877f2; box-shadow:0 0 15px #1877f2; z-index:10; left:10px; top:50%; transform:translate(-50%,-50%); opacity:0;"></div>
                             <div style="position:absolute; top:-25px; font-size:18px; font-weight:bold; color:var(--gold-primary); text-transform:uppercase; text-align:center; white-space:nowrap; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); padding:6px 12px; border-radius:10px;">
                                 Retargeting
                             </div>
@@ -104,16 +111,16 @@
                             </div>
                             <!-- FB Feed Ad Container -->
                             <div class="fb-ad-container" style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; opacity:0; transform:scale(0.9); transition:all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
-                                <div class="glass-card" style="width:100%; border:1.5px solid rgba(24,119,242,0.25); border-radius:20px; background:rgba(24,119,242,0.03); padding:16px; display:flex; flex-direction:column; gap:12px;">
-                                    <div style="display:flex; align-items:center; gap:10px;">
+                                <div class="glass-card sponsored-ad-card-v1" style="width:100%; border:1.5px solid rgba(24,119,242,0.25); border-radius:20px; background:rgba(24,119,242,0.03); padding:16px; display:flex; flex-direction:column; gap:12px;">
+                                    <div class="ad-el-1" style="display:flex; align-items:center; gap:10px; opacity:0; transform:translateY(10px); transition:all 0.3s;">
                                         <div style="width:36px; height:36px; border-radius:50%; background:#ff5722; display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; font-weight:bold;">S</div>
                                         <div>
                                             <div style="font-size:18px; font-weight:bold; color:#fff; display:flex; align-items:center; gap:6px;">Shopee.vn</div>
                                             <div style="font-size:14px; color:#1877f2; font-weight:bold; display:flex; align-items:center; gap:4px;"><i data-lucide="globe" style="width:12px; height:12px;"></i> Được tài trợ</div>
                                         </div>
                                     </div>
-                                    <div style="font-size:17px; color:#d1d5db; line-height:1.4;">Đôi giày bạn thích đang có deal hời! Mua ngay hôm nay giảm 15%! 👟🔥</div>
-                                    <div style="background:#151d2a; border-radius:12px; padding:10px; display:flex; gap:12px; align-items:center; border:1px solid rgba(255,255,255,0.06);">
+                                    <div class="ad-el-2" style="font-size:17px; color:#d1d5db; line-height:1.4; opacity:0; transform:translateY(10px); transition:all 0.3s;">Đôi giày bạn thích đang có deal hời! Mua ngay hôm nay giảm 15%! 👟🔥</div>
+                                    <div class="ad-el-3" style="background:#151d2a; border-radius:12px; padding:10px; display:flex; gap:12px; align-items:center; border:1px solid rgba(255,255,255,0.06); opacity:0; transform:translateY(10px); transition:all 0.3s;">
                                         <span style="font-size:55px;">👟</span>
                                         <div style="flex:1;">
                                             <div style="font-size:16px; font-weight:bold; color:#fff;">UltraBoost Promax</div>
@@ -213,7 +220,7 @@
         else if (slideId === 'slide_adtech_3') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                    <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:40px; zoom:0.83;">
+                    <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:20px; zoom:0.83;">
                         <!-- Left Panel: User Profile Record -->
                         <div class="glass-card profile-record-card" style="width:420px; height:580px; border:2.5px solid rgba(255,255,255,0.06); border-radius:24px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; position:relative; transition:all 0.4s;">
                             <div>
@@ -236,7 +243,7 @@
                                     <span class="animated-retarget-tag" style="font-size:18px; padding:6px 14px; background:rgba(245,158,11,0.04); border:1.5px dashed rgba(245,158,11,0.25); border-radius:20px; color:rgba(255,255,255,0.3); transition:all 0.5s; font-weight:bold;">Thích Giày Thể Thao</span>
                                 </div>
                             </div>
-
+ 
                             <!-- Custom Audience Member status -->
                             <div class="custom-audience-status glass-card" style="border:1.5px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.01); border-radius:16px; padding:15px; display:flex; align-items:center; gap:12px; transition:all 0.4s;">
                                 <i data-lucide="shield" style="width:24px; height:24px; color:rgba(255,255,255,0.2);" class="audience-shield"></i>
@@ -246,13 +253,13 @@
                                 </div>
                             </div>
                         </div>
-
+ 
                         <!-- Connector with animated tag transfer -->
-                        <div style="position:relative; width:100px; display:flex; align-items:center; justify-content:center;">
+                        <div style="position:relative; width:60px; height:580px;">
                             <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
-                                <path d="M 100 240 L 0 240" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3" stroke-dasharray="6 4" />
+                                <path d="M 60 290 L 0 290" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3" stroke-dasharray="6 4" />
                             </svg>
-                            <div class="tag-transfer-badge" style="position:absolute; background:var(--gold-primary); color:#000; font-size:15px; font-weight:bold; padding:6px 12px; border-radius:8px; box-shadow:0 0 15px var(--gold-primary); z-index:5; left:100px; top:240px; transform:translate(-50%,-50%); opacity:0; white-space:nowrap; display:flex; align-items:center; gap:4px;">
+                            <div class="tag-transfer-badge" style="position:absolute; background:var(--gold-primary); color:#000; font-size:15px; font-weight:bold; padding:6px 12px; border-radius:8px; box-shadow:0 0 15px var(--gold-primary); z-index:5; left:60px; top:290px; transform:translate(-50%,-50%); opacity:0; white-space:nowrap; display:flex; align-items:center; gap:4px;">
                                 <i data-lucide="tag" style="width:14px; height:14px;"></i> Tag: Thích Giày
                             </div>
                         </div>
@@ -456,43 +463,205 @@
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_adtech_1') {
             const shopee = canvas.querySelector('.shopee-phone');
+            const shopeeBtn = canvas.querySelector('.shopee-view-btn');
+            const shopeeBadge = canvas.querySelector('.shopee-click-badge');
+            const shopeePixel = canvas.querySelector('.shopee-pixel-badge');
+            
             const fb = canvas.querySelector('.fb-phone');
             const fbLoading = canvas.querySelector('.fb-loading-indicator');
             const fbAd = canvas.querySelector('.fb-ad-container');
-            const packet = canvas.querySelector('.flow-packet');
+            const sponsoredCard = canvas.querySelector('.sponsored-ad-card-v1');
+            const adEl1 = canvas.querySelector('.ad-el-1');
+            const adEl2 = canvas.querySelector('.ad-el-2');
+            const adEl3 = canvas.querySelector('.ad-el-3');
             
-            // Animation sequence
-            // Phase 1: Shopee is fully lit up. (0.0 to 0.3)
-            // Phase 2: A data packet shoots from Shopee to Facebook (0.3 to 0.6)
-            // Phase 3: Facebook loading finishes, sponsored ad pops up (0.6 to 1.0)
+            const packet1 = canvas.querySelector('.packet-1');
+            const packet2 = canvas.querySelector('.packet-2');
+            const packet3 = canvas.querySelector('.packet-3');
             
-            if (progress < 0.3) {
-                if (shopee) shopee.style.boxShadow = '0 0 35px rgba(255,87,34,0.3)';
-                if (fb) fb.style.boxShadow = '0 20px 50px rgba(0,0,0,0.8)';
-                if (fbLoading) fbLoading.style.opacity = '1';
-                if (fbAd) { fbAd.style.opacity = '0'; fbAd.style.transform = 'scale(0.9)'; }
-                if (packet) packet.style.opacity = '0';
+            // TIMELINE DEFINITIONS (Speed up to sync with "5 phút sau" audio timing):
+            // 0.00 -> 0.05: Idle / Init
+            // 0.05 -> 0.10: Button click trigger & badge glow
+            // 0.10 -> 0.20: Packets transfer
+            // 0.20 -> 0.23: FB loading fades out, FB phone reacts
+            // 0.23 -> 1.00: FB sponsored ad pops up & elements fade/slide in
+            
+            if (progress < 0.05) {
+                // Shopee phone is idle
+                if (shopee) {
+                    shopee.style.boxShadow = '0 0 20px rgba(255,87,34,0.15)';
+                    shopee.style.transform = 'scale(1)';
+                }
+                if (shopeeBtn) {
+                    shopeeBtn.style.transform = 'scale(1)';
+                    shopeeBtn.style.background = '#ff5722';
+                }
+                if (shopeeBadge) {
+                    shopeeBadge.style.background = 'rgba(255,87,34,0.06)';
+                    shopeeBadge.style.borderColor = 'rgba(255,87,34,0.3)';
+                    shopeeBadge.style.color = '#ff5722';
+                }
+                if (shopeePixel) {
+                    shopeePixel.style.opacity = '0';
+                    shopeePixel.style.transform = 'translateX(-50%) scale(0.8)';
+                }
+                // Central Flow
+                if (packet1) packet1.style.opacity = '0';
+                if (packet2) packet2.style.opacity = '0';
+                if (packet3) packet3.style.opacity = '0';
+                // FB phone is loading
+                if (fb) {
+                    fb.style.boxShadow = '0 20px 50px rgba(0,0,0,0.8)';
+                    fb.style.animation = 'none';
+                }
+                if (fbLoading) {
+                    fbLoading.style.opacity = '1';
+                    fbLoading.style.pointerEvents = 'auto';
+                }
+                if (fbAd) {
+                    fbAd.style.opacity = '0';
+                    fbAd.style.transform = 'scale(0.9)';
+                }
+                if (sponsoredCard) sponsoredCard.classList.remove('spring-pop-ad');
+                if (adEl1) { adEl1.style.opacity = '0'; adEl1.style.transform = 'translateY(10px)'; }
+                if (adEl2) { adEl2.style.opacity = '0'; adEl2.style.transform = 'translateY(10px)'; }
+                if (adEl3) { adEl3.style.opacity = '0'; adEl3.style.transform = 'translateY(10px)'; }
             }
-            else if (progress >= 0.3 && progress < 0.6) {
-                if (shopee) shopee.style.boxShadow = '0 20px 50px rgba(0,0,0,0.8)';
-                const ratio = (progress - 0.3) / 0.3; // 0 to 1
+            else if (progress >= 0.05 && progress < 0.10) {
+                // Button Click Trigger!
+                const clickRatio = (progress - 0.05) / 0.05; // 0 to 1
+                const btnScale = 1 - 0.05 * Math.sin(clickRatio * Math.PI); // scale shrinks then goes back
+                if (shopeeBtn) {
+                    shopeeBtn.style.transform = `scale(${btnScale})`;
+                    shopeeBtn.style.background = '#e64a19';
+                }
+                if (shopeeBadge) {
+                    shopeeBadge.style.background = 'rgba(255,87,34,0.2)';
+                    shopeeBadge.style.color = '#fff';
+                    shopeeBadge.style.boxShadow = '0 0 15px rgba(255,87,34,0.4)';
+                }
+                if (shopee) {
+                    shopee.style.boxShadow = '0 0 35px rgba(255,87,34,0.4)';
+                }
+                if (shopeePixel) {
+                    shopeePixel.style.opacity = clickRatio.toString();
+                    shopeePixel.style.transform = `translateX(-50%) scale(${0.8 + 0.2 * clickRatio})`;
+                }
+                
+                // Packets not moving yet
+                if (packet1) packet1.style.opacity = '0';
+                if (packet2) packet2.style.opacity = '0';
+                if (packet3) packet3.style.opacity = '0';
+            }
+            else if (progress >= 0.10 && progress < 0.20) {
+                // Packets transfer!
+                if (shopeeBtn) { shopeeBtn.style.transform = 'scale(1)'; shopeeBtn.style.background = '#ff5722'; }
+                if (shopeeBadge) {
+                    shopeeBadge.style.background = 'rgba(255,87,34,0.06)';
+                    shopeeBadge.style.color = '#ff5722';
+                    shopeeBadge.style.boxShadow = 'none';
+                }
+                if (shopeePixel) { shopeePixel.style.opacity = '1'; shopeePixel.style.transform = 'translateX(-50%) scale(1)'; }
+                
+                const ratio = (progress - 0.10) / 0.10; // 0 to 1 over this segment
                 const startX = 10;
                 const endX = 110;
-                const currentX = startX + (endX - startX) * ratio;
-                if (packet) {
-                    packet.style.left = `${currentX}px`;
-                    packet.style.opacity = '1';
+                
+                // Packet 1: flies from ratio 0 to 0.75 (progress 0.10 to 0.175)
+                const r1 = Math.min(1, Math.max(0, ratio / 0.75));
+                if (packet1) {
+                    packet1.style.left = `${startX + (endX - startX) * r1}px`;
+                    packet1.style.opacity = (r1 > 0 && r1 < 1) ? '1' : '0';
                 }
-                if (fbLoading) fbLoading.style.opacity = '1';
+                
+                // Packet 2: flies from ratio 0.15 to 0.85 (progress 0.115 to 0.185)
+                const r2 = Math.min(1, Math.max(0, (ratio - 0.15) / 0.70));
+                if (packet2) {
+                    packet2.style.left = `${startX + (endX - startX) * r2}px`;
+                    packet2.style.opacity = (r2 > 0 && r2 < 1) ? '1' : '0';
+                }
+                
+                // Packet 3: flies from ratio 0.30 to 1.0 (progress 0.130 to 0.20)
+                const r3 = Math.min(1, Math.max(0, (ratio - 0.30) / 0.70));
+                if (packet3) {
+                    packet3.style.left = `${startX + (endX - startX) * r3}px`;
+                    packet3.style.opacity = (r3 > 0 && r3 < 1) ? '1' : '0';
+                }
+                
+                // FB Phone reacts to packets arriving
+                if (fb) {
+                    if (ratio > 0.6) {
+                        fb.style.boxShadow = '0 0 25px rgba(24,119,242,0.3)';
+                    } else {
+                        fb.style.boxShadow = '0 20px 50px rgba(0,0,0,0.8)';
+                    }
+                }
+            }
+            else if (progress >= 0.20 && progress < 0.23) {
+                // Hide packets
+                if (packet1) packet1.style.opacity = '0';
+                if (packet2) packet2.style.opacity = '0';
+                if (packet3) packet3.style.opacity = '0';
+                
+                // FB loading fades out
+                const fadeRatio = (progress - 0.20) / 0.03; // 0 to 1
+                if (fbLoading) {
+                    fbLoading.style.opacity = (1 - fadeRatio).toString();
+                }
+                
+                // FB phone sonar ripple trigger
+                if (fb) {
+                    fb.style.boxShadow = '0 0 35px rgba(24,119,242,0.5)';
+                    fb.style.animation = 'sonar-ripple 1.5s infinite';
+                }
             }
             else {
-                // progress >= 0.6
-                if (packet) packet.style.opacity = '0';
-                if (fb) fb.style.boxShadow = '0 0 35px rgba(24,119,242,0.3)';
-                if (fbLoading) fbLoading.style.opacity = '0';
+                // progress >= 0.23
+                // Loading completely gone
+                if (fbLoading) {
+                    fbLoading.style.opacity = '0';
+                    fbLoading.style.pointerEvents = 'none';
+                }
+                if (packet1) packet1.style.opacity = '0';
+                if (packet2) packet2.style.opacity = '0';
+                if (packet3) packet3.style.opacity = '0';
+                
+                // Show FB Ad container
                 if (fbAd) {
                     fbAd.style.opacity = '1';
                     fbAd.style.transform = 'scale(1)';
+                }
+                if (sponsoredCard && !sponsoredCard.classList.contains('spring-pop-ad')) {
+                    sponsoredCard.classList.add('spring-pop-ad');
+                }
+                
+                // Staggered reveal of internal ad elements
+                const revealProgress = (progress - 0.23) / 0.77; // 0 to 1
+                
+                // Element 1: Header (0.0 to 0.2 threshold)
+                const r1 = Math.min(1, Math.max(0, revealProgress / 0.2));
+                if (adEl1) {
+                    adEl1.style.opacity = r1.toString();
+                    adEl1.style.transform = `translateY(${(1 - r1) * 10}px)`;
+                }
+                
+                // Element 2: Description Text (0.15 to 0.45 threshold)
+                const r2 = Math.min(1, Math.max(0, (revealProgress - 0.15) / 0.30));
+                if (adEl2) {
+                    adEl2.style.opacity = r2.toString();
+                    adEl2.style.transform = `translateY(${(1 - r2) * 10}px)`;
+                }
+                
+                // Element 3: Product Frame (0.35 to 0.7 threshold)
+                const r3 = Math.min(1, Math.max(0, (revealProgress - 0.35) / 0.35));
+                if (adEl3) {
+                    adEl3.style.opacity = r3.toString();
+                    adEl3.style.transform = `translateY(${(1 - r3) * 10}px)`;
+                }
+                
+                if (fb) {
+                    fb.style.boxShadow = '0 0 30px rgba(24,119,242,0.35)';
+                    fb.style.animation = 'none';
                 }
             }
         }
@@ -572,7 +741,11 @@
             // 0.8 -> 1.0: Custom Audience changes state to registered, profile card glows
             
             if (progress < 0.15) {
-                if (badge) badge.style.opacity = '0';
+                if (badge) {
+                    badge.style.left = '60px';
+                    badge.style.top = '290px';
+                    badge.style.opacity = '0';
+                }
                 if (targetTag) {
                     targetTag.style.background = 'rgba(255,255,255,0.03)';
                     targetTag.style.borderColor = 'rgba(255,255,255,0.08)';
@@ -585,10 +758,10 @@
             }
             else if (progress >= 0.15 && progress < 0.55) {
                 const ratio = (progress - 0.15) / 0.4; // 0 to 1
-                const startX = 640;
-                const endX = 290;
+                const startX = 60;
+                const endX = 0;
                 const currentX = startX - (startX - endX) * ratio;
-                const currentY = 240 + 40 * Math.sin(ratio * Math.PI);
+                const currentY = 290 - 50 * Math.sin(ratio * Math.PI);
                 if (badge) {
                     badge.style.left = `${currentX}px`;
                     badge.style.top = `${currentY}px`;

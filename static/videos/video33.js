@@ -66,6 +66,30 @@
         };
     }
 
+    // Helper to calculate coordinate along a path (straight line or cubic Bezier)
+    function getPathPoint(start, end, t) {
+        const dx = end.x - start.x;
+        const dy = end.y - start.y;
+        
+        if (Math.abs(dy) < 5) {
+            return {
+                x: start.x + dx * t,
+                y: start.y + dy * t
+            };
+        }
+        
+        const mt = 1 - t;
+        const mt2 = mt * mt;
+        const mt3 = mt2 * mt;
+        const t2 = t * t;
+        const t3 = t2 * t;
+        
+        const x = mt3 * start.x + 3 * mt2 * t * (start.x + dx * 0.4) + 3 * mt * t2 * (end.x - dx * 0.4) + t3 * end.x;
+        const y = mt3 * start.y + 3 * mt2 * t * start.y + 3 * mt * t2 * end.y + t3 * end.y;
+        
+        return { x, y };
+    }
+
     function formatTime(sec) {
         const m = Math.floor(sec / 60);
         const s = Math.floor(sec % 60);
@@ -617,20 +641,18 @@
                     const tvCoords = getCenterOffset(tvNode, container);
 
                     const subProgress = (progress - 0.4) / 0.3; // 0 to 1
-                    let curX = 0, curY = 0;
+                    let pt;
 
                     if (subProgress < 0.5) {
                         const t = subProgress / 0.5;
-                        curX = phoneCoords.x + (cloudCoords.x - phoneCoords.x) * t;
-                        curY = phoneCoords.y + (cloudCoords.y - phoneCoords.y) * t;
+                        pt = getPathPoint(phoneCoords, cloudCoords, t);
                     } else {
                         const t = (subProgress - 0.5) / 0.5;
-                        curX = cloudCoords.x + (tvCoords.x - cloudCoords.x) * t;
-                        curY = cloudCoords.y + (tvCoords.y - cloudCoords.y) * t;
+                        pt = getPathPoint(cloudCoords, tvCoords, t);
                     }
 
-                    packet.style.left = `${curX}px`;
-                    packet.style.top = `${curY}px`;
+                    packet.style.left = `${pt.x}px`;
+                    packet.style.top = `${pt.y}px`;
                     packet.style.opacity = '1';
                 }
             }
@@ -682,11 +704,10 @@
                         pkt.style.opacity = '0';
                     } else {
                         const t = subProgress / 0.4;
-                        const curX = startPos.x + (endPos.x - startPos.x) * t;
-                        const curY = startPos.y + (endPos.y - startPos.y) * t;
+                        const pt = getPathPoint(startPos, endPos, t);
                         
-                        pkt.style.left = `${curX}px`;
-                        pkt.style.top = `${curY}px`;
+                        pkt.style.left = `${pt.x}px`;
+                        pkt.style.top = `${pt.y}px`;
                         pkt.style.opacity = '1';
                     }
                 }
@@ -779,15 +800,17 @@
                     if (cycle < 0.5) {
                         const t = cycle / 0.5;
                         if (pktGreen) {
-                            pktGreen.style.left = `${phoneCoords.x + (gatewayCoords.x - phoneCoords.x) * t}px`;
-                            pktGreen.style.top = `${phoneCoords.y + (gatewayCoords.y - phoneCoords.y) * t}px`;
+                            const pt = getPathPoint(phoneCoords, gatewayCoords, t);
+                            pktGreen.style.left = `${pt.x}px`;
+                            pktGreen.style.top = `${pt.y}px`;
                             pktGreen.style.opacity = '1';
                         }
                     } else {
                         const t = (cycle - 0.5) / 0.5;
                         if (pktGreen) {
-                            pktGreen.style.left = `${gatewayCoords.x + (queueCoords.x - gatewayCoords.x) * t}px`;
-                            pktGreen.style.top = `${gatewayCoords.y + (queueCoords.y - gatewayCoords.y) * t}px`;
+                            const pt = getPathPoint(gatewayCoords, queueCoords, t);
+                            pktGreen.style.left = `${pt.x}px`;
+                            pktGreen.style.top = `${pt.y}px`;
                             pktGreen.style.opacity = '1';
                         }
                         if (queueStatus) queueStatus.textContent = "1 request pushed";
@@ -799,8 +822,9 @@
                     if (cycle < 0.5) {
                         const t = cycle / 0.5;
                         if (pktRed) {
-                            pktRed.style.left = `${hackerCoords.x + (gatewayCoords.x - hackerCoords.x) * t}px`;
-                            pktRed.style.top = `${hackerCoords.y + (gatewayCoords.y - hackerCoords.y) * t}px`;
+                            const pt = getPathPoint(hackerCoords, gatewayCoords, t);
+                            pktRed.style.left = `${pt.x}px`;
+                            pktRed.style.top = `${pt.y}px`;
                             pktRed.style.opacity = '1';
                         }
                     } else {
@@ -811,8 +835,9 @@
                         }
                         if (statusText) statusText.textContent = "BLOCKED: 401 Unauthorized!";
                         if (pktRed) {
-                            pktRed.style.left = `${gatewayCoords.x}px`;
-                            pktRed.style.top = `${gatewayCoords.y}px`;
+                            const pt = getPathPoint(hackerCoords, gatewayCoords, 1.0);
+                            pktRed.style.left = `${pt.x}px`;
+                            pktRed.style.top = `${pt.y}px`;
                             pktRed.style.opacity = '0.5';
                         }
                     }
@@ -856,13 +881,15 @@
 
                 if (cycleProgress < 0.5) {
                     const t = cycleProgress / 0.5;
-                    pkt1.style.left = `${start.x + (mid.x - start.x) * t}px`;
-                    pkt1.style.top = `${start.y + (mid.y - start.y) * t}px`;
+                    const pt = getPathPoint(start, mid, t);
+                    pkt1.style.left = `${pt.x}px`;
+                    pkt1.style.top = `${pt.y}px`;
                     pkt1.style.opacity = '1';
                 } else {
                     const t = (cycleProgress - 0.5) / 0.5;
-                    pkt1.style.left = `${mid.x + (end.x - mid.x) * t}px`;
-                    pkt1.style.top = `${mid.y + (end.y - mid.y) * t}px`;
+                    const pt = getPathPoint(mid, end, t);
+                    pkt1.style.left = `${pt.x}px`;
+                    pkt1.style.top = `${pt.y}px`;
                     pkt1.style.opacity = '1';
                 }
             }
@@ -883,8 +910,9 @@
                 const start = getCenterOffset(queueNode, container);
                 const end = getCenterOffset(workerNode, container);
                 const t = cycleProgress;
-                pkt2.style.left = `${start.x + (end.x - start.x) * t}px`;
-                pkt2.style.top = `${start.y + (end.y - start.y) * t}px`;
+                const pt = getPathPoint(start, end, t);
+                pkt2.style.left = `${pt.x}px`;
+                pkt2.style.top = `${pt.y}px`;
                 pkt2.style.opacity = progress > 0.15 ? '1' : '0';
             }
 
@@ -927,8 +955,9 @@
                 if (pktRedis && pktBigtable) {
                     // Update Redis Cache constantly
                     const tRedis = cycle;
-                    pktRedis.style.left = `${workerCoords.x + (redisCoords.x - workerCoords.x) * tRedis}px`;
-                    pktRedis.style.top = `${workerCoords.y + (redisCoords.y - workerCoords.y) * tRedis}px`;
+                    const ptRedis = getPathPoint(workerCoords, redisCoords, tRedis);
+                    pktRedis.style.left = `${ptRedis.x}px`;
+                    pktRedis.style.top = `${ptRedis.y}px`;
                     pktRedis.style.opacity = '1';
 
                     if (tRedis > 0.85 && redisNode) {
@@ -938,8 +967,9 @@
                     // Update Bigtable occasionally (Batch Write)
                     if (step === 1) {
                         const tBig = cycle;
-                        pktBigtable.style.left = `${workerCoords.x + (bigtableCoords.x - workerCoords.x) * tBig}px`;
-                        pktBigtable.style.top = `${workerCoords.y + (bigtableCoords.y - workerCoords.y) * tBig}px`;
+                        const ptBig = getPathPoint(workerCoords, bigtableCoords, tBig);
+                        pktBigtable.style.left = `${ptBig.x}px`;
+                        pktBigtable.style.top = `${ptBig.y}px`;
                         pktBigtable.style.opacity = '1';
 
                         if (tBig > 0.85 && bigtableNode) {
@@ -996,12 +1026,14 @@
 
                     if (subProgress < 0.5) {
                         const t = subProgress / 0.5;
-                        pkt1.style.left = `${start.x + (mid.x - start.x) * t}px`;
-                        pkt1.style.top = `${start.y + (mid.y - start.y) * t}px`;
+                        const pt = getPathPoint(start, mid, t);
+                        pkt1.style.left = `${pt.x}px`;
+                        pkt1.style.top = `${pt.y}px`;
                     } else {
                         const t = (subProgress - 0.5) / 0.5;
-                        pkt1.style.left = `${mid.x + (end.x - mid.x) * t}px`;
-                        pkt1.style.top = `${mid.y + (end.y - mid.y) * t}px`;
+                        const pt = getPathPoint(mid, end, t);
+                        pkt1.style.left = `${pt.x}px`;
+                        pkt1.style.top = `${pt.y}px`;
                     }
                     pkt1.style.opacity = '1';
                 }
@@ -1022,12 +1054,14 @@
 
                     if (subProgress < 0.5) {
                         const t = subProgress / 0.5;
-                        pkt2.style.left = `${start.x + (mid.x - start.x) * t}px`;
-                        pkt2.style.top = `${start.y + (mid.y - start.y) * t}px`;
+                        const pt = getPathPoint(mid, start, 1 - t);
+                        pkt2.style.left = `${pt.x}px`;
+                        pkt2.style.top = `${pt.y}px`;
                     } else {
                         const t = (subProgress - 0.5) / 0.5;
-                        pkt2.style.left = `${mid.x + (end.x - mid.x) * t}px`;
-                        pkt2.style.top = `${mid.y + (end.y - mid.y) * t}px`;
+                        const pt = getPathPoint(end, mid, 1 - t);
+                        pkt2.style.left = `${pt.x}px`;
+                        pkt2.style.top = `${pt.y}px`;
                     }
                     pkt2.style.opacity = '1';
                 }

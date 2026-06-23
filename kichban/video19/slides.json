@@ -6,12 +6,13 @@
     "subtitle": "🎯 GOOGLE MAPS ROUTING EXPLAINED",
     "script": "Bạn mở Google Maps, nhập điểm đến, và chỉ trong đúng một giây, ứng dụng đã tìm ra con đường nhanh nhất, tính toán chính xác thời gian và cảnh báo kẹt xe. Nhưng điều thú vị là, Google không hề thử tất cả các con đường. Vì nếu thử hết mọi ngả, siêu máy tính cũng phải mất hàng giờ hoặc hàng ngày do số lượng đường tăng theo cấp số nhân. Vậy điều gì thực sự xảy ra phía sau một cú chạm màn hình?",
     "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 22.0,
+    "refVoice": "giong_nam_tram_am.wav",
+    "audioPath": "/kichban/video19/mp3/slide_maps_1.mp3",
+    "duration": 23.72,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "18a5a96a43e80441ec43f7a1776000c6"
   },
   {
     "id": "slide_maps_2",
@@ -20,12 +21,13 @@
     "subtitle": "⚡ MAP TO GRAPH CONVERSION",
     "script": "Để giải quyết bài toán tìm đường, đầu tiên Google biến toàn bộ bản đồ thế giới thành một Đồ thị toán học. Mỗi giao lộ được biểu diễn bằng một điểm gọi là Node, và các con đường nối giữa chúng là các Edge. Mỗi con đường này đều mang một trọng số đại diện cho khoảng cách, hoặc thời gian di chuyển thực tế như ba trăm mét hay là năm phút.",
     "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 21.0,
+    "refVoice": "giong_nam_tram_am.wav",
+    "audioPath": "/kichban/video19/mp3/slide_maps_2.mp3",
+    "duration": 20.84,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "138bd47beda7c9a3619a116770ebfe87"
   },
   {
     "id": "slide_maps_3",
@@ -34,12 +36,13 @@
     "subtitle": "⚡ DIJKSTRA ALGORITHM - WATER RIPPLE SEARCH",
     "script": "Thuật toán cơ bản nhất để tìm đường trên đồ thị là Dijkstra. Ý tưởng của nó giống như bạn thả một giọt nước xuống mặt hồ phẳng lặng. Thuật toán sẽ bắt đầu từ vị trí của bạn, loang dần ra tất cả các nút có chi phí nhỏ nhất xung quanh, mở rộng đồng đều về mọi hướng cho tới khi chạm được tới đích. Thuật toán này luôn tìm được đường ngắn nhất nhưng lại cực kỳ tốn CPU vì tìm kiếm vô hướng.",
     "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 22.0,
+    "refVoice": "giong_nam_tram_am.wav",
+    "audioPath": "/kichban/video19/mp3/slide_maps_3.mp3",
+    "duration": 22.92,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "b8ce303610652318f74d50a849b887ce"
   },
   {
     "id": "slide_maps_4",
@@ -48,12 +51,13 @@
     "subtitle": "⚡ A* HEURISTIC SEARCH - TARGET ORIENTED",
     "script": "Để tìm kiếm thông minh hơn, Google áp dụng thuật toán A*. Khác với Dijkstra mò mẫm khắp nơi, A* sử dụng thêm hàm Heuristic để ước lượng hướng đi của đích. Nếu biết đích đến nằm ở phía Bắc, A* sẽ ưu tiên khám phá các con đường hướng về phía Bắc. Giống như bạn tìm cửa thoát trong một căn phòng, bạn sẽ nhìn thẳng về phía cánh cửa chứ không bò lên trần nhà để tìm kiếm.",
     "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 21.0,
+    "refVoice": "giong_nam_tram_am.wav",
+    "audioPath": "/kichban/video19/mp3/slide_maps_4.mp3",
+    "duration": 22.28,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "178444f8bd5d19ecf43bed0b0202effd"
   },
   {
     "id": "slide_maps_5",
@@ -62,12 +66,13 @@
     "subtitle": "⚡ ROAD NETWORK HIERARCHY & CONTRACTION",
     "script": "Tuy nhiên, để chạy trên quy mô toàn cầu, Google áp dụng kỹ thuật phân cấp mạng lưới đường. Hệ thống chia đường thành hẻm nhỏ, đường phụ, đường chính, và cao tốc. Khi tìm đường đi xa, thuật toán sẽ nhanh chóng loại bỏ hàng triệu con hẻm nhỏ ra khỏi bộ nhớ và chỉ tìm trên hệ thống cao tốc, tương tự cách bạn đi liên tỉnh sẽ nhanh chóng lên quốc lộ chứ không chạy trong ngõ hẻm.",
     "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 22.0,
+    "refVoice": "giong_nam_tram_am.wav",
+    "audioPath": "/kichban/video19/mp3/slide_maps_5.mp3",
+    "duration": 23.56,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "1cbc006fc2a2dcc413b13f06764bc88f"
   },
   {
     "id": "slide_maps_6",
@@ -76,12 +81,13 @@
     "subtitle": "⚡ BIDIRECTIONAL SEARCH - DOUBLE SPEED",
     "script": "Một mẹo tối ưu cực kỳ lợi hại khác là Tìm kiếm hai đầu cùng lúc. Thuật toán sẽ đồng thời xuất phát từ điểm xuất phát A và điểm đích B. Hai vòng tìm kiếm sẽ lan dần ra và gặp nhau ở giữa lộ trình. Phương pháp này giống như hai đội công nhân cùng đào hầm từ hai phía của ngọn núi, giúp giảm số lượng nút phải quét và tăng tốc độ xử lý lên gấp đôi.",
     "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 22.0,
+    "refVoice": "giong_nam_tram_am.wav",
+    "audioPath": "/kichban/video19/mp3/slide_maps_6.mp3",
+    "duration": 21.64,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "750b86a99b1bcc90a16110025ad625e3"
   },
   {
     "id": "slide_maps_7",
@@ -90,12 +96,13 @@
     "subtitle": "⚡ TIME VS DISTANCE - TIME IS GOLD",
     "script": "Đặc biệt, Google Maps không cố tìm con đường ngắn nhất về khoảng cách vật lý, mà tối ưu thời gian đến nơi. Ví dụ, đi đường hẻm A chỉ dài năm ki lô mét nhưng mất ba mươi lăm phút do đông đúc, còn đi cao tốc B dài tám ki lô mét nhưng chỉ mất mười hai phút. Google chắc chắn sẽ đề xuất cho bạn tuyến đường B dài hơn nhưng nhanh hơn đáng kể.",
     "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 21.0,
+    "refVoice": "giong_nam_tram_am.wav",
+    "audioPath": "/kichban/video19/mp3/slide_maps_7.mp3",
+    "duration": 21.48,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "663856c669b344b098c445505129e8f2"
   },
   {
     "id": "slide_maps_8",
@@ -104,12 +111,13 @@
     "subtitle": "⚡ REAL-TIME TRAFFIC DATA & AI PREDICTION",
     "script": "Làm sao Google biết đoạn nào sắp kẹt xe? Đó là nhờ thu thập dữ liệu định vị GPS ẩn danh từ hàng triệu điện thoại đang di chuyển trên đường. Nếu nhiều thiết bị cùng đi chậm, Google biết đoạn đó đang ùn tắc. Hơn nữa, AI còn phân tích lịch sử kẹt xe vào các giờ cao điểm thứ Hai hay chiều thứ Sáu, kết hợp thời tiết và tai nạn để dự đoán chính xác thời gian di chuyển.",
     "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 22.0,
+    "refVoice": "giong_nam_tram_am.wav",
+    "audioPath": "/kichban/video19/mp3/slide_maps_8.mp3",
+    "duration": 22.28,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "6f9faf391beb7ddef816d4a6b25e4497"
   },
   {
     "id": "slide_maps_9",
@@ -118,12 +126,13 @@
     "subtitle": "⚡ DYNAMIC REROUTING & LOCAL RECALCULATION",
     "script": "Khi bạn đang đi và đột ngột có tai nạn xảy ra phía trước, Google Maps sẽ không tính toán lại toàn bộ lộ trình từ đầu. Nó chỉ chạy thuật toán tìm đường mới từ vị trí hiện tại của bạn đến điểm đích. Nhờ đó, hệ thống có thể gợi ý tuyến đường tránh kẹt xe mới chỉ trong tích tắc, giúp bạn tiết kiệm thời gian ngay trên đường đi.",
     "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 20.0,
+    "refVoice": "giong_nam_tram_am.wav",
+    "audioPath": "/kichban/video19/mp3/slide_maps_9.mp3",
+    "duration": 17.64,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "d17e1a2143c855ad2738aa2472fa63fa"
   },
   {
     "id": "slide_maps_10",
@@ -132,11 +141,12 @@
     "subtitle": "⚡ ẤN FOLLOW KÊNH ĐỂ THEO DÕI BÀI VIẾT MỚI",
     "script": "Phía sau một cú chạm màn hình là sự phối hợp tuyệt vời của đồ thị toán học, thuật toán tìm kiếm thông minh, dữ liệu thời gian thực và trí tuệ nhân tạo. Hãy thả tim, chia sẻ và nhấn Follow Turnio chấm dev để không bỏ lỡ những kiến thức thiết kế hệ thống cực chất nhé!",
     "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "refVoice": "giong_nam_tram_am.wav",
+    "audioPath": "/kichban/video19/mp3/slide_maps_10.mp3",
+    "duration": 16.84,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "91ffded86aae8f1b7c474454564de369"
   }
 ]
