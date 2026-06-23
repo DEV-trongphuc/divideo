@@ -275,3 +275,63 @@
 .v36-shield-glow-effect {
     animation: shield-glow-v36 3s infinite ease-in-out;
 }
+
+/* --- Facebook Giant Item (Slide 1 Intro Hook) --- */
+.v36-facebook-intro-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 20px 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.v36-facebook-glow-ring {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 2.5px dashed rgba(24, 119, 242, 0.4);
+    animation: v36-logo-spin 25s linear infinite;
+    pointer-events: none;
+}
+
+.v36-facebook-glow-ring.inner {
+    width: 210px;
+    height: 210px;
+    border: 1.5px solid rgba(24, 119, 242, 0.25);
+    animation: v36-logo-spin-rev 15s linear infinite;
+}
+
+.v36-giant-facebook-logo {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: v36-logo-float 3.5s ease-in-out infinite;
+    z-index: 2;
+}
+
+.v36-giant-facebook-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 25px rgba(24, 119, 242, 0.7));
+}
+
+@keyframes v36-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes v36-logo-spin-rev {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes v36-logo-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}

@@ -174,6 +174,10 @@
                                 <i data-lucide="search"></i>
                                 <span>Bộ quét tìm</span>
                             </button>
+                            <button class="layout-btn" data-layout="hook">
+                                <i data-lucide="flame"></i>
+                                <span>Hook</span>
+                            </button>
                             <button class="layout-btn" data-layout="transition">
                                 <i data-lucide="sparkles"></i>
                                 <span>Chuyển cảnh</span>
@@ -387,6 +391,35 @@
                         </div>
 
                         <!-- Transition inputs -->
+                        <!-- Hook inputs -->
+                        <div id="layout-input-hook" class="layout-input-group" style="display: none;">
+                            <div class="form-group">
+                                <label>Thẻ Tag giật gân (Ví dụ: BÍ ẨN, CẢNH BÁO, TÒ MÒ)</label>
+                                <input type="text" id="slide-hook-tag" class="form-control" placeholder="Ví dụ: BÍ ẨN">
+                            </div>
+                            <div class="form-group">
+                                <label>Tiêu đề / Câu hỏi chính (Hook Title - Chữ siêu to)</label>
+                                <textarea id="slide-hook-title" class="form-control" rows="2" placeholder="Ví dụ: BẠN DÙNG GOOGLE 20 NĂM MIỄN PHÍ?"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Nội dung dẫn dắt tiếp theo (Hook Subtitle)</label>
+                                <textarea id="slide-hook-subtitle" class="form-control" rows="2" placeholder="Ví dụ: Vậy ai đang trả tiền cho tất cả những thứ đó?"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Tên Icon Lucide bổ trợ (Ví dụ: flame, help-circle, alert-triangle, anchor)</label>
+                                <input type="text" id="slide-hook-icon" class="form-control" placeholder="Ví dụ: flame">
+                            </div>
+                            <div class="form-group">
+                                <label>Chủ đề hiệu ứng (Theme)</label>
+                                <select id="slide-hook-theme" class="form-control">
+                                    <option value="danger">Lửa đỏ rực / Đe dọa (Danger Red)</option>
+                                    <option value="warning">Hào quang vàng / Kích thích (Warning Gold)</option>
+                                    <option value="info">Màu xanh công nghệ / Huyền bí (Info Blue)</option>
+                                    <option value="success">Xanh lá cây / Tươi mát (Success Green)</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div id="layout-input-transition" class="layout-input-group" style="display: none;">
                             <div class="form-group">
                                 <label>Câu giật tít chuyển chương / Câu hỏi (Transition Title)</label>

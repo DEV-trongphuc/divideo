@@ -6,10 +6,12 @@
     'use strict';
 
     const keywordsData = {
-        slide_cf_1: [
-            { text: 'DDoS', start: 1.0, end: 12.0, class: 'active-bad' },
-            { text: 'botnet', start: 12.0, end: 20.0, class: 'active-bad' },
-            { text: 'quá tải', start: 20.0, end: 28.0, class: 'active-bad' }
+        slide_cf_1a: [
+            { text: 'DDoS', start: 4.0, end: 13.0, class: 'active-bad' }
+        ],
+        slide_cf_1b: [
+            { text: 'botnet', start: 1.0, end: 7.0, class: 'active-bad' },
+            { text: 'quá tải', start: 7.0, end: 14.0, class: 'active-bad' }
         ],
         slide_cf_2: [
             { text: 'kết nối trực tiếp', start: 1.0, end: 10.0, class: 'active-bad' },
@@ -58,7 +60,8 @@
     };
 
     const customSlideIds = [
-        'slide_cf_1',
+        'slide_cf_1a',
+        'slide_cf_1b',
         'slide_cf_2',
         'slide_cf_3',
         'slide_cf_4',
@@ -118,7 +121,34 @@
         }
 
         if (!needsTemplate) return;
-        if (slideId === 'slide_cf_1') {
+        if (slideId === 'slide_cf_1a') {
+            canvas.innerHTML = `
+                <div class="v30-scene-wrapper">
+                    <div class="v37-grid-bg orange-tint" style="position:absolute; inset:0; background-image:radial-gradient(rgba(243, 128, 32, 0.04) 1.5px, transparent 1.5px); background-size:20px 20px; pointer-events:none;"></div>
+                    <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
+                        <div class="v30-cloudflare-intro-container">
+                            <div class="v30-cloudflare-glow-ring"></div>
+                            <div class="v30-cloudflare-glow-ring inner"></div>
+                            <div class="v30-giant-cloudflare-logo">
+                                <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/cloudflare.webp" alt="Cloudflare Logo">
+                            </div>
+                        </div>
+                        
+                        <!-- Premium Badge and Label in Glass Card -->
+                        <div class="glass-card" style="text-align: center; width: 440px; padding: 18px 24px; border-radius: 20px; border: 1.5px solid rgba(243, 128, 32, 0.4); background: rgba(15, 12, 10, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55); margin-top: 15px;">
+                            <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(243, 128, 32, 0.4); background: rgba(243, 128, 32, 0.1); color: #fb923c; border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
+                                <i data-lucide="shield" style="width:14px;height:14px;"></i> DDoS Protection
+                            </div>
+                            <div style="font-family:'Fira Code', monospace; font-size: 15px; font-weight: bold; color: #fb923c; line-height: 1.45;">
+                                Thảm họa mạng: Tấn công DDoS là gì?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            initIcons();
+        }
+        else if (slideId === 'slide_cf_1b') {
             canvas.innerHTML = `
                 <div class="v30-zoom-container" style="justify-content: center; gap: 24px;">
                     <!-- SVG paths for visual lines -->
@@ -638,7 +668,7 @@
     function updateFrame(slideId, canvas, progress, isPlaying) {
         const zoomContainer = canvas.querySelector('.v30-zoom-container');
 
-        if (slideId === 'slide_cf_1') {
+        if (slideId === 'slide_cf_1b') {
             const serverLoadText = canvas.querySelector('#v30-server-load-text');
             const serverLoadFill = canvas.querySelector('#v30-server-load-fill');
             const targetServer = canvas.querySelector('#v30-target-server');

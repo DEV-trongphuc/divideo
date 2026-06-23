@@ -8,6 +8,8 @@
     // ── KEYWORDS DATA ──────────────────────────────────────────────────────────
     // Slide 1 (first slide) has no keywords as per rule.
     const keywordsData = {
+        slide_zip_1a: [],
+        slide_zip_1b: [],
         slide_zip_2: [
             { text: 'dư thừa dữ liệu', start: 8.0, end: 15.0, class: 'active-good' },
             { text: 'tính lặp lại', start: 1.0, end: 8.0, class: 'active-gold' }
@@ -31,7 +33,7 @@
     };
 
     const customSlideIds = [
-        'slide_zip_1', 'slide_zip_2', 'slide_zip_3', 'slide_zip_4', 'slide_zip_5', 'slide_zip_6'
+        'slide_zip_1a', 'slide_zip_1b', 'slide_zip_2', 'slide_zip_3', 'slide_zip_4', 'slide_zip_5', 'slide_zip_6'
     ];
 
     // ── HTML TEMPLATES ─────────────────────────────────────────────────────────
@@ -41,7 +43,35 @@
             canvas.setAttribute('data-sim-template', slideId);
         }
 
-        if (slideId === 'slide_zip_1') {
+        if (slideId === 'slide_zip_1a') {
+            if (needsTemplate) {
+                canvas.innerHTML = `
+                    <div class="v26-scene-wrapper">
+                        <div class="v37-grid-bg blue-tint" style="position:absolute; inset:0; background-image:radial-gradient(rgba(59,130,246,0.04) 1.5px, transparent 1.5px); background-size:20px 20px; pointer-events:none;"></div>
+                        <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
+                            <div class="v26-zip-intro-container">
+                                <div class="v26-zip-glow-ring"></div>
+                                <div class="v26-zip-glow-ring inner"></div>
+                                <div class="v26-giant-zip-logo">
+                                    <img src="/static/zip_icon.png" alt="ZIP Logo">
+                                </div>
+                            </div>
+                            
+                            <!-- Premium Badge and Label in Glass Card -->
+                            <div class="glass-card" style="text-align: center; width: 440px; padding: 18px 24px; border-radius: 20px; border: 1.5px solid rgba(59, 130, 246, 0.4); background: rgba(12, 16, 24, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55); margin-top: 15px;">
+                                <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.1); color: #60a5fa; border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
+                                    <i data-lucide="folder-archive" style="width:14px;height:14px;"></i> Lossless Compression
+                                </div>
+                                <div style="font-family:'Fira Code', monospace; font-size: 15px; font-weight: bold; color: #60a5fa; line-height: 1.45;">
+                                    Bí ẩn tệp .ZIP: Làm sao nén file không mất một chữ?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        else if (slideId === 'slide_zip_1b') {
             if (needsTemplate) {
                 canvas.innerHTML = `
                     <div class="v26-zoom-container">
@@ -284,7 +314,7 @@
 
     // ── ANIMATION UPDATE FRAME ─────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
-        if (slideId === 'slide_zip_1') {
+        if (slideId === 'slide_zip_1b') {
             const img = canvas.querySelector('img');
             if (img) {
                 // Gentle floating rotation

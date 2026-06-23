@@ -1,0 +1,519 @@
+/**
+ * Video 37: Google Free Business Model - "Tại sao Google lại miễn phí?"
+ * CSS file dynamically loaded when video37 is active
+ */
+
+/* --- Custom animations --- */
+@keyframes dash-flow-v37 {
+    to {
+        stroke-dashoffset: -40;
+    }
+}
+
+@keyframes float-bidder-v37 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes click-pulse-v37 {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse-led-v37 {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes shimmer-sweep-v37 {
+    0% {
+        background-position: -250px 0;
+    }
+    100% {
+        background-position: 250px 0;
+    }
+}
+
+/* --- Base styling structure --- */
+.v37-scene-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    zoom: 1.55;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #ffffff;
+    background: transparent;
+}
+
+.v37-glass-card {
+    background: rgba(13, 17, 28, 0.72);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: all 0.4s ease;
+}
+
+/* Simulated Smartphone Mockup */
+.v37-phone {
+    width: 320px;
+    height: 560px;
+    border-radius: 38px;
+    border: 2.5px solid rgba(255, 255, 255, 0.12);
+    background: #090b11;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+}
+
+.v37-phone-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.v37-phone-notch {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 22px;
+    background: #000000;
+    border-radius: 12px;
+    z-index: 10;
+}
+
+/* Google Search layouts */
+.v37-google-logo {
+    width: 100px;
+    height: 38px;
+    object-fit: contain;
+    margin: 30px auto 15px auto;
+}
+
+.v37-search-bar {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.v37-search-input-cursor {
+    width: 1.5px;
+    height: 14px;
+    background: #3b82f6;
+    display: inline-block;
+    animation: pulse-led-v37 1s infinite alternate;
+}
+
+/* User Profiling Tags and Cards */
+.v37-profile-tag {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.v37-profile-tag.active-blue {
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+    color: #38bdf8;
+}
+
+.v37-profile-tag.active-gold {
+    border-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+}
+
+.v37-profile-tag.active-green {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+}
+
+/* Ad Bidder Cards */
+.v37-bidder-card {
+    padding: 14px;
+    text-align: center;
+    box-sizing: border-box;
+    transition: all 0.4s ease;
+}
+
+.v37-bidder-card.float-1 {
+    animation: float-bidder-v37 4s infinite ease-in-out;
+}
+
+.v37-bidder-card.float-2 {
+    animation: float-bidder-v37 4s infinite ease-in-out 1.5s;
+}
+
+.v37-bidder-card.float-3 {
+    animation: float-bidder-v37 4s infinite ease-in-out 2.8s;
+}
+
+.v37-bidder-card.winner {
+    border-color: #34d399;
+}
+
+/* LED light indicators */
+.v37-status-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #475569;
+}
+
+.v37-status-led.active-ok {
+    background: #34d399;
+}
+
+.v37-status-led.active-scanning {
+    background: #f59e0b;
+    animation: pulse-led-v37 1s infinite ease-in-out;
+}
+
+/* Google Sponsored Ad SERP links */
+.v37-sponsored-link {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 10px 12px;
+    text-align: left;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.v37-sponsored-link.winner-ad {
+    border-color: rgba(52, 211, 153, 0.3);
+}
+
+.v37-sponsored-link.winner-ad::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    animation: shimmer-sweep-v37 2.5s infinite linear;
+    pointer-events: none;
+}
+
+/* SVG vectors */
+.v37-dash-path {
+    stroke-dasharray: 8 5;
+    animation: dash-flow-v37 1.3s linear infinite;
+}
+
+.v37-active-path {
+    stroke: rgba(255, 255, 255, 0.35);
+    transition: stroke 0.3s;
+}
+
+/* Simulated Click Ripple */
+.v37-click-ripple {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #3b82f6;
+    background: rgba(59, 130, 246, 0.15);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+    animation: click-pulse-v37 0.6s ease-out forwards;
+}
+
+/* Grid backgrounds */
+.v37-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+/* --- Google Giant Item (Slide 1 Intro) --- */
+.v37-google-intro-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 40px 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.v37-google-glow-ring {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 2.5px dashed rgba(245, 158, 11, 0.35);
+    animation: v37-spin 25s linear infinite;
+    pointer-events: none;
+}
+
+.v37-google-glow-ring.inner {
+    width: 200px;
+    height: 200px;
+    border: 1.5px solid rgba(245, 158, 11, 0.2);
+    animation: v37-spin-rev 15s linear infinite;
+}
+
+.v37-giant-google-logo {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: v37-float 3.5s ease-in-out infinite;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.v37-giant-google-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.6));
+}
+
+@keyframes v37-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes v37-spin-rev {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes v37-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* --- Premium Stacking and Vertical Layout System --- */
+.v37-vertical-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    gap: 8px;
+}
+
+.v37-phone.v37-phone-compact {
+    width: 320px;
+    height: 330px;
+    padding: 10px 16px;
+    border-radius: 28px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+}
+
+.v37-phone-compact .v37-google-logo {
+    margin: 15px auto 10px auto;
+    height: 24px;
+}
+
+.v37-phone-compact .v37-search-bar {
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    font-size: 11px;
+}
+
+.v37-phone-compact .v37-sponsored-link {
+    padding: 8px 10px;
+    margin-bottom: 8px;
+}
+
+/* Middle connection space */
+.v37-vertical-connection {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v37-vertical-connection svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Stacking detail card at the bottom */
+.v37-detail-card {
+    width: 340px;
+    height: auto !important;
+    padding: 12px 16px !important;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* Horizontal Row for the Bidder Cards (Auction slide) */
+.v37-bidders-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    width: 340px;
+    margin: 0 auto;
+}
+
+.v37-bidders-row .v37-bidder-card {
+    flex: 1;
+    min-width: 0;
+    padding: 8px !important;
+    border-radius: 12px !important;
+}
+
+.v37-bidders-row .v37-bidder-card div {
+    font-size: 10px !important;
+}
+
+/* --- Premium Recap Bar Charts --- */
+.v37-recap-board {
+    width: 100%;
+    padding: 20px !important;
+    box-sizing: border-box;
+}
+
+.v37-chart-row {
+    margin-bottom: 16px;
+}
+
+.v37-chart-row:last-child {
+    margin-bottom: 0;
+}
+
+.v37-chart-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.v37-chart-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.v37-chart-percent {
+    font-family: 'Fira Code', monospace;
+    font-weight: 900;
+}
+
+/* Beautiful bar tracks */
+.v37-bar-container {
+    width: 100%;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Custom ticks for the grid-like look */
+.v37-bar-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 25% 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.v37-bar-fill {
+    height: 100%;
+    width: 0%; /* Dynamic animation in JS */
+    border-radius: 99px;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    transition: width 0.3s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+/* Custom color variations for bar charts */
+.bar-search {
+    background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.bar-youtube {
+    background: linear-gradient(90deg, #be123c, #fb7185);
+    box-shadow: 0 0 10px rgba(251, 113, 133, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.bar-adsense {
+    background: linear-gradient(90deg, #047857, #10b981);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.v37-arrow-down-glow {
+    animation: v37-arrow-pulse 1.5s infinite alternate;
+}
+
+@keyframes v37-arrow-pulse {
+    0% { transform: translateY(0); opacity: 0.6; filter: drop-shadow(0 0 2px rgba(245, 158, 11, 0.4)); }
+    100% { transform: translateY(5px); opacity: 1; filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8)); }
+}
+
+

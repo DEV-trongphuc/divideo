@@ -6,9 +6,11 @@
     'use strict';
 
     const keywordsData = {
-        slide_yt_intro: [
-            { text: 'đồng bộ', start: 1.0, end: 9.0, class: 'active-gold' },
-            { text: 'chuẩn xác', start: 9.0, end: 17.0, class: 'active-good' }
+        slide_yt_intro_a: [
+            { text: 'đồng bộ', start: 1.0, end: 8.5, class: 'active-gold' }
+        ],
+        slide_yt_intro_b: [
+            { text: 'chuẩn xác', start: 0.5, end: 8.5, class: 'active-good' }
         ],
         slide_yt_naive: [
             { text: '1 giây', start: 1.0, end: 8.0, class: 'active-bad' },
@@ -33,7 +35,8 @@
     };
 
     const customSlideIds = [
-        'slide_yt_intro',
+        'slide_yt_intro_a',
+        'slide_yt_intro_b',
         'slide_yt_naive',
         'slide_yt_gateway',
         'slide_yt_kafka',
@@ -126,7 +129,31 @@
 
         if (!needsTemplate) return;
 
-        if (slideId === 'slide_yt_intro') {
+        if (slideId === 'slide_yt_intro_a') {
+            canvas.innerHTML = `
+                <div class="v33-scene-wrapper">
+                    <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
+                        <div class="v33-youtube-intro-container">
+                            <div class="v33-youtube-glow-ring"></div>
+                            <div class="v33-youtube-glow-ring inner"></div>
+                            <div class="v33-giant-youtube-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" />
+                            </div>
+                        </div>
+                        <div class="v33-glass-card" style="text-align: center; width: 440px; padding: 18px 24px; margin-top: 15px; border: 1.5px solid rgba(255, 0, 0, 0.4); background: rgba(15, 10, 10, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55);">
+                            <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(255, 0, 0, 0.4); background: rgba(255, 0, 0, 0.1); color: var(--yt-red); border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
+                                <i data-lucide="youtube" style="width: 14px; height: 14px; color: var(--yt-red);"></i> Watch History
+                            </div>
+                            <div style="font-family:'Fira Code', monospace; font-size: 15px; font-weight: bold; color: var(--yt-red); line-height: 1.45;">
+                                Đồng bộ phát lại: Làm sao YouTube nhớ vị trí xem chuẩn xác từng giây?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            initIcons();
+        }
+        else if (slideId === 'slide_yt_intro_b') {
             canvas.innerHTML = `
                 <div class="v33-zoom-container" style="justify-content: center; gap: 20px;">
                     <!-- SVG Paths layer (moved to direct child of container for perfect coordinate alignment) -->
@@ -198,7 +225,7 @@
                     <div class="v33-packet" id="v33-intro-pkt-1"></div>
 
                     <!-- Status description card -->
-                    <div class="v33-glass-card" style="display:flex; justify-content:space-between; align-items:center;">
+                    <div class="v33-glass-card" style="display:flex; justify-content:space-between; align-items:center; width:440px; padding:18px 24px;">
                         <span style="font-size:11px; font-weight:bold; color:var(--yt-text-muted); text-transform:uppercase; letter-spacing:1px; display:inline-flex; align-items:center; gap:5px;">
                             <i data-lucide="refresh-cw" style="width:14px; height:14px; color:var(--yt-blue); animation: spin 4s linear infinite;"></i> Playback State
                         </span>
@@ -588,7 +615,11 @@
         // Base container selection for coordinate alignment
         const container = canvas.querySelector('.v33-zoom-container');
 
-        if (slideId === 'slide_yt_intro') {
+        if (slideId === 'slide_yt_intro_a') {
+            // Hook slide - no complex simulations, CSS handles animations
+            return;
+        }
+        else if (slideId === 'slide_yt_intro_b') {
             const phoneFill = canvas.querySelector('#v33-intro-phone-fill');
             const phoneTime = canvas.querySelector('#v33-intro-phone-time');
             const tvFill = canvas.querySelector('#v33-intro-tv-fill');

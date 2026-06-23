@@ -7,10 +7,12 @@
 
     // ── KEYWORDS DATA ──────────────────────────────────────────────────────────
     const keywordsData = {
-        slide_shortener_1: [
+        slide_shortener_1a: [
             { text: 'rút gọn link', start: 4.0, end: 10.0, class: 'active-gold' },
-            { text: 'không bao giờ bị trùng', start: 10.0, end: 16.0, class: 'active-good' },
-            { text: 'hệ thống phân tán', start: 16.0, end: 23.0, class: 'active-gold' }
+            { text: 'không bao giờ bị trùng', start: 10.0, end: 14.5, class: 'active-good' }
+        ],
+        slide_shortener_1b: [
+            { text: 'hệ thống phân tán', start: 1.0, end: 8.0, class: 'active-gold' }
         ],
         slide_shortener_2: [
             { text: 'hệ cơ số 62', start: 4.0, end: 10.0, class: 'active-gold' },
@@ -40,7 +42,7 @@
     };
 
     const customSlideIds = [
-        'slide_shortener_1', 'slide_shortener_2', 'slide_shortener_3', 'slide_shortener_4', 'slide_shortener_5',
+        'slide_shortener_1a', 'slide_shortener_1b', 'slide_shortener_2', 'slide_shortener_3', 'slide_shortener_4', 'slide_shortener_5',
         'slide_shortener_6'
     ];
 
@@ -101,7 +103,38 @@
             canvas.setAttribute('data-sim-template', slideId);
         }
 
-        if (slideId === 'slide_shortener_1') {
+        if (slideId === 'slide_shortener_1a') {
+            if (needsTemplate) {
+                canvas.innerHTML = `
+                    <div class="v21-scene-wrapper">
+                        <div class="cyber-grid" style="position:absolute; inset:0; pointer-events:none;"></div>
+                        <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
+                            <div class="v21-bitly-intro-container">
+                                <div class="v21-bitly-glow-ring"></div>
+                                <div class="v21-bitly-glow-ring inner"></div>
+                                <div class="v21-giant-bitly-logo">
+                                    <img src="https://mkt-static.bitly.com/static/1781279141/pages/wp-content/uploads/2021/08/bitly_logo.svg" alt="Bitly Logo" style="filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.6));">
+                                </div>
+                            </div>
+                            
+                            <!-- Premium Badge and Label in Glass Card -->
+                            <div class="glass-card glow-gold" style="text-align: center; width: 440px; padding: 18px 24px; border-radius: 20px; border: 1.5px solid rgba(245, 158, 11, 0.4); background: rgba(13, 17, 28, 0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55); margin-top: 15px;">
+                                <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1); color: var(--gold-secondary); border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
+                                    <i data-lucide="link" style="width:14px;height:14px;"></i> URL Shortener Ingestion
+                                </div>
+                                <div style="font-family:'Fira Code', monospace; font-size: 16px; font-weight: bold; color: var(--gold-secondary); line-height: 1.4;" id="v21-intro-label">
+                                    Tại sao rút gọn Link không bao giờ trùng lặp?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons({ node: canvas });
+                }
+            }
+        }
+        else if (slideId === 'slide_shortener_1b') {
             if (needsTemplate) {
                 canvas.innerHTML = `
                     <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; zoom:1.0;">
@@ -174,6 +207,9 @@
                         </div>
                     </div>
                 `;
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons({ node: canvas });
+                }
             }
         }
         else if (slideId === 'slide_shortener_2') {
@@ -595,7 +631,10 @@
 
     // ── ANIMATION UPDATE FRAME ─────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
-        if (slideId === 'slide_shortener_1') {
+        if (slideId === 'slide_shortener_1a') {
+            // CSS keyframes
+        }
+        else if (slideId === 'slide_shortener_1b') {
             const longCard = canvas.querySelector('.long-url-card');
             const shortCard = canvas.querySelector('.short-url-card');
             const stats = canvas.querySelector('.compression-stats');

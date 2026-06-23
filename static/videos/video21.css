@@ -243,3 +243,78 @@
 .pulse-glow {
     animation: pulse-ring 2.5s infinite ease-in-out;
 }
+
+/* --- Bitly Giant Item (Slide 1 Intro Hook) --- */
+.v21-scene-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    zoom: 1.5;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #ffffff;
+    background: transparent;
+}
+
+.v21-bitly-intro-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 20px 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.v21-bitly-glow-ring {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 2.5px dashed rgba(245, 158, 11, 0.35);
+    animation: v21-logo-spin 25s linear infinite;
+    pointer-events: none;
+}
+
+.v21-bitly-glow-ring.inner {
+    width: 200px;
+    height: 200px;
+    border: 1.5px solid rgba(245, 158, 11, 0.2);
+    animation: v21-logo-spin-rev 15s linear infinite;
+}
+
+.v21-giant-bitly-logo {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: v21-logo-float 3.5s ease-in-out infinite;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.v21-giant-bitly-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes v21-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes v21-logo-spin-rev {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes v21-logo-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+

@@ -5,9 +5,11 @@
     'use strict';
 
     const keywordsData = {
-        slide_chat_intro: [
-            { text: 'tức thì', start: 1.0, end: 8.0, class: 'active-gold' },
-            { text: 'WebSocket', start: 8.0, end: 17.0, class: 'active-good' }
+        slide_chat_intro_a: [
+            { text: 'tức thì', start: 1.0, end: 8.5, class: 'active-gold' }
+        ],
+        slide_chat_intro_b: [
+            { text: 'WebSocket', start: 0.5, end: 8.5, class: 'active-good' }
         ],
         slide_chat_http: [
             { text: 'Request', start: 1.0, end: 7.0, class: 'active-gold' },
@@ -48,7 +50,7 @@
     };
 
     const customSlideIds = [
-        'slide_chat_intro', 'slide_chat_http', 'slide_chat_polling',
+        'slide_chat_intro_a', 'slide_chat_intro_b', 'slide_chat_http', 'slide_chat_polling',
         'slide_chat_websocket_intro', 'slide_chat_ws_handshake', 'slide_chat_ws_flow',
         'slide_chat_scale_problem', 'slide_chat_redis_pubsub', 'slide_chat_full_arch',
         'slide_chat_compare', 'slide_chat_outro'
@@ -267,7 +269,31 @@
         }
         if (!needsTemplate) return;
 
-        if (slideId === 'slide_chat_intro') {
+        if (slideId === 'slide_chat_intro_a') {
+            canvas.innerHTML = `
+                <div class="v34-scene-wrapper-hook">
+                    <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
+                        <div class="v34-messages-intro-container">
+                            <div class="v34-messages-glow-ring"></div>
+                            <div class="v34-messages-glow-ring inner"></div>
+                            <div class="v34-giant-messages-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Google_Messages_icon_%282022%29.svg/1280px-Google_Messages_icon_%282022%29.svg.png" alt="Google Messages" />
+                            </div>
+                        </div>
+                        <div class="v34-glass-card" style="text-align: center; width: 440px; padding: 18px 24px; margin-top: 15px; border: 1.5px solid rgba(59, 130, 246, 0.4); background: rgba(10, 12, 15, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55);">
+                            <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.1); color: var(--chat-blue); border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
+                                <i data-lucide="message-square" style="width: 14px; height: 14px; color: var(--chat-blue);"></i> Chat Protocol
+                            </div>
+                            <div style="font-family:'Fira Code', monospace; font-size: 15px; font-weight: bold; color: var(--chat-blue); line-height: 1.45;">
+                                Tin nhắn tức thì: Vì sao chat WebSocket không cần F5?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            initIcons();
+        }
+        else if (slideId === 'slide_chat_intro_b') {
             canvas.innerHTML = sceneWrap(`
                 <div class="v34-phones-row intro-layout">
                     ${phoneMock('v34-phone-alice', 'Alice', true)}
@@ -281,7 +307,7 @@
                     </div>
                     ${phoneMock('v34-phone-bob', 'Bob', false)}
                 </div>
-                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;width:440px;padding:18px 24px;margin-left:auto;margin-right:auto;">
                     <span class="v34-status-badge green"><i data-lucide="message-circle" style="width:12px;height:12px;"></i> Real-time</span>
                     <span style="font-family:'Fira Code',monospace;font-size:11px;font-weight:bold;color:var(--chat-text-muted);" id="v34-intro-status">Đang gửi tin nhắn...</span>
                 </div>`, null, 'green-tint');
@@ -645,7 +671,10 @@
     function updateFrame(slideId, canvas, progress) {
         const container = canvas.querySelector('.v34-zoom-container');
 
-        if (slideId === 'slide_chat_intro') {
+        if (slideId === 'slide_chat_intro_a') {
+            return;
+        }
+        else if (slideId === 'slide_chat_intro_b') {
             const alice = canvas.querySelector('#v34-phone-alice');
             const bob = canvas.querySelector('#v34-phone-bob');
             const sent = canvas.querySelector('#v34-intro-sent');

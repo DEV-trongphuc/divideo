@@ -6,7 +6,7 @@ let undoStack = [];
 let redoStack = [];
 const MAX_HISTORY = 100;
 let currentSlideIndex = 0;
-let currentScript = 'video17';
+let currentScript = localStorage.getItem('currentScript') || 'video17';
 let isPlaying = false;
 let playbackTimer = null;
 let silentTimeout = null;
@@ -224,6 +224,7 @@ async function loadScriptList() {
             select.value = currentScript;
         } else if (scriptsList.length > 0) {
             currentScript = scriptsList[0];
+            localStorage.setItem('currentScript', currentScript);
             select.value = currentScript;
         }
     } catch (err) {
@@ -375,6 +376,7 @@ function setupEventListeners() {
     if (scriptSelect) {
         scriptSelect.addEventListener('change', async (e) => {
             currentScript = e.target.value;
+            localStorage.setItem('currentScript', currentScript);
             currentSlideIndex = 0;
             loadVideoScript(currentScript);
             await fetchSlides();
@@ -399,6 +401,7 @@ function setupEventListeners() {
                     const data = await response.json();
                     if (data.success) {
                         currentScript = data.name;
+                        localStorage.setItem('currentScript', currentScript);
                         await loadScriptList();
                         await fetchSlides();
                         alert(`ÄÃ£ táº¡o ká»‹ch báº£n má»›i: ${data.name}`);
@@ -601,6 +604,20 @@ function setupEventListeners() {
         transitionThemeSelect.addEventListener('change', (e) => {
             if (slides[currentSlideIndex]) {
                 slides[currentSlideIndex].transitionTheme = e.target.value;
+                renderActiveSlide(true);
+                debounceSave();
+            }
+        });
+    }
+    bindInput('slide-hook-tag', 'hookTag', true);
+    bindInput('slide-hook-title', 'hookTitle', true);
+    bindInput('slide-hook-subtitle', 'hookSubtitle', true);
+    bindInput('slide-hook-icon', 'hookIcon', true);
+    const hookThemeSelect = document.getElementById('slide-hook-theme');
+    if (hookThemeSelect) {
+        hookThemeSelect.addEventListener('change', (e) => {
+            if (slides[currentSlideIndex]) {
+                slides[currentSlideIndex].hookTheme = e.target.value;
                 renderActiveSlide(true);
                 debounceSave();
             }
@@ -1037,6 +1054,16 @@ function renderActiveSlide(forceRebuild = true) {
     if (spotifyActiveSongElem) spotifyActiveSongElem.value = slide.spotifyActiveSong || '';
     const spotifySongsElem = document.getElementById('slide-spotify-songs');
     if (spotifySongsElem) spotifySongsElem.value = slide.spotifySongs || '';
+    const hookTagElem = document.getElementById('slide-hook-tag');
+    if (hookTagElem) hookTagElem.value = slide.hookTag || '';
+    const hookTitleElem = document.getElementById('slide-hook-title');
+    if (hookTitleElem) hookTitleElem.value = slide.hookTitle || '';
+    const hookSubtitleElem = document.getElementById('slide-hook-subtitle');
+    if (hookSubtitleElem) hookSubtitleElem.value = slide.hookSubtitle || '';
+    const hookIconElem = document.getElementById('slide-hook-icon');
+    if (hookIconElem) hookIconElem.value = slide.hookIcon || '';
+    const hookThemeElem = document.getElementById('slide-hook-theme');
+    if (hookThemeElem) hookThemeElem.value = slide.hookTheme || 'danger';
     // Set Layout Button active state
     const layoutBtns = document.querySelectorAll('.layout-btn');
     layoutBtns.forEach(btn => {
@@ -1103,6 +1130,8 @@ function showLayoutInputs(layout) {
     if (searchInputGroup) searchInputGroup.style.display = layout === 'search' ? 'block' : 'none';
     const transitionInputGroup = document.getElementById('layout-input-transition');
     if (transitionInputGroup) transitionInputGroup.style.display = layout === 'transition' ? 'block' : 'none';
+    const hookInputGroup = document.getElementById('layout-input-hook');
+    if (hookInputGroup) hookInputGroup.style.display = layout === 'hook' ? 'block' : 'none';
     const spotifyInputGroup = document.getElementById('layout-input-spotify');
     if (spotifyInputGroup) spotifyInputGroup.style.display = layout === 'spotify' ? 'block' : 'none';
     if (layout === 'diagram') {
@@ -2799,6 +2828,39 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
                 `;
             }
             root.appendChild(wrapper);
+        } else if (slide.layout === 'hook') {
+            const theme = slide.hookTheme || 'danger';
+            const wrapper = document.createElement('div');
+            wrapper.className = `layout-hook-view hook-theme-${theme}`;
+
+            const badgeContainer = document.createElement('div');
+            badgeContainer.className = 'hook-badge-container';
+            const iconName = slide.hookIcon || 'flame';
+            badgeContainer.innerHTML = `
+                <span class="hook-badge-capsule">
+                    <i data-lucide="${iconName}"></i>
+                    ${slide.hookTag || 'HOOK'}
+                </span>
+            `;
+
+            const titleBox = document.createElement('div');
+            titleBox.className = 'hook-title-box';
+            const h1 = document.createElement('h1');
+            h1.innerHTML = (slide.hookTitle || '').replace(/\n/g, '<br>');
+            const p = document.createElement('p');
+            p.className = 'hook-lead-text';
+            p.innerHTML = (slide.hookSubtitle || '').replace(/\n/g, '<br>');
+            titleBox.appendChild(h1);
+            titleBox.appendChild(p);
+
+            const decoration = document.createElement('div');
+            decoration.className = 'hook-footer-decoration';
+            decoration.innerHTML = `<div class="hook-laser-line"></div>`;
+
+            wrapper.appendChild(badgeContainer);
+            wrapper.appendChild(titleBox);
+            wrapper.appendChild(decoration);
+            root.appendChild(wrapper);
         } else if (slide.layout === 'transition') {
             const theme = slide.transitionTheme || 'warning';
             const wrapper = document.createElement('div');
@@ -3446,6 +3508,17 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
         if (h2) h2.innerHTML = formatTitleHTML(slide.title || '');
         const p = root.querySelector('.boxes-header p');
         if (p) p.innerHTML = formatSubtitleHTML(slide.subtitle || '');
+    } else if (slide.layout === 'hook') {
+        const h1 = root.querySelector('.hook-title-box h1');
+        if (h1) h1.innerHTML = (slide.hookTitle || '').replace(/\n/g, '<br>');
+        const p = root.querySelector('.hook-lead-text');
+        if (p) p.innerHTML = (slide.hookSubtitle || '').replace(/\n/g, '<br>');
+        const badge = root.querySelector('.hook-badge-capsule');
+        if (badge) {
+            const iconName = slide.hookIcon || 'flame';
+            badge.innerHTML = `<i data-lucide="${iconName}"></i> ${slide.hookTag || 'HOOK'}`;
+            lucide.createIcons({ node: badge });
+        }
     } else if (slide.layout === 'transition') {
         const h1 = root.querySelector('.transition-title-box h1');
         if (h1) h1.innerHTML = (slide.transitionTitle || '').replace(/\n/g, '<br>');

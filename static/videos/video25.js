@@ -6,7 +6,8 @@
     'use strict';
 
     const keywordsData = {
-        slide_git_1: [], // First slide: no keywords as requested
+        slide_git_1a: [], // First slide: no keywords as requested
+        slide_git_1b: [], // Second slide: no keywords
         slide_git_2: [
             { text: 'quét tuần tự', start: 3.5, end: 12.0, class: 'active-bad' },
             { text: 'nghẽn ổ đĩa', start: 12.0, end: 25.0, class: 'active-bad' }
@@ -27,7 +28,7 @@
     };
 
     const customSlideIds = [
-        'slide_git_1', 'slide_git_2', 'slide_git_3', 
+        'slide_git_1a', 'slide_git_1b', 'slide_git_2', 'slide_git_3', 
         'slide_git_4', 'slide_git_5'
     ];
 
@@ -61,7 +62,33 @@
 
         canvas.setAttribute('data-sim-template', slideId);
 
-        if (slideId === 'slide_git_1') {
+        if (slideId === 'slide_git_1a') {
+            canvas.innerHTML = `
+                <div class="v25-scene-wrapper">
+                    <div class="v37-grid-bg purple-tint" style="position:absolute; inset:0; background-image:radial-gradient(rgba(139,92,246,0.04) 1.5px, transparent 1.5px); background-size:20px 20px; pointer-events:none;"></div>
+                    <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
+                        <div class="v25-github-intro-container">
+                            <div class="v25-github-glow-ring"></div>
+                            <div class="v25-github-glow-ring inner"></div>
+                            <div class="v25-giant-github-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo" style="filter: invert(1) drop-shadow(0 0 25px rgba(139, 92, 246, 0.7));">
+                            </div>
+                        </div>
+                        
+                        <!-- Premium Badge and Label in Glass Card -->
+                        <div class="glass-card v25-glow-purple" style="text-align: center; width: 440px; padding: 18px 24px; border-radius: 20px; border: 1.5px solid rgba(139, 92, 246, 0.4); background: rgba(13, 17, 28, 0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55); margin-top: 15px;">
+                            <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1); color: #a78bfa; border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
+                                <i data-lucide="git-branch" style="width:14px;height:14px;"></i> Git Status Engine
+                            </div>
+                            <div style="font-family:'Fira Code', monospace; font-size: 16px; font-weight: bold; color: #a78bfa; line-height: 1.4;" id="v25-intro-label">
+                                Làm sao Git phát hiện đổi code chỉ trong tích tắc?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        else if (slideId === 'slide_git_1b') {
             canvas.innerHTML = `
                 <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; zoom:1.0;">
                     
@@ -366,16 +393,17 @@
                     </div>
                 </div>
             `;
-        }
-
-        if (typeof lucide !== 'undefined') {
+        }        if (typeof lucide !== 'undefined') {
             lucide.createIcons({ node: canvas });
         }
     }
 
     // ── ANIMATION FRAME UPDATOR ───────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
-        if (slideId === 'slide_git_1') {
+        if (slideId === 'slide_git_1a') {
+            // CSS handles rotating/floating
+        }
+        else if (slideId === 'slide_git_1b') {
             const terminalInput = canvas.querySelector('.s1-terminal-input');
             const terminalContent = canvas.querySelector('.s1-terminal-content');
             

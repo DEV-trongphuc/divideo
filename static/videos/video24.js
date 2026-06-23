@@ -6,7 +6,8 @@
     'use strict';
 
     const keywordsData = {
-        slide_active_1: [],
+        slide_active_1a: [],
+        slide_active_1b: [],
         slide_active_2: [
             { text: 'update sql', start: 4.0, end: 14.0, class: 'active-bad' },
             { text: 'bảng user', start: 14.0, end: 25.0, class: 'active-gold' }
@@ -30,7 +31,7 @@
     };
 
     const customSlideIds = [
-        'slide_active_1', 'slide_active_2', 'slide_active_3', 
+        'slide_active_1a', 'slide_active_1b', 'slide_active_2', 'slide_active_3', 
         'slide_active_4', 'slide_active_5', 'slide_active_6'
     ];
 
@@ -94,7 +95,34 @@
 
         canvas.setAttribute('data-sim-template', slideId);
 
-        if (slideId === 'slide_active_1') {
+        if (slideId === 'slide_active_1a') {
+            canvas.innerHTML = `
+                <div class="v24-scene-wrapper">
+                    <div class="v37-grid-bg green-tint" style="position:absolute; inset:0; background-image:radial-gradient(rgba(16,185,129,0.04) 1.5px, transparent 1.5px); background-size:20px 20px; pointer-events:none;"></div>
+                    <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
+                        <div class="v24-avatar-intro-container">
+                            <div class="v24-avatar-glow-ring"></div>
+                            <div class="v24-avatar-glow-ring inner"></div>
+                            <div class="v24-giant-avatar">
+                                <img src="https://mautranhve.vn/wp-content/uploads/2025/10/avatar-cho-vo-tri-14.jpg" alt="Active Status Avatar">
+                                <div class="v24-avatar-green-dot"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Premium Badge and Label in Glass Card -->
+                        <div class="glass-card" style="text-align: center; width: 440px; padding: 18px 24px; border-radius: 20px; border: 1.5px solid rgba(16, 185, 129, 0.4); background: rgba(12, 15, 24, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55); margin-top: 15px;">
+                            <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1); color: #34d399; border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
+                                <i data-lucide="radio" style="width:14px;height:14px;"></i> Active Status System
+                            </div>
+                            <div style="font-family:'Fira Code', monospace; font-size: 15px; font-weight: bold; color: #34d399; line-height: 1.45;">
+                                Hệ thống Chấm Xanh xử lý thế nào khi có 200M User?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        else if (slideId === 'slide_active_1b') {
             canvas.innerHTML = `
                 <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; zoom:1.30;">
                     
@@ -486,7 +514,7 @@
 
     // ── ANIMATION FRAME UPDATOR ───────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
-        if (slideId === 'slide_active_1') {
+        if (slideId === 'slide_active_1b') {
             const counterEl = canvas.querySelector('.concurrent-counter');
             if (counterEl) {
                 // Animate concurrent users counter from 0 to 200M based on progress

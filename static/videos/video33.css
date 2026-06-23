@@ -410,3 +410,77 @@
     color: var(--yt-red);
     border: 1px solid rgba(239, 68, 68, 0.3);
 }
+
+/* --- YouTube Giant Item (Slide 1 Intro Hook) --- */
+.v33-scene-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    zoom: 1.5;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #ffffff;
+    background: transparent;
+}
+
+.v33-youtube-intro-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 20px 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.v33-youtube-glow-ring {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 2.5px dashed rgba(255, 0, 0, 0.4);
+    animation: v33-logo-spin 25s linear infinite;
+    pointer-events: none;
+}
+
+.v33-youtube-glow-ring.inner {
+    width: 210px;
+    height: 210px;
+    border: 1.5px solid rgba(255, 0, 0, 0.25);
+    animation: v33-logo-spin-rev 15s linear infinite;
+}
+
+.v33-giant-youtube-logo {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: v33-logo-float 3.5s ease-in-out infinite;
+    z-index: 2;
+}
+
+.v33-giant-youtube-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.7));
+}
+
+@keyframes v33-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes v33-logo-spin-rev {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes v33-logo-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}

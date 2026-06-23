@@ -7,40 +7,36 @@
 
     // ── KEYWORDS TIMINGS ──────────────────────────────────────────────────────
     const keywordsData = {
-        slide_v36_hook: [
-            { text: 'người bạn mới quen', start: 1.5, end: 5.0, class: 'active-good' },
-            { text: 'gợi ý kết bạn', start: 6.5, end: 10.0, class: 'active-gold' },
-            { text: 'nghe lén', start: 11.5, end: 14.5, class: 'active-bad' }
+        slide_v36_hook_a: [
+            { text: 'gợi ý kết bạn', start: 6.0, end: 7.5, class: 'active-gold' }
+        ],
+        slide_v36_hook_b: [
+            { text: 'nghe lén', start: 4.0, end: 7.0, class: 'active-bad' }
         ],
         slide_v36_location_bluetooth: [
             { text: 'tọa độ giống hệt nhau', start: 3.0, end: 7.0, class: 'active-gold' },
-            { text: 'Bluetooth', start: 7.5, end: 11.0, class: 'active-good' },
-            { text: 'giao thoa vị trí', start: 11.5, end: 15.5, class: 'active-good' }
+            { text: 'Bluetooth', start: 7.5, end: 11.0, class: 'active-good' }
         ],
         slide_v36_wifi_overlap: [
             { text: 'Wi-Fi', start: 3.0, end: 6.0, class: 'active-good' },
-            { text: 'IP công cộng', start: 6.5, end: 10.0, class: 'active-gold' },
-            { text: 'bằng chứng đanh thép', start: 10.5, end: 14.5, class: 'active-good' }
+            { text: 'IP công cộng', start: 6.5, end: 10.0, class: 'active-gold' }
         ],
         slide_v36_contact_sync: [
             { text: 'Đồng bộ danh bạ', start: 1.5, end: 5.0, class: 'active-gold' },
-            { text: 'tải danh bạ', start: 6.5, end: 10.0, class: 'active-good' },
             { text: 'so khớp chéo', start: 10.5, end: 14.5, class: 'active-good' }
         ],
         slide_v36_social_graph: [
             { text: 'Social Graph', start: 3.0, end: 6.0, class: 'active-gold' },
-            { text: 'mức độ liên kết', start: 6.5, end: 10.0, class: 'active-good' },
             { text: 'gợi ý kết bạn', start: 11.0, end: 15.0, class: 'active-good' }
         ],
         slide_v36_privacy_shield: [
-            { text: 'đọc vị', start: 3.0, end: 6.5, class: 'active-bad' },
             { text: 'quyền riêng tư', start: 7.0, end: 10.5, class: 'active-good' },
             { text: 'tắt quyền vị trí', start: 10.5, end: 14.5, class: 'active-gold' }
         ]
     };
 
     const customSlideIds = [
-        'slide_v36_hook', 'slide_v36_location_bluetooth', 'slide_v36_wifi_overlap',
+        'slide_v36_hook_a', 'slide_v36_hook_b', 'slide_v36_location_bluetooth', 'slide_v36_wifi_overlap',
         'slide_v36_contact_sync', 'slide_v36_social_graph', 'slide_v36_privacy_shield'
     ];
 
@@ -51,7 +47,33 @@
             canvas.setAttribute('data-sim-template', slideId);
         }
 
-        if (slideId === 'slide_v36_hook') {
+        if (slideId === 'slide_v36_hook_a') {
+            if (needsTemplate) {
+                canvas.innerHTML = `
+                    <div class="v36-scene-wrapper">
+                        <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
+                            <div class="v36-facebook-intro-container">
+                                <div class="v36-facebook-glow-ring"></div>
+                                <div class="v36-facebook-glow-ring inner"></div>
+                                <div class="v36-giant-facebook-logo">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" />
+                                </div>
+                            </div>
+                            <div class="v36-glass-card" style="text-align: center; width: 440px; padding: 18px 24px; margin-top: 15px; border: 1.5px solid rgba(24, 119, 242, 0.4); background: rgba(10, 12, 15, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55);">
+                                <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(24, 119, 242, 0.4); background: rgba(24, 119, 242, 0.1); color: #1877f2; border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
+                                    <i data-lucide="facebook" style="width: 14px; height: 14px; color: #1877f2;"></i> Proximity Tracking
+                                </div>
+                                <div style="font-family:'Fira Code', monospace; font-size: 15px; font-weight: bold; color: #1877f2; line-height: 1.45;">
+                                    Gợi ý kết bạn: Phải chăng Facebook đang nghe lén điện thoại của bạn?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                initIcons();
+            }
+        }
+        else if (slideId === 'slide_v36_hook_b') {
             if (needsTemplate) {
                 canvas.innerHTML = `
                     <div class="v36-scene-wrapper">
@@ -452,7 +474,10 @@
 
     // ── ANIMATION TIMELINE UPDATE ────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
-        if (slideId === 'slide_v36_hook') {
+        if (slideId === 'slide_v36_hook_a') {
+            return;
+        }
+        else if (slideId === 'slide_v36_hook_b') {
             const suggestion = canvas.querySelector('.v36-suggestion-card');
             const statusLabel = canvas.querySelector('.v36-hook-status');
             
