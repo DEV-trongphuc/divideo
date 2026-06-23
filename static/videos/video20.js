@@ -5,6 +5,68 @@
 (function () {
     'use strict';
 
+    // Real QR Code matrices generated for the URL: https://fb.com/turni0
+    // 0 = White module, 1 = Black module
+    const REAL_QR_L_25 = [
+        [1,1,1,1,1,1,1,0,1,1,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1],
+        [1,0,0,0,0,0,1,0,1,1,0,1,0,0,1,0,1,0,1,0,0,0,0,0,1],
+        [1,0,1,1,1,0,1,0,1,0,0,0,0,1,1,0,0,0,1,0,1,1,1,0,1],
+        [1,0,1,1,1,0,1,0,0,0,0,1,0,1,1,0,1,0,1,0,1,1,1,0,1],
+        [1,0,1,1,1,0,1,0,0,1,0,1,1,1,0,0,1,0,1,0,1,1,1,0,1],
+        [1,0,0,0,0,0,1,0,1,0,1,1,1,0,0,1,1,0,1,0,0,0,0,0,1],
+        [1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1],
+        [0,0,0,0,0,0,0,0,0,1,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0],
+        [1,1,0,0,1,1,1,1,1,1,0,0,0,1,0,1,1,1,0,1,0,0,1,1,1],
+        [0,1,0,0,1,0,0,0,1,1,0,1,1,1,0,0,1,1,0,1,1,1,1,1,0],
+        [0,1,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,1,0,0,0,1,1,1,0],
+        [1,0,1,0,1,1,0,1,0,0,1,0,1,0,0,1,0,0,1,0,1,0,0,1,0],
+        [1,1,1,0,0,0,1,1,0,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1,0],
+        [1,1,1,1,0,1,0,0,0,1,1,0,0,0,1,0,1,1,0,1,1,0,1,0,1],
+        [0,0,1,1,1,1,1,0,0,0,1,1,1,1,1,0,1,0,0,0,0,0,1,1,1],
+        [0,0,1,0,0,0,0,0,1,1,1,1,0,1,1,0,0,0,0,1,1,1,0,0,0],
+        [0,1,0,1,0,0,1,1,0,1,0,1,1,0,0,1,1,1,1,1,1,1,0,1,1],
+        [0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0,1,1,1,0,0],
+        [1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,1,1,0,1,0,1,0,0,0,0],
+        [1,0,0,0,0,0,1,0,1,1,1,1,1,1,0,1,1,0,0,0,1,0,1,1,0],
+        [1,0,1,1,1,0,1,0,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0],
+        [1,0,1,1,1,0,1,0,0,1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,1],
+        [1,0,1,1,1,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0],
+        [1,0,0,0,0,0,1,0,1,1,0,0,0,1,0,0,1,0,0,1,0,1,1,0,0],
+        [1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,0,0,1,1,0,1,0,1,0,1]
+    ];
+
+    const REAL_QR_H_29 = [
+        [1,1,1,1,1,1,1,0,0,1,0,1,0,0,0,0,1,1,1,1,1,0,1,1,1,1,1,1,1],
+        [1,0,0,0,0,0,1,0,0,0,1,1,1,0,1,1,0,0,1,1,1,0,1,0,0,0,0,0,1],
+        [1,0,1,1,1,0,1,0,0,1,0,0,0,0,1,0,0,1,0,0,1,0,1,0,1,1,1,0,1],
+        [1,0,1,1,1,0,1,0,1,0,0,0,0,1,0,1,1,1,1,1,0,0,1,0,1,1,1,0,1],
+        [1,0,1,1,1,0,1,0,1,0,1,1,1,1,1,1,1,0,0,0,1,0,1,0,1,1,1,0,1],
+        [1,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,1,0,1,1,0,0,1,0,0,0,0,0,1],
+        [1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1],
+        [0,0,0,0,0,0,0,0,1,0,0,1,0,1,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0],
+        [0,0,1,1,0,0,1,0,0,1,0,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,0,0],
+        [1,0,1,1,0,0,0,1,0,1,1,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0],
+        [0,1,1,1,1,1,1,0,0,0,0,1,1,0,0,1,1,1,0,1,1,1,0,0,1,0,1,1,0],
+        [0,1,1,0,1,0,0,1,0,0,1,1,0,0,1,1,0,0,0,0,1,0,0,1,0,1,1,0,0],
+        [1,0,0,0,1,0,1,0,0,0,1,0,1,1,1,0,0,1,1,0,1,1,1,1,0,0,1,1,0],
+        [0,1,1,0,1,1,0,1,0,1,0,0,0,0,0,1,0,0,1,0,1,1,1,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1,0,0,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0,0,1,0,0,0],
+        [1,1,0,1,0,0,0,1,1,0,0,0,1,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,1],
+        [0,1,1,1,1,1,1,0,0,0,0,0,0,1,0,1,0,0,0,1,0,1,1,0,0,0,0,0,0],
+        [0,1,0,1,0,0,0,1,0,1,0,1,0,1,1,0,1,1,0,0,0,1,0,0,0,1,0,1,1],
+        [0,0,1,0,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,0,1,0,0,0,1,1,0,1,1],
+        [1,1,1,0,1,0,0,0,1,0,1,1,0,0,1,1,0,0,1,1,1,0,1,1,1,0,0,1,0],
+        [1,0,0,1,1,0,1,1,0,0,1,1,1,0,0,0,1,0,1,1,1,1,1,1,1,0,1,0,1],
+        [0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,1,0,0,0,1,0,1,0,0],
+        [1,1,1,1,1,1,1,0,0,0,1,0,1,1,0,0,0,0,0,1,1,0,1,0,1,0,0,0,0],
+        [1,0,0,0,0,0,1,0,0,1,1,1,0,0,1,0,0,0,0,1,1,0,0,0,1,1,1,0,1],
+        [1,0,1,1,1,0,1,0,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1,0,1,1,1],
+        [1,0,1,1,1,0,1,0,1,1,1,0,1,0,1,1,1,1,0,0,0,1,0,1,0,0,1,1,1],
+        [1,0,1,1,1,0,1,0,1,0,1,0,0,1,0,1,0,1,0,1,1,1,1,0,0,1,0,1,0],
+        [1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,1,0,0,0,1,1,1,1,0,0],
+        [1,1,1,1,1,1,1,0,0,0,0,1,0,1,1,0,1,0,1,0,1,0,0,0,1,0,1,1,0]
+    ];
+
     // ── KEYWORDS DATA ──────────────────────────────────────────────────────────
     const keywordsData = {
         slide_qrcode_1: [
@@ -13,9 +75,10 @@
             { text: 'sửa lỗi Reed-Solomon', start: 16.0, end: 23.0, class: 'active-good' }
         ],
         slide_qrcode_2: [
-            { text: 'Finder Patterns', start: 4.0, end: 10.0, class: 'active-gold' },
-            { text: 'Timing Patterns', start: 10.0, end: 15.0, class: 'active-gold' },
-            { text: 'Format Information', start: 15.0, end: 22.0, class: 'active-good' }
+            { text: 'Mẫu định vị', start: 3.0, end: 8.0, class: 'active-gold' },
+            { text: 'Mẫu căn chỉnh', start: 8.0, end: 15.5, class: 'active-gold' },
+            { text: 'Mẫu đồng bộ', start: 15.5, end: 19.5, class: 'active-gold' },
+            { text: 'Thông tin định dạng', start: 19.5, end: 24.5, class: 'active-good' }
         ],
         slide_qrcode_3: [
             { text: 'Reed-Solomon', start: 2.0, end: 7.0, class: 'active-gold' },
@@ -65,7 +128,14 @@
             // Finder pattern bottom-left
             if (r >= (size - 7) && r < size && c >= 0 && c <= 6) return 'finder';
             
-            // Timing patterns (V1 has alternating path at Row 6 / Col 6)
+            // Alignment pattern (Version 3 center at 22,22; Version 2 center at 18,18)
+            if (size === 29) {
+                if (r >= 20 && r <= 24 && c >= 20 && c <= 24) return 'alignment';
+            } else if (size === 25) {
+                if (r >= 16 && r <= 20 && c >= 16 && c <= 20) return 'alignment';
+            }
+
+            // Timing patterns (alternating path at Row 6 / Col 6)
             if (r === 6 && c >= 7 && c < (size - 7)) return 'timing';
             if (c === 6 && r >= 7 && r < (size - 7)) return 'timing';
             
@@ -78,35 +148,21 @@
             return 'data';
         };
 
-        const isFinderWhite = (r, c) => {
-            if (r >= 0 && r <= 6 && c >= 0 && c <= 6) {
-                if (r === 1 || r === 5 || c === 1 || c === 5) return true;
-            }
-            if (r >= 0 && r <= 6 && c >= (size - 7) && c < size) {
-                const cc = c - (size - 7);
-                if (r === 1 || r === 5 || cc === 1 || cc === 5) return true;
-            }
-            if (r >= (size - 7) && r < size && c >= 0 && c <= 6) {
-                const rr = r - (size - 7);
-                if (rr === 1 || rr === 5 || c === 1 || c === 5) return true;
-            }
-            return false;
-        };
-
         const isBlackModule = (r, c) => {
-            const type = getModuleType(r, c);
-            if (type === 'finder') return !isFinderWhite(r, c);
-            if (type === 'timing') return (r + c) % 2 === 0;
-            if (type === 'format') return (r * 3 + c * 7) % 2 === 0;
-            // Deterministic mock data dots
-            return (r * c) % 2 === 0 || (r + c) % 3 === 0;
+            if (size === 29) {
+                return REAL_QR_H_29[r][c] === 1;
+            }
+            if (size === 25) {
+                return REAL_QR_L_25[r][c] === 1;
+            }
+            // Fallback for V1
+            return (r * c) % 2 === 0;
         };
 
         for (let r = 0; r < size; r++) {
             for (let c = 0; c < size; c++) {
                 const type = getModuleType(r, c);
                 const isBlack = isBlackModule(r, c);
-                const isWhiteF = type === 'finder' && isFinderWhite(r, c);
                 
                 // Damage flag checking
                 let isDamaged = false;
@@ -118,24 +174,32 @@
                 }
 
                 let cellClass = 'qr-cell';
-                if (isBlack && !isWhiteF) cellClass += ' black';
+                if (isBlack) cellClass += ' black';
+                
+                // Highlight classes mapping
+                if (!isDamaged) {
+                    if (highlightMode === 'all') {
+                        if (type === 'finder') cellClass += isBlack ? ' finder-pattern' : ' finder-white';
+                        if (type === 'alignment') cellClass += ' alignment-pattern';
+                        if (type === 'timing') cellClass += ' timing-pattern';
+                        if (type === 'format') cellClass += ' format-info';
+                        if (type === 'data') cellClass += ' data-block';
+                    } else if (highlightMode === 'finder' && type === 'finder') {
+                        cellClass += isBlack ? ' finder-pattern' : ' finder-white';
+                    } else if (highlightMode === 'alignment' && type === 'alignment') {
+                        cellClass += ' alignment-pattern';
+                    } else if (highlightMode === 'timing' && type === 'timing') {
+                        cellClass += ' timing-pattern';
+                    } else if (highlightMode === 'format' && type === 'format') {
+                        cellClass += ' format-info';
+                    } else if (highlightMode === 'data' && type === 'data') {
+                        cellClass += ' data-block';
+                    }
+                }
                 
                 let cellStyle = '';
                 if (isDamaged) {
-                    cellStyle = 'background: rgba(239, 68, 68, 0.7) !important; border: 0.5px solid #ef4444;';
-                } else if (highlightMode === 'all') {
-                    if (type === 'finder') cellStyle = isWhiteF ? 'background:#fff !important;' : 'background:#ef4444 !important;';
-                    if (type === 'timing') cellStyle = 'background:#f59e0b !important;';
-                    if (type === 'format') cellStyle = 'background:#3b82f6 !important;';
-                    if (type === 'data') cellStyle = 'background:#10b981 !important;';
-                } else if (highlightMode === 'finder' && type === 'finder') {
-                    cellStyle = isWhiteF ? 'background:#fff !important;' : 'background:#ef4444 !important;';
-                } else if (highlightMode === 'timing' && type === 'timing') {
-                    cellStyle = 'background:#f59e0b !important;';
-                } else if (highlightMode === 'format' && type === 'format') {
-                    cellStyle = 'background:#3b82f6 !important;';
-                } else if (highlightMode === 'data' && type === 'data') {
-                    cellStyle = 'background:#10b981 !important;';
+                    cellStyle = 'background: rgba(239, 68, 68, 0.75) !important; border: 0.5px solid #ef4444;';
                 }
                 
                 html += `<div class="${cellClass}" style="${cellStyle}"></div>`;
@@ -172,7 +236,7 @@
                                 
                                 <!-- QR Code Grid with torn bottom-right corner -->
                                 <div style="position:relative;">
-                                    ${makeQRGridHTML(21, 'none', [{rStart: 16, rEnd: 20, cStart: 16, cEnd: 20}])}
+                                    ${makeQRGridHTML(29, 'none', [{rStart: 22, rEnd: 28, cStart: 22, cEnd: 28}], 0.85)}
                                     <!-- Torn Overlay effect -->
                                     <div class="qr-tear-overlay"></div>
                                 </div>
@@ -181,7 +245,7 @@
                             <!-- Scanned feedback status popup -->
                             <div class="success-toast intro-decode-toast" style="opacity:0; transform:translateY(15px); transition:all 0.4s; justify-content:center; min-height:48px;">
                                 <i data-lucide="check-circle" style="width:20px; height:20px; color:#10b981;"></i>
-                                <span>Đã nhận diện: https://turnio.dev</span>
+                                <span>Đã nhận diện: https://fb.com/turni0</span>
                             </div>
                         </div>
                     </div>
@@ -195,33 +259,38 @@
                         <!-- QR Code Visualizer -->
                         <div class="glass-card" style="width:420px; height:580px; padding:24px; display:flex; justify-content:center; align-items:center; background:#0c0f17; border:2px solid rgba(255,255,255,0.06); border-radius:24px;">
                             <div class="anatomy-qr-container" style="transition:all 0.3s;">
-                                ${makeQRGridHTML(21, 'none', [], 1.4)}
+                                ${makeQRGridHTML(29, 'none', [], 1.05)}
                             </div>
                         </div>
 
                         <!-- Sidebar describing regions -->
-                        <div class="glass-card" style="width:440px; height:580px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; background:#0c0f17; border:2.5px solid var(--gold-primary); border-radius:24px; box-shadow:0 0 25px rgba(245,158,11,0.1);">
-                            <div style="font-size:20px; font-weight:bold; color:var(--gold-primary); border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px; text-transform:uppercase;">Cấu trúc QR Code</div>
+                        <div class="glass-card" style="width:440px; height:580px; padding:20px 24px; display:flex; flex-direction:column; justify-content:space-between; background:#0c0f17; border:2.5px solid var(--gold-primary); border-radius:24px; box-shadow:0 0 25px rgba(245,158,11,0.1); box-sizing:border-box;">
+                            <div style="font-size:20px; font-weight:bold; color:var(--gold-primary); border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:6px; text-transform:uppercase;">Cấu trúc QR Code</div>
                             
-                            <div style="display:flex; flex-direction:column; gap:16px; margin:20px 0; text-align:left; justify-content:center; flex:1;">
-                                <div class="qr-card-hover anatomy-item l-finder" style="border:1.5px solid rgba(255,255,255,0.06); border-radius:14px; padding:16px; display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.01); transition:all 0.3s;">
-                                    <div style="width:24px; height:24px; border-radius:6px; background:#ef4444; flex-shrink:0;"></div>
-                                    <h4 style="margin:0; font-size:18px; color:#ef4444; font-weight:bold;">Finder Patterns</h4>
+                            <div style="display:flex; flex-direction:column; gap:11px; margin:12px 0; text-align:left; justify-content:center; flex:1;">
+                                <div class="qr-card-hover anatomy-item l-finder" style="border:1.5px solid rgba(255,255,255,0.06); border-radius:12px; padding:12px 16px; display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.01); transition:all 0.3s;">
+                                    <div style="width:22px; height:22px; border-radius:5px; background:#ef4444; flex-shrink:0;"></div>
+                                    <h4 style="margin:0; font-size:17px; color:#ef4444; font-weight:bold;">Mẫu định vị (Finder)</h4>
                                 </div>
 
-                                <div class="qr-card-hover anatomy-item l-timing" style="border:1.5px solid rgba(255,255,255,0.06); border-radius:14px; padding:16px; display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.01); transition:all 0.3s;">
-                                    <div style="width:24px; height:24px; border-radius:6px; background:#f59e0b; flex-shrink:0;"></div>
-                                    <h4 style="margin:0; font-size:18px; color:#f59e0b; font-weight:bold;">Timing Patterns</h4>
+                                <div class="qr-card-hover anatomy-item l-alignment" style="border:1.5px solid rgba(255,255,255,0.06); border-radius:12px; padding:12px 16px; display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.01); transition:all 0.3s;">
+                                    <div style="width:22px; height:22px; border-radius:5px; background:#a855f7; flex-shrink:0;"></div>
+                                    <h4 style="margin:0; font-size:17px; color:#a855f7; font-weight:bold;">Mẫu căn chỉnh (Alignment)</h4>
                                 </div>
 
-                                <div class="qr-card-hover anatomy-item l-format" style="border:1.5px solid rgba(255,255,255,0.06); border-radius:14px; padding:16px; display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.01); transition:all 0.3s;">
-                                    <div style="width:24px; height:24px; border-radius:6px; background:#3b82f6; flex-shrink:0;"></div>
-                                    <h4 style="margin:0; font-size:18px; color:#3b82f6; font-weight:bold;">Format Information</h4>
+                                <div class="qr-card-hover anatomy-item l-timing" style="border:1.5px solid rgba(255,255,255,0.06); border-radius:12px; padding:12px 16px; display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.01); transition:all 0.3s;">
+                                    <div style="width:22px; height:22px; border-radius:5px; background:#f59e0b; flex-shrink:0;"></div>
+                                    <h4 style="margin:0; font-size:17px; color:#f59e0b; font-weight:bold;">Mẫu đồng bộ (Timing)</h4>
                                 </div>
 
-                                <div class="qr-card-hover anatomy-item l-data" style="border:1.5px solid rgba(255,255,255,0.06); border-radius:14px; padding:16px; display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.01); transition:all 0.3s;">
-                                    <div style="width:24px; height:24px; border-radius:6px; background:#10b981; flex-shrink:0;"></div>
-                                    <h4 style="margin:0; font-size:18px; color:#10b981; font-weight:bold;">Data & Error Correction</h4>
+                                <div class="qr-card-hover anatomy-item l-format" style="border:1.5px solid rgba(255,255,255,0.06); border-radius:12px; padding:12px 16px; display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.01); transition:all 0.3s;">
+                                    <div style="width:22px; height:22px; border-radius:5px; background:#3b82f6; flex-shrink:0;"></div>
+                                    <h4 style="margin:0; font-size:17px; color:#3b82f6; font-weight:bold;">Thông tin định dạng</h4>
+                                </div>
+
+                                <div class="qr-card-hover anatomy-item l-data" style="border:1.5px solid rgba(255,255,255,0.06); border-radius:12px; padding:12px 16px; display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.01); transition:all 0.3s;">
+                                    <div style="width:22px; height:22px; border-radius:5px; background:#10b981; flex-shrink:0;"></div>
+                                    <h4 style="margin:0; font-size:17px; color:#10b981; font-weight:bold;">Dữ liệu & Sửa lỗi</h4>
                                 </div>
                             </div>
                         </div>
@@ -299,21 +368,21 @@
                             </div>
 
                             <div style="flex:1; display:flex; justify-content:center; gap:85px; align-items:center; margin:20px 0;">
-                                <!-- Level L Code -->
+                                <!-- Level L Code (25x25) -->
                                 <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
                                     <span style="font-size:18px; font-weight:bold; color:#10b981;">Cấp độ L (Low - 7%)</span>
                                     <div class="lvl-qr-l" style="position:relative; background:#fff; padding:6px; border-radius:8px;">
-                                        ${makeQRGridHTML(21, 'none', [], 0.95)}
+                                        ${makeQRGridHTML(25, 'none', [], 0.95)}
                                         <div class="lvl-scratch-l" style="position:absolute; inset:0; background:rgba(239,68,68,0.7); display:none; clip-path:polygon(0 0, 100% 0, 100% 15%, 0 15%); pointer-events:none;"></div>
                                     </div>
                                     <span style="font-size:18px; font-weight:bold; color:#10b981;" class="status-lbl-l">Quét: 🟢 OK</span>
                                 </div>
 
-                                <!-- Level H Code -->
+                                <!-- Level H Code (29x29) -->
                                 <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
                                     <span style="font-size:18px; font-weight:bold; color:#ef4444;">Cấp độ H (High - 30%)</span>
                                     <div class="lvl-qr-h" style="position:relative; background:#fff; padding:6px; border-radius:8px;">
-                                        ${makeQRGridHTML(29, 'none', [], 0.7)}
+                                        ${makeQRGridHTML(29, 'none', [], 0.8)}
                                         <div class="lvl-scratch-h" style="position:absolute; inset:0; background:rgba(239,68,68,0.7); display:none; clip-path:polygon(0 0, 100% 0, 100% 32%, 0 32%); pointer-events:none;"></div>
                                     </div>
                                     <span style="font-size:18px; font-weight:bold; color:#10b981;" class="status-lbl-h">Quét: 🟢 OK</span>
@@ -402,11 +471,11 @@
                         <!-- QR Code with logo animation -->
                         <div class="glass-card" style="width:420px; height:580px; padding:24px; display:flex; justify-content:center; align-items:center; background:#0c0f17; border:2px solid rgba(255,255,255,0.06); border-radius:24px; position:relative;">
                             <div style="position:relative; background:#fff; padding:10px; border-radius:12px;" class="logo-qr-holder">
-                                ${makeQRGridHTML(25, 'none', [], 1.25)}
+                                ${makeQRGridHTML(29, 'none', [], 1.05)}
                                 
                                 <!-- Logo overlay placeholder, styled and animated -->
-                                <div class="logo-overlay logo-drop-anim" style="position:absolute; left:50%; top:50%; width:80px; height:80px; background:#0c0f17; border:3px solid #f59e0b; border-radius:50%; display:none; align-items:center; justify-content:center; z-index:15; box-shadow:0 5px 15px rgba(0,0,0,0.8); overflow:hidden;">
-                                    <img src="http://localhost:5500/logo.png" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" alt="Logo">
+                                <div class="logo-overlay logo-drop-anim" style="position:absolute; left:50%; top:50%; width:90px; height:90px; background:#0c0f17; border:3px solid #f59e0b; border-radius:50%; display:none; align-items:center; justify-content:center; z-index:15; box-shadow:0 6px 20px rgba(0,0,0,0.85); overflow:hidden;">
+                                    <img src="http://localhost:5501/logo.png" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" alt="Logo">
                                 </div>
                             </div>
                         </div>
@@ -446,7 +515,7 @@
                                 <div style="display:flex; flex-direction:column; align-items:center; gap:10px; width:300px; padding:16px; border-radius:16px; background:rgba(16,185,129,0.02); border:2px solid rgba(16,185,129,0.15);" class="card-state-a qr-pulse-success">
                                     <span style="font-size:18px; font-weight:bold; color:#10b981;">Rách vùng dữ liệu</span>
                                     <div style="background:#fff; padding:6px; border-radius:8px; position:relative;">
-                                        ${makeQRGridHTML(21, 'none', [{rStart: 8, rEnd: 12, cStart: 10, cEnd: 14}], 1.0)}
+                                        ${makeQRGridHTML(29, 'none', [{rStart: 11, rEnd: 17, cStart: 11, cEnd: 17}], 0.8)}
                                     </div>
                                     <div style="font-size:18px; font-weight:bold; color:#10b981;" class="verdict-txt-a">🟢 Quét OK</div>
                                 </div>
@@ -455,7 +524,7 @@
                                 <div style="display:flex; flex-direction:column; align-items:center; gap:10px; width:300px; padding:16px; border-radius:16px; background:rgba(255,255,255,0.02); border:2.5px solid rgba(255,255,255,0.06);" class="card-state-b">
                                     <span style="font-size:18px; font-weight:bold; color:rgba(255,255,255,0.7);">Rách vùng định vị</span>
                                     <div style="background:#fff; padding:6px; border-radius:8px; position:relative;">
-                                        ${makeQRGridHTML(21, 'none', [{rStart: 0, rEnd: 6, cStart: 0, cEnd: 6}], 1.0)}
+                                        ${makeQRGridHTML(29, 'none', [{rStart: 0, rEnd: 6, cStart: 0, cEnd: 6}], 0.8)}
                                     </div>
                                     <div style="font-size:18px; font-weight:bold; color:rgba(255,255,255,0.4);" class="verdict-txt-b">🟢 Quét OK</div>
                                 </div>
@@ -476,11 +545,6 @@
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_qrcode_1') {
             const scanToast = canvas.querySelector('.intro-decode-toast');
-            const laser = canvas.querySelector('.qr-laser-line');
-            
-            // Scan timeline sequence:
-            // 0.0 -> 0.6: Scanner is moving. Laser is active. Toast hidden.
-            // 0.6 -> 1.0: QR decoded! Toast pops up, laser stops or stays.
             
             if (progress > 0.6) {
                 if (scanToast) {
@@ -496,69 +560,47 @@
         }
         else if (slideId === 'slide_qrcode_2') {
             const sidebarItems = canvas.querySelectorAll('.anatomy-item');
-            const cells = canvas.querySelectorAll('.anatomy-qr-container .qr-cell');
             
-            // Highlights one segment at a time:
-            // 0.0 -> 0.25: Finder Patterns
-            // 0.25 -> 0.5: Timing Patterns
-            // 0.5 -> 0.75: Format Info
-            // 0.75 -> 1.0: Data Blocks
-            
+            // Sync with new voiceover timing (total 29.5s):
+            // 0s -> 8.0s: Finder Patterns (activeIdx = 0)
+            // 8.0s -> 15.5s: Alignment Patterns (activeIdx = 1)
+            // 15.5s -> 19.5s: Timing Patterns (activeIdx = 2)
+            // 19.5s -> 24.5s: Format Info (activeIdx = 3)
+            // 24.5s -> 29.5s: Data Blocks (activeIdx = 4)
+            const currentTime = progress * 29.5;
             let activeIdx = 0;
-            if (progress < 0.25) activeIdx = 0;
-            else if (progress >= 0.25 && progress < 0.5) activeIdx = 1;
-            else if (progress >= 0.5 && progress < 0.75) activeIdx = 2;
-            else activeIdx = 3;
+            if (currentTime < 8.0) activeIdx = 0;
+            else if (currentTime >= 8.0 && currentTime < 15.5) activeIdx = 1;
+            else if (currentTime >= 15.5 && currentTime < 19.5) activeIdx = 2;
+            else if (currentTime >= 19.5 && currentTime < 24.5) activeIdx = 3;
+            else activeIdx = 4;
 
             // Highlight sidebar items
             sidebarItems.forEach((item, idx) => {
                 if (idx === activeIdx) {
                     item.style.borderColor = 'var(--gold-primary)';
-                    item.style.background = 'rgba(245, 158, 11, 0.06)';
+                    item.style.background = 'rgba(245, 158, 11, 0.08)';
                 } else {
                     item.style.borderColor = 'rgba(255, 255, 255, 0.06)';
                     item.style.background = 'rgba(255, 255, 255, 0.01)';
                 }
             });
 
-            // Re-render the grid color highlighting
-            const targetColorTypes = ['finder', 'timing', 'format', 'data'];
-            const activeType = targetColorTypes[activeIdx];
-            
-            cells.forEach(cell => {
-                // Determine block type from style backgrounds or DOM parameters
-                // Let's color them by inspecting classes
-                const isBlack = cell.classList.contains('black');
-                const isWhiteFinder = cell.style.background.includes('#fff') || cell.style.background.includes('rgb(255, 255, 255)');
-                
-                // Reset styling
-                cell.style.background = '';
-                
-                // Apply active theme coloring
-                // Top-left finder, top-right, bottom-left indices in 21x21 grid
-                // To avoid parsing grid again, we lookup the cell offset position
-            });
-            
-            // To make it simple and reliable: re-render the HTML template dynamically on threshold cross!
-            // Let's cache the current mode to avoid redundant innerHTML updates
-            const modes = ['finder', 'timing', 'format', 'data'];
+            // Re-render HTML dynamically only on threshold transition to ensure performance
+            const modes = ['finder', 'alignment', 'timing', 'format', 'data'];
             const targetMode = modes[activeIdx];
             const currentRenderedMode = canvas.getAttribute('data-anatomy-mode');
             
             if (currentRenderedMode !== targetMode) {
                 const holder = canvas.querySelector('.anatomy-qr-container');
                 if (holder) {
-                    holder.innerHTML = makeQRGridHTML(21, targetMode, [], 1.4);
+                    holder.innerHTML = makeQRGridHTML(29, targetMode, [], 1.05);
                     canvas.setAttribute('data-anatomy-mode', targetMode);
                 }
             }
         }
         else if (slideId === 'slide_qrcode_3') {
             const eccText = canvas.querySelector('.rs-ecc-blocks');
-            
-            // Animation timeline:
-            // 0.0 -> 0.4: Encoder is calculating, ECC is dimmed
-            // 0.4 -> 1.0: ECC lights up and mathematical correction resolves
             
             if (progress > 0.4) {
                 if (eccText) {
@@ -581,8 +623,6 @@
             const statusL = canvas.querySelector('.status-lbl-l');
             const statusH = canvas.querySelector('.status-lbl-h');
             
-            // Simulating a scratch that covers more area as progress advances:
-            // Max scratch is 35%
             const maxScratchPct = 35;
             const currentScratch = progress * maxScratchPct;
             
@@ -594,7 +634,6 @@
                 if (scratchL) scratchL.style.display = 'block';
                 if (scratchH) scratchH.style.display = 'block';
                 
-                // Clip paths to represent growing scratches
                 const clipL = `polygon(0 0, 100% 0, 100% ${Math.min(100, (currentScratch / 7) * 15)}%, 0 ${Math.min(100, (currentScratch / 7) * 15)}%)`;
                 const clipH = `polygon(0 0, 100% 0, 100% ${Math.min(100, (currentScratch / 30) * 32)}%, 0 ${Math.min(100, (currentScratch / 30) * 32)}%)`;
                 
@@ -606,7 +645,6 @@
             }
 
             // Decode states
-            // Level L fails at 7% damage
             if (currentScratch > 7) {
                 if (statusL) {
                     statusL.textContent = 'Quét: 🔴 Lỗi';
@@ -619,7 +657,6 @@
                 }
             }
 
-            // Level H fails at 30% damage
             if (currentScratch > 30) {
                 if (statusH) {
                     statusH.textContent = 'Quét: 🔴 Lỗi';
@@ -659,8 +696,6 @@
             const valQ = canvas.querySelector('.chart-val-q');
             const valH = canvas.querySelector('.chart-val-h');
 
-            // Max heights mapped to target values (7%, 15%, 25%, 30%)
-            // 30% corresponds to 200px max height
             const maxL = 47;
             const maxM = 100;
             const maxQ = 167;
@@ -679,10 +714,6 @@
         else if (slideId === 'slide_qrcode_5') {
             const logo = canvas.querySelector('.logo-overlay');
             
-            // Animation sequence:
-            // 0.0 -> 0.3: Logo is scaling/dropping down
-            // 0.3 -> 1.0: Logo firmly embedded, scan successfully recovers around it
-            
             if (progress > 0.25) {
                 if (logo) {
                     logo.style.display = 'flex';
@@ -700,10 +731,6 @@
         else if (slideId === 'slide_qrcode_6') {
             const cardStateB = canvas.querySelector('.card-state-b');
             const verdictTxtB = canvas.querySelector('.verdict-txt-b');
-            
-            // Animation timeline:
-            // 0.0 -> 0.5: Normal state for Finder damage test
-            // 0.5 -> 1.0: Finder pattern is torn. Scanning fails (red state).
             
             if (progress > 0.5) {
                 if (cardStateB) {

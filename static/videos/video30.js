@@ -77,6 +77,39 @@
         }
     }
 
+    // ── GEOMETRY HELPERS ───────────────────────────────────────────────────────
+    // Calculates element center relative to zoomed container
+    function getNodeCenter(node, container) {
+        if (!node || !container) return { x: 0, y: 0 };
+        const rect = node.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        
+        // Calculate the zoom factor dynamically
+        const zoom = container.offsetWidth > 0 ? (containerRect.width / container.offsetWidth) : 1.45;
+        
+        const rx = rect.left - containerRect.left + rect.width / 2;
+        const ry = rect.top - containerRect.top + rect.height / 2;
+        
+        return {
+            x: rx / zoom,
+            y: ry / zoom
+        };
+    }
+
+    function getLinearPoint(t, p0, p1) {
+        return {
+            x: p0.x + (p1.x - p0.x) * t,
+            y: p0.y + (p1.y - p0.y) * t
+        };
+    }
+
+    function getBezierPoint(t, p0, p1, p2) {
+        return {
+            x: (1 - t) * (1 - t) * p0.x + 2 * (1 - t) * t * p1.x + t * t * p2.x,
+            y: (1 - t) * (1 - t) * p0.y + 2 * (1 - t) * t * p1.y + t * t * p2.y
+        };
+    }
+
     // ── HTML TEMPLATES ─────────────────────────────────────────────────────────
     function renderGfx(slideId, canvas, isPlaying, getSlideDuration, slide) {
         const needsTemplate = canvas.getAttribute('data-sim-template') !== slideId || canvas.innerHTML === '';
@@ -85,38 +118,37 @@
         }
 
         if (!needsTemplate) return;
-
         if (slideId === 'slide_cf_1') {
             canvas.innerHTML = `
                 <div class="v30-zoom-container" style="justify-content: center; gap: 24px;">
-                    <!-- Botnet & Server Flow -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 180px;">
-                        
-                        <!-- SVG paths for visual lines -->
-                        <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
-                            <path id="v30-path-1" d="M 50 40 Q 120 70 210 90" fill="none" stroke="rgba(239, 68, 68, 0.15)" stroke-width="2" />
-                            <path id="v30-path-2" d="M 50 90 L 210 90" fill="none" stroke="rgba(239, 68, 68, 0.15)" stroke-width="2" />
-                            <path id="v30-path-3" d="M 50 140 Q 120 110 210 90" fill="none" stroke="rgba(239, 68, 68, 0.15)" stroke-width="2" />
-                        </svg>
+                    <!-- SVG paths for visual lines -->
+                    <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+                        <path id="v30-path-1" d="" fill="none" stroke="rgba(239, 68, 68, 0.25)" stroke-width="2.5" />
+                        <path id="v30-path-2" d="" fill="none" stroke="rgba(239, 68, 68, 0.25)" stroke-width="2.5" />
+                        <path id="v30-path-3" d="" fill="none" stroke="rgba(239, 68, 68, 0.25)" stroke-width="2.5" />
+                    </svg>
 
+                    <!-- Botnet & Server Flow -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 240px;">
+                        
                         <!-- Botnet Nodes -->
-                        <div style="display: flex; flex-direction: column; gap: 14px; z-index: 2;">
-                            <div class="v30-node active-red" style="width: 70px;">
-                                <div class="v30-node-icon"><i data-lucide="skull"></i></div>
-                                <div class="v30-node-label">Bot 1</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px; z-index: 2;">
+                            <div class="v30-node active-red" id="v30-bot-1" style="width: 90px; padding: 8px 12px;">
+                                <div class="v30-node-icon" style="width: 32px; height: 32px; margin-bottom: 4px;"><i data-lucide="skull" style="width: 18px; height: 18px;"></i></div>
+                                <div class="v30-node-label" style="font-size: 11px;">Bot 1</div>
                             </div>
-                            <div class="v30-node active-red" style="width: 70px;">
-                                <div class="v30-node-icon"><i data-lucide="skull"></i></div>
-                                <div class="v30-node-label">Bot 2</div>
+                            <div class="v30-node active-red" id="v30-bot-2" style="width: 90px; padding: 8px 12px;">
+                                <div class="v30-node-icon" style="width: 32px; height: 32px; margin-bottom: 4px;"><i data-lucide="skull" style="width: 18px; height: 18px;"></i></div>
+                                <div class="v30-node-label" style="font-size: 11px;">Bot 2</div>
                             </div>
-                            <div class="v30-node active-red" style="width: 70px;">
-                                <div class="v30-node-icon"><i data-lucide="skull"></i></div>
-                                <div class="v30-node-label">Bot 3</div>
+                            <div class="v30-node active-red" id="v30-bot-3" style="width: 90px; padding: 8px 12px;">
+                                <div class="v30-node-icon" style="width: 32px; height: 32px; margin-bottom: 4px;"><i data-lucide="skull" style="width: 18px; height: 18px;"></i></div>
+                                <div class="v30-node-label" style="font-size: 11px;">Bot 3</div>
                             </div>
                         </div>
 
                         <!-- Target Server -->
-                        <div class="v30-node active-blue" id="v30-target-server" style="width: 90px; height: 120px; z-index: 2; align-self: center;">
+                        <div class="v30-node active-blue" id="v30-target-server" style="width: 110px; height: 140px; z-index: 2; align-self: center;">
                             <div class="v30-node-icon"><i data-lucide="server"></i></div>
                             <div class="v30-node-label">Server</div>
                             <div class="v30-node-desc" id="v30-server-load-text">Load: 10%</div>
@@ -130,11 +162,11 @@
                     <div id="v30-packets-container" style="position: absolute; inset: 0; pointer-events: none; z-index: 5;"></div>
 
                     <!-- Attack Alert Toast -->
-                    <div class="v30-glass-card" style="padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; border-color: rgba(239, 68, 68, 0.2);">
+                    <div class="v30-glass-card" style="padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; border-color: rgba(239, 68, 68, 0.25);">
                         <div style="display: flex; align-items: center; gap: 8px;">
-                            <span class="v30-status-badge red" id="v30-status-1"><i data-lucide="alert-triangle"></i> Ddos attack</span>
+                            <span class="v30-status-badge red" id="v30-status-1"><i data-lucide="alert-triangle"></i> ddos attack</span>
                         </div>
-                        <div style="font-family: 'Fira Code', monospace; font-size: 11px; font-weight: 700; color: var(--cf-red);" id="v30-traffic-count">
+                        <div style="font-family: 'Fira Code', monospace; font-size: 13px; font-weight: 900; color: var(--cf-red);" id="v30-traffic-count">
                             12k req/s
                         </div>
                     </div>
@@ -145,24 +177,22 @@
         else if (slideId === 'slide_cf_2') {
             canvas.innerHTML = `
                 <div class="v30-zoom-container" style="justify-content: center; gap: 20px;">
-                    <!-- Direct overload layout -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 180px;">
-                        
-                        <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
-                            <path d="M 40 50 Q 110 70 220 90" fill="none" stroke="rgba(239, 68, 68, 0.3)" stroke-width="2.5" />
-                            <path d="M 40 90 L 220 90" fill="none" stroke="rgba(239, 68, 68, 0.3)" stroke-width="2.5" />
-                            <path d="M 40 130 Q 110 110 220 90" fill="none" stroke="rgba(239, 68, 68, 0.3)" stroke-width="2.5" />
-                        </svg>
+                    <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+                        <path id="v30-direct-path" d="" fill="none" stroke="rgba(239, 68, 68, 0.35)" stroke-width="3" />
+                    </svg>
 
+                    <!-- Direct overload layout -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 240px;">
+                        
                         <!-- High density botnet source -->
-                        <div class="v30-node active-red" style="width: 80px; z-index: 2;">
+                        <div class="v30-node active-red" id="v30-botnet-source" style="width: 105px; z-index: 2;">
                             <div class="v30-node-icon"><i data-lucide="zap-off"></i></div>
                             <div class="v30-node-label">Botnet</div>
                             <div class="v30-node-desc">10,000 Nodes</div>
                         </div>
 
                         <!-- Crashing Server -->
-                        <div class="v30-node active-blue" id="v30-crash-server" style="width: 90px; height: 120px; z-index: 2;">
+                        <div class="v30-node active-blue" id="v30-crash-server" style="width: 110px; height: 140px; z-index: 2;">
                             <div class="v30-node-icon" id="v30-crash-server-icon"><i data-lucide="server"></i></div>
                             <div class="v30-node-label" id="v30-crash-server-label">Server</div>
                             <div class="v30-node-desc" id="v30-crash-server-desc">Load: 80%</div>
@@ -175,8 +205,8 @@
                     <div id="v30-packets-container" style="position: absolute; inset: 0; pointer-events: none; z-index: 5;"></div>
 
                     <!-- Error Output Toast -->
-                    <div class="v30-glass-card" id="v30-error-toast" style="padding: 12px; text-align: center; border-color: rgba(255, 255, 255, 0.08); transition: all 0.4s;">
-                        <span style="font-family: 'Fira Code', monospace; font-size: 13px; font-weight: 800; color: var(--cf-text-muted);" id="v30-error-text">
+                    <div class="v30-glass-card" id="v30-error-toast" style="padding: 14px; text-align: center; border-color: rgba(255, 255, 255, 0.08); transition: all 0.4s;">
+                        <span style="font-family: 'Fira Code', monospace; font-size: 14px; font-weight: 900; color: var(--cf-text-muted);" id="v30-error-text">
                             HTTP Status: 200 OK
                         </span>
                     </div>
@@ -186,58 +216,64 @@
         }
         else if (slideId === 'slide_cf_3') {
             canvas.innerHTML = `
-                <div class="v30-zoom-container" style="justify-content: center; gap: 14px;">
+                <div class="v30-zoom-container" style="justify-content: center; gap: 16px;">
+                    <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+                        <!-- Botnet to Edge Nodes -->
+                        <path id="v30-anycast-path-1" d="" fill="none" stroke="rgba(239, 68, 68, 0.25)" stroke-width="2" />
+                        <path id="v30-anycast-path-2" d="" fill="none" stroke="rgba(239, 68, 68, 0.25)" stroke-width="2" />
+                        <path id="v30-anycast-path-3" d="" fill="none" stroke="rgba(239, 68, 68, 0.25)" stroke-width="2" />
+
+                        <!-- Edge Nodes to Origin Server (Filtered/No traffic) -->
+                        <path id="v30-anycast-safe-1" d="" fill="none" stroke="rgba(59, 130, 246, 0.15)" stroke-width="1.5" stroke-dasharray="4 4" />
+                        <path id="v30-anycast-safe-2" d="" fill="none" stroke="rgba(59, 130, 246, 0.15)" stroke-width="1.5" stroke-dasharray="4 4" />
+                        <path id="v30-anycast-safe-3" d="" fill="none" stroke="rgba(59, 130, 246, 0.15)" stroke-width="1.5" stroke-dasharray="4 4" />
+                    </svg>
+
                     <!-- Anycast Routing Architecture -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 220px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 260px;">
                         
-                        <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
-                            <!-- Botnet to Edge Nodes -->
-                            <path d="M 45 60 L 125 40" fill="none" stroke="rgba(239, 68, 68, 0.15)" stroke-width="1.5" />
-                            <path d="M 45 110 L 125 110" fill="none" stroke="rgba(239, 68, 68, 0.15)" stroke-width="1.5" />
-                            <path d="M 45 160 L 125 180" fill="none" stroke="rgba(239, 68, 68, 0.15)" stroke-width="1.5" />
-
-                            <!-- Edge Nodes to Origin Server (Filtered/No traffic) -->
-                            <path d="M 195 40 L 255 110" fill="none" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1.5" stroke-dasharray="3 3" />
-                            <path d="M 195 110 L 255 110" fill="none" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1.5" stroke-dasharray="3 3" />
-                            <path d="M 195 180 L 255 110" fill="none" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1.5" stroke-dasharray="3 3" />
-                        </svg>
-
                         <!-- Botnet Source -->
-                        <div class="v30-node active-red" style="width: 70px; z-index: 2; padding: 8px;">
-                            <div class="v30-node-icon" style="width:30px; height:30px; margin-bottom:4px;"><i data-lucide="skull" style="width:16px; height:16px;"></i></div>
-                            <div class="v30-node-label" style="font-size:9px;">Botnet</div>
+                        <div class="v30-node active-red" id="v30-botnet-anycast" style="width: 85px; z-index: 2; padding: 10px;">
+                            <div class="v30-node-icon" style="width:36px; height:36px; margin-bottom:6px;"><i data-lucide="skull" style="width:20px; height:20px;"></i></div>
+                            <div class="v30-node-label" style="font-size:11px;">Botnet</div>
                         </div>
 
                         <!-- 3 Edge Centers -->
-                        <div style="display: flex; flex-direction: column; gap: 12px; z-index: 2;">
-                            <div class="v30-node active-orange" id="v30-edge-1" style="width: 70px; padding: 6px;">
-                                <div class="v30-node-icon" style="width:28px; height:28px; margin-bottom:4px;"><i data-lucide="shield" style="width:14px; height:14px;"></i></div>
-                                <div class="v30-node-label" style="font-size:8px;">Edge US</div>
+                        <div style="display: flex; flex-direction: column; gap: 14px; z-index: 2;">
+                            <div class="v30-node active-orange" id="v30-edge-1" style="width: 85px; padding: 8px;">
+                                <div class="v30-node-icon" style="width:32px; height:32px; margin-bottom:4px; border-radius:50%; overflow:hidden; background:transparent;">
+                                    <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/cloudflare.webp" style="width:100%; height:100%; object-fit:cover;" />
+                                </div>
+                                <div class="v30-node-label" style="font-size:10px;">Edge US</div>
                             </div>
-                            <div class="v30-node active-orange" id="v30-edge-2" style="width: 70px; padding: 6px;">
-                                <div class="v30-node-icon" style="width:28px; height:28px; margin-bottom:4px;"><i data-lucide="shield" style="width:14px; height:14px;"></i></div>
-                                <div class="v30-node-label" style="font-size:8px;">Edge EU</div>
+                            <div class="v30-node active-orange" id="v30-edge-2" style="width: 85px; padding: 8px;">
+                                <div class="v30-node-icon" style="width:32px; height:32px; margin-bottom:4px; border-radius:50%; overflow:hidden; background:transparent;">
+                                    <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/cloudflare.webp" style="width:100%; height:100%; object-fit:cover;" />
+                                </div>
+                                <div class="v30-node-label" style="font-size:10px;">Edge EU</div>
                             </div>
-                            <div class="v30-node active-orange" id="v30-edge-3" style="width: 70px; padding: 6px;">
-                                <div class="v30-node-icon" style="width:28px; height:28px; margin-bottom:4px;"><i data-lucide="shield" style="width:14px; height:14px;"></i></div>
-                                <div class="v30-node-label" style="font-size:8px;">Edge AS</div>
+                            <div class="v30-node active-orange" id="v30-edge-3" style="width: 85px; padding: 8px;">
+                                <div class="v30-node-icon" style="width:32px; height:32px; margin-bottom:4px; border-radius:50%; overflow:hidden; background:transparent;">
+                                    <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/cloudflare.webp" style="width:100%; height:100%; object-fit:cover;" />
+                                </div>
+                                <div class="v30-node-label" style="font-size:10px;">Edge AS</div>
                             </div>
                         </div>
 
                         <!-- Safe Origin Server -->
-                        <div class="v30-node active-green" id="v30-origin-server" style="width: 70px; z-index: 2; padding: 8px; align-self: center;">
-                            <div class="v30-node-icon" style="width:30px; height:30px; margin-bottom:4px;"><i data-lucide="server" style="width:16px; height:16px;"></i></div>
-                            <div class="v30-node-label" style="font-size:9px;">Origin</div>
-                            <div class="v30-node-desc" style="font-size:7px;" id="v30-origin-load">Load: 0%</div>
+                        <div class="v30-node active-green" id="v30-origin-server" style="width: 85px; z-index: 2; padding: 10px; align-self: center;">
+                            <div class="v30-node-icon" style="width:36px; height:36px; margin-bottom:6px;"><i data-lucide="server" style="width:20px; height:20px;"></i></div>
+                            <div class="v30-node-label" style="font-size:11px;">Origin</div>
+                            <div class="v30-node-desc" style="font-size:9px;" id="v30-origin-load">Load: 0%</div>
                         </div>
                     </div>
 
                     <div id="v30-packets-container" style="position: absolute; inset: 0; pointer-events: none; z-index: 5;"></div>
 
                     <!-- Routing Alert -->
-                    <div class="v30-glass-card" style="padding: 10px; display: flex; align-items: center; justify-content: space-between; border-color: rgba(59, 130, 246, 0.2);">
-                        <span class="v30-status-badge orange" style="font-size: 8px;"><i data-lucide="globe"></i> Anycast Routing</span>
-                        <div style="font-family: 'Fira Code', monospace; font-size: 10px; color: var(--cf-green);" id="v30-routing-status">
+                    <div class="v30-glass-card" style="padding: 12px; display: flex; align-items: center; justify-content: space-between; border-color: rgba(59, 130, 246, 0.25);">
+                        <span class="v30-status-badge orange" style="font-size: 9px;"><i data-lucide="globe"></i> Anycast Routing</span>
+                        <div style="font-family: 'Fira Code', monospace; font-size: 11px; font-weight: 700; color: var(--cf-green);" id="v30-routing-status">
                             Traffic Distributed Globally
                         </div>
                     </div>
@@ -247,46 +283,49 @@
         }
         else if (slideId === 'slide_cf_4') {
             canvas.innerHTML = `
-                <div class="v30-zoom-container" style="justify-content: center; gap: 16px;">
-                    <!-- WAF Filter Screen -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 180px;">
-                        
-                        <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
-                            <path d="M 40 90 L 260 90" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="2" />
-                        </svg>
+                <div class="v30-zoom-container" style="justify-content: center; gap: 20px;">
+                    <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+                        <path id="v30-waf-path-1" d="" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2.5" />
+                        <path id="v30-waf-path-2" d="" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2.5" />
+                    </svg>
 
+                    <!-- WAF Filter Screen -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 240px;">
+                        
                         <!-- Incoming Traffic -->
-                        <div class="v30-node active-orange" style="width: 70px; z-index: 2;">
+                        <div class="v30-node active-orange" id="v30-traffic-node" style="width: 90px; z-index: 2;">
                             <div class="v30-node-icon"><i data-lucide="activity"></i></div>
-                            <div class="v30-node-label" style="font-size:9px;">Traffic</div>
+                            <div class="v30-node-label" style="font-size:11px;">Traffic</div>
                         </div>
 
                         <!-- WAF Core Filter Node -->
-                        <div class="v30-node active-yellow" id="v30-waf-node" style="width: 100px; height: 120px; z-index: 2; position: relative; overflow: hidden;">
+                        <div class="v30-node active-yellow" id="v30-waf-node" style="width: 120px; height: 140px; z-index: 2; position: relative; overflow: hidden;">
                             <div class="v30-waf-laser"></div>
-                            <div class="v30-node-icon"><i data-lucide="brick-wall"></i></div>
-                            <div class="v30-node-label" style="font-size:11px;">WAF Shield</div>
-                            <div class="v30-node-desc" style="font-size:7px; margin-top:4px;" id="v30-waf-stats">Rules Active</div>
+                            <div class="v30-node-icon" style="border-radius:50%; overflow:hidden; background:transparent;">
+                                <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/cloudflare.webp" style="width:100%; height:100%; object-fit:cover;" />
+                            </div>
+                            <div class="v30-node-label" style="font-size:12px;">WAF Shield</div>
+                            <div class="v30-node-desc" style="font-size:8px; margin-top:4px;" id="v30-waf-stats">Rules Active</div>
                         </div>
 
                         <!-- Clean Server -->
-                        <div class="v30-node active-green" style="width: 70px; z-index: 2;">
+                        <div class="v30-node active-green" id="v30-clean-node" style="width: 90px; z-index: 2;">
                             <div class="v30-node-icon"><i data-lucide="check-circle-2"></i></div>
-                            <div class="v30-node-label" style="font-size:9px;">Clean</div>
+                            <div class="v30-node-label" style="font-size:11px;">Clean</div>
                         </div>
                     </div>
 
                     <div id="v30-packets-container" style="position: absolute; inset: 0; pointer-events: none; z-index: 5;"></div>
 
                     <!-- WAF Log Table -->
-                    <div class="v30-glass-card" style="padding: 10px; font-family: 'Fira Code', monospace; font-size: 9px; display: flex; flex-direction: column; gap: 4px;">
-                        <div style="display: flex; justify-content: space-between; color: var(--cf-text-muted); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
+                    <div class="v30-glass-card" style="padding: 12px; font-family: 'Fira Code', monospace; font-size: 11px; display: flex; flex-direction: column; gap: 6px;">
+                        <div style="display: flex; justify-content: space-between; color: var(--cf-text-muted); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 6px; font-weight: 700;">
                             <span>RULE TYPE</span>
                             <span>ACTION</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2px;">
-                            <span style="color: var(--cf-red);" id="v30-waf-log-rule">SQL Injection Pattern</span>
-                            <span class="v30-status-badge red" style="font-size: 7px; padding: 2px 4px;" id="v30-waf-log-action">DROP</span>
+                            <span style="color: var(--cf-red); font-weight: 700;" id="v30-waf-log-rule">SQL Injection Pattern</span>
+                            <span class="v30-status-badge red" style="font-size: 9px; padding: 3px 6px;" id="v30-waf-log-action">DROP</span>
                         </div>
                     </div>
                 </div>
@@ -295,26 +334,27 @@
         }
         else if (slideId === 'slide_cf_5') {
             canvas.innerHTML = `
-                <div class="v30-zoom-container" style="justify-content: center; gap: 16px;">
+                <div class="v30-zoom-container" style="justify-content: center; gap: 20px;">
                     <!-- JS Challenge Panel Mockup -->
-                    <div class="v30-glass-card" style="width: 100%; border-color: rgba(255, 255, 255, 0.08); padding: 16px 20px;">
-                        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1.5px solid rgba(255, 255, 255, 0.06); padding-bottom: 10px; margin-bottom: 12px;">
-                            <div style="display: flex; align-items: center; gap: 6px;">
-                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444;"></div>
-                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b;"></div>
-                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></div>
+                    <div class="v30-glass-card" style="width: 100%; border-color: rgba(255, 255, 255, 0.08); padding: 18px 22px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1.5px solid rgba(255, 255, 255, 0.06); padding-bottom: 12px; margin-bottom: 14px;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="width: 12px; height: 12px; border-radius: 50%; background: #ef4444;"></div>
+                                <div style="width: 12px; height: 12px; border-radius: 50%; background: #f59e0b;"></div>
+                                <div style="width: 12px; height: 12px; border-radius: 50%; background: #10b981;"></div>
                             </div>
-                            <span style="font-size: 10px; color: var(--cf-text-muted); font-weight: 600; font-family: 'Fira Code', monospace;">cloudflare_challenge.html</span>
-                            <i data-lucide="lock" style="width: 12px; height: 12px; color: var(--cf-green);"></i>
+                            <span style="font-size: 11px; color: var(--cf-text-muted); font-weight: 700; font-family: 'Fira Code', monospace;">cloudflare_challenge.html</span>
+                            <i data-lucide="lock" style="width: 14px; height: 14px; color: var(--cf-green);"></i>
                         </div>
 
                         <!-- Verification Area -->
                         <div class="v30-challenge-box" id="v30-challenge-panel">
+                            <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/cloudflare.webp" style="width: 32px; height: 32px; border-radius: 50%; box-shadow: 0 0 10px rgba(243, 128, 32, 0.3);" />
                             <div class="v30-spinner" id="v30-challenge-spinner"></div>
-                            <div style="font-size: 12px; font-weight: 800; text-align: center; color: var(--cf-text);" id="v30-challenge-title">
+                            <div style="font-size: 14px; font-weight: 900; text-align: center; color: var(--cf-text);" id="v30-challenge-title">
                                 Checking your browser...
                             </div>
-                            <div style="font-size: 9px; text-align: center; color: var(--cf-text-muted);" id="v30-challenge-desc">
+                            <div style="font-size: 10px; text-align: center; color: var(--cf-text-muted);" id="v30-challenge-desc">
                                 This process is automatic. Please wait 1-2 seconds.
                             </div>
                         </div>
@@ -322,16 +362,16 @@
 
                     <!-- Client node validation status -->
                     <div style="display: flex; justify-content: space-around; width: 100%; margin-top: 4px;">
-                        <div class="v30-node active-green" id="v30-user-node" style="width: 100px; padding: 8px; opacity: 0.5;">
-                            <div class="v30-node-icon" style="width:30px; height:30px; margin-bottom:4px;"><i data-lucide="user"></i></div>
-                            <div class="v30-node-label" style="font-size:9px;">Real User</div>
-                            <div class="v30-node-desc" style="font-size:7px; color: var(--cf-green);" id="v30-user-status">Passed</div>
+                        <div class="v30-node active-green" id="v30-user-node" style="width: 110px; padding: 10px; opacity: 0.5;">
+                            <div class="v30-node-icon" style="width:36px; height:36px; margin-bottom:4px;"><i data-lucide="user"></i></div>
+                            <div class="v30-node-label" style="font-size:10px;">Real User</div>
+                            <div class="v30-node-desc" style="font-size:8px; color: var(--cf-green); font-weight:700;" id="v30-user-status">Passed</div>
                         </div>
 
-                        <div class="v30-node active-red" id="v30-bot-node" style="width: 100px; padding: 8px; opacity: 0.5;">
-                            <div class="v30-node-icon" style="width:30px; height:30px; margin-bottom:4px;"><i data-lucide="bot"></i></div>
-                            <div class="v30-node-label" style="font-size:9px;">Headless Bot</div>
-                            <div class="v30-node-desc" style="font-size:7px; color: var(--cf-red);" id="v30-bot-status">Blocked</div>
+                        <div class="v30-node active-red" id="v30-bot-node" style="width: 110px; padding: 10px; opacity: 0.5;">
+                            <div class="v30-node-icon" style="width:36px; height:36px; margin-bottom:4px;"><i data-lucide="bot"></i></div>
+                            <div class="v30-node-label" style="font-size:10px;">Headless Bot</div>
+                            <div class="v30-node-desc" style="font-size:8px; color: var(--cf-red); font-weight:700;" id="v30-bot-status">Blocked</div>
                         </div>
                     </div>
                 </div>
@@ -340,44 +380,44 @@
         }
         else if (slideId === 'slide_cf_6') {
             canvas.innerHTML = `
-                <div class="v30-zoom-container" style="justify-content: center; gap: 20px;">
-                    <!-- Rate Limiting Demo -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 150px;">
-                        
-                        <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
-                            <path d="M 50 75 L 210 75" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2" />
-                        </svg>
+                <div class="v30-zoom-container" style="justify-content: center; gap: 24px;">
+                    <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+                        <path id="v30-rate-path" d="" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2.5" />
+                    </svg>
 
+                    <!-- Rate Limiting Demo -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 180px;">
+                        
                         <!-- Requester IP -->
-                        <div class="v30-node active-blue" id="v30-rate-ip-node" style="width: 100px;">
+                        <div class="v30-node active-blue" id="v30-rate-ip-node" style="width: 110px;">
                             <div class="v30-node-icon"><i data-lucide="fingerprint"></i></div>
-                            <div class="v30-node-label" style="font-size:9px;">IP Source</div>
-                            <div class="v30-node-desc" style="font-family: 'Fira Code', monospace; font-size:7px;">198.51.100.42</div>
+                            <div class="v30-node-label" style="font-size:11px;">IP Source</div>
+                            <div class="v30-node-desc" style="font-family: 'Fira Code', monospace; font-size:8px;">198.51.100.42</div>
                         </div>
 
                         <!-- Guard Shield -->
-                        <div class="v30-node active-green" id="v30-rate-shield-node" style="width: 100px;">
+                        <div class="v30-node active-green" id="v30-rate-shield-node" style="width: 110px;">
                             <div class="v30-node-icon" id="v30-rate-shield-icon"><i data-lucide="check"></i></div>
-                            <div class="v30-node-label" id="v30-rate-shield-label" style="font-size:9px;">ALLOW</div>
-                            <div class="v30-node-desc" id="v30-rate-shield-desc" style="font-size:7px;">Traffic Normal</div>
+                            <div class="v30-node-label" id="v30-rate-shield-label" style="font-size:11px;">ALLOW</div>
+                            <div class="v30-node-desc" id="v30-rate-shield-desc" style="font-size:8px;">Traffic Normal</div>
                         </div>
                     </div>
 
                     <div id="v30-packets-container" style="position: absolute; inset: 0; pointer-events: none; z-index: 5;"></div>
 
                     <!-- Rate Monitor Card -->
-                    <div class="v30-glass-card" style="padding: 12px; display: flex; flex-direction: column; gap: 8px;">
+                    <div class="v30-glass-card" style="padding: 16px; display: flex; flex-direction: column; gap: 10px;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 10px; font-weight: 800; color: var(--cf-text-muted);">REQUEST FREQUENCY</span>
-                            <span class="v30-status-badge green" id="v30-rate-badge" style="font-size: 9px; font-weight: 900;">SAFE</span>
+                            <span style="font-size: 11px; font-weight: 800; color: var(--cf-text-muted);">REQUEST FREQUENCY</span>
+                            <span class="v30-status-badge green" id="v30-rate-badge" style="font-size: 10px; font-weight: 900;">SAFE</span>
                         </div>
                         
                         <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                            <span style="font-size: 20px; font-weight: 900; font-family: 'Fira Code', monospace; color: var(--cf-text);" id="v30-rate-counter">12 req/s</span>
-                            <span style="font-size: 9px; color: var(--cf-text-muted);">Threshold: 100 req/s</span>
+                            <span style="font-size: 24px; font-weight: 900; font-family: 'Fira Code', monospace; color: var(--cf-text);" id="v30-rate-counter">12 req/s</span>
+                            <span style="font-size: 10px; color: var(--cf-text-muted); font-weight:600;">Threshold: 100 req/s</span>
                         </div>
 
-                        <div class="v30-progress-bar" style="height: 8px;">
+                        <div class="v30-progress-bar" style="height: 10px;">
                             <div class="v30-progress-fill" id="v30-rate-bar" style="width: 12%;"></div>
                         </div>
                     </div>
@@ -387,36 +427,36 @@
         }
         else if (slideId === 'slide_cf_7') {
             canvas.innerHTML = `
-                <div class="v30-zoom-container" style="justify-content: flex-start; padding-top: 10px; gap: 16px;">
-                    <div style="font-size:12px; font-weight:800; color:var(--cf-text-muted); text-transform:uppercase; text-align:center; letter-spacing:0.8px;">
+                <div class="v30-zoom-container" style="justify-content: flex-start; padding-top: 10px; gap: 20px;">
+                    <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+                        <path id="v30-threat-path-1" d="" fill="none" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" />
+                        <path id="v30-threat-path-2" d="" fill="none" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" />
+                    </svg>
+
+                    <div style="font-size:13px; font-weight:800; color:var(--cf-text-muted); text-transform:uppercase; text-align:center; letter-spacing:0.8px; margin-bottom: 4px;">
                         Global Threat Intelligence
                     </div>
 
                     <!-- Network Map Node Diagram -->
-                    <div style="display: flex; justify-content: space-around; width: 100%; position: relative; height: 110px;">
+                    <div style="display: flex; justify-content: space-around; width: 100%; position: relative; height: 140px;">
                         
-                        <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
-                            <path d="M 60 55 L 140 55" fill="none" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 3" />
-                            <path d="M 220 55 L 140 55" fill="none" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 3" />
-                        </svg>
-
-                        <div class="v30-node active-red" id="v30-threat-node-1" style="width: 66px; padding: 6px;">
-                            <div class="v30-node-icon" style="width:26px; height:26px; margin-bottom:2px;"><i data-lucide="skull" style="width:12px; height:12px;"></i></div>
-                            <div class="v30-node-label" style="font-size:8px;">Target A</div>
-                            <div class="v30-node-desc" style="font-size:6px; color: var(--cf-red);">ATTACKED</div>
+                        <div class="v30-node active-red" id="v30-threat-node-1" style="width: 80px; padding: 8px;">
+                            <div class="v30-node-icon" style="width:34px; height:34px; margin-bottom:4px;"><i data-lucide="skull" style="width:16px; height:16px;"></i></div>
+                            <div class="v30-node-label" style="font-size:9px;">Target A</div>
+                            <div class="v30-node-desc" style="font-size:7px; color: var(--cf-red); font-weight: 700;">ATTACKED</div>
                         </div>
 
                         <!-- Central Database Sync -->
-                        <div class="v30-node active-yellow" id="v30-threat-db" style="width: 80px; padding: 6px;">
-                            <div class="v30-node-icon" style="width:28px; height:28px; margin-bottom:2px;"><i data-lucide="database" style="width:14px; height:14px;"></i></div>
-                            <div class="v30-node-label" style="font-size:8px;">Threat DB</div>
-                            <div class="v30-node-desc" style="font-size:6px; color: var(--cf-yellow);" id="v30-db-sync-status">SYNCED</div>
+                        <div class="v30-node active-yellow" id="v30-threat-db" style="width: 95px; padding: 8px;">
+                            <div class="v30-node-icon" style="width:36px; height:36px; margin-bottom:4px;"><i data-lucide="database" style="width:18px; height:18px;"></i></div>
+                            <div class="v30-node-label" style="font-size:9px;">Threat DB</div>
+                            <div class="v30-node-desc" style="font-size:7px; color: var(--cf-yellow); font-weight: 700;" id="v30-db-sync-status">SYNCED</div>
                         </div>
 
-                        <div class="v30-node active-green" id="v30-threat-node-2" style="width: 66px; padding: 6px;">
-                            <div class="v30-node-icon" style="width:26px; height:26px; margin-bottom:2px;"><i data-lucide="shield-check" style="width:12px; height:12px;"></i></div>
-                            <div class="v30-node-label" style="font-size:8px;">Target B</div>
-                            <div class="v30-node-desc" style="font-size:6px; color: var(--cf-green);" id="v30-target2-status">SAFE</div>
+                        <div class="v30-node active-green" id="v30-threat-node-2" style="width: 80px; padding: 8px;">
+                            <div class="v30-node-icon" style="width:34px; height:34px; margin-bottom:4px;"><i data-lucide="shield-check" style="width:16px; height:16px;"></i></div>
+                            <div class="v30-node-label" style="font-size:9px;">Target B</div>
+                            <div class="v30-node-desc" style="font-size:7px; color: var(--cf-green); font-weight: 700;" id="v30-target2-status">SAFE</div>
                         </div>
                     </div>
 
@@ -424,15 +464,15 @@
                     <div class="v30-threat-list" id="v30-threat-logs">
                         <div class="v30-threat-item blocked" style="opacity: 0.3;">
                             <span style="color: var(--cf-text-muted);">IP 45.223.11.9</span>
-                            <span style="color: var(--cf-red);">BLOCKED (US)</span>
+                            <span style="color: var(--cf-red); font-weight: 700;">BLOCKED (US)</span>
                         </div>
                         <div class="v30-threat-item blocked" style="opacity: 0.3;">
                             <span style="color: var(--cf-text-muted);">IP 185.90.2.14</span>
-                            <span style="color: var(--cf-red);">BLOCKED (EU)</span>
+                            <span style="color: var(--cf-red); font-weight: 700;">BLOCKED (EU)</span>
                         </div>
                         <div class="v30-threat-item blocked" style="opacity: 0.3;">
                             <span style="color: var(--cf-text-muted);">IP 91.200.4.88</span>
-                            <span style="color: var(--cf-red);">BLOCKED (AS)</span>
+                            <span style="color: var(--cf-red); font-weight: 700;">BLOCKED (AS)</span>
                         </div>
                     </div>
                 </div>
@@ -441,65 +481,66 @@
         }
         else if (slideId === 'slide_cf_8') {
             canvas.innerHTML = `
-                <div class="v30-zoom-container" style="justify-content: center; gap: 14px;">
+                <div class="v30-zoom-container" style="justify-content: center; gap: 16px;">
+                    <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+                        <path id="v30-unicast-path-1" d="" fill="none" stroke="rgba(239, 68, 68, 0.25)" stroke-width="2" />
+                        <path id="v30-unicast-path-2" d="" fill="none" stroke="rgba(239, 68, 68, 0.25)" stroke-width="2" />
+                        <path id="v30-anycast-path-left" d="" fill="none" stroke="rgba(16, 185, 129, 0.25)" stroke-width="2" />
+                        <path id="v30-anycast-path-right" d="" fill="none" stroke="rgba(16, 185, 129, 0.25)" stroke-width="2" />
+                    </svg>
+
                     <div class="v30-comparison-grid">
                         <!-- Unicast column -->
-                        <div class="v30-comparison-col" id="v30-unicast-col" style="position: relative; height: 260px; justify-content: space-between;">
-                            <div style="font-size: 11px; font-weight: 800; color: var(--cf-red); letter-spacing: 0.5px;">UNICAST</div>
+                        <div class="v30-comparison-col" id="v30-unicast-col" style="position: relative; height: 320px; justify-content: space-between;">
+                            <div style="font-size: 13px; font-weight: 900; color: var(--cf-red); letter-spacing: 0.8px;">UNICAST</div>
                             
-                            <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
-                                <path d="M 25 100 L 65 140" fill="none" stroke="rgba(239, 68, 68, 0.2)" stroke-width="1.5" />
-                                <path d="M 110 100 L 70 140" fill="none" stroke="rgba(239, 68, 68, 0.2)" stroke-width="1.5" />
-                            </svg>
-
-                            <div style="display: flex; gap: 30px; z-index: 2;">
-                                <div class="v30-node active-red" style="width: 40px; padding: 4px;">
-                                    <div class="v30-node-icon" style="width:22px; height:22px; margin-bottom:2px;"><i data-lucide="skull" style="width:12px; height:12px;"></i></div>
-                                    <span style="font-size: 7px;">US</span>
+                            <div style="display: flex; gap: 24px; z-index: 2;">
+                                <div class="v30-node active-red" id="v30-uni-bot-us" style="width: 48px; padding: 6px;">
+                                    <div class="v30-node-icon" style="width:24px; height:24px; margin-bottom:2px;"><i data-lucide="skull" style="width:14px; height:14px;"></i></div>
+                                    <span style="font-size: 8px; font-weight: 700;">US</span>
                                 </div>
-                                <div class="v30-node active-red" style="width: 40px; padding: 4px;">
-                                    <div class="v30-node-icon" style="width:22px; height:22px; margin-bottom:2px;"><i data-lucide="skull" style="width:12px; height:12px;"></i></div>
-                                    <span style="font-size: 7px;">EU</span>
+                                <div class="v30-node active-red" id="v30-uni-bot-eu" style="width: 48px; padding: 6px;">
+                                    <div class="v30-node-icon" style="width:24px; height:24px; margin-bottom:2px;"><i data-lucide="skull" style="width:14px; height:14px;"></i></div>
+                                    <span style="font-size: 8px; font-weight: 700;">EU</span>
                                 </div>
                             </div>
 
                             <!-- Single Central Node -->
-                            <div class="v30-node active-red" id="v30-unicast-center" style="width: 60px; padding: 6px; z-index: 2; margin-bottom: 20px;">
-                                <div class="v30-node-icon" style="width:24px; height:24px; margin-bottom:2px;"><i data-lucide="server" style="width:12px; height:12px;"></i></div>
-                                <span style="font-size: 8px;">HQ Server</span>
-                                <span style="font-size: 6px; color: var(--cf-red); font-weight: 700; margin-top:2px;">CONGESTED</span>
+                            <div class="v30-node active-red" id="v30-unicast-center" style="width: 75px; padding: 8px; z-index: 2; margin-bottom: 24px;">
+                                <div class="v30-node-icon" style="width:28px; height:28px; margin-bottom:4px;"><i data-lucide="server" style="width:16px; height:16px;"></i></div>
+                                <span style="font-size: 9px; font-weight: 800;">HQ Server</span>
+                                <span style="font-size: 7px; color: var(--cf-red); font-weight: 800; margin-top:2px;">CONGESTED</span>
                             </div>
                         </div>
 
                         <!-- Anycast column -->
-                        <div class="v30-comparison-col" id="v30-anycast-col" style="position: relative; height: 260px; justify-content: space-between; border-color: var(--cf-green);">
-                            <div style="font-size: 11px; font-weight: 800; color: var(--cf-green); letter-spacing: 0.5px;">ANYCAST</div>
+                        <div class="v30-comparison-col" id="v30-anycast-col" style="position: relative; height: 320px; justify-content: space-between; border-color: var(--cf-green);">
+                            <div style="font-size: 13px; font-weight: 900; color: var(--cf-green); letter-spacing: 0.8px;">ANYCAST</div>
                             
-                            <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
-                                <path d="M 25 100 L 25 140" fill="none" stroke="rgba(16, 185, 129, 0.2)" stroke-width="1.5" />
-                                <path d="M 110 100 L 110 140" fill="none" stroke="rgba(16, 185, 129, 0.2)" stroke-width="1.5" />
-                            </svg>
-
-                            <div style="display: flex; gap: 30px; z-index: 2;">
-                                <div class="v30-node active-red" style="width: 40px; padding: 4px;">
-                                    <div class="v30-node-icon" style="width:22px; height:22px; margin-bottom:2px;"><i data-lucide="skull" style="width:12px; height:12px;"></i></div>
-                                    <span style="font-size: 7px;">US</span>
+                            <div style="display: flex; gap: 24px; z-index: 2;">
+                                <div class="v30-node active-red" id="v30-any-bot-us" style="width: 48px; padding: 6px;">
+                                    <div class="v30-node-icon" style="width:24px; height:24px; margin-bottom:2px;"><i data-lucide="skull" style="width:14px; height:14px;"></i></div>
+                                    <span style="font-size: 8px; font-weight: 700;">US</span>
                                 </div>
-                                <div class="v30-node active-red" style="width: 40px; padding: 4px;">
-                                    <div class="v30-node-icon" style="width:22px; height:22px; margin-bottom:2px;"><i data-lucide="skull" style="width:12px; height:12px;"></i></div>
-                                    <span style="font-size: 7px;">EU</span>
+                                <div class="v30-node active-red" id="v30-any-bot-eu" style="width: 48px; padding: 6px;">
+                                    <div class="v30-node-icon" style="width:24px; height:24px; margin-bottom:2px;"><i data-lucide="skull" style="width:14px; height:14px;"></i></div>
+                                    <span style="font-size: 8px; font-weight: 700;">EU</span>
                                 </div>
                             </div>
 
                             <!-- Two distributed servers -->
-                            <div style="display: flex; gap: 24px; z-index: 2; margin-bottom: 20px;">
-                                <div class="v30-node active-green" style="width: 46px; padding: 4px;">
-                                    <div class="v30-node-icon" style="width:22px; height:22px; margin-bottom:2px;"><i data-lucide="server" style="width:12px; height:12px;"></i></div>
-                                    <span style="font-size: 7px;">Node US</span>
+                            <div style="display: flex; gap: 20px; z-index: 2; margin-bottom: 24px;">
+                                <div class="v30-node active-green" id="v30-any-node-us" style="width: 50px; padding: 6px;">
+                                    <div class="v30-node-icon" style="width:24px; height:24px; margin-bottom:2px; border-radius:50%; overflow:hidden; background:transparent;">
+                                        <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/cloudflare.webp" style="width:100%; height:100%; object-fit:cover;" />
+                                    </div>
+                                    <span style="font-size: 8px; font-weight: 700;">Node US</span>
                                 </div>
-                                <div class="v30-node active-green" style="width: 46px; padding: 4px;">
-                                    <div class="v30-node-icon" style="width:22px; height:22px; margin-bottom:2px;"><i data-lucide="server" style="width:12px; height:12px;"></i></div>
-                                    <span style="font-size: 7px;">Node EU</span>
+                                <div class="v30-node active-green" id="v30-any-node-eu" style="width: 50px; padding: 6px;">
+                                    <div class="v30-node-icon" style="width:24px; height:24px; margin-bottom:2px; border-radius:50%; overflow:hidden; background:transparent;">
+                                        <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/cloudflare.webp" style="width:100%; height:100%; object-fit:cover;" />
+                                    </div>
+                                    <span style="font-size: 8px; font-weight: 700;">Node EU</span>
                                 </div>
                             </div>
                         </div>
@@ -513,45 +554,47 @@
         }
         else if (slideId === 'slide_cf_9') {
             canvas.innerHTML = `
-                <div class="v30-zoom-container" style="justify-content: center; gap: 16px;">
-                    <!-- Cloudflare Tunnel Architecture -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 180px;">
+                <div class="v30-zoom-container" style="justify-content: center; gap: 20px;">
+                    <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+                        <!-- Public Internet Attacking Paths (Blocked) -->
+                        <path id="v30-tunnel-attack-path" d="" fill="none" stroke="rgba(239, 68, 68, 0.2)" stroke-width="2" />
                         
-                        <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
-                            <!-- Public Internet Attacking Paths (Blocked) -->
-                            <path d="M 45 40 Q 120 70 215 90" fill="none" stroke="rgba(239, 68, 68, 0.15)" stroke-width="1.5" />
-                            
-                            <!-- Inside Tunnel Secure Flow (Outbound reverse tunnel) -->
-                            <path class="v30-tunnel-line" d="M 125 120 L 215 120" fill="none" stroke="#10b981" stroke-width="6" stroke-linecap="round" />
-                            <path d="M 125 120 L 215 120" fill="none" stroke="rgba(0,0,0,0.5)" stroke-width="2" />
-                        </svg>
+                        <!-- Inside Tunnel Secure Flow (Outbound reverse tunnel) -->
+                        <path class="v30-tunnel-line" id="v30-tunnel-svg-line" d="" fill="none" stroke="#10b981" stroke-width="7" stroke-linecap="round" />
+                        <path id="v30-tunnel-svg-line-bg" d="" fill="none" stroke="rgba(0,0,0,0.5)" stroke-width="2.5" />
+                    </svg>
 
+                    <!-- Cloudflare Tunnel Architecture -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; height: 240px;">
+                        
                         <!-- Cloudflare Edge Center -->
-                        <div class="v30-node active-orange" style="width: 80px; height: 120px; z-index: 2;">
-                            <div class="v30-node-icon"><i data-lucide="cloud"></i></div>
-                            <div class="v30-node-label" style="font-size:9px;">CF Edge</div>
-                            <div class="v30-node-desc" style="font-size:7px;">Public Proxy</div>
+                        <div class="v30-node active-orange" id="v30-tunnel-edge" style="width: 100px; height: 140px; z-index: 2;">
+                            <div class="v30-node-icon" style="border-radius:50%; overflow:hidden; background:transparent;">
+                                <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/cloudflare.webp" style="width:100%; height:100%; object-fit:cover;" />
+                            </div>
+                            <div class="v30-node-label" style="font-size:11px;">CF Edge</div>
+                            <div class="v30-node-desc" style="font-size:8px;">Public Proxy</div>
                         </div>
 
                         <!-- Connector label over tunnel -->
-                        <div style="position: absolute; left: 95px; top: 138px; font-size: 8px; font-weight: 800; color: var(--cf-green); font-family: 'Fira Code', monospace; z-index: 3;">
-                            CF Tunnel (Outbound Only)
+                        <div id="v30-tunnel-label" style="position: absolute; font-size: 9px; font-weight: 800; color: var(--cf-green); font-family: 'Fira Code', monospace; z-index: 3; pointer-events: none; text-align: center;">
+                            CF Tunnel
                         </div>
 
                         <!-- Safe Origin Server behind firewall -->
-                        <div class="v30-node active-green" style="width: 80px; height: 120px; z-index: 2;">
+                        <div class="v30-node active-green" id="v30-tunnel-server" style="width: 100px; height: 140px; z-index: 2;">
                             <div class="v30-node-icon" id="v30-tunnel-lock-icon"><i data-lucide="lock"></i></div>
-                            <div class="v30-node-label" style="font-size:9px;">Server</div>
-                            <div class="v30-node-desc" style="font-size:7px; color: var(--cf-red);" id="v30-tunnel-ports">Inbound: Blocked</div>
+                            <div class="v30-node-label" style="font-size:11px;">Server</div>
+                            <div class="v30-node-desc" style="font-size:8px; color: var(--cf-red);" id="v30-tunnel-ports">Inbound: Blocked</div>
                         </div>
                     </div>
 
                     <div id="v30-packets-container" style="position: absolute; inset: 0; pointer-events: none; z-index: 5;"></div>
 
                     <!-- Secure Shield Badge -->
-                    <div class="v30-glass-card" style="padding: 10px; display: flex; align-items: center; justify-content: space-between; border-color: rgba(16, 185, 129, 0.2);">
-                        <span class="v30-status-badge green" style="font-size: 8px;"><i data-lucide="shield-check"></i> Ports Closed</span>
-                        <div style="font-family: 'Fira Code', monospace; font-size: 10px; color: var(--cf-text-muted);" id="v30-tunnel-status">
+                    <div class="v30-glass-card" style="padding: 12px; display: flex; align-items: center; justify-content: space-between; border-color: rgba(16, 185, 129, 0.25);">
+                        <span class="v30-status-badge green" style="font-size: 9px;"><i data-lucide="shield-check"></i> Ports Closed</span>
+                        <div style="font-family: 'Fira Code', monospace; font-size: 11px; color: var(--cf-text-muted);" id="v30-tunnel-status">
                             No Public IP Exposed
                         </div>
                     </div>
@@ -561,14 +604,14 @@
         }
         else if (slideId === 'slide_cf_10') {
             canvas.innerHTML = `
-                <div class="v30-zoom-container" style="justify-content: center; gap: 20px;">
+                <div class="v30-zoom-container" style="justify-content: center; gap: 24px;">
                     <div style="text-align: center; margin-bottom: 4px;">
-                        <div style="font-size: 20px; font-weight: 900; color: var(--cf-orange); text-transform: uppercase; letter-spacing: 0.5px;">Turnio.dev</div>
-                        <div style="font-size: 9px; color: var(--cf-text-muted); margin-top: 2px;">KIẾN THỨC HỆ THỐNG THỰC CHIẾN</div>
+                        <div style="font-size: 24px; font-weight: 900; color: var(--cf-orange); text-transform: uppercase; letter-spacing: 0.8px;">Turnio.dev</div>
+                        <div style="font-size: 11px; color: var(--cf-text-muted); margin-top: 4px; font-weight: 700; letter-spacing: 0.5px;">KIẾN THỨC HỆ THỐNG THỰC CHIẾN</div>
                     </div>
 
                     <!-- Glass Card listing Call to Actions -->
-                    <div class="v30-glass-card" style="border-color: rgba(243, 128, 32, 0.25); box-shadow: 0 8px 32px rgba(243, 128, 32, 0.15); width: 100%;">
+                    <div class="v30-glass-card" style="border-color: rgba(243, 128, 32, 0.3); box-shadow: 0 10px 36px rgba(243, 128, 32, 0.2); width: 100%;">
                         <div class="v30-cta-list">
                             <div class="v30-cta-item" id="v30-cta-1" style="opacity: 0.3; transform: scale(0.95); transition: all 0.4s;">
                                 <i data-lucide="user-plus"></i>
@@ -585,7 +628,7 @@
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 14px; font-size: 10px; color: var(--cf-text-muted); font-weight: 600;">
+                    <div style="display: flex; gap: 18px; font-size: 12px; color: var(--cf-text-muted); font-weight: 700;">
                         <span>❤️ 4.2k</span>
                         <span>💬 832</span>
                         <span>🔄 1.1k</span>
@@ -598,6 +641,8 @@
 
     // ── ANIMATION FRAME HANDLER ───────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress, isPlaying) {
+        const zoomContainer = canvas.querySelector('.v30-zoom-container');
+
         if (slideId === 'slide_cf_1') {
             const serverLoadText = canvas.querySelector('#v30-server-load-text');
             const serverLoadFill = canvas.querySelector('#v30-server-load-fill');
@@ -605,6 +650,10 @@
             const statusBadge = canvas.querySelector('#v30-status-1');
             const trafficCount = canvas.querySelector('#v30-traffic-count');
             const container = canvas.querySelector('#v30-packets-container');
+
+            const bot1 = canvas.querySelector('#v30-bot-1');
+            const bot2 = canvas.querySelector('#v30-bot-2');
+            const bot3 = canvas.querySelector('#v30-bot-3');
 
             // Load increases as progress goes up
             const loadVal = Math.round(10 + progress * 80);
@@ -624,7 +673,7 @@
             if (targetServer) {
                 if (loadVal > 75) {
                     targetServer.style.borderColor = 'var(--cf-red)';
-                    targetServer.style.boxShadow = '0 0 20px var(--cf-red-glow)';
+                    targetServer.style.boxShadow = '0 0 24px var(--cf-red-glow)';
                 } else {
                     targetServer.style.borderColor = 'var(--cf-blue)';
                     targetServer.style.boxShadow = 'none';
@@ -648,44 +697,53 @@
                 trafficCount.textContent = `${reqs}k req/s`;
             }
 
-            // Spawn particles
-            if (container) {
-                // Clear out of date packets
-                const oldPackets = container.querySelectorAll('.v30-packet');
-                oldPackets.forEach(p => p.remove());
+            // Dynamic layout calculations
+            if (bot1 && bot2 && bot3 && targetServer && zoomContainer) {
+                const cBot1 = getNodeCenter(bot1, zoomContainer);
+                const cBot2 = getNodeCenter(bot2, zoomContainer);
+                const cBot3 = getNodeCenter(bot3, zoomContainer);
+                const cServer = getNodeCenter(targetServer, zoomContainer);
 
-                // Generate new flowing particles based on progress phase
-                const numPackets = Math.min(25, 4 + Math.round(progress * 25));
-                for (let i = 0; i < numPackets; i++) {
-                    const packet = document.createElement('div');
-                    packet.className = 'v30-packet red';
-                    container.appendChild(packet);
+                // Update path coordinates
+                const path1 = canvas.querySelector('#v30-path-1');
+                const path2 = canvas.querySelector('#v30-path-2');
+                const path3 = canvas.querySelector('#v30-path-3');
 
-                    // Compute random offset along the paths to server
-                    // Server is approximately at x = 235px, y = 90px
-                    // Bots are at x = 50px, and y = 40, 90, 140
-                    const startYOptions = [40, 90, 140];
-                    const startY = startYOptions[i % 3];
-                    const startX = 50;
-                    const endX = 225;
-                    const endY = 90;
+                // Bezier controls: curving towards middle
+                const midX = (cBot1.x + cServer.x) / 2;
+                const cp1 = { x: midX, y: cBot1.y + 40 };
+                const cp3 = { x: midX, y: cBot3.y - 40 };
 
-                    // Compute current position along path based on progress + index fraction
-                    const localProg = (progress * 5 + (i / numPackets)) % 1.0;
-                    const curX = startX + (endX - startX) * localProg;
-                    let curY = startY + (endY - startY) * localProg;
+                if (path1) path1.setAttribute('d', `M ${cBot1.x} ${cBot1.y} Q ${cp1.x} ${cp1.y} ${cServer.x} ${cServer.y}`);
+                if (path2) path2.setAttribute('d', `M ${cBot2.x} ${cBot2.y} L ${cServer.x} ${cServer.y}`);
+                if (path3) path3.setAttribute('d', `M ${cBot3.x} ${cBot3.y} Q ${cp3.x} ${cp3.y} ${cServer.x} ${cServer.y}`);
 
-                    // Add nice wave variation
-                    if (startY !== 90) {
-                        const midX = (startX + endX) / 2;
-                        const controlY = startY === 40 ? 70 : 110;
-                        // Quadratic bezier
-                        const t = localProg;
-                        curY = (1-t)*(1-t)*startY + 2*(1-t)*t*controlY + t*t*endY;
+                // Spawn particles dynamically along paths
+                if (container) {
+                    const oldPackets = container.querySelectorAll('.v30-packet');
+                    oldPackets.forEach(p => p.remove());
+
+                    const numPackets = Math.min(24, 6 + Math.round(progress * 24));
+                    for (let i = 0; i < numPackets; i++) {
+                        const packet = document.createElement('div');
+                        packet.className = 'v30-packet red';
+                        container.appendChild(packet);
+
+                        const localProg = (progress * 6 + (i / numPackets)) % 1.0;
+                        const route = i % 3;
+                        let pt = { x: 0, y: 0 };
+
+                        if (route === 0) {
+                            pt = getBezierPoint(localProg, cBot1, cp1, cServer);
+                        } else if (route === 1) {
+                            pt = getLinearPoint(localProg, cBot2, cServer);
+                        } else {
+                            pt = getBezierPoint(localProg, cBot3, cp3, cServer);
+                        }
+
+                        packet.style.left = `${pt.x}px`;
+                        packet.style.top = `${pt.y}px`;
                     }
-
-                    packet.style.left = `${curX}px`;
-                    packet.style.top = `${curY}px`;
                 }
             }
         }
@@ -699,11 +757,13 @@
             const errorText = canvas.querySelector('#v30-error-text');
             const container = canvas.querySelector('#v30-packets-container');
 
+            const botnet = canvas.querySelector('#v30-botnet-source');
+
             // Transition from normal load to complete failure
-            if (progress < 0.3) {
+            if (progress < 0.35) {
                 if (server) {
                     server.className = 'v30-node active-red';
-                    server.style.boxShadow = '0 0 10px rgba(239, 68, 68, 0.3)';
+                    server.style.boxShadow = '0 0 12px rgba(239, 68, 68, 0.3)';
                 }
                 if (serverLabel) serverLabel.textContent = 'Server';
                 if (serverDesc) serverDesc.textContent = 'Load: 92%';
@@ -712,8 +772,9 @@
                     serverFill.className = 'v30-progress-fill danger';
                 }
                 if (toast) {
-                    toast.style.borderColor = 'rgba(255,255,255,0.08)';
-                    toast.style.background = 'rgba(15,22,42,0.55)';
+                    toast.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                    toast.style.background = 'rgba(15, 22, 42, 0.55)';
+                    toast.style.boxShadow = 'none';
                 }
                 if (errorText) {
                     errorText.textContent = 'HTTP Status: 200 OK';
@@ -723,7 +784,7 @@
                 // SẬP
                 if (server) {
                     server.className = 'v30-node active-red';
-                    server.style.boxShadow = '0 0 25px rgba(239, 68, 68, 0.8)';
+                    server.style.boxShadow = '0 0 35px rgba(239, 68, 68, 0.9)';
                     server.style.transform = 'scale(0.95)';
                 }
                 if (serverLabel) serverLabel.textContent = 'CRASHED';
@@ -737,41 +798,46 @@
                     initIcons();
                 }
                 if (toast) {
-                    toast.style.borderColor = 'rgba(239, 68, 68, 0.5)';
-                    toast.style.background = 'rgba(239, 68, 68, 0.08)';
-                    toast.style.boxShadow = '0 0 15px rgba(239, 68, 68, 0.2)';
+                    toast.style.borderColor = 'rgba(239, 68, 68, 0.6)';
+                    toast.style.background = 'rgba(239, 68, 68, 0.1)';
+                    toast.style.boxShadow = '0 0 20px rgba(239, 68, 68, 0.35)';
                 }
                 if (errorText) {
-                    errorText.textContent = '502 BAD GATEWAY (TIMEOUT)';
+                    errorText.textContent = '502 BAD GATEWAY (CONNECTION TIMEOUT)';
                     errorText.style.color = 'var(--cf-red)';
                 }
             }
 
-            // Spawn aggressive packets hitting the server
-            if (container) {
-                const oldPackets = container.querySelectorAll('.v30-packet');
-                oldPackets.forEach(p => p.remove());
+            // Path update and packets animation
+            if (botnet && server && zoomContainer) {
+                const cBot = getNodeCenter(botnet, zoomContainer);
+                const cServer = getNodeCenter(server, zoomContainer);
 
-                // Stop packets if crashed to show it is dead, or keep hitting
-                // Let's keep them hitting to show relentless force
-                const numPackets = 20;
-                for (let i = 0; i < numPackets; i++) {
-                    const packet = document.createElement('div');
-                    packet.className = 'v30-packet red';
-                    container.appendChild(packet);
+                const directPath = canvas.querySelector('#v30-direct-path');
+                if (directPath) {
+                    directPath.setAttribute('d', `M ${cBot.x} ${cBot.y} L ${cServer.x} ${cServer.y}`);
+                }
 
-                    const startX = 85;
-                    const startYOptions = [60, 90, 120];
-                    const startY = startYOptions[i % 3];
-                    const endX = 230;
-                    const endY = 90;
+                if (container) {
+                    const oldPackets = container.querySelectorAll('.v30-packet');
+                    oldPackets.forEach(p => p.remove());
 
-                    const localProg = (progress * 7 + (i / numPackets)) % 1.0;
-                    const curX = startX + (endX - startX) * localProg;
-                    const curY = startY + (endY - startY) * localProg;
+                    const numPackets = 22;
+                    for (let i = 0; i < numPackets; i++) {
+                        const packet = document.createElement('div');
+                        packet.className = 'v30-packet red';
+                        container.appendChild(packet);
 
-                    packet.style.left = `${curX}px`;
-                    packet.style.top = `${curY}px`;
+                        // Calculate wave displacement
+                        const localProg = (progress * 7 + (i / numPackets)) % 1.0;
+                        const pt = getLinearPoint(localProg, cBot, cServer);
+
+                        // Add small wave offset for visual interest
+                        const waveOffset = Math.sin(localProg * Math.PI * 2 + i) * 6;
+                        
+                        packet.style.left = `${pt.x}px`;
+                        packet.style.top = `${pt.y + waveOffset}px`;
+                    }
                 }
             }
         }
@@ -783,8 +849,9 @@
             const originLoad = canvas.querySelector('#v30-origin-load');
             const statusLabel = canvas.querySelector('#v30-routing-status');
             const container = canvas.querySelector('#v30-packets-container');
+            const botnet = canvas.querySelector('#v30-botnet-anycast');
 
-            // Edge Nodes pulsing
+            // Edge Nodes active pulsing states
             if (edge1 && edge2 && edge3) {
                 edge1.className = progress > 0.2 ? 'v30-node active-orange' : 'v30-node';
                 edge2.className = progress > 0.4 ? 'v30-node active-orange' : 'v30-node';
@@ -793,7 +860,7 @@
 
             if (origin && originLoad) {
                 origin.className = 'v30-node active-green';
-                origin.style.boxShadow = '0 0 10px var(--cf-green-glow)';
+                origin.style.boxShadow = '0 0 15px var(--cf-green-glow)';
                 originLoad.textContent = 'Load: 2%';
             }
 
@@ -807,56 +874,65 @@
                 }
             }
 
-            // Spawn particles: botnet -> Edges. None -> Origin.
-            if (container) {
-                const oldPackets = container.querySelectorAll('.v30-packet');
-                oldPackets.forEach(p => p.remove());
+            // Dynamic coordinate matching
+            if (botnet && edge1 && edge2 && edge3 && origin && zoomContainer) {
+                const cBot = getNodeCenter(botnet, zoomContainer);
+                const cEdge1 = getNodeCenter(edge1, zoomContainer);
+                const cEdge2 = getNodeCenter(edge2, zoomContainer);
+                const cEdge3 = getNodeCenter(edge3, zoomContainer);
+                const cOrigin = getNodeCenter(origin, zoomContainer);
 
-                const numPackets = 18;
-                for (let i = 0; i < numPackets; i++) {
-                    const packet = document.createElement('div');
-                    packet.className = 'v30-packet red';
-                    container.appendChild(packet);
+                // Update all paths
+                const path1 = canvas.querySelector('#v30-anycast-path-1');
+                const path2 = canvas.querySelector('#v30-anycast-path-2');
+                const path3 = canvas.querySelector('#v30-anycast-path-3');
+                const safe1 = canvas.querySelector('#v30-anycast-safe-1');
+                const safe2 = canvas.querySelector('#v30-anycast-safe-2');
+                const safe3 = canvas.querySelector('#v30-anycast-safe-3');
 
-                    const startX = 40;
-                    const startYOptions = [60, 110, 160];
-                    const startY = startYOptions[i % 3];
+                if (path1) path1.setAttribute('d', `M ${cBot.x} ${cBot.y} L ${cEdge1.x} ${cEdge1.y}`);
+                if (path2) path2.setAttribute('d', `M ${cBot.x} ${cBot.y} L ${cEdge2.x} ${cEdge2.y}`);
+                if (path3) path3.setAttribute('d', `M ${cBot.x} ${cBot.y} L ${cEdge3.x} ${cEdge3.y}`);
 
-                    // Destination is one of the three edges
-                    // Edge US: (160, 40)
-                    // Edge EU: (160, 110)
-                    // Edge AS: (160, 180)
-                    const endX = 150;
-                    const destYOptions = [40, 110, 180];
-                    const endY = destYOptions[i % 3];
+                if (safe1) safe1.setAttribute('d', `M ${cEdge1.x} ${cEdge1.y} L ${cOrigin.x} ${cOrigin.y}`);
+                if (safe2) safe2.setAttribute('d', `M ${cEdge2.x} ${cEdge2.y} L ${cOrigin.x} ${cOrigin.y}`);
+                if (safe3) safe3.setAttribute('d', `M ${cEdge3.x} ${cEdge3.y} L ${cOrigin.x} ${cOrigin.y}`);
 
-                    const localProg = (progress * 4 + (i / numPackets)) % 1.0;
-                    const curX = startX + (endX - startX) * localProg;
-                    const curY = startY + (endY - startY) * localProg;
+                if (container) {
+                    const oldPackets = container.querySelectorAll('.v30-packet');
+                    oldPackets.forEach(p => p.remove());
 
-                    packet.style.left = `${curX}px`;
-                    packet.style.top = `${curY}px`;
-                }
-
-                // Add 1-2 green packets flowing from Edges to Origin representing legitimate requests getting through
-                if (progress > 0.2) {
-                    for (let j = 0; j < 2; j++) {
+                    // Flow malicious packets from Botnet -> Edges
+                    const numPackets = 18;
+                    for (let i = 0; i < numPackets; i++) {
                         const packet = document.createElement('div');
-                        packet.className = 'v30-packet green';
+                        packet.className = 'v30-packet red';
                         container.appendChild(packet);
 
-                        const startX = 160;
-                        const startYOptions = [40, 110, 180];
-                        const startY = startYOptions[j % 3];
-                        const endX = 245;
-                        const endY = 110;
+                        const route = i % 3;
+                        const dest = route === 0 ? cEdge1 : (route === 1 ? cEdge2 : cEdge3);
 
-                        const localProg = (progress * 2 + (j / 2)) % 1.0;
-                        const curX = startX + (endX - startX) * localProg;
-                        const curY = startY + (endY - startY) * localProg;
+                        const localProg = (progress * 5.0 + (i / numPackets)) % 1.0;
+                        const pt = getLinearPoint(localProg, cBot, dest);
 
-                        packet.style.left = `${curX}px`;
-                        packet.style.top = `${curY}px`;
+                        packet.style.left = `${pt.x}px`;
+                        packet.style.top = `${pt.y}px`;
+                    }
+
+                    // Flow legitimate safe packets Edge -> Origin
+                    if (progress > 0.25) {
+                        for (let j = 0; j < 3; j++) {
+                            const packet = document.createElement('div');
+                            packet.className = 'v30-packet green';
+                            container.appendChild(packet);
+
+                            const src = j === 0 ? cEdge1 : (j === 1 ? cEdge2 : cEdge3);
+                            const localProg = (progress * 2.5 + (j / 3)) % 1.0;
+                            const pt = getLinearPoint(localProg, src, cOrigin);
+
+                            packet.style.left = `${pt.x}px`;
+                            packet.style.top = `${pt.y}px`;
+                        }
                     }
                 }
             }
@@ -867,7 +943,10 @@
             const logAction = canvas.querySelector('#v30-waf-log-action');
             const container = canvas.querySelector('#v30-packets-container');
 
-            // Dynamic rule changes in logger
+            const trafficNode = canvas.querySelector('#v30-traffic-node');
+            const wafNode = canvas.querySelector('#v30-waf-node');
+            const cleanNode = canvas.querySelector('#v30-clean-node');
+
             if (stats) {
                 const count = Math.round(500 + progress * 2400);
                 stats.textContent = `${count} Rules Blocked`;
@@ -892,41 +971,57 @@
                 }
             }
 
-            // Packet flow: red packets turn red/yellow, hit WAF shield, and disappear
-            // Green packets pass right through to server
-            if (container) {
-                const oldPackets = container.querySelectorAll('.v30-packet');
-                oldPackets.forEach(p => p.remove());
+            // Coordinate drawing and flow
+            if (trafficNode && wafNode && cleanNode && zoomContainer) {
+                const cTraffic = getNodeCenter(trafficNode, zoomContainer);
+                const cWaf = getNodeCenter(wafNode, zoomContainer);
+                const cClean = getNodeCenter(cleanNode, zoomContainer);
 
-                const numPackets = 15;
-                for (let i = 0; i < numPackets; i++) {
-                    const isMalicious = (i % 3 !== 0); // 2/3 are bad, 1/3 is good
-                    const packet = document.createElement('div');
-                    packet.className = isMalicious ? 'v30-packet red' : 'v30-packet green';
-                    container.appendChild(packet);
+                // Update paths
+                const path1 = canvas.querySelector('#v30-waf-path-1');
+                const path2 = canvas.querySelector('#v30-waf-path-2');
 
-                    const startX = 60;
-                    const startY = 90;
-                    const midX = 145; // WAF Center
-                    const endX = 250;
+                if (path1) path1.setAttribute('d', `M ${cTraffic.x} ${cTraffic.y} L ${cWaf.x} ${cWaf.y}`);
+                if (path2) path2.setAttribute('d', `M ${cWaf.x} ${cWaf.y} L ${cClean.x} ${cClean.y}`);
 
-                    const localProg = (progress * 3.5 + (i / numPackets)) % 1.0;
+                if (container) {
+                    const oldPackets = container.querySelectorAll('.v30-packet');
+                    oldPackets.forEach(p => p.remove());
 
-                    if (isMalicious) {
-                        // Malicious packets flow to WAF and dissolve/fade
-                        if (localProg < 0.5) {
-                            const curX = startX + (midX - startX) * (localProg / 0.5);
-                            packet.style.left = `${curX}px`;
-                            packet.style.top = `${startY}px`;
-                            packet.style.opacity = `${1 - (localProg / 0.5)}`;
+                    const numPackets = 16;
+                    for (let i = 0; i < numPackets; i++) {
+                        const isMalicious = (i % 3 !== 0); // 2/3 are bad
+                        const packet = document.createElement('div');
+                        packet.className = isMalicious ? 'v30-packet red' : 'v30-packet green';
+                        container.appendChild(packet);
+
+                        const localProg = (progress * 4 + (i / numPackets)) % 1.0;
+
+                        if (isMalicious) {
+                            // Blocks at WAF (localProg goes 0.0 -> 0.5 to reach WAF)
+                            if (localProg < 0.5) {
+                                const tNorm = localProg / 0.5;
+                                const pt = getLinearPoint(tNorm, cTraffic, cWaf);
+                                packet.style.left = `${pt.x}px`;
+                                packet.style.top = `${pt.y}px`;
+                                packet.style.opacity = `${1 - tNorm}`;
+                            } else {
+                                packet.style.display = 'none';
+                            }
                         } else {
-                            packet.style.display = 'none';
+                            // Safe packet flows all the way Traffic -> WAF -> Clean
+                            if (localProg < 0.5) {
+                                const tNorm = localProg / 0.5;
+                                const pt = getLinearPoint(tNorm, cTraffic, cWaf);
+                                packet.style.left = `${pt.x}px`;
+                                packet.style.top = `${pt.y}px`;
+                            } else {
+                                const tNorm = (localProg - 0.5) / 0.5;
+                                const pt = getLinearPoint(tNorm, cWaf, cClean);
+                                packet.style.left = `${pt.x}px`;
+                                packet.style.top = `${pt.y}px`;
+                            }
                         }
-                    } else {
-                        // Safe packets flow all the way to server
-                        const curX = startX + (endX - startX) * localProg;
-                        packet.style.left = `${curX}px`;
-                        packet.style.top = `${startY}px`;
                     }
                 }
             }
@@ -954,8 +1049,8 @@
                 if (title) title.innerHTML = '<span style="color: var(--cf-green);">✓ Verification Successful</span>';
                 if (desc) desc.textContent = 'Security Token validated successfully. Redirecting...';
                 if (panel) {
-                    panel.style.borderColor = 'rgba(16, 185, 129, 0.4)';
-                    panel.style.boxShadow = '0 0 15px rgba(16, 185, 129, 0.15)';
+                    panel.style.borderColor = 'rgba(16, 185, 129, 0.45)';
+                    panel.style.boxShadow = '0 0 20px rgba(16, 185, 129, 0.2)';
                 }
 
                 if (userNode) {
@@ -969,8 +1064,8 @@
                 if (title) title.innerHTML = '<span style="color: var(--cf-red);">✗ Verification Failed (403)</span>';
                 if (desc) desc.textContent = 'Headless client detected. Request Blocked.';
                 if (panel) {
-                    panel.style.borderColor = 'rgba(239, 68, 68, 0.4)';
-                    panel.style.boxShadow = '0 0 15px rgba(239, 68, 68, 0.15)';
+                    panel.style.borderColor = 'rgba(239, 68, 68, 0.45)';
+                    panel.style.boxShadow = '0 0 20px rgba(239, 68, 68, 0.2)';
                 }
 
                 if (userNode) {
@@ -993,6 +1088,8 @@
             const shieldIcon = canvas.querySelector('#v30-rate-shield-icon');
             const container = canvas.querySelector('#v30-packets-container');
 
+            const ipNode = canvas.querySelector('#v30-rate-ip-node');
+
             // Scale request rate from 10 to 450 req/s
             const rate = Math.round(10 + progress * 440);
             if (counter) counter.textContent = `${rate} req/s`;
@@ -1009,7 +1106,7 @@
                 }
             }
 
-            // Shield status transition when rate > 100 threshold
+            // Shield status transition
             if (rate <= 100) {
                 if (badge) {
                     badge.textContent = 'SAFE';
@@ -1017,7 +1114,7 @@
                 }
                 if (shieldNode) {
                     shieldNode.className = 'v30-node active-green';
-                    shieldNode.style.boxShadow = '0 0 10px var(--cf-green-glow)';
+                    shieldNode.style.boxShadow = '0 0 12px var(--cf-green-glow)';
                 }
                 if (shieldLabel) shieldLabel.textContent = 'ALLOW';
                 if (shieldDesc) shieldDesc.textContent = 'Traffic Normal';
@@ -1032,7 +1129,7 @@
                 }
                 if (shieldNode) {
                     shieldNode.className = 'v30-node active-red';
-                    shieldNode.style.boxShadow = '0 0 20px var(--cf-red-glow)';
+                    shieldNode.style.boxShadow = '0 0 24px var(--cf-red-glow)';
                 }
                 if (shieldLabel) shieldLabel.textContent = 'BLOCKED';
                 if (shieldDesc) shieldDesc.textContent = 'Threshold Exceeded';
@@ -1042,31 +1139,37 @@
                 }
             }
 
-            // Packet flow. As rate increases, make them fly faster and more red
-            if (container) {
-                const oldPackets = container.querySelectorAll('.v30-packet');
-                oldPackets.forEach(p => p.remove());
+            // Dynamic coordinates and flow
+            if (ipNode && shieldNode && zoomContainer) {
+                const cIp = getNodeCenter(ipNode, zoomContainer);
+                const cShield = getNodeCenter(shieldNode, zoomContainer);
 
-                const numPackets = Math.min(22, 3 + Math.round(progress * 22));
-                for (let i = 0; i < numPackets; i++) {
-                    const packet = document.createElement('div');
-                    // If blocked (progress > 0.25 equivalent), packets bounce or stop at shield
-                    const isBlocked = (rate > 100);
-                    packet.className = isBlocked ? 'v30-packet red' : 'v30-packet green';
-                    container.appendChild(packet);
+                const ratePath = canvas.querySelector('#v30-rate-path');
+                if (ratePath) {
+                    ratePath.setAttribute('d', `M ${cIp.x} ${cIp.y} L ${cShield.x} ${cShield.y}`);
+                }
 
-                    const startX = 90;
-                    const startY = 75;
-                    const endX = 200; // Shield position
+                if (container) {
+                    const oldPackets = container.querySelectorAll('.v30-packet');
+                    oldPackets.forEach(p => p.remove());
 
-                    const localProg = (progress * 5 + (i / numPackets)) % 1.0;
-                    if (isBlocked && localProg > 0.8) {
-                        // Drop them at shield
-                        packet.style.display = 'none';
-                    } else {
-                        const curX = startX + (endX - startX) * localProg;
-                        packet.style.left = `${curX}px`;
-                        packet.style.top = `${startY}px`;
+                    const numPackets = Math.min(22, 4 + Math.round(progress * 22));
+                    for (let i = 0; i < numPackets; i++) {
+                        const isBlocked = (rate > 100);
+                        const packet = document.createElement('div');
+                        packet.className = isBlocked ? 'v30-packet red' : 'v30-packet green';
+                        container.appendChild(packet);
+
+                        const localProg = (progress * 5 + (i / numPackets)) % 1.0;
+                        
+                        if (isBlocked && localProg > 0.85) {
+                            // Blocked at shield boundary
+                            packet.style.display = 'none';
+                        } else {
+                            const pt = getLinearPoint(localProg, cIp, cShield);
+                            packet.style.left = `${pt.x}px`;
+                            packet.style.top = `${pt.y}px`;
+                        }
                     }
                 }
             }
@@ -1077,7 +1180,11 @@
             const target2Node = canvas.querySelector('#v30-threat-node-2');
             const logs = canvas.querySelectorAll('#v30-threat-logs .v30-threat-item');
 
-            // Sequentially trigger synchronization states
+            const tNode1 = canvas.querySelector('#v30-threat-node-1');
+            const tDb = canvas.querySelector('#v30-threat-db');
+            const tNode2 = canvas.querySelector('#v30-threat-node-2');
+
+            // Sequentially trigger sync state
             if (progress > 0.7) {
                 if (dbStatus) dbStatus.textContent = 'UPDATED (100%)';
                 if (target2) {
@@ -1121,19 +1228,40 @@
                     log.style.transform = 'translateX(-10px)';
                 }
             });
+
+            // Coordinate drawing
+            if (tNode1 && tDb && tNode2 && zoomContainer) {
+                const cNode1 = getNodeCenter(tNode1, zoomContainer);
+                const cDb = getNodeCenter(tDb, zoomContainer);
+                const cNode2 = getNodeCenter(tNode2, zoomContainer);
+
+                const path1 = canvas.querySelector('#v30-threat-path-1');
+                const path2 = canvas.querySelector('#v30-threat-path-2');
+
+                if (path1) path1.setAttribute('d', `M ${cNode1.x} ${cNode1.y} L ${cDb.x} ${cDb.y}`);
+                if (path2) path2.setAttribute('d', `M ${cDb.x} ${cDb.y} L ${cNode2.x} ${cNode2.y}`);
+            }
         }
         else if (slideId === 'slide_cf_8') {
             const uniContainer = canvas.querySelector('#v30-unicast-packets');
             const anyContainer = canvas.querySelector('#v30-anycast-packets');
             const unicastCenter = canvas.querySelector('#v30-unicast-center');
 
-            // Unicast: packets converge at server and shake
+            const uniBotUs = canvas.querySelector('#v30-uni-bot-us');
+            const uniBotEu = canvas.querySelector('#v30-uni-bot-eu');
+
+            const anyBotUs = canvas.querySelector('#v30-any-bot-us');
+            const anyBotEu = canvas.querySelector('#v30-any-bot-eu');
+            const anyNodeUs = canvas.querySelector('#v30-any-node-us');
+            const anyNodeEu = canvas.querySelector('#v30-any-node-eu');
+
+            // Unicast: center server shakes if congested
             if (unicastCenter) {
                 if (progress > 0.4) {
                     const shakeAmount = Math.sin(Date.now() / 15) * 2;
                     unicastCenter.style.transform = `translateX(${shakeAmount}px)`;
                     unicastCenter.style.borderColor = 'var(--cf-red)';
-                    unicastCenter.style.boxShadow = '0 0 20px var(--cf-red-glow)';
+                    unicastCenter.style.boxShadow = '0 0 24px var(--cf-red-glow)';
                 } else {
                     unicastCenter.style.transform = 'none';
                     unicastCenter.style.borderColor = 'rgba(255,255,255,0.08)';
@@ -1141,54 +1269,71 @@
                 }
             }
 
-            // Unicast packets
-            if (uniContainer) {
-                const oldPackets = uniContainer.querySelectorAll('.v30-packet');
-                oldPackets.forEach(p => p.remove());
+            // Unicast drawing & flow
+            if (uniBotUs && uniBotEu && unicastCenter && zoomContainer) {
+                const cBotUs = getNodeCenter(uniBotUs, zoomContainer);
+                const cBotEu = getNodeCenter(uniBotEu, zoomContainer);
+                const cCenter = getNodeCenter(unicastCenter, zoomContainer);
 
-                const numPackets = 12;
-                for (let i = 0; i < numPackets; i++) {
-                    const packet = document.createElement('div');
-                    packet.className = 'v30-packet red';
-                    uniContainer.appendChild(packet);
+                const uPath1 = canvas.querySelector('#v30-unicast-path-1');
+                const uPath2 = canvas.querySelector('#v30-unicast-path-2');
 
-                    // Starts from clients (left: 20px & 110px) to server (middle: 67px)
-                    const startX = (i % 2 === 0) ? 25 : 110;
-                    const startY = 100;
-                    const endX = 67;
-                    const endY = 220;
+                if (uPath1) uPath1.setAttribute('d', `M ${cBotUs.x} ${cBotUs.y} L ${cCenter.x} ${cCenter.y}`);
+                if (uPath2) uPath2.setAttribute('d', `M ${cBotEu.x} ${cBotEu.y} L ${cCenter.x} ${cCenter.y}`);
 
-                    const localProg = (progress * 3.5 + (i / numPackets)) % 1.0;
-                    const curX = startX + (endX - startX) * localProg;
-                    const curY = startY + (endY - startY) * localProg;
+                if (uniContainer) {
+                    const oldPackets = uniContainer.querySelectorAll('.v30-packet');
+                    oldPackets.forEach(p => p.remove());
 
-                    packet.style.left = `${curX}px`;
-                    packet.style.top = `${curY}px`;
+                    const numPackets = 12;
+                    for (let i = 0; i < numPackets; i++) {
+                        const packet = document.createElement('div');
+                        packet.className = 'v30-packet red';
+                        uniContainer.appendChild(packet);
+
+                        const src = i % 2 === 0 ? cBotUs : cBotEu;
+                        const localProg = (progress * 4 + (i / numPackets)) % 1.0;
+                        const pt = getLinearPoint(localProg, src, cCenter);
+
+                        packet.style.left = `${pt.x}px`;
+                        packet.style.top = `${pt.y}px`;
+                    }
                 }
             }
 
-            // Anycast packets: go straight down to respective regional edge nodes
-            if (anyContainer) {
-                const oldPackets = anyContainer.querySelectorAll('.v30-packet');
-                oldPackets.forEach(p => p.remove());
+            // Anycast drawing & flow
+            if (anyBotUs && anyBotEu && anyNodeUs && anyNodeEu && zoomContainer) {
+                const cBotUs = getNodeCenter(anyBotUs, zoomContainer);
+                const cBotEu = getNodeCenter(anyBotEu, zoomContainer);
+                const cNodeUs = getNodeCenter(anyNodeUs, zoomContainer);
+                const cNodeEu = getNodeCenter(anyNodeEu, zoomContainer);
 
-                const numPackets = 12;
-                for (let i = 0; i < numPackets; i++) {
-                    const packet = document.createElement('div');
-                    packet.className = 'v30-packet green';
-                    anyContainer.appendChild(packet);
+                const aPathLeft = canvas.querySelector('#v30-anycast-path-left');
+                const aPathRight = canvas.querySelector('#v30-anycast-path-right');
 
-                    const startX = (i % 2 === 0) ? 220 : 305;
-                    const startY = 100;
-                    const endX = startX;
-                    const endY = 220;
+                if (aPathLeft) aPathLeft.setAttribute('d', `M ${cBotUs.x} ${cBotUs.y} L ${cNodeUs.x} ${cNodeUs.y}`);
+                if (aPathRight) aPathRight.setAttribute('d', `M ${cBotEu.x} ${cBotEu.y} L ${cNodeEu.x} ${cNodeEu.y}`);
 
-                    const localProg = (progress * 3 + (i / numPackets)) % 1.0;
-                    const curX = startX;
-                    const curY = startY + (endY - startY) * localProg;
+                if (anyContainer) {
+                    const oldPackets = anyContainer.querySelectorAll('.v30-packet');
+                    oldPackets.forEach(p => p.remove());
 
-                    packet.style.left = `${curX}px`;
-                    packet.style.top = `${curY}px`;
+                    const numPackets = 12;
+                    for (let i = 0; i < numPackets; i++) {
+                        const packet = document.createElement('div');
+                        packet.className = 'v30-packet green';
+                        anyContainer.appendChild(packet);
+
+                        const isLeft = i % 2 === 0;
+                        const src = isLeft ? cBotUs : cBotEu;
+                        const dest = isLeft ? cNodeUs : cNodeEu;
+
+                        const localProg = (progress * 3.5 + (i / numPackets)) % 1.0;
+                        const pt = getLinearPoint(localProg, src, dest);
+
+                        packet.style.left = `${pt.x}px`;
+                        packet.style.top = `${pt.y}px`;
+                    }
                 }
             }
         }
@@ -1197,6 +1342,9 @@
             const status = canvas.querySelector('#v30-tunnel-status');
             const lockIcon = canvas.querySelector('#v30-tunnel-lock-icon');
             const container = canvas.querySelector('#v30-packets-container');
+
+            const edge = canvas.querySelector('#v30-tunnel-edge');
+            const server = canvas.querySelector('#v30-tunnel-server');
 
             if (ports && status && lockIcon) {
                 if (progress > 0.5) {
@@ -1216,55 +1364,76 @@
                 }
             }
 
-            // Public packets bounce off Edge node; secure packets flow through tunnel
-            if (container) {
-                const oldPackets = container.querySelectorAll('.v30-packet');
-                oldPackets.forEach(p => p.remove());
+            // Draw tunnel line and label dynamically
+            if (edge && server && zoomContainer) {
+                const cEdge = getNodeCenter(edge, zoomContainer);
+                const cServer = getNodeCenter(server, zoomContainer);
 
-                // Public bad packet bouncing
-                for (let i = 0; i < 3; i++) {
-                    const packet = document.createElement('div');
-                    packet.className = 'v30-packet red';
-                    container.appendChild(packet);
+                const tunnelLine = canvas.querySelector('#v30-tunnel-svg-line');
+                const tunnelLineBg = canvas.querySelector('#v30-tunnel-svg-line-bg');
+                const label = canvas.querySelector('#v30-tunnel-label');
 
-                    // Targets Edge (150, 90) but bounces
-                    const startX = 30;
-                    const startY = 40;
-                    const endX = 75;
-                    const endY = 90;
+                if (tunnelLine) tunnelLine.setAttribute('d', `M ${cEdge.x} ${cEdge.y} L ${cServer.x} ${cServer.y}`);
+                if (tunnelLineBg) tunnelLineBg.setAttribute('d', `M ${cEdge.x} ${cEdge.y} L ${cServer.x} ${cServer.y}`);
 
-                    const localProg = (progress * 2.5 + (i / 3)) % 1.0;
-                    if (localProg < 0.6) {
-                        const curX = startX + (endX - startX) * (localProg / 0.6);
-                        const curY = startY + (endY - startY) * (localProg / 0.6);
-                        packet.style.left = `${curX}px`;
-                        packet.style.top = `${curY}px`;
-                    } else {
-                        // Bounce off
-                        const t = (localProg - 0.6) / 0.4;
-                        const curX = endX - 25 * t;
-                        const curY = endY - 15 * t;
-                        packet.style.left = `${curX}px`;
-                        packet.style.top = `${curY}px`;
-                        packet.style.opacity = `${1 - t}`;
-                    }
+                if (label) {
+                    label.style.left = `${(cEdge.x + cServer.x) / 2 - 40}px`;
+                    label.style.top = `${(cEdge.y + cServer.y) / 2 + 16}px`;
                 }
 
-                // Tunnel secure packets flow inside the tunnel (120px to 215px)
-                for (let j = 0; j < 3; j++) {
-                    const packet = document.createElement('div');
-                    packet.className = 'v30-packet green';
-                    container.appendChild(packet);
+                // Public packets bounce off Edge node; tunnel packets flow internally
+                if (container) {
+                    const oldPackets = container.querySelectorAll('.v30-packet');
+                    oldPackets.forEach(p => p.remove());
 
-                    const startX = 120;
-                    const startY = 120;
-                    const endX = 215;
+                    // Draw dynamic tunnel packets (internal)
+                    for (let j = 0; j < 4; j++) {
+                        const packet = document.createElement('div');
+                        packet.className = 'v30-packet green';
+                        container.appendChild(packet);
 
-                    const localProg = (progress * 2 + (j / 3)) % 1.0;
-                    const curX = startX + (endX - startX) * localProg;
+                        const localProg = (progress * 2.5 + (j / 4)) % 1.0;
+                        const pt = getLinearPoint(localProg, cEdge, cServer);
 
-                    packet.style.left = `${curX}px`;
-                    packet.style.top = `${startY}px`;
+                        packet.style.left = `${pt.x}px`;
+                        packet.style.top = `${pt.y}px`;
+                    }
+
+                    // Public attack packets targeting CF Edge (cEdge.x, cEdge.y) and bouncing
+                    const attackPath = canvas.querySelector('#v30-tunnel-attack-path');
+                    // Dynamic attack path starts at (cEdge.x - 70, cEdge.y - 50) and curved to Edge
+                    const startX = cEdge.x - 70;
+                    const startY = cEdge.y - 60;
+                    const controlX = cEdge.x - 20;
+                    const controlY = cEdge.y - 20;
+
+                    if (attackPath) {
+                        attackPath.setAttribute('d', `M ${startX} ${startY} Q ${controlX} ${controlY} ${cEdge.x} ${cEdge.y}`);
+                    }
+
+                    for (let i = 0; i < 3; i++) {
+                        const packet = document.createElement('div');
+                        packet.className = 'v30-packet red';
+                        container.appendChild(packet);
+
+                        const localProg = (progress * 3.0 + (i / 3)) % 1.0;
+                        
+                        if (localProg < 0.65) {
+                            const tNorm = localProg / 0.65;
+                            const pt = getBezierPoint(tNorm, { x: startX, y: startY }, { x: controlX, y: controlY }, cEdge);
+                            packet.style.left = `${pt.x}px`;
+                            packet.style.top = `${pt.y}px`;
+                        } else {
+                            // Bounce off Edge boundary
+                            const tBounce = (localProg - 0.65) / 0.35;
+                            const bounceEndX = cEdge.x - 30;
+                            const bounceEndY = cEdge.y - 25;
+                            const pt = getLinearPoint(tBounce, cEdge, { x: bounceEndX, y: bounceEndY });
+                            packet.style.left = `${pt.x}px`;
+                            packet.style.top = `${pt.y}px`;
+                            packet.style.opacity = `${1 - tBounce}`;
+                        }
+                    }
                 }
             }
         }
@@ -1279,7 +1448,7 @@
                     c1.style.opacity = '1';
                     c1.style.transform = 'scale(1.02)';
                     c1.style.borderColor = 'var(--cf-orange)';
-                    c1.style.background = 'rgba(243, 128, 32, 0.05)';
+                    c1.style.background = 'rgba(243, 128, 32, 0.08)';
                 } else {
                     c1.style.opacity = '0.3';
                     c1.style.transform = 'scale(0.95)';
@@ -1293,7 +1462,7 @@
                     c2.style.opacity = '1';
                     c2.style.transform = 'scale(1.02)';
                     c2.style.borderColor = 'var(--cf-orange)';
-                    c2.style.background = 'rgba(243, 128, 32, 0.05)';
+                    c2.style.background = 'rgba(243, 128, 32, 0.08)';
                 } else {
                     c2.style.opacity = '0.3';
                     c2.style.transform = 'scale(0.95)';
@@ -1307,7 +1476,7 @@
                     c3.style.opacity = '1';
                     c3.style.transform = 'scale(1.02)';
                     c3.style.borderColor = 'var(--cf-orange)';
-                    c3.style.background = 'rgba(243, 128, 32, 0.05)';
+                    c3.style.background = 'rgba(243, 128, 32, 0.08)';
                 } else {
                     c3.style.opacity = '0.3';
                     c3.style.transform = 'scale(0.95)';

@@ -32,15 +32,12 @@
 /* QR Code Grid Container */
 .qr-grid-container {
     display: grid;
-    grid-template-columns: repeat(21, 1fr);
-    grid-template-rows: repeat(21, 1fr);
-    width: 250px;
-    height: 250px;
     background: #ffffff;
     border: 10px solid #ffffff;
     border-radius: 8px;
     position: relative;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-sizing: border-box;
 }
 
 /* QR Code Grid Module/Cell */
@@ -64,6 +61,10 @@
 
 .qr-cell.timing-pattern {
     background: #f59e0b !important; /* Orange for timing */
+}
+
+.qr-cell.alignment-pattern {
+    background: #a855f7 !important; /* Purple for alignment */
 }
 
 .qr-cell.format-info {

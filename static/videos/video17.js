@@ -62,7 +62,7 @@
         if (slideId === 'slide_spotify_1') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center;">
+                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; zoom:1.15;">
                             <div class="glass-card spotify-phone-mockup" style="width:460px; height:620px; border:2.5px solid rgba(255,255,255,0.08); border-radius:36px; padding:30px; display:flex; flex-direction:column; justify-content:space-between; background:#121212; position:relative; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.9);">
                                 <div class="rainy-overlay" style="position:absolute; inset:0; opacity:0.18; background: repeating-linear-gradient(170deg, transparent, transparent 15px, rgba(255,255,255,0.06) 15px, rgba(255,255,255,0.06) 30px); pointer-events:none;"></div>
                                 <div style="display:flex; justify-content:space-between; align-items:center; z-index:2; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px;">
@@ -152,7 +152,7 @@
         else if (slideId === 'slide_spotify_2b') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; zoom:0.85;">
+                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; zoom:1.15;">
                             <div style="position:relative; width:900px; height:420px; display:flex; align-items:center; justify-content:center; z-index:2;">
                                 <div class="venn-circle left-venn" style="position:absolute; left:90px; width:340px; height:340px; border-radius:50%; border:2.5px solid #1db954; background:rgba(29,185,84,0.03); display:flex; flex-direction:column; align-items:flex-start; padding:40px; box-sizing:border-box; justify-content:center; transition:all 0.4s;">
                                     <span style="font-weight:900; color:#1db954; font-size:22px; margin-bottom:15px;">BẠN (YOU)</span>
@@ -187,7 +187,7 @@
         else if (slideId === 'slide_spotify_3') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:30px; zoom:0.9;">
+                        <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:30px; zoom:1.15;">
                             <div class="glass-card web-crawler-card" style="width:420px; height:380px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:20px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; text-align:left; z-index:2; transition:all 0.3s;">
                                 <div style="font-size:22px; font-weight:bold; color:var(--text-muted); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">Báo chí &amp; Playlist xã hội</div>
                                 <div style="background:rgba(0,0,0,0.4); border-radius:12px; padding:18px; border:1px solid rgba(255,255,255,0.05); font-family:var(--font-mono); font-size:22px; line-height:1.6; color:#b3b3b3; flex:1; margin:15px 0; overflow:hidden;" class="crawler-text-box">

@@ -4704,6 +4704,12 @@ function updateEpisodeHeader() {
         epNumStr = String(num).padStart(3, '0');
     }
     headerEp.textContent = `TECH DISPATCH \u00b7 EP. ${epNumStr}`;
+    
+    // Toggle Cloudflare logo visibility
+    const cfLogo = document.getElementById('header-cf-logo');
+    if (cfLogo) {
+        cfLogo.style.display = (currentScript === 'video30') ? 'inline-block' : 'none';
+    }
 }
 // Dynamically initialize the editable canvas header topic from localStorage
 function initScriptTopic() {

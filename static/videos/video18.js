@@ -290,9 +290,9 @@
         else if (slideId === 'slide_adtech_4') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                    <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:30px; zoom:0.95;">
+                    <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:30px; zoom:1.1;">
                         <!-- Top: Target User and Auction Clock -->
-                        <div style="width:100%; max-width:960px; display:flex; justify-content:space-between; align-items:center; gap:30px;">
+                        <div style="width:100%; max-width:1060px; display:flex; justify-content:space-between; align-items:center; gap:30px;">
                             <div class="glass-card" style="flex:1.2; padding:24px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.01);">
                                 <div style="width:56px; height:56px; border-radius:50%; background:var(--gold-primary); display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:bold; color:#000;">U</div>
                                 <div style="text-align:left;">
@@ -307,7 +307,7 @@
                         </div>
 
                         <!-- Center: Bidder cards -->
-                        <div style="display:flex; justify-content:space-between; width:100%; max-width:960px; gap:30px;">
+                        <div style="display:flex; justify-content:space-between; width:100%; max-width:1060px; gap:30px;">
                             <!-- Bidder 1: Nike DSP -->
                             <div class="glass-card bidder-card b1" style="flex:1; border:2px solid rgba(255,255,255,0.05); border-radius:22px; padding:24px; text-align:center; transition:all 0.3s;">
                                 <div style="font-size:22px; font-weight:bold; color:#fff; text-transform:uppercase;">Nike DSP</div>
@@ -335,7 +335,7 @@
                         </div>
 
                         <!-- Bottom: Log Dashboard -->
-                        <div class="glass-card rtb-log-card" style="width:100%; max-width:960px; height:200px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:24px; box-sizing:border-box; background:#0b0e14; text-align:left; font-family:monospace; font-size:17px; line-height:1.6; color:#a3a3a3; overflow:hidden; position:relative;">
+                        <div class="glass-card rtb-log-card" style="width:100%; max-width:1060px; height:200px; border:2px solid rgba(255,255,255,0.06); border-radius:20px; padding:24px; box-sizing:border-box; background:#0b0e14; text-align:left; font-family:monospace; font-size:17px; line-height:1.6; color:#a3a3a3; overflow:hidden; position:relative;">
                             <div style="font-size:16px; font-weight:bold; color:var(--text-muted); border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; margin-bottom:12px; text-transform:uppercase; font-family:sans-serif;">Nhật ký Ad Exchange</div>
                             <div class="log-lines-container" style="height:120px; overflow-y:hidden; display:flex; flex-direction:column; gap:6px;">
                                 <div class="log-line l1" style="opacity:0.3;">[0.005s] Request ad slot cho User: 890244</div>
