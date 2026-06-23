@@ -1,5 +1,5 @@
 /**
- * Video 34: Real-time Chat — WebSockets & Redis Pub/Sub (Premium UI)
+ * Video 34: Real-time Chat — WebSockets & Redis Pub/Sub (Premium UI Redesign)
  */
 (function () {
     'use strict';
@@ -58,13 +58,14 @@
         if (window.lucide) window.lucide.createIcons();
     }
 
-    function sceneWrap(inner, tint) {
+    function sceneWrap(inner, absolute, tint) {
         const bgClass = tint ? ` v34-scene-bg ${tint}` : ' v34-scene-bg';
-        return `<div class="v34-zoom-container"><div class="${bgClass.trim()}"></div><div class="v34-scene-content">${inner}</div></div>`;
+        const absHtml = absolute || '';
+        return `<div class="v34-zoom-container"><div class="${bgClass.trim()}"></div>${absHtml}<div class="v34-scene-content">${inner}</div></div>`;
     }
 
     function nodeIcon(icon, color) {
-        return `<div class="v34-node-icon-wrap"><i data-lucide="${icon}" style="width:22px;height:22px;color:${color || '#fff'};"></i></div>`;
+        return `<div class="v34-node-icon-wrap"><i data-lucide="${icon}" style="width:16px;height:16px;color:${color || '#fff'};"></i></div>`;
     }
 
     function makeKeyboardHTML() {
@@ -86,15 +87,20 @@
         return html;
     }
 
-    function phoneMock(id, name, avatarClass, letter) {
+    function phoneMock(id, name, isSender) {
+        const titleText = name === 'Alice' ? 'User A (Alice)' : 'User B (Bob)';
+        const inputDefault = isSender ? 'Xin chào...' : 'Nhập tin nhắn...';
         return `
         <div class="v34-phone" id="${id}">
-            <div class="v34-phone-title">USER ${letter} ${name === 'Alice' ? '(Typing)' : '(Receiver)'}</div>
+            <div class="v34-phone-title">
+                <span class="v34-online-dot"></span>
+                <span>${titleText}</span>
+            </div>
             <div class="v34-chat-area" id="${id}-chat"></div>
             <div class="v34-phone-bottom">
                 <div class="v34-input-row">
-                    <div class="v34-input-display" id="${id}-input">${name === 'Alice' ? 'Xin chao...' : 'Nhap tin nhan...'}</div>
-                    <i data-lucide="${name === 'Alice' ? 'send' : 'image'}" class="v34-input-icon"></i>
+                    <div class="v34-input-display" id="${id}-input">${inputDefault}</div>
+                    <i data-lucide="${isSender ? 'send' : 'image'}" class="v34-input-icon ${isSender ? '' : 'muted'}"></i>
                 </div>
                 ${makeKeyboardHTML()}
             </div>
@@ -105,11 +111,40 @@
         if (!el || !container) return { x: 0, y: 0 };
         const rect = el.getBoundingClientRect();
         const contRect = container.getBoundingClientRect();
-        const zoom = container.offsetWidth > 0 ? (contRect.width / container.offsetWidth) : 1.4;
+        const zoom = container.offsetWidth > 0 ? (contRect.width / container.offsetWidth) : 1.5;
         return {
             x: (rect.left - contRect.left + rect.width / 2) / zoom,
             y: (rect.top - contRect.top + rect.height / 2) / zoom
         };
+    }
+
+    function getNodeConnectionPoint(node, targetNode, container) {
+        if (!node || !container) return { x: 0, y: 0 };
+        const center = getCenterOffset(node, container);
+        if (!targetNode) return center;
+        
+        const targetCenter = getCenterOffset(targetNode, container);
+        const dx = targetCenter.x - center.x;
+        const dy = targetCenter.y - center.y;
+        
+        const rect = node.getBoundingClientRect();
+        const contRect = container.getBoundingClientRect();
+        const zoom = container.offsetWidth > 0 ? (contRect.width / container.offsetWidth) : 1.5;
+        
+        const w = rect.width / zoom;
+        const h = rect.height / zoom;
+        
+        if (Math.abs(dx) > Math.abs(dy)) {
+            return {
+                x: center.x + (dx > 0 ? w / 2 : -w / 2),
+                y: center.y
+            };
+        } else {
+            return {
+                x: center.x,
+                y: center.y + (dy > 0 ? h / 2 : -h / 2)
+            };
+        }
     }
 
     function getPathPoint(start, end, t) {
@@ -128,8 +163,8 @@
     function drawSVGPath(canvas, pathId, startNode, endNode, container, flowClass) {
         const path = canvas.querySelector(pathId);
         if (!path || !startNode || !endNode || !container) return;
-        const start = getCenterOffset(startNode, container);
-        const end = getCenterOffset(endNode, container);
+        const start = getNodeConnectionPoint(startNode, endNode, container);
+        const end = getNodeConnectionPoint(endNode, startNode, container);
         const dx = end.x - start.x;
         const dy = end.y - start.y;
         if (Math.abs(dy) < 5) {
@@ -137,9 +172,9 @@
         } else {
             path.setAttribute('d', `M ${start.x} ${start.y} C ${start.x + dx * 0.4} ${start.y}, ${end.x - dx * 0.4} ${end.y}, ${end.x} ${end.y}`);
         }
-        path.setAttribute('stroke-width', '4');
+        path.setAttribute('stroke-width', '3');
         path.setAttribute('fill', 'none');
-        path.setAttribute('stroke-dasharray', '8 6');
+        path.setAttribute('stroke-dasharray', '6 5');
         path.setAttribute('class', flowClass || 'flowing');
     }
 
@@ -155,6 +190,75 @@
         if (wrap) wrap.classList.remove('visible');
     }
 
+    // HTML Component Generators
+    function serverMockHTML(idPrefix, title, statusLabel, activeLed, codeText, isError) {
+        const ledClass = isError ? 'active error' : (activeLed ? 'active' : '');
+        const activeColorClass = isError ? 'glow-red' : (activeLed ? 'active-green' : '');
+        return `
+        <div class="v34-server-mock ${activeColorClass}" id="${idPrefix}-server">
+            <div class="v34-server-header">
+                <div class="v34-server-title-bar">
+                    <i data-lucide="server" style="width:11px;height:11px;color:var(--chat-green);"></i>
+                    <span>${title || 'Web Server'}</span>
+                </div>
+                <div class="v34-server-leds">
+                    <div class="v34-server-led ${ledClass}"></div>
+                    <div class="v34-server-led"></div>
+                </div>
+            </div>
+            <div class="v34-server-terminal">
+                <span class="v34-term-title">Web Logs: ${statusLabel || 'Idle'}</span>
+                <div class="v34-term-log" id="${idPrefix}-term-log">${codeText || 'Waiting for HTTP requests...'}</div>
+            </div>
+        </div>`;
+    }
+
+    function redisHubHTML(idPrefix, title, isBursting) {
+        const burstClass = isBursting ? ' burst' : '';
+        return `
+        <div class="v34-redis-hub" id="${idPrefix}-redis-hub">
+            <div class="v34-redis-ring r1"></div>
+            <div class="v34-redis-ring r2"></div>
+            <div class="v34-redis-ring r3"></div>
+            <div class="v34-redis-core${burstClass}" id="${idPrefix}-redis-core">
+                <i data-lucide="database" style="width:14px;height:14px;color:var(--chat-purple);"></i>
+                <span>Redis</span>
+            </div>
+        </div>`;
+    }
+
+    function databasePanelHTML(idPrefix, title, activeRowIndex, scanActive) {
+        const rows = [
+            { id: 'usr_b', server: 'WS Server 2' }
+        ];
+        let rowsHtml = '';
+        rows.forEach((r, idx) => {
+            const isHl = idx === activeRowIndex ? ' active-hl' : '';
+            rowsHtml += `
+            <div class="v34-db-row-item${isHl}">
+                <span>ID: ${r.id}</span>
+                <span>Node: ${r.server}</span>
+            </div>`;
+        });
+
+        return `
+        <div class="v34-db-panel" id="${idPrefix}-db-panel">
+            <div class="v34-db-header">
+                <i data-lucide="database" style="width:11px;height:11px;color:var(--chat-purple);"></i>
+                <span>${title || 'Session Store'}</span>
+            </div>
+            <div class="v34-db-body-layout">
+                <div class="v34-db-cylinder" id="${idPrefix}-db-cylinder">
+                    <div class="v34-db-cylinder-ring"></div>
+                    <div class="v34-db-cylinder-ring"></div>
+                </div>
+                <div class="v34-db-rows" style="position:relative;">
+                    ${rowsHtml}
+                </div>
+            </div>
+        </div>`;
+    }
+
     function renderGfx(slideId, canvas, isPlaying, getSlideDuration, slide) {
         const needsTemplate = canvas.getAttribute('data-sim-template') !== slideId || canvas.innerHTML === '';
         if (needsTemplate) {
@@ -166,23 +270,21 @@
         if (slideId === 'slide_chat_intro') {
             canvas.innerHTML = sceneWrap(`
                 <div class="v34-phones-row intro-layout">
-                    ${phoneMock('v34-phone-alice', 'Alice', 'blue', 'A')}
+                    ${phoneMock('v34-phone-alice', 'Alice', true)}
                     <div class="v34-intro-connector" id="v34-intro-connector">
                         <div class="v34-connector-line" id="v34-intro-line-l"></div>
                         <div class="v34-zap-hub" id="v34-intro-hub">
-                            <div class="v34-zap-ring"></div>
-                            <div class="v34-zap-ring"></div>
-                            <i data-lucide="zap" style="color:var(--chat-green);" id="v34-intro-zap"></i>
+                            <i data-lucide="zap" style="color:#fff;" id="v34-intro-zap"></i>
                             <span class="v34-latency-pill" id="v34-intro-latency">&lt;50ms</span>
                         </div>
                         <div class="v34-connector-line" id="v34-intro-line-r"></div>
                     </div>
-                    ${phoneMock('v34-phone-bob', 'Bob', 'purple', 'B')}
+                    ${phoneMock('v34-phone-bob', 'Bob', false)}
                 </div>
-                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;">
+                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
                     <span class="v34-status-badge green"><i data-lucide="message-circle" style="width:12px;height:12px;"></i> Real-time</span>
                     <span style="font-family:'Fira Code',monospace;font-size:11px;font-weight:bold;color:var(--chat-text-muted);" id="v34-intro-status">Đang gửi tin nhắn...</span>
-                </div>`, 'green-tint');
+                </div>`, null, 'green-tint');
             canvas.querySelector('#v34-phone-alice-chat').innerHTML =
                 '<div class="v34-bubble sent" id="v34-intro-sent">Xin chào! 👋<div class="v34-bubble-meta">Gửi ✓</div></div>';
             canvas.querySelector('#v34-phone-bob-chat').innerHTML =
@@ -192,77 +294,129 @@
             initIcons();
         }
         else if (slideId === 'slide_chat_http') {
-            canvas.innerHTML = sceneWrap(`
-                <svg class="v34-svg-container"><path id="v34-path-http-req" class="flow-blue" /><path id="v34-path-http-res" class="flow-green" /></svg>
-                <div style="display:flex;justify-content:space-between;align-items:center;width:100%;position:relative;z-index:3;" id="v34-http-container">
-                    <div class="v34-node active-blue" id="v34-http-client">
-                        ${nodeIcon('monitor-smartphone', 'var(--chat-blue)')}
-                        <span>Browser Client</span>
-                        <span style="font-size:8px;color:var(--chat-text-muted);margin-top:3px;">Chủ động Request</span>
-                    </div>
-                    <div class="v34-node" id="v34-http-server">
-                        ${nodeIcon('server', '#fff')}
-                        <span>HTTP Server</span>
-                        <span style="font-size:8px;color:var(--chat-red);margin-top:3px;font-weight:bold;" id="v34-http-lock">🔒 Tin mới bị khóa</span>
+            const inner = `
+                <div class="v34-vertical-stack">
+                    <div style="display:flex;justify-content:center;align-items:center;gap:64px;width:100%;position:relative;z-index:3;" id="v34-http-container">
+                        <div class="v34-node active-blue" id="v34-http-client">
+                            ${nodeIcon('monitor-smartphone', 'var(--chat-blue)')}
+                            <span>Browser Client</span>
+                            <span class="v34-node-sub">Chủ động Request</span>
+                        </div>
+                        ${serverMockHTML('v34-http', 'HTTP Server', 'Idle', false, 'Waiting for request...', false)}
                     </div>
                 </div>
-                <div class="v34-packet-wrap" id="v34-http-pkt-req"><div class="v34-packet-core"></div><span class="v34-packet-label">GET</span></div>
-                <div class="v34-packet-wrap" id="v34-http-pkt-res"><div class="v34-packet-core green"></div><span class="v34-packet-label">200 OK</span></div>
-                <div class="v34-glass-card glow-red" style="display:flex;justify-content:space-between;align-items:center;">
+                <div class="v34-glass-card glow-red" style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
                     <span style="font-size:10px;font-weight:bold;color:var(--chat-text-muted);text-transform:uppercase;">HTTP Cycle</span>
                     <span style="font-family:'Fira Code',monospace;font-size:11px;font-weight:bold;color:var(--chat-red);" id="v34-http-status">Server không thể push chủ động</span>
-                </div>`);
+                </div>`;
+
+            const absolute = `
+                <svg class="v34-svg-container"><path id="v34-path-http-req" class="flow-blue" /><path id="v34-path-http-res" class="flow-green" /></svg>
+                <div class="v34-packet-wrap" id="v34-http-pkt-req"><div class="v34-packet-core"></div><span class="v34-packet-label">GET /api/msgs</span></div>
+                <div class="v34-packet-wrap" id="v34-http-pkt-res"><div class="v34-packet-core green"></div><span class="v34-packet-label">200 OK []</span></div>`;
+
+            canvas.innerHTML = sceneWrap(inner, absolute);
             initIcons();
         }
         else if (slideId === 'slide_chat_polling') {
-            canvas.innerHTML = sceneWrap(`
-                <div class="v34-storm-particles" id="v34-storm"></div>
-                <svg class="v34-svg-container"><path id="v34-path-poll" class="flow-red" /></svg>
-                <div class="v34-network-row v34-poll-row" id="v34-poll-container">
-                    <div class="v34-node active-blue" id="v34-poll-client">
-                        ${nodeIcon('refresh-cw', 'var(--chat-blue)')}
-                        <span>Client Poll</span>
-                        <span style="font-size:8px;color:var(--chat-cyan);">⏱ every 3s</span>
-                    </div>
-                    <div class="v34-node" id="v34-poll-server">
-                        ${nodeIcon('server', '#fff')}
-                        <span>Chat Server</span>
-                        <div class="v34-metrics-bar"><div class="v34-metrics-fill" id="v34-poll-cpu"></div></div>
-                        <span style="font-size:8px;color:var(--chat-text-muted);margin-top:4px;" id="v34-poll-req-rate">0 req/s</span>
+            const inner = `
+                <div class="v34-vertical-stack">
+                    <div class="v34-bottom-nodes" id="v34-poll-container">
+                        <div class="v34-node active-blue" id="v34-poll-client">
+                            ${nodeIcon('refresh-cw', 'var(--chat-blue)')}
+                            <span>Client Poll</span>
+                            <span class="v34-node-sub">⏱ Every 3 seconds</span>
+                        </div>
+                        ${serverMockHTML('v34-poll', 'HTTP Server (Polling)', 'Idle', false, 'Waiting...', false)}
                     </div>
                 </div>
-                <div class="v34-packet-wrap" id="v34-poll-pkt"><div class="v34-packet-core red"></div><span class="v34-packet-label">GET []</span></div>
-                <div class="v34-glass-card glow-red">
+                <div class="v34-glass-card glow-red" style="margin-top:4px;">
                     <div style="display:flex;justify-content:space-between;margin-bottom:8px;align-items:center;">
-                        <span style="font-size:10px;font-weight:bold;color:var(--chat-text-muted);">⚡ POLL STORM LOG</span>
-                        <span class="v34-status-val-pill red" id="v34-poll-counter">0 empty</span>
+                        <span style="font-size:10px;font-weight:bold;color:var(--chat-text-muted);">⚡ POLL STORM LOG (CPU Spike)</span>
+                        <div style="display:flex;align-items:center;gap:12px;">
+                            <span style="font-size:9px;color:var(--chat-text-muted);">Req Rate: <strong id="v34-poll-req-rate" style="color:var(--chat-red);font-family:'Fira Code',monospace;">0 req/s</strong></span>
+                            <div style="display:flex;align-items:center;gap:6px;">
+                                <span style="font-size:9px;color:var(--chat-text-muted);">CPU:</span>
+                                <div class="v34-metrics-bar">
+                                    <div class="v34-metrics-fill" id="v34-poll-cpu"></div>
+                                </div>
+                            </div>
+                            <span class="v34-status-val-pill red" id="v34-poll-counter">0 empty</span>
+                        </div>
                     </div>
                     <div class="v34-poll-log" id="v34-poll-log"></div>
-                </div>`, 'red-tint');
+                </div>`;
+
+            const absolute = `
+                <svg class="v34-svg-container"><path id="v34-path-poll" class="flow-red" /></svg>
+                <div class="v34-packet-wrap" id="v34-poll-pkt"><div class="v34-packet-core red"></div><span class="v34-packet-label">GET []</span></div>`;
+
+            canvas.innerHTML = sceneWrap(inner, absolute, 'red-tint');
             initIcons();
         }
         else if (slideId === 'slide_chat_websocket_intro') {
-            canvas.innerHTML = sceneWrap(`
-                <div class="v34-tunnel-wrap">
-                    <div class="v34-node active-blue" id="v34-ws-client">
-                        ${nodeIcon('monitor-smartphone', 'var(--chat-blue)')}
-                        <span style="font-size:10px;">Client</span>
+            const inner = `
+                <div class="v34-tunnel-flow-layout">
+                    <!-- Client side (Mini Browser/Console mockup) -->
+                    <div class="v34-mini-browser" id="v34-ws-client-box">
+                        <div class="v34-browser-header">
+                            <div class="v34-browser-dots">
+                                <div class="v34-browser-dot r"></div>
+                                <div class="v34-browser-dot y"></div>
+                                <div class="v34-browser-dot g"></div>
+                            </div>
+                            <span class="v34-browser-addr">wss://chat.dev</span>
+                        </div>
+                        <div class="v34-browser-console">
+                            <div class="v34-console-line green">✓ Connected</div>
+                            <div class="v34-console-line" style="font-size: 8px; color: var(--chat-text-muted);">Ready to stream</div>
+                        </div>
                     </div>
-                    <div class="v34-tunnel-pipe" id="v34-ws-pipe">
-                        <div class="v34-tunnel-flow"></div>
-                        <span class="v34-tunnel-label">WS TUNNEL OPEN</span>
-                        <div class="v34-tunnel-pulse fwd" id="v34-ws-pulse-fwd"></div>
-                        <div class="v34-tunnel-pulse rev" id="v34-ws-pulse-rev"></div>
-                    </div>
-                    <div class="v34-node active-green" id="v34-ws-server">
-                        ${nodeIcon('radio', 'var(--chat-green)')}
-                        <span style="font-size:10px;">WS Server</span>
+
+                    <!-- Server side (Mini Server Rack with LEDs) -->
+                    <div class="v34-mini-server" id="v34-ws-server-box">
+                        <div class="v34-server-header" style="background:#0d121f; border-bottom:1px solid rgba(255,255,255,0.05); padding:6px 8px; display:flex; align-items:center; justify-content:space-between;">
+                            <div class="v34-server-title-bar" style="display:flex; align-items:center; gap:4px; font-size:8px; font-weight:800; color:#fff;">
+                                <i data-lucide="server" style="width:11px;height:11px;color:var(--chat-green);"></i>
+                                <span>WS NODE 01</span>
+                            </div>
+                            <div class="v34-server-leds">
+                                <div class="v34-server-led active" style="width:4px;height:4px;"></div>
+                            </div>
+                        </div>
+                        <div class="v34-server-terminal" style="flex:1; background:#05070c; padding:6px; display:flex; flex-direction:column; gap:3px; justify-content:center;">
+                            <span class="v34-term-title" style="font-size:8px; color:var(--chat-text-muted); text-transform:uppercase; text-align:left;">Sockets</span>
+                            <div class="v34-term-log success" style="font-size:8.5px; color:var(--chat-green); font-family: 'Fira Code', monospace; text-align:left;">Conn #42 open</div>
+                        </div>
                     </div>
                 </div>
-                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;">
-                    <span class="v34-status-badge green"><i data-lucide="arrow-left-right" style="width:12px;height:12px;"></i> Full-Duplex</span>
-                    <span style="font-family:'Fira Code',monospace;font-size:11px;font-weight:bold;color:var(--chat-green);" id="v34-ws-tunnel-status">Establishing tunnel...</span>
-                </div>`, 'green-tint');
+
+                <!-- Connection Info Glass Card -->
+                <div class="v34-glass-card glow-green" style="margin-top: 6px;">
+                    <div class="v34-ws-metrics-grid">
+                        <div class="v34-ws-metric-item">
+                            <span class="m-label">Trạng thái:</span>
+                            <span class="m-value gold" id="v34-ws-val-status">CONNECTING...</span>
+                        </div>
+                        <div class="v34-ws-metric-item">
+                            <span class="m-label">Cơ chế:</span>
+                            <span class="m-value gold">FULL-DUPLEX (2 chiều)</span>
+                        </div>
+                        <div class="v34-ws-metric-item">
+                            <span class="m-label">Độ trễ:</span>
+                            <span class="m-value cyan">&lt; 1ms</span>
+                        </div>
+                    </div>
+                </div>`;
+
+            const absolute = `
+                <svg class="v34-svg-container">
+                    <path id="v34-path-ws-intro" class="flowing" />
+                </svg>
+                <div class="v34-packet-wrap" id="v34-ws-intro-pkt-fwd"><div class="v34-packet-core"></div><span class="v34-packet-label">SEND</span></div>
+                <div class="v34-packet-wrap" id="v34-ws-intro-pkt-rev"><div class="v34-packet-core green"></div><span class="v34-packet-label">PUSH</span></div>`;
+
+            canvas.innerHTML = sceneWrap(inner, absolute, 'green-tint');
             initIcons();
         }
         else if (slideId === 'slide_chat_ws_handshake') {
@@ -281,7 +435,7 @@
                         </div>
                     </div>
                     <div class="v34-handshake-arrow">↓</div>
-                    <div class="v34-terminal" id="v34-hs-res-term" style="opacity:0.25;transform:scale(0.97);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);">
+                    <div class="v34-terminal" id="v34-hs-res-term" style="opacity:0.25;transform:scale(0.97);transition:all 0.5s ease;">
                         <div class="v34-terminal-bar">
                             <div class="v34-terminal-dot r"></div><div class="v34-terminal-dot y"></div><div class="v34-terminal-dot g"></div>
                             <span class="v34-terminal-title">server → client</span>
@@ -293,127 +447,97 @@
                         </div>
                     </div>
                 </div>
-                <div class="v34-glass-card" style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+                <div class="v34-glass-card" style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:4px;">
                     <span class="v34-protocol-badge http active" id="v34-hs-badge-http">HTTP</span>
                     <span style="font-size:14px;color:var(--chat-text-muted);">→</span>
                     <span class="v34-protocol-badge ws" id="v34-hs-badge-ws">WebSocket</span>
                     <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-green);margin-left:auto;" id="v34-hs-status">Handshake...</span>
-                </div>`);
+                </div>`, null, null);
         }
         else if (slideId === 'slide_chat_ws_flow') {
-            canvas.innerHTML = sceneWrap(`
+            const inner = `
+                <div class="v34-flow-stage" id="v34-flow-container">
+                    ${phoneMock('v34-flow-alice', 'Alice', true)}
+                    ${serverMockHTML('v34-flow', 'WS Server', 'Active', true, 'Listening...', false)}
+                    ${phoneMock('v34-flow-bob', 'Bob', false)}
+                </div>
+                <div class="v34-glass-card glow-green v34-status-card" style="margin-top:4px;">
+                    <span class="v34-status-badge green"><i data-lucide="send" style="width:12px;height:12px;"></i> Instant Push</span>
+                    <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-cyan);" id="v34-flow-status">{"type":"msg","text":"Xin chào!"}</span>
+                </div>`;
+
+            const absolute = `
                 <svg class="v34-svg-container">
                     <path id="v34-path-flow-a-s" class="flow-blue" />
                     <path id="v34-path-flow-s-b" class="flow-green" />
                 </svg>
-                <div class="v34-flow-stage" id="v34-flow-container">
-                    <div class="v34-phone v34-flow-phone active-send" id="v34-flow-alice">
-                        <div class="v34-phone-title">USER A (Typing)</div>
-                        <div class="v34-chat-area">
-                            <div class="v34-bubble sent visible" id="v34-flow-sent">Xin chào!</div>
-                        </div>
-                        <div class="v34-phone-bottom">
-                            <div class="v34-input-row">
-                                <div class="v34-input-display">Xin chao...</div>
-                                <i data-lucide="send" class="v34-input-icon"></i>
-                            </div>
-                            ${makeKeyboardHTML()}
-                        </div>
-                    </div>
-                    <div class="v34-node active-green v34-pulse-radar v34-flow-server" id="v34-flow-server">
-                        ${nodeIcon('radio', 'var(--chat-green)')}
-                        <span style="font-size:9px;">WS Server</span>
-                    </div>
-                    <div class="v34-phone v34-flow-phone" id="v34-flow-bob">
-                        <div class="v34-phone-title">USER B (Receiver)</div>
-                        <div class="v34-chat-area">
-                            <div class="v34-bubble recv" id="v34-flow-recv">Xin chào!</div>
-                        </div>
-                        <div class="v34-phone-bottom">
-                            <div class="v34-input-row">
-                                <div class="v34-input-display muted">Nhap tin nhan...</div>
-                                <i data-lucide="image" class="v34-input-icon muted"></i>
-                            </div>
-                            ${makeKeyboardHTML()}
-                        </div>
-                    </div>
-                </div>
-                <div class="v34-packet-wrap" id="v34-flow-pkt1"><div class="v34-packet-core"></div><span class="v34-packet-label">{msg}</span></div>
-                <div class="v34-packet-wrap" id="v34-flow-pkt2"><div class="v34-packet-core green"></div><span class="v34-packet-label">PUSH</span></div>
-                <div class="v34-glass-card glow-green v34-status-card">
-                    <span class="v34-status-badge green"><i data-lucide="send" style="width:12px;height:12px;"></i> Instant Push</span>
-                    <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-cyan);" id="v34-flow-status">{"type":"msg","text":"Xin chào!"}</span>
-                </div>`, 'green-tint');
+                <div class="v34-packet-wrap" id="v34-flow-pkt1"><div class="v34-packet-core"></div><span class="v34-packet-label">WS Frame</span></div>
+                <div class="v34-packet-wrap" id="v34-flow-pkt2"><div class="v34-packet-core green"></div><span class="v34-packet-label">PUSH Socket</span></div>`;
+
+            canvas.innerHTML = sceneWrap(inner, absolute, 'green-tint');
+            canvas.querySelector('#v34-flow-alice-chat').innerHTML =
+                '<div class="v34-bubble sent visible" id="v34-flow-sent">Xin chào!<div class="v34-bubble-meta">Đã gửi ✓</div></div>';
+            canvas.querySelector('#v34-flow-bob-chat').innerHTML =
+                '<div class="v34-bubble recv" id="v34-flow-recv">Xin chào!<div class="v34-bubble-meta">vừa xong</div></div>';
             initIcons();
         }
         else if (slideId === 'slide_chat_scale_problem') {
-            canvas.innerHTML = sceneWrap(`
+            const inner = `
+                <div class="v34-scale-grid">
+                    <div class="v34-node active-gold v34-wide-node" id="v34-scale-lb">
+                        <i data-lucide="network" style="width:14px;height:14px;color:var(--chat-gold);"></i>
+                        <span>Load Balancer</span>
+                    </div>
+                    <div class="v34-scale-row">
+                        ${serverMockHTML('v34-scale-s1', 'WS Server 1', 'Active', true, 'Waiting for request...', false)}
+                        <div class="v34-block-zone" id="v34-scale-block">
+                            <i data-lucide="ban" style="width:18px;height:18px;color:var(--chat-red);" id="v34-scale-ban"></i>
+                            <span style="font-size:7px;color:var(--chat-red);font-weight:bold;text-align:center;">CROSS-SERVER BLOCK</span>
+                        </div>
+                        ${serverMockHTML('v34-scale-s2', 'WS Server 2', 'Active', true, 'Bob connected', false)}
+                    </div>
+                </div>
+                <div class="v34-glass-card glow-red" style="margin-top:4px;">
+                    <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-red);" id="v34-scale-status">❌ Message stuck on Server 1</span>
+                </div>`;
+
+            const absolute = `
                 <svg class="v34-svg-container">
                     <path id="v34-path-scale-s1-mid" class="flow-blue" />
                     <path id="v34-path-scale-block" class="flow-red" />
                 </svg>
-                <div class="v34-scale-grid">
-                    <div class="v34-node active-gold v34-wide-node" id="v34-scale-lb">
-                        <i data-lucide="network" style="width:18px;height:18px;color:var(--chat-gold);"></i>
-                        <span>Load Balancer</span>
-                    </div>
-                    <div class="v34-scale-row">
-                        <div class="v34-node active-blue" id="v34-scale-s1">
-                            ${nodeIcon('server', 'var(--chat-blue)')}
-                            <span style="font-size:9px;">WS Server 1</span>
-                            <span style="font-size:8px;color:var(--chat-blue);"><span class="v34-user-dot" style="background:var(--chat-blue);"></span>User A</span>
-                        </div>
-                        <div class="v34-block-zone" id="v34-scale-block">
-                            <i data-lucide="ban" style="width:36px;height:36px;color:var(--chat-red);" id="v34-scale-ban"></i>
-                            <span style="font-size:9px;color:var(--chat-red);font-weight:bold;">CROSS-SERVER FAIL</span>
-                        </div>
-                        <div class="v34-node" id="v34-scale-s2">
-                            ${nodeIcon('server', '#fff')}
-                            <span style="font-size:9px;">WS Server 2</span>
-                            <span style="font-size:8px;color:var(--chat-purple);"><span class="v34-user-dot" style="background:var(--chat-purple);"></span>User B</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="v34-packet-wrap" id="v34-scale-pkt"><div class="v34-packet-core red"></div><span class="v34-packet-label">msg</span></div>
-                <div class="v34-glass-card glow-red">
-                    <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-red);" id="v34-scale-status">❌ Message stuck on Server 1</span>
-                </div>`, 'red-tint');
+                <div class="v34-packet-wrap" id="v34-scale-pkt"><div class="v34-packet-core red"></div><span class="v34-packet-label">To: Bob (Err)</span></div>`;
+
+            canvas.innerHTML = sceneWrap(inner, absolute, 'red-tint');
             initIcons();
         }
         else if (slideId === 'slide_chat_redis_pubsub') {
-            canvas.innerHTML = sceneWrap(`
+            const inner = `
+                <div class="v34-redis-vertical-layout" id="v34-redis-container">
+                    <!-- Server 1 -->
+                    ${serverMockHTML('v34-redis-s1', 'WS Server 1 (Alice Connected)', 'Active', true, 'Publishing payload to Redis...', false)}
+                    
+                    <!-- Redis Hub -->
+                    ${redisHubHTML('v34-redis', 'Redis Pub/Sub', false)}
+                    
+                    <!-- Server 2 -->
+                    ${serverMockHTML('v34-redis-s2', 'WS Server 2 (Bob Connected)', 'Active', true, 'Subscribed to chat:room:42', false)}
+                </div>
+                <div class="v34-glass-card glow-purple" style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+                    <span class="v34-status-badge green"><i data-lucide="radio-tower" style="width:12px;height:12px;"></i> Channel</span>
+                    <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-purple);" id="v34-redis-status">chat:room:42</span>
+                </div>`;
+
+            const absolute = `
                 <svg class="v34-svg-container">
                     <path id="v34-path-r-s1-redis" class="flow-gold" />
                     <path id="v34-path-r-redis-s2" class="flow-purple" />
                 </svg>
-                <div class="v34-redis-layout" id="v34-redis-container">
-                    <div class="v34-node active-blue" id="v34-redis-s1">
-                        ${nodeIcon('server', 'var(--chat-blue)')}
-                        <span style="font-size:9px;">Server 1</span>
-                        <span style="font-size:7px;color:var(--chat-gold);font-weight:bold;">PUBLISH ↑</span>
-                    </div>
-                    <div class="v34-redis-hub" id="v34-redis-hub">
-                        <div class="v34-redis-ring r1" id="v34-redis-ring1"></div>
-                        <div class="v34-redis-ring r2" id="v34-redis-ring2"></div>
-                        <div class="v34-redis-ring r3" id="v34-redis-ring3"></div>
-                        <div class="v34-redis-core" id="v34-redis-core">
-                            <i data-lucide="database" style="width:22px;height:22px;color:var(--chat-purple);"></i>
-                            <span style="font-size:7px;color:var(--chat-purple);margin-top:2px;font-weight:bold;">Pub/Sub</span>
-                        </div>
-                    </div>
-                    <div class="v34-node" id="v34-redis-s2">
-                        ${nodeIcon('server', '#fff')}
-                        <span style="font-size:9px;">Server 2</span>
-                        <span style="font-size:7px;color:var(--chat-green);font-weight:bold;">SUB → PUSH</span>
-                    </div>
-                </div>
-                <div class="v34-packet-wrap" id="v34-redis-pkt1"><div class="v34-packet-core gold"></div><span class="v34-packet-label">PUBLISH</span></div>
+                <div class="v34-packet-wrap" id="v34-redis-pkt1"><div class="v34-packet-core gold"></div><span class="v34-packet-label">PUBLISH chat:room:42</span></div>
                 <div class="v34-packet-wrap" id="v34-redis-pkt2"><div class="v34-packet-core purple"></div><span class="v34-packet-label">BROADCAST</span></div>
-                <div class="v34-packet-wrap" id="v34-redis-pkt3"><div class="v34-packet-core green"></div><span class="v34-packet-label">PUSH</span></div>
-                <div class="v34-glass-card glow-purple" style="display:flex;justify-content:space-between;align-items:center;">
-                    <span class="v34-status-badge green"><i data-lucide="radio-tower" style="width:12px;height:12px;"></i> Channel</span>
-                    <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-purple);" id="v34-redis-status">chat:room:42</span>
-                </div>`);
+                <div class="v34-packet-wrap" id="v34-redis-pkt3"><div class="v34-packet-core green"></div><span class="v34-packet-label">PUSH to User B</span></div>`;
+
+            canvas.innerHTML = sceneWrap(inner, absolute, null);
             initIcons();
         }
         else if (slideId === 'slide_chat_full_arch') {
@@ -430,7 +554,7 @@
                         <span class="v34-arch-connector" id="v34-conn-1">→</span>
                         <div class="v34-node dimmed v34-arch-node" id="v34-arch-lb">${nodeIcon('network', 'var(--chat-gold)')}<span>Load Balancer</span></div>
                         <span class="v34-arch-connector" id="v34-conn-2">→</span>
-                        <div class="v34-node dimmed v34-arch-node" id="v34-arch-ws">${nodeIcon('radio', 'var(--chat-green)')}<span>WS Cluster</span></div>
+                        <div class="v34-node dimmed v34-arch-node" id="v34-arch-ws">${nodeIcon('radio', 'var(--chat-green)')}<span>WS Server 1</span></div>
                     </div>
                     <div class="v34-arch-row">
                         <div class="v34-node dimmed v34-arch-node" id="v34-arch-redis">${nodeIcon('database', 'var(--chat-purple)')}<span>Redis Pub/Sub</span></div>
@@ -439,18 +563,18 @@
                     </div>
                 </div>
                 <div class="v34-packet-wrap" id="v34-arch-pkt"><div class="v34-packet-core green"></div><span class="v34-packet-label">msg</span></div>
-                <div class="v34-glass-card glow-green v34-status-card">
+                <div class="v34-glass-card glow-green v34-status-card" style="margin-top:4px;">
                     <span class="v34-status-label">PRODUCTION PIPELINE</span>
                     <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-green);" id="v34-arch-status">Initializing...</span>
-                </div>`, 'green-tint');
+                </div>`, null, 'green-tint');
             initIcons();
         }
         else if (slideId === 'slide_chat_compare') {
             canvas.innerHTML = sceneWrap(`
                 <div class="v34-compare-grid">
                     <div class="v34-compare-col loser" id="v34-cmp-poll">
-                        <div class="v34-compare-icon" style="background:rgba(244,63,94,0.15);"><i data-lucide="refresh-cw" style="width:16px;height:16px;color:var(--chat-red);"></i></div>
-                        <div class="v34-compare-title" style="color:var(--chat-red);">HTTP Polling</div>
+                        <div class="v34-compare-icon" style="background:rgba(239,68,68,0.12);"><i data-lucide="refresh-cw" style="width:14px;height:14px;color:var(--chat-red);"></i></div>
+                        <div class="v34-compare-title" style="color:var(--chat-red);">Short Polling</div>
                         <div class="v34-bar-wrap">
                             <div class="v34-bar-row"><span class="v34-bar-label">Latency</span><div class="v34-bar-track"><div class="v34-bar-fill red" id="v34-bar-poll-lat"></div></div></div>
                             <div class="v34-bar-row"><span class="v34-bar-label">Requests</span><div class="v34-bar-track"><div class="v34-bar-fill red" id="v34-bar-poll-req"></div></div></div>
@@ -458,8 +582,8 @@
                         </div>
                     </div>
                     <div class="v34-compare-col loser" id="v34-cmp-long">
-                        <div class="v34-compare-icon" style="background:rgba(245,158,11,0.15);"><i data-lucide="hourglass" style="width:16px;height:16px;color:var(--chat-gold);"></i></div>
-                        <div class="v34-compare-title" style="color:var(--chat-gold);">Long Poll</div>
+                        <div class="v34-compare-icon" style="background:rgba(245,158,11,0.12);"><i data-lucide="hourglass" style="width:14px;height:14px;color:var(--chat-gold);"></i></div>
+                        <div class="v34-compare-title" style="color:var(--chat-gold);">Long Polling</div>
                         <div class="v34-bar-wrap">
                             <div class="v34-bar-row"><span class="v34-bar-label">Latency</span><div class="v34-bar-track"><div class="v34-bar-fill yellow" id="v34-bar-long-lat"></div></div></div>
                             <div class="v34-bar-row"><span class="v34-bar-label">Requests</span><div class="v34-bar-track"><div class="v34-bar-fill yellow" id="v34-bar-long-req"></div></div></div>
@@ -467,7 +591,7 @@
                         </div>
                     </div>
                     <div class="v34-compare-col" id="v34-cmp-ws">
-                        <div class="v34-compare-icon" style="background:rgba(16,185,129,0.15);"><i data-lucide="zap" style="width:16px;height:16px;color:var(--chat-green);"></i></div>
+                        <div class="v34-compare-icon" style="background:rgba(16,185,129,0.12);"><i data-lucide="zap" style="width:14px;height:14px;color:var(--chat-green);"></i></div>
                         <div class="v34-compare-title" style="color:var(--chat-green);">WebSocket</div>
                         <span class="v34-crown" id="v34-cmp-crown">👑</span>
                         <div class="v34-bar-wrap">
@@ -477,43 +601,43 @@
                         </div>
                     </div>
                 </div>
-                <div class="v34-glass-card glow-green" style="text-align:center;">
+                <div class="v34-glass-card glow-green" style="text-align:center;margin-top:4px;">
                     <span style="font-size:11px;font-weight:bold;color:var(--chat-green);" id="v34-cmp-verdict">WebSocket wins on all metrics 🏆</span>
-                </div>`);
+                </div>`, null, null);
             initIcons();
         }
         else if (slideId === 'slide_chat_outro') {
             canvas.innerHTML = sceneWrap(`
                 <div class="v34-outro-grid">
                     <div class="v34-outro-card" id="v34-outro-1">
-                        <div class="v34-outro-icon" style="background:rgba(16,185,129,0.15);"><i data-lucide="zap" style="width:16px;height:16px;color:var(--chat-green);"></i></div>
+                        <div class="v34-outro-icon" style="background:rgba(16,185,129,0.12);"><i data-lucide="zap" style="width:14px;height:14px;color:var(--chat-green);"></i></div>
                         <span class="v34-outro-number">&lt; 50ms</span>
-                        <span class="v34-outro-label">WebSocket Latency</span>
-                        <span class="v34-outro-desc">Đường hầm hai chiều, server push tức thì.</span>
+                        <span class="v34-outro-label">Latency</span>
+                        <span class="v34-outro-desc">Đường hầm hai chiều, push tức thì.</span>
                     </div>
                     <div class="v34-outro-card" id="v34-outro-2">
-                        <div class="v34-outro-icon" style="background:rgba(59,130,246,0.15);"><i data-lucide="unlink" style="width:16px;height:16px;color:var(--chat-blue);"></i></div>
+                        <div class="v34-outro-icon" style="background:rgba(59,130,246,0.12);"><i data-lucide="unlink" style="width:14px;height:14px;color:var(--chat-blue);"></i></div>
                         <span class="v34-outro-number">1 conn</span>
                         <span class="v34-outro-label">Zero Polling</span>
                         <span class="v34-outro-desc">Không spam request rỗng, tiết kiệm pin.</span>
                     </div>
                     <div class="v34-outro-card" id="v34-outro-3">
-                        <div class="v34-outro-icon" style="background:rgba(168,85,247,0.15);"><i data-lucide="radio-tower" style="width:16px;height:16px;color:var(--chat-purple);"></i></div>
+                        <div class="v34-outro-icon" style="background:rgba(168,85,247,0.12);"><i data-lucide="radio-tower" style="width:14px;height:14px;color:var(--chat-purple);"></i></div>
                         <span class="v34-outro-number">Pub/Sub</span>
                         <span class="v34-outro-label">Redis Broadcast</span>
-                        <span class="v34-outro-desc">Đồng bộ tin giữa hàng trăm WS Server.</span>
+                        <span class="v34-outro-desc">Đồng bộ tin giữa WebSocket Server.</span>
                     </div>
                     <div class="v34-outro-card" id="v34-outro-4">
-                        <div class="v34-outro-icon" style="background:rgba(245,158,11,0.15);"><i data-lucide="database" style="width:16px;height:16px;color:var(--chat-gold);"></i></div>
+                        <div class="v34-outro-icon" style="background:rgba(245,158,11,0.12);"><i data-lucide="database" style="width:14px;height:14px;color:var(--chat-gold);"></i></div>
                         <span class="v34-outro-number">DB + WS</span>
-                        <span class="v34-outro-label">Real-time + History</span>
-                        <span class="v34-outro-desc">PostgreSQL lưu lịch sử, WS giao tin live.</span>
+                        <span class="v34-outro-label">Sync &amp; History</span>
+                        <span class="v34-outro-desc">PostgreSQL lưu lịch sử, WS push live.</span>
                     </div>
                 </div>
-                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;">
+                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;">
                     <span class="v34-status-badge green"><i data-lucide="check-circle" style="width:12px;height:12px;"></i> Chat Architecture</span>
                     <span style="font-size:11px;font-weight:bold;color:#fff;">Production Ready ✓</span>
-                </div>`, 'green-tint');
+                </div>`, null, 'green-tint');
             initIcons();
         }
     }
@@ -532,6 +656,7 @@
             const status = canvas.querySelector('#v34-intro-status');
             const latency = canvas.querySelector('#v34-intro-latency');
             const toast = canvas.querySelector('#v34-intro-toast');
+            const aliceInput = canvas.querySelector('#v34-phone-alice-input');
 
             if (progress < 0.2) {
                 if (alice) alice.classList.add('active-send');
@@ -542,19 +667,26 @@
                 if (lineR) lineR.classList.remove('active');
                 if (status) status.textContent = 'Alice nhấn Gửi...';
                 if (toast) toast.classList.remove('show');
+                if (aliceInput) aliceInput.textContent = 'Xin chào!';
             } else if (progress < 0.55) {
                 if (lineL) lineL.classList.add('active');
                 if (lineR) lineR.classList.add('active');
                 if (typing) typing.classList.add('active');
                 if (recv) recv.classList.remove('visible');
-                if (status) status.textContent = '⚡ Truyền qua mạng...';
+                if (status) status.textContent = '⚡ WebSocket pushing...';
                 if (latency) latency.classList.add('flash');
             } else {
                 if (bob) bob.classList.add('active-recv');
                 if (typing) typing.classList.remove('active');
                 if (recv) recv.classList.add('visible');
                 if (toast) toast.classList.add('show');
-                if (status) { status.textContent = '✓ Delivered — không cần F5'; status.style.color = 'var(--chat-green)'; }
+                if (sent) {
+                    sent.innerHTML = 'Xin chào! 👋<div class="v34-bubble-meta">Đã xem ✓✓</div>';
+                }
+                if (status) {
+                    status.textContent = '✓ Nhận tức thì — không cần F5';
+                    status.style.color = 'var(--chat-green)';
+                }
             }
         }
         else if (slideId === 'slide_chat_http') {
@@ -563,34 +695,56 @@
             const pktReq = canvas.querySelector('#v34-http-pkt-req');
             const pktRes = canvas.querySelector('#v34-http-pkt-res');
             const status = canvas.querySelector('#v34-http-status');
-            const lock = canvas.querySelector('#v34-http-lock');
+            const serverLog = canvas.querySelector('#v34-http-term-log');
 
-            if (canvas.getAttribute('data-paths-drawn') !== 'true') {
+            const cOff = getNodeConnectionPoint(client, server, container);
+            const sOff = getNodeConnectionPoint(server, client, container);
+            const cycle = (progress * 2.5) % 1;
+
+            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
+            if (!pathsDrawn && client && server) {
                 drawSVGPath(canvas, '#v34-path-http-req', client, server, container, 'flow-blue');
                 drawSVGPath(canvas, '#v34-path-http-res', server, client, container, 'flow-green');
                 canvas.setAttribute('data-paths-drawn', 'true');
             }
 
-            const cOff = getCenterOffset(client, container);
-            const sOff = getCenterOffset(server, container);
-            const cycle = (progress * 2.5) % 1;
-
             if (cycle < 0.42) {
                 placePacket(pktReq, cOff, sOff, cycle / 0.42);
                 hidePacket(pktRes);
                 if (client) client.classList.add('active-blue');
-                if (server) server.classList.remove('active-red');
-                if (status) status.textContent = '→ GET /api/messages';
+                if (server) {
+                    server.classList.remove('active-red');
+                    server.classList.add('active-blue');
+                }
+                if (status) status.textContent = '→ GET /api/messages HTTP/1.1';
+                if (serverLog) {
+                    serverLog.innerHTML = 'GET /api/messages HTTP/1.1\nHost: api.chat.app\n\n[Processing Request...]';
+                    serverLog.className = 'v34-term-log highlight';
+                }
             } else if (cycle < 0.78) {
                 hidePacket(pktReq);
                 placePacket(pktRes, sOff, cOff, (cycle - 0.42) / 0.36);
-                if (status) status.textContent = '← 200 OK (connection closed)';
+                if (server) {
+                    server.classList.remove('active-blue');
+                    server.classList.add('active-green');
+                }
+                if (status) status.textContent = '← 200 OK (Connection Closed)';
+                if (serverLog) {
+                    serverLog.innerHTML = 'HTTP/1.1 200 OK\nConnection: close\n\n[] (No new messages)';
+                    serverLog.className = 'v34-term-log success';
+                }
             } else {
                 hidePacket(pktReq);
                 hidePacket(pktRes);
-                if (lock) lock.textContent = '🔒 Tin mới vẫn khóa — cần Request mới';
-                if (server) server.classList.add('active-red');
-                if (status) status.textContent = 'Server KHÔNG thể push chủ động';
+                if (server) {
+                    server.classList.remove('active-green');
+                    server.classList.add('active-red');
+                }
+                if (status) status.textContent = 'Server không thể tự push — Đã đóng kết nối';
+                if (serverLog) {
+                    serverLog.innerHTML = 'Connection state: CLOSED\nCannot push new messages to client.';
+                    serverLog.className = 'v34-term-log error';
+                }
             }
         }
         else if (slideId === 'slide_chat_polling') {
@@ -601,12 +755,7 @@
             const rate = canvas.querySelector('#v34-poll-req-rate');
             const counter = canvas.querySelector('#v34-poll-counter');
             const log = canvas.querySelector('#v34-poll-log');
-            const storm = canvas.querySelector('#v34-storm');
-
-            if (canvas.getAttribute('data-paths-drawn') !== 'true') {
-                drawSVGPath(canvas, '#v34-path-poll', client, server, container, 'flow-red');
-                canvas.setAttribute('data-paths-drawn', 'true');
-            }
+            const serverLog = canvas.querySelector('#v34-poll-term-log');
 
             const pollCount = Math.min(5, Math.floor(progress * 6) + 1);
             const cpuPct = Math.min(98, 12 + progress * 88);
@@ -616,8 +765,8 @@
                 cpu.className = cpuPct > 65 ? 'v34-metrics-fill critical' : 'v34-metrics-fill';
             }
             if (rate) rate.textContent = `${Math.round(3333 * Math.min(1, progress * 1.2))} req/s`;
-            if (counter) counter.textContent = `${Math.max(0, pollCount - 1)} empty responses`;
-            if (server) server.className = cpuPct > 65 ? 'v34-node active-red' : 'v34-node';
+            if (counter) counter.textContent = `${Math.max(0, pollCount - 1)} empty requests`;
+            if (server) server.className = cpuPct > 65 ? 'v34-server-mock active-red' : 'v34-server-mock';
 
             if (log) {
                 let html = '';
@@ -628,46 +777,73 @@
                 log.innerHTML = html;
             }
 
-            if (false && storm && progress > 0.4 && storm.childElementCount < 12) {
-                for (let i = 0; i < 3; i++) {
-                    const dot = document.createElement('div');
-                    dot.className = 'v34-storm-dot';
-                    dot.style.left = `${20 + Math.random() * 60}%`;
-                    dot.style.top = `${10 + Math.random() * 80}%`;
-                    dot.style.opacity = `${0.3 + progress * 0.5}`;
-                    storm.appendChild(dot);
+            if (serverLog) {
+                if (progress > 0.88) {
+                    serverLog.innerHTML = 'GET /messages HTTP/1.1\nResult: 200 OK (New msg: "Hello!")';
+                    serverLog.className = 'v34-term-log success';
+                } else {
+                    serverLog.innerHTML = `Spam Rate: ${Math.round(3333 * Math.min(1, progress * 1.2))} req/s\nCPU Load: ${Math.round(cpuPct)}% (Warning)`;
+                    serverLog.className = cpuPct > 65 ? 'v34-term-log error' : 'v34-term-log highlight';
                 }
             }
 
-            const cOff = getCenterOffset(client, container);
-            const sOff = getCenterOffset(server, container);
+            const cOff = getNodeConnectionPoint(client, server, container);
+            const sOff = getNodeConnectionPoint(server, client, container);
+
+            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
+            if (!pathsDrawn && client && server) {
+                drawSVGPath(canvas, '#v34-path-poll', client, server, container, 'flow-red');
+                canvas.setAttribute('data-paths-drawn', 'true');
+            }
+
             placePacket(pkt, cOff, sOff, (progress * 10) % 1);
         }
         else if (slideId === 'slide_chat_websocket_intro') {
-            const pipe = canvas.querySelector('#v34-ws-pipe');
-            const fwd = canvas.querySelector('#v34-ws-pulse-fwd');
-            const rev = canvas.querySelector('#v34-ws-pulse-rev');
-            const status = canvas.querySelector('#v34-ws-tunnel-status');
-            const client = canvas.querySelector('#v34-ws-client');
-            const server = canvas.querySelector('#v34-ws-server');
+            const client = canvas.querySelector('#v34-ws-client-box');
+            const server = canvas.querySelector('#v34-ws-server-box');
+            const pktFwd = canvas.querySelector('#v34-ws-intro-pkt-fwd');
+            const pktRev = canvas.querySelector('#v34-ws-intro-pkt-rev');
+            const metricStatus = canvas.querySelector('#v34-ws-val-status');
 
-            if (pipe) pipe.classList.toggle('active', progress > 0.12);
             if (client) client.classList.toggle('active-blue', progress > 0.1);
             if (server) server.classList.toggle('active-green', progress > 0.2);
 
+            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
+            if (!pathsDrawn && client && server) {
+                drawSVGPath(canvas, '#v34-path-ws-intro', client, server, container, 'flowing');
+                canvas.setAttribute('data-paths-drawn', 'true');
+            }
+
+            const cOff = getNodeConnectionPoint(client, server, container);
+            const sOff = getNodeConnectionPoint(server, client, container);
             const spd = progress * 5;
-            if (fwd) {
-                fwd.style.opacity = progress > 0.15 ? '1' : '0';
-                fwd.style.left = `${((spd) % 1) * 100}%`;
+
+            if (pktFwd && cOff && sOff) {
+                if (progress > 0.15) {
+                    placePacket(pktFwd, cOff, sOff, (spd) % 1);
+                } else {
+                    hidePacket(pktFwd);
+                }
             }
-            if (rev) {
-                rev.style.opacity = progress > 0.2 ? '1' : '0';
-                rev.style.left = `${(1 - ((spd + 0.35) % 1)) * 100}%`;
+            if (pktRev && cOff && sOff) {
+                if (progress > 0.25) {
+                    placePacket(pktRev, sOff, cOff, (spd + 0.5) % 1);
+                } else {
+                    hidePacket(pktRev);
+                }
             }
-            if (status) {
-                status.textContent = progress > 0.45
-                    ? '↓ Server PUSH  +  ↑ Client SEND'
-                    : progress > 0.12 ? 'Tunnel OPEN — streaming...' : 'Establishing tunnel...';
+
+            if (metricStatus) {
+                if (progress > 0.45) {
+                    metricStatus.textContent = 'STREAMING';
+                    metricStatus.className = 'm-value green';
+                } else if (progress > 0.12) {
+                    metricStatus.textContent = 'ESTABLISHED';
+                    metricStatus.className = 'm-value green';
+                } else {
+                    metricStatus.textContent = 'CONNECTING...';
+                    metricStatus.className = 'm-value gold';
+                }
             }
         }
         else if (slideId === 'slide_chat_ws_handshake') {
@@ -706,113 +882,146 @@
             const pkt1 = canvas.querySelector('#v34-flow-pkt1');
             const pkt2 = canvas.querySelector('#v34-flow-pkt2');
             const status = canvas.querySelector('#v34-flow-status');
+            const serverLog = canvas.querySelector('#v34-flow-term-log');
 
-            if (canvas.getAttribute('data-paths-drawn') !== 'true') {
+            const aOff = getNodeConnectionPoint(alice, server, container);
+            const sOff = getNodeConnectionPoint(server, alice, container);
+            const sOff2 = getNodeConnectionPoint(server, bob, container);
+            const bOff = getNodeConnectionPoint(bob, server, container);
+
+            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
+            if (!pathsDrawn && alice && server && bob) {
                 drawSVGPath(canvas, '#v34-path-flow-a-s', alice, server, container, 'flow-blue');
                 drawSVGPath(canvas, '#v34-path-flow-s-b', server, bob, container, 'flow-green');
                 canvas.setAttribute('data-paths-drawn', 'true');
             }
-
-            const aOff = getCenterOffset(alice, container);
-            const sOff = getCenterOffset(server, container);
-            const bOff = getCenterOffset(bob, container);
 
             if (progress < 0.38) {
                 placePacket(pkt1, aOff, sOff, progress / 0.38);
                 hidePacket(pkt2);
                 if (recv) recv.classList.remove('visible');
                 if (status) status.textContent = '{"type":"msg","from":"Alice"}';
+                if (serverLog) {
+                    serverLog.innerHTML = 'Receiving WebSocket frame from A...\nPayload: {"text": "Xin chào!"}';
+                    serverLog.className = 'v34-term-log highlight';
+                }
             } else if (progress < 0.72) {
                 hidePacket(pkt1);
-                placePacket(pkt2, sOff, bOff, (progress - 0.38) / 0.34);
-                if (server) server.classList.add('active-green');
-                if (status) status.textContent = 'Server PUSH → Bob socket';
+                placePacket(pkt2, sOff2, bOff, (progress - 0.38) / 0.34);
+                if (recv) recv.classList.remove('visible');
+                if (status) status.textContent = 'Server push down to User B socket';
+                if (serverLog) {
+                    serverLog.innerHTML = 'Routing to B socket...\nFrame PUSH active';
+                    serverLog.className = 'v34-term-log success';
+                }
             } else {
                 hidePacket(pkt1);
                 hidePacket(pkt2);
-                if (bob) bob.classList.add('active-recv');
                 if (recv) recv.classList.add('visible');
-                if (status) { status.textContent = '✓ Delivered in <50ms'; status.style.color = 'var(--chat-green)'; }
+                if (status) status.textContent = '✓ Delivered instantly (Bob received)';
+                if (serverLog) {
+                    serverLog.innerHTML = 'Frame delivered successfully.\nConnection: active';
+                    serverLog.className = 'v34-term-log success';
+                }
             }
         }
         else if (slideId === 'slide_chat_scale_problem') {
-            const s1 = canvas.querySelector('#v34-scale-s1');
-            const s2 = canvas.querySelector('#v34-scale-s2');
+            const s1 = canvas.querySelector('#v34-scale-s1-server');
             const block = canvas.querySelector('#v34-scale-block');
             const pkt = canvas.querySelector('#v34-scale-pkt');
             const status = canvas.querySelector('#v34-scale-status');
+            const s1Log = canvas.querySelector('#v34-scale-s1-term-log');
 
-            const s1Off = getCenterOffset(s1, container);
-            const blockOff = getCenterOffset(block, container);
+            const lb = canvas.querySelector('#v34-scale-lb');
+            const s1Off = getNodeConnectionPoint(s1, block, container);
+            const bOff = getNodeConnectionPoint(block, s1, container);
 
-            if (canvas.getAttribute('data-paths-drawn') !== 'true') {
-                drawSVGPath(canvas, '#v34-path-scale-s1-mid', s1, block, container, 'flow-blue');
-                const s2Off = getCenterOffset(s2, container);
-                const pathBlock = canvas.querySelector('#v34-path-scale-block');
-                if (pathBlock) {
-                    pathBlock.setAttribute('d', `M ${blockOff.x} ${blockOff.y} L ${s2Off.x} ${s2Off.y}`);
-                    pathBlock.setAttribute('stroke-width', '2.5');
-                    pathBlock.setAttribute('stroke-dasharray', '6 8');
-                    pathBlock.setAttribute('class', 'flow-red');
-                }
+            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
+            if (!pathsDrawn && lb && s1 && block) {
+                drawSVGPath(canvas, '#v34-path-scale-s1-mid', lb, s1, container, 'flow-blue');
+                drawSVGPath(canvas, '#v34-path-scale-block', s1, block, container, 'flow-red');
                 canvas.setAttribute('data-paths-drawn', 'true');
             }
 
-            if (progress < 0.55) {
-                placePacket(pkt, s1Off, blockOff, progress / 0.55);
+            if (progress < 0.5) {
+                const t = progress / 0.5;
+                placePacket(pkt, s1Off, bOff, t);
                 if (block) block.classList.remove('active');
-                if (s1) s1.classList.add('active-blue');
-            } else {
-                if (pkt) {
-                    pkt.style.left = `${blockOff.x}px`;
-                    pkt.style.top = `${blockOff.y}px`;
-                    pkt.classList.add('visible');
+                if (status) status.textContent = 'Alice gửi tin nhắn cho Bob...';
+                if (s1Log) {
+                    s1Log.innerHTML = 'User A sent message to Bob.\nLooking up User B socket connection...';
+                    s1Log.className = 'v34-term-log highlight';
                 }
+            } else {
+                hidePacket(pkt);
                 if (block) block.classList.add('active');
-                if (s1) s1.classList.add('active-red');
-                if (s2) s2.classList.add('dimmed');
-                if (status) status.textContent = '❌ User B on Server 2 — message LOST';
+                if (status) status.textContent = '❌ Lỗi: Bob đang ở Server 2. Server 1 không có socket của Bob!';
+                if (s1Log) {
+                    s1Log.innerHTML = 'Lookup failed: User B not connected to Node 1.\nError: Stuck message!';
+                    s1Log.className = 'v34-term-log error';
+                }
             }
         }
         else if (slideId === 'slide_chat_redis_pubsub') {
-            const s1 = canvas.querySelector('#v34-redis-s1');
-            const core = canvas.querySelector('#v34-redis-core');
-            const s2 = canvas.querySelector('#v34-redis-s2');
+            const s1 = canvas.querySelector('#v34-redis-s1-server');
+            const core = canvas.querySelector('#v34-redis-redis-core');
+            const s2 = canvas.querySelector('#v34-redis-s2-server');
             const pkt1 = canvas.querySelector('#v34-redis-pkt1');
             const pkt2 = canvas.querySelector('#v34-redis-pkt2');
             const pkt3 = canvas.querySelector('#v34-redis-pkt3');
             const status = canvas.querySelector('#v34-redis-status');
-            const rings = ['#v34-redis-ring1', '#v34-redis-ring2', '#v34-redis-ring3'];
+            const s1Log = canvas.querySelector('#v34-redis-s1-term-log');
+            const s2Log = canvas.querySelector('#v34-redis-s2-term-log');
 
-            if (canvas.getAttribute('data-paths-drawn') !== 'true') {
-                const hub = canvas.querySelector('.v34-redis-hub');
-                drawSVGPath(canvas, '#v34-path-r-s1-redis', s1, hub, container, 'flow-gold');
-                drawSVGPath(canvas, '#v34-path-r-redis-s2', hub, s2, container, 'flow-purple');
+            const s1Off = getNodeConnectionPoint(s1, core, container);
+            const rOff1 = getNodeConnectionPoint(core, s1, container);
+            const rOff2 = getNodeConnectionPoint(core, s2, container);
+            const s2Off = getNodeConnectionPoint(s2, core, container);
+            const s2Center = getCenterOffset(s2, container);
+            const s2OffRight = {
+                x: s2Center.x + s2.offsetWidth / 2,
+                y: s2Center.y
+            };
+
+            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
+            if (!pathsDrawn && s1 && core && s2) {
+                drawSVGPath(canvas, '#v34-path-r-s1-redis', s1, core, container, 'flow-gold');
+                drawSVGPath(canvas, '#v34-path-r-redis-s2', core, s2, container, 'flow-purple');
                 canvas.setAttribute('data-paths-drawn', 'true');
             }
 
-            const hubEl = canvas.querySelector('.v34-redis-hub');
-            const s1Off = getCenterOffset(s1, container);
-            const rOff = getCenterOffset(hubEl, container);
-            const s2Off = getCenterOffset(s2, container);
-
             if (progress < 0.32) {
-                placePacket(pkt1, s1Off, rOff, progress / 0.32);
+                placePacket(pkt1, s1Off, rOff1, progress / 0.32);
                 hidePacket(pkt2);
                 hidePacket(pkt3);
-                if (status) status.textContent = 'PUBLISH chat:room:42';
+                if (status) status.textContent = 'WS Server 1 publishes message to Redis';
+                if (s1Log) {
+                    s1Log.innerHTML = 'Publishing payload to channel chat:room:42...';
+                    s1Log.className = 'v34-term-log highlight';
+                }
+                if (s2Log) {
+                    s2Log.innerHTML = 'Subscribed to channel chat:room:42\nListening...';
+                    s2Log.className = 'v34-term-log';
+                }
             } else if (progress < 0.58) {
                 hidePacket(pkt1);
-                placePacket(pkt2, rOff, s2Off, (progress - 0.32) / 0.26);
+                placePacket(pkt2, rOff2, s2Off, (progress - 0.32) / 0.26);
                 if (core) core.classList.add('burst');
-                rings.forEach(sel => { const r = canvas.querySelector(sel); if (r) r.classList.add('pulse-active'); });
                 if (s2) s2.classList.add('active-green');
-                if (status) status.textContent = 'Redis BROADCAST → all servers';
+                if (status) status.textContent = 'Redis Pub/Sub broadcasts to Server 2';
+                if (s2Log) {
+                    s2Log.innerHTML = 'Received Redis broadcast!\nRecipient B is online on this server. Routing...';
+                    s2Log.className = 'v34-term-log highlight';
+                }
             } else {
                 hidePacket(pkt1);
                 hidePacket(pkt2);
-                placePacket(pkt3, s2Off, { x: s2Off.x + 35, y: s2Off.y - 15 }, (progress - 0.58) / 0.42);
-                if (status) status.textContent = '✓ PUSH to User B — delivered!';
+                placePacket(pkt3, s2OffRight, { x: s2OffRight.x + 35, y: s2OffRight.y - 15 }, (progress - 0.58) / 0.42);
+                if (status) status.textContent = '✓ WS Server 2 pushes successfully to User B socket!';
+                if (s2Log) {
+                    s2Log.innerHTML = 'WebSocket push to B: success\nDelivered real-time!';
+                    s2Log.className = 'v34-term-log success';
+                }
             }
         }
         else if (slideId === 'slide_chat_full_arch') {
@@ -831,14 +1040,6 @@
             const pkt = canvas.querySelector('#v34-arch-pkt');
             const status = canvas.querySelector('#v34-arch-status');
 
-            if (canvas.getAttribute('data-paths-drawn') !== 'true') {
-                drawSVGPath(canvas, '#v34-path-arch-1', nodes[0], nodes[1], container, 'flow-blue');
-                drawSVGPath(canvas, '#v34-path-arch-2', nodes[1], nodes[2], container, 'flow-green');
-                drawSVGPath(canvas, '#v34-path-arch-3', nodes[2], nodes[3], container, 'flow-purple');
-                drawSVGPath(canvas, '#v34-path-arch-4', nodes[3], nodes[4], container, 'flowing');
-                canvas.setAttribute('data-paths-drawn', 'true');
-            }
-
             nodes.forEach((n, i) => {
                 if (!n) return;
                 const lit = progress > i * 0.16;
@@ -854,11 +1055,21 @@
                 if (c) c.classList.toggle('lit', progress > (i + 1) * 0.16);
             });
 
-            const offsets = nodes.map(n => getCenterOffset(n, container));
+            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
+            if (!pathsDrawn && nodes[0] && nodes[1] && nodes[2] && nodes[3] && nodes[4]) {
+                drawSVGPath(canvas, '#v34-path-arch-1', nodes[0], nodes[1], container, 'flow-blue');
+                drawSVGPath(canvas, '#v34-path-arch-2', nodes[1], nodes[2], container, 'flow-green');
+                drawSVGPath(canvas, '#v34-path-arch-3', nodes[2], nodes[3], container, 'flow-purple');
+                drawSVGPath(canvas, '#v34-path-arch-4', nodes[3], nodes[4], container, 'flowing');
+                canvas.setAttribute('data-paths-drawn', 'true');
+            }
+
             const seg = Math.min(3, Math.floor(progress * 4));
             const segT = (progress * 4) % 1;
-            if (offsets[seg] && offsets[seg + 1]) {
-                placePacket(pkt, offsets[seg], offsets[seg + 1], segT);
+            if (nodes[seg] && nodes[seg + 1]) {
+                const startPt = getNodeConnectionPoint(nodes[seg], nodes[seg + 1], container);
+                const endPt = getNodeConnectionPoint(nodes[seg + 1], nodes[seg], container);
+                placePacket(pkt, startPt, endPt, segT);
             }
             if (status) {
                 const labels = ['Client connecting...', 'Via Load Balancer...', 'WS Cluster routing...', 'Redis sync...', 'Persisted to DB ✓'];
@@ -902,5 +1113,5 @@
         updateFrame
     };
 
-    console.log('[Video34 Plugin] Loaded: Premium chat simulation — 11 slides.');
+    console.log('[Video34 Plugin] Loaded: Premium chat simulation — 12 slides.');
 })();

@@ -1,0 +1,277 @@
+/**
+ * Video 36: Facebook Proximity Tracking - "Công nghệ đáng sợ"
+ * CSS file dynamically loaded when video36 is active
+ */
+
+/* --- Custom animations --- */
+@keyframes sonar-ripple-v36 {
+    0% {
+        transform: translate(-50%, -50%) scale(0.4);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+    }
+}
+
+@keyframes dash-flow-v36 {
+    to {
+        stroke-dashoffset: -40;
+    }
+}
+
+@keyframes pulse-led-v36 {
+    0%, 100% { opacity: 0.5; box-shadow: 0 0 4px rgba(255,255,255,0.1); }
+    50% { opacity: 1; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+}
+
+@keyframes float-phone-v36 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shield-glow-v36 {
+    0%, 100% { border-color: rgba(52, 211, 153, 0.2); }
+    50% { border-color: rgba(52, 211, 153, 0.6); }
+}
+
+/* --- Base components --- */
+.v36-scene-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    zoom: 0.95;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #ffffff;
+    background: transparent;
+}
+
+.v36-glass-card {
+    background: rgba(13, 17, 28, 0.72);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Phone structure */
+.v36-phone {
+    width: 320px;
+    height: 570px;
+    border-radius: 38px;
+    border: 2.5px solid rgba(255, 255, 255, 0.12);
+    background: #090b11;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+    box-sizing: border-box;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.v36-phone.float-a {
+    animation: float-phone-v36 5s infinite ease-in-out;
+}
+
+.v36-phone.float-b {
+    animation: float-phone-v36 5s infinite ease-in-out 2.5s;
+}
+
+.v36-phone-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.v36-phone-notch {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 22px;
+    background: #000000;
+    border-radius: 12px;
+    z-index: 10;
+}
+
+/* Header bar */
+.v36-fb-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.v36-fb-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* Suggestion popups */
+.v36-suggestion-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 12px;
+    margin-top: auto;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.v36-suggestion-card.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Sonar circles */
+.v36-sonar-ring {
+    position: absolute;
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.v36-sonar-ring.r1 {
+    animation: sonar-ripple-v36 3.5s infinite linear;
+}
+
+.v36-sonar-ring.r2 {
+    animation: sonar-ripple-v36 3.5s infinite linear 1.75s;
+}
+
+/* Vector connection path rendering */
+.v36-dash-path {
+    stroke-dasharray: 8 5;
+    animation: dash-flow-v36 1.4s linear infinite;
+}
+
+.v36-active-path {
+    stroke: rgba(255, 255, 255, 0.4);
+    transition: stroke 0.3s, stroke-width 0.3s;
+}
+
+/* LED Indicator status dot */
+.v36-led-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #94a3b8;
+    animation: pulse-led-v36 2s infinite ease-in-out;
+}
+
+.v36-led-dot.active-ok {
+    background: #34d399;
+}
+
+.v36-led-dot.active-scanning {
+    background: #f59e0b;
+}
+
+.v36-led-dot.active-alert {
+    background: #f43f5e;
+}
+
+/* Grid overlay for coordinates maps */
+.v36-map-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+/* Settings Toggle switches */
+.v36-toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.v36-toggle-switch {
+    width: 44px;
+    height: 22px;
+    border-radius: 11px;
+    background: #334155;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.v36-toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ffffff;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.v36-toggle-switch.on {
+    background: #34d399;
+}
+
+.v36-toggle-switch.on::after {
+    transform: translateX(22px);
+}
+
+/* Shield display overlay */
+.v36-shield-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 17, 28, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 20;
+    border-radius: 35px;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+}
+
+.v36-shield-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.v36-shield-icon {
+    font-size: 60px;
+    margin-bottom: 12px;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #34d399;
+}
+
+.v36-shield-overlay.active .v36-shield-icon {
+    transform: scale(1.1) rotate(360deg);
+}
+
+.v36-shield-glow-effect {
+    animation: shield-glow-v36 3s infinite ease-in-out;
+}
