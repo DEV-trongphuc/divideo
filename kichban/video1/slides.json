@@ -7,8 +7,9 @@
     "script": "Có một lỗi rất phổ biến trong Backend mà hầu như lập trình viên nào cũng từng gặp. Nó không làm ứng dụng lỗi, nhưng lại khiến Database phải làm việc nhiều hơn gấp hàng trăm lần.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 9.5
+    "audioPath": "/kichban/video1/mp3/slide_n1_1a.mp3",
+    "duration": 11.602333333333334,
+    "scriptHash": "02bfad6935c9d9e41c9168cfe71bbd89"
   },
   {
     "id": "slide_n1_1a_2",
@@ -18,8 +19,9 @@
     "script": "Nó khiến ứng dụng chậm đi hàng trăm lần!",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 4.0
+    "audioPath": "/kichban/video1/mp3/slide_n1_1a_2.mp3",
+    "duration": 4.053,
+    "scriptHash": "b03268c8b926d83518ea585e40817b4e"
   },
   {
     "id": "slide_n1_1a_3",
@@ -29,8 +31,9 @@
     "script": "Đó chính là lỗi N cộng 1 Query!",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 4.5
+    "audioPath": "/kichban/video1/mp3/slide_n1_1a_3.mp3",
+    "duration": 4.35175,
+    "scriptHash": "3b133ec6fa152841f3cdc020209c036f"
   },
   {
     "id": "slide_n1_1b",
@@ -40,8 +43,9 @@
     "script": "Hậu quả là hệ thống của bạn có thể sập bất cứ lúc nào khi lượng truy cập tăng đột biến.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 6.8
+    "audioPath": "/kichban/video1/mp3/slide_n1_1b.mp3",
+    "duration": 6.8575,
+    "scriptHash": "51721ebb87fe005f12601d2037426540"
   },
   {
     "id": "slide_n1_1b_2",
@@ -51,8 +55,9 @@
     "script": "Hãy xem hết video này để tìm cách cứu lấy Database của bạn nhé!",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 5.5
+    "audioPath": "/kichban/video1/mp3/slide_n1_1b_2.mp3",
+    "duration": 5.929958333333333,
+    "scriptHash": "49bbdbc6112c6ba71858bb7bb50f98b8"
   },
   {
     "id": "slide_n1_2",
@@ -62,8 +67,9 @@
     "script": "Mọi chuyện bắt đầu rất đơn giản. Người dùng mở trang danh sách khách hàng, Backend gửi một truy vấn để lấy toàn bộ User từ Database.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 9.5
+    "audioPath": "/kichban/video1/mp3/slide_n1_2.mp3",
+    "duration": 9.796791666666667,
+    "scriptHash": "d4056883fa616b669702d205dd019123"
   },
   {
     "id": "slide_n1_3",
@@ -73,8 +79,9 @@
     "script": "Database trả về 100 người dùng. Đến đây thì hoàn toàn bình thường và chỉ mới thực hiện đúng một câu query.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.0
+    "audioPath": "/kichban/video1/mp3/slide_n1_3.mp3",
+    "duration": 8.408666666666667,
+    "scriptHash": "cf21c817a37d94ff42874422efdec3b5"
   },
   {
     "id": "slide_n1_4",
@@ -84,8 +91,9 @@
     "script": "Nhưng sau đó, Backend tiếp tục lấy danh sách đơn hàng của từng người dùng. Mỗi User lại tạo thêm một câu query riêng.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 8.0
+    "audioPath": "/kichban/video1/mp3/slide_n1_4.mp3",
+    "duration": 9.241958333333333,
+    "scriptHash": "4ac87c22a87c839372f629f353b2a61c"
   },
   {
     "id": "slide_n1_5",
@@ -95,8 +103,9 @@
     "script": "Kết quả là thay vì chỉ một lần truy cập Database, hệ thống phải gửi tổng cộng 101 câu query chỉ để hiển thị một trang dữ liệu.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 9.0
+    "audioPath": "/kichban/video1/mp3/slide_n1_5.mp3",
+    "duration": 9.769958333333333,
+    "scriptHash": "8b1936f851c540f88df7ba28a592ef75"
   },
   {
     "id": "slide_n1_6",
@@ -106,8 +115,9 @@
     "script": "Với mười người dùng, Database gần như không gặp áp lực. Website vẫn phản hồi rất nhanh nên lỗi này thường bị bỏ qua.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 8.5
+    "audioPath": "/kichban/video1/mp3/slide_n1_6.mp3",
+    "duration": 9.424041666666668,
+    "scriptHash": "88faf06d0bd25bc1dc742f08393b1bb5"
   },
   {
     "id": "slide_n1_7",
@@ -117,8 +127,9 @@
     "script": "Nhưng khi dữ liệu tăng lên một trăm người dùng, số lượng query cũng tăng theo. Database bắt đầu phải xử lý nhiều truy vấn lặp đi lặp lại.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 9.5
+    "audioPath": "/kichban/video1/mp3/slide_n1_7.mp3",
+    "duration": 10.10025,
+    "scriptHash": "51abee02793c346ef1e6f75fd280b383"
   },
   {
     "id": "slide_n1_8",
@@ -128,8 +139,9 @@
     "script": "Đến khi có một nghìn người dùng, mỗi request đã phải thực hiện hơn một nghìn query. CPU tăng cao, Connection dần bị chiếm hết và tốc độ phản hồi giảm rõ rệt.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5
+    "audioPath": "/kichban/video1/mp3/slide_n1_8.mp3",
+    "duration": 11.920125,
+    "scriptHash": "f9a806e8ff9f2660870ed9c85684b76b"
   },
   {
     "id": "slide_n1_9",
@@ -139,8 +151,9 @@
     "script": "Mọi chuyện trở nên nghiêm trọng khi nhiều người truy cập cùng lúc. Một trăm request có thể tạo ra hơn một trăm nghìn query gửi xuống Database chỉ trong thời gian rất ngắn.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.0
+    "audioPath": "/kichban/video1/mp3/slide_n1_9.mp3",
+    "duration": 11.054333333333334,
+    "scriptHash": "2657c0baa77ed4bacf8b493a8567c6a9"
   },
   {
     "id": "slide_n1_10",
@@ -150,8 +163,9 @@
     "script": "Khi Database không xử lý kịp, toàn bộ hệ thống bắt đầu chậm lại. API phản hồi lâu hơn, website loading liên tục và cuối cùng có thể xảy ra timeout.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.0
+    "audioPath": "/kichban/video1/mp3/slide_n1_10.mp3",
+    "duration": 11.815291666666667,
+    "scriptHash": "ee5ee1a30fef98382c554166ab1718c5"
   },
   {
     "id": "slide_n1_11a",
@@ -161,8 +175,9 @@
     "script": "Thay vì truy vấn từng người dùng một, hãy lấy luôn dữ liệu liên quan bằng JOIN hoặc Eager Loading. Khi đó Backend chỉ cần gửi một câu query duy nhất.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 6.5
+    "audioPath": "/kichban/video1/mp3/slide_n1_11a.mp3",
+    "duration": 10.602375,
+    "scriptHash": "77ca4d36a5244d10ee9d8907b04f6f7f"
   },
   {
     "id": "slide_n1_11b",
@@ -172,8 +187,9 @@
     "script": "Hoặc dùng Eager Loading trong ORM để gom câu truy vấn lại.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 6.5
+    "audioPath": "/kichban/video1/mp3/slide_n1_11b.mp3",
+    "duration": 5.402666666666667,
+    "scriptHash": "616003a2ec73270c2999146beeb65da0"
   },
   {
     "id": "slide_n1_12",
@@ -183,8 +199,9 @@
     "script": "Chỉ bằng cách thay đổi cách truy vấn, số lượng query giảm từ 101 xuống còn 1. Thời gian phản hồi cũng giảm từ hàng trăm mili giây xuống chỉ còn vài chục mili giây.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0
+    "audioPath": "/kichban/video1/mp3/slide_n1_12.mp3",
+    "duration": 12.061375,
+    "scriptHash": "edd195b5c3f63f4b6534d4aa822b1689"
   },
   {
     "id": "slide_n1_13a",
@@ -194,8 +211,9 @@
     "script": "N+1 Query là một lỗi rất khó nhận ra khi dữ liệu còn ít, nhưng sẽ trở thành nút thắt cổ chai khi hệ thống phát triển.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.0
+    "audioPath": "/kichban/video1/mp3/slide_n1_13a.mp3",
+    "duration": 9.089583333333334,
+    "scriptHash": "422f1a66738301a3a63ce6fa45233bfc"
   },
   {
     "id": "slide_n1_13a_2",
@@ -205,8 +223,9 @@
     "script": "Vì vậy, trước khi nâng cấp server, hãy kiểm tra xem ứng dụng của bạn có đang mắc N+1 Query hay không.",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 5.5
+    "audioPath": "/kichban/video1/mp3/slide_n1_13a_2.mp3",
+    "duration": 8.793041666666667,
+    "scriptHash": "5347b6e8c34ccb87561bd412a32aa2de"
   },
   {
     "id": "slide_n1_13b",
@@ -216,7 +235,8 @@
     "script": "Ấn follow kênh để học thêm nhiều mẹo lập trình Backend cực chất từ Turnio.dev nhé!",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 6.5
+    "audioPath": "/kichban/video1/mp3/slide_n1_13b.mp3",
+    "duration": 7.124583333333334,
+    "scriptHash": "074c0f0749b3575468b93c5e0f7f537d"
   }
 ]

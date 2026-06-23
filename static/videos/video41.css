@@ -327,8 +327,9 @@
 
 .v41-status-inner {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
+    gap: 16px;
     width: 100%;
 }
 
@@ -337,6 +338,14 @@
     font-size: 16.5px !important;
     font-weight: 700;
     letter-spacing: -0.2px;
+    flex: 1;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.v41-packet-core.red {
+    border-color: var(--tls-red) !important;
+    box-shadow: 0 0 18px var(--tls-red-glow) !important;
 }
 
 .v41-status-text.text-cyan { color: var(--tls-cyan); }

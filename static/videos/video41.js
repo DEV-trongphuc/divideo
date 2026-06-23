@@ -59,6 +59,24 @@
         };
     }
 
+    // Helper: Get offset position of an edge inside a zoom container
+    function getEdgeOffset(el, container, edge) {
+        if (!el || !container) return { x: 0, y: 0 };
+        const rect = el.getBoundingClientRect();
+        const contRect = container.getBoundingClientRect();
+        const zoom = container.offsetWidth > 0 ? (contRect.width / container.offsetWidth) : 1.45;
+        let x = rect.left - contRect.left;
+        if (edge === 'right') {
+            x += rect.width;
+        } else if (edge === 'center') {
+            x += rect.width / 2;
+        }
+        return {
+            x: x / zoom,
+            y: (rect.top - contRect.top + rect.height / 2) / zoom
+        };
+    }
+
     // Helper: Draw curved cubic bezier paths between nodes
     function drawSVGPath(canvas, pathId, startNode, endNode, container, strokeColor) {
         const path = canvas.querySelector(pathId);
@@ -462,23 +480,32 @@
             const server = canvas.querySelector('#v41-p1b-server');
             const hackerNode = canvas.querySelector('#v41-p1b-hacker');
 
-            if (canvas.getAttribute('data-paths-drawn') !== 'true') {
-                drawSVGPath(canvas, '#v41-p1b-path-flow', browser, server, container, 'rgba(255,255,255,0.15)');
-                drawSVGPath(canvas, '#v41-p1b-path-sniff', hackerNode, browser, container, 'var(--tls-red)');
-                const pathSniff = canvas.querySelector('#v41-p1b-path-sniff');
-                if (pathSniff) {
-                    const start = getCenterOffset(hackerNode, container);
-                    const bOffset = getCenterOffset(browser, container);
-                    const sOffset = getCenterOffset(server, container);
-                    const midX = (bOffset.x + sOffset.x) / 2;
-                    const midY = (bOffset.y + sOffset.y) / 2;
-                    pathSniff.setAttribute('d', `M ${start.x} ${start.y} L ${midX} ${midY}`);
-                }
-                canvas.setAttribute('data-paths-drawn', 'true');
-            }
-
             const offC = getCenterOffset(browser, container);
             const offS = getCenterOffset(server, container);
+            const offH = getCenterOffset(hackerNode, container);
+
+            // Edge-to-edge path positions to prevent text overlapping
+            const startPt = getEdgeOffset(browser, container, 'right');
+            const endPt = getEdgeOffset(server, container, 'left');
+            const midPt = { x: (startPt.x + endPt.x) / 2, y: (startPt.y + endPt.y) / 2 };
+
+            // Draw SVG paths dynamically on every frame to avoid CSS transition delay issues
+            const pathFlow = canvas.querySelector('#v41-p1b-path-flow');
+            if (pathFlow) {
+                pathFlow.setAttribute('d', `M ${startPt.x} ${startPt.y} L ${endPt.x} ${endPt.y}`);
+                pathFlow.setAttribute('stroke', 'rgba(255,255,255,0.15)');
+                pathFlow.setAttribute('stroke-width', '2.5');
+                pathFlow.setAttribute('fill', 'none');
+            }
+
+            const pathSniff = canvas.querySelector('#v41-p1b-path-sniff');
+            if (pathSniff) {
+                pathSniff.setAttribute('d', `M ${offH.x} ${offH.y + 82} L ${midPt.x} ${midPt.y}`);
+                pathSniff.setAttribute('stroke', 'var(--tls-red)');
+                pathSniff.setAttribute('stroke-width', '2.5');
+                pathSniff.setAttribute('stroke-dasharray', '4 4');
+                pathSniff.setAttribute('fill', 'none');
+            }
 
             if (progress < 0.5) {
                 // HTTP Mode
@@ -487,8 +514,8 @@
                 if (urlText) safeSetText(urlText, 'http://bank.com');
                 if (hacker) hacker.classList.add('active-glow');
                 
-                safeSetHTML(browserBody, '<div class="v41-status-label-big red" style="border-color:var(--tls-red); color:var(--tls-red); background:rgba(239,68,68,0.08);">Gửi HTTP Request 🔓</div>');
-                safeSetHTML(serverBody, '<div class="v41-status-label-big purple">Đang nhận dữ liệu...</div>');
+                safeSetHTML(browserBody, '<div class="v41-status-label-big red" style="border-color:var(--tls-red); color:var(--tls-red); background:rgba(239,68,68,0.08); width:100%;"><i data-lucide="unlock" style="width:16px;height:16px;margin-right:6px;"></i>Gửi HTTP Request</div>');
+                safeSetHTML(serverBody, '<div class="v41-status-label-big purple" style="width:100%;"><i data-lucide="help-circle" style="width:16px;height:16px;margin-right:6px;"></i>Đang nhận...</div>');
                 
                 if (statusTag) {
                     statusTag.style.borderColor = 'var(--tls-red)';
@@ -497,7 +524,12 @@
                     statusTag.innerHTML = '<i data-lucide="unlock" style="width:18px;height:18px;"></i> HTTP (Chữ Trần)';
                 }
                 
-                placePacket(pkt, offC, offS, t);
+                if (t > 0.9) {
+                    hidePacket(pkt);
+                } else {
+                    placePacket(pkt, startPt, endPt, t);
+                }
+
                 if (pktCore) {
                     pktCore.className = 'v41-packet-core red';
                     safeSetText(pktCore, '🔓');
@@ -529,8 +561,8 @@
                 if (urlText) safeSetText(urlText, 'https://bank.com');
                 if (hacker) hacker.classList.remove('active-glow');
 
-                safeSetHTML(browserBody, '<div class="v41-status-label-big green">Gửi HTTPS Request 🔒</div>');
-                safeSetHTML(serverBody, '<div class="v41-status-label-big green">Nhận & Giải mã AES 🔑</div>');
+                safeSetHTML(browserBody, '<div class="v41-status-label-big green" style="width:100%;"><i data-lucide="lock" style="width:16px;height:16px;margin-right:6px;"></i>Gửi HTTPS Request</div>');
+                safeSetHTML(serverBody, '<div class="v41-status-label-big green" style="width:100%;"><i data-lucide="key" style="width:16px;height:16px;margin-right:6px;"></i>Nhận & Giải mã AES</div>');
                 
                 if (statusTag) {
                     statusTag.style.borderColor = 'var(--tls-green)';
@@ -539,7 +571,12 @@
                     statusTag.innerHTML = '<i data-lucide="lock" style="width:18px;height:18px;"></i> HTTPS (Mã Hóa)';
                 }
 
-                placePacket(pkt, offC, offS, t);
+                if (t > 0.9) {
+                    hidePacket(pkt);
+                } else {
+                    placePacket(pkt, startPt, endPt, t);
+                }
+
                 if (pktCore) {
                     pktCore.className = 'v41-packet-core cyan';
                     safeSetText(pktCore, '🔒');
@@ -596,11 +633,8 @@
             const browser = canvas.querySelector('#v41-p2-browser');
             const server = canvas.querySelector('#v41-p2-server');
 
-            if (canvas.getAttribute('data-paths-drawn') !== 'true') {
-                drawSVGPath(canvas, '#v41-p2-path-client', browser, server, container, 'var(--tls-cyan)');
-                drawSVGPath(canvas, '#v41-p2-path-server', server, browser, container, 'var(--tls-purple)');
-                canvas.setAttribute('data-paths-drawn', 'true');
-            }
+            drawSVGPath(canvas, '#v41-p2-path-client', browser, server, container, 'var(--tls-cyan)');
+            drawSVGPath(canvas, '#v41-p2-path-server', server, browser, container, 'var(--tls-purple)');
 
             const offC = getCenterOffset(browser, container);
             const offS = getCenterOffset(server, container);
@@ -660,11 +694,8 @@
             const browser = canvas.querySelector('#v41-p3-browser');
             const ca = canvas.querySelector('#v41-p3-ca');
 
-            if (canvas.getAttribute('data-paths-drawn') !== 'true') {
-                drawSVGPath(canvas, '#v41-p3-path-verify', browser, ca, container, 'var(--tls-yellow)');
-                drawSVGPath(canvas, '#v41-p3-path-reply', ca, browser, container, 'var(--tls-cyan)');
-                canvas.setAttribute('data-paths-drawn', 'true');
-            }
+            drawSVGPath(canvas, '#v41-p3-path-verify', browser, ca, container, 'var(--tls-yellow)');
+            drawSVGPath(canvas, '#v41-p3-path-reply', ca, browser, container, 'var(--tls-cyan)');
 
             const offC = getCenterOffset(browser, container);
             const offCA = getCenterOffset(ca, container);
@@ -730,10 +761,7 @@
             const browser = canvas.querySelector('#v41-p4-browser');
             const server = canvas.querySelector('#v41-p4-server');
 
-            if (canvas.getAttribute('data-paths-drawn') !== 'true') {
-                drawSVGPath(canvas, '#v41-p4-path-send', browser, server, container, 'var(--tls-yellow)');
-                canvas.setAttribute('data-paths-drawn', 'true');
-            }
+            drawSVGPath(canvas, '#v41-p4-path-send', browser, server, container, 'var(--tls-yellow)');
 
             const offC = getCenterOffset(browser, container);
             const offS = getCenterOffset(server, container);
@@ -772,10 +800,7 @@
             const browser = canvas.querySelector('#v41-p5-browser');
             const server = canvas.querySelector('#v41-p5-server');
 
-            if (canvas.getAttribute('data-paths-drawn') !== 'true') {
-                drawSVGPath(canvas, '#v41-p5-path-flow', browser, server, container, 'var(--tls-green)');
-                canvas.setAttribute('data-paths-drawn', 'true');
-            }
+            drawSVGPath(canvas, '#v41-p5-path-flow', browser, server, container, 'var(--tls-green)');
 
             const offC = getCenterOffset(browser, container);
             const offS = getCenterOffset(server, container);
