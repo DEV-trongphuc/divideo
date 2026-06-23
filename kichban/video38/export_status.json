@@ -1,7 +1,6 @@
 {
-  "status": "processing",
-  "progress": 7,
+  "status": "idle",
+  "progress": 0,
   "error": null,
-  "filepath": null,
-  "message": "Đang vẽ hình: Slide 1/7 (59/231 frames)"
+  "filepath": null
 }

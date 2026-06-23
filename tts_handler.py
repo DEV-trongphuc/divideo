@@ -246,6 +246,12 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
                 
                 # Write to output file using model's sample rate (default 16000 or 48000)
                 sample_rate = getattr(voxcpm_model.tts_model, "sample_rate", 16000)
+                
+                # Tăng/Chuẩn hóa âm lượng tự động (Peak Normalization về mức 95% âm lượng tối đa)
+                max_val = np.max(np.abs(audio_array))
+                if max_val > 0:
+                    audio_array = audio_array / max_val * 0.95
+                
                 sf.write(output_path, audio_array, sample_rate)
                 return True
             except Exception as e:

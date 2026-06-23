@@ -33,21 +33,20 @@ def rotate_half(x):
 
 
 def apply_rotary_pos_emb(q: torch.Tensor, k: torch.Tensor, cos: torch.Tensor, sin: torch.Tensor):
-    """
-    Args:
-        q: Tensor(batch_size, num_heads, seq_len, head_dim)
-        k: Tensor(batch_size, num_key_value_heads, seq_len, head_dim)
-        cos: Tensor(seq_len, head_dim)
-        sin: Tensor(seq_len, head_dim)
-    Returns:
-        Tensor(batch_size, num_heads, seq_len, head_dim), Tensor(batch_size, num_key_value_heads, seq_len, head_dim)
-    """
     orig_dtype = q.dtype
     q = q.to(torch.float32)
     k = k.to(torch.float32)
     q_embed = (q * cos) + (rotate_half(q) * sin)
     k_embed = (k * cos) + (rotate_half(k) * sin)
     return q_embed.to(orig_dtype), k_embed.to(orig_dtype)
+
+
+def repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:
+    bs, num_key_value_heads, seqlen, head_dim = hidden_states.shape
+    if n_rep == 1:
+        return hidden_states
+    hidden_states = hidden_states[:, :, None, :, :].expand(bs, num_key_value_heads, n_rep, seqlen, head_dim)
+    return hidden_states.reshape(bs, num_key_value_heads * n_rep, seqlen, head_dim)
 
 
 class MiniCPMLongRoPE(nn.Module):
@@ -149,17 +148,22 @@ class MiniCPMAttention(nn.Module):
             cos, sin = position_emb
             query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)
 
+        k_play = key_states
+        v_play = value_states
+        if self.num_key_value_groups > 1:
+            k_play = repeat_kv(k_play, self.num_key_value_groups)
+            v_play = repeat_kv(v_play, self.num_key_value_groups)
+
         # ref: https://github.com/pytorch/pytorch/issues/163597
         # there is a bug in MPS for non-contiguous tensors, so we need to make them contiguous
         query_states = query_states.contiguous()
-        key_states = key_states.contiguous()
-        value_states = value_states.contiguous()
+        k_play = k_play.contiguous()
+        v_play = v_play.contiguous()
         attn_output = torch.nn.functional.scaled_dot_product_attention(
             query_states,
-            key_states,
-            value_states,
+            k_play,
+            v_play,
             is_causal=is_causal,
-            enable_gqa=True,
         )
 
         attn_output = attn_output.transpose(1, 2).contiguous()
@@ -205,12 +209,18 @@ class MiniCPMAttention(nn.Module):
         query_states = query_states.contiguous()
         key_cache = key_cache.contiguous()
         value_cache = value_cache.contiguous()
+
+        k_play = key_cache
+        v_play = value_cache
+        if self.num_key_value_groups > 1:
+            k_play = repeat_kv(k_play, self.num_key_value_groups)
+            v_play = repeat_kv(v_play, self.num_key_value_groups)
+
         attn_output = torch.nn.functional.scaled_dot_product_attention(
             query_states,
-            key_cache,
-            value_cache,
+            k_play,
+            v_play,
             attn_mask=attn_mask,
-            enable_gqa=True,
         )
 
         attn_output = attn_output.transpose(1, 2).contiguous()
