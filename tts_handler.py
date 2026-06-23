@@ -35,7 +35,8 @@ def init_voxcpm(checkpoint_dir="./checkpoints/VoxCPM"):
     try:
         print(f"[+] Initializing VoxCPM from {checkpoint_dir}...", file=sys.stderr)
         # Note: optimize=False by default to avoid long torch.compile delays on startup
-        voxcpm_model = VoxCPM(voxcpm_model_path=checkpoint_dir, enable_denoiser=False, optimize=False)
+        device_override = os.environ.get("VOXCPM_DEVICE") or None
+        voxcpm_model = VoxCPM(voxcpm_model_path=checkpoint_dir, enable_denoiser=False, optimize=False, device=device_override)
         print("[+] VoxCPM loaded successfully!", file=sys.stderr)
         return True
     except Exception as e:

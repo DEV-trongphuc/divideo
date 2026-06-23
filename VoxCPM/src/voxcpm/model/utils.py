@@ -143,6 +143,14 @@ def _has_mps() -> bool:
     return hasattr(torch.backends, "mps") and torch.backends.mps.is_available()
 
 
+def _has_dml() -> bool:
+    try:
+        import torch_directml
+        return torch_directml.is_available()
+    except ImportError:
+        return False
+
+
 def pick_runtime_dtype(device: str, configured_dtype: str) -> str:
     """Pick a safe runtime dtype for the resolved device.
 
@@ -165,6 +173,12 @@ def pick_runtime_dtype(device: str, configured_dtype: str) -> str:
                 )
             return override
         # Coerce bfloat16/float16 to float32 on CPU to prevent native PyTorch crashes under Windows
+        if (configured_dtype or "").lower() in _LOW_PRECISION_DTYPES:
+            return "float32"
+        return configured_dtype
+
+    if device == "privateuseone:0":
+        # Coerce to float32 for DirectML stability
         if (configured_dtype or "").lower() in _LOW_PRECISION_DTYPES:
             return "float32"
         return configured_dtype
@@ -192,7 +206,7 @@ def auto_select_device(preferred_device: Optional[str] = "cuda") -> str:
 
     Preference order:
     - if the preferred device is available, use it
-    - otherwise fall back to CUDA -> MPS -> CPU
+    - otherwise fall back to CUDA -> MPS -> DML -> CPU
     """
     preferred = (preferred_device or "cuda").strip().lower()
 
@@ -200,6 +214,8 @@ def auto_select_device(preferred_device: Optional[str] = "cuda") -> str:
         return preferred
     if preferred == "mps" and _has_mps():
         return "mps"
+    if (preferred == "dml" or preferred == "directml") and _has_dml():
+        return "privateuseone:0"
     if preferred == "cpu":
         return "cpu"
 
@@ -207,6 +223,8 @@ def auto_select_device(preferred_device: Optional[str] = "cuda") -> str:
         return "cuda"
     if _has_mps():
         return "mps"
+    if _has_dml():
+        return "privateuseone:0"
     return "cpu"
 
 
@@ -237,10 +255,17 @@ def resolve_runtime_device(device: Optional[str], configured_device: str = "cuda
                 "Use device='auto' for automatic fallback."
             )
         return "mps"
+    if explicit == "dml" or explicit == "directml" or explicit.startswith("privateuseone"):
+        if not _has_dml():
+            raise ValueError(
+                f"Requested device '{device}', but torch-directml is not installed. "
+                "Run 'pip install torch-directml' to enable it."
+            )
+        return "privateuseone:0"
     if explicit == "cpu":
         return "cpu"
 
     raise ValueError(
-        f"Unsupported device '{device}'. Supported values are 'auto', 'cpu', 'mps', "
+        f"Unsupported device '{device}'. Supported values are 'auto', 'cpu', 'mps', 'dml', "
         "'cuda', or indexed CUDA devices like 'cuda:0'."
     )

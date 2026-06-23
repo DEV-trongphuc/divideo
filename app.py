@@ -598,6 +598,83 @@ def save_video():
             pass
         return jsonify({"success": True, "filepath": f"/kichban/{script_name}/mp4/video.mp4", "warning": str(e)})
 
+@app.route("/api/export-video", methods=["POST"])
+def export_video_backend():
+    data = request.json or {}
+    script_name = sanitize_script_name(data.get("script", "video1"))
+    
+    # We can check if an export is already running
+    status_path = os.path.join("kichban", script_name, "export_status.json")
+    if os.path.exists(status_path):
+        try:
+            with open(status_path, "r", encoding="utf-8") as f:
+                status_data = json.load(f)
+            if status_data.get("status") == "processing":
+                return jsonify({"error": "Tiến trình xuất video đang chạy. Vui lòng chờ..."}), 400
+        except Exception:
+            pass
+            
+    # Start the export in a background thread
+    def run_export():
+        os.makedirs(os.path.dirname(status_path), exist_ok=True)
+        with open(status_path, "w", encoding="utf-8") as f:
+            json.dump({
+                "status": "processing",
+                "progress": 0,
+                "error": None,
+                "filepath": None,
+                "message": "Đang khởi động..."
+            }, f, ensure_ascii=False, indent=2)
+            
+        try:
+            import subprocess
+            python_exe = sys.executable
+            cmd = [python_exe, "export_video_headless.py", script_name]
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            if result.returncode != 0:
+                print(f"[-] Headless export failed: {result.stderr}", file=sys.stderr)
+                with open(status_path, "w", encoding="utf-8") as f:
+                    json.dump({
+                        "status": "failed",
+                        "progress": 0,
+                        "error": result.stderr or "Lỗi xảy ra trong script xuất video.",
+                        "filepath": None
+                    }, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            print(f"[-] Headless export exception: {e}", file=sys.stderr)
+            with open(status_path, "w", encoding="utf-8") as f:
+                json.dump({
+                    "status": "failed",
+                    "progress": 0,
+                    "error": str(e),
+                    "filepath": None
+                }, f, ensure_ascii=False, indent=2)
+                
+    threading.Thread(target=run_export, daemon=True).start()
+    return jsonify({"success": True, "message": "Tiến trình xuất video chất lượng cao đã bắt đầu ở chế độ nền."})
+
+@app.route("/api/export-status", methods=["GET"])
+def export_status_backend():
+    script_name = sanitize_script_name(request.args.get("script", "video1"))
+    status_path = os.path.join("kichban", script_name, "export_status.json")
+    if not os.path.exists(status_path):
+        return jsonify({
+            "status": "idle",
+            "progress": 0,
+            "error": None,
+            "filepath": None
+        })
+    try:
+        with open(status_path, "r", encoding="utf-8") as f:
+            return jsonify(json.load(f))
+    except Exception as e:
+        return jsonify({
+            "status": "failed",
+            "progress": 0,
+            "error": f"Lỗi đọc trạng thái: {str(e)}",
+            "filepath": None
+        }), 500
+
 # Download VoxCPM model weights background orchestrator
 def download_weights_thread():
     global VOXCPM_DOWNLOAD_STATUS

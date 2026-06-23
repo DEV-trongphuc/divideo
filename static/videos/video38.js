@@ -250,7 +250,7 @@
                         <div style="display:flex; justify-content:space-between; width:100%; max-width:820px; gap:24px; position:relative; height:440px; box-sizing:border-box;">
                             
                             <!-- Moving Video element (initial position centered horizontally at left Hot Storage drive) -->
-                            <div class="moving-video-card glass-card" style="position:absolute; width:130px; padding:10px; border-radius:14px; border:2px solid var(--tiktok-cyan); background:rgba(0,0,0,0.92); box-shadow:0 8px 30px rgba(0,242,254,0.35); z-index:100; text-align:center; left:16.5%; top:210px; transform:translate(-50%, -50%); transition: all 0.3s; box-sizing:border-box;">
+                            <div class="moving-video-card glass-card" style="position:absolute; width:130px; padding:10px; border-radius:14px; border:2px solid var(--tiktok-cyan); background:rgba(0,0,0,0.92); box-shadow:0 8px 30px rgba(0,242,254,0.35); z-index:100; text-align:center; left:16.5%; top:185px; transform:translate(-50%, -50%); transition: all 0.3s; box-sizing:border-box;">
                                 <span style="font-size:36px; display:block; margin-bottom:4px;">🎥</span>
                                 <div style="font-size:13px; font-weight:bold; color:#fff;" class="moving-video-title">Video của bạn</div>
                                 <div style="font-size:11px; color:rgba(255,255,255,0.5); font-family:monospace; margin-top:2px;" class="moving-video-views">10M views</div>
@@ -306,25 +306,7 @@
                     <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:flex-start; align-items:center; gap:20px; zoom:1.15; padding-top:55px;">
                         <div style="display:flex; flex-direction:column; width:100%; max-width:820px; gap:25px; align-items:center; box-sizing:border-box;">
                             
-                            <!-- Top: Raw Video upload (horizontal style) -->
-                            <div class="glass-card raw-video-card" style="width:680px; height:90px; border-radius:18px; border:2px solid rgba(255,255,255,0.08); padding:12px 24px; display:flex; align-items:center; gap:20px; background:#08080a; transition:all 0.3s; position:relative; box-sizing:border-box;">
-                                <span style="font-size:42px;">📥</span>
-                                <div style="text-align:left;">
-                                    <div style="font-size:16px; font-weight:bold; color:#fff;">Video Gốc (Raw Input)</div>
-                                    <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:2px; font-family:monospace;">1080p (50MB)</div>
-                                </div>
-                            </div>
-
-                            <!-- Middle: Transcode Engine (horizontal style) -->
-                            <div class="glass-card transcode-engine" style="width:680px; height:95px; border-radius:18px; border:2.5px solid var(--tiktok-cyan); padding:12px 24px; display:flex; align-items:center; gap:20px; background:#08080a; position:relative; box-shadow:0 0 20px rgba(0,242,254,0.1); box-sizing:border-box;">
-                                <i data-lucide="settings" style="width:46px; height:46px; color:var(--tiktok-cyan);" class="spinning-gear"></i>
-                                <div style="text-align:left; flex:1;">
-                                    <div style="font-size:18px; font-weight:bold; color:var(--tiktok-cyan); text-transform:uppercase; letter-spacing:0.5px;">Transcoder</div>
-                                    <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:2px; font-family:monospace;" class="transcode-engine-status">Đang đợi file...</div>
-                                </div>
-                            </div>
-
-                            <!-- Bottom: Transcoded Output List (vertical stack) -->
+                            <!-- Top: Transcoded Output List (vertical stack) -->
                             <div style="width:680px; display:flex; flex-direction:column; gap:16px; box-sizing:border-box;">
                                 
                                 <!-- Step 1: 1080p -->
@@ -354,6 +336,24 @@
                                     <span style="font-size:16px;" class="transcode-status-t3">⏳</span>
                                 </div>
 
+                            </div>
+
+                            <!-- Middle: Transcode Engine (horizontal style) -->
+                            <div class="glass-card transcode-engine" style="width:680px; height:95px; border-radius:18px; border:2.5px solid var(--tiktok-cyan); padding:12px 24px; display:flex; align-items:center; gap:20px; background:#08080a; position:relative; box-shadow:0 0 20px rgba(0,242,254,0.1); box-sizing:border-box;">
+                                <i data-lucide="settings" style="width:46px; height:46px; color:var(--tiktok-cyan);" class="spinning-gear"></i>
+                                <div style="text-align:left; flex:1;">
+                                    <div style="font-size:18px; font-weight:bold; color:var(--tiktok-cyan); text-transform:uppercase; letter-spacing:0.5px;">Transcoder</div>
+                                    <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:2px; font-family:monospace;" class="transcode-engine-status">Đang đợi file...</div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom: Raw Video upload (horizontal style) -->
+                            <div class="glass-card raw-video-card" style="width:680px; height:90px; border-radius:18px; border:2px solid rgba(255,255,255,0.08); padding:12px 24px; display:flex; align-items:center; gap:20px; background:#08080a; transition:all 0.3s; position:relative; box-sizing:border-box;">
+                                <span style="font-size:42px;">📥</span>
+                                <div style="text-align:left;">
+                                    <div style="font-size:16px; font-weight:bold; color:#fff;">Video Gốc (Raw Input)</div>
+                                    <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:2px; font-family:monospace;">1080p (50MB)</div>
+                                </div>
                             </div>
 
                         </div>
@@ -570,7 +570,7 @@
             
             if (progress < 0.3) {
                 // Hot storage active
-                if (vCard) { vCard.style.left = '16.5%'; vCard.style.top = '210px'; vCard.style.borderColor = 'var(--tiktok-magenta)'; }
+                if (vCard) { vCard.style.left = '16.5%'; vCard.style.top = '185px'; vCard.style.borderColor = 'var(--tiktok-magenta)'; }
                 if (vViews) vViews.textContent = '10M views/hr';
                 if (vTitle) vTitle.textContent = '🔥 Video Viral';
                 if (hotCard) hotCard.classList.add('active');
@@ -581,7 +581,7 @@
                 // Move to Warm storage
                 const ratio = (progress - 0.3) / 0.35; // 0 to 1
                 const currentX = 16.5 + (50 - 16.5) * ratio;
-                if (vCard) { vCard.style.left = `${currentX}%`; vCard.style.top = '210px'; vCard.style.borderColor = '#f59e0b'; }
+                if (vCard) { vCard.style.left = `${currentX}%`; vCard.style.top = '185px'; vCard.style.borderColor = '#f59e0b'; }
                 if (vViews) vViews.textContent = '100 views/day';
                 if (vTitle) vTitle.textContent = '📂 Video Cũ';
                 if (hotCard) hotCard.classList.remove('active');
@@ -592,7 +592,7 @@
                 // Move to Cold storage
                 const ratio = (progress - 0.65) / 0.35; // 0 to 1
                 const currentX = 50 + (83.5 - 50) * ratio;
-                if (vCard) { vCard.style.left = `${currentX}%`; vCard.style.top = '210px'; vCard.style.borderColor = '#3b82f6'; }
+                if (vCard) { vCard.style.left = `${currentX}%`; vCard.style.top = '185px'; vCard.style.borderColor = '#3b82f6'; }
                 if (vViews) vViews.textContent = '0 views/year';
                 if (vTitle) vTitle.textContent = '❄️ Đóng Băng';
                 if (hotCard) hotCard.classList.remove('active');
@@ -623,7 +623,7 @@
             if (progress < 0.3) {
                 const ratio = progress / 0.3;
                 if (rawCard) {
-                    rawCard.style.transform = `translateY(${(ratio - 1) * 200}px)`;
+                    rawCard.style.transform = `translateY(${(1 - ratio) * 200}px)`;
                     rawCard.style.opacity = ratio.toString();
                 }
                 if (engineStatus) engineStatus.textContent = 'Đang nạp file...';
@@ -644,26 +644,26 @@
                 if (gear) gear.style.animationPlayState = 'running';
                 
                 if (progress >= 0.3 && progress < 0.5) {
-                    if (engineStatus) engineStatus.textContent = 'Đang render 1080p...';
-                    if (t1) t1.classList.add('active');
-                    if (status1) status1.textContent = '⚡ Đã xong';
+                    if (engineStatus) engineStatus.textContent = 'Đang render 480p...';
+                    if (t3) t3.classList.add('active');
+                    if (status3) status3.textContent = '⚡ Đã xong';
                 }
                 else if (progress >= 0.5 && progress < 0.75) {
                     if (engineStatus) engineStatus.textContent = 'Đang render 720p...';
-                    if (t1) t1.classList.add('active');
+                    if (t3) t3.classList.add('active');
                     if (t2) t2.classList.add('active');
-                    if (status1) status1.textContent = '⚡ Đã xong';
+                    if (status3) status3.textContent = '⚡ Đã xong';
                     if (status2) status2.textContent = '⚡ Đã xong';
                 }
                 else {
                     // progress >= 0.75
                     if (engineStatus) engineStatus.textContent = 'Hoàn tất transcoding!';
-                    if (t1) t1.classList.add('active');
-                    if (t2) t2.classList.add('active');
                     if (t3) t3.classList.add('active');
-                    if (status1) status1.textContent = '⚡ Đã xong';
-                    if (status2) status2.textContent = '⚡ Đã xong';
+                    if (t2) t2.classList.add('active');
+                    if (t1) t1.classList.add('active');
                     if (status3) status3.textContent = '⚡ Đã xong';
+                    if (status2) status2.textContent = '⚡ Đã xong';
+                    if (status1) status1.textContent = '⚡ Đã xong';
                 }
             }
         }

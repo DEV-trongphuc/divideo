@@ -6,7 +6,12 @@ let undoStack = [];
 let redoStack = [];
 const MAX_HISTORY = 100;
 let currentSlideIndex = 0;
-let currentScript = localStorage.getItem('currentScript') || 'video17';
+const urlParams = new URLSearchParams(window.location.search);
+const scriptParam = urlParams.get('script');
+let currentScript = scriptParam || localStorage.getItem('currentScript') || 'video17';
+if (scriptParam) {
+    localStorage.setItem('currentScript', scriptParam);
+}
 let isPlaying = false;
 let playbackTimer = null;
 let silentTimeout = null;
@@ -241,8 +246,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     await fetchSlides();
     await fetchVoices();
     checkVoxCPMStatus();
+    checkActiveExportStatus();
     // Poll VoxCPM status every 5 seconds
     setInterval(checkVoxCPMStatus, 5000);
+    // Poll active export status every 4 seconds
+    setInterval(checkActiveExportStatus, 4000);
     // 3. Bind Event Listeners
     setupEventListeners();
     // 4. Build Custom Visualizer Bars
@@ -740,6 +748,11 @@ function setupEventListeners() {
     });
     // Export video button
     document.getElementById('record-video-btn').addEventListener('click', startVideoExport);
+    // Headless MP4 Export button
+    const exportMp4Btn = document.getElementById('export-mp4-btn');
+    if (exportMp4Btn) {
+        exportMp4Btn.addEventListener('click', startHeadlessMp4Export);
+    }
     // View Video button
     const viewVideoBtn = document.getElementById('view-video-btn');
     if (viewVideoBtn) {
@@ -4415,6 +4428,125 @@ function animateVisualizer() {
         bar.style.height = `${nextH}px`;
     });
 }
+let activeExportPollInterval = null;
+async function checkActiveExportStatus() {
+    try {
+        const response = await fetch(`${API_BASE}/api/export-status?script=${currentScript}`);
+        const data = await response.json();
+        
+        const statusBox = document.getElementById('export-status-box');
+        const progressFill = document.getElementById('export-progress');
+        const progressText = document.getElementById('export-progress-text');
+        
+        if (data.status === 'processing') {
+            // Background export is running! Show the UI progress dialog
+            statusBox.classList.add('is-exporting-status');
+            statusBox.style.display = 'flex';
+            
+            const statusHeader = statusBox.querySelector('h4');
+            const statusDesc = statusBox.querySelector('p');
+            if (statusHeader) statusHeader.textContent = 'Đang xuất video chất lượng cao...';
+            if (statusDesc) statusDesc.textContent = 'Hệ thống đang render từng khung hình và ghép âm thanh trên máy chủ. Bạn có thể đóng tab hoặc chỉnh sửa thoải mái.';
+            
+            const pct = data.progress || 0;
+            progressFill.style.width = `${pct}%`;
+            progressText.textContent = data.message || `Đang chạy: ${pct}%`;
+            
+            // Start faster polling if not already active
+            if (!activeExportPollInterval) {
+                activeExportPollInterval = setInterval(checkActiveExportStatus, 1000);
+            }
+        } else {
+            // Export is not running. If we were polling faster, clear it
+            if (activeExportPollInterval) {
+                clearInterval(activeExportPollInterval);
+                activeExportPollInterval = null;
+            }
+            
+            // Only auto-hide and alert if the box is currently displaying our background exporter
+            const statusHeader = statusBox.querySelector('h4');
+            if (statusBox.style.display === 'flex' && statusHeader && statusHeader.textContent === 'Đang xuất video chất lượng cao...') {
+                if (data.status === 'completed') {
+                    progressFill.style.width = '100%';
+                    progressText.textContent = 'Hoàn thành 100%!';
+                    setTimeout(() => {
+                        statusBox.style.display = 'none';
+                        statusBox.classList.remove('is-exporting-status');
+                        // Restore defaults
+                        statusHeader.textContent = 'Đang ghi hình video 9:16...';
+                        const statusDesc = statusBox.querySelector('p');
+                        if (statusDesc) statusDesc.textContent = 'Hệ thống đang chạy qua các slide và thu âm âm thanh thực tế. Vui lòng không đóng tab.';
+                        
+                        alert('Xuất video MP4 chất lượng cao thành công! (kichban/' + currentScript + '/mp4/video.mp4)');
+                        window.open(`${API_BASE}/kichban/${currentScript}/mp4/video.mp4`, '_blank');
+                    }, 500);
+                } else if (data.status === 'failed') {
+                    statusBox.style.display = 'none';
+                    statusBox.classList.remove('is-exporting-status');
+                    // Restore defaults
+                    statusHeader.textContent = 'Đang ghi hình video 9:16...';
+                    const statusDesc = statusBox.querySelector('p');
+                    if (statusDesc) statusDesc.textContent = 'Hệ thống đang chạy qua các slide và thu âm âm thanh thực tế. Vui lòng không đóng tab.';
+                    
+                    alert('Lỗi xuất video: ' + (data.error || 'Lỗi không rõ nguồn gốc.'));
+                }
+            }
+        }
+    } catch (err) {
+        console.error("Error checking background export status:", err);
+    }
+}
+
+// Programmatic Headless Backend MP4 Export
+async function startHeadlessMp4Export() {
+    if (slides.length === 0) return;
+    if (isPlaying) stopPlayback();
+    const isMissingAudio = slides.some(s => !s.audioPath);
+    if (isMissingAudio) {
+        if (!confirm('Một số slide chưa được tạo giọng nói. Bản xuất video sẽ bị im lặng ở các slide này. Bạn có muốn tiếp tục?')) {
+            return;
+        }
+    }
+    
+    const statusBox = document.getElementById('export-status-box');
+    const progressFill = document.getElementById('export-progress');
+    const progressText = document.getElementById('export-progress-text');
+    const statusHeader = statusBox.querySelector('h4');
+    const statusDesc = statusBox.querySelector('p');
+    
+    // Show progress overlay
+    statusBox.classList.add('is-exporting-status');
+    statusBox.style.display = 'flex';
+    if (statusHeader) statusHeader.textContent = 'Đang xuất video chất lượng cao...';
+    if (statusDesc) statusDesc.textContent = 'Hệ thống đang render từng khung hình và ghép âm thanh trên máy chủ. Bạn có thể đóng tab hoặc chỉnh sửa thoải mái.';
+    progressFill.style.width = '0%';
+    progressText.textContent = 'Đang chuẩn bị khởi động...';
+    
+    try {
+        // Trigger server background task
+        const response = await fetch(`${API_BASE}/api/export-video`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ script: currentScript })
+        });
+        const data = await response.json();
+        
+        if (!response.ok || !data.success) {
+            throw new Error(data.error || 'Không thể bắt đầu xuất video.');
+        }
+        
+        // Immediately trigger checkActiveExportStatus to handle polling
+        checkActiveExportStatus();
+        
+    } catch (error) {
+        statusBox.style.display = 'none';
+        statusBox.classList.remove('is-exporting-status');
+        if (statusHeader) statusHeader.textContent = 'Đang ghi hình video 9:16...';
+        if (statusDesc) statusDesc.textContent = 'Hệ thống đang chạy qua các slide và thu âm âm thanh thực tế. Vui lòng không đóng tab.';
+        alert('Lỗi khi kích hoạt tiến trình xuất video: ' + error.message);
+    }
+}
+
 // Widescreen HTML5 Canvas + WebAudio Recording & Export
 async function startVideoExport() {
     if (slides.length === 0) return;
@@ -4821,16 +4953,17 @@ function loadVideoScript(scriptName) {
     window.VideoPlugin = null;
     if (!scriptName) return;
     const basePath = `${API_BASE}/static/videos/${scriptName}`;
+    const cacheBuster = `?t=${Date.now()}`;
     // Load CSS first
     const link = document.createElement('link');
     link.id = 'video-plugin-css';
     link.rel = 'stylesheet';
-    link.href = `${basePath}.css`;
+    link.href = `${basePath}.css${cacheBuster}`;
     document.head.appendChild(link);
     // Load JS
     const script = document.createElement('script');
     script.id = 'video-plugin-js';
-    script.src = `${basePath}.js`;
+    script.src = `${basePath}.js${cacheBuster}`;
     script.onload = () => {
         console.log(`[App] VideoPlugin loaded for: ${scriptName}`);
         // Re-render current slide with plugin active
@@ -4913,3 +5046,15 @@ function updateSQLFlowPaths() {
         );
     }
 }
+
+// Expose variables for backend headless exporter
+Object.defineProperty(window, 'slides', {
+    get: function() { return slides; }
+});
+window.getSlides = () => slides;
+window.selectSlide = selectSlide;
+window.renderCanvasPreview = renderCanvasPreview;
+window.getSlideDuration = getSlideDuration;
+window.isExportScrubbing = false;
+window.setIsPlayingForExport = (val) => { isPlaying = val; };
+
