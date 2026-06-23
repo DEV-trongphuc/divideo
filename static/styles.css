@@ -709,16 +709,15 @@ textarea.form-control {
 
 .header-topic {
     color: var(--gold-primary);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border-bottom: 1.5px dashed rgba(245, 158, 11, 0.4);
-    padding-bottom: 2px;
+    cursor: default;
+    transition: color 0.2s ease;
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 .header-topic:hover {
-    color: var(--gold-secondary);
-    text-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
-    border-bottom-color: var(--gold-secondary);
+    color: var(--gold-primary);
+    text-shadow: none;
 }
 
 /* Fullscreen mode layout overrides */

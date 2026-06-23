@@ -67,19 +67,37 @@
         return `<div class="v34-node-icon-wrap"><i data-lucide="${icon}" style="width:22px;height:22px;color:${color || '#fff'};"></i></div>`;
     }
 
+    function makeKeyboardHTML() {
+        const rows = [
+            ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+            ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+            ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
+        ];
+        let html = '<div class="v34-keyboard">';
+        rows.forEach(row => {
+            html += '<div class="v34-keyboard-row">';
+            row.forEach(key => {
+                html += `<div class="v34-kb-key key-${key}">${key}</div>`;
+            });
+            html += '</div>';
+        });
+        html += '<div class="v34-keyboard-row space-row"><div class="v34-kb-key key-space">space</div></div>';
+        html += '</div>';
+        return html;
+    }
+
     function phoneMock(id, name, avatarClass, letter) {
         return `
         <div class="v34-phone" id="${id}">
-            <div class="v34-phone-notch"></div>
-            <div class="v34-phone-statusbar"><span>9:41</span><span>●●●</span></div>
-            <div class="v34-phone-header">
-                <div class="v34-avatar ${avatarClass}">${letter}</div>
-                <div class="v34-phone-meta">
-                    <span class="v34-phone-name">${name}</span>
-                    <span class="v34-phone-online">● online</span>
-                </div>
-            </div>
+            <div class="v34-phone-title">USER ${letter} ${name === 'Alice' ? '(Typing)' : '(Receiver)'}</div>
             <div class="v34-chat-area" id="${id}-chat"></div>
+            <div class="v34-phone-bottom">
+                <div class="v34-input-row">
+                    <div class="v34-input-display" id="${id}-input">${name === 'Alice' ? 'Xin chao...' : 'Nhap tin nhan...'}</div>
+                    <i data-lucide="${name === 'Alice' ? 'send' : 'image'}" class="v34-input-icon"></i>
+                </div>
+                ${makeKeyboardHTML()}
+            </div>
         </div>`;
     }
 
@@ -119,7 +137,7 @@
         } else {
             path.setAttribute('d', `M ${start.x} ${start.y} C ${start.x + dx * 0.4} ${start.y}, ${end.x - dx * 0.4} ${end.y}, ${end.x} ${end.y}`);
         }
-        path.setAttribute('stroke-width', '2.5');
+        path.setAttribute('stroke-width', '4');
         path.setAttribute('fill', 'none');
         path.setAttribute('stroke-dasharray', '8 6');
         path.setAttribute('class', flowClass || 'flowing');
@@ -200,7 +218,7 @@
             canvas.innerHTML = sceneWrap(`
                 <div class="v34-storm-particles" id="v34-storm"></div>
                 <svg class="v34-svg-container"><path id="v34-path-poll" class="flow-red" /></svg>
-                <div style="display:flex;justify-content:space-between;align-items:center;width:100%;position:relative;z-index:3;" id="v34-poll-container">
+                <div class="v34-network-row v34-poll-row" id="v34-poll-container">
                     <div class="v34-node active-blue" id="v34-poll-client">
                         ${nodeIcon('refresh-cw', 'var(--chat-blue)')}
                         <span>Client Poll</span>
@@ -288,31 +306,41 @@
                     <path id="v34-path-flow-a-s" class="flow-blue" />
                     <path id="v34-path-flow-s-b" class="flow-green" />
                 </svg>
-                <div style="display:flex;justify-content:space-between;align-items:center;width:100%;position:relative;z-index:3;" id="v34-flow-container">
-                    <div class="v34-phone active-send" id="v34-flow-alice" style="width:130px;height:220px;">
-                        <div class="v34-phone-notch"></div>
-                        <div class="v34-phone-header" style="padding:6px 10px;">
-                            <div class="v34-avatar blue" style="width:22px;height:22px;font-size:9px;">A</div>
-                            <span class="v34-phone-name" style="font-size:9px;">Alice</span>
+                <div class="v34-flow-stage" id="v34-flow-container">
+                    <div class="v34-phone v34-flow-phone active-send" id="v34-flow-alice">
+                        <div class="v34-phone-title">USER A (Typing)</div>
+                        <div class="v34-chat-area">
+                            <div class="v34-bubble sent visible" id="v34-flow-sent">Xin chào!</div>
                         </div>
-                        <div class="v34-chat-area"><div class="v34-bubble sent visible" id="v34-flow-sent">Xin chào!</div></div>
+                        <div class="v34-phone-bottom">
+                            <div class="v34-input-row">
+                                <div class="v34-input-display">Xin chao...</div>
+                                <i data-lucide="send" class="v34-input-icon"></i>
+                            </div>
+                            ${makeKeyboardHTML()}
+                        </div>
                     </div>
-                    <div class="v34-node active-green v34-pulse-radar" id="v34-flow-server" style="min-width:88px;">
+                    <div class="v34-node active-green v34-pulse-radar v34-flow-server" id="v34-flow-server">
                         ${nodeIcon('radio', 'var(--chat-green)')}
                         <span style="font-size:9px;">WS Server</span>
                     </div>
-                    <div class="v34-phone" id="v34-flow-bob" style="width:130px;height:220px;">
-                        <div class="v34-phone-notch"></div>
-                        <div class="v34-phone-header" style="padding:6px 10px;">
-                            <div class="v34-avatar purple" style="width:22px;height:22px;font-size:9px;">B</div>
-                            <span class="v34-phone-name" style="font-size:9px;">Bob</span>
+                    <div class="v34-phone v34-flow-phone" id="v34-flow-bob">
+                        <div class="v34-phone-title">USER B (Receiver)</div>
+                        <div class="v34-chat-area">
+                            <div class="v34-bubble recv" id="v34-flow-recv">Xin chào!</div>
                         </div>
-                        <div class="v34-chat-area"><div class="v34-bubble recv" id="v34-flow-recv">Xin chào!</div></div>
+                        <div class="v34-phone-bottom">
+                            <div class="v34-input-row">
+                                <div class="v34-input-display muted">Nhap tin nhan...</div>
+                                <i data-lucide="image" class="v34-input-icon muted"></i>
+                            </div>
+                            ${makeKeyboardHTML()}
+                        </div>
                     </div>
                 </div>
                 <div class="v34-packet-wrap" id="v34-flow-pkt1"><div class="v34-packet-core"></div><span class="v34-packet-label">{msg}</span></div>
                 <div class="v34-packet-wrap" id="v34-flow-pkt2"><div class="v34-packet-core green"></div><span class="v34-packet-label">PUSH</span></div>
-                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;">
+                <div class="v34-glass-card glow-green v34-status-card">
                     <span class="v34-status-badge green"><i data-lucide="send" style="width:12px;height:12px;"></i> Instant Push</span>
                     <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-cyan);" id="v34-flow-status">{"type":"msg","text":"Xin chào!"}</span>
                 </div>`, 'green-tint');
@@ -325,11 +353,11 @@
                     <path id="v34-path-scale-block" class="flow-red" />
                 </svg>
                 <div class="v34-scale-grid">
-                    <div class="v34-node active-gold" id="v34-scale-lb" style="width:100%;flex-direction:row;gap:8px;padding:10px;">
+                    <div class="v34-node active-gold v34-wide-node" id="v34-scale-lb">
                         <i data-lucide="network" style="width:18px;height:18px;color:var(--chat-gold);"></i>
                         <span>Load Balancer</span>
                     </div>
-                    <div style="display:flex;justify-content:space-between;align-items:stretch;width:100%;gap:8px;position:relative;z-index:3;">
+                    <div class="v34-scale-row">
                         <div class="v34-node active-blue" id="v34-scale-s1">
                             ${nodeIcon('server', 'var(--chat-blue)')}
                             <span style="font-size:9px;">WS Server 1</span>
@@ -358,7 +386,7 @@
                     <path id="v34-path-r-s1-redis" class="flow-gold" />
                     <path id="v34-path-r-redis-s2" class="flow-purple" />
                 </svg>
-                <div style="display:flex;justify-content:space-between;align-items:center;width:100%;position:relative;z-index:3;" id="v34-redis-container">
+                <div class="v34-redis-layout" id="v34-redis-container">
                     <div class="v34-node active-blue" id="v34-redis-s1">
                         ${nodeIcon('server', 'var(--chat-blue)')}
                         <span style="font-size:9px;">Server 1</span>
@@ -398,21 +426,21 @@
                 </svg>
                 <div class="v34-arch-pipeline" id="v34-arch-pipeline">
                     <div class="v34-arch-row">
-                        <div class="v34-node dimmed" id="v34-arch-client">${nodeIcon('smartphone', 'var(--chat-blue)')}<span style="font-size:8px;">Client</span></div>
+                        <div class="v34-node dimmed v34-arch-node" id="v34-arch-client">${nodeIcon('smartphone', 'var(--chat-blue)')}<span>Client</span></div>
                         <span class="v34-arch-connector" id="v34-conn-1">→</span>
-                        <div class="v34-node dimmed" id="v34-arch-lb">${nodeIcon('network', 'var(--chat-gold)')}<span style="font-size:8px;">Load Balancer</span></div>
+                        <div class="v34-node dimmed v34-arch-node" id="v34-arch-lb">${nodeIcon('network', 'var(--chat-gold)')}<span>Load Balancer</span></div>
                         <span class="v34-arch-connector" id="v34-conn-2">→</span>
-                        <div class="v34-node dimmed" id="v34-arch-ws">${nodeIcon('radio', 'var(--chat-green)')}<span style="font-size:8px;">WS Cluster</span></div>
+                        <div class="v34-node dimmed v34-arch-node" id="v34-arch-ws">${nodeIcon('radio', 'var(--chat-green)')}<span>WS Cluster</span></div>
                     </div>
                     <div class="v34-arch-row">
-                        <div class="v34-node dimmed" id="v34-arch-redis">${nodeIcon('database', 'var(--chat-purple)')}<span style="font-size:8px;">Redis Pub/Sub</span></div>
+                        <div class="v34-node dimmed v34-arch-node" id="v34-arch-redis">${nodeIcon('database', 'var(--chat-purple)')}<span>Redis Pub/Sub</span></div>
                         <span class="v34-arch-connector" id="v34-conn-3">⇄</span>
-                        <div class="v34-node dimmed" id="v34-arch-db">${nodeIcon('hard-drive', '#fff')}<span style="font-size:8px;">PostgreSQL</span></div>
+                        <div class="v34-node dimmed v34-arch-node" id="v34-arch-db">${nodeIcon('hard-drive', '#fff')}<span>PostgreSQL</span></div>
                     </div>
                 </div>
                 <div class="v34-packet-wrap" id="v34-arch-pkt"><div class="v34-packet-core green"></div><span class="v34-packet-label">msg</span></div>
-                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;">
-                    <span style="font-size:9px;font-weight:bold;color:var(--chat-text-muted);">PRODUCTION PIPELINE</span>
+                <div class="v34-glass-card glow-green v34-status-card">
+                    <span class="v34-status-label">PRODUCTION PIPELINE</span>
                     <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-green);" id="v34-arch-status">Initializing...</span>
                 </div>`, 'green-tint');
             initIcons();
@@ -600,7 +628,7 @@
                 log.innerHTML = html;
             }
 
-            if (storm && progress > 0.4 && storm.childElementCount < 12) {
+            if (false && storm && progress > 0.4 && storm.childElementCount < 12) {
                 for (let i = 0; i < 3; i++) {
                     const dot = document.createElement('div');
                     dot.className = 'v34-storm-dot';
@@ -816,7 +844,11 @@
                 const lit = progress > i * 0.16;
                 n.classList.toggle('dimmed', !lit);
                 n.classList.toggle('lit', lit);
-                if (lit) n.classList.add('active-green');
+                n.classList.remove('active-blue', 'active-gold', 'active-green', 'active-purple');
+                if (lit) {
+                    const nodeColors = ['active-blue', 'active-gold', 'active-green', 'active-purple', ''];
+                    if (nodeColors[i]) n.classList.add(nodeColors[i]);
+                }
             });
             conns.forEach((c, i) => {
                 if (c) c.classList.toggle('lit', progress > (i + 1) * 0.16);
@@ -862,7 +894,7 @@
 
     window.VideoPlugin = {
         scriptName: 'video34',
-        topic: 'Real-time Chat: WebSockets & Redis Pub/Sub',
+        topic: 'Realtime Chat',
         episodeNum: 34,
         customSlideIds,
         keywordsData,
