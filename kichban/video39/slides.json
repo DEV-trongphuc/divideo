@@ -4,6 +4,21 @@
     "layout": "custom",
     "title": "Giải Mã Video Call:<br>Nén Dung Lượng 1000 Lần Thế Nào?",
     "subtitle": "📱 DIGITAL VIDEO COMPRESSION HOOK",
+    "script": "Giải mã Video Call: Làm thế nào các ứng dụng nén dung lượng video 1000 lần để cuộc gọi luôn mượt mà?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "default_voxcpm",
+    "audioPath": "",
+    "duration": 4.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "scriptHash": ""
+  },
+  {
+    "id": "slide_v39_2",
+    "layout": "custom",
+    "title": "Truyền Dữ Liệu Thô:<br>Mạng 4G/5G Sẽ Sập Ngay",
+    "subtitle": "⚠️ RAW VS COMPRESSED DATA",
     "script": "Mỗi giây gọi video HD gửi đi 30 bức ảnh sắc nét. Nếu truyền dữ liệu thô, mạng 4G của bạn sẽ sập ngay lập tức vì quá tải. Làm thế nào các ứng dụng nén dung lượng 1000 lần mà hình ảnh vẫn mượt mà?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
@@ -15,7 +30,7 @@
     "scriptHash": ""
   },
   {
-    "id": "slide_v39_2",
+    "id": "slide_v39_3",
     "layout": "custom",
     "title": "Sự Dư Thừa Thời Gian:<br>Điểm Mấu Chốt Để Tối Ưu",
     "subtitle": "⏳ TEMPORAL REDUNDANCY",
@@ -30,7 +45,7 @@
     "scriptHash": ""
   },
   {
-    "id": "slide_v39_3",
+    "id": "slide_v39_4",
     "layout": "custom",
     "title": "Khung Hình I-Frame:<br>Cột Mốc Bản Đồ Chi Tiết",
     "subtitle": "🖼️ INTRA-CODED FRAME (I-FRAME)",
@@ -45,7 +60,7 @@
     "scriptHash": ""
   },
   {
-    "id": "slide_v39_4",
+    "id": "slide_v39_5",
     "layout": "custom",
     "title": "Khung Hình P-Frame:<br>Chỉ Gửi Đi Sự Thay Đổi",
     "subtitle": "🔄 PREDICTED FRAME (P-FRAME)",
@@ -60,7 +75,7 @@
     "scriptHash": ""
   },
   {
-    "id": "slide_v39_5",
+    "id": "slide_v39_6",
     "layout": "custom",
     "title": "Vector Chuyển Động:<br>Dự Đoán Hướng Đi Điểm Ảnh",
     "subtitle": "↗️ MOTION ESTIMATION & VECTORS",
@@ -75,7 +90,7 @@
     "scriptHash": ""
   },
   {
-    "id": "slide_v39_6",
+    "id": "slide_v39_7",
     "layout": "custom",
     "title": "Khung Hình B-Frame:<br>Nhìn Cả Tương Lai Lẫn Quá Khứ",
     "subtitle": "🔀 BI-DIRECTIONAL FRAME (B-FRAME)",
@@ -90,14 +105,14 @@
     "scriptHash": ""
   },
   {
-    "id": "slide_v39_7",
+    "id": "slide_v39_8",
     "layout": "custom",
     "title": "Chuỗi GOP:<br>Hợp Sướng Của Các Khung Hình",
     "subtitle": "🎞️ GROUP OF PICTURES (GOP) PIPELINE",
     "script": "Các khung hình này được sắp xếp theo chuỗi GOP tuần tự: I, B, B, P, B, B, P. Sự kết hợp nhịp nhàng này giúp luồng video HD nén cực gọn để truyền qua sóng 4G/5G mà mắt người vẫn cảm thấy mượt mà không độ trễ.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
+    "audioPath": "/kichban/video39/mp3/slide_v39_7.mp3",
     "duration": 10.0,
     "cards": [],
     "code": "",
@@ -105,14 +120,14 @@
     "scriptHash": ""
   },
   {
-    "id": "slide_v39_8",
+    "id": "slide_v39_9",
     "layout": "title",
     "title": "Làm chủ Thiết kế Hệ thống cùng Turnio.dev!",
     "subtitle": "⚡ ẤN FOLLOW KÊNH ĐỂ THEO DÕI BÀI VIẾT MỚI",
     "script": "Phía sau một cuộc gọi video mượt mà là nghệ thuật nén ảnh, bù chuyển động và xử lý dữ liệu thời gian thực đỉnh cao. Hãy thả tim, chia sẻ và nhấn Follow Turnio chấm dev để học thiết kế hệ thống thực chiến nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
+    "audioPath": "/kichban/video39/mp3/slide_v39_8.mp3",
     "duration": 10.0,
     "cards": [],
     "code": "",

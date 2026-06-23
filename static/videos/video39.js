@@ -10,26 +10,30 @@
     const keywordsData = {
         slide_v39_1: [],
         slide_v39_2: [
+            { text: 'Mạng 4G sập', start: 3.0, end: 7.0, class: 'active-bad' },
+            { text: 'nén 1000 lần', start: 7.0, end: 13.0, class: 'active-good' }
+        ],
+        slide_v39_3: [
             { text: 'Dư thừa thời gian', start: 2.0, end: 7.0, class: 'active-gold' },
             { text: 'đứng yên', start: 7.0, end: 12.0, class: 'active-good' }
         ],
-        slide_v39_3: [
+        slide_v39_4: [
             { text: 'I-Frame', start: 3.0, end: 8.0, class: 'active-good' },
             { text: 'mốc tham chiếu', start: 8.0, end: 13.5, class: 'active-gold' }
         ],
-        slide_v39_4: [
+        slide_v39_5: [
             { text: 'P-Frame', start: 3.0, end: 7.0, class: 'active-good' },
             { text: 'giảm đến 90%', start: 7.0, end: 14.0, class: 'active-gold' }
         ],
-        slide_v39_5: [
+        slide_v39_6: [
             { text: 'Vector chuyển động', start: 4.0, end: 10.0, class: 'active-good' },
             { text: 'dịch sang trái', start: 10.0, end: 15.0, class: 'active-gold' }
         ],
-        slide_v39_6: [
+        slide_v39_7: [
             { text: 'B-Frame', start: 2.5, end: 7.5, class: 'active-good' },
             { text: 'quá khứ lẫn tương lai', start: 7.5, end: 12.5, class: 'active-gold' }
         ],
-        slide_v39_7: [
+        slide_v39_8: [
             { text: 'Chuỗi GOP', start: 2.0, end: 6.0, class: 'active-good' },
             { text: 'không độ trễ', start: 6.0, end: 10.0, class: 'active-gold' }
         ]
@@ -37,7 +41,7 @@
 
     // ── SLIDE IDs that use custom GFX rendering ────────────────────────────────
     const customSlideIds = [
-        'slide_v39_1', 'slide_v39_2', 'slide_v39_3', 'slide_v39_4', 'slide_v39_5', 'slide_v39_6', 'slide_v39_7'
+        'slide_v39_1', 'slide_v39_2', 'slide_v39_3', 'slide_v39_4', 'slide_v39_5', 'slide_v39_6', 'slide_v39_7', 'slide_v39_8'
     ];
 
     // Helper: generate 8x8 pixel grid cells programmatically
@@ -65,7 +69,7 @@
         if (slideId === 'slide_v39_1') {
             canvas.innerHTML = `
                 <div class="v39-scene-wrapper">
-                    <div class="v39-grid-bg red-tint" style="position:absolute; inset:0; background-image:radial-gradient(rgba(239,68,68,0.04) 1.5px, transparent 1.5px); background-size:20px 20px; pointer-events:none;"></div>
+                    <div class="v39-grid-bg orange-tint" style="position:absolute; inset:0; background-image:radial-gradient(rgba(245,158,11,0.04) 1.5px, transparent 1.5px); background-size:20px 20px; pointer-events:none;"></div>
                     <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
                         <div class="v39-logo-intro-container">
                             <div class="v39-logo-glow-ring"></div>
@@ -75,12 +79,9 @@
                             </div>
                         </div>
                         
-                        <!-- Premium Badge and Label in Glass Card -->
-                        <div class="glass-card v39-glow-red" style="text-align: center; width: 440px; padding: 18px 24px; border-radius: 20px; border: 1.5px solid rgba(239, 68, 68, 0.4); background: rgba(13, 17, 28, 0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55); margin-top: 15px;">
-                            <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.1); color: #ef4444; border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;" class="v39-intro-badge">
-                                <i data-lucide="video" style="width:14px;height:14px;"></i> ${slide.subtitle || 'Video Compression Engine'}
-                            </div>
-                            <div style="font-family:'Fira Code', monospace; font-size: 16px; font-weight: bold; color: #ef4444; line-height: 1.4;" id="v39-intro-label">
+                        <!-- Premium Badge and Label in Glass Card (Styled in beautiful Orange/Gold like cookie video) -->
+                        <div class="glass-card" style="text-align: center; width: 440px; padding: 18px 24px; border-radius: 20px; border: 1.5px solid rgba(245, 158, 11, 0.4); background: rgba(13, 17, 28, 0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 0 15px rgba(245, 158, 11, 0.4), 0 20px 40px rgba(0,0,0,0.55); margin-top: 15px;">
+                            <div style="font-family:'Fira Code', monospace; font-size: 16px; font-weight: bold; color: #f59e0b; line-height: 1.4;" id="v39-intro-label">
                                 ${slide.title || 'Giải Mã Video Call: Nén Dung Lượng 1000 Lần Thế Nào?'}
                             </div>
                         </div>
@@ -89,6 +90,35 @@
             `;
         }
         else if (slideId === 'slide_v39_2') {
+            canvas.innerHTML = `
+                <div class="v39-slide-container">
+                    <!-- Top: Raw Data -->
+                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; border-color: rgba(239, 68, 68, 0.25);" id="v39-raw-panel">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 18px; font-weight: bold; color: rgba(255,255,255,0.7);">Luồng thô (Raw stream)</span>
+                            <span style="font-size: 14px; font-family: monospace; padding: 4px 10px; border-radius: 6px; background: rgba(239, 68, 68, 0.1); color: #ef4444; font-weight: bold;">30 fps</span>
+                        </div>
+                        <div style="font-size: 42px; font-weight: 900; color: #ef4444; font-family: monospace; text-align: center; margin: 15px 0;" class="v39-raw-bitrate">3.0 Gbps</div>
+                        <div style="font-size: 16px; text-align: center; font-weight: 800; padding: 12px; border-radius: 10px; background: rgba(239, 68, 68, 0.15); border: 1.5px solid rgba(239, 68, 68, 0.25); color: #ef4444;" class="v39-raw-status">
+                            MẠNG SẬP NGAY LẬP TỨC ⚠️
+                        </div>
+                    </div>
+
+                    <!-- Bottom: Compressed Data -->
+                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; border-color: rgba(255,255,255,0.08);" id="v39-compressed-panel">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 18px; font-weight: bold; color: rgba(255,255,255,0.7);">Nén (Compressed stream)</span>
+                            <span style="font-size: 14px; font-family: monospace; padding: 4px 10px; border-radius: 6px; background: rgba(0, 210, 255, 0.1); color: var(--compress-cyan); font-weight: bold;" class="v39-compress-ratio">Nén 0x</span>
+                        </div>
+                        <div style="font-size: 46px; font-weight: 900; color: var(--compress-cyan); font-family: monospace; text-align: center; margin: 15px 0;" class="v39-compressed-bitrate">--- Mbps</div>
+                        <div style="font-size: 16px; text-align: center; font-weight: 800; padding: 12px; border-radius: 10px; background: rgba(0, 210, 255, 0.1); border: 1.5px solid rgba(0, 210, 255, 0.25); color: var(--compress-cyan);" class="v39-compressed-status">
+                            KẾT NỐI MƯỢT MÀ 🟢
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        else if (slideId === 'slide_v39_3') {
             canvas.innerHTML = `
                 <div class="v39-slide-container">
                     <!-- Pixel Grid representing Speaker Frame -->
@@ -116,7 +146,7 @@
                 </div>
             `;
         }
-        else if (slideId === 'slide_v39_3') {
+        else if (slideId === 'slide_v39_4') {
             canvas.innerHTML = `
                 <div class="v39-slide-container">
                     <!-- Fully loaded Grid -->
@@ -145,7 +175,7 @@
                 </div>
             `;
         }
-        else if (slideId === 'slide_v39_4') {
+        else if (slideId === 'slide_v39_5') {
             canvas.innerHTML = `
                 <div class="v39-slide-container">
                     <!-- Side-by-Side Grids (Wider sizes) -->
@@ -187,7 +217,7 @@
                 </div>
             `;
         }
-        else if (slideId === 'slide_v39_5') {
+        else if (slideId === 'slide_v39_6') {
             canvas.innerHTML = `
                 <div class="v39-slide-container">
                     <!-- Grid area where block shifts and draws vectors -->
@@ -224,7 +254,7 @@
                 </div>
             `;
         }
-        else if (slideId === 'slide_v39_6') {
+        else if (slideId === 'slide_v39_7') {
             canvas.innerHTML = `
                 <div class="v39-slide-container">
                     <!-- Three vertical columns or horizontally offset grids -->
@@ -281,7 +311,7 @@
                 </div>
             `;
         }
-        else if (slideId === 'slide_v39_7') {
+        else if (slideId === 'slide_v39_8') {
             canvas.innerHTML = `
                 <div class="v39-slide-container">
                     <!-- Conveyor Belt Area (680px wide) -->
@@ -367,22 +397,96 @@
     // ── ANIMATION UPDATE FRAME ─────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_v39_1') {
-            const titleEl = canvas.querySelector('#v39-intro-label');
-            const badgeEl = canvas.querySelector('.v39-intro-badge');
-            if (titleEl && slide.title && titleEl.innerHTML !== slide.title) {
-                titleEl.innerHTML = slide.title;
-            }
-            if (badgeEl && slide.subtitle) {
-                const newBadgeHTML = `<i data-lucide="video" style="width:14px;height:14px;"></i> ${slide.subtitle}`;
-                if (badgeEl.innerHTML !== newBadgeHTML) {
-                    badgeEl.innerHTML = newBadgeHTML;
-                    if (typeof lucide !== 'undefined') {
-                        lucide.createIcons({ node: badgeEl });
+            // Slide 1 (Hook) is animated with CSS rotations automatically
+            // No custom JS update needed, avoiding undefined slide variables
+        }
+        else if (slideId === 'slide_v39_2') {
+            const rawPanel = canvas.querySelector('#v39-raw-panel');
+            const rawBitrateEl = canvas.querySelector('.v39-raw-bitrate');
+            const rawStatusEl = canvas.querySelector('.v39-raw-status');
+
+            const compressedPanel = canvas.querySelector('#v39-compressed-panel');
+            const compressRatioEl = canvas.querySelector('.v39-compress-ratio');
+            const compressedBitrateEl = canvas.querySelector('.v39-compressed-bitrate');
+            const compressedStatusEl = canvas.querySelector('.v39-compressed-status');
+
+            // Phase 1 (0.0 -> 0.4): Raw stream surges and crashes
+            if (progress < 0.4) {
+                const ratio = progress / 0.4;
+                const rawBitrate = (ratio * 3.0).toFixed(1);
+                if (rawBitrateEl) rawBitrateEl.textContent = `${rawBitrate} Gbps`;
+                
+                if (ratio > 0.8) {
+                    if (rawStatusEl) {
+                        rawStatusEl.textContent = 'MẠNG SẬP NGAY LẬP TỨC ⚠️';
+                        rawStatusEl.style.backgroundColor = 'rgba(239, 68, 68, 0.25)';
                     }
+                    if (rawPanel) {
+                        rawPanel.style.borderColor = '#ef4444';
+                        rawPanel.style.boxShadow = '0 0 25px rgba(239, 68, 68, 0.4)';
+                        rawPanel.style.transform = 'scale(1.02)';
+                    }
+                } else {
+                    if (rawStatusEl) {
+                        rawStatusEl.textContent = 'Đang truyền dữ liệu thô...';
+                        rawStatusEl.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                    }
+                    if (rawPanel) {
+                        rawPanel.style.borderColor = 'rgba(239, 68, 68, 0.15)';
+                        rawPanel.style.boxShadow = 'none';
+                        rawPanel.style.transform = 'none';
+                    }
+                }
+
+                // Compressed panel idle
+                if (compressRatioEl) compressRatioEl.textContent = 'Nén 0x';
+                if (compressedBitrateEl) compressedBitrateEl.textContent = '--- Mbps';
+                if (compressedStatusEl) {
+                    compressedStatusEl.textContent = 'Đang chờ nén dữ liệu...';
+                    compressedStatusEl.style.color = 'rgba(255, 255, 255, 0.4)';
+                    compressedStatusEl.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                    compressedStatusEl.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                }
+                if (compressedPanel) {
+                    compressedPanel.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                    compressedPanel.style.boxShadow = 'none';
+                }
+            } 
+            // Phase 2 (0.4 -> 1.0): Compression kicks in, ratio goes to 1000x, bitrate goes to 3.0 Mbps
+            else {
+                if (rawBitrateEl) rawBitrateEl.textContent = '3.0 Gbps';
+                if (rawStatusEl) {
+                    rawStatusEl.textContent = 'MẠNG SẬP NGAY LẬP TỨC ⚠️';
+                    rawStatusEl.style.backgroundColor = 'rgba(239, 68, 68, 0.25)';
+                }
+                if (rawPanel) {
+                    rawPanel.style.borderColor = '#ef4444';
+                    rawPanel.style.boxShadow = '0 0 25px rgba(239, 68, 68, 0.4)';
+                    // Keep slightly shaking
+                    const shake = Math.sin(progress * 50) * 1.5;
+                    rawPanel.style.transform = `translateX(${shake}px) scale(1.02)`;
+                }
+
+                const ratio = (progress - 0.4) / 0.6; // 0.0 -> 1.0
+                const ratioVal = Math.floor(ratio * 1000);
+                const bitrateVal = (3000 - ratio * 2997).toFixed(1); // 3000 -> 3.0 Mbps
+
+                if (compressRatioEl) compressRatioEl.textContent = `Nén ${ratioVal}x`;
+                if (compressedBitrateEl) compressedBitrateEl.textContent = `${bitrateVal} Mbps`;
+                
+                if (compressedStatusEl) {
+                    compressedStatusEl.textContent = 'KẾT NỐI MƯỢT MÀ 🟢';
+                    compressedStatusEl.style.color = 'var(--compress-cyan)';
+                    compressedStatusEl.style.backgroundColor = 'rgba(0, 210, 255, 0.1)';
+                    compressedStatusEl.style.borderColor = 'rgba(0, 210, 255, 0.25)';
+                }
+                if (compressedPanel) {
+                    compressedPanel.style.borderColor = 'rgba(0, 210, 255, 0.4)';
+                    compressedPanel.style.boxShadow = `0 0 25px rgba(0, 210, 255, ${0.1 + ratio * 0.4})`;
                 }
             }
         }
-        else if (slideId === 'slide_v39_2') {
+        else if (slideId === 'slide_v39_3') {
             const statusEl = canvas.querySelector('.v39-redun-status');
             const progBar = canvas.querySelector('.v39-redun-progress');
             const staticPctEl = canvas.querySelector('.v39-redun-static-pct');
@@ -448,7 +552,7 @@
                 if (actionEl) actionEl.textContent = 'Dung lượng giảm 80%';
             }
         }
-        else if (slideId === 'slide_v39_3') {
+        else if (slideId === 'slide_v39_4') {
             const sizeEl = canvas.querySelector('.v39-iframe-size');
             const descEl = canvas.querySelector('.v39-iframe-desc');
             const scanner = canvas.querySelector('.v39-laser-scanner');
@@ -488,7 +592,7 @@
                 if (descEl) descEl.textContent = 'Đã lưu đệm. Đợi tính toán P-Frame...';
             }
         }
-        else if (slideId === 'slide_v39_4') {
+        else if (slideId === 'slide_v39_5') {
             const saveEl = canvas.querySelector('.v39-pframe-save');
             const txEl = canvas.querySelector('.v39-pframe-tx');
             const descEl = canvas.querySelector('.v39-pframe-desc');
@@ -540,7 +644,7 @@
                 if (descEl) descEl.textContent = 'P-Frame siêu nhẹ truyền tải cực nhanh!';
             }
         }
-        else if (slideId === 'slide_v39_5') {
+        else if (slideId === 'slide_v39_6') {
             const coordsEl = canvas.querySelector('.v39-vector-coords');
             const descEl = canvas.querySelector('.v39-vector-desc');
             const vectorLine = canvas.querySelector('.v39-vector-line');
@@ -602,7 +706,7 @@
                 if (descEl) descEl.textContent = 'Đang tìm kiếm hướng di chuyển khối hình...';
             }
         }
-        else if (slideId === 'slide_v39_6') {
+        else if (slideId === 'slide_v39_7') {
             const refStateEl = canvas.querySelector('.v39-bf-ref-state');
             const descEl = canvas.querySelector('.v39-bf-desc');
             const arrowLeft = canvas.querySelector('.v39-bf-arrow-left');
@@ -666,7 +770,7 @@
                 if (descEl) descEl.textContent = 'Điền điểm ảnh bị khuyết từ hai phía -> Cực mượt!';
             }
         }
-        else if (slideId === 'slide_v39_7') {
+        else if (slideId === 'slide_v39_8') {
             const strip = canvas.querySelector('.v39-gop-strip');
             const kbpsEl = canvas.querySelector('.v39-gop-kbps');
             const descEl = canvas.querySelector('.v39-gop-desc');

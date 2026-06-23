@@ -390,6 +390,26 @@ function setupEventListeners() {
             await fetchSlides();
         });
     }
+    const prevScriptBtn = document.getElementById('prev-script-btn');
+    if (prevScriptBtn && scriptSelect) {
+        prevScriptBtn.addEventListener('click', async () => {
+            const idx = scriptSelect.selectedIndex;
+            if (idx > 0) {
+                scriptSelect.selectedIndex = idx - 1;
+                scriptSelect.dispatchEvent(new Event('change'));
+            }
+        });
+    }
+    const nextScriptBtn = document.getElementById('next-script-btn');
+    if (nextScriptBtn && scriptSelect) {
+        nextScriptBtn.addEventListener('click', async () => {
+            const idx = scriptSelect.selectedIndex;
+            if (idx >= 0 && idx < scriptSelect.options.length - 1) {
+                scriptSelect.selectedIndex = idx + 1;
+                scriptSelect.dispatchEvent(new Event('change'));
+            }
+        });
+    }
     const createScriptBtn = document.getElementById('create-script-btn');
     if (createScriptBtn) {
         createScriptBtn.addEventListener('click', async () => {
@@ -857,30 +877,57 @@ function setupEventListeners() {
     document.getElementById('redo-btn').addEventListener('click', redo);
     // Keyboard Shortcuts
     document.addEventListener('keydown', (e) => {
-        // Alt + Space: Restart playback from the beginning in Fullscreen mode
-        if (e.altKey && (e.code === 'Space' || e.key === ' ')) {
-            if (document.fullscreenElement) {
-                e.preventDefault();
-                stopPlayback();
-                selectSlide(0);
-                startPlayback();
-                return;
-            }
+        const active = document.activeElement;
+        const isInput = active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable);
+
+        if (isInput) return; // Do not intercept typing shortcuts inside inputs
+
+        // Spacebar: Play/Pause
+        if (e.code === 'Space' || e.key === ' ') {
+            e.preventDefault();
+            togglePlayback();
+            return;
         }
+
+        // Left Arrow: Previous Slide
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            playPreviousSlide();
+            return;
+        }
+
+        // Right Arrow: Next Slide
+        if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            playNextSlide();
+            return;
+        }
+
+        // Up Arrow: Previous Video/Script
+        if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            const prevBtn = document.getElementById('prev-script-btn');
+            if (prevBtn) prevBtn.click();
+            return;
+        }
+
+        // Down Arrow: Next Video/Script
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            const nextBtn = document.getElementById('next-script-btn');
+            if (nextBtn) nextBtn.click();
+            return;
+        }
+
+        // Ctrl+Z / Ctrl+Y
         const isCtrl = e.ctrlKey || e.metaKey;
         if (isCtrl) {
-            const active = document.activeElement;
-            const isInput = active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable);
             if (e.key.toLowerCase() === 'z') {
-                if (!isInput) {
-                    e.preventDefault();
-                    undo();
-                }
+                e.preventDefault();
+                undo();
             } else if (e.key.toLowerCase() === 'y') {
-                if (!isInput) {
-                    e.preventDefault();
-                    redo();
-                }
+                e.preventDefault();
+                redo();
             }
         }
     });
