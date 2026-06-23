@@ -214,7 +214,7 @@
 .v29-db-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 12px;
     width: 100%;
 }
 
@@ -222,10 +222,10 @@
     background: rgba(0, 0, 0, 0.3);
     border: 1.5px solid var(--fb-border);
     border-radius: 14px;
-    padding: 12px;
+    padding: 10px;
     position: relative;
     overflow: hidden;
-    min-height: 130px;
+    min-height: 120px;
 }
 
 .v29-db-scanline {
@@ -250,19 +250,246 @@
     animation: v29-sweep 1.6s infinite linear;
 }
 
-.v29-sql-box {
-    background: rgba(0, 0, 0, 0.5);
-    border: 1.5px solid var(--fb-border);
-    border-radius: 12px;
-    padding: 14px;
+/* Modern Relational Tables */
+.v29-db-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9px;
+    line-height: 1.2;
+}
+
+.v29-db-table th {
+    font-size: 9px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    text-align: left;
+    padding: 4px 6px;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+}
+
+.v29-db-table td {
+    padding: 3px 6px;
+    color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    vertical-align: middle;
+}
+
+.v29-badge-id {
     font-family: 'Fira Code', monospace;
-    font-size: 12px;
-    color: #f87171;
+    font-size: 8px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.v29-badge-code {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-weight: 800;
+    font-family: 'Fira Code', monospace;
+    font-size: 8px;
+}
+
+.v29-badge-code.blue {
+    background: rgba(24, 119, 242, 0.15);
+    color: #60a5fa;
+    border: 1px solid rgba(24, 119, 242, 0.3);
+}
+
+.v29-badge-code.orange {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.v29-cell-name {
+    font-weight: 500;
+    color: #e4e6eb;
+}
+
+.v29-db-row-dots td {
+    color: rgba(255, 255, 255, 0.25);
+    font-weight: bold;
+    padding: 2px 6px;
+}
+
+/* Table Row Highlights */
+.v29-db-table tr {
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.v29-db-table tr.active-row-a {
+    background: rgba(24, 119, 242, 0.18);
+}
+
+.v29-db-table tr.active-row-x {
+    background: rgba(251, 191, 36, 0.15);
+}
+
+.v29-db-table tr.active-row-mutual {
+    background: rgba(52, 211, 153, 0.22);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* IDE Window Styling */
+.v29-ide-window {
+    background: #181a1f;
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
     width: 100%;
     box-sizing: border-box;
-    text-align: left;
-    box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
+
+.v29-ide-header {
+    background: #21252b;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.15);
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.v29-ide-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.v29-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.v29-dot.red { background: #ff5f56; }
+.v29-dot.yellow { background: #ffbd2e; }
+.v29-dot.green { background: #27c93f; }
+
+.v29-ide-title {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: bold;
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 0.5px;
+}
+
+.v29-ide-body {
+    display: flex;
+    padding: 8px 12px;
+    gap: 12px;
+}
+
+.v29-ide-line-numbers {
+    display: flex;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.25);
+    font-family: 'Fira Code', monospace;
+    font-size: 11px;
+    text-align: right;
+    user-select: none;
+    line-height: 1.5;
+}
+
+.v29-ide-code {
+    flex: 1;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 11px;
+    color: #abb2bf;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.sql-keyword {
+    color: #c678dd;
+    font-weight: bold;
+}
+
+.sql-keyword.intersect {
+    color: #e06c75;
+    text-shadow: 0 0 6px rgba(224, 108, 117, 0.35);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.sql-table {
+    color: #98c379;
+}
+
+.sql-string {
+    color: #d19a66;
+}
+
+/* Metrics Dashboard Panel */
+.v29-metrics-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1.5px solid var(--fb-border);
+    border-radius: 16px;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.v29-metric-card {
+    flex: 1;
+    text-align: left;
+}
+
+.v29-metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.v29-metric-label {
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.v29-metric-icon {
+    width: 12px;
+    height: 12px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.v29-metric-value {
+    font-size: 14px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 6px;
+    font-family: 'Fira Code', monospace;
+}
+
+.v29-metric-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.v29-metric-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    transition: width 0.1s linear, background 0.2s;
+}
+
+.v29-metrics-divider {
+    width: 1.5px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 16px;
+}
+
 
 /* Graph network simulation (Slide 3) */
 .v29-graph-container {
@@ -508,8 +735,16 @@
 }
 
 @keyframes v29-pulse-warn {
-    0%, 100% { border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.03); }
-    50% { border-color: rgba(239, 68, 68, 0.8); background: rgba(239, 68, 68, 0.12); }
+    0%, 100% { 
+        border-color: rgba(239, 68, 68, 0.3); 
+        background: rgba(239, 68, 68, 0.05); 
+        box-shadow: 0 4px 15px rgba(239, 68, 68, 0.05);
+    }
+    50% { 
+        border-color: rgba(239, 68, 68, 0.8); 
+        background: rgba(239, 68, 68, 0.15); 
+        box-shadow: 0 8px 25px rgba(239, 68, 68, 0.25);
+    }
 }
 
 .v29-alert-card {

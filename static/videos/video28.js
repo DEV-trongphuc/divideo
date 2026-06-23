@@ -41,7 +41,7 @@
         ],
         slide_bloom_10: [
             { text: 'hiệu năng', start: 1.0, end: 8.0, class: 'active-gold' },
-            { text: 'Turnio', start: 8.0, end: 18.0, class: 'active-gold' }
+            { text: 'tối ưu', start: 8.0, end: 18.0, class: 'active-gold' }
         ]
     };
 
@@ -86,43 +86,37 @@
 
         if (slideId === 'slide_bloom_1') {
             canvas.innerHTML = `
-                <div class="v28-zoom-container" style="justify-content: flex-start; padding-top: 15px; gap: 14px;">
+                <div class="v28-zoom-container" style="justify-content: flex-start; padding-top: 10px; gap: 14px; zoom: 1.25;">
                     <!-- Container for Phone Mockup and Flying Request Tags -->
-                    <div style="position: relative; width: 100%; height: 380px; display: flex; justify-content: center; align-items: center; box-sizing: border-box; overflow: hidden; margin-top: 5px;">
+                    <div style="position: relative; width: 100%; height: 430px; display: flex; justify-content: center; align-items: center; box-sizing: border-box; margin-top: 0px;">
                         
                         <!-- Flying Request Tags (Left side) with avatar circles -->
-                        <div id="v28-req-tag-l1" class="v28-flying-card" style="position: absolute; left: 5px; top: 50px; opacity: 0;">
+                        <div id="v28-req-tag-l1" class="v28-flying-card" style="position: absolute; left: 5px; top: 60px; opacity: 0;">
                             <span class="v28-flying-avatar-circle" style="background:#60a5fa;"></span> @alex
                         </div>
-                        <div id="v28-req-tag-l2" class="v28-flying-card" style="position: absolute; left: 20px; top: 150px; opacity: 0;">
+                        <div id="v28-req-tag-l2" class="v28-flying-card" style="position: absolute; left: 20px; top: 180px; opacity: 0;">
                             <span class="v28-flying-avatar-circle" style="background:#34d399;"></span> @bob
                         </div>
-                        <div id="v28-req-tag-l3" class="v28-flying-card" style="position: absolute; left: 0px; top: 250px; opacity: 0;">
+                        <div id="v28-req-tag-l3" class="v28-flying-card" style="position: absolute; left: 0px; top: 300px; opacity: 0;">
                             <span class="v28-flying-avatar-circle" style="background:#fbbf24;"></span> @charlie
                         </div>
 
                         <!-- Flying Request Tags (Right side) -->
-                        <div id="v28-req-tag-r1" class="v28-flying-card" style="position: absolute; right: 5px; top: 60px; opacity: 0;">
+                        <div id="v28-req-tag-r1" class="v28-flying-card" style="position: absolute; right: 5px; top: 70px; opacity: 0;">
                             <span class="v28-flying-avatar-circle" style="background:#f87171;"></span> @david
                         </div>
-                        <div id="v28-req-tag-r2" class="v28-flying-card" style="position: absolute; right: 20px; top: 160px; opacity: 0;">
+                        <div id="v28-req-tag-r2" class="v28-flying-card" style="position: absolute; right: 20px; top: 190px; opacity: 0;">
                             <span class="v28-flying-avatar-circle" style="background:#60a5fa;"></span> @emma
                         </div>
-                        <div id="v28-req-tag-r3" class="v28-flying-card" style="position: absolute; right: 0px; top: 240px; opacity: 0;">
+                        <div id="v28-req-tag-r3" class="v28-flying-card" style="position: absolute; right: 0px; top: 290px; opacity: 0;">
                             <span class="v28-flying-avatar-circle" style="background:#34d399;"></span> @fiona
                         </div>
 
                         <!-- Smartphone Mockup - Larger & High-fidelity -->
-                        <div class="v28-phone-frame" style="width: 210px; height: 340px; position: relative; display: flex; flex-direction: column; padding: 10px; box-sizing: border-box; transition: all 0.3s; z-index: 2;">
-                            <!-- Dynamic Island notch -->
-                            <div style="width: 80px; height: 16px; background: #000; border-radius: 8px; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: space-between; padding: 0 8px; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.06);">
-                                <div style="width: 5px; height: 5px; border-radius: 50%; background: #1a202c;"></div>
-                                <div style="width: 25px; height: 3px; background: rgba(255,255,255,0.15); border-radius: 1.5px;"></div>
-                                <div style="width: 5px; height: 5px; border-radius: 50%; background: #0a101f;"></div>
-                            </div>
+                        <div class="v28-phone-frame" style="width: 250px; height: 410px; position: relative; display: flex; flex-direction: column; padding: 12px; box-sizing: border-box; transition: all 0.3s; z-index: 2; background: #0c0f17; border: 3px solid rgba(255,255,255,0.08); border-radius: 36px; box-shadow: 0 20px 40px rgba(0,0,0,0.8);">
                             
                             <!-- Phone Screen Area -->
-                            <div style="flex: 1; border-radius: 20px; background: linear-gradient(135deg, rgba(14, 18, 30, 0.45) 0%, rgba(7, 9, 15, 0.45) 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 12px; box-sizing: border-box; overflow: hidden; position: relative;">
+                            <div style="flex: 1; border-radius: 24px; background: linear-gradient(135deg, rgba(14, 18, 30, 0.45) 0%, rgba(7, 9, 15, 0.45) 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 16px; box-sizing: border-box; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.04);">
                                 
                                 <!-- Glass Reflection Overlay -->
                                 <div style="position: absolute; top: 0; left: 0; width: 200%; height: 200%; background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 45%); transform: rotate(-25deg); pointer-events: none; z-index: 10;"></div>
@@ -130,39 +124,46 @@
                                 <!-- Screen Glow -->
                                 <div id="v28-phone-screen-glow" style="position: absolute; inset: 0; background: radial-gradient(circle, rgba(96,165,250,0.1) 0%, transparent 70%); pointer-events: none; transition: all 0.3s ease; z-index: 1;"></div>
                                 
+                                <!-- Dynamic Island notch -->
+                                <div style="width: 90px; height: 18px; background: #000; border-radius: 9px; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: space-between; padding: 0 8px; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.06); z-index: 11; position: relative;">
+                                    <div style="width: 6px; height: 6px; border-radius: 50%; background: #1a202c;"></div>
+                                    <div style="width: 30px; height: 3px; background: rgba(255,255,255,0.15); border-radius: 1.5px;"></div>
+                                    <div style="width: 6px; height: 6px; border-radius: 50%; background: #0a101f;"></div>
+                                </div>
+
                                 <!-- Mock Status Bar -->
-                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 9px; color: rgba(255,255,255,0.45); font-weight: 600; z-index: 2; padding: 0 4px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: rgba(255,255,255,0.45); font-weight: 600; z-index: 2; padding: 0 4px;">
                                     <span>09:41</span>
                                     <div style="display: flex; gap: 5px; align-items: center;">
-                                        <i data-lucide="signal" style="width: 10px; height: 10px; opacity: 0.7;"></i>
-                                        <i data-lucide="wifi" style="width: 10px; height: 10px; opacity: 0.7;"></i>
-                                        <i data-lucide="battery" style="width: 12px; height: 12px; opacity: 0.7;"></i>
+                                        <i data-lucide="signal" style="width: 12px; height: 12px; opacity: 0.7;"></i>
+                                        <i data-lucide="wifi" style="width: 12px; height: 12px; opacity: 0.7;"></i>
+                                        <i data-lucide="battery" style="width: 14px; height: 14px; opacity: 0.7;"></i>
                                     </div>
                                 </div>
 
                                 <!-- Registration App Mockup Content -->
-                                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px; z-index: 2;">
+                                <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px; z-index: 2;">
                                     <!-- App Logo with elegant gradient and soft shadow -->
-                                    <div style="width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--bf-blue) 0%, #1e40af 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto; transition: all 0.3s ease; box-shadow: 0 6px 15px rgba(59,130,246,0.3);" id="v28-phone-app-logo">
-                                        <i data-lucide="user-plus" style="width: 20px; height: 20px; color: #fff;"></i>
+                                    <div style="width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, var(--bf-blue) 0%, #1e40af 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto; transition: all 0.3s ease; box-shadow: 0 6px 15px rgba(59,130,246,0.3);" id="v28-phone-app-logo">
+                                        <i data-lucide="user-plus" style="width: 24px; height: 24px; color: #fff;"></i>
                                     </div>
                                     
                                     <!-- Username Form Fields -->
-                                    <div style="display: flex; flex-direction: column; gap: 4px; text-align: left; margin-top: 4px;">
-                                        <div style="font-size: 9px; color: rgba(255,255,255,0.4); font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px;">Username</div>
-                                        <div style="width: 100%; height: 32px; border-radius: 8px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; padding: 0 10px; box-sizing: border-box; transition: border-color 0.25s;">
-                                            <span id="v28-phone-username-val" style="font-size: 12px; font-family: monospace; color: #fff; font-weight: bold; letter-spacing: 0.5px;"></span>
+                                    <div style="display: flex; flex-direction: column; gap: 6px; text-align: left; margin-top: 4px;">
+                                        <div style="font-size: 10px; color: rgba(255,255,255,0.4); font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px;">Username</div>
+                                        <div style="width: 100%; height: 38px; border-radius: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; padding: 0 12px; box-sizing: border-box; transition: border-color 0.25s;">
+                                            <span id="v28-phone-username-val" style="font-size: 14px; font-family: monospace; color: #fff; font-weight: bold; letter-spacing: 0.5px;"></span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Action Button & Stats -->
-                                <div style="display: flex; flex-direction: column; gap: 8px; z-index: 2; margin-bottom: 4px;">
+                                <div style="display: flex; flex-direction: column; gap: 10px; z-index: 2; margin-bottom: 4px;">
                                     <!-- Loading Status Indicator -->
-                                    <div id="v28-phone-status" style="font-size: 10px; font-weight: 900; text-align: center; color: var(--bf-green); height: 16px; letter-spacing: 0.5px;"></div>
+                                    <div id="v28-phone-status" style="font-size: 12px; font-weight: 900; text-align: center; color: var(--bf-green); height: 20px; letter-spacing: 0.5px;"></div>
                                     
                                     <!-- App Register Button -->
-                                    <div id="v28-phone-btn" style="width: 100%; height: 32px; border-radius: 8px; background: var(--bf-blue); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0b0f19; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease;">
+                                    <div id="v28-phone-btn" style="width: 100%; height: 38px; border-radius: 10px; background: var(--bf-blue); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: #0b0f19; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease;">
                                         Sign Up
                                     </div>
                                 </div>
@@ -520,40 +521,30 @@
         }
         else if (slideId === 'slide_bloom_10') {
             canvas.innerHTML = `
-                <div class="v28-zoom-container">
-                    <!-- CTA Card -->
-                    <div class="glass-card v28-floating" style="padding:22px 20px; border-radius:24px; text-align:center; width:100%;">
-                        <div style="margin-bottom:12px;">
-                            <div style="margin:0 auto; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, var(--bf-orange) 0%, #d97706 100%); display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(245,158,11,0.4);">
-                                <i data-lucide="sparkles" style="width:24px; height:24px; color:#0b0f19;"></i>
+                <div class="v28-zoom-container" style="justify-content: center; gap: 32px;">
+                    <!-- Hashing visualization and bit array -->
+                    <div style="position:relative; display:flex; flex-direction:column; align-items:center; gap:20px;">
+                        <!-- Centered DB + Search icons -->
+                        <div style="position:relative; width:140px; height:140px; display:flex; align-items:center; justify-content:center; background:rgba(59, 130, 246, 0.08); border:2px dashed rgba(59, 130, 246, 0.3); border-radius:50%; animation: v28-float 6s ease-in-out infinite;">
+                            <i data-lucide="database" style="width:60px; height:60px; color:#3b82f6; filter:drop-shadow(0 0 15px rgba(59, 130, 246, 0.4));"></i>
+                            <div style="position:absolute; right:-10px; bottom:-10px; width:54px; height:54px; border-radius:50%; background:#10b981; display:flex; align-items:center; justify-content:center; border:2px solid #121212; box-shadow:0 8px 16px rgba(0,0,0,0.4);">
+                                <i data-lucide="filter" style="width:24px; height:24px; color:#fff;"></i>
                             </div>
                         </div>
                         
-                        <div style="font-size:18px; font-weight:900; color:#fff; letter-spacing:0.8px; line-height:1.2;">
-                            TURNIO.DEV
+                        <!-- Micro Bit Array with pulse effects -->
+                        <div style="display:flex; gap:8px; background:rgba(255,255,255,0.02); padding:10px; border-radius:12px; border:1px solid rgba(255,255,255,0.06); margin-top:20px;">
+                            <div style="width:40px; height:40px; border-radius:6px; background:#10b981; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#000; font-size:16px; border:1px solid rgba(255,255,255,0.1); transition: transform 0.3s;" class="v28-cell-pulsing">1</div>
+                            <div style="width:40px; height:40px; border-radius:6px; background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.2); font-size:16px; border:1px solid rgba(255,255,255,0.05);">0</div>
+                            <div style="width:40px; height:40px; border-radius:6px; background:#10b981; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#000; font-size:16px; border:1px solid rgba(255,255,255,0.1); transition: transform 0.3s;" class="v28-cell-pulsing">1</div>
+                            <div style="width:40px; height:40px; border-radius:6px; background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.2); font-size:16px; border:1px solid rgba(255,255,255,0.05);">0</div>
+                            <div style="width:40px; height:40px; border-radius:6px; background:#10b981; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#000; font-size:16px; border:1px solid rgba(255,255,255,0.1); transition: transform 0.3s;" class="v28-cell-pulsing">1</div>
                         </div>
-                        <div style="font-size:12px; color:#f59e0b; font-weight:bold; text-transform:uppercase; margin-top:2px; letter-spacing:1px;">
-                            Thiết Kế Hệ Thống Thực Chiến
-                        </div>
-
-                        <div style="margin:14px 0; border-top:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08); padding:8px 0; display:flex; justify-content:space-around; align-items:center;">
-                            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
-                                <i data-lucide="heart" style="width:20px; height:20px; color:#ef4444;"></i>
-                                <span style="font-size:10px; color:rgba(255,255,255,0.5); font-weight:bold;">Thích</span>
-                            </div>
-                            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
-                                <i data-lucide="message-square" style="width:20px; height:20px; color:#3b82f6;"></i>
-                                <span style="font-size:10px; color:rgba(255,255,255,0.5); font-weight:bold;">Bình luận</span>
-                            </div>
-                            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
-                                <i data-lucide="share-2" style="width:20px; height:20px; color:#10b981;"></i>
-                                <span style="font-size:10px; color:rgba(255,255,255,0.5); font-weight:bold;">Chia sẻ</span>
-                            </div>
-                        </div>
-
-                        <div style="font-size:12px; color:rgba(255,255,255,0.7); font-weight:500; line-height:1.4; padding:0 4px; letter-spacing:0.5px;">
-                            Nhấn <span style="color:#f59e0b; font-weight:bold;">Follow</span> kênh ngay để không bỏ lỡ bài viết tiếp theo!
-                        </div>
+                    </div>
+                    <!-- Summary Card -->
+                    <div class="glass-card" style="padding:18px 28px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); border-radius:16px; text-align:center; width:100%; max-width:480px; box-shadow:0 15px 35px rgba(0,0,0,0.6); animation: v28-float 6s ease-in-out infinite 1s;">
+                        <div style="font-family:'Outfit', sans-serif; font-size:16px; font-weight:800; color:var(--gold-primary); letter-spacing:1px; text-transform:uppercase; display:block; margin-bottom:8px;">Bloom Filter Efficiency</div>
+                        <div style="font-size:15px; color:#94a3b8; line-height:1.6; display:block;">Tiết kiệm dung lượng bộ nhớ đệm lên tới 99%</div>
                     </div>
                 </div>
             `;
@@ -748,17 +739,15 @@
                 }
             }
 
-            // 4. Populate queue visual blocks (pile up)
+            // 4. Populate queue visual blocks (pile up as glowing circular packet dots)
             if (queuePile) {
-                const maxDots = 12;
-                const numDots = Math.min(maxDots, Math.floor(progress * 15));
+                const maxDots = 16;
+                const numDots = Math.min(maxDots, Math.floor(progress * 20));
                 let dotsHtml = "";
                 for (let i = 0; i < numDots; i++) {
-                    const dotColor = i < 4 ? 'var(--bf-green)' : (i < 8 ? 'var(--bf-orange)' : 'var(--bf-red)');
+                    const dotColor = i < 5 ? 'var(--bf-green)' : (i < 10 ? 'var(--bf-orange)' : 'var(--bf-red)');
                     dotsHtml += `
-                        <div style="width: 15px; height: 15px; border-radius: 4px; background: ${dotColor}; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 900; color: #000; box-shadow: 0 0 4px ${dotColor};">
-                            R
-                        </div>
+                        <div class="v28-queue-packet" style="width: 12px; height: 12px; border-radius: 50%; background: ${dotColor}; box-shadow: 0 0 8px ${dotColor}; border: 1px solid rgba(255,255,255,0.2); flex-shrink: 0;"></div>
                     `;
                 }
                 queuePile.innerHTML = dotsHtml;
@@ -1167,12 +1156,20 @@
                 }
             }
         }
+        else if (slideId === 'slide_bloom_10') {
+            const cells = canvas.querySelectorAll('.v28-cell-pulsing');
+            cells.forEach((cell, idx) => {
+                const wave = Math.abs(Math.sin((progress * 4 * Math.PI) - (idx * 0.8)));
+                cell.style.transform = `scale(${1 + wave * 0.15})`;
+                cell.style.boxShadow = `0 0 ${wave * 15}px rgba(16, 185, 129, 0.4)`;
+            });
+        }
     }
 
     // ── PUBLIC API ─────────────────────────────────────────────────────────────
     window.VideoPlugin = {
         scriptName: 'video28',
-        topic: 'Bloom Filter Space-Efficient Check Mechanics',
+        topic: 'Cơ chế Bloom Filter',
         episodeNum: 28,
         customSlideIds: customSlideIds,
         keywordsData: keywordsData,

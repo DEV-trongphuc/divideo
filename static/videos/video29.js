@@ -41,7 +41,7 @@
             { text: 'bộ nhớ đệm', start: 9.0, end: 18.0, class: 'active-good' }
         ],
         slide_fb_10: [
-            { text: 'Turnio.dev', start: 1.0, end: 9.0, class: 'active-gold' },
+            { text: 'đồ thị', start: 1.0, end: 9.0, class: 'active-gold' },
             { text: 'thiết kế hệ thống', start: 9.0, end: 18.0, class: 'active-good' }
         ]
     };
@@ -170,12 +170,8 @@
         }
         else if (slideId === 'slide_fb_2') {
             canvas.innerHTML = `
-                <div class="v29-zoom-container">
-                    <div style="font-size:18px; font-weight:800; color:var(--fb-text-muted); text-transform:uppercase; text-align:center; margin-bottom:5px; letter-spacing:0.8px;">
-                        Truy vấn Bảng quan hệ SQL
-                    </div>
-
-                    <div class="v29-fb-card" style="padding:18px; width:100%; display:flex; flex-direction:column; gap:14px;">
+                <div class="v29-zoom-container" style="justify-content: flex-start; padding-top: 0; gap: 8px; zoom: 1.25;">
+                    <div class="v29-fb-card" style="padding: 12px; width: 100%; display: flex; flex-direction: column; gap: 10px;">
                         
                         <!-- Grid layout representing User & Friend tables -->
                         <div class="v29-db-grid">
@@ -185,12 +181,36 @@
                                 <div style="font-size:11px; font-weight:bold; color:var(--fb-blue); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px; display:flex; align-items:center; gap:4px;">
                                     <i data-lucide="table" style="width:12px; height:12px;"></i> Table: User (3B Rows)
                                 </div>
-                                <div style="font-family:monospace; font-size:10px; color:rgba(255,255,255,0.45); line-height:1.4; text-align:left;">
-                                    [1] - Alice (A)<br>
-                                    [2] - Bob (B)<br>
-                                    [3] - Charlie (C)<br>
-                                    [...] - Xavier (X)
-                                </div>
+                                <table class="v29-db-table">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="v29-row-a">
+                                            <td><span class="v29-badge-id">1</span></td>
+                                            <td><span class="v29-badge-code blue">A</span> <span class="v29-cell-name">Alice</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="v29-badge-id">2</span></td>
+                                            <td><span class="v29-badge-code blue">B</span> <span class="v29-cell-name">Bob</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="v29-badge-id">3</span></td>
+                                            <td><span class="v29-badge-code blue">C</span> <span class="v29-cell-name">Charlie</span></td>
+                                        </tr>
+                                        <tr class="v29-db-row-dots">
+                                            <td>...</td>
+                                            <td>...</td>
+                                        </tr>
+                                        <tr class="v29-row-x">
+                                            <td><span class="v29-badge-id">3.0B</span></td>
+                                            <td><span class="v29-badge-code blue">X</span> <span class="v29-cell-name">Xavier</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
 
                             <!-- Table 2: Friends Mapping -->
@@ -199,31 +219,102 @@
                                 <div style="font-size:11px; font-weight:bold; color:var(--fb-orange); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px; display:flex; align-items:center; gap:4px;">
                                     <i data-lucide="git-commit" style="width:12px; height:12px;"></i> Table: Friend Map
                                 </div>
-                                <div style="font-family:monospace; font-size:10px; color:rgba(255,255,255,0.45); line-height:1.4; text-align:left;">
-                                    A ➔ B (2), C (3), D (4)<br>
-                                    X ➔ C (3), D (4), Y (25)<br>
-                                    B ➔ A (1), C (3), Z (99)<br>
-                                    [...] - Full scan index lookup
+                                <table class="v29-db-table">
+                                    <thead>
+                                        <tr>
+                                            <th>user_id</th>
+                                            <th>friend_id</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="v29-row-a">
+                                            <td><span class="v29-badge-code blue">A</span></td>
+                                            <td><span class="v29-badge-code orange">B</span></td>
+                                        </tr>
+                                        <tr class="v29-row-a v29-row-mutual">
+                                            <td><span class="v29-badge-code blue">A</span></td>
+                                            <td><span class="v29-badge-code orange">C</span></td>
+                                        </tr>
+                                        <tr class="v29-row-a v29-row-mutual">
+                                            <td><span class="v29-badge-code blue">A</span></td>
+                                            <td><span class="v29-badge-code orange">D</span></td>
+                                        </tr>
+                                        <tr class="v29-db-row-dots">
+                                            <td>...</td>
+                                            <td>...</td>
+                                        </tr>
+                                        <tr class="v29-row-x v29-row-mutual">
+                                            <td><span class="v29-badge-code blue">X</span></td>
+                                            <td><span class="v29-badge-code orange">C</span></td>
+                                        </tr>
+                                        <tr class="v29-row-x v29-row-mutual">
+                                            <td><span class="v29-badge-code blue">X</span></td>
+                                            <td><span class="v29-badge-code orange">D</span></td>
+                                        </tr>
+                                        <tr class="v29-row-x">
+                                            <td><span class="v29-badge-code blue">X</span></td>
+                                            <td><span class="v29-badge-code orange">Y</span></td>
+                                        </tr>
+                                        <tr class="v29-db-row-dots">
+                                            <td>...</td>
+                                            <td>...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- IDE Query Editor -->
+                        <div class="v29-ide-window">
+                            <div class="v29-ide-header">
+                                <div class="v29-ide-dots">
+                                    <span class="v29-dot red"></span>
+                                    <span class="v29-dot yellow"></span>
+                                    <span class="v29-dot green"></span>
+                                </div>
+                                <div class="v29-ide-title">query.sql</div>
+                                <div style="width: 42px;"></div>
+                            </div>
+                            <div class="v29-ide-body">
+                                <div class="v29-ide-line-numbers">
+                                    <span>1</span>
+                                    <span>2</span>
+                                    <span>3</span>
+                                </div>
+                                <div class="v29-ide-code">
+                                    <div><span class="sql-keyword">SELECT</span> friend_id <span class="sql-keyword">FROM</span> <span class="sql-table">Friend</span> <span class="sql-keyword">WHERE</span> user_id = <span class="sql-string">'A'</span></div>
+                                    <div><span class="sql-keyword intersect">INTERSECT</span></div>
+                                    <div><span class="sql-keyword">SELECT</span> friend_id <span class="sql-keyword">FROM</span> <span class="sql-table">Friend</span> <span class="sql-keyword">WHERE</span> user_id = <span class="sql-string">'X'</span>;</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="v29-sql-box">
-                            <span style="color:#60a5fa;">SELECT</span> friend_id <span style="color:#60a5fa;">FROM</span> Friend <span style="color:#60a5fa;">WHERE</span> user_id = 'A'<br>
-                            <span style="color:#ef4444;">INTERSECT</span><br>
-                            <span style="color:#60a5fa;">SELECT</span> friend_id <span style="color:#60a5fa;">FROM</span> Friend <span style="color:#60a5fa;">WHERE</span> user_id = 'X';
-                        </div>
-
-                        <!-- Bottleneck graphics -->
-                        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.25); border-radius:10px; padding:10px; border:1px solid rgba(255,255,255,0.04);">
-                            <div style="text-align:left; flex:1;">
-                                <div style="font-size:11px; color:rgba(255,255,255,0.4); font-weight:bold;">FULL TABLE SCAN</div>
-                                <div style="font-size:14px; font-weight:900; color:#fff;" id="v29-scan-rows">0 / 3 Tỷ hàng</div>
+                        <!-- Metrics Dashboard Panel -->
+                        <div class="v29-metrics-panel">
+                            <!-- Metric 1: Scan Rows -->
+                            <div class="v29-metric-card">
+                                <div class="v29-metric-header">
+                                    <span class="v29-metric-label">FULL TABLE SCAN</span>
+                                    <i data-lucide="database" class="v29-metric-icon"></i>
+                                </div>
+                                <div class="v29-metric-value" id="v29-scan-rows">0 / 3 Tỷ hàng</div>
+                                <div class="v29-metric-bar">
+                                    <div class="v29-metric-bar-fill" id="v29-scan-bar"></div>
+                                </div>
                             </div>
-                            <div style="width:2px; height:30px; background:rgba(255,255,255,0.1); margin:0 12px;"></div>
-                            <div style="text-align:left; flex:1;">
-                                <div style="font-size:11px; color:rgba(255,255,255,0.4); font-weight:bold;">ĐỘ TRỄ TRUY VẤN</div>
-                                <div style="font-size:14px; font-weight:900; color:#f87171;" id="v29-latency-val">> 10,000 ms</div>
+
+                            <div class="v29-metrics-divider"></div>
+
+                            <!-- Metric 2: Latency -->
+                            <div class="v29-metric-card">
+                                <div class="v29-metric-header">
+                                    <span class="v29-metric-label">ĐỘ TRỄ TRUY VẤN</span>
+                                    <i data-lucide="clock" class="v29-metric-icon"></i>
+                                </div>
+                                <div class="v29-metric-value" id="v29-latency-val">50 ms</div>
+                                <div class="v29-metric-bar">
+                                    <div class="v29-metric-bar-fill" id="v29-latency-bar"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -489,40 +580,36 @@
         }
         else if (slideId === 'slide_fb_10') {
             canvas.innerHTML = `
-                <div class="v29-zoom-container">
-                    <!-- CTA Card -->
-                    <div class="v29-fb-card v29-floating" style="padding:24px 20px; border:2px solid rgba(24, 119, 242, 0.35); text-align:center; width:100%;">
-                        <div style="margin-bottom:12px;">
-                            <div class="v29-logo-glow">
-                                <i data-lucide="sparkles" style="width:28px; height:28px; color:#fff;"></i>
-                            </div>
+                <div class="v29-zoom-container" style="justify-content: center; gap: 32px;">
+                    <!-- Social Graph Intersection -->
+                    <div style="position:relative; width:300px; height:180px; display:flex; align-items:center; justify-content:center;">
+                        <!-- Node Left -->
+                        <div style="position:absolute; left:20px; width:70px; height:70px; border-radius:50%; background:#3b82f6; border:3px solid #121212; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 20px rgba(59,130,246,0.3); z-index: 3; animation: v29-float 5s infinite;">
+                            <i data-lucide="user" style="width:36px; height:36px; color:#fff;"></i>
                         </div>
-                        
-                        <div style="font-size:20px; font-weight:900; color:#fff; letter-spacing:0.8px; line-height:1.2;">
-                            TURNIO.DEV
+                        <!-- Connecting Lines to Center -->
+                        <svg style="position:absolute; width:100%; height:100%; pointer-events:none; z-index:1;">
+                            <line x1="55" y1="90" x2="150" y2="90" style="stroke:rgba(255,255,255,0.15); stroke-width:3; stroke-dasharray: 6 4;" />
+                            <line x1="245" y1="90" x2="150" y2="90" style="stroke:rgba(255,255,255,0.15); stroke-width:3; stroke-dasharray: 6 4;" />
+                            <line x1="55" y1="90" x2="150" y2="40" style="stroke:rgba(255,255,255,0.1); stroke-width:2;" />
+                            <line x1="245" y1="90" x2="150" y2="40" style="stroke:rgba(255,255,255,0.1); stroke-width:2;" />
+                            <line x1="55" y1="90" x2="150" y2="140" style="stroke:rgba(255,255,255,0.1); stroke-width:2;" />
+                            <line x1="245" y1="90" x2="150" y2="140" style="stroke:rgba(255,255,255,0.1); stroke-width:2;" />
+                        </svg>
+                        <!-- Center Intersection Node -->
+                        <div style="position:absolute; width:90px; height:90px; border-radius:50%; background:rgba(245,158,11,0.1); border:3px solid #f59e0b; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 0 25px rgba(245,158,11,0.3); z-index: 4; animation: v29-float 3s infinite 0.5s;" id="v29-outro-mutual">
+                            <i data-lucide="users" style="width:34px; height:34px; color:#f59e0b; margin-bottom:2px;"></i>
+                            <span style="font-size:12px; font-weight:900; color:#fff; font-family:'Outfit';">MUTUAL</span>
                         </div>
-                        <div style="font-size:13px; color:var(--fb-blue); font-weight:bold; text-transform:uppercase; margin-top:2px; letter-spacing:1px;">
-                            Thiết Kế Hệ Thống Thực Chiến
+                        <!-- Node Right -->
+                        <div style="position:absolute; right:20px; width:70px; height:70px; border-radius:50%; background:#10b981; border:3px solid #121212; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 20px rgba(16,185,129,0.3); z-index: 3; animation: v29-float 5s infinite 1s;">
+                            <i data-lucide="user-check" style="width:36px; height:36px; color:#fff;"></i>
                         </div>
-
-                        <div style="margin:16px 0; border-top:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08); padding:10px 0; display:flex; justify-content:space-around; align-items:center;">
-                            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
-                                <i data-lucide="heart" style="width:22px; height:22px; color:#ef4444;"></i>
-                                <span style="font-size:11px; color:rgba(255,255,255,0.5); font-weight:bold;">Thích</span>
-                            </div>
-                            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
-                                <i data-lucide="message-square" style="width:22px; height:22px; color:#3b82f6;"></i>
-                                <span style="font-size:11px; color:rgba(255,255,255,0.5); font-weight:bold;">Bình luận</span>
-                            </div>
-                            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
-                                <i data-lucide="share-2" style="width:22px; height:22px; color:#10b981;"></i>
-                                <span style="font-size:11px; color:rgba(255,255,255,0.5); font-weight:bold;">Chia sẻ</span>
-                            </div>
-                        </div>
-
-                        <div style="font-size:14px; color:rgba(255,255,255,0.7); font-weight:500; line-height:1.4; padding:0 4px; letter-spacing:0.5px;">
-                            Nhấn <span style="color:var(--fb-blue); font-weight:bold;">Follow</span> kênh ngay để học nhiều kiến thức hệ thống bổ ích!
-                        </div>
+                    </div>
+                    <!-- Summary Card -->
+                    <div class="glass-card" style="padding:18px 28px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); border-radius:16px; text-align:center; width:100%; max-width:480px; box-shadow:0 15px 35px rgba(0,0,0,0.6); animation: v29-float 6s ease-in-out infinite 1s;">
+                        <div style="font-family:'Outfit', sans-serif; font-size:16px; font-weight:800; color:var(--gold-primary); letter-spacing:1px; text-transform:uppercase; display:block; margin-bottom:8px;">Social Graph Intersection</div>
+                        <div style="font-size:15px; color:#94a3b8; line-height:1.6; display:block;">Xử lý giao tập hợp quy mô lớn siêu tốc</div>
                     </div>
                 </div>
             `;
@@ -631,6 +718,50 @@
                 } else {
                     alertBox.style.opacity = '0';
                     alertBox.style.transform = 'translateY(12px)';
+                }
+            }
+
+            // 4. Interactive Row highlights
+            const rows = canvas.querySelectorAll('.v29-db-table tr');
+            rows.forEach(r => r.classList.remove('active-row-a', 'active-row-x', 'active-row-mutual'));
+
+            if (progress > 0.1 && progress < 0.45) {
+                canvas.querySelectorAll('.v29-row-a').forEach(r => r.classList.add('active-row-a'));
+            } else if (progress >= 0.45 && progress < 0.8) {
+                canvas.querySelectorAll('.v29-row-x').forEach(r => r.classList.add('active-row-x'));
+            } else if (progress >= 0.8) {
+                canvas.querySelectorAll('.v29-row-mutual').forEach(r => r.classList.add('active-row-mutual'));
+            }
+
+            // 5. Update metric bar fills
+            const scanBar = canvas.querySelector('#v29-scan-bar');
+            const latencyBar = canvas.querySelector('#v29-latency-bar');
+
+            if (scanBar) {
+                const scanWidth = progress * 100;
+                scanBar.style.width = `${scanWidth}%`;
+                if (progress >= 0.9) {
+                    scanBar.style.background = 'var(--fb-red)';
+                    scanBar.style.boxShadow = '0 0 8px var(--fb-red)';
+                } else {
+                    scanBar.style.background = 'var(--fb-blue)';
+                    scanBar.style.boxShadow = '0 0 8px var(--fb-blue)';
+                }
+            }
+
+            if (latencyBar) {
+                const latencyPct = progress * progress * 100;
+                latencyBar.style.width = `${latencyPct}%`;
+                const ms = Math.round(50 + progress * progress * 9950);
+                if (ms > 2000) {
+                    latencyBar.style.background = 'var(--fb-red)';
+                    latencyBar.style.boxShadow = '0 0 8px var(--fb-red)';
+                } else if (ms > 300) {
+                    latencyBar.style.background = 'var(--fb-orange)';
+                    latencyBar.style.boxShadow = '0 0 8px var(--fb-orange)';
+                } else {
+                    latencyBar.style.background = 'var(--fb-green)';
+                    latencyBar.style.boxShadow = '0 0 8px var(--fb-green)';
                 }
             }
         }
@@ -891,12 +1022,20 @@
                 }
             }
         }
+        else if (slideId === 'slide_fb_10') {
+            const mutual = canvas.querySelector('#v29-outro-mutual');
+            if (mutual) {
+                const pulse = Math.abs(Math.sin(progress * 4 * Math.PI));
+                mutual.style.transform = `scale(${1 + pulse * 0.08})`;
+                mutual.style.borderColor = pulse > 0.5 ? '#f59e0b' : 'rgba(245,158,11,0.5)';
+            }
+        }
     }
 
     // ── PUBLIC API ─────────────────────────────────────────────────────────────
     window.VideoPlugin = {
         scriptName: 'video29',
-        topic: 'Facebook Mutual Friends & Graph Intersection Algorithm',
+        topic: 'Facebook Mutual Friends',
         episodeNum: 29,
         customSlideIds: customSlideIds,
         keywordsData: keywordsData,

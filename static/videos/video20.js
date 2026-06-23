@@ -107,7 +107,7 @@
         ],
         slide_qrcode_7: [
             { text: 'khôi phục dữ liệu', start: 3.0, end: 8.0, class: 'active-good' },
-            { text: 'Turnio.dev', start: 8.0, end: 14.0, class: 'active-gold' }
+            { text: 'sửa lỗi', start: 8.0, end: 14.0, class: 'active-gold' }
         ]
     };
 

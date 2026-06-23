@@ -53,7 +53,7 @@
         slide_cf_10: [
             { text: 'Anycast phân tán', start: 1.0, end: 8.0, class: 'active-good' },
             { text: 'tường lửa WAF', start: 8.0, end: 15.0, class: 'active-gold' },
-            { text: 'Turnio.dev', start: 15.0, end: 22.0, class: 'active-good' }
+            { text: 'phòng thủ', start: 15.0, end: 22.0, class: 'active-good' }
         ]
     };
 
@@ -604,34 +604,29 @@
         }
         else if (slideId === 'slide_cf_10') {
             canvas.innerHTML = `
-                <div class="v30-zoom-container" style="justify-content: center; gap: 24px;">
-                    <div style="text-align: center; margin-bottom: 4px;">
-                        <div style="font-size: 24px; font-weight: 900; color: var(--cf-orange); text-transform: uppercase; letter-spacing: 0.8px;">Turnio.dev</div>
-                        <div style="font-size: 11px; color: var(--cf-text-muted); margin-top: 4px; font-weight: 700; letter-spacing: 0.5px;">KIẾN THỨC HỆ THỐNG THỰC CHIẾN</div>
-                    </div>
-
-                    <!-- Glass Card listing Call to Actions -->
-                    <div class="v30-glass-card" style="border-color: rgba(243, 128, 32, 0.3); box-shadow: 0 10px 36px rgba(243, 128, 32, 0.2); width: 100%;">
-                        <div class="v30-cta-list">
-                            <div class="v30-cta-item" id="v30-cta-1" style="opacity: 0.3; transform: scale(0.95); transition: all 0.4s;">
-                                <i data-lucide="user-plus"></i>
-                                <span>Ấn Follow kênh Turnio.dev</span>
-                            </div>
-                            <div class="v30-cta-item" id="v30-cta-2" style="opacity: 0.3; transform: scale(0.95); transition: all 0.4s;">
-                                <i data-lucide="heart"></i>
-                                <span>Thả tim & chia sẻ bài viết</span>
-                            </div>
-                            <div class="v30-cta-item" id="v30-cta-3" style="opacity: 0.3; transform: scale(0.95); transition: all 0.4s;">
-                                <i data-lucide="message-square"></i>
-                                <span>Bình luận câu hỏi của bạn bên dưới</span>
-                            </div>
+                <div class="v30-zoom-container" style="justify-content: center; gap: 32px;">
+                    <!-- Shield blocking red DDoS requests -->
+                    <div style="position:relative; width:220px; height:220px; display:flex; align-items:center; justify-content:center;">
+                        <!-- Shield Glow rings -->
+                        <div style="position:absolute; width:160px; height:160px; border-radius:50%; background:radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%); filter:blur(15px); animation: v30-pulse-green 2s infinite;" class="v30-shield-pulse"></div>
+                        
+                        <!-- Shield Icon -->
+                        <div class="v30-node active-green" style="width:130px; height:130px; border-radius:32px; background:rgba(16, 185, 129, 0.05); border:3px solid #10b981; display:flex; align-items:center; justify-content:center; box-shadow:0 15px 35px rgba(16,185,129,0.2); animation: v30-pulse-green 5s ease-in-out infinite;">
+                            <i data-lucide="shield-check" style="width:70px; height:70px; color:#10b981; filter:drop-shadow(0 0 10px rgba(16,185,129,0.5));"></i>
+                        </div>
+                        
+                        <!-- Blocking requests illustration -->
+                        <div style="position:absolute; top:-10px; left:-20px; font-size:12px; font-weight:bold; color:#ef4444; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); padding:4px 10px; border-radius:8px; animation: v30-pulse-red 3s infinite;">
+                            403 Forbidden
+                        </div>
+                        <div style="position:absolute; bottom:10px; right:-25px; font-size:12px; font-weight:bold; color:#10b981; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); padding:4px 10px; border-radius:8px; animation: v30-pulse-green 4s infinite 1.5s;">
+                            200 OK (Clean)
                         </div>
                     </div>
-
-                    <div style="display: flex; gap: 18px; font-size: 12px; color: var(--cf-text-muted); font-weight: 700;">
-                        <span>❤️ 4.2k</span>
-                        <span>💬 832</span>
-                        <span>🔄 1.1k</span>
+                    <!-- Summary Card -->
+                    <div class="v30-glass-card" style="padding:18px 24px; border:1.5px solid rgba(16,185,129,0.25); background:rgba(16,185,129,0.02); border-radius:16px; text-align:center; width:100%; max-width:480px; box-shadow:0 15px 35px rgba(0,0,0,0.6); animation: v30-pulse-green 6s ease-in-out infinite 1s;">
+                        <div style="font-family:'Outfit', sans-serif; font-size:16px; font-weight:800; color:var(--gold-primary); letter-spacing:1px; text-transform:uppercase; display:block; margin-bottom:8px;">Cloudflare DDoS Defense</div>
+                        <div style="font-size:15px; color:#94a3b8; line-height:1.6; display:block;">Chặn đứng mã độc và lưu lượng ảo tại biên mạng Anycast</div>
                     </div>
                 </div>
             `;
@@ -1438,51 +1433,10 @@
             }
         }
         else if (slideId === 'slide_cf_10') {
-            const c1 = canvas.querySelector('#v30-cta-1');
-            const c2 = canvas.querySelector('#v30-cta-2');
-            const c3 = canvas.querySelector('#v30-cta-3');
-
-            // Sequentially scale and light up CTA items
-            if (c1) {
-                if (progress > 0.15) {
-                    c1.style.opacity = '1';
-                    c1.style.transform = 'scale(1.02)';
-                    c1.style.borderColor = 'var(--cf-orange)';
-                    c1.style.background = 'rgba(243, 128, 32, 0.08)';
-                } else {
-                    c1.style.opacity = '0.3';
-                    c1.style.transform = 'scale(0.95)';
-                    c1.style.borderColor = 'rgba(255,255,255,0.06)';
-                    c1.style.background = 'rgba(255, 255, 255, 0.03)';
-                }
-            }
-
-            if (c2) {
-                if (progress > 0.45) {
-                    c2.style.opacity = '1';
-                    c2.style.transform = 'scale(1.02)';
-                    c2.style.borderColor = 'var(--cf-orange)';
-                    c2.style.background = 'rgba(243, 128, 32, 0.08)';
-                } else {
-                    c2.style.opacity = '0.3';
-                    c2.style.transform = 'scale(0.95)';
-                    c2.style.borderColor = 'rgba(255,255,255,0.06)';
-                    c2.style.background = 'rgba(255, 255, 255, 0.03)';
-                }
-            }
-
-            if (c3) {
-                if (progress > 0.75) {
-                    c3.style.opacity = '1';
-                    c3.style.transform = 'scale(1.02)';
-                    c3.style.borderColor = 'var(--cf-orange)';
-                    c3.style.background = 'rgba(243, 128, 32, 0.08)';
-                } else {
-                    c3.style.opacity = '0.3';
-                    c3.style.transform = 'scale(0.95)';
-                    c3.style.borderColor = 'rgba(255,255,255,0.06)';
-                    c3.style.background = 'rgba(255, 255, 255, 0.03)';
-                }
+            const shieldPulse = canvas.querySelector('.v30-shield-pulse');
+            if (shieldPulse) {
+                const scale = 1.0 + Math.abs(Math.sin(progress * 4 * Math.PI)) * 0.15;
+                shieldPulse.style.transform = `scale(${scale})`;
             }
         }
     }
@@ -1490,7 +1444,7 @@
     // ── PUBLIC API ─────────────────────────────────────────────────────────────
     window.VideoPlugin = {
         scriptName: 'video30',
-        topic: 'How Cloudflare mitigates millions of DDoS requests per second',
+        topic: 'Cloudflare DDoS Protection',
         episodeNum: 30,
         customSlideIds: customSlideIds,
         keywordsData: keywordsData,

@@ -136,15 +136,36 @@
                         <!-- Left View: Map Image view -->
                         <div class="glass-card" style="width:400px; height:580px; border:2px solid rgba(255,255,255,0.06); border-radius:24px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; background:#0e121a; position:relative; overflow:hidden;">
                             <div style="font-size:20px; font-weight:bold; color:var(--text-muted); border-bottom:1.5px solid rgba(255,255,255,0.05); padding-bottom:8px;">Bản đồ Thực tế</div>
-                            <div style="flex:1; display:flex; justify-content:center; align-items:center; position:relative; margin:15px 0; background:#070a12; border-radius:16px;">
-                                <div style="position:absolute; inset:0; background-image: radial-gradient(rgba(255,255,255,0.01) 1px, transparent 1px); background-size: 15px 15px;"></div>
-                                <!-- Sketching streets mockup -->
-                                <div class="street-block-s2" style="position:absolute; width:130px; height:100px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:8px; top:40px; left:40px;"></div>
-                                <div class="street-block-s2" style="position:absolute; width:130px; height:100px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:8px; top:40px; right:40px;"></div>
-                                <div class="street-block-s2" style="position:absolute; width:130px; height:100px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:8px; bottom:40px; left:40px;"></div>
-                                <div class="street-block-s2" style="position:absolute; width:130px; height:100px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:8px; bottom:40px; right:40px;"></div>
-                                
-                                <span style="font-size:75px; z-index:5;">🗺️</span>
+                            <div style="flex:1; position:relative; margin:15px 0; background:#070a12; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.03);">
+                                <!-- Realistic street map vector grid background -->
+                                <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none;" class="real-map-svg">
+                                    <path class="map-park" d="M 0 0 L 160 0 L 120 140 Q 50 160 0 120 Z" />
+                                    <path class="map-park" d="M 260 300 Q 310 270 360 340 L 360 480 L 200 480 Z" />
+                                    <path class="map-river" d="M -20 250 C 100 260, 180 180, 380 150" />
+                                    <!-- City Blocks Grid -->
+                                    <line x1="10" y1="50" x2="350" y2="50" class="map-grid-street" />
+                                    <line x1="10" y1="130" x2="350" y2="130" class="map-grid-street" />
+                                    <line x1="10" y1="210" x2="350" y2="210" class="map-grid-street" />
+                                    <line x1="10" y1="290" x2="350" y2="290" class="map-grid-street" />
+                                    <line x1="10" y1="370" x2="350" y2="370" class="map-grid-street" />
+                                    
+                                    <line x1="50" y1="10" x2="50" y2="430" class="map-grid-street" />
+                                    <line x1="130" y1="10" x2="130" y2="430" class="map-grid-street" />
+                                    <line x1="210" y1="10" x2="210" y2="430" class="map-grid-street" />
+                                    <line x1="290" y1="10" x2="290" y2="430" class="map-grid-street" />
+
+                                    <!-- Main winding roads connecting A, B, C, D, E -->
+                                    <path d="M 50 90 Q 130 80 210 110 T 290 90" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="5" />
+                                    <path d="M 50 90 Q 100 230 130 250 T 290 250 T 290 90" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="5" />
+                                    <path d="M 130 250 Q 170 170 210 110 Q 250 180 290 250" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="5" />
+
+                                    <!-- Label points representing nodes geographical coordinates -->
+                                    <g transform="translate(50, 90)"><circle r="6" fill="#10b981" stroke="#fff" stroke-width="1.5" /><text x="10" y="4" fill="#10b981" font-size="11" font-weight="bold">A</text></g>
+                                    <g transform="translate(210, 110)"><circle r="6" fill="#f59e0b" stroke="#fff" stroke-width="1.5" /><text x="10" y="4" fill="#f59e0b" font-size="11" font-weight="bold">B</text></g>
+                                    <g transform="translate(290, 90)"><circle r="6" fill="#ef4444" stroke="#fff" stroke-width="1.5" /><text x="10" y="4" fill="#ef4444" font-size="11" font-weight="bold">C</text></g>
+                                    <g transform="translate(130, 250)"><circle r="6" fill="#f59e0b" stroke="#fff" stroke-width="1.5" /><text x="10" y="4" fill="#f59e0b" font-size="11" font-weight="bold">D</text></g>
+                                    <g transform="translate(290, 250)"><circle r="6" fill="#f59e0b" stroke="#fff" stroke-width="1.5" /><text x="10" y="4" fill="#f59e0b" font-size="11" font-weight="bold">E</text></g>
+                                </svg>
                             </div>
                         </div>
 
@@ -201,29 +222,49 @@
                             <div style="flex:1; height:380px; position:relative; margin-top:15px; background:#070a12; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.03); display:flex; justify-content:center; align-items:center;">
                                 <div style="width:700px; height:100%; position:relative; margin:0 auto;">
                                     <!-- Dijkstra Ripple Rings (Concentric circles growing outwards) -->
-                                    <div class="dijkstra-ripple r1" style="position:absolute; left:80px; top:50%; width:0px; height:0px; border-radius:50%; border:2px solid #ef4444; background:rgba(239,68,68,0.015); transform:translate(-50%, -50%); opacity:0; pointer-events:none;"></div>
-                                    <div class="dijkstra-ripple r2" style="position:absolute; left:80px; top:50%; width:0px; height:0px; border-radius:50%; border:2px solid #ef4444; background:rgba(239,68,68,0.015); transform:translate(-50%, -50%); opacity:0; pointer-events:none;"></div>
+                                    <div class="dijkstra-ripple r1" style="position:absolute; left:80px; top:190px; width:0px; height:0px; border-radius:50%; border:2px solid #ef4444; background:rgba(239,68,68,0.015); transform:translate(-50%, -50%); opacity:0; pointer-events:none;"></div>
+                                    <div class="dijkstra-ripple r2" style="position:absolute; left:80px; top:190px; width:0px; height:0px; border-radius:50%; border:2px solid #ef4444; background:rgba(239,68,68,0.015); transform:translate(-50%, -50%); opacity:0; pointer-events:none;"></div>
                                     
                                     <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;" class="dijkstra-svg">
-                                        <!-- Radial network lines -->
-                                        <line x1="80" y1="190" x2="200" y2="100" stroke="rgba(255,255,255,0.15)" stroke-width="3.5" class="d-edge e1" />
-                                        <line x1="80" y1="190" x2="200" y2="280" stroke="rgba(255,255,255,0.15)" stroke-width="3.5" class="d-edge e2" />
-                                        <line x1="200" y1="100" x2="350" y2="100" stroke="rgba(255,255,255,0.15)" stroke-width="3.5" class="d-edge e3" />
-                                        <line x1="200" y1="280" x2="350" y2="280" stroke="rgba(255,255,255,0.15)" stroke-width="3.5" class="d-edge e4" />
-                                        <line x1="350" y1="100" x2="500" y2="100" stroke="rgba(255,255,255,0.15)" stroke-width="3.5" class="d-edge e5" />
-                                        <line x1="350" y1="280" x2="500" y2="280" stroke="rgba(255,255,255,0.15)" stroke-width="3.5" class="d-edge e6" />
-                                        <line x1="500" y1="100" x2="620" y2="190" stroke="rgba(255,255,255,0.15)" stroke-width="3.5" class="d-edge e7" />
-                                        <line x1="500" y1="280" x2="620" y2="190" stroke="rgba(255,255,255,0.15)" stroke-width="3.5" class="d-edge e8" />
+                                        <!-- Geographic Map Features Background -->
+                                        <path class="map-park" d="M 0 0 L 220 0 L 150 150 Q 80 180 0 140 Z" />
+                                        <path class="map-park" d="M 520 280 Q 600 240 700 280 L 700 380 L 480 380 Z" />
+                                        <path class="map-river" d="M -20 280 C 150 300, 320 180, 720 140" />
+
+                                        <!-- City street network grid in background -->
+                                        <line x1="10" y1="50" x2="690" y2="50" class="map-grid-street" />
+                                        <line x1="10" y1="150" x2="690" y2="150" class="map-grid-street" />
+                                        <line x1="10" y1="230" x2="690" y2="230" class="map-grid-street" />
+                                        <line x1="10" y1="320" x2="690" y2="320" class="map-grid-street" />
+                                        
+                                        <line x1="100" y1="10" x2="100" y2="370" class="map-grid-street" />
+                                        <line x1="220" y1="10" x2="220" y2="370" class="map-grid-street" />
+                                        <line x1="340" y1="10" x2="340" y2="370" class="map-grid-street" />
+                                        <line x1="460" y1="10" x2="460" y2="370" class="map-grid-street" />
+                                        <line x1="580" y1="10" x2="580" y2="370" class="map-grid-street" />
+
+                                        <path d="M 120 40 Q 280 180 400 300" class="map-secondary-street" />
+                                        <path d="M 580 40 Q 420 180 300 300" class="map-secondary-street" />
+
+                                        <!-- Curved organic network paths -->
+                                        <path d="M 80 190 Q 140 120 200 90" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4.5" class="d-edge e1" />
+                                        <path d="M 80 190 Q 130 260 185 290" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4.5" class="d-edge e2" />
+                                        <path d="M 200 90 Q 280 115 365 115" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4.5" class="d-edge e3" />
+                                        <path d="M 185 290 Q 260 270 335 270" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4.5" class="d-edge e4" />
+                                        <path d="M 365 115 Q 430 85 490 80" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4.5" class="d-edge e5" />
+                                        <path d="M 335 270 Q 425 300 515 295" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4.5" class="d-edge e6" />
+                                        <path d="M 490 80 Q 565 125 620 190" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4.5" class="d-edge e7" />
+                                        <path d="M 515 295 Q 580 250 620 190" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4.5" class="d-edge e8" />
                                     </svg>
                                     
-                                    <!-- Nodes -->
+                                    <!-- Nodes (asymmetric coordinates mapping real road intersections) -->
                                     <div class="d-node start" style="position:absolute; left:80px; top:190px; width:44px; height:44px; border-radius:50%; background:#10b981; border:2px solid #fff; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:#000; z-index:5; box-shadow:0 0 15px #10b981;">A</div>
-                                    <div class="d-node n-1" style="position:absolute; left:200px; top:100px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
-                                    <div class="d-node n-2" style="position:absolute; left:200px; top:280px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
-                                    <div class="d-node n-3" style="position:absolute; left:350px; top:100px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
-                                    <div class="d-node n-4" style="position:absolute; left:350px; top:280px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
-                                    <div class="d-node n-5" style="position:absolute; left:500px; top:100px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
-                                    <div class="d-node n-6" style="position:absolute; left:500px; top:280px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="d-node n-1" style="position:absolute; left:200px; top:90px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="d-node n-2" style="position:absolute; left:185px; top:290px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="d-node n-3" style="position:absolute; left:365px; top:115px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="d-node n-4" style="position:absolute; left:335px; top:270px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="d-node n-5" style="position:absolute; left:490px; top:80px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="d-node n-6" style="position:absolute; left:515px; top:295px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
                                     <div class="d-node dest" style="position:absolute; left:620px; top:190px; width:44px; height:44px; border-radius:50%; background:#ef4444; border:2px solid #fff; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:#fff; z-index:5; transition:all 0.3s;">B</div>
                                 </div>
                             </div>
@@ -254,24 +295,45 @@
                                     </div>
 
                                     <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;" class="astar-svg">
-                                        <line x1="80" y1="190" x2="200" y2="100" stroke="rgba(255,255,255,0.1)" stroke-width="3" class="a-edge ea-1" />
-                                        <line x1="80" y1="190" x2="200" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="3" class="a-edge ea-2" />
-                                        <line x1="200" y1="100" x2="350" y2="100" stroke="rgba(255,255,255,0.1)" stroke-width="3" class="a-edge ea-3" />
-                                        <line x1="200" y1="280" x2="350" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="3" class="a-edge ea-4" />
-                                        <line x1="350" y1="100" x2="500" y2="100" stroke="rgba(255,255,255,0.1)" stroke-width="3" class="a-edge ea-5" />
-                                        <line x1="350" y1="280" x2="500" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="3" class="a-edge ea-6" />
-                                        <line x1="500" y1="100" x2="620" y2="190" stroke="rgba(255,255,255,0.1)" stroke-width="3" class="a-edge ea-7" />
-                                        <line x1="500" y1="280" x2="620" y2="190" stroke="rgba(255,255,255,0.1)" stroke-width="3" class="a-edge ea-8" />
+                                        <!-- Geographic Map Features Background -->
+                                        <path class="map-park" d="M 0 0 L 220 0 L 150 150 Q 80 180 0 140 Z" />
+                                        <path class="map-park" d="M 520 280 Q 600 240 700 280 L 700 380 L 480 380 Z" />
+                                        <path class="map-river" d="M -20 280 C 150 300, 320 180, 720 140" />
+
+                                        <!-- City street network grid in background -->
+                                        <line x1="10" y1="50" x2="690" y2="50" class="map-grid-street" />
+                                        <line x1="10" y1="150" x2="690" y2="150" class="map-grid-street" />
+                                        <line x1="10" y1="230" x2="690" y2="230" class="map-grid-street" />
+                                        <line x1="10" y1="320" x2="690" y2="320" class="map-grid-street" />
+                                        
+                                        <line x1="100" y1="10" x2="100" y2="370" class="map-grid-street" />
+                                        <line x1="220" y1="10" x2="220" y2="370" class="map-grid-street" />
+                                        <line x1="340" y1="10" x2="340" y2="370" class="map-grid-street" />
+                                        <line x1="460" y1="10" x2="460" y2="370" class="map-grid-street" />
+                                        <line x1="580" y1="10" x2="580" y2="370" class="map-grid-street" />
+
+                                        <path d="M 120 40 Q 280 180 400 300" class="map-secondary-street" />
+                                        <path d="M 580 40 Q 420 180 300 300" class="map-secondary-street" />
+
+                                        <!-- Curved organic network paths -->
+                                        <path d="M 80 190 Q 140 120 200 90" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4" class="a-edge ea-1" />
+                                        <path d="M 80 190 Q 130 260 185 290" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4" class="a-edge ea-2" />
+                                        <path d="M 200 90 Q 280 115 365 115" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4" class="a-edge ea-3" />
+                                        <path d="M 185 290 Q 260 270 335 270" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4" class="a-edge ea-4" />
+                                        <path d="M 365 115 Q 430 85 490 80" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4" class="a-edge ea-5" />
+                                        <path d="M 335 270 Q 425 300 515 295" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4" class="a-edge ea-6" />
+                                        <path d="M 490 80 Q 565 125 620 190" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4" class="a-edge ea-7" />
+                                        <path d="M 515 295 Q 580 250 620 190" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4" class="a-edge ea-8" />
                                     </svg>
                                     
-                                    <!-- Nodes -->
+                                    <!-- Nodes (asymmetric coordinates mapping real road intersections) -->
                                     <div class="a-node start" style="position:absolute; left:80px; top:190px; width:44px; height:44px; border-radius:50%; background:#10b981; border:2px solid #fff; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:#000; z-index:5; box-shadow:0 0 15px #10b981;">A</div>
-                                    <div class="a-node n-1" style="position:absolute; left:200px; top:100px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
-                                    <div class="a-node n-2" style="position:absolute; left:200px; top:280px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
-                                    <div class="a-node n-3" style="position:absolute; left:350px; top:100px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
-                                    <div class="a-node n-4" style="position:absolute; left:350px; top:280px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
-                                    <div class="a-node n-5" style="position:absolute; left:500px; top:100px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
-                                    <div class="a-node n-6" style="position:absolute; left:500px; top:280px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="a-node n-1" style="position:absolute; left:200px; top:90px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="a-node n-2" style="position:absolute; left:185px; top:290px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="a-node n-3" style="position:absolute; left:365px; top:115px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="a-node n-4" style="position:absolute; left:335px; top:270px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="a-node n-5" style="position:absolute; left:490px; top:80px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="a-node n-6" style="position:absolute; left:515px; top:295px; width:40px; height:40px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.2); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
                                     <div class="a-node dest" style="position:absolute; left:620px; top:190px; width:44px; height:44px; border-radius:50%; background:#ef4444; border:2px solid #fff; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:#fff; z-index:5; transition:all 0.3s;">B</div>
                                 </div>
                             </div>
@@ -291,22 +353,43 @@
                             <div style="flex:1; height:380px; position:relative; margin-top:15px; background:#070a12; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.03); display:flex; justify-content:center; align-items:center;">
                                 <div style="width:700px; height:100%; position:relative; margin:0 auto;">
                                     <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;" class="hierarchy-svg">
-                                        <!-- High-Level Highways (Thick lines) -->
-                                        <path class="highway-path" d="M 80 190 L 350 90 L 620 190" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" style="opacity:0.8;" />
-                                        <path class="highway-path" d="M 80 190 L 260 270 L 440 270 L 620 190" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" style="opacity:0.8;" />
+                                        <!-- Geographic Map Features Background -->
+                                        <path class="map-park" d="M 0 0 L 220 0 L 150 150 Q 80 180 0 140 Z" />
+                                        <path class="map-park" d="M 520 280 Q 600 240 700 280 L 700 380 L 480 380 Z" />
+                                        <path class="map-river" d="M -20 280 C 150 300, 320 180, 720 140" />
+
+                                        <!-- City street network grid in background -->
+                                        <line x1="10" y1="50" x2="690" y2="50" class="map-grid-street" />
+                                        <line x1="10" y1="150" x2="690" y2="150" class="map-grid-street" />
+                                        <line x1="10" y1="230" x2="690" y2="230" class="map-grid-street" />
+                                        <line x1="10" y1="320" x2="690" y2="320" class="map-grid-street" />
                                         
-                                        <!-- Local Alleys (Thin nested lines, dimmed out on click) -->
-                                        <line x1="80" y1="190" x2="215" y2="140" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" class="alley-road" />
-                                        <line x1="215" y1="140" x2="350" y2="90" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" class="alley-road" />
-                                        <line x1="350" y1="90" x2="485" y2="140" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" class="alley-road" />
-                                        <line x1="485" y1="140" x2="620" y2="190" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" class="alley-road" />
+                                        <line x1="100" y1="10" x2="100" y2="370" class="map-grid-street" />
+                                        <line x1="220" y1="10" x2="220" y2="370" class="map-grid-street" />
+                                        <line x1="340" y1="10" x2="340" y2="370" class="map-grid-street" />
+                                        <line x1="460" y1="10" x2="460" y2="370" class="map-grid-street" />
+                                        <line x1="580" y1="10" x2="580" y2="370" class="map-grid-street" />
+
+                                        <!-- High-Level Highways (Thick curvy lines) -->
+                                        <path class="highway-path" d="M 80 190 Q 350 50 620 190" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="round" style="opacity:0.85;" />
+                                        <path class="highway-path" d="M 80 190 C 220 280, 480 280, 620 190" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="round" style="opacity:0.85;" />
                                         
-                                        <line x1="80" y1="190" x2="170" y2="230" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" class="alley-road" />
-                                        <line x1="170" y1="230" x2="260" y2="270" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" class="alley-road" />
-                                        <line x1="260" y1="270" x2="350" y2="270" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" class="alley-road" />
-                                        <line x1="350" y1="270" x2="440" y2="270" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" class="alley-road" />
-                                        <line x1="440" y1="270" x2="530" y2="230" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" class="alley-road" />
-                                        <line x1="530" y1="230" x2="620" y2="190" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" class="alley-road" />
+                                        <!-- Curvy local alleys (nested networks, dimmed out on simplification) -->
+                                        <path d="M 80 190 Q 150 140 215 130" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+                                        <path d="M 215 130 Q 280 110 350 110" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+                                        <path d="M 350 110 Q 420 110 485 130" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+                                        <path d="M 485 130 Q 550 140 620 190" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+                                        
+                                        <path d="M 80 190 Q 130 220 170 230" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+                                        <path d="M 170 230 Q 220 250 260 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+                                        <path d="M 260 255 Q 310 255 350 250" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+                                        <path d="M 350 250 Q 390 255 440 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+                                        <path d="M 440 255 Q 480 250 530 230" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+                                        <path d="M 530 230 Q 570 220 620 190" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+
+                                        <!-- Alley cross street connections (shortcuts) -->
+                                        <path d="M 215 130 Q 230 190 260 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
+                                        <path d="M 485 130 Q 470 190 440 255" class="alley-road" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3.5" />
                                     </svg>
                                     
                                     <!-- Labels for High-Level Highways -->
@@ -346,21 +429,42 @@
                             <div style="flex:1; height:380px; position:relative; margin-top:15px; background:#070a12; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.03); display:flex; justify-content:center; align-items:center;">
                                 <div style="width:700px; height:100%; position:relative; margin:0 auto;">
                                     <!-- Ripple rings from both sides -->
-                                    <div class="bidir-ripple left-wave" style="position:absolute; left:80px; top:50%; width:0px; height:0px; border-radius:50%; border:2px solid #10b981; background:rgba(16,185,129,0.015); transform:translate(-50%, -50%); opacity:0; z-index:1;"></div>
-                                    <div class="bidir-ripple right-wave" style="position:absolute; left:620px; top:50%; width:0px; height:0px; border-radius:50%; border:2px solid #3b82f6; background:rgba(59,130,246,0.015); transform:translate(-50%, -50%); opacity:0; z-index:1;"></div>
+                                    <div class="bidir-ripple left-wave" style="position:absolute; left:80px; top:190px; width:0px; height:0px; border-radius:50%; border:2px solid #10b981; background:rgba(16,185,129,0.015); transform:translate(-50%, -50%); opacity:0; z-index:1;"></div>
+                                    <div class="bidir-ripple right-wave" style="position:absolute; left:620px; top:190px; width:0px; height:0px; border-radius:50%; border:2px solid #3b82f6; background:rgba(59,130,246,0.015); transform:translate(-50%, -50%); opacity:0; z-index:1;"></div>
                                     
                                     <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;" class="bidir-svg">
-                                        <path class="bidir-edge" d="M 80 190 L 215 190 L 350 190 L 485 190 L 620 190" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4.5" />
+                                        <!-- Geographic Map Features Background -->
+                                        <path class="map-park" d="M 0 0 L 220 0 L 150 150 Q 80 180 0 140 Z" />
+                                        <path class="map-park" d="M 520 280 Q 600 240 700 280 L 700 380 L 480 380 Z" />
+                                        <path class="map-river" d="M -20 280 C 150 300, 320 180, 720 140" />
+
+                                        <!-- City street network grid in background -->
+                                        <line x1="10" y1="50" x2="690" y2="50" class="map-grid-street" />
+                                        <line x1="10" y1="150" x2="690" y2="150" class="map-grid-street" />
+                                        <line x1="10" y1="230" x2="690" y2="230" class="map-grid-street" />
+                                        <line x1="10" y1="320" x2="690" y2="320" class="map-grid-street" />
+                                        
+                                        <line x1="100" y1="10" x2="100" y2="370" class="map-grid-street" />
+                                        <line x1="220" y1="10" x2="220" y2="370" class="map-grid-street" />
+                                        <line x1="340" y1="10" x2="340" y2="370" class="map-grid-street" />
+                                        <line x1="460" y1="10" x2="460" y2="370" class="map-grid-street" />
+                                        <line x1="580" y1="10" x2="580" y2="370" class="map-grid-street" />
+
+                                        <path d="M 120 40 Q 280 180 400 300" class="map-secondary-street" />
+                                        <path d="M 580 40 Q 420 180 300 300" class="map-secondary-street" />
+
+                                        <!-- Curved organic network paths -->
+                                        <path class="bidir-edge" d="M 80 190 Q 145 160 210 160 Q 280 160 350 190 Q 420 160 490 160 Q 555 160 620 190" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4.5" />
                                         <!-- Dynamic glows path -->
-                                        <path class="bidir-path-left" d="M 80 190 L 350 190" fill="none" stroke="#10b981" stroke-width="7" stroke-dasharray="270" stroke-dashoffset="270" />
-                                        <path class="bidir-path-right" d="M 620 190 L 350 190" fill="none" stroke="#3b82f6" stroke-width="7" stroke-dasharray="270" stroke-dashoffset="270" />
+                                        <path class="bidir-path-left" d="M 80 190 Q 145 160 210 160 Q 280 160 350 190" fill="none" stroke="#10b981" stroke-width="7" stroke-dasharray="270" stroke-dashoffset="270" />
+                                        <path class="bidir-path-right" d="M 620 190 Q 555 160 490 160 Q 420 160 350 190" fill="none" stroke="#3b82f6" stroke-width="7" stroke-dasharray="270" stroke-dashoffset="270" />
                                     </svg>
                                     
                                     <!-- Nodes -->
                                     <div style="position:absolute; left:80px; top:190px; width:46px; height:46px; border-radius:50%; background:#10b981; border:2px solid #fff; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:#000; z-index:5; box-shadow:0 0 15px #10b981;">A</div>
-                                    <div class="bidir-node n-l1" style="position:absolute; left:215px; top:190px; width:36px; height:36px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="bidir-node n-l1" style="position:absolute; left:210px; top:160px; width:36px; height:36px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
                                     <div class="bidir-node intersection" style="position:absolute; left:350px; top:190px; width:44px; height:44px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:10; display:flex; align-items:center; justify-content:center; font-size:22px; transition:all 0.3s;">🤝</div>
-                                    <div class="bidir-node n-r1" style="position:absolute; left:485px; top:190px; width:36px; height:36px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
+                                    <div class="bidir-node n-r1" style="position:absolute; left:490px; top:160px; width:36px; height:36px; border-radius:50%; background:#2d3748; border:2px solid rgba(255,255,255,0.3); transform:translate(-50%,-50%); z-index:5; transition:all 0.3s;"></div>
                                     <div style="position:absolute; left:620px; top:190px; width:46px; height:46px; border-radius:50%; background:#ef4444; border:2px solid #fff; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:#fff; z-index:5; box-shadow:0 0 15px #ef4444;">B</div>
                                     
                                     <!-- Central Flash Glow -->

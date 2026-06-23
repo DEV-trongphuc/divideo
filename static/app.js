@@ -4710,6 +4710,12 @@ function updateEpisodeHeader() {
     if (cfLogo) {
         cfLogo.style.display = (currentScript === 'video30') ? 'inline-block' : 'none';
     }
+    
+    // Toggle YouTube logo visibility
+    const ytLogo = document.getElementById('header-yt-logo');
+    if (ytLogo) {
+        ytLogo.style.display = (currentScript === 'video33') ? 'inline-block' : 'none';
+    }
 }
 // Dynamically initialize the editable canvas header topic from localStorage
 function initScriptTopic() {
@@ -4719,7 +4725,10 @@ function initScriptTopic() {
     const pluginTopic = window.VideoPlugin ? window.VideoPlugin.topic : null;
     const defaultTopic = pluginTopic || localStorage.getItem(`topic_${currentScript}`) || 'Optimize Backend';
     let savedTopic = localStorage.getItem(`topic_${currentScript}`);
-    if (!savedTopic) {
+    if (pluginTopic && savedTopic !== pluginTopic) {
+        savedTopic = pluginTopic;
+        localStorage.setItem(`topic_${currentScript}`, pluginTopic);
+    } else if (!savedTopic) {
         savedTopic = defaultTopic;
         localStorage.setItem(`topic_${currentScript}`, defaultTopic);
     }

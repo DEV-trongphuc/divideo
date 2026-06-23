@@ -64,3 +64,39 @@
 .legend-alley {
     transition: opacity 0.4s ease;
 }
+
+/* ── Realistic Geographic Overlay Styles ─────────────────────────────────── */
+.map-river {
+    fill: none;
+    stroke: rgba(24, 119, 242, 0.15); /* Sleek soft blue river */
+    stroke-width: 28px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.8;
+}
+
+.map-park {
+    fill: rgba(52, 211, 153, 0.07); /* Sleek forest green park */
+    stroke: rgba(52, 211, 153, 0.15);
+    stroke-width: 1px;
+}
+
+.map-grid-street {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.04); /* Thin background street network */
+    stroke-width: 2px;
+}
+
+.map-secondary-street {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.07); /* Slightly thicker background roads */
+    stroke-width: 3.5px;
+    stroke-linecap: round;
+}
+
+/* Ensure smooth round endings for path drawing */
+.d-edge, .a-edge, .highway-path, .alley-road, .bidir-edge, .bidir-path-left, .bidir-path-right, .intro-bg-road, .intro-scan-path, .intro-winner-path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+

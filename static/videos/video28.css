@@ -463,3 +463,14 @@
     color: var(--bf-red);
     box-shadow: 0 0 10px rgba(239, 68, 68, 0.08);
 }
+
+/* Queue packet dots styling and pulsing glow */
+@keyframes v28-packet-glow {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+.v28-queue-packet {
+    animation: v28-packet-glow 0.6s ease-in-out infinite alternate;
+}
+

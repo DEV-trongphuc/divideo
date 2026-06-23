@@ -1,0 +1,569 @@
+/* CSS Styles for Video 31: Luhn Algorithm & Client-Side Validation */
+
+:root {
+    --luhn-purple: #8b5cf6;
+    --luhn-purple-glow: rgba(139, 92, 246, 0.35);
+    --luhn-blue: #2563eb;
+    --luhn-blue-glow: rgba(37, 99, 235, 0.35);
+    --luhn-pink: #db2777;
+    --luhn-pink-glow: rgba(219, 39, 119, 0.35);
+    --luhn-green: #10b981;
+    --luhn-green-glow: rgba(16, 185, 129, 0.4);
+    --luhn-red: #ef4444;
+    --luhn-red-glow: rgba(239, 68, 68, 0.4);
+    --luhn-orange: #f59e0b;
+    --luhn-orange-glow: rgba(245, 158, 11, 0.4);
+    --luhn-card-bg: rgba(15, 23, 42, 0.65);
+    --luhn-border: rgba(255, 255, 255, 0.08);
+    --luhn-text: #f8fafc;
+    --luhn-text-muted: #94a3b8;
+}
+
+/* Force container layout */
+.layout-custom-sim-view .sim-canvas-body {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+.v31-zoom-container {
+    width: 100% !important;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    zoom: 1.45;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Premium Credit Card */
+.v31-credit-card {
+    width: 100%;
+    aspect-ratio: 1.586; /* Tỷ lệ vàng chuẩn thẻ tín dụng */
+    height: auto;
+    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 50%, #311042 100%);
+    background-size: 200% 200%;
+    border: 1.5px solid var(--luhn-border);
+    border-radius: 20px;
+    padding: 22px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    animation: v31-card-breath 8s ease-in-out infinite alternate;
+}
+
+@keyframes v31-card-breath {
+    0% { background-position: 0% 50%; box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6); }
+    100% { background-position: 100% 50%; box-shadow: 0 20px 55px rgba(139, 92, 246, 0.15); }
+}
+
+@keyframes v31-card-shake {
+    0%, 100% { transform: translateX(0); }
+    15%, 45%, 75% { transform: translateX(-8px); }
+    30%, 60%, 90% { transform: translateX(8px); }
+}
+
+.v31-credit-card.shake {
+    animation: v31-card-shake 0.5s ease-in-out;
+}
+
+/* Blinking cursor for typing text */
+.v31-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 15px;
+    background: var(--luhn-text);
+    margin-left: 2px;
+    animation: v31-cursor-blink 0.8s infinite;
+    vertical-align: middle;
+}
+
+@keyframes v31-cursor-blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.v31-credit-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, var(--luhn-purple-glow) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.v31-card-chip {
+    width: 44px;
+    height: 32px;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.v31-card-chip::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+}
+
+.v31-card-number {
+    font-family: 'Fira Code', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--luhn-text);
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align: left;
+    margin-top: 14px;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.v31-card-holder-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 2;
+}
+
+.v31-card-holder {
+    text-align: left;
+}
+
+.v31-card-label {
+    font-size: 8px;
+    text-transform: uppercase;
+    color: var(--luhn-text-muted);
+    letter-spacing: 1px;
+}
+
+.v31-card-val {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--luhn-text);
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.v31-card-brand {
+    font-size: 16px;
+    font-weight: 900;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 75px;
+}
+
+.v31-card-brand img {
+    height: 28px;
+    max-width: 75px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Glassmorphic Cyber Cards */
+.v31-glass-card {
+    background: var(--luhn-card-bg);
+    border: 1px solid var(--luhn-border);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65);
+    border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--luhn-text);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.v31-status-badge {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.v31-status-badge.red {
+    background: rgba(239, 68, 68, 0.18);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #f87171;
+}
+
+.v31-status-badge.green {
+    background: rgba(16, 185, 129, 0.18);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: #34d399;
+}
+
+/* Luhn Process Table Row-Based Grid (Mỗi số 1 ô vuông riêng biệt) */
+.v31-luhn-row {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    gap: 7px;
+    width: 100%;
+}
+
+.v31-luhn-arrows-row {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    gap: 7px;
+    width: 100%;
+    margin: 3px 0;
+}
+
+.v31-luhn-digit-box {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1.5px solid var(--luhn-border);
+    border-radius: 6px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--luhn-text-muted);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+
+.v31-luhn-arrow-item {
+    font-size: 10px;
+    color: var(--luhn-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+    font-weight: 900;
+}
+
+/* Active & Double Active States */
+.v31-luhn-digit-box.original.active {
+    border-color: rgba(139, 92, 246, 0.55);
+    background: rgba(139, 92, 246, 0.15);
+    color: #fff;
+    box-shadow: 0 0 10px var(--luhn-purple-glow);
+    transform: scale(1.15);
+    z-index: 2;
+}
+
+.v31-luhn-digit-box.original.double-active {
+    border-color: rgba(245, 158, 11, 0.6);
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--luhn-orange);
+    box-shadow: 0 0 10px var(--luhn-orange-glow);
+    transform: scale(1.2);
+    z-index: 3;
+}
+
+.v31-luhn-arrow-item.active {
+    opacity: 1;
+    transform: translateY(0);
+    color: var(--luhn-purple);
+}
+
+.v31-luhn-arrow-item.double-active {
+    opacity: 1;
+    transform: translateY(0);
+    color: var(--luhn-orange);
+}
+
+.v31-luhn-digit-box.calculated.active {
+    border-color: rgba(139, 92, 246, 0.6);
+    background: rgba(139, 92, 246, 0.25);
+    color: #fff;
+    box-shadow: 0 0 12px var(--luhn-purple-glow);
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.v31-luhn-digit-box.calculated.double-active {
+    border-color: rgba(245, 158, 11, 0.7);
+    background: rgba(245, 158, 11, 0.25);
+    color: var(--luhn-orange);
+    box-shadow: 0 0 15px var(--luhn-orange-glow);
+    transform: scale(1.25);
+    z-index: 3;
+}
+
+/* Client Validation List Grid */
+.v31-validation-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.v31-val-card {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--luhn-border);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+.v31-val-card.invalid {
+    border-color: rgba(239, 68, 68, 0.35);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.v31-val-card.valid {
+    border-color: rgba(16, 185, 129, 0.35);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.v31-val-info {
+    text-align: left;
+}
+
+.v31-val-label {
+    font-size: 10px;
+    color: var(--luhn-text-muted);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.v31-val-input-text {
+    font-size: 13px;
+    color: var(--luhn-text);
+    font-weight: 700;
+    margin-top: 2px;
+    font-family: 'Fira Code', monospace;
+}
+
+.v31-val-status {
+    font-size: 11px;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.v31-val-status.invalid {
+    color: var(--luhn-red);
+    background: rgba(239, 68, 68, 0.12);
+}
+
+.v31-val-status.valid {
+    color: var(--luhn-green);
+    background: rgba(16, 185, 129, 0.12);
+}
+
+/* Sơ đồ Flow API */
+.v31-flow-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    height: 120px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.v31-flow-node {
+    width: 85px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1.5px solid var(--luhn-border);
+    background: rgba(30, 41, 59, 0.55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.v31-flow-node.active-blue {
+    border-color: var(--luhn-blue);
+    box-shadow: 0 0 10px var(--luhn-blue-glow);
+}
+
+.v31-flow-node.active-green {
+    border-color: var(--luhn-green);
+    box-shadow: 0 0 10px var(--luhn-green-glow);
+}
+
+.v31-flow-node.active-red {
+    border-color: var(--luhn-red);
+    box-shadow: 0 0 10px var(--luhn-red-glow);
+}
+
+.v31-flow-line {
+    position: absolute;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    left: 95px;
+    right: 95px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.v31-flow-line-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--luhn-blue);
+    transition: width 0.3s linear;
+}
+
+.v31-flow-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--luhn-blue);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px var(--luhn-blue);
+    left: 95px;
+    opacity: 0;
+    transition: left 0.1s linear;
+    z-index: 4;
+}
+
+.v31-flow-dot.red {
+    background: var(--luhn-red);
+    box-shadow: 0 0 10px var(--luhn-red);
+}
+
+.v31-flow-dot.green {
+    background: var(--luhn-green);
+    box-shadow: 0 0 10px var(--luhn-green);
+}
+
+/* Shield barrier that blocks invalid requests at the client */
+.v31-shield-barrier {
+    position: absolute;
+    width: 4px;
+    height: 45px;
+    background: var(--luhn-red);
+    left: 145px; /* Middle of client flow */
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    border-radius: 2px;
+    box-shadow: 0 0 12px var(--luhn-red);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+    z-index: 3;
+    opacity: 0;
+}
+
+.v31-shield-barrier.active {
+    transform: translateY(-50%) scaleY(1);
+    opacity: 1;
+}
+
+/* Pulse radar effect for server when validated */
+.v31-flow-node.pulse-radar {
+    position: relative;
+    border-color: var(--luhn-green);
+    box-shadow: 0 0 15px var(--luhn-green-glow);
+}
+
+.v31-flow-node.pulse-radar::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1.5px solid var(--luhn-green);
+    border-radius: 12px;
+    animation: v31-pulse-radar 1.5s infinite;
+    pointer-events: none;
+}
+
+@keyframes v31-pulse-radar {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* Number pulse zoom effect */
+.v31-number-pulse {
+    animation: v31-num-pulse 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes v31-num-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); filter: brightness(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Form input styling and cursor */
+.v31-input-cursor {
+    display: inline-block;
+    width: 1.5px;
+    height: 12px;
+    background: var(--luhn-text);
+    margin-left: 2px;
+    animation: v31-cursor-blink 0.8s infinite;
+}
+
+/* Outro Styles */
+.v31-logo-glow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--luhn-purple) 0%, var(--luhn-blue) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 0 15px var(--luhn-purple-glow);
+}
+
+.v31-cta-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.v31-cta-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.v31-cta-item i {
+    width: 16px;
+    height: 16px;
+    color: var(--luhn-purple);
+}

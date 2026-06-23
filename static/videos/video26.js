@@ -570,7 +570,7 @@
     // ── PUBLIC API ─────────────────────────────────────────────────────────────
     window.VideoPlugin = {
         scriptName: 'video26',
-        topic: 'ZIP Compression & Lossless LZW Mechanics',
+        topic: 'Nén ZIP & Thuật toán LZW',
         episodeNum: 26,
         customSlideIds: customSlideIds,
         keywordsData: keywordsData,

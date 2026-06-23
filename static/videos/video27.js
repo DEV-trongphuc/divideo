@@ -46,7 +46,7 @@
         ],
         slide_zipbomb_11: [
             { text: 'hệ thống', start: 1.0, end: 8.0, class: 'active-gold' },
-            { text: 'Turnio', start: 8.0, end: 18.0, class: 'active-gold' }
+            { text: 'phòng vệ', start: 8.0, end: 18.0, class: 'active-good' }
         ]
     };
 
@@ -469,39 +469,22 @@
         }
         else if (slideId === 'slide_zipbomb_11') {
             canvas.innerHTML = `
-                <div class="v27-zoom-container">
-                    <!-- CTA Card -->
-                    <div class="glass-card v27-floating" style="padding:24px 20px; border:2px solid rgba(245,158,11,0.3); border-radius:24px; background:linear-gradient(135deg, rgba(20,24,33,0.9) 0%, rgba(10,12,18,0.9) 100%); text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.5); width:100%;">
-                        <div style="margin-bottom:12px;">
-                            <div class="logo-gold-glow" style="margin:0 auto; width:54px; height:54px; border-radius:50%; background:#f59e0b; display:flex; align-items:center; justify-content:center; box-shadow:0 0 20px rgba(245,158,11,0.55);">
-                                <i data-lucide="sparkles" style="width:28px; height:28px; color:#000;"></i>
-                            </div>
+                <div class="v27-zoom-container" style="justify-content: center; gap: 32px;">
+                    <!-- Concentric circles radar with archive folder -->
+                    <div style="position:relative; width:220px; height:220px; display:flex; align-items:center; justify-content:center;">
+                        <div class="v27-orbit-ring v27-orbit-1" style="position:absolute; width:180px; height:180px; animation: v27-bomb-pulse 2s infinite;"></div>
+                        <div class="v27-orbit-ring v27-orbit-2" style="position:absolute; width:240px; height:240px; animation: v27-bomb-pulse 3s infinite reverse;"></div>
+                        <i data-lucide="folder-archive" style="width:110px; height:110px; color:#ef4444; filter:drop-shadow(0 0 20px rgba(239, 68, 68, 0.5)); z-index:2; animation: v27-float 4s ease-in-out infinite;"></i>
+                        <div style="position:absolute; top:20px; right:20px; animation: v27-float 3s ease-in-out infinite;"><i data-lucide="bomb" style="width:32px; height:32px; color:#f59e0b;"></i></div>
+                        <div style="position:absolute; bottom:20px; left:20px; animation: v27-float 5s ease-in-out infinite;"><i data-lucide="alert-triangle" style="width:28px; height:28px; color:#ef4444;"></i></div>
+                    </div>
+                    <!-- Premium Text Summary Card -->
+                    <div class="glass-card" style="padding:18px 24px; border:2px solid rgba(239, 68, 68, 0.25); background:rgba(239, 68, 68, 0.03); border-radius:16px; text-align:center; width:100%; max-width:480px; box-shadow:0 15px 35px rgba(0,0,0,0.6); animation: v27-float 6s ease-in-out infinite 1s;">
+                        <div style="font-size:16px; font-weight:800; color:var(--text-muted); border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; margin-bottom:12px; text-transform:uppercase; letter-spacing:0.8px;">
+                            ZIP BOMB SUMMARY
                         </div>
-                        
-                        <div style="font-size:20px; font-weight:900; color:#fff; letter-spacing:0.8px; line-height:1.2;">
-                            TURNIO.DEV
-                        </div>
-                        <div style="font-size:13px; color:#f59e0b; font-weight:bold; text-transform:uppercase; margin-top:2px; letter-spacing:1px;">
-                            Thiết Kế Hệ Thống Thực Chiến
-                        </div>
-
-                        <div style="margin:16px 0; border-top:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08); padding:10px 0; display:flex; justify-content:space-around; align-items:center;">
-                            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
-                                <i data-lucide="heart" style="width:22px; height:22px; color:#ef4444;"></i>
-                                <span style="font-size:11px; color:rgba(255,255,255,0.5); font-weight:bold;">Thích</span>
-                            </div>
-                            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
-                                <i data-lucide="message-square" style="width:22px; height:22px; color:#3b82f6;"></i>
-                                <span style="font-size:11px; color:rgba(255,255,255,0.5); font-weight:bold;">Bình luận</span>
-                            </div>
-                            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
-                                <i data-lucide="share-2" style="width:22px; height:22px; color:#10b981;"></i>
-                                <span style="font-size:11px; color:rgba(255,255,255,0.5); font-weight:bold;">Chia sẻ</span>
-                            </div>
-                        </div>
-
-                        <div style="font-size:14px; color:rgba(255,255,255,0.7); font-weight:500; line-height:1.4; padding:0 4px; letter-spacing:0.5px;">
-                            Nhấn <span style="color:#f59e0b; font-weight:bold;">Follow</span> kênh ngay để học nhiều kiến thức hệ thống bổ ích!
+                        <div style="font-size:15px; color:#94a3b8; line-height:1.6; font-weight:bold;">
+                            42 KB ➔ 4.5 Petabytes (Tỷ lệ nén 100M:1)
                         </div>
                     </div>
                 </div>
@@ -806,12 +789,15 @@
                 }
             }
         }
+        else if (slideId === 'slide_zipbomb_11') {
+            // Pure CSS keyframes
+        }
     }
 
     // ── PUBLIC API ─────────────────────────────────────────────────────────────
     window.VideoPlugin = {
         scriptName: 'video27',
-        topic: 'Zip Bomb & Recursive Decompression Mechanics',
+        topic: 'Cơ chế Zip Bomb',
         episodeNum: 27,
         customSlideIds: customSlideIds,
         keywordsData: keywordsData,

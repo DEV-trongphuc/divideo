@@ -296,15 +296,11 @@
                                     <div class="annoy-search-glow" style="position:absolute; left:28%; top:45%; width:100px; height:100px; border-radius:50%; border:2px dashed #1db954; background:rgba(29,185,84,0.06); transform:translate(-45px,-45px); opacity:0; transition:opacity 0.4s;"></div>
                                 </div>
                             </div>
-                            <div class="glass-card annoy-tree-card" style="width:380px; height:270px; border:2.5px solid #1db954; border-radius:24px; padding:20px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; z-index:2; text-align:center; transition:all 0.3s;">
-                                <div style="font-size:16px; font-weight:bold; color:#1db954; text-transform:uppercase; border-bottom:1px solid rgba(29,185,84,0.2); padding-bottom:8px;">Tìm kiếm lân cận siêu tốc (ANN)</div>
-                                <div style="display:flex; flex-direction:column; gap:15px; flex:1; justify-content:center; align-items:center;">
-                                    <span style="font-size:18px; color:var(--text-muted); text-transform:uppercase;">Thời gian quét bài hát:</span>
-                                    <div style="font-family:var(--font-mono); font-size:32px; font-weight:900; color:#b3b3b3; transition:color 0.3s;" class="annoy-speed-lbl">-- µs</div>
-                                    <div style="background:rgba(0,0,0,0.3); border-radius:12px; width:100%; padding:12px; border:1px solid rgba(255,255,255,0.05); box-sizing:border-box;">
-                                        <div style="font-size:18px; color:var(--text-muted); text-transform:uppercase;">Độ phức tạp:</div>
-                                        <div style="font-size:18px; font-weight:bold; color:#fff; font-family:var(--font-mono); margin-top:3px;">O(log N) - Phân vùng nhị phân</div>
-                                    </div>
+                            <div class="glass-card annoy-tree-card" style="width:380px; height:150px; border:2px solid #1db954; border-radius:20px; padding:15px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; z-index:2; text-align:center;">
+                                <div style="font-size:14px; font-weight:bold; color:#1db954; text-transform:uppercase; border-bottom:1px solid rgba(29,185,84,0.2); padding-bottom:6px;">Tìm kiếm lân cận siêu tốc (ANN)</div>
+                                <div style="display:flex; flex-direction:column; gap:6px; flex:1; justify-content:center; align-items:center; padding-top:8px;">
+                                    <span style="font-size:14px; color:var(--text-muted); text-transform:uppercase;">Thời gian quét bài hát:</span>
+                                    <div style="font-family:var(--font-mono); font-size:28px; font-weight:900; color:#b3b3b3;" class="annoy-speed-lbl">-- µs</div>
                                 </div>
                             </div>
                         </div>
