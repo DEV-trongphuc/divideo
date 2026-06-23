@@ -1,0 +1,179 @@
+/**
+ * Video 38: TikTok Storage System
+ * CSS riêng - chỉ load khi video38 được chọn
+ */
+
+/* ── TikTok Theme Variable Tokens & Keyframes ────────────────────────────── */
+:root {
+    --tiktok-cyan: #00f2fe;
+    --tiktok-magenta: #fe0979;
+    --tiktok-dark: #010101;
+    --tiktok-gray: #121212;
+}
+
+@keyframes tiktokGlowCyan {
+    0%, 100% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.35); }
+    50% { box-shadow: 0 0 25px rgba(0, 242, 254, 0.7); }
+}
+
+@keyframes tiktokGlowMagenta {
+    0%, 100% { box-shadow: 0 0 15px rgba(254, 9, 121, 0.35); }
+    50% { box-shadow: 0 0 25px rgba(254, 9, 121, 0.7); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.03); }
+}
+
+@keyframes floatElement {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes spinIcon {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes neonBorderPulse {
+    0% { border-color: rgba(0, 242, 254, 0.3); }
+    50% { border-color: rgba(254, 9, 121, 0.6); }
+    100% { border-color: rgba(0, 242, 254, 0.3); }
+}
+
+/* ── TikTok Icon & Mockup Styles ─────────────────────────────────────────── */
+.tiktok-glow-cyan {
+    animation: tiktokGlowCyan 2.5s infinite ease-in-out;
+}
+
+.tiktok-glow-magenta {
+    animation: tiktokGlowMagenta 2.5s infinite ease-in-out;
+}
+
+.tiktok-card {
+    transition: all 0.3s ease;
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+}
+
+.tiktok-card:hover {
+    border-color: var(--tiktok-cyan);
+    box-shadow: 0 8px 30px rgba(0, 242, 254, 0.15);
+}
+
+.floating-gfx {
+    animation: floatElement 3s infinite ease-in-out;
+}
+
+.spinning-gear {
+    animation: spinIcon 8s linear infinite;
+}
+
+.tiktok-phone-container {
+    background: var(--tiktok-dark);
+    border: 3px solid rgba(255, 255, 255, 0.12);
+    border-radius: 36px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 
+                -4px 0 20px rgba(0, 242, 254, 0.25), 
+                4px 0 20px rgba(254, 9, 121, 0.25);
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+/* ── Content Delivery Network (CDN) Wave Rings ───────────────────────────── */
+.cdn-wave-ring {
+    position: absolute;
+    border: 2px solid var(--tiktok-cyan);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes cdnRipple {
+    0% { width: 0; height: 0; opacity: 0.8; }
+    100% { width: 160px; height: 160px; opacity: 0; }
+}
+
+.cdn-wave-ring.animate {
+    animation: cdnRipple 1.8s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+/* ── Transcoding Pipe Styles ─────────────────────────────────────────────── */
+.transcode-step {
+    transition: all 0.4s ease;
+    opacity: 0.4;
+    transform: translateY(10px);
+}
+
+.transcode-step.active {
+    opacity: 1;
+    transform: translateY(0);
+    border-color: var(--tiktok-cyan);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+}
+
+/* ── Storage Tiering Drive Styles ────────────────────────────────────────── */
+.storage-drive {
+    transition: all 0.4s ease;
+}
+
+.storage-drive.hot-drive {
+    background: rgba(254, 9, 121, 0.08);
+    border: 1.5px solid var(--tiktok-magenta);
+}
+
+.storage-drive.warm-drive {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1.5px solid #f59e0b;
+}
+
+.storage-drive.cold-drive {
+    background: rgba(59, 130, 246, 0.08);
+    border: 1.5px solid #3b82f6;
+}
+
+.storage-drive.active {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px currentColor;
+}
+
+/* ── Extra Premium Animations ────────────────────────────────────────────── */
+@keyframes floatPhone {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(0.5deg); }
+}
+
+.tiktok-phone-floating {
+    animation: floatPhone 5s infinite ease-in-out;
+}
+
+@keyframes flowLineAnim {
+    to {
+        stroke-dashoffset: -40;
+    }
+}
+
+.flow-path-cyan, .flow-path-magenta {
+    animation: flowLineAnim 1.5s linear infinite;
+}
+
+/* Glow scan effect for datacenter racks */
+@keyframes glowScan {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+.rack-glow-scanner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--tiktok-cyan), transparent);
+    box-shadow: 0 0 10px var(--tiktok-cyan);
+    pointer-events: none;
+    animation: glowScan 3s linear infinite;
+}
+
