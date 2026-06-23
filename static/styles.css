@@ -5247,18 +5247,14 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* changed from center to push title up */
     align-items: center;
     gap: 50px;
-    /* slightly increased gap between title and card */
     height: 100%;
     width: 100%;
     position: relative;
     padding: 40px 30px 30px 30px;
-    /* added 40px top padding so it is near top but not touching */
     box-sizing: border-box;
     transform: translateY(0px);
-    /* removed -30px transform to rely on padding */
 }
 
 .sim-scene-header {
@@ -5282,21 +5278,19 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
 
 .layout-custom-sim-view .sim-canvas-body {
     zoom: 1.05;
-    /* Reduced from 1.15 to ensure comfortable padding on portrait screen */
-    margin-top: 55px;
-    /* Push main content down further to clear title area */
+    margin-top: 230px;
 }
 
 .layout-custom-sim-view.first-slide .sim-canvas-body {
-    margin-top: 40px;
+    margin-top: 100px;
 }
 
 /* ==========================================================================
    STANDARD CUSTOM SIMULATION LAYOUTS (GRID & CARDS)
-   Quy Ä‘á»‹nh chung cho cÃ¡c layout plugin video (1 card, 2 cards, 3 cards...)
+   Quy định chung cho các layout plugin video (1 card, 2 cards, 3 cards...)
    ========================================================================== */
 
-/* Container bá»c ngoÃ i cÃ¡c card, tá»± Ä‘á»™ng cÄƒn giá»¯a */
+/* Container bọc ngoài các card, tự động căn giữa */
 .sim-grid-container {
     width: 100%;
     height: 100%;
@@ -5306,30 +5300,29 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    /* Gap máº·c Ä‘á»‹nh */
 }
 
-/* Layout 1 Card (Náº±m giá»¯a) */
+/* Layout 1 Card (Nằm giữa) */
 .sim-grid-1-card {
     flex-direction: column;
 }
 
-/* Layout 2 Cards (Xáº¿p ngang) */
+/* Layout 2 Cards (Xếp ngang) */
 .sim-grid-2-cards {
     flex-direction: row;
 }
 
-/* Layout 3 Cards (Xáº¿p ngang) */
+/* Layout 3 Cards (Xếp ngang) */
 .sim-grid-3-cards-row {
     flex-direction: row;
 }
 
-/* Layout 3 Cards (Xáº¿p dá»c - Column) */
+/* Layout 3 Cards (Xếp dọc - Column) */
 .sim-grid-3-cards-col {
     flex-direction: column;
 }
 
-/* --- GAP MODIFIERS (TÃ¹y chá»‰nh khoáº£ng cÃ¡ch) --- */
+/* --- GAP MODIFIERS (Tùy chỉnh khoảng cách) --- */
 .sim-gap-sm {
     gap: 15px !important;
 }
@@ -5342,8 +5335,8 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     gap: 50px !important;
 }
 
-/* --- STANDARD CARD SIZES (KÃ­ch thÆ°á»›c tháº» tiÃªu chuáº©n) --- */
-/* DÃ¹ng káº¿t há»£p vá»›i glass-card */
+/* --- STANDARD CARD SIZES (Kích thước thẻ tiêu chuẩn) --- */
+/* Dùng kết hợp với glass-card */
 .sim-card-sm {
     max-width: 380px;
     width: 100%;
@@ -5369,7 +5362,6 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     flex: 1;
 }
 
-
 .keyword-idle {
     color: #e2e8f0;
     font-weight: 700;
@@ -5382,189 +5374,7 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
    ========================================================================== */
 .keywords-panel {
     position: absolute;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 900px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px 40px;
-    padding: 15px;
-    z-index: 50;
-    min-height: 80px;
-    align-items: center;
-    pointer-events: none;
-}
-
-.ai-keyword-tag {
-    font-family: 'Inter', 'Outfit', sans-serif;
-    font-size: 27px;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.4);
-    background: rgba(255, 255, 255, 0.03);
-    border: 2px solid rgba(255, 255, 255, 0.06);
-    padding: 10px 22px;
-    border-radius: 14px;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    backdrop-filter: blur(8px);
-}
-
-
-/* Hide console/terminal cards completely */
-.query-panel,
-.sim-terminal-panel {
-    display: none !important;
-}
-
-/* ==========================================================================
-   Restored Core Simulation Layout Styles
-   ========================================================================== */
-
-/* Main wrapper */
-.layout-custom-sim-view {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    /* changed from center to push title up */
-    align-items: center;
-    gap: 50px;
-    /* slightly increased gap between title and card */
-    height: 100%;
-    width: 100%;
-    position: relative;
-    padding: 40px 30px 30px 30px;
-    /* added 40px top padding so it is near top but not touching */
-    box-sizing: border-box;
-    transform: translateY(0px);
-    /* removed -30px transform to rely on padding */
-}
-
-.sim-scene-header {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.sim-scene-header h2 {
-    font-size: 46px;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 6px;
-    background: linear-gradient(135deg, #FFFFFF 40%, var(--gold-secondary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.sim-scene-header p {
-    display: none !important;
-}
-
-.layout-custom-sim-view .sim-canvas-body {
-    zoom: 1.05;
-    /* Reduced from 1.15 to ensure comfortable padding on portrait screen */
-    margin-top: 55px;
-    /* Push main content down further to clear title area */
-}
-
-.layout-custom-sim-view.first-slide .sim-canvas-body {
-    margin-top: 40px;
-}
-
-/* ==========================================================================
-   STANDARD CUSTOM SIMULATION LAYOUTS (GRID & CARDS)
-   Quy Ä‘á»‹nh chung cho cÃ¡c layout plugin video (1 card, 2 cards, 3 cards...)
-   ========================================================================== */
-
-/* Container bá» c ngoÃ i cÃ¡c card, tá»± Ä‘á»™ng cÄƒn giá»¯a */
-.sim-grid-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    /* Gap máº·c Ä‘á»‹nh */
-}
-
-/* Layout 1 Card (Náº±m giá»¯a) */
-.sim-grid-1-card {
-    flex-direction: column;
-}
-
-/* Layout 2 Cards (Xáº¿p ngang) */
-.sim-grid-2-cards {
-    flex-direction: row;
-}
-
-/* Layout 3 Cards (Xáº¿p ngang) */
-.sim-grid-3-cards-row {
-    flex-direction: row;
-}
-
-/* Layout 3 Cards (Xáº¿p dá» c - Column) */
-.sim-grid-3-cards-col {
-    flex-direction: column;
-}
-
-/* --- GAP MODIFIERS (TÃ¹y chá»‰nh khoáº£ng cÃ¡ch) --- */
-.sim-gap-sm {
-    gap: 15px !important;
-}
-
-.sim-gap-md {
-    gap: 30px !important;
-}
-
-.sim-gap-lg {
-    gap: 50px !important;
-}
-
-/* --- STANDARD CARD SIZES (KÃ­ch thÆ°á»›c tháº» tiÃªu chuáº©n) --- */
-/* DÃ¹ng káº¿t há»£p vá»›i glass-card */
-.sim-card-sm {
-    max-width: 380px;
-    width: 100%;
-}
-
-.sim-card-md {
-    max-width: 580px;
-    width: 100%;
-}
-
-.sim-card-lg {
-    max-width: 780px;
-    width: 100%;
-}
-
-.sim-card-xl {
-    max-width: 980px;
-    width: 100%;
-}
-
-.sim-card-full {
-    width: 100%;
-    flex: 1;
-}
-
-
-.keyword-idle {
-    color: #e2e8f0;
-    font-weight: 700;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-    transition: all 0.3s;
-}
-
-/* ==========================================================================
-   AI Keyword Tags
-   ========================================================================== */
-.keywords-panel {
-    position: absolute;
-    top: 80px;
+    top: 260px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;

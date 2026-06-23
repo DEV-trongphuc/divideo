@@ -7,12 +7,12 @@
     "script": "Hàng tỷ video đăng lên mỗi ngày, vậy TikTok lưu trữ chúng ở đâu để bạn lướt mượt mà không hề gián đoạn?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 7.0,
+    "audioPath": "/kichban/video38/mp3/slide_v38_1.mp3",
+    "duration": 7.72,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "f70105efdafae47642b83215a7bfbf5e"
   },
   {
     "id": "slide_v38_2",
@@ -22,12 +22,12 @@
     "script": "Mỗi phút có hàng trăm giờ video tải lên. Với hàng tỷ người dùng tích cực, lượng dữ liệu thô tích lũy đạt hàng nghìn Petabytes, tức là hàng triệu Gigabytes được ghi mới mỗi ngày.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 13.0,
+    "audioPath": "/kichban/video38/mp3/slide_v38_2.mp3",
+    "duration": 11.72,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "4af4d900694b84a586c3b9da0fac36b7"
   },
   {
     "id": "slide_v38_3",
@@ -37,12 +37,12 @@
     "script": "Khi bạn lướt TikTok, video không được tải từ Mỹ. Hệ thống CDN sẽ đặt các bản sao video tại máy chủ Edge gần bạn nhất, như ở Việt Nam hay Singapore, giúp video phát ngay lập tức.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 14.5,
+    "audioPath": "/kichban/video38/mp3/slide_v38_3.mp3",
+    "duration": 11.4,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "ed141f18aa0071f7937bacb2af284fec"
   },
   {
     "id": "slide_v38_4",
@@ -52,12 +52,12 @@
     "script": "TikTok phân chia video thành ba tầng: Hot Storage lưu các video xu hướng trên SSD tốc độ cao; Warm Storage cho các video cũ ít người xem; và Cold Storage lưu các video bị lãng quên trên ổ đĩa giá rẻ.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "audioPath": "/kichban/video38/mp3/slide_v38_4.mp3",
+    "duration": 15.88,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "14995645981ae4e8e442dcdde3b68c1d"
   },
   {
     "id": "slide_v38_5",
@@ -67,12 +67,12 @@
     "script": "Khi bạn đăng video, hệ thống Transcoding sẽ ngay lập tức nhân bản video đó thành nhiều phiên bản từ 480p đến 1080p, tối ưu hóa bitrate để phù hợp cho từng tốc độ mạng khác nhau.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 14.0,
+    "audioPath": "/kichban/video38/mp3/slide_v38_5.mp3",
+    "duration": 13.16,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "305099b7c00cdb58d0efb54ca5efa33e"
   },
   {
     "id": "slide_v38_6",
@@ -82,12 +82,12 @@
     "script": "Video thô được lưu trữ trong Object Storage như Amazon S3 hay MinIO. Riêng dữ liệu tương tác như lượt tim, bình luận và hashtag được lưu trong cơ sở dữ liệu phân tán siêu tốc như Cassandra hay Redis.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 16.0,
+    "audioPath": "/kichban/video38/mp3/slide_v38_6.mp3",
+    "duration": 14.44,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "b5ad5bcdde4462da39fea44eea218706"
   },
   {
     "id": "slide_v38_7",
@@ -97,11 +97,11 @@
     "script": "Thả tim, chia sẻ và Follow Turnio chấm dev để cùng khám phá những kiến thức kiến trúc hệ thống và công nghệ thực chiến nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 8.0,
+    "audioPath": "/kichban/video38/mp3/slide_v38_7.mp3",
+    "duration": 8.2,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "e6ae6b6a4ea44e76f362bb1069a8d67a"
   }
 ]

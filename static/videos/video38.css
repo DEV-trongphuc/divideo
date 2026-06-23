@@ -135,7 +135,18 @@
 
 .storage-drive.active {
     transform: scale(1.05);
-    box-shadow: 0 0 25px currentColor;
+}
+
+.storage-drive.hot-drive.active {
+    box-shadow: 0 0 25px rgba(254, 9, 121, 0.4);
+}
+
+.storage-drive.warm-drive.active {
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+}
+
+.storage-drive.cold-drive.active {
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
 }
 
 /* ── Extra Premium Animations ────────────────────────────────────────────── */
@@ -177,3 +188,21 @@
     animation: glowScan 3s linear infinite;
 }
 
+@keyframes pulseSuccess {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+    50% { transform: scale(1.08); box-shadow: 0 0 25px rgba(16, 185, 129, 0.8); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+}
+
+.v38-pulse-success {
+    animation: pulseSuccess 1.5s infinite ease-in-out;
+}
+
+.layout-custom-sim-view .sim-canvas-body {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+}
