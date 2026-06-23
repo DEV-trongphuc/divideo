@@ -7,10 +7,10 @@
 
     const keywordsData = {
         slide_yt_intro_a: [
-            { text: 'đồng bộ', start: 1.0, end: 8.5, class: 'active-gold' }
+            { text: 'đồng bộ', start: 1.0, end: 5.0, class: 'active-gold' }
         ],
         slide_yt_intro_b: [
-            { text: 'chuẩn xác', start: 0.5, end: 8.5, class: 'active-good' }
+            { text: 'chuẩn xác', start: 0.5, end: 5.0, class: 'active-good' }
         ],
         slide_yt_naive: [
             { text: '1 giây', start: 1.0, end: 8.0, class: 'active-bad' },

@@ -8,10 +8,10 @@
     // ── KEYWORDS TIMINGS ──────────────────────────────────────────────────────
     const keywordsData = {
         slide_v36_hook_a: [
-            { text: 'gợi ý kết bạn', start: 6.0, end: 7.5, class: 'active-gold' }
+            { text: 'gợi ý kết bạn', start: 3.0, end: 5.0, class: 'active-gold' }
         ],
         slide_v36_hook_b: [
-            { text: 'nghe lén', start: 4.0, end: 7.0, class: 'active-bad' }
+            { text: 'nghe lén', start: 3.0, end: 5.0, class: 'active-bad' }
         ],
         slide_v36_location_bluetooth: [
             { text: 'tọa độ giống hệt nhau', start: 3.0, end: 7.0, class: 'active-gold' },
@@ -50,7 +50,7 @@
         if (slideId === 'slide_v36_hook_a') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                    <div class="v36-scene-wrapper">
+                    <div class="v36-scene-wrapper-hook">
                         <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
                             <div class="v36-facebook-intro-container">
                                 <div class="v36-facebook-glow-ring"></div>

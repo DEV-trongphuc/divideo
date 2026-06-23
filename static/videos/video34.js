@@ -6,10 +6,10 @@
 
     const keywordsData = {
         slide_chat_intro_a: [
-            { text: 'tức thì', start: 1.0, end: 8.5, class: 'active-gold' }
+            { text: 'tức thì', start: 1.0, end: 5.0, class: 'active-gold' }
         ],
         slide_chat_intro_b: [
-            { text: 'WebSocket', start: 0.5, end: 8.5, class: 'active-good' }
+            { text: 'WebSocket', start: 0.5, end: 5.0, class: 'active-good' }
         ],
         slide_chat_http: [
             { text: 'Request', start: 1.0, end: 7.0, class: 'active-gold' },
