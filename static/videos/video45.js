@@ -66,23 +66,38 @@
                 <div class="v45-zoom-container">
                     <div class="v37-grid-bg orange-tint" style="position:absolute; inset:0; background-image:radial-gradient(rgba(245,158,11,0.04) 1.5px, transparent 1.5px); background-size:20px 20px; pointer-events:none;"></div>
                     
-                    <!-- Merging blocks animation wrapper -->
-                    <div class="v45-block-container" id="s1-block-container">
-                        <div class="v45-merge-block" id="s1-block-01" style="left: calc(50% - 140px); top: 20px;">0.1</div>
-                        <div class="v45-merge-block" id="s1-block-02" style="left: calc(50% + 30px); top: 20px;">0.2</div>
+                    <!-- Slide 1 Orbiting Rings Intro Hook Container -->
+                    <div class="v45-intro-container">
+                        <div class="v45-glow-ring outer"></div>
+                        <div class="v45-glow-ring inner"></div>
                         
-                        <div class="v45-result-block" id="s1-result-block" style="left: calc(50% - 130px); top: 15px;">
-                             <div style="font-size:10px; color:#aaa; font-weight:bold; letter-spacing:0.5px;">KẾT QUẢ MÁY TÍNH:</div>
-                             <div style="font-size:22px; font-weight:800; color:#ef4444; font-family:monospace; margin-top:2px;">0.3000...4</div>
-                             <div style="font-size:11px; color:#6b7280; text-decoration:line-through; font-weight:bold; margin-top:4px;">(Mong muốn: 0.3)</div>
+                        <!-- Merging blocks animation wrapper -->
+                        <div class="v45-block-container" id="s1-block-container">
+                            <div class="v45-merge-block" id="s1-block-01" style="left: calc(50% - 140px); top: 20px;">0.1</div>
+                            
+                            <!-- Glowing Plus Operator -->
+                            <div class="v45-plus-operator" id="s1-plus-op" style="left: calc(50% - 15px); top: 38px;">+</div>
+                            
+                            <div class="v45-merge-block" id="s1-block-02" style="left: calc(50% + 30px); top: 20px;">0.2</div>
+                            
+                            <!-- Collision Ripple Effect -->
+                            <div class="v45-collision-ripple" id="s1-ripple" style="left: calc(50% - 50px); top: 5px;"></div>
+                            
+                            <div class="v45-result-block" id="s1-result-block" style="left: calc(50% - 130px); top: 15px;">
+                                 <div class="v45-result-badge">
+                                     <i data-lucide="alert-octagon" style="width:11px; height:11px;"></i> KẾT QUẢ MÁY TÍNH
+                                 </div>
+                                 <div class="v45-result-value">0.3000...4</div>
+                                 <div class="v45-result-expected">(Mong muốn: 0.3)</div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="glass-card" style="text-align: center; width: 100%; padding: 22px 24px; border-radius: 20px; border: 1.5px solid rgba(245,158,11,0.35); background: rgba(12, 16, 24, 0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55); margin-top: 10px; box-sizing:border-box;">
-                        <div style="margin-bottom: 12px; font-size: 14px; padding: 6px 16px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1); color: #fbbf24; border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
-                            <i data-lucide="alert-triangle" style="width:15px;height:15px;"></i> Lỗi Số Thực Kính Điển
+                    <div class="glass-card v45-hook-card">
+                        <div class="v45-hook-badge">
+                            <i data-lucide="alert-triangle" style="width:16px; height:16px;"></i> Lỗi Số Thực Kính Điển
                         </div>
-                        <div style="font-family:'Outfit', sans-serif; font-size: 18px; font-weight: bold; color: #fff; line-height: 1.55;">
+                        <div class="v45-hook-title">
                             Tại sao 0.1 + 0.2 = 0.30000000000000004?<br>Cơn ác mộng của lập trình viên Fintech
                         </div>
                     </div>
@@ -92,9 +107,6 @@
         else if (slideId === 'slide_float_2') {
             canvas.innerHTML = `
                 <div class="v45-zoom-container">
-                    <div style="font-size: 18px; font-weight: bold; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; width: 100%; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; margin-bottom: 10px;">
-                        Console Execution
-                    </div>
 
                     <div class="v45-console">
                         <div class="v45-console-header">
@@ -132,22 +144,8 @@
         else if (slideId === 'slide_float_3') {
             canvas.innerHTML = `
                 <div class="v45-zoom-container">
-                    <div style="font-size: 18px; font-weight: bold; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; width: 100%; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; margin-bottom: 10px;">
-                        Cơ chế lưu trữ nhị phân (IEEE 754)
-                    </div>
 
-                    <!-- Converter Machine block -->
-                    <div class="v45-converter-wrapper">
-                         <div style="font-size:22px; font-weight:800; font-family:monospace; color:#fbbf24; z-index:3; position:absolute; left:calc(50% - 150px); top:15px;" id="s3-input-val">0.1</div>
-                         <div class="v45-converter-box" style="margin: 0 auto;">
-                             <div class="v45-converter-gears">
-                                 <div class="v45-gear"></div>
-                                 <div class="v45-gear rev"></div>
-                             </div>
-                             <span>IEEE 754</span>
-                         </div>
-                         <div class="v45-flying-value" id="s3-flying-val" style="display:none; left:calc(50% + 50px); top:15px;">0.000110011...</div>
-                    </div>
+
 
                     <div class="v45-binary-card">
                         <!-- Left Panel: Input Decimals -->
@@ -181,9 +179,6 @@
         else if (slideId === 'slide_float_4') {
             canvas.innerHTML = `
                 <div class="v45-zoom-container">
-                    <div style="font-size: 18px; font-weight: bold; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; width: 100%; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; margin-bottom: 8px;">
-                        Mô phỏng sai số tích lũy qua vòng lặp
-                    </div>
 
                     <div class="v45-loop-box" style="position:relative;">
                         <!-- Audit Stamp -->
@@ -225,9 +220,6 @@
         else if (slideId === 'slide_float_5') {
             canvas.innerHTML = `
                 <div class="v45-zoom-container">
-                    <div style="font-size: 18px; font-weight: bold; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; width: 100%; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; margin-bottom: 10px;">
-                        Giải pháp tối ưu cho lõi ngân hàng
-                    </div>
 
                     <!-- Top Visual blocks comparison -->
                     <div class="v45-solution-comparison-header">
@@ -287,32 +279,57 @@
         if (slideId === 'slide_float_1') {
             const block1 = canvas.querySelector('#s1-block-01');
             const block2 = canvas.querySelector('#s1-block-02');
+            const plusOp = canvas.querySelector('#s1-plus-op');
+            const ripple = canvas.querySelector('#s1-ripple');
             const result = canvas.querySelector('#s1-result-block');
 
-            // Phase 1: Blocks fall down and merge (progress = 0.1 to 0.45)
-            if (progress > 0.1 && progress <= 0.45) {
-                const t = (progress - 0.1) / 0.35;
-                // Animate block 1 sliding right, block 2 sliding left
+            if (progress <= 0.10) {
+                // Phase 0: Idle separate state
+                if (block1) { block1.style.opacity = '1'; block1.style.transform = 'none'; }
+                if (block2) { block2.style.opacity = '1'; block2.style.transform = 'none'; }
+                if (plusOp) { plusOp.style.opacity = '1'; plusOp.style.transform = 'scale(1)'; }
+                if (ripple) { ripple.style.display = 'none'; }
+                if (result) result.classList.remove('active');
+            }
+            else if (progress > 0.10 && progress <= 0.45) {
+                // Phase 1: Blocks slide horizontally to meet at the center (t goes 0 to 1)
+                const t = (progress - 0.10) / 0.35;
                 if (block1) {
                     block1.style.opacity = '1';
-                    block1.style.transform = `translateX(${t * 60}px) translateY(${Math.sin(t * Math.PI) * -15}px)`;
+                    block1.style.transform = `translateX(${t * 85}px) translateY(${Math.sin(t * Math.PI) * -15}px)`;
                 }
                 if (block2) {
                     block2.style.opacity = '1';
-                    block2.style.transform = `translateX(${-t * 60}px) translateY(${Math.sin(t * Math.PI) * -15}px)`;
+                    block2.style.transform = `translateX(${-t * 85}px) translateY(${Math.sin(t * Math.PI) * -15}px)`;
                 }
+                if (plusOp) {
+                    plusOp.style.opacity = `${1 - t}`;
+                    plusOp.style.transform = `scale(${1 - t * 0.4})`;
+                }
+                if (ripple) { ripple.style.display = 'none'; }
                 if (result) result.classList.remove('active');
             }
-            // Phase 2: Show merged result block (progress > 0.45)
-            else if (progress > 0.45) {
+            else if (progress > 0.45 && progress <= 0.55) {
+                // Phase 2: Impact! Blocks vanish, ripple wave triggers, result scales up
+                const tRip = (progress - 0.45) / 0.10;
                 if (block1) block1.style.opacity = '0';
                 if (block2) block2.style.opacity = '0';
+                if (plusOp) plusOp.style.opacity = '0';
+                
+                if (ripple) {
+                    ripple.style.display = 'block';
+                    ripple.style.transform = `scale(${tRip * 2.5})`;
+                    ripple.style.opacity = `${1 - tRip}`;
+                }
                 if (result) result.classList.add('active');
             }
             else {
-                if (block1) { block1.style.opacity = '1'; block1.style.transform = 'none'; }
-                if (block2) { block2.style.opacity = '1'; block2.style.transform = 'none'; }
-                if (result) result.classList.remove('active');
+                // Phase 3: Final state, result block is fully active
+                if (block1) block1.style.opacity = '0';
+                if (block2) block2.style.opacity = '0';
+                if (plusOp) plusOp.style.opacity = '0';
+                if (ripple) ripple.style.display = 'none';
+                if (result) result.classList.add('active');
             }
         }
         else if (slideId === 'slide_float_2') {

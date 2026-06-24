@@ -67,13 +67,13 @@
                         <span class="v48-particle p5">✨</span>
                         <span class="v48-particle p6">🔥</span>
                     </div>
-
+ 
                     <!-- Phone Wrapper for Radar Rings -->
                     <div class="v48-phone-frame-wrapper">
                         <div class="v48-radar-ring ring-1"></div>
                         <div class="v48-radar-ring ring-2"></div>
                         <div class="v48-radar-ring ring-3"></div>
-
+ 
                         <div class="v48-phone-frame">
                             <!-- Tinder Header -->
                             <div class="v48-phone-header">
@@ -81,9 +81,51 @@
                                 <img src="https://logo-teka.com/wp-content/uploads/2025/10/tinder-icon-logo.png" class="v48-tinder-logo" alt="Tinder">
                                 <i data-lucide="message-circle" class="v48-header-icon"></i>
                             </div>
-
+ 
                             <!-- Card Stack -->
                             <div class="v48-card-stack">
+                                <!-- Card 5: Ethan -->
+                                <div class="v48-profile-card v48-card-ethan" id="s1-card-ethan">
+                                    <div class="v48-card-bg v48-grad-ethan">
+                                        <div class="v48-avatar-emoji">👨‍🍳</div>
+                                    </div>
+                                    <div class="v48-card-info">
+                                        <h3>Ethan, 27 <span class="v48-badge-online"></span></h3>
+                                        <p><i data-lucide="map-pin"></i> Cách bạn 3 km</p>
+                                        <p class="v48-card-bio">Head Chef • Coffee Lover ☕</p>
+                                    </div>
+                                    <div class="v48-swipe-badge nope" id="s1-badge-nope-ethan">NOPE</div>
+                                    <div class="v48-swipe-badge like" id="s1-badge-like-ethan">LIKE</div>
+                                </div>
+
+                                <!-- Card 4: Diana -->
+                                <div class="v48-profile-card v48-card-diana" id="s1-card-diana">
+                                    <div class="v48-card-bg v48-grad-diana">
+                                        <div class="v48-avatar-emoji">👩‍⚕️</div>
+                                    </div>
+                                    <div class="v48-card-info">
+                                        <h3>Diana, 24 <span class="v48-badge-online"></span></h3>
+                                        <p><i data-lucide="map-pin"></i> Cách bạn 1 km</p>
+                                        <p class="v48-card-bio">Doctor • Yoga & Books 📚</p>
+                                    </div>
+                                    <div class="v48-swipe-badge nope" id="s1-badge-nope-diana">NOPE</div>
+                                    <div class="v48-swipe-badge like" id="s1-badge-like-diana">LIKE</div>
+                                </div>
+
+                                <!-- Card 3: Charlie -->
+                                <div class="v48-profile-card v48-card-charlie" id="s1-card-charlie">
+                                    <div class="v48-card-bg v48-grad-charlie">
+                                        <div class="v48-avatar-emoji">🏃‍♂️</div>
+                                    </div>
+                                    <div class="v48-card-info">
+                                        <h3>Charlie, 28 <span class="v48-badge-online"></span></h3>
+                                        <p><i data-lucide="map-pin"></i> Cách bạn 6 km</p>
+                                        <p class="v48-card-bio">Product PM • Marathon Runner 🏃‍♂️</p>
+                                    </div>
+                                    <div class="v48-swipe-badge nope" id="s1-badge-nope-charlie">NOPE</div>
+                                    <div class="v48-swipe-badge like" id="s1-badge-like-charlie">LIKE</div>
+                                </div>
+
                                 <!-- Card 2: Bob -->
                                 <div class="v48-profile-card v48-card-bob" id="s1-card-bob">
                                     <div class="v48-card-bg v48-grad-bob">
@@ -97,7 +139,7 @@
                                     <div class="v48-swipe-badge nope" id="s1-badge-nope-bob">NOPE</div>
                                     <div class="v48-swipe-badge like" id="s1-badge-like-bob">LIKE</div>
                                 </div>
-
+ 
                                 <!-- Card 1: Alice -->
                                 <div class="v48-profile-card v48-card-alice" id="s1-card-alice">
                                     <div class="v48-card-bg v48-grad-alice">
@@ -112,7 +154,7 @@
                                     <div class="v48-swipe-badge like" id="s1-badge-like-alice">LIKE</div>
                                 </div>
                             </div>
-
+ 
                             <!-- Bottom Action Buttons -->
                             <div class="v48-phone-actions">
                                 <div class="v48-btn refresh"><i data-lucide="rotate-ccw"></i></div>
@@ -121,7 +163,7 @@
                                 <div class="v48-btn like-btn"><i data-lucide="heart"></i></div>
                                 <div class="v48-btn boost"><i data-lucide="zap"></i></div>
                             </div>
-
+ 
                             <!-- Floating GPS Coordinates -->
                             <div class="v48-gps-widget" id="s1-gps-widget">
                                 <i data-lucide="locate" class="v48-gps-icon"></i>
@@ -136,7 +178,8 @@
             canvas.innerHTML = `
                 <div class="v48-slide-container">
                     <!-- SQL Code Panel -->
-                    <div class="v48-code-window v48-glass">
+                    <div class="v48-code-window v48-glass" style="position: relative; overflow: hidden;">
+                        <div class="v48-code-scan" id="s2-code-scan"></div>
                         <div class="v48-code-header">
                             <span class="v48-dot red"></span>
                             <span class="v48-dot yellow"></span>
@@ -150,31 +193,34 @@
   * <span class="v48-func">cos</span>(<span class="v48-func">radians</span>(longitude) - <span class="v48-func">radians</span>(<span class="v48-val">105.8542</span>))) 
   * <span class="v48-val">6371</span> &lt;= <span class="v48-val">10</span>;</code></pre>
                     </div>
-
+ 
                     <!-- DB Server & Monitor Row -->
                     <div class="v48-db-monitor-row">
                         <!-- Server Rack -->
-                        <div class="v48-server-rack v48-glass" id="s2-server-rack">
-                            <div class="v48-server-blade">
+                        <div class="v48-server-rack v48-glass" id="s2-server-rack" style="position: relative;">
+                            <div class="v48-server-blade" id="s2-blade-1-el" style="position: relative;">
                                 <div class="v48-blade-header">BLADE-01</div>
                                 <div class="v48-led-group">
                                     <span class="v48-led active" id="s2-led-1"></span>
                                     <span class="v48-led active" id="s2-led-2"></span>
                                     <span class="v48-led active" id="s2-led-3"></span>
                                 </div>
+                                <div class="v48-blade-heat" id="s2-heat-1"></div>
                             </div>
-                            <div class="v48-server-blade">
+                            <div class="v48-server-blade" id="s2-blade-2-el" style="position: relative;">
                                 <div class="v48-blade-header">BLADE-02</div>
                                 <div class="v48-led-group">
                                     <span class="v48-led active" id="s2-led-4"></span>
                                     <span class="v48-led active" id="s2-led-5"></span>
                                     <span class="v48-led active" id="s2-led-6"></span>
                                 </div>
+                                <div class="v48-blade-heat" id="s2-heat-2"></div>
                             </div>
                         </div>
-
+ 
                         <!-- CPU Monitor -->
-                        <div class="v48-cpu-monitor v48-glass" id="s2-cpu-monitor">
+                        <div class="v48-cpu-monitor v48-glass" id="s2-cpu-monitor" style="position: relative; overflow: hidden;">
+                            <div class="v48-cpu-warning-banner" id="s2-warning-banner">CRITICAL OVERLOAD</div>
                             <div class="v48-cpu-header">
                                 <span>CPU USAGE</span>
                                 <span class="v48-cpu-pct" id="s2-cpu-pct">12%</span>
@@ -195,38 +241,40 @@
                 <div class="v48-slide-container">
                     <div class="v48-geohash-scene v48-glass">
                         <!-- Grid Overlay Map -->
-                        <div class="v48-map-grid" id="s3-map-grid">
-                            <!-- Grid cells are created dynamically, but here we place static divisions -->
-                            <div class="v48-grid-row">
-                                <div class="v48-grid-cell" id="s3-cell-00"><span>wx4g0</span></div>
-                                <div class="v48-grid-cell" id="s3-cell-01"><span>wx4g1</span></div>
-                                <div class="v48-grid-cell" id="s3-cell-02"><span>wx4g2</span></div>
-                            </div>
-                            <div class="v48-grid-row">
-                                <div class="v48-grid-cell" id="s3-cell-10"><span>wx4g3</span></div>
-                                <div class="v48-grid-cell user-cell" id="s3-cell-11">
-                                    <span>wx4g4</span>
-                                    <!-- User Dot -->
-                                    <div class="v48-map-dot user-dot" id="s3-user-dot">
-                                        <div class="v48-dot-pulse"></div>
-                                    </div>
+                        <div class="v48-map-grid">
+                            <div class="v48-map-inner" id="s3-map-grid">
+                                <!-- Grid cells are created dynamically, but here we place static divisions -->
+                                <div class="v48-grid-row">
+                                    <div class="v48-grid-cell" id="s3-cell-00"><span>wx4g0</span></div>
+                                    <div class="v48-grid-cell" id="s3-cell-01"><span>wx4g1</span></div>
+                                    <div class="v48-grid-cell" id="s3-cell-02"><span>wx4g2</span></div>
                                 </div>
-                                <div class="v48-grid-cell" id="s3-cell-12"><span>wx4g5</span></div>
+                                <div class="v48-grid-row">
+                                    <div class="v48-grid-cell" id="s3-cell-10"><span>wx4g3</span></div>
+                                    <div class="v48-grid-cell user-cell" id="s3-cell-11">
+                                        <span>wx4g4</span>
+                                        <!-- User Dot -->
+                                        <div class="v48-map-dot user-dot" id="s3-user-dot">
+                                            <div class="v48-dot-pulse"></div>
+                                        </div>
+                                    </div>
+                                    <div class="v48-grid-cell" id="s3-cell-12"><span>wx4g5</span></div>
+                                </div>
+                                <div class="v48-grid-row">
+                                    <div class="v48-grid-cell" id="s3-cell-20"><span>wx4g6</span></div>
+                                    <div class="v48-grid-cell" id="s3-cell-21"><span>wx4g7</span></div>
+                                    <div class="v48-grid-cell" id="s3-cell-22"><span>wx4g8</span></div>
+                                </div>
+ 
+                                <!-- Scattered user dots -->
+                                <div class="v48-map-dot other-dot" style="left: 15%; top: 25%;" id="s3-dot-1"></div>
+                                <div class="v48-map-dot other-dot target-dot" style="left: 48%; top: 40%;" id="s3-dot-2"></div>
+                                <div class="v48-map-dot other-dot target-dot" style="left: 55%; top: 62%;" id="s3-dot-3"></div>
+                                <div class="v48-map-dot other-dot" style="left: 82%; top: 78%;" id="s3-dot-4"></div>
+                                <div class="v48-map-dot other-dot" style="left: 85%; top: 20%;" id="s3-dot-5"></div>
                             </div>
-                            <div class="v48-grid-row">
-                                <div class="v48-grid-cell" id="s3-cell-20"><span>wx4g6</span></div>
-                                <div class="v48-grid-cell" id="s3-cell-21"><span>wx4g7</span></div>
-                                <div class="v48-grid-cell" id="s3-cell-22"><span>wx4g8</span></div>
-                            </div>
-
-                            <!-- Scattered user dots -->
-                            <div class="v48-map-dot other-dot" style="left: 15%; top: 25%;" id="s3-dot-1"></div>
-                            <div class="v48-map-dot other-dot target-dot" style="left: 48%; top: 40%;" id="s3-dot-2"></div>
-                            <div class="v48-map-dot other-dot target-dot" style="left: 55%; top: 62%;" id="s3-dot-3"></div>
-                            <div class="v48-map-dot other-dot" style="left: 82%; top: 78%;" id="s3-dot-4"></div>
-                            <div class="v48-map-dot other-dot" style="left: 85%; top: 20%;" id="s3-dot-5"></div>
                         </div>
-
+ 
                         <!-- Sidebar Geohash resolution status -->
                         <div class="v48-geohash-sidebar">
                             <div class="v48-sidebar-header">GEOHASH ENCODER</div>
@@ -257,7 +305,7 @@
                             <div class="v48-term-line"><span class="v48-term-prompt">redis-cli></span> <span id="s4-cmd-2">GEORADIUS tinder:locations 105.8542 21.0285 10 km km WITHDIST</span></div>
                         </div>
                     </div>
-
+ 
                     <!-- Redis Sorted Set visualization -->
                     <div class="v48-zset-visual v48-glass">
                         <div class="v48-zset-header">
@@ -291,7 +339,7 @@
                                 <span class="v48-zcol-score">4025189912001</span>
                             </div>
                         </div>
-
+ 
                         <!-- Scan laser bar overlay -->
                         <div class="v48-scan-laser" id="s4-scan-laser"></div>
                     </div>
@@ -324,19 +372,19 @@
                                 <div class="v48-bgrid-cell" id="s5-cell-7"><span>wx4g7</span></div>
                                 <div class="v48-bgrid-cell" id="s5-cell-9"><span>wx4g9</span></div>
                             </div>
-
+ 
                             <!-- User Dot (positioned close to right border of cell-4) -->
                             <div class="v48-bdot user-dot" id="s5-user-dot" style="left: 48%; top: 52%;">
                                 <div class="v48-bdot-pulse"></div>
                             </div>
-
+ 
                             <!-- Target Dot (positioned just across the line in cell-5) -->
                             <div class="v48-bdot target-dot" id="s5-target-dot" style="left: 58%; top: 54%;"></div>
-
+ 
                             <!-- Search Circle Radius -->
                             <div class="v48-search-circle" id="s5-search-circle" style="left: 48%; top: 52%;"></div>
                         </div>
-
+ 
                         <!-- Sidebar details -->
                         <div class="v48-boundary-sidebar">
                             <div class="v48-sidebar-header">ĐIỂM MÙ BIÊN (BOUNDARY)</div>
@@ -348,67 +396,88 @@
                 </div>
             `;
         }
-
+ 
         if (typeof lucide !== 'undefined') {
             lucide.createIcons({ node: canvas });
         }
     }
-
+ 
     // ── ANIMATION FRAME UPDATOR ───────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_active_1') {
             const cardAlice = canvas.querySelector('#s1-card-alice');
             const cardBob = canvas.querySelector('#s1-card-bob');
+            const cardCharlie = canvas.querySelector('#s1-card-charlie');
+            const cardDiana = canvas.querySelector('#s1-card-diana');
+            const cardEthan = canvas.querySelector('#s1-card-ethan');
+ 
             const badgeNopeAlice = canvas.querySelector('#s1-badge-nope-alice');
             const badgeLikeAlice = canvas.querySelector('#s1-badge-like-alice');
             const badgeNopeBob = canvas.querySelector('#s1-badge-nope-bob');
             const badgeLikeBob = canvas.querySelector('#s1-badge-like-bob');
+            const badgeNopeCharlie = canvas.querySelector('#s1-badge-nope-charlie');
+            const badgeLikeCharlie = canvas.querySelector('#s1-badge-like-charlie');
+            const badgeNopeDiana = canvas.querySelector('#s1-badge-nope-diana');
+            const badgeLikeDiana = canvas.querySelector('#s1-badge-like-diana');
+            const badgeNopeEthan = canvas.querySelector('#s1-badge-nope-ethan');
+            const badgeLikeEthan = canvas.querySelector('#s1-badge-like-ethan');
+ 
             const gpsWidget = canvas.querySelector('#s1-gps-widget');
-
-            // Reset transitions and values
-            if (cardAlice) { cardAlice.style.transform = 'translate(0, 0) rotate(0deg)'; cardAlice.style.opacity = '1'; }
-            if (cardBob) { cardBob.style.transform = 'translate(0, 0) rotate(0deg)'; cardBob.style.opacity = '1'; }
-            if (badgeNopeAlice) badgeNopeAlice.style.opacity = '0';
-            if (badgeLikeAlice) badgeLikeAlice.style.opacity = '0';
-            if (badgeNopeBob) badgeNopeBob.style.opacity = '0';
-            if (badgeLikeBob) badgeLikeBob.style.opacity = '0';
+ 
+            // Reset all transforms, opacity, and badges
+            const cards = [
+                { el: cardAlice, nope: badgeNopeAlice, like: badgeLikeAlice, dir: 1 },  // 1 = right, -1 = left
+                { el: cardBob, nope: badgeNopeBob, like: badgeLikeBob, dir: -1 },
+                { el: cardCharlie, nope: badgeNopeCharlie, like: badgeLikeCharlie, dir: 1 },
+                { el: cardDiana, nope: badgeNopeDiana, like: badgeLikeDiana, dir: -1 },
+                { el: cardEthan, nope: badgeNopeEthan, like: badgeLikeEthan, dir: 1 }
+            ];
+ 
+            cards.forEach(c => {
+                if (c.el) {
+                    c.el.style.transform = 'translate(0, 0) rotate(0deg)';
+                    c.el.style.opacity = '1';
+                }
+                if (c.nope) c.nope.style.opacity = '0';
+                if (c.like) c.like.style.opacity = '0';
+            });
             if (gpsWidget) gpsWidget.classList.remove('pulse-active');
-
-            if (progress <= 0.15) {
-                // Initial state
-            }
-            else if (progress > 0.15 && progress <= 0.50) {
-                // Alice slides right (LIKE)
-                const t = (progress - 0.15) / 0.35; // 0 -> 1
-                const x = t * 240;
-                const r = t * 18;
-                if (cardAlice) {
-                    cardAlice.style.transform = `translate(${x}px, ${-t * 15}px) rotate(${r}deg)`;
-                    cardAlice.style.opacity = `${1 - t * 0.9}`;
+ 
+            // Define timing windows for each swipe
+            const steps = [
+                { start: 0.05, end: 0.18 }, // Card 1 (Alice) swipes right
+                { start: 0.20, end: 0.33 }, // Card 2 (Bob) swipes left
+                { start: 0.35, end: 0.48 }, // Card 3 (Charlie) swipes right
+                { start: 0.50, end: 0.63 }, // Card 4 (Diana) swipes left
+                { start: 0.65, end: 0.78 }  // Card 5 (Ethan) swipes right
+            ];
+ 
+            // Animate each card
+            steps.forEach((step, idx) => {
+                const c = cards[idx];
+                if (!c.el) return;
+ 
+                if (progress < step.start) {
+                    c.el.style.transform = 'translate(0, 0) rotate(0deg)';
+                    c.el.style.opacity = '1';
+                } else if (progress >= step.start && progress <= step.end) {
+                    const t = (progress - step.start) / (step.end - step.start); // 0 -> 1
+                    const x = t * 280 * c.dir;
+                    const r = t * 20 * c.dir;
+                    c.el.style.transform = `translate(${x}px, ${-t * 20}px) rotate(${r}deg)`;
+                    c.el.style.opacity = `${1 - t * 0.95}`;
+                    
+                    if (c.dir === 1 && c.like) c.like.style.opacity = `${t * 1.5}`;
+                    if (c.dir === -1 && c.nope) c.nope.style.opacity = `${t * 1.5}`;
+                    if (gpsWidget) gpsWidget.classList.add('pulse-active');
+                } else {
+                    c.el.style.transform = `translate(${300 * c.dir}px, -25px) rotate(${25 * c.dir}deg)`;
+                    c.el.style.opacity = '0';
                 }
-                if (badgeLikeAlice) badgeLikeAlice.style.opacity = `${t * 1.5}`;
-                if (gpsWidget) gpsWidget.classList.add('pulse-active');
-            }
-            else if (progress > 0.50 && progress <= 0.60) {
-                // Alice completely gone, Bob on top
-                if (cardAlice) cardAlice.style.opacity = '0';
-            }
-            else if (progress > 0.60 && progress <= 0.90) {
-                // Alice is gone, Bob slides left (NOPE)
-                if (cardAlice) cardAlice.style.opacity = '0';
-                const t = (progress - 0.60) / 0.30; // 0 -> 1
-                const x = -t * 240;
-                const r = -t * 18;
-                if (cardBob) {
-                    cardBob.style.transform = `translate(${x}px, ${-t * 15}px) rotate(${r}deg)`;
-                    cardBob.style.opacity = `${1 - t * 0.9}`;
-                }
-                if (badgeNopeBob) badgeNopeBob.style.opacity = `${t * 1.5}`;
-            }
-            else {
-                // Both swiped out
-                if (cardAlice) cardAlice.style.opacity = '0';
-                if (cardBob) cardBob.style.opacity = '0';
+            });
+ 
+            // Activate GPS pulse when swiping is in progress or completed
+            if (progress > 0.05) {
                 if (gpsWidget) gpsWidget.classList.add('pulse-active');
             }
         }
@@ -423,55 +492,92 @@
             const cpuLine = canvas.querySelector('#s2-cpu-line');
             const warning = canvas.querySelector('#s2-cpu-warning');
             const cpuMonitor = canvas.querySelector('#s2-cpu-monitor');
-
-            // Reset
+            const codeScan = canvas.querySelector('#s2-code-scan');
+            const heat1 = canvas.querySelector('#s2-heat-1');
+            const heat2 = canvas.querySelector('#s2-heat-2');
+            const warningBanner = canvas.querySelector('#s2-warning-banner');
+ 
             const leds = [led1, led2, led3, led4, led5, led6];
+ 
+            // Reset
             leds.forEach(led => {
                 if (led) { led.className = 'v48-led active'; led.style.animation = 'none'; }
             });
             if (cpuPct) cpuPct.textContent = '12%';
             if (cpuLine) {
-                cpuLine.setAttribute('d', 'M0,90 Q40,85 80,88 T120,80 T160,85 T200,90');
                 cpuLine.setAttribute('stroke', '#10b981');
+                cpuLine.setAttribute('stroke-width', '3');
             }
             if (warning) warning.style.display = 'none';
             if (cpuMonitor) cpuMonitor.classList.remove('critical');
-
-            if (progress <= 0.30) {
-                // Initial normal queries
+            if (codeScan) { codeScan.style.display = 'none'; codeScan.style.top = '0%'; }
+            if (heat1) { heat1.style.opacity = '0'; }
+            if (heat2) { heat2.style.opacity = '0'; }
+            if (warningBanner) { warningBanner.style.display = 'none'; }
+ 
+            if (progress <= 0.20) {
                 leds.forEach((led, i) => {
                     if (led && Math.random() > 0.4) led.classList.toggle('active');
                 });
+                if (codeScan) {
+                    codeScan.style.display = 'block';
+                    codeScan.style.top = `${progress/0.20 * 100}%`;
+                }
+                if (cpuLine) {
+                    const path = `M0,85 Q25,${80 + Math.random()*8} 50,85 T100,82 T150,85 T200,80`;
+                    cpuLine.setAttribute('d', path);
+                }
             }
-            else if (progress > 0.30 && progress <= 0.65) {
-                // Full Scan begins, LEDs flash rapidly
+            else if (progress > 0.20 && progress <= 0.65) {
                 leds.forEach((led) => {
                     if (led) led.style.animation = 'v48-led-blink 0.15s infinite alternate';
                 });
-                const t = (progress - 0.30) / 0.35; // 0 -> 1
-                const currentCpu = Math.round(12 + t * 45);
+                const t = (progress - 0.20) / 0.45; // 0 -> 1
+                const currentCpu = Math.round(12 + t * 65); // Ramps up to 77%
                 if (cpuPct) cpuPct.textContent = `${currentCpu}%`;
+                
+                if (codeScan) {
+                    codeScan.style.display = 'block';
+                    codeScan.style.top = `${((progress - 0.20) / 0.15 % 1.0) * 100}%`;
+                }
+ 
+                if (heat1) heat1.style.opacity = `${t * 0.5}`;
+                if (heat2) heat2.style.opacity = `${t * 0.3}`;
+ 
                 if (cpuLine) {
-                    const yVal = 90 - t * 40;
-                    cpuLine.setAttribute('d', `M0,90 L40,${90-t*15} L80,${88-t*25} L120,${80-t*35} L160,${85-t*30} L200,${yVal}`);
+                    const amp = t * 35;
+                    const p1 = 80 - Math.random() * amp;
+                    const p2 = 82 - Math.random() * amp;
+                    const p3 = 78 - Math.random() * amp;
+                    const p4 = 90 - t * 40 - Math.random() * 5;
+                    cpuLine.setAttribute('d', `M0,90 L40,${p1} L80,${p2} L120,${p3} L160,80 L200,${p4}`);
                     cpuLine.setAttribute('stroke', '#fbbf24');
                 }
             }
             else {
-                // Server Overload (100% CPU)
                 leds.forEach((led) => {
                     if (led) {
                         led.className = 'v48-led error';
-                        led.style.animation = 'v48-led-blink 0.1s infinite alternate';
+                        led.style.animation = 'v48-led-blink 0.08s infinite alternate';
                     }
                 });
                 if (cpuPct) cpuPct.textContent = '99%';
-                if (cpuLine) {
-                    cpuLine.setAttribute('d', 'M0,90 L30,80 L60,82 L90,40 L120,38 L150,12 L200,10');
-                    cpuLine.setAttribute('stroke', '#ef4444');
-                }
                 if (warning) warning.style.display = 'block';
                 if (cpuMonitor) cpuMonitor.classList.add('critical');
+                if (warningBanner) warningBanner.style.display = 'flex';
+                
+                if (heat1) heat1.style.opacity = '1';
+                if (heat2) heat2.style.opacity = '0.9';
+ 
+                if (cpuLine) {
+                    const spikes = [];
+                    for (let x = 0; x <= 200; x += 15) {
+                        const y = 15 + Math.random() * 25;
+                        spikes.push(`${x},${y}`);
+                    }
+                    cpuLine.setAttribute('d', `M0,90 L` + spikes.join(' L'));
+                    cpuLine.setAttribute('stroke', '#ef4444');
+                }
             }
         }
         else if (slideId === 'slide_active_3') {

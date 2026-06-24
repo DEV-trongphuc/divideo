@@ -1458,7 +1458,7 @@ function formatSubtitleHTML(subtitle) {
 function segmentScriptIntoPhrases(script) {
     if (!script) return [];
     // Split by major punctuation boundaries but retain delimiters attached to previous items
-    const rawSegments = script.split(/([.,;?!\n]+)/);
+    const rawSegments = script.split(/([,;?!\n]+|\.(?!\d))/);
     const segments = [];
     let currentPhrase = '';
     for (let i = 0; i < rawSegments.length; i++) {
