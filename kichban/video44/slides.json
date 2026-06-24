@@ -1,0 +1,103 @@
+[
+  {
+    "id": "slide_docs_1",
+    "layout": "custom",
+    "title": "Google Docs:<br>Đồng bộ 100 người?",
+    "subtitle": "📝 BÍ MẬT CỦA THAO TÁC ĐỒNG THỜI",
+    "script": "Khi bạn và hàng chục đồng nghiệp cùng chỉnh sửa một dòng văn bản trên Google Docs. Tại sao chữ viết không bao giờ bị đè lên nhau, bị mất hay bị xung đột? Hãy cùng khám phá bí mật của công nghệ này.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "default_voxcpm",
+    "audioPath": "/kichban/video44/mp3/slide_docs_1.mp3",
+    "duration": 14.8,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "scriptHash": ""
+  },
+  {
+    "id": "slide_docs_2",
+    "layout": "custom",
+    "title": "Thảm họa:<br>Ghi đè dữ liệu",
+    "subtitle": "⚠️ VẤN ĐỀ NGHỄN VÀ XUNG ĐỘT",
+    "script": "Nếu không có cơ chế đặc biệt, khi bạn gõ thêm một chữ và đồng nghiệp xóa đi một từ ở cùng một thời điểm, máy chủ sẽ bị bối rối và ghi đè nội dung đè lên nhau, khiến văn bản bị lỗi hoặc biến dạng hoàn toàn.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "default_voxcpm",
+    "audioPath": "/kichban/video44/mp3/slide_docs_2.mp3",
+    "duration": 15.5,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "scriptHash": ""
+  },
+  {
+    "id": "slide_docs_3",
+    "layout": "custom",
+    "title": "Giải pháp:<br>Operational Transformation",
+    "subtitle": "⚙️ BỘ NÃO BIẾN ĐỔI PHÉP TOÁN",
+    "script": "Để giải quyết, các kỹ sư sử dụng thuật toán OT. Thay vì gửi toàn bộ văn bản, trình duyệt chỉ gửi các thao tác cơ bản như: chèn ký tự hay xóa ký tự tại một vị trí index xác định.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "default_voxcpm",
+    "audioPath": "/kichban/video44/mp3/slide_docs_3.mp3",
+    "duration": 15.2,
+    "cards": [
+      {
+        "icon": "plus",
+        "title": "Chèn ký tự",
+        "desc": "Thêm ký tự mới tại vị trí index."
+      },
+      {
+        "icon": "minus",
+        "title": "Xóa ký tự",
+        "desc": "Xóa ký tự hiện có tại vị trí index."
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "scriptHash": ""
+  },
+  {
+    "id": "slide_docs_4",
+    "layout": "custom",
+    "title": "Cách hoạt động:<br>Biến đổi vị trí Index",
+    "subtitle": "🔄 TỰ ĐỘNG CÂN BẰNG TỌA ĐỘ",
+    "script": "Khi các gói tin đến cùng lúc, Server sẽ giữ vai trò trọng tài. Nếu người này đã xóa một chữ ở vị trí không, Server sẽ tự động dịch chuyển lệnh của bạn lùi lại một đơn vị, từ vị trí ba về vị trí hai, để bảo toàn ký tự muốn chèn.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "default_voxcpm",
+    "audioPath": "/kichban/video44/mp3/slide_docs_4.mp3",
+    "duration": 17.6,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "scriptHash": ""
+  },
+  {
+    "id": "slide_docs_5",
+    "layout": "custom",
+    "title": "Đồng bộ:<br>Đồng nhất tuyệt đối",
+    "subtitle": "✨ VĂN BẢN KHỚP HỢP NHẤT",
+    "script": "Nhờ biến đổi thông minh này, cả hai màn hình đều hiển thị kết quả đồng nhất là chữ A T S. Không có ký tự nào bị mất, cũng không ai bị đè dữ liệu, giúp việc cộng tác mượt mà.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "default_voxcpm",
+    "audioPath": "/kichban/video44/mp3/slide_docs_5.mp3",
+    "duration": 14.5,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "scriptHash": ""
+  },
+  {
+    "id": "slide_docs_6",
+    "layout": "title",
+    "title": "Bạn đã từng bị lỗi đồng bộ chưa?",
+    "subtitle": "💬 HÃY CHIA SẼ DƯỚI BÌNH LUẬN NHÉ!",
+    "script": "Bạn đã bao giờ thấy Google Docs bị mất kết nối hay lỗi đồng bộ chưa? Hãy chia sẻ ý kiến của bạn bên dưới, và nhấn follow kênh Turnio chấm dev để theo dõi những sự thật công nghệ thú vị tiếp theo nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "default_voxcpm",
+    "audioPath": "/kichban/video44/mp3/slide_docs_6.mp3",
+    "duration": 13.8,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "scriptHash": ""
+  }
+]

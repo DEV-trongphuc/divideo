@@ -486,25 +486,25 @@
                                     </div>
                                 </div>
 
-                                <!-- SVGs crossovers wires (connecting left column at x=56 to right column at x=396) -->
-                                <svg style="position:absolute; left:56px; top:0; width:340px; height:350px; pointer-events:none; z-index:1;" class="bit-wires-svg">
-                                    <!-- Crossover paths. Centers: y_left_i = 46 + i*36 -->
-                                    <path d="M 0 46 L 340 154" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none" class="wire-0 wire-path"></path>
-                                    <path d="M 0 82 L 340 262" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none" class="wire-1 wire-path"></path>
-                                    <path d="M 0 118 L 340 46" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none" class="wire-2 wire-path"></path>
+                                 <!-- SVGs crossovers wires (connecting left column at x=56 to right column at x=396) -->
+                                <svg style="position:absolute; left:56px; top:0; width:340px; height:380px; pointer-events:none; z-index:1;" class="bit-wires-svg">
+                                    <!-- Crossover paths. Centers: y_left_i = 62 + i*42 -->
+                                    <path d="M 0 62 L 340 188" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none" class="wire-0 wire-path"></path>
+                                    <path d="M 0 104 L 340 314" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none" class="wire-1 wire-path"></path>
+                                    <path d="M 0 146 L 340 62" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none" class="wire-2 wire-path"></path>
                                     
                                     <!-- Active crossover lines (for index 3, 5, 6) -->
-                                    <path d="M 0 154 L 340 298" stroke="rgba(59,130,246,0.25)" stroke-width="2.5" fill="none" class="wire-3 wire-path" id="p-wire-3"></path>
-                                    <path d="M 0 190 L 340 118" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none" class="wire-4 wire-path"></path>
-                                    <path d="M 0 226 L 340 82" stroke="rgba(59,130,246,0.25)" stroke-width="2.5" fill="none" class="wire-5 wire-path" id="p-wire-5"></path>
-                                    <path d="M 0 262 L 340 226" stroke="rgba(59,130,246,0.25)" stroke-width="2.5" fill="none" class="wire-6 wire-path" id="p-wire-6"></path>
+                                    <path d="M 0 188 L 340 356" stroke="rgba(59,130,246,0.25)" stroke-width="2.5" fill="none" class="wire-3 wire-path" id="p-wire-3"></path>
+                                    <path d="M 0 230 L 340 146" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none" class="wire-4 wire-path"></path>
+                                    <path d="M 0 272 L 340 104" stroke="rgba(59,130,246,0.25)" stroke-width="2.5" fill="none" class="wire-5 wire-path" id="p-wire-5"></path>
+                                    <path d="M 0 314 L 340 272" stroke="rgba(59,130,246,0.25)" stroke-width="2.5" fill="none" class="wire-6 wire-path" id="p-wire-6"></path>
                                     
-                                    <path d="M 0 298 L 340 190" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none" class="wire-7 wire-path"></path>
+                                    <path d="M 0 356 L 340 230" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none" class="wire-7 wire-path"></path>
 
                                     <!-- Pulse flows travelling -->
-                                    <circle cx="0" cy="154" r="5.5" fill="#f59e0b" class="glow-dot-3" style="display:none; filter:drop-shadow(0 0 6px #f59e0b);"></circle>
-                                    <circle cx="0" cy="226" r="5.5" fill="#f59e0b" class="glow-dot-5" style="display:none; filter:drop-shadow(0 0 6px #f59e0b);"></circle>
-                                    <circle cx="0" cy="262" r="5.5" fill="#f59e0b" class="glow-dot-6" style="display:none; filter:drop-shadow(0 0 6px #f59e0b);"></circle>
+                                    <circle cx="0" cy="188" r="5.5" fill="#f59e0b" class="glow-dot-3" style="display:none; filter:drop-shadow(0 0 6px #f59e0b);"></circle>
+                                    <circle cx="0" cy="272" r="5.5" fill="#f59e0b" class="glow-dot-5" style="display:none; filter:drop-shadow(0 0 6px #f59e0b);"></circle>
+                                    <circle cx="0" cy="314" r="5.5" fill="#f59e0b" class="glow-dot-6" style="display:none; filter:drop-shadow(0 0 6px #f59e0b);"></circle>
                                 </svg>
 
                                 <!-- Text explanation & Scrambler Key Matrix -->
@@ -976,17 +976,17 @@
                 if (dot3) {
                     dot3.style.display = 'block';
                     dot3.setAttribute('cx', x);
-                    dot3.setAttribute('cy', 154 + pathProgress * 144); // wire 3: (0,154)->(340,298)
+                    dot3.setAttribute('cy', 188 + pathProgress * 168); // wire 3: (0,188)->(340,356)
                 }
                 if (dot5) {
                     dot5.style.display = 'block';
                     dot5.setAttribute('cx', x);
-                    dot5.setAttribute('cy', 226 - pathProgress * 144); // wire 5: (0,226)->(340,82)
+                    dot5.setAttribute('cy', 272 - pathProgress * 168); // wire 5: (0,272)->(340,104)
                 }
                 if (dot6) {
                     dot6.style.display = 'block';
                     dot6.setAttribute('cx', x);
-                    dot6.setAttribute('cy', 262 - pathProgress * 36);  // wire 6: (0,262)->(340,226)
+                    dot6.setAttribute('cy', 314 - pathProgress * 42);  // wire 6: (0,314)->(340,272)
                 }
 
                 if (wire3) wire3.setAttribute('stroke', '#f59e0b');

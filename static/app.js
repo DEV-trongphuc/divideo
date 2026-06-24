@@ -1142,26 +1142,13 @@ function renderActiveSlide(forceRebuild = true) {
         audioContainer.style.display = 'block';
         audioContainer.innerHTML = `
             <div class="audio-player-status">
-                <span class="audio-badge"><i data-lucide="check-circle" style="width: 12px; height: 12px; display: inline-block; vertical-align: middle;"></i> ÄÃ£ táº¡o Ã¢m thanh</span>
-                <span class="audio-duration">Thá»i lÆ°á»£ng: ${slide.duration ? slide.duration.toFixed(1) : '0.0'}s</span>
+                <span class="audio-badge"><i data-lucide="check-circle" style="width: 12px; height: 12px; display: inline-block; vertical-align: middle;"></i> Ä Ã£ táº¡o Ã¢m thanh</span>
+                <span class="audio-duration">Thá» i lÆ°á»£ng: ${slide.duration ? slide.duration.toFixed(1) : '0.0'}s</span>
             </div>
             <div class="audio-player-row">
-                <audio id="slide-audio-widget" src="${slide.audioPath}" controls class="custom-audio-widget"></audio>
-                <button id="delete-audio-btn" class="btn btn-danger btn-sm" title="XÃ³a file Ã¢m thanh nÃ y">
-                    <i data-lucide="trash-2" style="width:22px; height:22px;"></i>
-                </button>
+                <audio id="slide-audio-widget" src="${slide.audioPath}?t=${Date.now()}" controls class="custom-audio-widget"></audio>
             </div>
         `;
-        // Bind delete button
-        document.getElementById('delete-audio-btn').addEventListener('click', async (e) => {
-            e.stopPropagation();
-            if (confirm('XÃ³a file Ã¢m thanh Ä‘Ã£ táº¡o cá»§a slide nÃ y?')) {
-                slide.audioPath = '';
-                slide.duration = 10.0; // reset to fallback duration
-                await saveSlidesToServer();
-                renderActiveSlide();
-            }
-        });
         lucide.createIcons();
     } else {
         audioContainer.style.display = 'none';
@@ -1529,17 +1516,37 @@ function getActiveSubtitleChunk(script, animTime, duration) {
     const phrases = segmentScriptIntoPhrases(script);
     if (phrases.length === 0) return '';
     if (phrases.length === 1) return phrases[0];
-    const totalWords = script.trim().split(/\s+/).filter(w => w.length > 0).length;
-    if (totalWords === 0) return '';
-    let currentWordCount = 0;
-    for (let i = 0; i < phrases.length; i++) {
-        const phrase = phrases[i];
-        const phraseWords = phrase.split(/\s+/).filter(w => w.length > 0).length;
-        const start = (currentWordCount / totalWords) * duration;
-        currentWordCount += phraseWords;
-        const end = (currentWordCount / totalWords) * duration;
+    if (animTime < 0) return phrases[0];
+
+    // Calculate estimated duration for each phrase including punctuation pauses
+    const phraseEstimates = phrases.map(phrase => {
+        const words = phrase.split(/\s+/).filter(w => w.length > 0).length;
+        let pause = 0;
+        // Check for sentence ending punctuation
+        if (/[.!?\n]/.test(phrase)) {
+            pause += 0.7;
+        } else if (/[,;:]/.test(phrase)) {
+            pause += 0.35;
+        }
+        return {
+            phrase,
+            estDuration: words * 0.28 + pause
+        };
+    });
+
+    const totalEstDuration = phraseEstimates.reduce((sum, item) => sum + item.estDuration, 0);
+    if (totalEstDuration <= 0) return phrases[0];
+
+    let currentStart = 0;
+    for (let i = 0; i < phraseEstimates.length; i++) {
+        const item = phraseEstimates[i];
+        const phraseDuration = (item.estDuration / totalEstDuration) * duration;
+        const start = currentStart;
+        const end = currentStart + phraseDuration;
+        currentStart = end;
+
         if (animTime >= start && animTime < end) {
-            return phrase;
+            return item.phrase;
         }
     }
     return phrases[phrases.length - 1] || '';

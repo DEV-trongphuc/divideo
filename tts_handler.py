@@ -94,8 +94,27 @@ def normalize_text_for_tts(text):
     if not text:
         return text
     
+    # 1. Phonetic replacements for Vietnamese TTS (done first before tokenization)
+    text = re.sub(r'\bQR\s*Code\b', 'Quy Rờ Code', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bQR\b', 'Quy Rờ', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bQ\s+R\b', 'Quy Rờ', text, flags=re.IGNORECASE)
+    
+    # Levels (Cấp độ L/M/Q/H or Cấp độ sửa lỗi L/M/Q/H)
+    def replace_level(match):
+        prefix = match.group(1)
+        letter = match.group(2).upper()
+        mapping = {
+            'L': 'lờ',
+            'M': 'mờ',
+            'Q': 'quy',
+            'H': 'Hát'
+        }
+        return f"{prefix}{mapping.get(letter, letter)}"
+    
+    text = re.sub(r'\b(cấp độ\s+(?:sửa lỗi\s+)?)([lmqh])\b', replace_level, text, flags=re.IGNORECASE)
+
     whitelist = {
-        "SQL", "CPU", "RAM", "IP", "MV", "AI", "CSDL", "DB", "LLM", "TTL", "OOM", "F5", "HTTP", "API", "ID"
+        "SQL", "CPU", "RAM", "IP", "MV", "AI", "CSDL", "DB", "LLM", "TTL", "OOM", "F5", "HTTP", "API", "ID", "HTML"
     }
     
     def replace_word(match):
@@ -108,6 +127,7 @@ def normalize_text_for_tts(text):
         return word
         
     return re.sub(r'\b[A-Za-z0-9_]+\b', replace_word, text)
+
 
 def ensure_voice_cache(reference_audio_path):
     if not reference_audio_path or not reference_audio_path.endswith(".wav"):
@@ -176,6 +196,8 @@ def ensure_voice_cache(reference_audio_path):
 def synthesize_audio(text, output_path, reference_audio_path=None, voice_preference="en-US-AriaNeural"):
     """
     Synthesize audio from text.
+
+
     If voice_preference starts with "google-", uses Google Cloud TTS API.
     If VoxCPM is available and initialized, uses VoxCPM for voice cloning.
     Otherwise, falls back to Edge-TTS.

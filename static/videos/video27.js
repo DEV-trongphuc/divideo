@@ -233,8 +233,16 @@
                         <div style="font-size:13px; color:rgba(255,255,255,0.4); text-transform:uppercase; font-weight:bold; font-family:monospace; letter-spacing:0.5px;">
                             Tổng số file ở tầng đáy:
                         </div>
-                        <div style="font-size:21px; font-weight:900; color:#fff; margin-top:8px; font-family:monospace; letter-spacing:0.5px;">
-                            16 × 16 × 16 × 16 × 16
+                        <div style="font-size:24px; font-weight:900; color:#fff; margin-top:8px; font-family:monospace; letter-spacing:0.5px; display:flex; justify-content:center; align-items:center; gap:6px;">
+                            <span class="v27-num-16" id="v27-n1" style="transition: all 0.3s; color: rgba(255,255,255,0.25); display: inline-block;">16</span>
+                            <span style="color: rgba(255,255,255,0.15);">×</span>
+                            <span class="v27-num-16" id="v27-n2" style="transition: all 0.3s; color: rgba(255,255,255,0.25); display: inline-block;">16</span>
+                            <span style="color: rgba(255,255,255,0.15);">×</span>
+                            <span class="v27-num-16" id="v27-n3" style="transition: all 0.3s; color: rgba(255,255,255,0.25); display: inline-block;">16</span>
+                            <span style="color: rgba(255,255,255,0.15);">×</span>
+                            <span class="v27-num-16" id="v27-n4" style="transition: all 0.3s; color: rgba(255,255,255,0.25); display: inline-block;">16</span>
+                            <span style="color: rgba(255,255,255,0.15);">×</span>
+                            <span class="v27-num-16" id="v27-n5" style="transition: all 0.3s; color: rgba(255,255,255,0.25); display: inline-block;">16</span>
                         </div>
                         <div style="font-size:16px; color:rgba(255,255,255,0.3); margin:4px 0;">
                             =
@@ -604,17 +612,62 @@
         }
         else if (slideId === 'slide_zipbomb_5') {
             const mathRes = canvas.querySelector('#v27-math-res');
+            const n1 = canvas.querySelector('#v27-n1');
+            const n2 = canvas.querySelector('#v27-n2');
+            const n3 = canvas.querySelector('#v27-n3');
+            const n4 = canvas.querySelector('#v27-n4');
+            const n5 = canvas.querySelector('#v27-n5');
+
+            const highlightNode = (node, active) => {
+                if (node) {
+                    if (active) {
+                        node.style.color = 'var(--gold-primary)';
+                        node.style.textShadow = '0 0 12px rgba(245,158,11,0.6)';
+                        node.style.transform = 'scale(1.15)';
+                    } else {
+                        node.style.color = 'rgba(255,255,255,0.25)';
+                        node.style.textShadow = 'none';
+                        node.style.transform = 'scale(1)';
+                    }
+                }
+            };
+
             if (mathRes) {
-                if (progress < 0.2) {
+                if (progress < 0.1) {
                     mathRes.textContent = '16';
-                } else if (progress >= 0.2 && progress < 0.4) {
+                    highlightNode(n1, true);
+                    highlightNode(n2, false);
+                    highlightNode(n3, false);
+                    highlightNode(n4, false);
+                    highlightNode(n5, false);
+                } else if (progress >= 0.1 && progress < 0.2) {
                     mathRes.textContent = '256';
-                } else if (progress >= 0.4 && progress < 0.6) {
+                    highlightNode(n1, true);
+                    highlightNode(n2, true);
+                    highlightNode(n3, false);
+                    highlightNode(n4, false);
+                    highlightNode(n5, false);
+                } else if (progress >= 0.2 && progress < 0.3) {
                     mathRes.textContent = '4.096';
-                } else if (progress >= 0.6 && progress < 0.8) {
+                    highlightNode(n1, true);
+                    highlightNode(n2, true);
+                    highlightNode(n3, true);
+                    highlightNode(n4, false);
+                    highlightNode(n5, false);
+                } else if (progress >= 0.3 && progress < 0.4) {
                     mathRes.textContent = '65.536';
+                    highlightNode(n1, true);
+                    highlightNode(n2, true);
+                    highlightNode(n3, true);
+                    highlightNode(n4, true);
+                    highlightNode(n5, false);
                 } else {
                     mathRes.textContent = '1.048.576';
+                    highlightNode(n1, true);
+                    highlightNode(n2, true);
+                    highlightNode(n3, true);
+                    highlightNode(n4, true);
+                    highlightNode(n5, true);
                 }
             }
         }

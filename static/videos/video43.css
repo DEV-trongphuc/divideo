@@ -1,0 +1,366 @@
+/* CSS Stylesheet for Video 43: Lời nguyền USB Paradox */
+
+.v43-zoom-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    zoom: 1.1;
+}
+
+/* Slide 3: USB Paradox Simulation */
+.v43-sim-box {
+    width: 95%;
+    max-width: 900px;
+    height: 240px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.v43-port-container {
+    position: relative;
+    width: 220px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.v43-usb-port {
+    width: 140px;
+    height: 55px;
+    border: 4px solid #64748b;
+    border-left: none; /* remove left border for realistic insertion */
+    background: #0f172a;
+    border-radius: 0 8px 8px 0;
+    position: relative;
+    box-shadow: 0 0 20px rgba(100, 116, 139, 0.2);
+}
+
+/* The plastic block inside the port (occupies upper half) */
+.v43-usb-port-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 25px;
+    background: #334155;
+    border-bottom: 2px solid #475569;
+}
+
+/* Gold contacts inside the port */
+.v43-usb-port-contacts {
+    position: absolute;
+    bottom: 4px;
+    left: 20px;
+    right: 20px;
+    height: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.v43-usb-port-contact {
+    width: 8px;
+    height: 100%;
+    background: #f59e0b;
+    border-radius: 1px;
+}
+
+.v43-plug-container {
+    position: relative;
+    width: 220px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.v43-usb-plug {
+    width: 130px;
+    height: 48px;
+    border: 3.5px solid #94a3b8;
+    background: #1e293b;
+    border-radius: 6px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Plug plastic block (occupies lower half by default for correct alignment) */
+.v43-usb-plug-block {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: #0f172a;
+    border-top: 1.5px solid #334155;
+}
+
+/* Plug shell holes */
+.v43-usb-plug-holes {
+    position: absolute;
+    top: 6px;
+    left: 15px;
+    right: 15px;
+    height: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+.v43-usb-plug-hole {
+    width: 11px;
+    height: 100%;
+    background: #000;
+    border-radius: 1.5px;
+}
+
+/* USB Cable body */
+.v43-usb-cable {
+    position: absolute;
+    left: 0;
+    top: 43px;
+    width: 80px;
+    height: 14px;
+    background: #475569;
+}
+.v43-usb-collar {
+    position: absolute;
+    left: 78px;
+    top: 35px;
+    width: 12px;
+    height: 30px;
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+/* Slide 3 Alert messages */
+.v43-alert-badge {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
+
+.v43-alert-badge.fail {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1.5px solid #ef4444;
+    color: #fca5a5;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+    opacity: 1;
+    transform: translateX(-50%) scale(1.05);
+}
+
+.v43-alert-badge.success {
+    background: rgba(16, 185, 129, 0.2);
+    border: 1.5px solid #10b981;
+    color: #a7f3d0;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+    opacity: 1;
+    transform: translateX(-50%) scale(1.08);
+}
+
+/* Step list underneath paradox simulation */
+.v43-steps-tracker {
+    display: flex;
+    flex-direction: row; /* row layout */
+    width: 95%;
+    max-width: 900px;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.v43-step-card {
+    flex: 1;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(30, 41, 59, 0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.v43-step-card.active {
+    background: rgba(245, 158, 11, 0.05);
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 10px 20px rgba(245, 158, 11, 0.08);
+    transform: translateY(-4px);
+}
+
+.v43-step-card.active.success-step {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.08);
+}
+
+.v43-step-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 5px auto;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.v43-step-card.active .v43-step-icon {
+    background: #f59e0b;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+.v43-step-card.active.success-step .v43-step-icon {
+    background: #10b981;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+
+/* Slide 4: Cross-section Block physics */
+.v43-phys-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 800px;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 18px;
+    border-radius: 16px;
+}
+.v43-phys-label-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* Slide 6: USB-C symmetrical connection */
+.v43-usbc-port {
+    width: 140px;
+    height: 44px;
+    border: 4px solid #10b981;
+    background: #0f172a;
+    border-radius: 22px; /* oval */
+    position: relative;
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
+}
+.v43-usbc-port-tongue {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    right: 15px;
+    height: 8px;
+    transform: translateY(-50%);
+    background: #334155;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 15px;
+}
+.v43-usbc-tongue-pin {
+    width: 5px;
+    height: 100%;
+    background: #f59e0b;
+}
+
+.v43-usbc-plug {
+    width: 130px;
+    height: 36px;
+    border: 3.5px solid #10b981;
+    background: #1e293b;
+    border-radius: 18px; /* oval */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+}
+.v43-usbc-plug-inner {
+    width: 90px;
+    height: 16px;
+    background: #0f172a;
+    border-radius: 8px;
+}
+
+
+/* Particle styles */
+.v43-success-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Floating animation for USB Plug logo (Slide 1) */
+.v43-floating-plug {
+    animation: v43-logo-float 3.5s ease-in-out infinite;
+}
+
+@keyframes v43-logo-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+/* Bell ring animation for CTA (Slide 7) */
+@keyframes v43-bell-ring {
+    0%, 100% { transform: rotate(0); }
+    15% { transform: rotate(10deg); }
+    30% { transform: rotate(-10deg); }
+    45% { transform: rotate(5deg); }
+    60% { transform: rotate(-5deg); }
+    75% { transform: rotate(2deg); }
+    85% { transform: rotate(-2deg); }
+}
+
+.v43-hist-item {
+    opacity: 0.15;
+    transform: translateX(-15px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.v43-hist-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.v43-poll-option.highlight {
+    background: rgba(245, 158, 11, 0.18) !important;
+    border-color: rgba(245, 158, 11, 0.6) !important;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3) !important;
+    transform: scale(1.03);
+}

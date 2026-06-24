@@ -328,65 +328,88 @@
             canvas.innerHTML = `
                 <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; zoom:1.0;">
                     
-                    <div style="position:relative; width:840px; height:410px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box; padding:15px 0;">
+                    <div class="glass-card" style="width: 440px; height: 600px; padding: 22px 24px; border-radius: 24px; border: 2.5px solid rgba(16, 185, 129, 0.4); background: rgba(12, 15, 24, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55); display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
                         
-                        <!-- Top Half: Traditional records - Made much larger and styled like table rows -->
-                        <div class="glass-card" style="width:100%; padding:18px; border-radius:18px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.01); box-sizing:border-box;">
-                            <div style="font-size:14px; font-weight:bold; color:#fff; font-family:sans-serif; text-transform:uppercase; margin-bottom:12px; text-align:left; letter-spacing:0.5px;">Bảng Dữ Liệu Truyền Thống (8 Bytes / row)</div>
-                            <div style="display:flex; gap:15px; justify-content:center;" class="traditional-records-box">
-                                <div class="glass-card s4-rec-card" style="padding:14px 20px; border-radius:12px; border:1px solid rgba(255,255,255,0.1); background:#111625; font-family:monospace; font-size:14px; text-align:left; transition:all 0.3s; display:flex; gap:8px;">
-                                    <span>User 1:</span> <span style="color:#10b981; font-weight:bold;">true</span>
-                                </div>
-                                <div class="glass-card s4-rec-card" style="padding:14px 20px; border-radius:12px; border:1px solid rgba(255,255,255,0.1); background:#111625; font-family:monospace; font-size:14px; text-align:left; transition:all 0.3s; display:flex; gap:8px;">
-                                    <span>User 2:</span> <span style="color:#ef4444; font-weight:bold;">false</span>
-                                </div>
-                                <div class="glass-card s4-rec-card" style="padding:14px 20px; border-radius:12px; border:1px solid rgba(255,255,255,0.1); background:#111625; font-family:monospace; font-size:14px; text-align:left; transition:all 0.3s; display:flex; gap:8px;">
-                                    <span>User 3:</span> <span style="color:#10b981; font-weight:bold;">true</span>
-                                </div>
-                                <div class="glass-card s4-rec-card" style="padding:14px 20px; border-radius:12px; border:1px solid rgba(255,255,255,0.1); background:#111625; font-family:monospace; font-size:14px; text-align:left; transition:all 0.3s; display:flex; gap:8px;">
-                                    <span>User 4:</span> <span style="color:#ef4444; font-weight:bold;">false</span>
-                                </div>
-                            </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid rgba(16, 185, 129, 0.2); padding-bottom: 8px;">
+                            <span style="font-size: 20px; font-weight: bold; color: var(--gold-primary); font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.5px;">Redis Bitmap</span>
+                            <span style="font-size: 13px; font-family: monospace; color: #aaa; font-weight: bold;">Size: 8 bits (1 Byte)</span>
                         </div>
-
-                        <!-- Compressor arrows indicator - Enlarged -->
-                        <div style="display:flex; justify-content:center; align-items:center; gap:12px; color:#8b5cf6;" class="compressor-block">
-                            <i data-lucide="chevron-down" style="width:28px; height:28px; animation:bounce 1.5s infinite;"></i>
-                            <span style="font-family:monospace; font-size:14px; font-weight:bold; letter-spacing:1px; text-transform:uppercase;">Nén dữ liệu thành Bit</span>
-                            <i data-lucide="chevron-down" style="width:28px; height:28px; animation:bounce 1.5s infinite;"></i>
-                        </div>
-
-                        <!-- Bottom Half: Compressed Bitmap - Bit cells and titles made much larger -->
-                        <div class="glass-card" style="width:100%; padding:18px; border-radius:18px; border:1px solid rgba(16, 185, 129, 0.3); background:rgba(16, 185, 129, 0.01); box-sizing:border-box;">
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                                <span style="font-size:14px; font-weight:bold; color:var(--active-green); font-family:sans-serif; text-transform:uppercase; letter-spacing:0.5px;">Cấu Trúc Redis Bitmap (1 Bit / User)</span>
-                                <span style="font-size:12px; font-family:monospace; color:#aaa; font-weight:bold;">Size: 8 bits (1 Byte)</span>
+                        
+                        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px; margin: 15px 0;">
+                            
+                            <!-- Bit 0 -->
+                            <div class="bitmap-row-item" style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 6px 16px; border-radius: 12px; transition: all 0.3s; box-sizing: border-box;">
+                                <div class="bit-cell cell-0" style="width: 42px; height: 42px; font-size: 20px; border-radius: 8px;">1</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex: 1;">
+                                    <span style="font-size: 16px; font-weight: bold; color: #fff; font-family: sans-serif;">User 1</span>
+                                    <span style="font-size: 14px; font-weight: bold; font-family: sans-serif; color: #4b5563; transition: color 0.3s;" class="status-lbl-0">Offline</span>
+                                </div>
                             </div>
                             
-                            <div style="display:flex; justify-content:center; gap:10px;">
-                                <div class="bit-cell cell-0" style="width:52px; height:52px; font-size:24px; border-radius:10px;">1</div>
-                                <div class="bit-cell cell-1" style="width:52px; height:52px; font-size:24px; border-radius:10px;">0</div>
-                                <div class="bit-cell cell-2" style="width:52px; height:52px; font-size:24px; border-radius:10px;">1</div>
-                                <div class="bit-cell cell-3" style="width:52px; height:52px; font-size:24px; border-radius:10px;">0</div>
-                                <div class="bit-cell cell-4" style="width:52px; height:52px; font-size:24px; border-radius:10px;">0</div>
-                                <div class="bit-cell cell-5" style="width:52px; height:52px; font-size:24px; border-radius:10px;">1</div>
-                                <div class="bit-cell cell-6" style="width:52px; height:52px; font-size:24px; border-radius:10px;">1</div>
-                                <div class="bit-cell cell-7" style="width:52px; height:52px; font-size:24px; border-radius:10px;">0</div>
+                            <!-- Bit 1 -->
+                            <div class="bitmap-row-item" style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 6px 16px; border-radius: 12px; transition: all 0.3s; box-sizing: border-box;">
+                                <div class="bit-cell cell-1" style="width: 42px; height: 42px; font-size: 20px; border-radius: 8px;">0</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex: 1;">
+                                    <span style="font-size: 16px; font-weight: bold; color: #fff; font-family: sans-serif;">User 2</span>
+                                    <span style="font-size: 14px; font-weight: bold; font-family: sans-serif; color: #4b5563; transition: color 0.3s;" class="status-lbl-1">Offline</span>
+                                </div>
                             </div>
-                            
-                            <!-- Bit annotation labels - Larger -->
-                            <div style="display:flex; justify-content:center; gap:10px; margin-top:8px; font-family:monospace; font-size:11px; color:#888; font-weight:bold;">
-                                <div style="width:52px; text-align:center;">User 1</div>
-                                <div style="width:52px; text-align:center;">User 2</div>
-                                <div style="width:52px; text-align:center;">User 3</div>
-                                <div style="width:52px; text-align:center;">User 4</div>
-                                <div style="width:52px; text-align:center;">User 5</div>
-                                <div style="width:52px; text-align:center;">User 6</div>
-                                <div style="width:52px; text-align:center;">User 7</div>
-                                <div style="width:52px; text-align:center;">User 8</div>
-                            </div>
-                        </div>
 
+                            <!-- Bit 2 -->
+                            <div class="bitmap-row-item" style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 6px 16px; border-radius: 12px; transition: all 0.3s; box-sizing: border-box;">
+                                <div class="bit-cell cell-2" style="width: 42px; height: 42px; font-size: 20px; border-radius: 8px;">1</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex: 1;">
+                                    <span style="font-size: 16px; font-weight: bold; color: #fff; font-family: sans-serif;">User 3</span>
+                                    <span style="font-size: 14px; font-weight: bold; font-family: sans-serif; color: #4b5563; transition: color 0.3s;" class="status-lbl-2">Offline</span>
+                                </div>
+                            </div>
+
+                            <!-- Bit 3 -->
+                            <div class="bitmap-row-item" style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 6px 16px; border-radius: 12px; transition: all 0.3s; box-sizing: border-box;">
+                                <div class="bit-cell cell-3" style="width: 42px; height: 42px; font-size: 20px; border-radius: 8px;">0</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex: 1;">
+                                    <span style="font-size: 16px; font-weight: bold; color: #fff; font-family: sans-serif;">User 4</span>
+                                    <span style="font-size: 14px; font-weight: bold; font-family: sans-serif; color: #4b5563; transition: color 0.3s;" class="status-lbl-3">Offline</span>
+                                </div>
+                            </div>
+
+                            <!-- Bit 4 -->
+                            <div class="bitmap-row-item" style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 6px 16px; border-radius: 12px; transition: all 0.3s; box-sizing: border-box;">
+                                <div class="bit-cell cell-4" style="width: 42px; height: 42px; font-size: 20px; border-radius: 8px;">0</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex: 1;">
+                                    <span style="font-size: 16px; font-weight: bold; color: #fff; font-family: sans-serif;">User 5</span>
+                                    <span style="font-size: 14px; font-weight: bold; font-family: sans-serif; color: #4b5563; transition: color 0.3s;" class="status-lbl-4">Offline</span>
+                                </div>
+                            </div>
+
+                            <!-- Bit 5 -->
+                            <div class="bitmap-row-item" style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 6px 16px; border-radius: 12px; transition: all 0.3s; box-sizing: border-box;">
+                                <div class="bit-cell cell-5" style="width: 42px; height: 42px; font-size: 20px; border-radius: 8px;">1</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex: 1;">
+                                    <span style="font-size: 16px; font-weight: bold; color: #fff; font-family: sans-serif;">User 6</span>
+                                    <span style="font-size: 14px; font-weight: bold; font-family: sans-serif; color: #4b5563; transition: color 0.3s;" class="status-lbl-5">Offline</span>
+                                </div>
+                            </div>
+
+                            <!-- Bit 6 -->
+                            <div class="bitmap-row-item" style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 6px 16px; border-radius: 12px; transition: all 0.3s; box-sizing: border-box;">
+                                <div class="bit-cell cell-6" style="width: 42px; height: 42px; font-size: 20px; border-radius: 8px;">1</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex: 1;">
+                                    <span style="font-size: 16px; font-weight: bold; color: #fff; font-family: sans-serif;">User 7</span>
+                                    <span style="font-size: 14px; font-weight: bold; font-family: sans-serif; color: #4b5563; transition: color 0.3s;" class="status-lbl-6">Offline</span>
+                                </div>
+                            </div>
+
+                            <!-- Bit 7 -->
+                            <div class="bitmap-row-item" style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 6px 16px; border-radius: 12px; transition: all 0.3s; box-sizing: border-box;">
+                                <div class="bit-cell cell-7" style="width: 42px; height: 42px; font-size: 20px; border-radius: 8px;">0</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex: 1;">
+                                    <span style="font-size: 16px; font-weight: bold; color: #fff; font-family: sans-serif;">User 8</span>
+                                    <span style="font-size: 14px; font-weight: bold; font-family: sans-serif; color: #4b5563; transition: color 0.3s;" class="status-lbl-7">Offline</span>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             `;
@@ -451,57 +474,71 @@
             canvas.innerHTML = `
                 <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; zoom:1.0;">
                     
-                    <div class="glass-card cyber-grid" style="width:100%; max-width:860px; height:450px; padding:28px 24px; border:2px solid rgba(239, 68, 68, 0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 35px rgba(239, 68, 68, 0.2); display:flex; flex-direction:column; justify-content:flex-start; gap:40px; box-sizing:border-box;">
-                        
-                        <div style="display:flex; justify-content:center; align-items:center; gap:10px; border-bottom:1.5px solid rgba(239, 68, 68, 0.15); padding-bottom:8px;">
-                            <i data-lucide="check-circle" style="width:24px; height:24px; color:#10b981;"></i>
-                            <h2 style="font-size:22px; font-weight:bold; color:#fff; margin:0;">Hệ Thống Presence Service Tối Ưu</h2>
+                    <!-- 4 Large Node Cards Architecture - Centered Flow -->
+                    <div class="s6-diagram-wrapper" style="position:relative; width:500px; height:540px; margin:0 auto; box-sizing:border-box;">
+                        <!-- SVG lines -->
+                        <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;" class="s6-svg-canvas">
+                            <!-- Client -> WS Gateway (Y=110 to 150) -->
+                            <path d="M 250 110 L 250 150" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" fill="none" class="s6-dashed-link s6-link-1"></path>
+                            <!-- WS Gateway -> Presence Service (Y=250 to 290) -->
+                            <path d="M 250 250 L 250 290" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" fill="none" class="s6-dashed-link s6-link-2"></path>
+                            <!-- Presence Service -> Redis Bitmap (Y=390 to 430) -->
+                            <path d="M 250 390 L 250 430" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" fill="none" class="s6-dashed-link s6-link-3"></path>
+                        </svg>
+
+                        <!-- Dynamic flowing packets canvas -->
+                        <div class="s6-packet-canvas" style="position:absolute; inset:0; pointer-events:none; z-index:2;"></div>
+
+                        <!-- 1. Client Mobile (Avatar Only) -->
+                        <div class="s6-client-avatar-node" style="top:10px;">
+                            <img src="https://mautranhve.vn/wp-content/uploads/2025/10/avatar-cho-vo-tri-14.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
+                            <div class="s6-client-dot" style="width:16px; height:16px; border-radius:50%; background:#4b5563; position:absolute; bottom:4px; right:4px; border:2px solid #0c0f17; transition:all 0.3s;"></div>
                         </div>
 
-                        <!-- Architecture Flow - Compact height, larger elements -->
-                        <div style="position:relative; width:800px; height:180px; margin:25px auto 0 auto;">
-                            <!-- SVG lines -->
-                            <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;" class="s6-svg-canvas">
-                                <!-- Client -> WS Gateway -->
-                                <path d="M 120 70 L 260 70" stroke="rgba(255,255,255,0.06)" stroke-width="2.5" fill="none"></path>
-                                <!-- WS Gateway -> Presence Service -->
-                                <path d="M 370 70 L 490 70" stroke="rgba(255,255,255,0.06)" stroke-width="2.5" fill="none"></path>
-                                <!-- Presence Service -> Redis Bitmap -->
-                                <path d="M 610 70 L 700 70" stroke="rgba(255,255,255,0.06)" stroke-width="2.5" fill="none"></path>
-                            </svg>
+                        <!-- 2. WebSocket Gateway Server -->
+                        <div class="s6-node-card-premium s6-gateway-srv-premium" style="top:150px;">
+                            <div class="s6-icon-wrapper">
+                                <i data-lucide="server" style="width:26px; height:26px;"></i>
+                            </div>
+                            <div style="display:flex; flex-direction:column; text-align:left;">
+                                <span style="font-size:18px; font-weight:bold; color:#fff; font-family:sans-serif;">WS Gateway</span>
+                                <span class="s6-node-stat">Conns: 200M | Protocol: WSS</span>
+                            </div>
+                        </div>
 
-                            <!-- Dynamic flowing packets canvas -->
-                            <div class="s6-packet-canvas" style="position:absolute; inset:0; pointer-events:none; z-index:2;"></div>
+                        <!-- 3. Presence Service Node -->
+                        <div class="s6-node-card-premium s6-presence-srv-premium" style="top:290px;">
+                            <div class="s6-icon-wrapper">
+                                <i data-lucide="git-branch" style="width:26px; height:26px;"></i>
+                            </div>
+                            <div style="display:flex; flex-direction:column; text-align:left;">
+                                <span style="font-size:18px; font-weight:bold; color:#fff; font-family:sans-serif;">Presence Srv</span>
+                                <span class="s6-node-stat">Throughput: 10M/s | O(1)</span>
+                            </div>
+                        </div>
 
-                            <!-- 1. Client Mobile -->
-                            <div class="glass-card" style="position:absolute; left:20px; top:10px; width:100px; height:120px; border-radius:16px; border:1.5px solid rgba(255,255,255,0.15); background:#0c0f17; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; z-index:3;">
-                                <div style="width:26px; height:38px; border-radius:4px; border:1px solid rgba(255,255,255,0.2); position:relative; display:flex; align-items:center; justify-content:center;">
-                                    <div class="s6-client-dot" style="width:6px; height:6px; border-radius:50%; background:#10b981; position:absolute; bottom:2px; right:2px;"></div>
-                                    <i data-lucide="smartphone" style="width:14px; height:14px; color:#aaa;"></i>
+                        <!-- 4. Redis Bitmap Node (with Bit array row) -->
+                        <div class="s6-node-card-premium s6-redis-node-premium" style="top:430px; height:110px; display:flex; flex-direction:column; justify-content:center; gap:8px; padding:12px 24px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <div style="width:24px; height:24px; border-radius:6px; background:rgba(239, 68, 68, 0.15); color:#ef4444; font-weight:bold; font-family:monospace; font-size:12px; display:flex; align-items:center; justify-content:center;">R</div>
+                                    <span style="font-size:16px; font-weight:bold; color:#fff; font-family:sans-serif;">Redis Bitmap</span>
                                 </div>
-                                <span style="font-size:10px; font-family:sans-serif; color:#aaa; font-weight:bold;">User Client</span>
+                                <span style="font-size:12px; color:#ef4444; font-family:monospace; font-weight:bold;" class="redis-command-display">SETBIT user:status 123 1</span>
                             </div>
-
-                            <!-- 2. WebSocket Gateway Server -->
-                            <div class="glass-card s6-gateway-srv" style="position:absolute; left:260px; top:25px; width:110px; height:90px; border-radius:16px; border:1.5px solid rgba(0, 132, 255, 0.4); background:#111522; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; z-index:3; transition:all 0.2s;">
-                                <i data-lucide="server" style="width:24px; height:24px; color:#0084ff;"></i>
-                                <span style="font-size:11px; font-family:monospace; color:#fff; font-weight:bold;">WS Gateway</span>
-                            </div>
-
-                            <!-- 3. Presence Service Node -->
-                            <div class="glass-card s6-presence-srv" style="position:absolute; left:490px; top:25px; width:120px; height:90px; border-radius:16px; border:1.5px solid rgba(139, 92, 246, 0.4); background:#151222; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; z-index:3; transition:all 0.2s;">
-                                <i data-lucide="git-branch" style="width:24px; height:24px; color:#8b5cf6;"></i>
-                                <span style="font-size:11px; font-family:monospace; color:#fff; font-weight:bold;">Presence Srv</span>
-                            </div>
-
-                            <!-- 4. Redis Bitmap Node -->
-                            <div class="glass-card s6-redis-node" style="position:absolute; left:680px; top:15px; width:110px; height:110px; border-radius:50%; border:2px solid rgba(239, 68, 68, 0.4); background:#1a1012; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; z-index:3; transition:all 0.2s;">
-                                <div style="width:26px; height:26px; border-radius:50%; background:#ef4444; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; font-size:11px; box-shadow:0 0 10px rgba(239,68,68,0.5);">R</div>
-                                <span style="font-size:9px; font-family:monospace; color:#ef4444; font-weight:bold;">REDIS BITMAP</span>
-                                <div style="font-size:8px; font-family:monospace; color:#888;" class="redis-command-display">GETBIT user:status 123</div>
+                            <div class="s6-bits-container" style="display:flex; gap:6px; justify-content:center; align-items:center; width:100%;">
+                                <div class="s6-bit-box s6-bit-0">0</div>
+                                <div class="s6-bit-box s6-bit-1">1</div>
+                                <div class="s6-bit-box s6-bit-1">1</div>
+                                <div class="s6-bit-box s6-bit-1">1</div>
+                                <div class="s6-bit-box s6-bit-0 s6-changing-bit">0</div>
+                                <div class="s6-bit-box s6-bit-0">0</div>
+                                <div class="s6-bit-box s6-bit-1">1</div>
+                                <div class="s6-bit-box s6-bit-0">0</div>
+                                <div class="s6-bit-box s6-bit-1">1</div>
+                                <div class="s6-bit-box s6-bit-0">0</div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             `;
@@ -746,46 +783,50 @@
             }
         }
         else if (slideId === 'slide_active_4') {
-            const records = canvas.querySelectorAll('.s4-rec-card');
             const bits = canvas.querySelectorAll('.bit-cell');
-            const compressor = canvas.querySelector('.compressor-block');
+            const rows = canvas.querySelectorAll('.bitmap-row-item');
 
-            // 0.1 -> 0.45: Records collapse
-            if (progress > 0.1 && progress <= 0.45) {
-                const t = (progress - 0.1) / 0.35;
-                if (compressor) compressor.style.opacity = t;
-                records.forEach((rec, idx) => {
-                    rec.style.transform = `scale(${1 - t * 0.2}) translateY(${t * 30}px)`;
-                    rec.style.opacity = 1 - t * 0.3;
-                });
-            } else if (progress > 0.45) {
-                if (compressor) compressor.style.opacity = 1;
-                records.forEach(rec => {
-                    rec.style.transform = 'scale(0.8) translateY(30px)';
-                    rec.style.opacity = 0.7;
-                });
-            } else {
-                if (compressor) compressor.style.opacity = 0;
-                records.forEach(rec => {
-                    rec.style.transform = 'none';
-                    rec.style.opacity = 1;
-                });
-            }
-
-            // 0.45 -> 0.95: Bit cells flash and light up
             bits.forEach((cell, idx) => {
-                const bitVal = cell.textContent;
-                if (progress > 0.45) {
-                    const subP = (progress - 0.45) / 0.5;
+                const bitVal = cell.textContent.trim();
+                const parentRow = rows[idx];
+                const statusLbl = parentRow ? parentRow.querySelector(`.status-lbl-${idx}`) : null;
+                
+                // Let the bits light up sequentially from progress = 0.1 to 0.9
+                if (progress > 0.1) {
+                    const subP = (progress - 0.1) / 0.8;
                     const cellP = idx / 8;
                     
                     if (subP >= cellP) {
                         cell.classList.add(bitVal === '1' ? 'bit-1' : 'bit-0');
+                        if (parentRow) {
+                            parentRow.style.background = bitVal === '1' ? 'rgba(16, 185, 129, 0.08)' : 'rgba(255, 255, 255, 0.04)';
+                            parentRow.style.borderColor = bitVal === '1' ? 'rgba(16, 185, 129, 0.25)' : 'rgba(255, 255, 255, 0.1)';
+                        }
+                        if (statusLbl) {
+                            statusLbl.textContent = bitVal === '1' ? 'Online' : 'Offline';
+                            statusLbl.style.color = bitVal === '1' ? '#10b981' : '#4b5563';
+                        }
                     } else {
                         cell.classList.remove('bit-1', 'bit-0');
+                        if (parentRow) {
+                            parentRow.style.background = 'rgba(255, 255, 255, 0.01)';
+                            parentRow.style.borderColor = 'rgba(255, 255, 255, 0.03)';
+                        }
+                        if (statusLbl) {
+                            statusLbl.textContent = 'Offline';
+                            statusLbl.style.color = '#4b5563';
+                        }
                     }
                 } else {
                     cell.classList.remove('bit-1', 'bit-0');
+                    if (parentRow) {
+                        parentRow.style.background = 'rgba(255, 255, 255, 0.01)';
+                        parentRow.style.borderColor = 'rgba(255, 255, 255, 0.03)';
+                    }
+                    if (statusLbl) {
+                        statusLbl.textContent = 'Offline';
+                        statusLbl.style.color = '#4b5563';
+                    }
                 }
             });
         }
@@ -819,9 +860,14 @@
         else if (slideId === 'slide_active_6') {
             const packetCanvas = canvas.querySelector('.s6-packet-canvas');
             const clientDot = canvas.querySelector('.s6-client-dot');
-            const gatewaySrv = canvas.querySelector('.s6-gateway-srv');
-            const presenceSrv = canvas.querySelector('.s6-presence-srv');
-            const redisNode = canvas.querySelector('.s6-redis-node');
+            const clientNode = canvas.querySelector('.s6-client-avatar-node');
+            const gatewaySrv = canvas.querySelector('.s6-gateway-srv-premium');
+            const presenceSrv = canvas.querySelector('.s6-presence-srv-premium');
+            const redisNode = canvas.querySelector('.s6-redis-node-premium');
+
+            const link1 = canvas.querySelector('.s6-link-1');
+            const link2 = canvas.querySelector('.s6-link-2');
+            const link3 = canvas.querySelector('.s6-link-3');
 
             if (packetCanvas) packetCanvas.innerHTML = '';
 
@@ -831,59 +877,56 @@
             let prPulse = false;
             let rdPulse = false;
 
-            // Phase 1: client -> Gateway (X=70 to X=260) - Path center Y is 70px
-            // progress: 0.15 -> 0.35
-            if (progress > 0.15 && progress <= 0.35) {
-                const t = (progress - 0.15) / 0.20;
-                const x = 70 + t * 190;
-                packetsHTML += `<circle cx="${x}" cy="70" r="5.5" fill="#0084ff" filter="drop-shadow(0 0 10px #0084ff)"></circle>`;
-                if (x - 12 >= 70) {
-                    packetsHTML += `<circle cx="${x - 12}" cy="70" r="4" fill="#0084ff" opacity="0.6" filter="drop-shadow(0 0 6px #0084ff)"></circle>`;
+            // Phase 1: client -> Gateway (Y=110 to Y=150) - Center X is 250px
+            // progress: 0.05 -> 0.20
+            if (progress > 0.05 && progress <= 0.20) {
+                const t = (progress - 0.05) / 0.15;
+                const y = 110 + t * 40;
+                packetsHTML += `<circle cx="250" cy="${y}" r="5.5" fill="#0084ff" filter="drop-shadow(0 0 10px #0084ff)"></circle>`;
+                if (y - 12 >= 110) {
+                    packetsHTML += `<circle cx="250" cy="${y - 12}" r="4" fill="#0084ff" opacity="0.6" filter="drop-shadow(0 0 6px #0084ff)"></circle>`;
                 }
-                if (x - 24 >= 70) {
-                    packetsHTML += `<circle cx="${x - 24}" cy="70" r="2.5" fill="#0084ff" opacity="0.3" filter="drop-shadow(0 0 4px #0084ff)"></circle>`;
+                if (y - 24 >= 110) {
+                    packetsHTML += `<circle cx="250" cy="${y - 24}" r="2.5" fill="#0084ff" opacity="0.3" filter="drop-shadow(0 0 4px #0084ff)"></circle>`;
                 }
                 if (t >= 0.85) gwPulse = true;
             }
 
-            // Phase 2: Gateway -> Presence Service (X=315 to X=490)
-            // progress: 0.35 -> 0.55
-            if (progress > 0.35 && progress <= 0.55) {
+            // Phase 2: Gateway -> Presence Service (Y=250 to Y=290) - Center X is 250px
+            // progress: 0.20 -> 0.35
+            if (progress > 0.20 && progress <= 0.35) {
                 gwPulse = true;
-                const t = (progress - 0.35) / 0.20;
-                const x = 315 + t * 175;
-                packetsHTML += `<circle cx="${x}" cy="70" r="5.5" fill="#8b5cf6" filter="drop-shadow(0 0 10px #8b5cf6)"></circle>`;
-                if (x - 12 >= 315) {
-                    packetsHTML += `<circle cx="${x - 12}" cy="70" r="4" fill="#8b5cf6" opacity="0.6" filter="drop-shadow(0 0 6px #8b5cf6)"></circle>`;
+                const t = (progress - 0.20) / 0.15;
+                const y = 250 + t * 40;
+                packetsHTML += `<circle cx="250" cy="${y}" r="5.5" fill="#8b5cf6" filter="drop-shadow(0 0 10px #8b5cf6)"></circle>`;
+                if (y - 12 >= 250) {
+                    packetsHTML += `<circle cx="250" cy="${y - 12}" r="4" fill="#8b5cf6" opacity="0.6" filter="drop-shadow(0 0 6px #8b5cf6)"></circle>`;
                 }
-                if (x - 24 >= 315) {
-                    packetsHTML += `<circle cx="${x - 24}" cy="70" r="2.5" fill="#8b5cf6" opacity="0.3" filter="drop-shadow(0 0 4px #8b5cf6)"></circle>`;
+                if (y - 24 >= 250) {
+                    packetsHTML += `<circle cx="250" cy="${y - 24}" r="2.5" fill="#8b5cf6" opacity="0.3" filter="drop-shadow(0 0 4px #8b5cf6)"></circle>`;
                 }
                 if (t >= 0.85) prPulse = true;
             }
 
-            // Phase 3: Presence Service -> Redis Bitmap (X=550 to X=735)
-            // progress: 0.55 -> 0.80
-            if (progress > 0.55 && progress <= 0.80) {
+            // Phase 3: Presence Service -> Redis Bitmap (Y=390 to Y=430) - Center X is 250px
+            // progress: 0.35 -> 0.50
+            if (progress > 0.35 && progress <= 0.50) {
                 prPulse = true;
-                const t = (progress - 0.55) / 0.25;
-                const x = 550 + t * 185;
-                packetsHTML += `<circle cx="${x}" cy="70" r="5.5" fill="#ef4444" filter="drop-shadow(0 0 10px #ef4444)"></circle>`;
-                if (x - 12 >= 550) {
-                    packetsHTML += `<circle cx="${x - 12}" cy="70" r="4" fill="#ef4444" opacity="0.6" filter="drop-shadow(0 0 6px #ef4444)"></circle>`;
+                const t = (progress - 0.35) / 0.15;
+                const y = 390 + t * 40;
+                packetsHTML += `<circle cx="250" cy="${y}" r="5.5" fill="#ef4444" filter="drop-shadow(0 0 10px #ef4444)"></circle>`;
+                if (y - 12 >= 390) {
+                    packetsHTML += `<circle cx="250" cy="${y - 12}" r="4" fill="#ef4444" opacity="0.6" filter="drop-shadow(0 0 6px #ef4444)"></circle>`;
                 }
-                if (x - 24 >= 550) {
-                    packetsHTML += `<circle cx="${x - 24}" cy="70" r="2.5" fill="#ef4444" opacity="0.3" filter="drop-shadow(0 0 4px #ef4444)"></circle>`;
+                if (y - 24 >= 390) {
+                    packetsHTML += `<circle cx="250" cy="${y - 24}" r="2.5" fill="#ef4444" opacity="0.3" filter="drop-shadow(0 0 4px #ef4444)"></circle>`;
                 }
-                
-                if (t >= 0.9) {
-                    rdPulse = true;
-                }
+                if (t >= 0.9) rdPulse = true;
             }
 
             // Phase 4: Client green dot pulses upon success validation
-            // progress > 0.80
-            if (progress > 0.80) {
+            // progress > 0.50
+            if (progress > 0.50) {
                 rdPulse = true;
                 if (clientDot) {
                     clientDot.style.backgroundColor = '#10b981';
@@ -902,39 +945,68 @@
                 packetCanvas.innerHTML = `<svg style="width:100%; height:100%;">${packetsHTML}</svg>`;
             }
 
-            // Server node transforms/glows
-            if (gatewaySrv) {
-                if (gwPulse) {
-                    gatewaySrv.style.borderColor = '#0084ff';
-                    gatewaySrv.style.boxShadow = '0 0 15px rgba(0, 132, 255, 0.5)';
-                    gatewaySrv.style.transform = 'scale(1.05)';
+            // Dynamic links highlight
+            if (link1) {
+                if (progress > 0.05 && progress <= 0.20) {
+                    link1.style.stroke = '#0084ff';
+                    link1.style.strokeWidth = '3.5px';
+                    link1.style.opacity = '0.95';
                 } else {
-                    gatewaySrv.style.borderColor = 'rgba(0, 132, 255, 0.4)';
-                    gatewaySrv.style.boxShadow = 'none';
-                    gatewaySrv.style.transform = 'scale(1)';
+                    link1.style.stroke = 'rgba(255,255,255,0.08)';
+                    link1.style.strokeWidth = '2.5px';
+                    link1.style.opacity = '0.3';
                 }
+            }
+            if (link2) {
+                if (progress > 0.20 && progress <= 0.35) {
+                    link2.style.stroke = '#8b5cf6';
+                    link2.style.strokeWidth = '3.5px';
+                    link2.style.opacity = '0.95';
+                } else {
+                    link2.style.stroke = 'rgba(255,255,255,0.08)';
+                    link2.style.strokeWidth = '2.5px';
+                    link2.style.opacity = '0.3';
+                }
+            }
+            if (link3) {
+                if (progress > 0.35 && progress <= 0.50) {
+                    link3.style.stroke = '#ef4444';
+                    link3.style.strokeWidth = '3.5px';
+                    link3.style.opacity = '0.95';
+                } else {
+                    link3.style.stroke = 'rgba(255,255,255,0.08)';
+                    link3.style.strokeWidth = '2.5px';
+                    link3.style.opacity = '0.3';
+                }
+            }
+
+            // Target bit toggle logic
+            const changingBit = canvas.querySelector('.s6-changing-bit');
+            if (changingBit) {
+                if (rdPulse) {
+                    changingBit.textContent = '1';
+                    changingBit.classList.remove('s6-bit-0');
+                    changingBit.classList.add('s6-bit-1', 'active');
+                } else {
+                    changingBit.textContent = '0';
+                    changingBit.classList.remove('s6-bit-1', 'active');
+                    changingBit.classList.add('s6-bit-0');
+                }
+            }
+
+            // Premium Node highlights
+            if (clientNode) {
+                const isClientActive = progress > 0.05 && progress <= 0.60;
+                clientNode.classList.toggle('active-client', isClientActive);
+            }
+            if (gatewaySrv) {
+                gatewaySrv.classList.toggle('active-gateway', gwPulse);
             }
             if (presenceSrv) {
-                if (prPulse) {
-                    presenceSrv.style.borderColor = '#8b5cf6';
-                    presenceSrv.style.boxShadow = '0 0 15px rgba(139, 92, 246, 0.5)';
-                    presenceSrv.style.transform = 'scale(1.05)';
-                } else {
-                    presenceSrv.style.borderColor = 'rgba(139, 92, 246, 0.4)';
-                    presenceSrv.style.boxShadow = 'none';
-                    presenceSrv.style.transform = 'scale(1)';
-                }
+                presenceSrv.classList.toggle('active-presence', prPulse);
             }
             if (redisNode) {
-                if (rdPulse) {
-                    redisNode.style.borderColor = '#ef4444';
-                    redisNode.style.boxShadow = '0 0 20px rgba(239, 68, 68, 0.6)';
-                    redisNode.style.transform = 'scale(1.05)';
-                } else {
-                    redisNode.style.borderColor = 'rgba(239, 68, 68, 0.4)';
-                    redisNode.style.boxShadow = 'none';
-                    redisNode.style.transform = 'scale(1)';
-                }
+                redisNode.classList.toggle('active-redis', rdPulse);
             }
         }
     }

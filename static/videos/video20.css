@@ -161,6 +161,47 @@
     animation: fade-in-up 0.5s ease-out forwards;
 }
 
+/* Reed-Solomon interactive slide animations */
+@keyframes rs-scan {
+    0% { top: 0%; opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+.rs-scan-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #10b981;
+    box-shadow: 0 0 10px #10b981, 0 0 3px #10b981;
+    z-index: 5;
+    pointer-events: none;
+    animation: rs-scan 1.2s infinite linear;
+}
+
+@keyframes rs-glitch {
+    0%, 100% { transform: translate(0) scale(1); }
+    20% { transform: translate(-2px, 2px) scale(0.98); }
+    40% { transform: translate(-2px, -2px) scale(1.02); }
+    60% { transform: translate(2px, 2px) scale(0.98); }
+    80% { transform: translate(2px, -2px) scale(1.02); }
+}
+
+.rs-glitch-active {
+    animation: rs-glitch 0.3s infinite ease-in-out;
+}
+
+/* Position the keywords panel correctly for Video 20 to avoid overlap */
+.layout-custom-sim-view {
+    padding-top: 15px !important;
+}
+.layout-custom-sim-view .keywords-panel {
+    top: 180px !important;
+}
+
+
+
 @keyframes fade-in-up {
     0% { opacity: 0; transform: translateY(10px); }
     100% { opacity: 1; transform: translateY(0); }

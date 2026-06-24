@@ -1,0 +1,629 @@
+/* CSS Stylesheet for Video 45: IEEE 754 Floating-Point Precision Bug */
+
+.v45-zoom-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    zoom: 1.25;
+    padding: 0 40px; /* 40px * 1.25 zoom = 50px screen padding */
+    font-family: 'Outfit', sans-serif;
+    color: #ffffff;
+}
+
+/* Slide 1 Logo Hook */
+.v45-glow-ring {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.v45-glow-ring.outer {
+    border: 2px dashed rgba(245, 158, 11, 0.45);
+    animation: v45-logo-spin 25s linear infinite;
+}
+.v45-glow-ring.inner {
+    border: 1.5px solid rgba(245, 158, 11, 0.25);
+    animation: v45-logo-spin-rev 15s linear infinite;
+}
+
+@keyframes v45-logo-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes v45-logo-spin-rev {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.v45-floating-math {
+    animation: v45-math-float 4s ease-in-out infinite;
+}
+@keyframes v45-math-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+/* Slide 2: Developer Console */
+.v45-console {
+    width: 100%;
+    align-self: stretch;
+    height: 360px;
+    background: #090c10;
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.v45-console-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 10px;
+    color: #6e7681;
+    font-size: 12px;
+}
+
+.v45-console-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.v45-console-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.v45-console-line {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    line-height: 1.6;
+}
+
+.v45-console-prompt {
+    color: #ff7b72;
+}
+
+.v45-console-input {
+    color: #f8e3a1;
+}
+
+.v45-console-output {
+    color: #58a6ff;
+    padding-left: 20px;
+}
+
+.v45-console-output.error-val {
+    color: #ff7b72;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 123, 114, 0.35);
+}
+
+.v45-warning-badge {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1.5px solid #ef4444;
+    color: #ef4444;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);
+    animation: pulse-warning 1s infinite alternate;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.v45-warning-badge.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes pulse-warning {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25); }
+    100% { transform: scale(1.05); box-shadow: 0 4px 25px rgba(239, 68, 68, 0.5); }
+}
+
+/* Slide 3: Binary Conversion Grid */
+.v45-binary-card {
+    width: 100%;
+    align-self: stretch;
+    height: 380px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.v45-binary-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.v45-section-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #f59e0b;
+    border-bottom: 1.5px solid rgba(245, 158, 11, 0.15);
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.v45-decimal-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.v45-binary-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: bold;
+    color: #aaa;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    align-content: flex-start;
+}
+
+.v45-bit-box {
+    width: 24px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.v45-bit-box.repeating {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.4);
+    color: #60a5fa;
+}
+
+.v45-bit-box.active-bit {
+    background: #3b82f6 !important;
+    border-color: #60a5fa !important;
+    color: #fff !important;
+    box-shadow: 0 0 10px #3b82f6;
+    transform: scale(1.1);
+}
+
+.v45-cutoff-marker {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(239, 68, 68, 0.25);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-family: sans-serif;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.3s;
+}
+
+.v45-cutoff-marker.visible {
+    opacity: 1;
+    transform: scale(1);
+    animation: warning-pulse-short 1s infinite alternate;
+}
+
+@keyframes warning-pulse-short {
+    0% { transform: scale(1); box-shadow: 0 0 5px rgba(239,68,68,0.3); }
+    100% { transform: scale(1.05); box-shadow: 0 0 15px rgba(239,68,68,0.6); }
+}
+
+/* Slide 4: Loop Drift Accumulated */
+.v45-loop-box {
+    width: 100%;
+    align-self: stretch;
+    height: 380px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.v45-loop-counters {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.v45-counter-card {
+    flex: 1;
+    background: rgba(30, 41, 59, 0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.v45-counter-card.expected {
+    border-color: rgba(16, 185, 129, 0.25);
+}
+
+.v45-counter-card.drift {
+    border-color: rgba(239, 68, 68, 0.25);
+}
+
+.v45-counter-val {
+    font-family: monospace;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.v45-counter-val.expected-green {
+    color: #10b981;
+    text-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+}
+
+.v45-counter-val.drift-red {
+    color: #ef4444;
+    text-shadow: 0 0 15px rgba(239, 68, 68, 0.25);
+}
+
+.v45-loop-terminal {
+    background: #090c10;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-family: monospace;
+    font-size: 11.5px;
+    text-align: left;
+    height: 100px;
+    overflow-y: hidden;
+    color: #888;
+}
+
+.v45-loop-line {
+    line-height: 1.6;
+}
+
+.v45-loop-line.highlight-err {
+    color: #ff7b72;
+}
+
+/* Slide 5: Solution Comparison */
+.v45-comparison-box {
+    width: 100%;
+    align-self: stretch;
+    height: 390px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    display: flex;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.v45-compare-card {
+    flex: 1;
+    background: rgba(30, 41, 59, 0.45);
+    border: 1.5px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+    text-align: left;
+}
+
+.v45-compare-card.bad {
+    border-color: rgba(239, 68, 68, 0.25);
+}
+
+.v45-compare-card.good {
+    border-color: rgba(16, 185, 129, 0.25);
+}
+
+.v45-code-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #aaa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 6px;
+}
+
+.v45-code-title-badge {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.v45-compare-card.bad .v45-code-title-badge {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.v45-compare-card.good .v45-code-title-badge {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+}
+
+.v45-code-snippet {
+    background: #090c10;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 12px;
+    font-family: 'Fira Code', monospace;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #c9d1d9;
+    flex: 1;
+}
+
+.v45-code-snippet .keyword { color: #ff7b72; }
+.v45-code-snippet .type { color: #ffa657; }
+.v45-code-snippet .comment { color: #8b949e; }
+.v45-code-snippet .number { color: #79c0ff; }
+.v45-code-snippet .string { color: #a5d6ff; }
+
+/* ── INTERACTIVE ANIMATION ELEMENTS ── */
+
+/* Slide 1: Merging Blocks */
+.v45-block-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 120px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.v45-merge-block {
+    width: 110px;
+    height: 70px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    font-family: monospace;
+    font-size: 24px;
+    font-weight: 800;
+    color: #f59e0b;
+    position: absolute;
+    transition: all 0.05s linear;
+}
+
+.v45-result-block {
+    width: 260px;
+    height: 80px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid #ef4444;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.35);
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: monospace;
+    z-index: 5;
+}
+
+.v45-result-block.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Slide 3: Converter Machine & Flying Bits */
+.v45-converter-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 75px;
+    position: relative;
+    margin-bottom: 12px;
+    gap: 15px;
+}
+
+.v45-converter-box {
+    width: 130px;
+    height: 55px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.05));
+    border: 1.5px solid rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: #60a5fa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 3;
+    position: relative;
+}
+
+.v45-converter-gears {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    pointer-events: none;
+    opacity: 0.15;
+}
+
+.v45-gear {
+    width: 24px;
+    height: 24px;
+    border: 3px dotted #fff;
+    border-radius: 50%;
+    animation: gear-spin 4s linear infinite;
+}
+.v45-gear.rev {
+    animation-direction: reverse;
+}
+@keyframes gear-spin {
+    to { transform: rotate(360deg); }
+}
+
+.v45-flying-value {
+    position: absolute;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: monospace;
+    color: #fbbf24;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+    z-index: 2;
+    transition: all 0.05s linear;
+}
+
+/* Slide 4: Audit Stamp & Flying Coins */
+.v45-coin {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fbbf24;
+    border: 1px solid #d97706;
+    box-shadow: 0 0 6px #fbbf24;
+    z-index: 10;
+    pointer-events: none;
+    transition: all 0.05s linear;
+}
+
+.v45-audit-stamp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(3) rotate(-15deg);
+    border: 3px solid #ef4444;
+    color: #ef4444;
+    font-size: 24px;
+    font-weight: 900;
+    padding: 6px 16px;
+    border-radius: 6px;
+    background: rgba(9, 12, 16, 0.95);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    z-index: 100;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.45);
+}
+
+.v45-audit-stamp.stamped {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-15deg);
+}
+
+/* Slide 5: Top Blocks comparison */
+.v45-solution-comparison-header {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 8px;
+    gap: 20px;
+}
+
+.v45-visual-block {
+    flex: 1;
+    height: 54px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: monospace;
+    border: 1.5px solid;
+    transition: all 0.4s ease;
+}
+
+.v45-visual-block.bad {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+    color: #ef4444;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.25);
+}
+
+.v45-visual-block.good {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: #10b981;
+    color: #10b981;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+}
+
