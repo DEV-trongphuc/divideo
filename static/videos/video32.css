@@ -386,3 +386,88 @@
     height: 16px;
     color: var(--jwt-green);
 }
+
+/* Spinning Cosmic Rings for JWT Hook */
+.v32-glow-ring {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.v32-glow-ring.outer {
+    width: 290px;
+    height: 290px;
+    border: 2px dashed rgba(245, 158, 11, 0.35); /* JWT gold theme */
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.08);
+    animation: v32-spin-clockwise 25s linear infinite;
+}
+.v32-glow-ring.inner {
+    width: 240px;
+    height: 240px;
+    border: 1.5px solid rgba(244, 63, 94, 0.2); /* Red/pink theme */
+    box-shadow: 0 0 15px rgba(244, 63, 94, 0.05);
+    animation: v32-spin-counter 15s linear infinite;
+}
+
+@keyframes v32-spin-clockwise {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes v32-spin-counter {
+    0% { transform: translate(-50%, -50%) rotate(360deg); }
+    100% { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+/* JWT Center Logo breathing */
+.v32-jwt-logo-hook {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 25px rgba(214, 58, 255, 0.5)) drop-shadow(0 0 8px rgba(0, 242, 230, 0.3));
+    animation: v32-logo-breath 3s ease-in-out infinite alternate;
+}
+
+@keyframes v32-logo-breath {
+    0% { transform: translate(-50%, -50%) scale(1); filter: drop-shadow(0 0 16px rgba(214, 58, 255, 0.4)); }
+    100% { transform: translate(-50%, -50%) scale(1.05); filter: drop-shadow(0 0 28px rgba(0, 242, 230, 0.7)); }
+}
+
+/* Glass Hook Card for JWT */
+.v32-hook-card {
+    text-align: center;
+    width: 100%;
+    padding: 24px;
+    border-radius: 24px;
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(10, 15, 30, 0.95) 100%);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+    margin-top: 40px;
+}
+.v32-hook-badge {
+    margin-bottom: 18px;
+    font-size: 12px;
+    padding: 5px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--gold-primary);
+    border-radius: 99px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.v32-hook-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.6;
+}

@@ -6,9 +6,13 @@
     'use strict';
 
     const keywordsData = {
-        slide_jwt_1: [
-            { text: 'JWT', start: 1.0, end: 10.0, class: 'active-gold' },
-            { text: 'chữ ký mã hóa', start: 10.0, end: 17.0, class: 'active-good' }
+        slide_jwt_1a: [
+            { text: 'session ID', start: 1.0, end: 5.0, class: 'active-gold' },
+            { text: 'JSON Web Token', start: 5.0, end: 9.0, class: 'active-gold' }
+        ],
+        slide_jwt_1b: [
+            { text: 'thông tin định danh', start: 1.0, end: 5.0, class: 'active-blue' },
+            { text: 'chữ ký mã hóa', start: 5.0, end: 9.0, class: 'active-good' }
         ],
         slide_jwt_structure: [
             { text: 'Header', start: 1.0, end: 6.0, class: 'active-bad' },
@@ -26,7 +30,8 @@
     };
 
     const customSlideIds = [
-        'slide_jwt_1',
+        'slide_jwt_1a',
+        'slide_jwt_1b',
         'slide_jwt_structure',
         'slide_jwt_verification',
         'slide_jwt_hack',
@@ -119,7 +124,32 @@
 
         if (!needsTemplate) return;
 
-        if (slideId === 'slide_jwt_1') {
+        if (slideId === 'slide_jwt_1a') {
+            canvas.innerHTML = `
+                <div class="v32-zoom-container" style="justify-content: flex-start; padding-top: 65px; gap: 20px;">
+                    <div class="v32-intro-container" style="height: 190px; position: relative; width: 360px; display: flex; align-items: center; justify-content: center; margin: 10px 0;">
+                        <!-- Spinning Cosmic Rings -->
+                        <div class="v32-glow-ring outer"></div>
+                        <div class="v32-glow-ring inner"></div>
+                        
+                        <!-- JWT Brandmark Logo -->
+                        <img src="/static/jwt.svg" class="v32-jwt-logo-hook" alt="JWT Logo">
+                    </div>
+
+                    <!-- Slide Hook Info Card -->
+                    <div class="v32-glass-card v32-hook-card" style="margin-top: 65px;">
+                        <div class="v32-hook-badge">
+                            <i data-lucide="zap"></i> JSON Web Token
+                        </div>
+                        <div class="v32-hook-title">
+                            Bảo mật Stateless không trạng thái<br>cho hàng triệu người dùng?
+                        </div>
+                    </div>
+                </div>
+            `;
+            initIcons();
+        }
+        else if (slideId === 'slide_jwt_1b') {
             canvas.innerHTML = `
                 <div class="v32-zoom-container" style="justify-content: center; gap: 24px;">
                     <!-- Token Representation Card -->
@@ -343,7 +373,10 @@
 
     // ── ANIMATION UPDATE FRAME ─────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress, isPlaying) {
-        if (slideId === 'slide_jwt_1') {
+        if (slideId === 'slide_jwt_1a') {
+            // Static logo title slide, no ticking needed
+        }
+        else if (slideId === 'slide_jwt_1b') {
             const typingEl = canvas.querySelector('#v32-token-typing');
             const descEl = canvas.querySelector('#v32-token-desc');
 

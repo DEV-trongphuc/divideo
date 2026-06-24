@@ -750,7 +750,8 @@
         keywordsData: keywordsData,
         renderGfx: renderGfx,
         updateFrame: updateFrame,
-        scriptName: 'video25'
+        scriptName: 'video25',
+        topic: 'Cơ chế Git Status'
     };
 
     console.log('[Video25 Plugin] Loaded: Git Status & Merkle Tree slide animation successfully registered.');

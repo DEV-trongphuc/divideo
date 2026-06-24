@@ -7,11 +7,11 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     zoom: 1.25;
-    padding: 0 40px;
+    padding: 65px 40px 20px 40px;
     font-family: 'Outfit', sans-serif;
     color: #ffffff;
 }
@@ -167,10 +167,10 @@
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
-    margin-top: 20px;
+    margin-top: 40px;
 }
 .v49-hook-badge {
-    margin-bottom: 12px;
+    margin-bottom: 18px;
     font-size: 12px;
     padding: 5px 14px;
     display: inline-flex;
@@ -187,191 +187,199 @@
     font-size: 19px;
     font-weight: 800;
     color: #ffffff;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* ── SLIDE 2: HASHSET VS HYPERLOGLOG++ COMPARISON ────────────────────────── */
-.v49-compare-layout {
+.v49-dashboard-layout {
     display: flex;
-    gap: 25px;
+    flex-direction: column;
+    gap: 15px;
     width: 100%;
     align-self: stretch;
     height: 420px;
     position: relative;
     z-index: 1;
+    box-sizing: border-box;
 }
 
-.v49-compare-card {
-    flex: 1;
-    padding: 24px;
-    border-radius: 24px;
+.v49-stream-producer {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    align-items: center;
     position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    border: 1.5px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-    background: rgba(8, 12, 24, 0.75);
-    backdrop-filter: blur(12px);
+    height: 35px;
+    width: 100%;
 }
 
-.v49-compare-card.bad {
-    border-color: rgba(239, 68, 68, 0.15);
+.v49-producer-badge {
+    font-size: 10px;
+    font-weight: 800;
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 1px;
 }
-.v49-compare-card.bad.overloaded {
+
+.v49-dash-columns {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    width: 100%;
+}
+
+.v49-dash-card {
+    flex: 1;
+    background: rgba(8, 12, 24, 0.75);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.v49-dash-card.bad {
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.v49-dash-card.bad.overloaded {
     border-color: rgba(239, 68, 68, 0.55);
-    box-shadow: 0 0 25px rgba(239, 68, 68, 0.25);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
     background: rgba(20, 5, 8, 0.85);
 }
 
-.v49-compare-card.good {
+.v49-dash-card.good {
     border-color: rgba(16, 185, 129, 0.25);
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.05);
 }
 
-.v49-card-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.v49-compare-card.bad .v49-card-header { color: #f87171; }
-.v49-compare-card.good .v49-card-header { color: #34d399; }
-
-.v49-card-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-.v49-card-stat .label {
-    font-size: 11px;
-    color: #9ca3af;
-    text-transform: uppercase;
-}
-.v49-card-stat .value {
-    font-family: 'Fira Code', monospace;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.v49-progress-wrapper {
-    background: rgba(255, 255, 255, 0.05);
-    height: 12px;
-    border-radius: 99px;
-    overflow: hidden;
-    position: relative;
-}
-.v49-progress-bar {
-    height: 100%;
-    border-radius: 99px;
-    transition: width 0.1s linear, background-color 0.3s ease;
-}
-.v49-progress-bar.bad {
-    background-color: #ef4444;
-}
-.v49-progress-bar.bad.critical {
-    background-color: #f43f5e;
-    animation: v49-pulse-red 0.5s infinite alternate;
-}
-.v49-progress-bar.good {
-    background-color: #10b981;
-}
-
-.v49-status-badge {
-    position: absolute;
-    bottom: 20px;
-    left: 24px;
-    right: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+.v49-dash-header {
     font-size: 12px;
-    font-weight: 700;
-    padding: 8px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 8px;
+}
+.v49-dash-card.bad .v49-dash-header { color: #f87171; }
+.v49-dash-card.good .v49-dash-header { color: #34d399; }
+
+.v49-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
     border-radius: 10px;
+}
+
+.v49-metric .label {
+    font-size: 9px;
+    color: #9ca3af;
+    font-weight: 700;
+}
+
+.v49-metric .value {
+    font-family: 'Fira Code', monospace;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.v49-bucket {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1.5px dashed rgba(239, 68, 68, 0.2);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+}
+
+.v49-bucket.overloaded {
+    border-color: rgba(239, 68, 68, 0.55);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.v49-dash-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+    flex: 1;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1.5px dashed rgba(16, 185, 129, 0.2);
+    border-radius: 12px;
+    padding: 8px;
+    align-content: center;
+    min-height: 180px;
+}
+
+.v49-dash-grid-cell {
+    aspect-ratio: 1;
+    border-radius: 3px;
+    background: rgba(16, 185, 129, 0.04);
+    border: 1px solid rgba(16, 185, 129, 0.12);
+    transition: all 0.15s ease;
+}
+
+.v49-dash-grid-cell.active {
+    background: rgba(16, 185, 129, 0.6);
+    border-color: #34d399;
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.8);
+    transform: scale(1.08);
+}
+
+.v49-dash-status {
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px;
+    border-radius: 8px;
     text-transform: uppercase;
 }
-.v49-status-badge.bad {
-    background: rgba(239, 68, 68, 0.15);
-    border: 1px solid rgba(239, 68, 68, 0.35);
+
+.v49-dash-status.bad {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.25);
     color: #f87171;
 }
-.v49-status-badge.bad.pulse {
-    animation: v49-badge-alert 0.3s infinite alternate;
+
+.v49-dash-status.bad.overloaded {
+    animation: v49-badge-alert-dash 0.3s infinite alternate;
+    background: rgba(239, 68, 68, 0.25);
+    color: #f87171;
 }
-.v49-status-badge.good {
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid rgba(16, 185, 129, 0.3);
+
+.v49-dash-status.good {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
     color: #34d399;
 }
 
-@keyframes v49-pulse-red {
-    0% { box-shadow: 0 0 5px #ef4444; }
-    100% { box-shadow: 0 0 15px #f43f5e; }
-}
-@keyframes v49-badge-alert {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.03); background: rgba(239, 68, 68, 0.25); }
+@keyframes v49-badge-alert-dash {
+    0% { transform: scale(1); background: rgba(239, 68, 68, 0.15); }
+    100% { transform: scale(1.02); background: rgba(239, 68, 68, 0.3); }
 }
 
-/* Floating chips simulation for HashSet */
-.v49-chip-stack {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-}
-.v49-chip-stack .chip {
-    position: absolute;
-    width: 60px;
-    height: 30px;
-    background: rgba(239, 68, 68, 0.15);
-    border: 1px solid rgba(239, 68, 68, 0.4);
-    border-radius: 6px;
-    color: #ef4444;
-    font-size: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: v49-chip-fall 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-@keyframes v49-chip-fall {
-    0% { transform: translateY(-50px) rotate(15deg); opacity: 0; }
-    30% { opacity: 1; }
-    100% { transform: translateY(var(--fall-y)) rotate(var(--fall-rot)); opacity: 0.8; }
-}
-
-/* Steady data stream for HLL */
-.v49-stable-flow {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-}
-.v49-flow-dot {
+/* Streaming dots simulation */
+.v49-stream-particle {
     position: absolute;
     width: 6px;
     height: 6px;
-    background: #10b981;
+    background: #fbbf24;
     border-radius: 50%;
-    box-shadow: 0 0 8px #10b981;
-    animation: v49-dot-shoot 1.2s linear infinite;
-}
-
-@keyframes v49-dot-shoot {
-    0% { transform: translate(var(--start-x), -10px); opacity: 0; }
-    20% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translate(var(--end-x), 440px); opacity: 0; }
+    box-shadow: 0 0 8px #fbbf24;
+    pointer-events: none;
+    z-index: 10;
 }
 
 /* ── SLIDE 3: COIN-FLIP SIMULATOR & BINARY HIGHLIGHTS ─────────────────────── */
@@ -569,10 +577,9 @@
 
 /* ── SLIDE 4: SPARSE TO DENSE MORPHING ────────────────────────────────────── */
 .v49-morph-container {
-    width: 100%;
-    max-width: 440px;
+    width: 440px;
     align-self: center;
-    height: 420px;
+    height: 495px;
     position: relative;
     display: flex;
     align-items: center;
@@ -646,10 +653,10 @@
 .v49-register-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    gap: 8px;
-    max-width: 380px;
+    gap: 6px;
+    max-width: 320px;
     width: 100%;
-    margin: 15px auto;
+    margin: 10px auto;
 }
 
 .v49-register-cell {
@@ -659,7 +666,7 @@
     justify-content: center;
     background: rgba(6, 182, 212, 0.04);
     border: 1px solid rgba(6, 182, 212, 0.15);
-    border-radius: 8px;
+    border-radius: 6px;
     font-family: 'Fira Code', monospace;
     font-size: 12px;
     font-weight: 700;
@@ -811,19 +818,76 @@
 /* Slide 1 Core Google BigQuery Logo center hook styling */
 .v49-bigquery-logo-hook {
     position: absolute;
-    width: 65px;
-    height: 65px;
+    width: 135px;
+    height: 135px;
     object-fit: contain;
     z-index: 10;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    filter: drop-shadow(0 0 15px rgba(66, 133, 244, 0.6)) drop-shadow(0 0 5px rgba(66, 133, 244, 0.3));
+    filter: drop-shadow(0 0 25px rgba(66, 133, 244, 0.6)) drop-shadow(0 0 8px rgba(66, 133, 244, 0.3));
     animation: v49-logo-breath 3s ease-in-out infinite alternate;
 }
 
 @keyframes v49-logo-breath {
-    0% { transform: translate(-50%, -50%) scale(1); filter: drop-shadow(0 0 12px rgba(66, 133, 244, 0.5)); }
-    100% { transform: translate(-50%, -50%) scale(1.06); filter: drop-shadow(0 0 20px rgba(66, 133, 244, 0.8)); }
+    0% { transform: translate(-50%, -50%) scale(1); filter: drop-shadow(0 0 16px rgba(66, 133, 244, 0.5)); }
+    100% { transform: translate(-50%, -50%) scale(1.05); filter: drop-shadow(0 0 28px rgba(66, 133, 244, 0.85)); }
 }
+
+/* Slide 6: Dynamic Morphing Transition side-by-side */
+.v49-transition-layout {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    align-self: stretch;
+    height: 460px;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+}
+
+.v49-transition-layout .v49-sparse-capsule,
+.v49-transition-layout .v49-dense-grid-card {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    width: auto;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+.v49-transition-mid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 90px;
+    flex-shrink: 0;
+}
+
+.v49-transition-arrow {
+    font-size: 28px;
+    color: #f97316;
+    animation: v49-arrow-glow 1s infinite alternate;
+}
+
+.v49-transition-threshold {
+    font-size: 9px;
+    font-weight: 800;
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-align: center;
+    white-space: nowrap;
+    text-shadow: 0 0 5px rgba(245, 158, 11, 0.3);
+}
+
+@keyframes v49-arrow-glow {
+    0% { opacity: 0.3; transform: translateX(-4px); }
+    100% { opacity: 1; transform: translateX(4px); color: #22d3ee; }
+}
+
 

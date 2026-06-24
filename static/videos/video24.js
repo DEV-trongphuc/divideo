@@ -415,6 +415,10 @@
             `;
         }
         else if (slideId === 'slide_active_5') {
+            let gridHTML = '';
+            for (let i = 0; i < 64; i++) {
+                gridHTML += `<div class="s5-sql-cell sql-cell-${i}" style="width:14px; height:14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:2px; transition:all 0.2s;"></div>`;
+            }
             canvas.innerHTML = `
                 <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; zoom:1.0;">
                     
@@ -425,45 +429,76 @@
                             <div style="font-size:13px; background:rgba(16,185,129,0.12); padding:2px 10px; border-radius:6px; color:#10b981; font-family:monospace; font-weight:bold;">MEMORY METRICS</div>
                         </div>
 
-                        <!-- Bar chart comparison container -->
-                        <div style="display:flex; flex-direction:column; gap:25px; margin:20px 0; width:100%;">
+                        <!-- Main Content: Split into Left (Bars) and Right (Grid Scale) -->
+                        <div style="display:flex; gap:30px; align-items:center; justify-content:space-between; flex:1; margin:15px 0;">
                             
-                            <!-- Row 1: Traditional DB records - Bar and labels enlarged -->
-                            <div style="display:flex; flex-direction:column; gap:10px; width:100%; text-align:left;">
-                                <div style="display:flex; justify-content:space-between; font-size:14px; font-family:sans-serif; color:#ccc; font-weight:bold;">
-                                    <span>SQL Table (Row Record + Index + Overhead)</span>
-                                    <span style="color:#ef4444; font-size:26px; font-weight:bold; font-family:monospace;" class="lbl-traditional-memory">0 MB</span>
+                            <!-- Left: Memory Bars (55%) -->
+                            <div style="flex:1.4; display:flex; flex-direction:column; gap:20px;">
+                                <!-- SQL Table Row -->
+                                <div style="display:flex; flex-direction:column; gap:8px; text-align:left;">
+                                    <div style="display:flex; justify-content:space-between; align-items:flex-end; font-size:13px; font-family:sans-serif; color:#ccc; font-weight:bold;">
+                                        <span>SQL Table (Row Record + Index)</span>
+                                        <span style="color:#ef4444; font-size:24px; font-weight:bold; font-family:monospace;" class="lbl-traditional-memory">0 MB</span>
+                                    </div>
+                                    <div style="width:100%; height:28px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; padding:5px; box-sizing:border-box;">
+                                        <div class="growth-bar" style="width:0%; height:16px; border-radius:8px;"></div>
+                                    </div>
                                 </div>
-                                <div style="width:100%; height:32px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:16px; overflow:hidden; padding:6px; box-sizing:border-box;">
-                                    <div class="growth-bar" style="width:0%; height:18px; border-radius:9px;"></div>
+
+                                <!-- Redis Bitmap Row -->
+                                <div style="display:flex; flex-direction:column; gap:8px; text-align:left;">
+                                    <div style="display:flex; justify-content:space-between; align-items:flex-end; font-size:13px; font-family:sans-serif; color:#ccc; font-weight:bold;">
+                                        <span>Redis Bitmap (1 bit / account)</span>
+                                        <span style="color:#10b981; font-size:24px; font-weight:bold; font-family:monospace;" class="lbl-optimized-memory">0 MB</span>
+                                    </div>
+                                    <div style="width:100%; height:28px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; padding:5px; box-sizing:border-box;">
+                                        <div class="growth-bar-optimized" style="width:0%; height:16px; border-radius:8px;"></div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Row 2: Redis Bitmap - Bar and labels enlarged -->
-                            <div style="display:flex; flex-direction:column; gap:10px; width:100%; text-align:left;">
-                                <div style="display:flex; justify-content:space-between; font-size:14px; font-family:sans-serif; color:#ccc; font-weight:bold;">
-                                    <span>Redis Bitmap (1 bit / account)</span>
-                                    <span style="color:#10b981; font-size:26px; font-weight:bold; font-family:monospace;" class="lbl-optimized-memory">0 MB</span>
+                            <!-- Right: Visual Scale Grid (45%) -->
+                            <div class="glass-card" style="flex:1; border:1px solid rgba(255,255,255,0.08); background:rgba(0,0,0,0.3); border-radius:16px; padding:15px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; height:200px; box-sizing:border-box;">
+                                <div style="font-size:12px; color:#aaa; font-weight:bold; font-family:monospace; text-transform:uppercase; letter-spacing:0.5px; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:4px; width:100%; text-align:center;">
+                                    Tỷ lệ quy đổi (1 block = 12.5 MB)
                                 </div>
-                                <div style="width:100%; height:32px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:16px; overflow:hidden; padding:6px; box-sizing:border-box;">
-                                    <div class="growth-bar-optimized" style="width:0%; height:18px; border-radius:9px;"></div>
+                                
+                                <div style="display:flex; gap:25px; align-items:center; justify-content:center; flex:1;">
+                                    <!-- SQL Grid (8x8) -->
+                                    <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+                                        <div style="display:grid; grid-template-columns:repeat(8, 14px); grid-template-rows:repeat(8, 14px); gap:3px;" class="s5-sql-grid">
+                                            ${gridHTML}
+                                        </div>
+                                        <span style="font-size:10px; color:#ef4444; font-family:monospace; font-weight:bold;">SQL: 64 blocks (800MB)</span>
+                                    </div>
+
+                                    <!-- VS -->
+                                    <div style="font-size:14px; font-weight:bold; color:#666; font-family:monospace;">VS</div>
+
+                                    <!-- Redis Grid (1 block) -->
+                                    <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+                                        <div style="height:133px; display:flex; align-items:center; justify-content:center;">
+                                            <div class="s5-redis-block" style="width:20px; height:20px; background:#10b981; border-radius:4px; border:1px solid #10b981; box-shadow:0 0 10px rgba(16,185,129,0.5); opacity:0; transition:opacity 0.3s;"></div>
+                                        </div>
+                                        <span style="font-size:10px; color:#10b981; font-family:monospace; font-weight:bold;">Redis: 1 block (12.5MB)</span>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
 
                         <!-- Promotional metric highlight -->
-                        <div style="padding:15px; border-radius:12px; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.2); display:flex; align-items:center; justify-content:space-between; box-sizing:border-box;">
+                        <div style="padding:12px 18px; border-radius:12px; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.2); display:flex; align-items:center; justify-content:space-between; box-sizing:border-box;">
                             <div style="display:flex; align-items:center; gap:10px;">
-                                <div style="width:36px; height:36px; border-radius:50%; background:rgba(16,185,129,0.15); display:flex; align-items:center; justify-content:center; color:#10b981;">
-                                    <i data-lucide="shield-check" style="width:18px; height:18px;"></i>
+                                <div style="width:32px; height:32px; border-radius:50%; background:rgba(16,185,129,0.15); display:flex; align-items:center; justify-content:center; color:#10b981;">
+                                    <i data-lucide="shield-check" style="width:16px; height:16px;"></i>
                                 </div>
                                 <div style="text-align:left;">
-                                    <div style="font-size:15px; font-weight:bold; color:#fff; font-family:sans-serif;">Hiệu quả tối ưu vượt trội</div>
-                                    <div style="font-size:12px; color:rgba(255,255,255,0.45); font-family:sans-serif;">Giảm thiểu tới 98% bộ nhớ lưu trữ hoạt động, giúp ứng dụng vận hành trơn tru.</div>
+                                    <div style="font-size:14px; font-weight:bold; color:#fff; font-family:sans-serif;">Hiệu quả tối ưu vượt trội</div>
+                                    <div style="font-size:11px; color:rgba(255,255,255,0.45); font-family:sans-serif;">Giảm thiểu tới 98% bộ nhớ lưu trữ hoạt động, giúp ứng dụng vận hành trơn tru.</div>
                                 </div>
                             </div>
-                            <div style="padding:8px 18px; border-radius:20px; background:#fff; color:#000; font-size:15px; font-weight:bold; font-family:sans-serif;" class="lbl-saving-percent">98% REDUCED</div>
+                            <div style="padding:6px 14px; border-radius:20px; background:#fff; color:#000; font-size:13px; font-weight:bold; font-family:sans-serif;" class="lbl-saving-percent">98.4% REDUCED</div>
                         </div>
 
                     </div>
@@ -1017,7 +1052,8 @@
         keywordsData: keywordsData,
         renderGfx: renderGfx,
         updateFrame: updateFrame,
-        scriptName: 'video24'
+        scriptName: 'video24',
+        topic: 'Presence Service'
     };
 
     console.log('[Video24 Plugin] Loaded: Messenger Active Status presence slides loaded successfully.');
