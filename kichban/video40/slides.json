@@ -7,7 +7,7 @@
     "script": "Mã hóa đầu cuối E2EE là gì mà dạo này ứng dụng nào cũng nhắc? Và tại sao bạn đã bấm thu hồi tin nhắn rồi mà đầu bên kia vẫn đọc được?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "/kichban/video40/mp3/slide_v40_1.mp3",
+    "audioPath": "",
     "duration": 9.48,
     "cards": [],
     "code": "",

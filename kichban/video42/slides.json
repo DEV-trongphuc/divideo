@@ -7,57 +7,27 @@
     "script": "Tại sao khi quên mật khẩu, các hệ thống lớn như Google, Facebook lại bắt bạn đổi mới, chứ không bao giờ gửi lại mật khẩu cũ vào email hay số điện thoại cho nhanh? Hãy cùng tìm hiểu bí mật cực kỳ thú vị đằng sau nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "/kichban/video42/mp3/slide_v42_1.mp3",
-    "duration": 16.84,
-    "cards": [],
-    "code": "",
-    "diagram": [],
-    "scriptHash": ""
-  },
-  {
-    "id": "slide_v42_1a",
-    "layout": "custom",
-    "title": "Thông Báo Gmail:<br>Yêu Cầu Đổi Mật Khẩu",
-    "subtitle": "📱 LOCKSCREEN NOTIFICATION",
-    "script": "Giả sử bạn vừa nhấn quên mật khẩu. Ngay lập tức, một thông báo từ Gmail xuất hiện trên màn hình điện thoại với nội dung 'Yêu cầu đặt lại mật khẩu Google'. Hãy chạm vào để mở hộp thư xem sao nhé!",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 14.12,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "c2fa27ce7356abbd519b6aba5276ec7a"
   },
   {
     "id": "slide_v42_1b",
     "layout": "custom",
-    "title": "Hộp Thư Gmail:<br>Tại Sao Phải Gửi Link?",
+    "title": "Email Đổi Mật Khẩu:<br>Tại Sao Phải Gửi Link?",
     "subtitle": "✉️ PASSWORD RESET LINK",
-    "script": "Thay vì gửi lại mật khẩu cũ, Google gửi cho bạn email chứa nút đổi mật khẩu bảo mật dùng một lần. Tại sao họ lại làm thế? Hãy click vào nút đổi mật khẩu này để xem cơ chế hoạt động!",
+    "script": "Thay vì gửi lại mật khẩu cũ, hệ thống sẽ gửi một email xác thực chứa đường link đổi mật khẩu dùng một lần. Tại sao lại phiền phức như vậy? Tại sao họ không gửi thẳng mật khẩu cũ cho bạn?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "",
-    "duration": 13.0,
+    "duration": 23.4,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
-  },
-  {
-    "id": "slide_v42_1c",
-    "layout": "custom",
-    "title": "Thiết Lập Mật Khẩu:<br>Nhập Mật Khẩu Mới",
-    "subtitle": "🔒 NEW PASSWORD FORM",
-    "script": "Khi click vào link, bạn được dẫn tới trang thiết lập mật khẩu mới. Bạn gõ mật khẩu mới là 1 2 3 4 5 6 và nhấn lưu. Lúc này hệ thống sẽ xử lý và lưu trữ thông tin như thế nào?",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 12.0,
-    "cards": [],
-    "code": "",
-    "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "9e41d06ea5d968d1631796596ea84900"
   },
   {
     "id": "slide_v42_2",
@@ -68,11 +38,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "",
-    "duration": 14.5,
+    "duration": 16.2,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "b7bf19e2bf294efabea7ca065d20eed9"
   },
   {
     "id": "slide_v42_3",
@@ -83,11 +53,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "",
-    "duration": 16.0,
+    "duration": 15.4,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "779e69dc8e77b9a2f3a8d186a0ab9ccd"
   },
   {
     "id": "slide_v42_3b",
@@ -98,11 +68,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "",
-    "duration": 15.0,
+    "duration": 20.04,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "a2c2bee1bd9135349799646f44eabd5a"
   },
   {
     "id": "slide_v42_4",
@@ -113,11 +83,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "",
-    "duration": 15.5,
+    "duration": 14.76,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "f42d7c97d758041e76f6d9c125c08170"
   },
   {
     "id": "slide_v42_5",
@@ -128,10 +98,10 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "",
-    "duration": 7.0,
+    "duration": 9.32,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "d6d7d39c7d810e8116b0757078884067"
   }
 ]

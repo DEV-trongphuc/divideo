@@ -276,7 +276,13 @@ async function main() {
         const videoDirs = fs.readdirSync(KICHBAN_DIR)
             .filter(file => {
                 const fullPath = path.join(KICHBAN_DIR, file);
-                return fs.statSync(fullPath).isDirectory() && fs.existsSync(path.join(fullPath, 'slides.json'));
+                const hasSlides = fs.statSync(fullPath).isDirectory() && fs.existsSync(path.join(fullPath, 'slides.json'));
+                if (!hasSlides) return false;
+                
+                const match = file.match(/^video(\d+)$/);
+                if (!match) return false;
+                const num = parseInt(match[1]);
+                return num >= 20 && num <= 42;
             })
             .sort((a, b) => {
                 const numA = parseInt(a.replace(/\D/g, '')) || 0;

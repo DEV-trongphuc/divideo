@@ -368,21 +368,21 @@
 
     function loginFormHTML(id, isSubmit = false) {
         return `
-            <div class="v42-client-mockup" id="${id}-login-form" style="width: 170px !important; padding: 12px; gap: 8px;">
+            <div class="v42-client-mockup" id="${id}-login-form" style="width: 190px !important; padding: 12px; gap: 8px;">
                 <div class="v42-device-header" style="padding-bottom: 6px;">
-                    <div class="v42-device-title" style="font-size: 11px !important;">
-                        <i data-lucide="laptop" style="width:12px;height:12px;"></i>
+                    <div class="v42-device-title" style="font-size: 12px !important;">
+                        <i data-lucide="laptop" style="width:14px;height:14px;"></i>
                         Form Đăng Nhập
                     </div>
                 </div>
-                <div style="background: #04060b; border-radius: 8px; padding: 8px; font-size:10px; display:flex; flex-direction:column; gap:6px; text-align:left;">
+                <div style="background: #04060b; border-radius: 8px; padding: 10px; display:flex; flex-direction:column; gap:8px; text-align:left;">
                     <div style="display:flex; flex-direction:column;">
-                        <span style="color:#64748b; font-size:8px;">Username</span>
-                        <span style="font-weight:bold; color: #fff;">nguyena</span>
+                        <span class="v42-mini-form-label">Username</span>
+                        <span class="v42-mini-form-value">nguyena</span>
                     </div>
                     <div style="display:flex; flex-direction:column;">
-                        <span style="color:#64748b; font-size:8px;">Mật khẩu</span>
-                        <span style="font-weight:bold; font-family:monospace; color:var(--hash-red);">${isSubmit ? '123456' : '••••••'}</span>
+                        <span class="v42-mini-form-label">Mật khẩu</span>
+                        <span class="v42-mini-form-value" style="font-family:monospace; color:var(--hash-red);">${isSubmit ? '123456' : '••••••'}</span>
                     </div>
                 </div>
             </div>
@@ -438,25 +438,25 @@
 
     function matcherMockHTML(id) {
         return `
-            <div class="v42-matcher-mockup" id="${id}-matcher" style="width: 170px !important;">
+            <div class="v42-matcher-mockup" id="${id}-matcher" style="width: 195px !important;">
                 <div class="v42-device-header">
-                    <div class="v42-device-title" style="color:var(--hash-yellow); font-size: 11px !important;">
-                        <i data-lucide="git-compare" style="width:12px;height:12px;"></i>
+                    <div class="v42-device-title" style="color:var(--hash-yellow); font-size: 12px !important;">
+                        <i data-lucide="git-compare" style="width:14px;height:14px;"></i>
                         Bộ So Khớp (Matcher)
                     </div>
                 </div>
-                <div class="v42-matcher-body" style="height: 110px !important; gap: 8px;">
-                    <div class="v42-compare-row" style="gap: 4px;">
-                        <div class="v42-compare-item" id="${id}-comp-input" style="padding: 4px 6px; font-size:9.5px !important;">
+                <div class="v42-matcher-body" style="height: 120px !important; gap: 8px;">
+                    <div class="v42-compare-row" style="gap: 6px;">
+                        <div class="v42-compare-item" id="${id}-comp-input" style="padding: 6px 8px;">
                             <span>Input:</span>
                             <span class="val">-</span>
                         </div>
-                        <div class="v42-compare-item" id="${id}-comp-db" style="padding: 4px 6px; font-size:9.5px !important;">
+                        <div class="v42-compare-item" id="${id}-comp-db" style="padding: 6px 8px;">
                             <span>DB:</span>
                             <span class="val">-</span>
                         </div>
                     </div>
-                    <div id="${id}-match-badge" class="v42-match-result" style="display:none; margin-top: 2px; padding: 4px 12px; font-size: 11px !important;">MATCH ✓</div>
+                    <div id="${id}-match-badge" class="v42-match-result" style="display:none; margin-top: 2px; padding: 4px 12px; font-size: 12px !important;">MATCH ✓</div>
                 </div>
             </div>
         `;
@@ -1055,16 +1055,23 @@
 
             const status = canvas.querySelector('#v42-p3-status');
 
-            // Draw paths dynamically
-            drawSVGPath(canvas, '#v42-p3-path-pwd', pwdNode, machineNode, container, 'rgba(255,255,255,0.15)');
-            drawSVGPath(canvas, '#v42-p3-path-salt', saltNode, machineNode, container, 'var(--hash-yellow)');
-            drawSVGPath(canvas, '#v42-p3-path-db', resultNode, dbConsole, container, 'var(--hash-green)');
-
             const offPwd = getCenterOffset(pwdNode, container);
             const offSalt = getCenterOffset(saltNode, container);
             const offMach = getCenterOffset(machineNode, container);
             const offRes = getCenterOffset(resultNode, container);
-            const offDB = getCenterOffset(dbConsole, container);
+            const offDB1 = getCenterOffset(dbVal1, container);
+            const offDB2 = getCenterOffset(dbVal2, container);
+
+            // Draw paths dynamically
+            drawSVGPath(canvas, '#v42-p3-path-pwd', pwdNode, machineNode, container, 'rgba(255,255,255,0.15)');
+            drawSVGPath(canvas, '#v42-p3-path-salt', saltNode, machineNode, container, 'var(--hash-yellow)');
+            
+            // Draw green path to the active user's cell to avoid crossing the machine in the center
+            if (progress < 0.68) {
+                drawSVGPath(canvas, '#v42-p3-path-db', resultNode, dbVal1, container, 'var(--hash-green)');
+            } else {
+                drawSVGPath(canvas, '#v42-p3-path-db', resultNode, dbVal2, container, 'var(--hash-green)');
+            }
 
             if (progress < 0.35) {
                 // Phase 1: nguyena registers. Password and Salt flow into machine
@@ -1111,7 +1118,7 @@
 
                 hidePacket(pwdPkt);
                 hidePacket(saltPkt);
-                placePacket(hashPkt, offRes, offDB, t);
+                placePacket(hashPkt, offRes, offDB1, t);
                 safeSetText(hashLbl, '$2b$12$s4Lt...');
 
                 safeSetText(status, '2. Hàm Bcrypt băm hỗn hợp này thành chuỗi ký tự rác dài dằng dặc rồi lưu vào database.');
@@ -1150,7 +1157,7 @@
 
                     hidePacket(pwdPkt);
                     hidePacket(saltPkt);
-                    placePacket(hashPkt, offRes, offDB, t2);
+                    placePacket(hashPkt, offRes, offDB2, t2);
                     safeSetText(hashLbl, '$2b$12$p3Pp...');
                 }
 
@@ -1223,14 +1230,15 @@
             const matchBadge = canvas.querySelector('#v42-p4-match-badge');
             const compInput = canvas.querySelector('#v42-p4-comp-input .val');
             const compDB = canvas.querySelector('#v42-p4-comp-db .val');
-
-            // Draw paths dynamically
-            drawSVGPath(canvas, '#v42-p4-path-input', loginForm, matcher, container, 'rgba(255,255,255,0.15)');
-            drawSVGPath(canvas, '#v42-p4-path-db', dbConsole, matcher, container, 'var(--hash-cyan)');
+            const dbVal1 = canvas.querySelector('#v42-p4-db-val-1');
 
             const offC = getCenterOffset(loginForm, container);
             const offM = getCenterOffset(matcher, container);
-            const offDB = getCenterOffset(dbConsole, container);
+            const offDB1 = getCenterOffset(dbVal1, container);
+
+            // Draw paths dynamically
+            drawSVGPath(canvas, '#v42-p4-path-input', loginForm, matcher, container, 'rgba(255,255,255,0.15)');
+            drawSVGPath(canvas, '#v42-p4-path-db', dbVal1, matcher, container, 'var(--hash-cyan)');
 
             if (progress < 0.4) {
                 // Phase 1: Browser sends login pass. Băm it and send to matcher
@@ -1284,7 +1292,7 @@
                 }
 
                 // Send a red packet going backwards from DB to Browser, but gets blocked
-                placePacket(pkt, offDB, offC, t);
+                placePacket(pkt, offDB1, offC, t);
                 if (pktCore) {
                     pktCore.className = 'v42-packet-core red';
                     safeSetText(pktCore, '↮');
