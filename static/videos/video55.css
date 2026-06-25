@@ -1,0 +1,452 @@
+/* video55.css - Elevator/SCAN Algorithm Simulation Styling */
+
+:root {
+    --elev-blue: #3b82f6;
+    --elev-green: #10b981;
+    --elev-red: #ef4444;
+    --elev-gold: #fbbf24;
+    --elev-bg-glass: rgba(15, 23, 42, 0.75);
+    --elev-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Zoom Container */
+.v55-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 8px;
+    zoom: 1.15;
+    overflow: visible;
+}
+
+.v55-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.v55-scene-row {
+    width: 640px;
+    height: 330px;
+    position: relative;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glassmorphism Status Card */
+.v55-glass-card {
+    background: var(--elev-bg-glass);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.v55-glass-card.glow-gold {
+    border-color: rgba(245, 158, 11, 0.25);
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.15), inset 0 0 10px rgba(245, 158, 11, 0.05);
+}
+
+.v55-glass-card.glow-red {
+    border-color: rgba(239, 68, 68, 0.25);
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.15), inset 0 0 10px rgba(239, 68, 68, 0.05);
+}
+
+.v55-glass-card.glow-green {
+    border-color: rgba(16, 185, 129, 0.25);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.15), inset 0 0 10px rgba(16, 185, 129, 0.05);
+}
+
+.v55-status-badge {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    background: transparent;
+}
+.v55-status-badge.gold { color: #f59e0b; }
+.v55-status-badge.red { color: #f87171; }
+.v55-status-badge.green { color: #34d399; }
+
+.v55-glass-card span[id] {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* Building Shaft Styles */
+.v55-building-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    height: 300px;
+}
+
+.v55-building {
+    width: 140px;
+    height: 280px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 3px solid #334155;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+}
+
+/* Cable Shaft Visual */
+.v55-building::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 4px,
+        rgba(255, 255, 255, 0.15) 4px,
+        rgba(255, 255, 255, 0.15) 8px
+    );
+    z-index: 1;
+    pointer-events: none;
+    transform: translateX(-50%);
+}
+
+.v55-floor-markings {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.v55-floor-divider {
+    height: 1px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    width: 100%;
+}
+
+.v55-floor-labels {
+    position: absolute;
+    left: -70px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    pointer-events: none;
+    font-family: monospace;
+    font-size: 13px;
+    color: #9ca3af;
+    font-weight: bold;
+}
+
+.v55-floor-label {
+    height: 52px;
+    display: flex;
+    align-items: center;
+}
+
+/* Passenger Emojis & Request Buttons */
+.v55-passenger-station {
+    position: absolute;
+    right: -80px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.v55-passenger-emoji {
+    font-size: 26px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    transition: transform 0.3s ease;
+}
+
+.v55-req-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #1e293b;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #475569;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.v55-req-btn.active.down {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: var(--elev-red);
+    color: var(--elev-red);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.v55-req-btn.active.up {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: var(--elev-blue);
+    color: var(--elev-blue);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* Elevator Cabin */
+.v55-elevator-cabin {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 52px;
+    background: #0d1527;
+    border: 2px solid var(--elev-gold);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.35);
+    display: flex;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: top 0.1s linear, border-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
+}
+
+.v55-elevator-cabin.moving-up {
+    border-color: var(--elev-blue);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+.v55-elevator-cabin.moving-down {
+    border-color: var(--elev-red);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+.v55-cabin-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.v55-cabin-indicator {
+    font-size: 10px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.v55-cabin-arrow {
+    font-size: 11px;
+    line-height: 1.1;
+    margin-bottom: 1px;
+}
+
+.v55-cabin-passengers {
+    display: flex;
+    gap: 2px;
+    font-size: 12px;
+    line-height: 1;
+    margin-top: 1px;
+    transition: all 0.2s ease;
+}
+
+/* Sliding Cabin Doors */
+.v55-cabin-door {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-sizing: border-box;
+    z-index: 5;
+    transition: transform 0.1s linear;
+}
+
+.v55-cabin-door.left {
+    left: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.v55-cabin-door.right {
+    right: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Comparison side-by-side structures (Slide 4) */
+.v55-comparison-grid {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.v55-comparison-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 250px;
+}
+
+.v55-column-header {
+    font-size: 14px;
+    font-weight: 800;
+    color: #9ca3af;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.v55-column-header.fcfs { color: var(--elev-red); }
+.v55-column-header.scan { color: var(--elev-green); }
+
+.v55-metric-box {
+    width: 100%;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.v55-metric-val {
+    font-size: 32px;
+    font-weight: 800;
+    font-family: monospace;
+    text-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.v55-metric-val.red { color: var(--elev-red); text-shadow: 0 0 10px rgba(239,68,68,0.25); }
+.v55-metric-val.green { color: var(--elev-green); text-shadow: 0 0 10px rgba(16,185,129,0.25); }
+
+.v55-metric-lbl {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* SVG Line Drawing Path style */
+.v55-trace-path {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.45;
+}
+
+.v55-trace-path.red {
+    stroke: var(--elev-red);
+    stroke-dasharray: 4,4;
+}
+
+.v55-trace-path.green {
+    stroke: var(--elev-green);
+}
+
+/* Live Time-Series Graph styling */
+.v55-graph-container {
+    width: 100%;
+    height: 76px;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 6px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+.v55-graph-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+.v55-graph-path {
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dasharray 0.1s linear;
+}
+
+.v55-graph-path.red {
+    stroke: #f87171;
+    filter: drop-shadow(0 0 4px #ef4444);
+}
+
+.v55-graph-path.green {
+    stroke: #34d399;
+    filter: drop-shadow(0 0 4px #10b981);
+}
+
+.v55-graph-dot {
+    stroke: #ffffff;
+    stroke-width: 1.5;
+    transition: transform 0.05s linear;
+}
+
+.v55-graph-dot.red {
+    fill: #ef4444;
+    filter: drop-shadow(0 0 5px #ef4444);
+}
+
+.v55-graph-dot.green {
+    fill: #10b981;
+    filter: drop-shadow(0 0 5px #10b981);
+}
+
+.v55-graph-grid {
+    stroke: rgba(255, 255, 255, 0.04);
+    stroke-width: 1;
+    stroke-dasharray: 2,3;
+}

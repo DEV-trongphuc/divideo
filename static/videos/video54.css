@@ -20,9 +20,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 24px;
     padding: 8px;
-    zoom: 1.3;
+    zoom: 1.15;
     overflow: visible;
 }
 
@@ -36,13 +36,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 28px;
+    gap: 24px;
 }
 
 /* Fixed-width row container to prevent resizing overlaps */
 .v54-scene-row {
     width: 640px;
-    height: 220px;
+    height: 330px;
     position: relative;
     margin: 0 auto;
     box-sizing: border-box;
@@ -115,9 +115,9 @@
 /* Slide 1b - Map grid layout */
 .v54-map-grid {
     position: absolute;
-    left: 40px;
-    top: 10px;
-    width: 320px;
+    left: 0;
+    top: 120px;
+    width: 640px;
     height: 200px;
     background: #0f172a;
     border: 3px solid #334155;
@@ -133,10 +133,10 @@
     border: 1px solid rgba(255,255,255,0.03);
     border-radius: 8px;
 }
-.v54-map-block.b1 { left: 15px; top: 15px; width: 130px; height: 75px; }
-.v54-map-block.b2 { right: 15px; top: 15px; width: 130px; height: 75px; }
-.v54-map-block.b3 { left: 15px; bottom: 15px; width: 130px; height: 75px; }
-.v54-map-block.b4 { right: 15px; bottom: 15px; width: 130px; height: 75px; }
+.v54-map-block.b1 { left: 15px; top: 15px; width: 280px; height: 75px; }
+.v54-map-block.b2 { right: 15px; top: 15px; width: 280px; height: 75px; }
+.v54-map-block.b3 { left: 15px; bottom: 15px; width: 280px; height: 75px; }
+.v54-map-block.b4 { right: 15px; bottom: 15px; width: 280px; height: 75px; }
 
 /* Street lanes */
 .v54-street-lane {
@@ -155,16 +155,26 @@
 .v54-street-lane.vertical {
     top: 0;
     bottom: 0;
-    left: 150px;
+    left: 310px;
     width: 20px;
 }
 
 /* Animated traffic dots/cars on streets */
 .v54-traffic-dot {
     position: absolute;
-    font-size: 16px;
-    margin-top: -8px; /* offset center */
+    font-size: 22px;
+    margin-top: -11px; /* offset center */
+    margin-left: -11px; /* offset center */
     transition: transform 0.1s linear, left 0.1s linear, top 0.1s linear;
+    display: inline-block;
+}
+
+.v54-traffic-dot.h-car {
+    transform: scaleX(-1); /* Face right */
+}
+
+.v54-traffic-dot.v-car {
+    transform: rotate(-90deg); /* Face down */
 }
 
 /* Satellite / Radar Pulsing icons */
@@ -221,7 +231,7 @@
 .v54-phone-mockup {
     position: absolute;
     left: 40px;
-    top: 10px;
+    top: 55px;
     width: 180px;
     height: 200px;
     background: #0f172a;
@@ -302,7 +312,7 @@
 .v54-cloud-node {
     position: absolute;
     right: 40px;
-    top: 50px;
+    top: 95px;
     width: 140px;
     height: 120px;
     display: flex;
@@ -313,7 +323,6 @@
     border: 2px solid rgba(59, 130, 246, 0.3);
     border-radius: 20px;
     box-shadow: 0 0 25px rgba(59,130,246,0.2);
-    position: relative;
     overflow: hidden;
 }
 
@@ -368,7 +377,7 @@
 .v54-road-track {
     position: absolute;
     left: 20px;
-    top: 40px;
+    top: 85px;
     width: 600px;
     height: 140px;
     background: #0f172a;
@@ -631,4 +640,234 @@
     transform: scale(1);
     filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.85));
 }
+
+/* Slide 1 - Premium Logo Intro (Inspired by Video 51/52) */
+.v54-logo-intro-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.v54-logo-glow-ring {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 2.5px dashed rgba(245, 158, 11, 0.6);
+    animation: v54-logo-spin 25s linear infinite;
+    pointer-events: none;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.2), inset 0 0 20px rgba(245, 158, 11, 0.1);
+}
+
+.v54-logo-glow-ring.inner {
+    width: 250px;
+    height: 250px;
+    border: 1.5px solid rgba(245, 158, 11, 0.4);
+    animation: v54-logo-spin-rev 15s linear infinite;
+}
+
+.v54-giant-logo {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: v54-logo-float 3.5s ease-in-out infinite;
+    z-index: 2;
+}
+
+.v54-logo-icon-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3.5px solid var(--map-yellow);
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(15, 23, 42, 0.98) 80%);
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.45), inset 0 0 15px rgba(245, 158, 11, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.v54-logo-svg {
+    width: 90px;
+    height: 90px;
+    color: var(--map-yellow);
+    filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.8));
+}
+
+.v54-logo-img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.9)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
+    z-index: 3;
+}
+
+.v54-logo-pulse-dot {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--map-yellow);
+    border: 4.5px solid #0b0f19;
+    box-shadow: 0 0 15px var(--map-yellow), inset 0 0 6px rgba(255,255,255,0.7);
+    animation: v54-dot-pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes v54-logo-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes v54-logo-spin-rev {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes v54-logo-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes v54-dot-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Slide 1a Premium Node Cards (Satellite & Camera) */
+.v54-node-card-s1a {
+    width: 260px;
+    height: 200px;
+    border-radius: 24px;
+    background: rgba(15, 23, 42, 0.65);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5;
+    overflow: hidden;
+}
+
+.v54-node-card-s1a.active {
+    background: rgba(15, 23, 42, 0.9);
+    transform: scale(1.06) translateY(-4px);
+}
+
+.v54-node-card-s1a.active.satellite {
+    border-color: #3b82f6;
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.35), 0 0 25px rgba(59, 130, 246, 0.15);
+}
+
+.v54-node-card-s1a.active.camera {
+    border-color: #f59e0b;
+    box-shadow: 0 15px 40px rgba(245, 158, 11, 0.35), 0 0 25px rgba(245, 158, 11, 0.15);
+}
+
+.v54-node-card-s1a.inactive {
+    opacity: 0.3;
+    transform: scale(0.94);
+    filter: grayscale(80%);
+}
+
+.v54-node-card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Icon bg wrapper */
+.v54-s1a-icon-bg {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.v54-s1a-icon-bg.bg-blue {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.v54-node-card-s1a.active.satellite .v54-s1a-icon-bg.bg-blue {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: #3b82f6;
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.5);
+}
+
+.v54-s1a-icon-bg.bg-gold {
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.v54-node-card-s1a.active.camera .v54-s1a-icon-bg.bg-gold {
+    background: rgba(245, 158, 11, 0.25);
+    border-color: #f59e0b;
+    box-shadow: 0 0 18px rgba(245, 158, 11, 0.5);
+}
+
+/* Pulse rings animation */
+.v54-s1a-pulse-circle {
+    position: absolute;
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+}
+
+.v54-s1a-pulse-circle.blue {
+    border: 2px solid #3b82f6;
+}
+
+.v54-s1a-pulse-circle.gold {
+    border: 2px solid #f59e0b;
+}
+
+.v54-node-card-s1a.active .v54-s1a-pulse-circle {
+    animation: v54-s1a-pulse 2s infinite linear;
+}
+
+@keyframes v54-s1a-pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+
+.v54-s1a-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    font-family: sans-serif;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.v54-s1a-desc {
+    font-size: 11px;
+    color: #9ca3af;
+    text-align: center;
+    font-family: sans-serif;
+    line-height: 1.3;
+}
+
 

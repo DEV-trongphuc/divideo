@@ -1,23 +1,33 @@
 [
   {
     "id": "slide_map_1",
-    "layout": "hook",
+    "layout": "custom",
     "title": "Google Maps biết kẹt xe bằng cách nào?",
     "subtitle": "🗺️ BÍ ẨN CÔNG NGHỆ BẠN DÙNG HÀNG NGÀY",
-    "script": "Khi thấy Google Maps hiển thị các cung đường đỏ rực vì kẹt xe, bạn có bao giờ tự hỏi làm sao Google biết được điều đó? Vệ tinh do thám, hay camera giao thông ở khắp mọi nơi?",
+    "script": "Khi thấy Google Maps hiển thị các cung đường đỏ rực vì kẹt xe, bạn có bao giờ tự hỏi làm sao Google biết được điều đó?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "",
-    "duration": 12.0,
+    "duration": 7.0,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": "",
-    "hookTag": "BÍ ẨN",
-    "hookTitle": "GOOGLE MAPS BIẾT KẸT XE\nBẰNG CÁCH NÀO?",
-    "hookSubtitle": "Vệ tinh do thám hay camera khắp mọi nơi?",
-    "hookIcon": "map",
-    "hookTheme": "info"
+    "scriptHash": ""
+  },
+  {
+    "id": "slide_map_1_a",
+    "layout": "custom",
+    "title": "Vệ tinh hay camera giám sát?",
+    "subtitle": "🛰️ THẮC MẮC CHUNG CỦA NHIỀU NGƯỜI",
+    "script": "Do vệ tinh do thám bay trên không trung, hay có hệ thống camera giao thông được lắp đặt ở khắp mọi nơi?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "default_voxcpm",
+    "audioPath": "",
+    "duration": 6.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "scriptHash": ""
   },
   {
     "id": "slide_map_1_b",
