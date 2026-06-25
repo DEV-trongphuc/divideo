@@ -44,11 +44,11 @@
 
     // Floor height offsets matching Y-coordinates in building
     const floorY = {
-        5: 15,
-        4: 73,
-        3: 131,
-        2: 189,
-        1: 247
+        5: 12,
+        4: 84,
+        3: 156,
+        2: 228,
+        1: 300
     };
 
     // Helper: generate building HTML with custom attributes
@@ -475,7 +475,7 @@
                 }
 
                 if (indicator) {
-                    const floorNum = Math.round(5 - (state.cabinY - floorY[5]) / 58);
+                    const floorNum = Math.round(5 - (state.cabinY - floorY[5]) / 72);
                     indicator.textContent = `${floorNum}F`;
                 }
             }
@@ -501,7 +501,7 @@
                 if (state.doorsOpen && state.doorsProgress > 0.5) {
                     const boardVal = state.boardingProgress;
                     if (p5Emoji) {
-                        p5Emoji.style.transform = `translateX(${-boardVal * 95}px) scale(${1 - boardVal * 0.2})`;
+                        p5Emoji.style.transform = `translateX(${-boardVal * 115}px) scale(${1 - boardVal * 0.2})`;
                         p5Emoji.style.opacity = `${1 - boardVal}`;
                     }
                     if (cabinPass) {
@@ -529,7 +529,7 @@
                     const boardVal = state.boardingProgress;
                     if (pass3Emoji) {
                         pass3Emoji.textContent = '😊';
-                        pass3Emoji.style.transform = `translateX(${-boardVal * 95}px) scale(${1 - boardVal * 0.2})`;
+                        pass3Emoji.style.transform = `translateX(${-boardVal * 115}px) scale(${1 - boardVal * 0.2})`;
                         pass3Emoji.style.opacity = `${1 - boardVal}`;
                     }
                     if (cabinPass) {
@@ -549,7 +549,7 @@
                 if (state.doorsOpen && state.doorsProgress > 0.5) {
                     const boardVal = state.boardingProgress;
                     if (cabinPass) {
-                        cabinPass.style.transform = `translateX(${-boardVal * 80}px)`;
+                        cabinPass.style.transform = `translateX(${-boardVal * 100}px)`;
                         cabinPass.style.opacity = `${1 - boardVal}`;
                     }
                 } else {
@@ -602,12 +602,12 @@
                 }
 
                 if (indicator) {
-                    const floorNum = Math.round(5 - (state.cabinY - floorY[5]) / 58);
+                    const floorNum = Math.round(5 - (state.cabinY - floorY[5]) / 72);
                     indicator.textContent = `${floorNum}F`;
                 }
             }
 
-            drawSVGPath(svgPath, 70, path, progress);
+            drawSVGPath(svgPath, 80, path, progress);
             svgPath.setAttribute('class', 'v55-trace-path red');
 
             const graphPath = canvas.querySelector('#s2-graph-path');
@@ -635,7 +635,7 @@
                 if (state.doorsOpen && state.doorsProgress > 0.5) {
                     const boardVal = state.boardingProgress;
                     if (pass5Emoji) {
-                        pass5Emoji.style.transform = `translateX(${-boardVal * 95}px) scale(${1 - boardVal * 0.2})`;
+                        pass5Emoji.style.transform = `translateX(${-boardVal * 115}px) scale(${1 - boardVal * 0.2})`;
                         pass5Emoji.style.opacity = `${1 - boardVal}`;
                     }
                     if (cabinPass) { cabinPass.textContent = '🧍'; cabinPass.style.opacity = `${boardVal}`; }
@@ -650,7 +650,7 @@
                 if (state.doorsOpen && state.doorsProgress > 0.5) {
                     const boardVal = state.boardingProgress;
                     if (pass2Emoji) {
-                        pass2Emoji.style.transform = `translateX(${-boardVal * 95}px) scale(${1 - boardVal * 0.2})`;
+                        pass2Emoji.style.transform = `translateX(${-boardVal * 115}px) scale(${1 - boardVal * 0.2})`;
                         pass2Emoji.style.opacity = `${1 - boardVal}`;
                     }
                     if (cabinPass) { cabinPass.textContent = '🧍🧍'; cabinPass.style.opacity = '1'; }
@@ -667,7 +667,7 @@
                 if (state.doorsOpen && state.doorsProgress > 0.5) {
                     const boardVal = state.boardingProgress;
                     if (pass4Emoji) {
-                        pass4Emoji.style.transform = `translateX(${-boardVal * 95}px) scale(${1 - boardVal * 0.2})`;
+                        pass4Emoji.style.transform = `translateX(${-boardVal * 115}px) scale(${1 - boardVal * 0.2})`;
                         pass4Emoji.style.opacity = `${1 - boardVal}`;
                     }
                     if (cabinPass) { cabinPass.textContent = '🧍🧍🧍'; cabinPass.style.opacity = '1'; }
@@ -724,12 +724,12 @@
                 }
 
                 if (indicator) {
-                    const floorNum = Math.round(5 - (state.cabinY - floorY[5]) / 58);
+                    const floorNum = Math.round(5 - (state.cabinY - floorY[5]) / 72);
                     indicator.textContent = `${floorNum}F`;
                 }
             }
 
-            drawSVGPath(svgPath, 70, path, progress);
+            drawSVGPath(svgPath, 80, path, progress);
             svgPath.setAttribute('class', 'v55-trace-path green');
 
             const graphPath = canvas.querySelector('#s3-graph-path');
@@ -756,7 +756,7 @@
                 if (state.doorsOpen && state.doorsProgress > 0.5) {
                     const boardVal = state.boardingProgress;
                     if (pass2Emoji) {
-                        pass2Emoji.style.transform = `translateX(${-boardVal * 95}px) scale(${1 - boardVal * 0.2})`;
+                        pass2Emoji.style.transform = `translateX(${-boardVal * 115}px) scale(${1 - boardVal * 0.2})`;
                         pass2Emoji.style.opacity = `${1 - boardVal}`;
                     }
                     if (cabinPass) { cabinPass.textContent = '🧍'; cabinPass.style.opacity = `${boardVal}`; }
@@ -771,7 +771,7 @@
                 if (state.doorsOpen && state.doorsProgress > 0.5) {
                     const boardVal = state.boardingProgress;
                     if (pass4Emoji) {
-                        pass4Emoji.style.transform = `translateX(${-boardVal * 95}px) scale(${1 - boardVal * 0.2})`;
+                        pass4Emoji.style.transform = `translateX(${-boardVal * 115}px) scale(${1 - boardVal * 0.2})`;
                         pass4Emoji.style.opacity = `${1 - boardVal}`;
                     }
                     if (cabinPass) { cabinPass.textContent = '🧍🧍'; cabinPass.style.opacity = '1'; }
@@ -788,7 +788,7 @@
                 if (state.doorsOpen && state.doorsProgress > 0.5) {
                     const boardVal = state.boardingProgress;
                     if (pass5Emoji) {
-                        pass5Emoji.style.transform = `translateX(${-boardVal * 95}px) scale(${1 - boardVal * 0.2})`;
+                        pass5Emoji.style.transform = `translateX(${-boardVal * 115}px) scale(${1 - boardVal * 0.2})`;
                         pass5Emoji.style.opacity = `${1 - boardVal}`;
                     }
                     if (cabinPass) { cabinPass.textContent = '🧍🧍🧍'; cabinPass.style.opacity = '1'; }
@@ -847,10 +847,10 @@
                 } else {
                     if (arrowFcfs) arrowFcfs.textContent = '■';
                 }
-                if (indFcfs) indFcfs.textContent = `${Math.round(5 - (stateFcfs.cabinY - floorY[5]) / 58)}F`;
+                if (indFcfs) indFcfs.textContent = `${Math.round(5 - (stateFcfs.cabinY - floorY[5]) / 72)}F`;
             }
             
-            drawSVGPath(svgFcfs, 70, pathFcfs, loopT);
+            drawSVGPath(svgFcfs, 80, pathFcfs, loopT);
             svgFcfs.setAttribute('class', 'v55-trace-path red');
             
             const graphPathFcfs = canvas.querySelector('#s4fcfs-graph-path');
@@ -885,10 +885,10 @@
                 } else {
                     if (arrowScan) arrowScan.textContent = '■';
                 }
-                if (indScan) indScan.textContent = `${Math.round(5 - (stateScan.cabinY - floorY[5]) / 58)}F`;
+                if (indScan) indScan.textContent = `${Math.round(5 - (stateScan.cabinY - floorY[5]) / 72)}F`;
             }
             
-            drawSVGPath(svgScan, 70, pathScan, loopT);
+            drawSVGPath(svgScan, 80, pathScan, loopT);
             svgScan.setAttribute('class', 'v55-trace-path green');
             
             const graphPathScan = canvas.querySelector('#s4scan-graph-path');

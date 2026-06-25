@@ -19,7 +19,7 @@
     align-items: center;
     gap: 20px;
     padding: 8px;
-    zoom: 1.15;
+    zoom: 1.35; /* Scale up entire viewport for larger elements */
     overflow: visible;
 }
 
@@ -38,7 +38,7 @@
 
 .v55-scene-row {
     width: 640px;
-    height: 330px;
+    height: 420px; /* Taller viewport height for larger building shaft */
     position: relative;
     margin: 0 auto;
     box-sizing: border-box;
@@ -110,12 +110,12 @@
     align-items: center;
     gap: 20px;
     position: relative;
-    height: 300px;
+    height: 380px; /* Taller building area */
 }
 
 .v55-building {
-    width: 140px;
-    height: 280px;
+    width: 160px; /* Wider building shaft */
+    height: 350px; /* Taller building shaft */
     background: rgba(15, 23, 42, 0.6);
     border: 3px solid #334155;
     border-radius: 16px;
@@ -163,7 +163,7 @@
 
 .v55-floor-labels {
     position: absolute;
-    left: -70px;
+    left: -85px; /* Shift labels left to fit wider building */
     top: 0;
     bottom: 0;
     display: flex;
@@ -172,13 +172,13 @@
     align-items: flex-end;
     pointer-events: none;
     font-family: monospace;
-    font-size: 13px;
+    font-size: 15px; /* Larger font size */
     color: #9ca3af;
     font-weight: bold;
 }
 
 .v55-floor-label {
-    height: 52px;
+    height: 72px; /* Taller floor height space */
     display: flex;
     align-items: center;
 }
@@ -186,7 +186,7 @@
 /* Passenger Emojis & Request Buttons */
 .v55-passenger-station {
     position: absolute;
-    right: -80px;
+    right: -95px; /* Shift station right for wider building shaft */
     display: flex;
     align-items: center;
     gap: 8px;
@@ -194,19 +194,19 @@
 }
 
 .v55-passenger-emoji {
-    font-size: 26px;
+    font-size: 32px; /* Bigger passenger emojis */
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
     transition: transform 0.3s ease;
 }
 
 .v55-req-btn {
-    width: 24px;
-    height: 24px;
+    width: 28px; /* Bigger request buttons */
+    height: 28px;
     border-radius: 50%;
     background: #1e293b;
     border: 1px solid rgba(255,255,255,0.15);
     color: #475569;
-    font-size: 11px;
+    font-size: 13px; /* Bigger button label font */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,8 +234,8 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 52px;
+    width: 76px; /* Wider elevator cabin */
+    height: 60px; /* Taller elevator cabin */
     background: #0d1527;
     border: 2px solid var(--elev-gold);
     border-radius: 8px;
@@ -268,7 +268,7 @@
 }
 
 .v55-cabin-indicator {
-    font-size: 10px;
+    font-size: 11px;
     font-family: monospace;
     font-weight: bold;
     color: #fff;
@@ -276,7 +276,7 @@
 }
 
 .v55-cabin-arrow {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.1;
     margin-bottom: 1px;
 }
@@ -284,7 +284,7 @@
 .v55-cabin-passengers {
     display: flex;
     gap: 2px;
-    font-size: 12px;
+    font-size: 15px; /* Bigger passengers inside cabin */
     line-height: 1;
     margin-top: 1px;
     transition: all 0.2s ease;
@@ -316,7 +316,7 @@
 /* Comparison side-by-side structures (Slide 4) */
 .v55-comparison-grid {
     display: flex;
-    gap: 40px;
+    gap: 24px; /* Reduced gap to fit wider buildings side-by-side */
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -327,7 +327,7 @@
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    width: 250px;
+    width: 270px; /* Slightly wider columns */
 }
 
 .v55-column-header {
