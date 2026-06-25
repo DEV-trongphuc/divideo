@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo93_1",
-    "title": "Zeigarnik Ngược",
-    "subtitle": "MẸO GIẢI PHÓNG BỘ NHỚ ĐỆM CỦA NÃO BỘ BẰNG VIỆC VIẾT RA GIẤY",
     "layout": "title",
-    "script": "Bạn nằm trằn trọc cả đêm vì lo lắng những việc phải làm vào ngày mai. Làm thế nào để tắt đi những vòng lặp suy nghĩ phiền toái này?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Zeigarnik Ngược",
+    "subtitle": "MẸO GIẢI PHÓNG BỘ NHỚ ĐỆM BẰNG CÁCH VIẾT RA SỔ TAY",
+    "script": "Bạn nằm trằn trọc cả đêm vì lo lắng những việc phải làm vào ngày mai. Làm thế nào để tắt đi những vòng lặp suy nghĩ phiền toái này?"
   },
   {
     "id": "slide_memo93_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "REVERSE ZEIGARNIK",
     "layout": "diagram",
-    "script": "Đó là Hiệu ứng Zeigarnik Ngược. Việc viết các đầu việc cần làm ra giấy thuyết phục bộ não rằng kế hoạch đã được thiết lập, giải phóng bộ nhớ đệm.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo93_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA ZEIGARNIK NGƯỢC",
-    "layout": "metrics",
-    "script": "Mô phỏng: Chuyển các công việc đang chạy ngầm trong đầu ra cuốn sổ tay giúp giảm tải áp lực cho CPU nhận thức từ 90% xuống còn 10%.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo93_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Để công việc trong đầu tiêu tốn năng lượng suy nghĩ liên tục. Ghi chép ra giấy giải phóng tâm trí, mang lại sự bình yên tức thì.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Công việc tồn đọng",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Vòng lặp nhắc nhở liên tục",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Ghi chép ra sổ tay",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Não giải phóng bộ nhớ",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "REVERSE ZEIGARNIK",
+    "script": "Đó là Hiệu ứng Zeigarnik Ngược. Việc viết các đầu việc cần làm ra giấy thuyết phục bộ não rằng kế hoạch đã được thiết lập, giải phóng bộ nhớ đệm."
   },
   {
-    "id": "slide_memo93_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Trước khi đi ngủ hoặc bắt đầu ngày mới, hãy viết mọi việc ra giấy. Hãy giải phóng bộ não để tập trung vào việc tận hưởng hiện tại!",
+    "id": "slide_memo93_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ZEIGARNIK NGƯỢC",
+    "script": "Mô phỏng: Chuyển các công việc đang chạy ngầm trong đầu ra cuốn sổ tay giúp giảm tải áp lực cho CPU nhận thức từ 90% xuống còn 10%."
+  },
+  {
+    "id": "slide_memo93_4",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🧠",
+        "title": "Ủ Việc Trong Đầu",
+        "desc": "Não liên tục chạy ngầm nhắc nhở"
+      },
+      {
+        "icon": "🗒️",
+        "title": "Viết Ra Sổ Tay",
+        "desc": "Đóng vòng lặp nhận thức ảo"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Để công việc trong đầu tiêu tốn năng lượng suy nghĩ liên tục. Ghi chép ra giấy giải phóng tâm trí, mang lại sự bình yên tức thì."
+  },
+  {
+    "id": "slide_memo93_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Trước khi đi ngủ hoặc bắt đầu ngày mới, hãy viết mọi việc ra giấy. Hãy giải phóng bộ não để tập trung vào việc tận hưởng hiện tại!"
   },
   {
     "id": "slide_memo93_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

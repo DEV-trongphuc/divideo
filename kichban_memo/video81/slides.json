@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo81_1",
-    "title": "Mệt mỏi Quyết định",
-    "subtitle": "VÌ SAO CÀNG VỀ CUỐI NGÀY BẠN CÀNG DỄ ĐƯA RA QUYẾT ĐỊNH SAI LẦM?",
     "layout": "title",
-    "script": "Tại sao sau một ngày làm việc mệt mỏi, bạn lại dễ dàng bấm mua những món đồ vô bổ trên mạng hoặc chọn ăn đồ ăn nhanh thay vì tự nấu?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mệt mỏi Quyết định",
+    "subtitle": "VÌ SAO CÀNG VỀ CUỐI NGÀY BẠN CÀNG DỄ ĐƯA RA QUYẾT ĐỊNH SAI?",
+    "script": "Tại sao sau một ngày làm việc mệt mỏi, bạn lại dễ dàng bấm mua những món đồ vô bổ trên mạng hoặc chọn ăn đồ ăn nhanh thay vì tự nấu?"
   },
   {
     "id": "slide_memo81_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "DECISION FATIGUE",
     "layout": "diagram",
-    "script": "Đó chính là Mệt mỏi Quyết định. Khả năng cân nhắc và đưa ra lựa chọn sáng suốt của não bộ sẽ cạn kiệt dần sau mỗi quyết định trong ngày.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo81_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA MỆT MỎI QUYẾT ĐỊNH",
-    "layout": "metrics",
-    "script": "Mô phỏng: Khi pin năng lượng nhận thức giảm dần từ 100% xuống còn 5%, bộ não lập tức chuyển sang chế độ lười biếng, chọn phương án dễ nhất.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo81_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Buổi sáng tràn đầy năng lượng đưa ra quyết định lý trí, sáng suốt. Buổi tối mệt mỏi dễ thỏa hiệp và đưa ra lựa chọn sai lầm.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Liên tục cân nhắc lựa chọn",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Tiêu tốn đường glucose não",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Pin nhận thức sụt giảm",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Chọn mặc định, buông thả",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "DECISION FATIGUE",
+    "script": "Đó chính là Mệt mỏi Quyết định. Khả năng cân nhắc và đưa ra lựa chọn sáng suốt của não bộ sẽ cạn kiệt dần sau mỗi quyết định trong ngày."
   },
   {
-    "id": "slide_memo81_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy đưa ra những quyết định quan trọng nhất vào buổi sáng. Đồng thời thiết lập các thói quen cố định để giải phóng năng lượng cho não!",
+    "id": "slide_memo81_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA MỆT MỎI QUYẾT ĐỊNH",
+    "script": "Mô phỏng: Khi pin năng lượng nhận thức giảm dần từ 100% xuống còn 5%, bộ não lập tức chuyển sang chế độ lười biếng, chọn phương án dễ nhất."
+  },
+  {
+    "id": "slide_memo81_4",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "☀️",
+        "title": "Nhận Thức Buổi Sáng",
+        "desc": "Năng lượng nhận thức dồi dào"
+      },
+      {
+        "icon": "🌙",
+        "title": "Mệt Mỏi Buổi Tối",
+        "desc": "Não bộ cạn kiệt pin năng lượng"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Buổi sáng tràn đầy năng lượng đưa ra quyết định lý trí. Buổi tối mệt mỏi dễ thỏa hiệp và đưa ra lựa chọn sai lầm."
+  },
+  {
+    "id": "slide_memo81_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy đưa ra những quyết định quan trọng nhất vào buổi sáng. Đồng thời thiết lập các thói quen cố định để giải phóng năng lượng cho não!"
   },
   {
     "id": "slide_memo81_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

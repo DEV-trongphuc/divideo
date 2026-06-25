@@ -207,7 +207,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo62-5-container">
                         <div class="takeaway-radar-v62"></div>
-                        <div class="takeaway-box-v62" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v62" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v62">👄</div>
                             <div class="takeaway-text-v62">
                                 "Đôi khi chúng ta không nghe bằng tai mà đang nghe bằng dự đoán của đôi mắt. Hãy nhắm mắt lại để thẩm định âm thanh chuẩn xác nhất!"

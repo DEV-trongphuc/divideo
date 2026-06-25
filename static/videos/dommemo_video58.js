@@ -206,7 +206,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo58-5-container">
                         <div class="takeaway-radar-v58"></div>
-                        <div class="takeaway-box-v58" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v58" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v58">🎭</div>
                             <div class="takeaway-text-v58">
                                 "Hãy nhớ rằng đôi khi chúng ta chỉ đang cố bảo vệ cái tôi bướng bỉnh chứ không thực sự lựa chọn phương án đó ngay từ đầu!"

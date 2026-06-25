@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo77_1",
-    "title": "Thiên kiến Sinh tồn",
-    "subtitle": "VÌ SAO VIỆC CHỈ NHÌN VÀO TẤM GƯƠNG THÀNH CÔNG DỄ KHIẾN BẠN THẤT BẠI?",
     "layout": "title",
-    "script": "Bạn nghe câu chuyện Bill Gates bỏ học thành tỷ phú và tin rằng bỏ học là công thức thành công. Bạn có quên mất hàng triệu người bỏ học thất bại?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Thiên kiến Sinh tồn",
+    "subtitle": "VÌ SAO CHỈ NHÌN TẤM GƯƠNG THÀNH CÔNG DỄ KHIẾN BẠN THẤT BẠI?",
+    "script": "Bạn nghe câu chuyện Bill Gates bỏ học thành tỷ phú và tin rằng bỏ học là công thức thành công. Bạn có quên mất hàng triệu người bỏ học thất bại?"
   },
   {
     "id": "slide_memo77_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "SURVIVORSHIP BIAS",
     "layout": "diagram",
-    "script": "Đó chính là Thiên kiến Sinh tồn. Chúng ta chỉ tập trung vào những trường hợp thành công nổi bật mà vô tình bỏ qua nhóm thất bại thầm lặng khổng lồ.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo77_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA THIÊN KIẾN SINH TỒN",
-    "layout": "metrics",
-    "script": "Mô phỏng: Gia cố áo giáp cho máy bay ở những nơi có vết đạn là sai lầm, vì những chiếc bị bắn trúng động cơ đã rơi mất và không thể trở về để báo cáo.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo77_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Nhìn nhận phiến diện dẫn đến các quyết định đầu tư sai lầm. Nhìn nhận toàn diện giúp phát hiện các điểm yếu cốt tử thực tế.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Nhóm thử thách ban đầu",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Số đông thất bại rơi rụng",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Vài cá nhân nổi trội thắng",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Mọi người chỉ đúc kết người thắng",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "SURVIVORSHIP BIAS",
+    "script": "Đó chính là Thiên kiến Sinh tồn. Chúng ta chỉ tập trung vào những trường hợp thành công nổi bật mà vô tình bỏ qua nhóm thất bại thầm lặng khổng lồ."
   },
   {
-    "id": "slide_memo77_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Muốn thành công, đừng chỉ học từ người thắng cuộc. Hãy nghiên cứu kỹ bài học từ những người đã thất bại để tránh đi vào vết xe đổ!",
+    "id": "slide_memo77_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA THIÊN KIẾN SINH TỒN",
+    "script": "Mô phỏng: Gia cố áo giáp cho máy bay ở những nơi có vết đạn là sai lầm, vì những chiếc bị bắn trúng động cơ đã rơi mất và không thể trở về để báo cáo."
+  },
+  {
+    "id": "slide_memo77_4",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "👁️",
+        "title": "Phân Tích Phiến Diện",
+        "desc": "Chỉ sao chép thói quen tỷ phú"
+      },
+      {
+        "icon": "🛩️",
+        "title": "Nhìn Nhận Toàn Diện",
+        "desc": "Nghiên cứu lý do người khác bại trận"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Nhìn nhận phiến diện dẫn đến các quyết định đầu tư sai lầm. Nhìn nhận toàn diện giúp phát hiện các điểm yếu cốt tử thực tế."
+  },
+  {
+    "id": "slide_memo77_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Muốn thành công, đừng chỉ học từ người thắng cuộc. Hãy nghiên cứu kỹ bài học từ những người đã thất bại để tránh đi vào vết xe đổ!"
   },
   {
     "id": "slide_memo77_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

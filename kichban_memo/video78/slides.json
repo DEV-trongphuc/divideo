@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo78_1",
-    "title": "Hiệu ứng Google",
-    "subtitle": "VÌ SAO ĐIỆN THOẠI THÔNG MINH ĐANG DẦN LÀM SUY GIẢM TRÍ NHỚ CỦA BẠN?",
     "layout": "title",
-    "script": "Bạn dễ dàng quên đi số điện thoại của người thân hoặc một kiến thức vừa đọc, vì nghĩ rằng chỉ cần gõ Google là ra ngay. Não bạn đang lười đi?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Hiệu ứng Google",
+    "subtitle": "VÌ SAO ĐIỆN THOẠI ĐANG LÀM SUY GIẢM TRÍ NHỚ CỦA BẠN?",
+    "script": "Bạn dễ dàng quên đi số điện thoại của người thân hoặc một kiến thức vừa đọc, vì nghĩ rằng chỉ cần gõ Google là ra ngay. Não bạn đang lười đi?"
   },
   {
     "id": "slide_memo78_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "GOOGLE EFFECT",
-    "layout": "diagram",
-    "script": "Hiện tượng này gọi là Hiệu ứng Google. Bộ não có xu hướng quên đi những thông tin mà nó tin là có thể dễ dàng tra cứu trực tuyến bất cứ lúc nào.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🧠",
+        "title": "Chủ Động Ghi Nhớ",
+        "desc": "Nỗ lực liên kết các neuron"
+      },
+      {
+        "icon": "📱",
+        "title": "Ỷ Lại Tra Cứu",
+        "desc": "Gán nhãn thông tin 'đã có trên mạng'"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Trí nhớ tự nhiên giúp liên kết tư duy sâu sắc, nhanh chóng. Trí nhớ kỹ thuật số tạo sự phụ thuộc và hạn chế sự hiểu biết bản chất."
   },
   {
     "id": "slide_memo78_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG GOOGLE",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi hệ thống tìm kiếm trực tuyến được bật, chỉ số lưu trữ dài hạn của não lập tức sụt giảm từ 80% xuống còn 20%.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo78_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Trí nhớ tự nhiên giúp liên kết tư duy sâu sắc, nhanh chóng. Trí nhớ kỹ thuật số tạo sự phụ thuộc và hạn chế sự hiểu biết bản chất.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG GOOGLE",
+    "script": "Mô phỏng: Khi hệ thống tìm kiếm trực tuyến được bật, chỉ số lưu trữ dài hạn của não lập tức sụt giảm từ 80% xuống còn 20%."
   },
   {
-    "id": "slide_memo78_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Đừng quá lạm dụng các công cụ tìm kiếm. Hãy chủ động ghi nhớ và tư duy sâu để xây dựng một bộ não nhạy bén và độc lập!",
+    "id": "slide_memo78_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// ĐỘ LƯU TRỮ TRONG NÃO BỘ\nlet infoAvailableOnline = true;\nlet brainStoragePriority = infoAvailableOnline ? \"Low\" : \"High\";\nif (brainStoragePriority == \"Low\") {\n    clearMemoryCache(); // Não xóa bớt thông tin\n}",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Trí nhớ tự nhiên giúp liên kết tư duy sâu sắc, nhanh chóng. Trí nhớ kỹ thuật số tạo sự phụ thuộc và hạn chế sự hiểu biết bản chất."
+  },
+  {
+    "id": "slide_memo78_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Đừng quá lạm dụng các công cụ tìm kiếm. Hãy chủ động ghi nhớ và tư duy sâu để xây dựng một bộ não nhạy bén và độc lập!"
   },
   {
     "id": "slide_memo78_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

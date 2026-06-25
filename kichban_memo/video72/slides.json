@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo72_1",
-    "title": "Thiên kiến Hậu kiến",
-    "subtitle": "VÌ SAO CHÚNG TA LUÔN NÓI 'BIẾT THẾ NGAY TỪ ĐẦU' SAU KHI SỰ VIỆC XẢY RA?",
     "layout": "title",
-    "script": "Một dự án thất bại hoặc một đội bóng thua cuộc, bạn lập tức thốt lên: 'Tôi đã biết chắc họ sẽ thua mà!'. Có thật là bạn đã biết trước?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Thiên kiến Hậu kiến",
+    "subtitle": "VÌ SAO CHÚNG TA LUÔN NÓI 'BIẾT THẾ NGAY TỪ ĐẦU'?",
+    "script": "Một dự án thất bại hoặc một đội bóng thua cuộc, bạn liền thốt lên: 'Tôi đã biết chắc họ sẽ thua mà!'. Có thật là bạn đã biết trước?"
   },
   {
     "id": "slide_memo72_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "HINDSIGHT BIAS",
     "layout": "diagram",
-    "script": "Hiện tượng này là Thiên kiến Hậu kiến. Sau khi biết kết quả, bộ não tự động viết lại ký ức cũ, khiến ta tin rằng kết quả đó là hiển nhiên đoán được.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo72_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA THIÊN KIẾN HẬU KIẾN",
-    "layout": "metrics",
-    "script": "Mô phỏng: Trước khi mũi tên bắn trúng bia, cơ hội chỉ là 50-50. Nhưng khi mũi tên đã cắm vào hồng tâm, não lập tức điều chỉnh nhận thức thành 100%.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo72_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Dự báo trước sự kiện đầy rủi ro và mơ hồ. Nhận định sau sự kiện luôn rõ ràng vì kết quả đã bày ra trước mắt.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Dự báo mơ hồ 50%",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Sự việc xảy ra xong",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Não sửa lại ký ức",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Khẳng định chắc chắn",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "HINDSIGHT BIAS",
+    "script": "Hiện tượng này là Thiên kiến Hậu kiến. Sau khi biết kết quả, bộ não tự động viết lại ký ức cũ, khiến ta tin rằng kết quả đó là hiển nhiên đoán được."
   },
   {
-    "id": "slide_memo72_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy cẩn thận với cái bẫy 'biết thế'. Nó khiến bạn tự tin thái quá và ngừng phân tích các biến số ngẫu nhiên của tương lai!",
+    "id": "slide_memo72_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA THIÊN KIẾN HẬU KIẾN",
+    "script": "Mô phỏng: Trước khi mũi tên bắn trúng bia, cơ hội chỉ là 50-50. Nhưng khi mũi tên đã cắm vào hồng tâm, não lập tức điều chỉnh nhận thức thành 100%."
+  },
+  {
+    "id": "slide_memo72_4",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🔮",
+        "title": "Dự Đoán Trước Sự Kiện",
+        "desc": "Nhiều rủi ro và biến số ẩn"
+      },
+      {
+        "icon": "🏹",
+        "title": "Đánh Giá Sau Sự Kiện",
+        "desc": "Kết quả đã phơi bày rõ ràng"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Dự báo trước sự kiện đầy rủi ro và mơ hồ. Nhận định sau sự kiện luôn rõ ràng vì kết quả đã bày ra trước mắt."
+  },
+  {
+    "id": "slide_memo72_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy cẩn thận với cái bẫy 'biết thế'. Nó khiến bạn tự tin thái quá và ngừng phân tích các biến số ngẫu nhiên của tương lai!"
   },
   {
     "id": "slide_memo72_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

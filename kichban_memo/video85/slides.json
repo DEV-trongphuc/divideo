@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo85_1",
-    "title": "Ảo giác Gom nhóm",
-    "subtitle": "VÌ SAO BẠN LUÔN THẤY CÁC QUY LUẬT TRONG NHỮNG SỰ KIỆN NGẪU NHIÊN?",
     "layout": "title",
-    "script": "Tung đồng xu 5 lần ra mặt ngửa liên tiếp, bạn tin chắc lần thứ 6 phải ra mặt sấp. Bộ não của bạn đang vẽ ra quy luật từ sự ngẫu nhiên?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Ảo giác Gom nhóm",
+    "subtitle": "VÌ SAO BẠN LUÔN THẤY QUY LUẬT TRONG SỰ NGẪU NHIÊN?",
+    "script": "Tung đồng xu 5 lần ra mặt ngửa liên tiếp, bạn tin chắc lần thứ 6 phải ra mặt sấp. Bộ não của bạn đang vẽ ra quy luật từ sự ngẫu nhiên?"
   },
   {
     "id": "slide_memo85_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "CLUSTERING ILLUSION",
     "layout": "diagram",
-    "script": "Đó gọi là Ảo giác Gom nhóm. Bộ não con người tiến hóa để tìm kiếm các khuôn mẫu, dẫn đến việc tự động kết nối các dữ liệu ngẫu nhiên thành quy luật.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo85_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC GOM NHÓM",
-    "layout": "metrics",
-    "script": "Mô phỏng: Giữa các điểm chấm ngẫu nhiên vô nghĩa, bộ não lập tức vẽ ra các đường liên kết để cố giải nghĩa một hình thù cụ thể.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo85_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Nhìn nhận lý trí chấp nhận sự ngẫu nhiên và độc lập của sự kiện. Nhận thức cảm tính cố tìm điềm báo và quy luật vô căn cứ.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Dữ liệu ngẫu nhiên",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Não quét khuôn mẫu",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Vẽ đường kết nối",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Nhận thức quy luật ảo",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "CLUSTERING ILLUSION",
+    "script": "Đó gọi là Ảo giác Gom nhóm. Bộ não con người tiến hóa để tìm kiếm các khuôn mẫu, dẫn đến việc tự động kết nối các dữ liệu ngẫu nhiên thành quy luật."
   },
   {
-    "id": "slide_memo85_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Không phải sự trùng hợp nào cũng mang thông điệp vũ trụ. Hãy học cách chấp nhận sự ngẫu nhiên để đưa ra các quyết định sáng suốt hơn!",
+    "id": "slide_memo85_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC GOM NHÓM",
+    "script": "Mô phỏng: Giữa các điểm chấm ngẫu nhiên vô nghĩa, bộ não lập tức vẽ ra các đường liên kết để cố giải nghĩa một hình thù cụ thể."
+  },
+  {
+    "id": "slide_memo85_4",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🎲",
+        "title": "Nhìn Nhận Ngẫu Nhiên",
+        "desc": "Hiểu rõ lý thuyết xác suất"
+      },
+      {
+        "icon": "🔮",
+        "title": "Vẽ Quy Luật Ảo",
+        "desc": "Cố giải nghĩa mọi sự kiện"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Nhìn nhận lý trí chấp nhận sự ngẫu nhiên và độc lập của sự kiện. Nhận thức cảm tính cố tìm điềm báo và quy luật vô căn cứ."
+  },
+  {
+    "id": "slide_memo85_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Không phải sự trùng hợp nào cũng mang thông điệp vũ trụ. Hãy học cách chấp nhận sự ngẫu nhiên để đưa ra các quyết định sáng suốt hơn!"
   },
   {
     "id": "slide_memo85_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

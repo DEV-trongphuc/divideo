@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo94_1",
-    "title": "Hội chứng Giả mạo",
-    "subtitle": "VÌ SAO BẠN THÀNH CÔNG NHƯNG LUÔN LO SỢ MÌNH LÀ KẺ LỪA ĐẢO?",
     "layout": "title",
-    "script": "Bạn đạt kết quả cao hoặc được thăng chức, nhưng thầm nghĩ: 'Chỉ là do may mắn thôi, mình không giỏi thế'. Tại sao bạn lại phủ nhận chính mình?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Hội chứng Giả mạo",
+    "subtitle": "VÌ SAO THÀNH CÔNG NHƯNG BẠN LO SỢ MÌNH LÀ KẺ LỪA ĐẢO?",
+    "script": "Bạn đạt kết quả cao hoặc được thăng chức, nhưng thầm nghĩ: 'Chỉ là do may mắn thôi, mình không giỏi thế'. Tại sao bạn lại phủ nhận chính mình?"
   },
   {
     "id": "slide_memo94_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "IMPOSTOR SYNDROME",
-    "layout": "diagram",
-    "script": "Đó gọi là Hội chứng Kẻ giả mạo. Người mắc hội chứng này luôn nghi ngờ năng lực bản thân, lo sợ người khác sẽ phát hiện ra mình là kẻ lừa dối.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🏆",
+        "title": "Thực Tế Khách Quan",
+        "desc": "Kế hoạch hoàn thành xuất sắc"
+      },
+      {
+        "icon": "🎭",
+        "title": "Nhận Thức Giả Mạo",
+        "desc": "Cho rằng thành công do may mắn"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Đánh giá khách quan ghi nhận nỗ lực và kết quả thực tế. Hội chứng giả mạo bóp méo thành tựu thành sự may mắn ngẫu nhiên."
   },
   {
     "id": "slide_memo94_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA HỘI CHỨNG GIẢ MẠO",
     "layout": "metrics",
-    "script": "Mô phỏng: Dù xung quanh đầy cúp vàng và lời khen, chỉ số tự tin bên trong vẫn chạm đáy, tạo ra ảo ảnh chiếc mặt nạ che giấu năng lực.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo94_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Đánh giá khách quan ghi nhận nỗ lực và kết quả thực tế. Hội chứng giả mạo bóp méo thành tựu thành sự may mắn ngẫu nhiên.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HỘI CHỨNG GIẢ MẠO",
+    "script": "Mô phỏng: Dù xung quanh đầy cúp vàng và lời khen, chỉ số tự tin bên trong vẫn chạm đáy, tạo ra ảo ảnh chiếc mặt nạ che giấu năng lực."
   },
   {
-    "id": "slide_memo94_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Thành công của bạn là kết quả của nỗ lực thực tế. Hãy dũng cảm cởi bỏ mặt nạ nghi ngờ và tự hào về những gì bạn đã cống hiến!",
+    "id": "slide_memo94_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// CHỈ SỐ HỘI CHỨNG GIẢ MẠO\nlet successScore = 95;\nlet selfDoubt = 85;\nif (successScore > 90 && selfDoubt > 80) {\n    status = \"Impostor State Active\";\n    console.log(\"Cảm thấy mình đang diễn kịch\");\n}",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Đánh giá khách quan ghi nhận nỗ lực và kết quả thực tế. Hội chứng giả mạo bóp méo thành tựu thành sự may mắn ngẫu nhiên."
+  },
+  {
+    "id": "slide_memo94_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Thành công của bạn là kết quả của nỗ lực thực tế. Hãy dũng cảm cởi bỏ mặt nạ nghi ngờ và tự hào về những gì bạn đã cống hiến!"
   },
   {
     "id": "slide_memo94_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

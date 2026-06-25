@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo86_1",
-    "title": "Bẫy Tự giới hạn",
-    "subtitle": "VÌ SAO BẠN TỰ TẠO RA CHƯỚNG NGẠI TRƯỚC KHI BẮT ĐẦU THỬ THÁCH?",
     "layout": "title",
-    "script": "Trước ngày thi quan trọng, bạn thay vì ôn bài lại đi chơi game muộn. Tại sao bạn lại cố tình phá hoại cơ hội thành công của chính mình?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Bẫy Tự giới hạn",
+    "subtitle": "VÌ SAO BẠN TỰ TẠO RA CHƯỚNG NGẠI TRƯỚC THỬ THÁCH?",
+    "script": "Trước ngày thi quan trọng, bạn không ôn bài mà đi chơi game muộn. Tại sao bạn lại cố tình phá hoại cơ hội thành công của chính mình?"
   },
   {
     "id": "slide_memo86_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "SELF-HANDICAPPING",
-    "layout": "diagram",
-    "script": "Hiện tượng này là Bẫy Tự giới hạn. Chúng ta tự tạo ra chướng ngại trước thử thách để có lý do đổ lỗi nếu thất bại, bảo vệ lòng tự trọng của bản thân.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🎯",
+        "title": "Đối Mặt Tập Trung",
+        "desc": "Nỗ lực hết sức cho mục tiêu"
+      },
+      {
+        "icon": "🚧",
+        "title": "Tự Tạo Lý Do",
+        "desc": "Đi chơi, thức khuya trước ngày thi"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Đối mặt thực tế giúp rút kinh nghiệm và sửa sai. Tự giới hạn bảo vệ cái tôi giả tạo nhưng làm tăng nguy cơ thất bại thực tế."
   },
   {
     "id": "slide_memo86_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA BẪY TỰ GIỚI HẠN",
     "layout": "metrics",
-    "script": "Mô phỏng: Tự xây dựng rào cản cản đường chạy giúp bạn có cái cớ đổ lỗi cho rào cản thay vì thừa nhận năng lực kém nếu thua cuộc.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo86_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Đối mặt thực tế giúp rút kinh nghiệm và sửa sai. Tự giới hạn bảo vệ cái tôi giả tạo nhưng làm tăng nguy cơ thất bại thực tế.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA BẪY TỰ GIỚI HẠN",
+    "script": "Mô phỏng: Tự xây rào cản cản đường chạy giúp bạn đổ lỗi cho rào cản thay vì thừa nhận năng lực kém nếu thua cuộc."
   },
   {
-    "id": "slide_memo86_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Thất bại là một phần của sự phát triển. Đừng sợ hãi nó đến mức tự chặn đứng cơ hội thể hiện năng lực tốt nhất của bản thân!",
+    "id": "slide_memo86_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// HÀNH VI TỰ GIỚI HẠN\nlet fearOfFailure = true;\nif (fearOfFailure == true) {\n    createObstacle(\"Thức khuya chơi game\"); // Tạo cớ\n    probabilityOfSuccess = 0.30; // Giảm mạnh\n}",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Đối mặt thực tế giúp rút kinh nghiệm và sửa sai. Tự giới hạn bảo vệ cái tôi giả tạo nhưng làm tăng nguy cơ thất bại thực tế."
+  },
+  {
+    "id": "slide_memo86_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Thất bại là một phần của sự phát triển. Đừng sợ hãi nó đến mức tự chặn đứng cơ hội thể hiện năng lực tốt nhất của bản thân!"
   },
   {
     "id": "slide_memo86_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

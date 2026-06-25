@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo98_1",
-    "title": "Lệch lạc Gán ghép",
-    "subtitle": "VÌ SAO BẠN LUÔN KHẮT KHE VỚI LỖI CỦA NGƯỜI KHÁC NHƯNG DỄ DÃI VỚI MÌNH?",
     "layout": "title",
-    "script": "Một người đi muộn, bạn nghĩ ngay: 'Họ thật vô kỷ luật'. Nhưng khi chính bạn đi muộn, bạn đổ lỗi cho tắc đường. Tại sao lại bất công như thế?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Lệch lạc Gán ghép",
+    "subtitle": "VÌ SAO BẠN LUÔN KHẮT KHE VỚI NGƯỜI KHÁC NHƯNG DỄ DÃI VỚI MÌNH?",
+    "script": "Một người đi muộn, bạn nghĩ ngay: 'Họ thật vô kỷ luật'. Nhưng khi chính bạn đi muộn, bạn đổ lỗi cho tắc đường. Tại sao lại bất công như thế?"
   },
   {
     "id": "slide_memo98_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "FUNDAMENTAL ATTRIBUTION ERROR",
-    "layout": "diagram",
-    "script": "Đó là Sai lầm Gán ghép Cơ bản. Chúng ta thường giải thích hành vi của người khác bằng tính cách của họ, nhưng giải thích hành vi của mình bằng hoàn cảnh.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🎭",
+        "title": "Đánh Giá Người Khác",
+        "desc": "Bỏ qua bối cảnh tắc đường, gia cảnh"
+      },
+      {
+        "icon": "⚖️",
+        "title": "Đánh Giá Bản Thân",
+        "desc": "Nắm rõ mọi hoàn cảnh khách quan"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Phán xét phiến diện bỏ qua hoàn cảnh khách quan. Thấu hiểu đa chiều giúp cảm thông và xây dựng mối quan hệ tốt đẹp."
   },
   {
     "id": "slide_memo98_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA LỆCH LẠC GÁN GHÉP",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi gán mác cho người khác, bạn quy chụp do tính cách lười biếng. Nhưng khi gán mác cho mình, bạn đổ lỗi cho kẹt xe ngoại cảnh.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo98_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Phán xét phiến diện bỏ qua các yếu tố hoàn cảnh khách quan. Thấu hiểu đa chiều giúp cảm thông và xây dựng mối quan hệ tốt đẹp.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA LỆCH LẠC GÁN GHÉP",
+    "script": "Mô phỏng: Khi gán mác cho người khác, bạn quy chụp do tính cách lười biếng. Nhưng khi gán mác cho mình, bạn đổ lỗi cho kẹt xe ngoại cảnh."
   },
   {
-    "id": "slide_memo98_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy bao dung hơn với người khác và nghiêm khắc hơn với bản thân. Sự thấu hiểu hoàn cảnh chính là nền tảng của lòng nhân ái!",
+    "id": "slide_memo98_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// SAI LẦM GÁN GHÉP CƠ BẢN\nlet subject = \"OtherPerson\";\nlet mistake = \"LateForMeeting\";\nlet attribution = (subject == \"Self\") ? \"Situational (Traffic)\" : \"Dispositional (Lazy)\";\nconsole.log(`Kết luận lỗi do: ${attribution}`);",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Phán xét phiến diện bỏ qua hoàn cảnh khách quan. Thấu hiểu đa chiều giúp cảm thông và xây dựng mối quan hệ tốt đẹp."
+  },
+  {
+    "id": "slide_memo98_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy bao dung hơn với người khác và nghiêm khắc hơn với bản thân. Sự thấu hiểu hoàn cảnh chính là nền tảng của lòng nhân ái!"
   },
   {
     "id": "slide_memo98_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

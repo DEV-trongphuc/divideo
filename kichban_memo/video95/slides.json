@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo95_1",
-    "title": "Ảo giác Tự tin",
-    "subtitle": "VÌ SAO CHÚNG TA THƯỜNG ĐÁNH GIÁ QUÁ CAO NĂNG LỰC ĐÁNH GIÁ CỦA MÌNH?",
     "layout": "title",
-    "script": "Tại sao hầu hết mọi người đều tin rằng mình lái xe giỏi hơn mức trung bình? Liệu sự tự tin có đang vượt quá năng lực thực tế?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Ảo giác Tự tin",
+    "subtitle": "VÌ SAO CHÚNG TA THƯỜNG ĐÁNH GIÁ QUÁ CAO NĂNG LỰC CỦA MÌNH?",
+    "script": "Tại sao hầu hết mọi người đều tin rằng mình lái xe giỏi hơn mức trung bình? Liệu sự tự tin có đang vượt quá năng lực thực tế?"
   },
   {
     "id": "slide_memo95_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "OVERCONFIDENCE EFFECT",
     "layout": "diagram",
-    "script": "Đó gọi là Ảo giác Tự tin Thái quá. Chúng ta thường đánh giá độ chính xác của các phán đoán cá nhân cao hơn nhiều so với kết quả thực tế.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo95_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC TỰ TIN",
-    "layout": "metrics",
-    "script": "Mô phỏng: Thước đo ước tính độ chính xác tự tin vọt lên 90%, trong khi kết quả kiểm tra thực tế chỉ đạt mức trung bình 40%.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo95_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Tự tin thái quá tạo quyết định liều lĩnh, thiếu cơ sở. Tự tin điềm tĩnh dựa trên số liệu và kiểm chứng khách quan.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Phán đoán chủ quan",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Tự tin ước tính 90%",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Đụng độ thử thách thực tế",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Độ chính xác thật 40%",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "OVERCONFIDENCE EFFECT",
+    "script": "Đó gọi là Ảo giác Tự tin Thái quá. Chúng ta thường đánh giá độ chính xác của các phán đoán cá nhân cao hơn nhiều so với kết quả thực tế."
   },
   {
-    "id": "slide_memo95_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy luôn khiêm tốn học hỏi và sẵn sàng kiểm chứng lại các quyết định của mình. Sự cẩn trọng chính là tấm khiên bảo vệ bạn!",
+    "id": "slide_memo95_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC TỰ TIN",
+    "script": "Mô phỏng: Thước đo ước tính độ chính xác tự tin vọt lên 90%, trong khi kết quả kiểm tra thực tế chỉ đạt mức trung bình 40%."
+  },
+  {
+    "id": "slide_memo95_4",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🦁",
+        "title": "Tự Tin Thái Quá",
+        "desc": "Đánh giá thấp mọi rủi ro"
+      },
+      {
+        "icon": "📊",
+        "title": "Thực Tế Khách Quan",
+        "desc": "Ước tính dựa trên kiểm chứng"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Tự tin thái quá tạo quyết định liều lĩnh, thiếu cơ sở. Tự tin điềm tĩnh dựa trên số liệu và kiểm chứng khách quan."
+  },
+  {
+    "id": "slide_memo95_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy luôn khiêm tốn học hỏi và sẵn sàng kiểm chứng lại các quyết định của mình. Sự cẩn trọng chính là tấm khiên bảo vệ bạn!"
   },
   {
     "id": "slide_memo95_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

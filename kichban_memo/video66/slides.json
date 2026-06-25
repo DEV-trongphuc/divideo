@@ -1,86 +1,107 @@
 [
   {
     "id": "slide_memo66_1",
-    "title": "Hiệu ứng Golem",
-    "subtitle": "KỲ VỌNG TIÊU CỰC TRIỆT TIÊU HIỆU SUẤT CỦA BẠN NHƯ THẾ NÀO?",
     "layout": "title",
-    "script": "Nếu ai đó liên tục nghi ngờ và tin rằng bạn sẽ thất bại, bạn có xu hướng thực sự sa sút hiệu suất. Tại sao bóng tối tâm lý này lại linh nghiệm?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Hiệu ứng Golem",
+    "subtitle": "KỲ VỌNG TIÊU CỰC TRIỆT TIÊU HIỆU SUẤT CỦA BẠN NHƯ THẾ NÀO?",
+    "script": "Nếu ai đó liên tục nghi ngờ và tin rằng bạn sẽ thất bại, bạn có xu hướng thực sự sa sút hiệu suất. Tại sao bóng tối tâm lý này lại linh nghiệm?"
   },
   {
     "id": "slide_memo66_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "GOLEM EFFECT",
     "layout": "diagram",
-    "script": "Hiện tượng này gọi là Hiệu ứng Golem. Kỳ vọng tiêu cực của người quản lý vô tình làm giảm động lực, tạo ra sự tự ti và dẫn đến thất bại thực tế.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo66_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG GOLEM",
-    "layout": "metrics",
-    "script": "Mô phỏng: Khi gánh chịu những lời nghi ngờ và chỉ trích, hạt mầm nỗ lực bị đè nặng, héo úa dần dưới những đám mây đen áp lực.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo66_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Sự tin tưởng nuôi dưỡng tinh thần cống hiến. Kỳ vọng kém cỏi giết chết nỗ lực, kéo chìm sự phát triển của cá nhân.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Sếp hoài nghi",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Tự ti xuất hiện",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Giảm nỗ lực",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Thất bại thực tế",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "GOLEM EFFECT",
+    "script": "Hiện tượng này gọi là Hiệu ứng Golem. Kỳ vọng tiêu cực của người quản lý vô tình làm giảm động lực, tạo ra sự tự ti và dẫn đến thất bại thực tế."
   },
   {
-    "id": "slide_memo66_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy tránh xa những kỳ vọng độc hại và lời bàn tán tiêu cực. Bạn xứng đáng được phát triển trong một môi trường tin tưởng!",
+    "id": "slide_memo66_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG GOLEM",
+    "script": "Mô phỏng: Khi gánh chịu những lời nghi ngờ và chỉ trích, hạt mầm nỗ lực bị đè nặng, héo úa dần dưới những đám mây đen áp lực."
+  },
+  {
+    "id": "slide_memo66_4",
+    "layout": "code",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "// CHU KỲ HIỆU ỨNG GOLEM\nif (managerExpectation == \"Negative\") {\n    employeeMotivation = \"Low\";\n    selfEfficacy = \"Declined\";\n    executePerformance(Level.Fail);\n}",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Sự tin tưởng nuôi dưỡng tinh thần cống hiến. Kỳ vọng kém cỏi giết chết nỗ lực, kéo chìm sự phát triển của cá nhân."
+  },
+  {
+    "id": "slide_memo66_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy tránh xa những kỳ vọng độc hại và lời bàn tán tiêu cực. Bạn xứng đáng được phát triển trong một môi trường tin tưởng!"
   },
   {
     "id": "slide_memo66_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

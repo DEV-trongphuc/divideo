@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo92_1",
-    "title": "Ảo giác Khả thi",
-    "subtitle": "VÌ SAO CHÚNG TA LUÔN ĐÁNH GIÁ THẤP THỜI GIAN HOÀN THÀNH MỘT DỰ ÁN?",
     "layout": "title",
-    "script": "Bạn lập kế hoạch dọn nhà trong 2 tiếng nhưng thực tế lại mất cả ngày trời. Tại sao chúng ta luôn là những kẻ dự báo thời gian tồi tệ nhất?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Ảo giác Khả thi",
+    "subtitle": "VÌ SAO CHÚNG TA LUÔN ĐÁNH GIÁ THẤP THỜI GIAN HOÀN THÀNH DỰ ÁN?",
+    "script": "Bạn lập kế hoạch dọn nhà trong 2 tiếng nhưng thực tế lại mất cả ngày trời. Tại sao chúng ta luôn là những kẻ dự báo thời gian tồi tệ nhất?"
   },
   {
     "id": "slide_memo92_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "PLANNING FALLACY",
-    "layout": "diagram",
-    "script": "Đó chính là Ảo giác Khả thi. Con người có xu hướng lạc quan quá mức khi lập kế hoạch, bỏ qua lịch sử chậm trễ và các biến số bất ngờ.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "📅",
+        "title": "Dự Kiến Lý Thuyết",
+        "desc": "Kịch bản hoàn hảo, trơn tru"
+      },
+      {
+        "icon": "🛠️",
+        "title": "Thực Tế Triển Khai",
+        "desc": "Các sự cố bất ngờ liên tục phát sinh"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Dự kiến lý thuyết trơn tru, không có sự cố. Thực tế triển khai luôn đi kèm các sự cố phát sinh ngoài tầm kiểm soát."
   },
   {
     "id": "slide_memo92_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC KHẢ THI",
     "layout": "metrics",
-    "script": "Mô phỏng: Bạn kỳ vọng tiến độ hoàn thành trong 2 ngày, nhưng thực tế thanh thời gian liên tục kéo dài và chạm mốc 10 ngày đầy trễ nải.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo92_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Dự kiến lý thuyết trơn tru, không có sự cố. Thực tế triển khai luôn đi kèm các sự cố phát sinh ngoài tầm kiểm soát.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC KHẢ THI",
+    "script": "Mô phỏng: Bạn kỳ vọng tiến độ hoàn thành trong 2 ngày, nhưng thực tế thanh thời gian liên tục kéo dài và chạm mốc 10 ngày đầy trễ nải."
   },
   {
-    "id": "slide_memo92_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Khi lập kế hoạch, hãy cộng thêm 50% thời gian dự phòng. Nhìn nhận thực tế sẽ giúp bạn làm chủ thời gian và giảm bớt căng thẳng!",
+    "id": "slide_memo92_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// DỰ BÁO LẬP KẾ HOẠCH LẠC QUAN\nlet optimisticDuration = 2; // Ngày\nlet probabilityOfRisk = 0.85; // Rủi ro cực cao\nlet actualDuration = optimisticDuration + (probabilityOfRisk * 10 * Math.random());\nconsole.log(`Số ngày thực tế: ${Math.round(actualDuration)} ngày`);",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Dự kiến lý thuyết trơn tru, không có sự cố. Thực tế triển khai luôn đi kèm các sự cố phát sinh ngoài tầm kiểm soát."
+  },
+  {
+    "id": "slide_memo92_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Khi lập kế hoạch, hãy cộng thêm 50% thời gian dự phòng. Nhìn nhận thực tế sẽ giúp bạn làm chủ thời gian và giảm bớt căng thẳng!"
   },
   {
     "id": "slide_memo92_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

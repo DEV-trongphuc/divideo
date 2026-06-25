@@ -56,13 +56,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 25px;
+    gap: 55px;
     width: 100%;
     position: relative;
 }
 
 .hook-main-icon-v66 {
-                font-size: 115px;
+                font-size: 190px;
                 transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 z-index: 5;
             }
@@ -245,7 +245,7 @@
                 justify-content: center;
             }
             .sim-actor-v66 {
-                font-size: 70px;
+                font-size: 45px;
                 transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 z-index: 5;
             }
@@ -429,7 +429,7 @@
 }
 
 .takeaway-face-v66 {
-    font-size: 70px;
+    font-size: 45px;
     margin-bottom: 12px;
 }
 

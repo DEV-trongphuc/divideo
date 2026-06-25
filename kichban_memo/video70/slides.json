@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo70_1",
-    "title": "Hiệu ứng IKEA",
-    "subtitle": "VÌ SAO ĐỒ TỰ TAY BẠN LẮP RÁP LẠI CÓ VẺ ĐẮT GIÁ HƠN?",
     "layout": "title",
-    "script": "Bạn tự tay ráp chiếc kệ gỗ ọp ẹp và thấy nó đẹp hơn cả đồ mua sẵn đắt tiền. Tại sao bộ não lại thiên vị sản phẩm do chính mình làm ra?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Hiệu ứng IKEA",
+    "subtitle": "VÌ SAO ĐỒ TỰ TAY BẠN LẮP RÁP LẠI ĐẮT GIÁ HƠN?",
+    "script": "Bạn tự tay ráp chiếc kệ gỗ ọp ẹp và thấy nó đẹp hơn cả đồ mua sẵn đắt tiền. Tại sao bộ não lại thiên vị sản phẩm do chính mình làm ra?"
   },
   {
     "id": "slide_memo70_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "IKEA EFFECT",
     "layout": "diagram",
-    "script": "Đó chính là Hiệu ứng IKEA. Chúng ta vô thức gán giá trị cao bất thường cho những vật dụng mà bản thân đã bỏ công sức và thời gian để hoàn thành.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo70_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG IKEA",
-    "layout": "metrics",
-    "script": "Mô phỏng: Khi các mảnh ghép rời rạc được lắp ráp hoàn chỉnh thành chiếc hộp gỗ, giá trị chủ quan của nó vọt lên gấp 10 lần trong tâm trí bạn.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo70_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Đồ mua sẵn hoàn hảo nhưng thiếu sự gắn kết cảm xúc. Đồ tự lắp dù lỗi nhẹ vẫn mang lại niềm tự hào cực lớn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Mua linh kiện rời",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Đổ mồ hôi lắp ráp",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Hoàn thiện sản phẩm",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Não tự hào định giá",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "IKEA EFFECT",
+    "script": "Đó chính là Hiệu ứng IKEA. Chúng ta vô thức gán giá trị cao bất thường cho những vật dụng mà bản thân đã bỏ công sức và thời gian để hoàn thành."
   },
   {
-    "id": "slide_memo70_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy ứng dụng hiệu ứng này vào học tập và công việc. Tự tay hoàn thiện dự án sẽ giúp bạn yêu thích và trân trọng kết quả hơn!",
+    "id": "slide_memo70_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG IKEA",
+    "script": "Mô phỏng: Khi các mảnh ghép rời rạc được lắp ráp hoàn chỉnh thành chiếc hộp gỗ, giá trị chủ quan của nó vọt lên gấp 10 lần trong tâm trí bạn."
+  },
+  {
+    "id": "slide_memo70_4",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🔨",
+        "title": "Đồ Tự Lắp Ráp",
+        "desc": "Có công sức cá nhân gắn kết"
+      },
+      {
+        "icon": "🛒",
+        "title": "Đồ Mua Sẵn",
+        "desc": "Hoàn hảo không vết xước"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Đồ mua sẵn hoàn hảo nhưng thiếu sự gắn kết cảm xúc. Đồ tự lắp dù lỗi nhẹ vẫn mang lại niềm tự hào cực lớn."
+  },
+  {
+    "id": "slide_memo70_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy ứng dụng hiệu ứng này vào học tập và công việc. Tự tay hoàn thiện dự án sẽ giúp bạn yêu thích và trân trọng kết quả hơn!"
   },
   {
     "id": "slide_memo70_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

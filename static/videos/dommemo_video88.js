@@ -72,29 +72,46 @@
         else if (slideId === 'slide_memo88_2') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                    <div class="memo-wrapper slide-memo88-2-container">
-                        <span class="ambient-sleep-particle-v88" style="top: 8%; left: 85%; animation-delay: -2s;">🧠</span>
-                        <span class="ambient-sleep-particle-v88" style="top: 82%; left: 10%; animation-delay: -4s;">🌌</span>
+                    <div class="memo-wrapper slide-memo88-4-container">
+                        <span class="ambient-sleep-particle-v88" style="top: 12%; left: 85%; animation-delay: -2s;">✨</span>
+                        <span class="ambient-sleep-particle-v88" style="top: 78%; left: 12%; animation-delay: -5s;">🧠</span>
 
-                        <div class="sleep-diagram-board">
-                            <div class="diagram-node-v88 node-1">
-                                <span class="diagram-node-icon">🌌</span>
-                                <span>1. Đầu Vào</span>
+                        <div class="comp-row-v88">
+                            <div class="comp-card-v88 card-left card-active">
+                                <div class="comp-header-v88">
+                                    <h3>Nhận Tín Hiệu Thực Tế</h3>
+                                    <div class="comp-icon-v88">👁️</div>
+                                </div>
+                                <div class="comp-bullet-list-v88">
+                                    <div class="comp-bullet-row-v88" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v88">✨</span>
+                                        <span>Ánh sáng và âm thanh liên tục</span>
+                                    </div>
+                                    <div class="comp-bullet-row-v88" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v88">✨</span>
+                                        <span>Não phân tích dữ liệu bên ngoài</span>
+                                    </div>
+                                </div>
+                                <div class="comp-footer-v88">ỔN ĐỊNH 5%</div>
                             </div>
-                            <span class="node-link-arrow arrow-1">➡️</span>
-                            <div class="diagram-node-v88 node-2">
-                                <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
-                            </div>
-                            <span class="node-link-arrow arrow-2">➡️</span>
-                            <div class="diagram-node-v88 node-3">
-                                <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
-                            </div>
-                        </div>
 
-                        <div style="font-size: 15px; color: rgba(255,255,255,0.4); text-align: center; max-width: 650px; line-height: 1.5; border: 1.5px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.01); z-index: 10;">
-                            💡 *Ảo giác Trôi nổi*: Đó chính là Hiện tượng Cô lập Giác quan. Khi bị cắt đứt nguồn kích thích từ môi trường, vỏ não sẽ tự động tăng độ nhạy và tạo ra ảo giác để tự lấp đầy.
+                            <div class="comp-card-v88 card-right card-inactive">
+                                <div class="comp-header-v88">
+                                    <h3>Cắt Đứt Giác Quan</h3>
+                                    <div class="comp-icon-v88">🌌</div>
+                                </div>
+                                <div class="comp-bullet-list-v88">
+                                    <div class="comp-bullet-row-v88" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v88">❌</span>
+                                        <span>Tín hiệu đầu vào rơi về mức 0</span>
+                                    </div>
+                                    <div class="comp-bullet-row-v88" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v88">❌</span>
+                                        <span>Hệ RAS tăng độ nhạy tối đa</span>
+                                    </div>
+                                </div>
+                                <div class="comp-footer-v88">BÙNG PHÁT 95%</div>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -139,42 +156,18 @@
                         <span class="ambient-sleep-particle-v88" style="top: 12%; left: 85%; animation-delay: -2s;">✨</span>
                         <span class="ambient-sleep-particle-v88" style="top: 78%; left: 12%; animation-delay: -5s;">🧠</span>
 
-                        <div class="comp-row-v88">
-                            <div class="comp-card-v88 card-left card-active">
-                                <div class="comp-header-v88">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v88">🌌</div>
-                                </div>
-                                <div class="comp-bullet-list-v88">
-                                    <div class="comp-bullet-row-v88" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v88">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
-                                    </div>
-                                    <div class="comp-bullet-row-v88" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v88">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
-                                    </div>
-                                </div>
-                                <div class="comp-footer-v88">BẢN NĂNG</div>
-                            </div>
+                        <div class="sleep-diagram-board" style="width:720px; height:340px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.25);">
+                            <pre style='color:#a7f3d0; font-family:monospace; text-align:left; font-size:15px; line-height:1.6; background:rgba(0,0,0,0.5); padding:20px; border-radius:12px; margin:0;'>// CÔ LẬP GIÁC QUAN TRONG BỂ
+let sensoryInput = 0; // Tối hoàn toàn
+let brainHallucinationThreshold = 10;
+let corticalSensitivity = 150; // Độ nhạy vọt lên
+if (sensoryInput < brainHallucinationThreshold) {
+    triggerHallucinations(); // Tự sinh ảo giác
+}</pre>
+                        </div>
 
-                            <div class="comp-card-v88 card-right card-inactive">
-                                <div class="comp-header-v88">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v88">⚙️</div>
-                                </div>
-                                <div class="comp-bullet-list-v88">
-                                    <div class="comp-bullet-row-v88" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v88">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
-                                    </div>
-                                    <div class="comp-bullet-row-v88" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v88">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
-                                    </div>
-                                </div>
-                                <div class="comp-footer-v88">NHẬN THỨC MỚI</div>
-                            </div>
+                        <div style="font-size: 15px; color: rgba(255,255,255,0.4); text-align: center; max-width: 650px; line-height: 1.5; border: 1.5px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.01); z-index: 10;">
+                            💡 *Quy luật Trí Não*: So sánh: Trạng thái bình thường tiếp nhận thông tin khách quan. Trạng thái cô lập buộc não bộ phải tự phóng chiếu thế giới nội tâm ra ngoài.
                         </div>
                     </div>
                 `;
@@ -205,22 +198,26 @@
     }
 
     function updateFrame(slideId, canvas, progress) {
+        // Slide 1 Hook Animation
         if (slideId === 'slide_memo88_1') {
             const main = canvas.querySelector('.hook-main-icon-v88');
             const sub = canvas.querySelector('.hook-sub-icon-v88');
             if (main && sub) {
                 if (progress > 0.45) {
-                    main.style.transform = 'translateX(40px) scale(1.2)';
+                    main.style.transform = 'translateY(-25px) scale(1.3)';
+                    main.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
                     sub.style.opacity = '1';
-                    sub.style.transform = 'scale(1.3)';
+                    sub.style.transform = 'translateY(15px) scale(1.1)';
+                    sub.style.transition = 'all 0.5s ease';
                 } else {
-                    main.style.transform = 'translateX(0) scale(1)';
+                    main.style.transform = 'translateY(0) scale(1)';
                     sub.style.opacity = '0.2';
-                    sub.style.transform = 'scale(1)';
+                    sub.style.transform = 'translateY(0) scale(1)';
                 }
             }
         }
-        else if (slideId === 'slide_memo88_2') {
+        // Slide 2 Diagram Nodes Sequential Highlight (if active on slide 2)
+        else if (slideId === 'slide_memo88_2' && canvas.querySelector('.sleep-diagram-board')) {
             const n1 = canvas.querySelector('.node-1');
             const n2 = canvas.querySelector('.node-2');
             const n3 = canvas.querySelector('.node-3');
@@ -247,6 +244,7 @@
                 if (a2) a2.classList.remove('highlight-link');
             }
         }
+        // Slide 3 Interactive Simulator
         else if (slideId === 'slide_memo88_3') {
             const badge = canvas.querySelector('.state-indicator-badge');
             const actor = canvas.querySelector('.sim-actor-v88');
@@ -289,7 +287,8 @@
                 }
             }
         }
-        else if (slideId === 'slide_memo88_4') {
+        // Slide 4 Dual Comparison Card Toggling
+        else if (slideId === 'slide_memo88_4' && canvas.querySelector('.comp-row-v88')) {
             const leftCard = canvas.querySelector('.card-left');
             const rightCard = canvas.querySelector('.card-right');
 
@@ -313,7 +312,8 @@
                 }
             }
         }
-        else if (slideId === 'slide_memo88_5') {
+        // Slide 5 Takeaway scaling
+        else if (slideId === 'slide_memo88_5' || (slideId === 'slide_memo88_4' && canvas.querySelector('.takeaway-box-v88'))) {
             const box = canvas.querySelector('.takeaway-box-v88');
             if (box) {
                 if (progress > 0.2) {

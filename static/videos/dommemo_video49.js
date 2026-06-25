@@ -213,7 +213,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo49-5-container">
                         <div class="takeaway-radar-v49"></div>
-                        <div class="takeaway-box-v49" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v49" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v49">📈</div>
                             <div class="takeaway-text-v49">
                                 "Hãy luôn giữ tinh thần cởi mở học hỏi. Càng biết nhiều, chúng ta càng nhận ra đại dương kiến thức rộng lớn đến nhường nào!"

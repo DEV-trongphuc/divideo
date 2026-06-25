@@ -218,7 +218,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo53-5-container">
                         <div class="takeaway-radar-v53"></div>
-                        <div class="takeaway-box-v53" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v53" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v53">📉</div>
                             <div class="takeaway-text-v53">
                                 "Khi đưa ra quyết định, hãy chú ý xem bạn có đang chọn chỉ vì sợ mất một thứ gì đó hay không. Đừng để nỗi sợ mất mát trói buộc tiềm năng của bạn!"

@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo75_1",
-    "title": "Hiệu ứng Người ngoài cuộc",
-    "subtitle": "VÌ SAO ĐÁM ĐÔNG CÀNG ĐÔNG, BẠN CÀNG ÍT CÓ CƠ HỘI ĐƯỢC CỨU GIÚP?",
     "layout": "title",
-    "script": "Nếu gặp tai nạn trên đường vắng, cơ hội được cứu của bạn rất cao. Nhưng giữa phố đông người qua lại, tại sao ai cũng lạnh lùng đi qua?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Hiệu ứng Người ngoài cuộc",
+    "subtitle": "VÌ SAO ĐÁM ĐÔNG CÀNG ĐÔNG, BẠN CÀNG ÍT CÓ CƠ HỘI ĐƯỢC CỨU?",
+    "script": "Nếu gặp tai nạn trên đường vắng, cơ hội được cứu của bạn rất cao. Nhưng giữa phố đông người qua lại, tại sao ai cũng lạnh lùng đi qua?"
   },
   {
     "id": "slide_memo75_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "BYSTANDER EFFECT",
     "layout": "diagram",
-    "script": "Hiện tượng này gọi là Hiệu ứng Người ngoài cuộc. Trách nhiệm cứu giúp bị khuếch tán trong đám đông, ai cũng nghĩ sẽ có người khác làm thay mình.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo75_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG NGƯỜI NGOÀI CUỘC",
-    "layout": "metrics",
-    "script": "Mô phỏng: Khi chỉ có 1 người, trách nhiệm cứu giúp là 100%. Nhưng khi đám đông tăng lên 10 người, trách nhiệm cá nhân phân rã xuống còn 10%.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo75_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Nơi ít người kích hoạt nghĩa vụ đạo đức tức thì. Nơi đông người tạo sự ỷ lại tập thể và tâm lý e ngại nổi bật.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Sự cố xảy ra",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Đám đông vây quanh",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Trách nhiệm chia nhỏ",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Tất cả cùng đóng băng",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "BYSTANDER EFFECT",
+    "script": "Hiện tượng này gọi là Hiệu ứng Người ngoài cuộc. Trách nhiệm cứu giúp bị khuếch tán trong đám đông, ai cũng nghĩ sẽ có người khác làm thay mình."
   },
   {
-    "id": "slide_memo75_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Nếu cần giúp đỡ nơi đông người, hãy chỉ đích danh một người cụ thể. Điều đó kích hoạt trách nhiệm trực tiếp của họ!",
+    "id": "slide_memo75_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG NGƯỜI NGOÀI CUỘC",
+    "script": "Mô phỏng: Khi chỉ có 1 người, trách nhiệm cứu giúp là 100%. Nhưng khi đám đông tăng lên 10 người, trách nhiệm cá nhân phân rã xuống còn 10%."
+  },
+  {
+    "id": "slide_memo75_4",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🧍",
+        "title": "Người Nhân Chứng Độc Nhất",
+        "desc": "Gánh vác 100% trách nhiệm đạo đức"
+      },
+      {
+        "icon": "👥",
+        "title": "Đám Đông Nhiều Người",
+        "desc": "Trách nhiệm bị chia nhỏ cho số đông"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Nơi ít người kích hoạt nghĩa vụ đạo đức tức thì. Nơi đông người tạo sự ỷ lại tập thể và tâm lý e ngại nổi bật."
+  },
+  {
+    "id": "slide_memo75_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Nếu cần giúp đỡ nơi đông người, hãy chỉ đích danh một người cụ thể. Điều đó kích hoạt trách nhiệm trực tiếp của họ!"
   },
   {
     "id": "slide_memo75_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

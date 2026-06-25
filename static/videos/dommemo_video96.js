@@ -72,29 +72,46 @@
         else if (slideId === 'slide_memo96_2') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                    <div class="memo-wrapper slide-memo96-2-container">
-                        <span class="ambient-sleep-particle-v96" style="top: 8%; left: 85%; animation-delay: -2s;">🧠</span>
-                        <span class="ambient-sleep-particle-v96" style="top: 82%; left: 10%; animation-delay: -4s;">🎯</span>
+                    <div class="memo-wrapper slide-memo96-4-container">
+                        <span class="ambient-sleep-particle-v96" style="top: 12%; left: 85%; animation-delay: -2s;">✨</span>
+                        <span class="ambient-sleep-particle-v96" style="top: 78%; left: 12%; animation-delay: -5s;">🧠</span>
 
-                        <div class="sleep-diagram-board">
-                            <div class="diagram-node-v96 node-1">
-                                <span class="diagram-node-icon">🎯</span>
-                                <span>1. Đầu Vào</span>
+                        <div class="comp-row-v96">
+                            <div class="comp-card-v96 card-left card-active">
+                                <div class="comp-header-v96">
+                                    <h3>Hoài Nghi Bản Thân</h3>
+                                    <div class="comp-icon-v96">❓</div>
+                                </div>
+                                <div class="comp-bullet-list-v96">
+                                    <div class="comp-bullet-row-v96" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v96">✨</span>
+                                        <span>Dễ từ bỏ khi gặp trở ngại đầu</span>
+                                    </div>
+                                    <div class="comp-bullet-row-v96" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v96">✨</span>
+                                        <span>Nghĩ khó khăn là giới hạn năng lực</span>
+                                    </div>
+                                </div>
+                                <div class="comp-footer-v96">DỄ BỎ CUỘC</div>
                             </div>
-                            <span class="node-link-arrow arrow-1">➡️</span>
-                            <div class="diagram-node-v96 node-2">
-                                <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
-                            </div>
-                            <span class="node-link-arrow arrow-2">➡️</span>
-                            <div class="diagram-node-v96 node-3">
-                                <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
-                            </div>
-                        </div>
 
-                        <div style="font-size: 15px; color: rgba(255,255,255,0.4); text-align: center; max-width: 650px; line-height: 1.5; border: 1.5px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.01); z-index: 10;">
-                            💡 *Hiệu quả Bản thân*: Đó gọi là Hiệu ứng Hiệu quả Bản thân. Niềm tin vững chắc vào việc mình có thể hoàn thành nhiệm vụ trực tiếp thúc đẩy sự kiên trì và nỗ lực.
+                            <div class="comp-card-v96 card-right card-inactive">
+                                <div class="comp-header-v96">
+                                    <h3>Tin Tưởng Hành Động</h3>
+                                    <div class="comp-icon-v96">🎯</div>
+                                </div>
+                                <div class="comp-bullet-list-v96">
+                                    <div class="comp-bullet-row-v96" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v96">❌</span>
+                                        <span>Nhìn nhận trở ngại là bài học</span>
+                                    </div>
+                                    <div class="comp-bullet-row-v96" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v96">❌</span>
+                                        <span>Nỗ lực tìm kiếm giải pháp mới</span>
+                                    </div>
+                                </div>
+                                <div class="comp-footer-v96">THÀNH CÔNG</div>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -139,42 +156,17 @@
                         <span class="ambient-sleep-particle-v96" style="top: 12%; left: 85%; animation-delay: -2s;">✨</span>
                         <span class="ambient-sleep-particle-v96" style="top: 78%; left: 12%; animation-delay: -5s;">🧠</span>
 
-                        <div class="comp-row-v96">
-                            <div class="comp-card-v96 card-left card-active">
-                                <div class="comp-header-v96">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v96">🎯</div>
-                                </div>
-                                <div class="comp-bullet-list-v96">
-                                    <div class="comp-bullet-row-v96" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v96">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
-                                    </div>
-                                    <div class="comp-bullet-row-v96" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v96">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
-                                    </div>
-                                </div>
-                                <div class="comp-footer-v96">BẢN NĂNG</div>
-                            </div>
+                        <div class="sleep-diagram-board" style="width:720px; height:340px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.25);">
+                            <pre style='color:#a7f3d0; font-family:monospace; text-align:left; font-size:15px; line-height:1.6; background:rgba(0,0,0,0.5); padding:20px; border-radius:12px; margin:0;'>// CHỈ SỐ HIỆU QUẢ BẢN THÂN
+let selfBelief = 0.95;
+let resilience = selfBelief * 1.5;
+if (resilience > 1.0) {
+    executeTask(Task.Complete); // Kiên trì vượt qua khó khăn
+}</pre>
+                        </div>
 
-                            <div class="comp-card-v96 card-right card-inactive">
-                                <div class="comp-header-v96">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v96">⚙️</div>
-                                </div>
-                                <div class="comp-bullet-list-v96">
-                                    <div class="comp-bullet-row-v96" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v96">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
-                                    </div>
-                                    <div class="comp-bullet-row-v96" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v96">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
-                                    </div>
-                                </div>
-                                <div class="comp-footer-v96">NHẬN THỨC MỚI</div>
-                            </div>
+                        <div style="font-size: 15px; color: rgba(255,255,255,0.4); text-align: center; max-width: 650px; line-height: 1.5; border: 1.5px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.01); z-index: 10;">
+                            💡 *Quy luật Trí Não*: So sánh: Thiếu niềm tin dẫn đến việc bỏ cuộc sớm khi gặp khó khăn. Tin tưởng năng lực bản thân tạo động lực tìm kiếm giải pháp vượt khó.
                         </div>
                     </div>
                 `;
@@ -205,22 +197,26 @@
     }
 
     function updateFrame(slideId, canvas, progress) {
+        // Slide 1 Hook Animation
         if (slideId === 'slide_memo96_1') {
             const main = canvas.querySelector('.hook-main-icon-v96');
             const sub = canvas.querySelector('.hook-sub-icon-v96');
             if (main && sub) {
                 if (progress > 0.45) {
-                    main.style.transform = 'translateX(40px) scale(1.2)';
+                    main.style.transform = 'translateY(-25px) scale(1.3)';
+                    main.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
                     sub.style.opacity = '1';
-                    sub.style.transform = 'scale(1.3)';
+                    sub.style.transform = 'translateY(15px) scale(1.1)';
+                    sub.style.transition = 'all 0.5s ease';
                 } else {
-                    main.style.transform = 'translateX(0) scale(1)';
+                    main.style.transform = 'translateY(0) scale(1)';
                     sub.style.opacity = '0.2';
-                    sub.style.transform = 'scale(1)';
+                    sub.style.transform = 'translateY(0) scale(1)';
                 }
             }
         }
-        else if (slideId === 'slide_memo96_2') {
+        // Slide 2 Diagram Nodes Sequential Highlight (if active on slide 2)
+        else if (slideId === 'slide_memo96_2' && canvas.querySelector('.sleep-diagram-board')) {
             const n1 = canvas.querySelector('.node-1');
             const n2 = canvas.querySelector('.node-2');
             const n3 = canvas.querySelector('.node-3');
@@ -247,6 +243,7 @@
                 if (a2) a2.classList.remove('highlight-link');
             }
         }
+        // Slide 3 Interactive Simulator
         else if (slideId === 'slide_memo96_3') {
             const badge = canvas.querySelector('.state-indicator-badge');
             const actor = canvas.querySelector('.sim-actor-v96');
@@ -285,7 +282,8 @@
                 }
             }
         }
-        else if (slideId === 'slide_memo96_4') {
+        // Slide 4 Dual Comparison Card Toggling
+        else if (slideId === 'slide_memo96_4' && canvas.querySelector('.comp-row-v96')) {
             const leftCard = canvas.querySelector('.card-left');
             const rightCard = canvas.querySelector('.card-right');
 
@@ -309,7 +307,8 @@
                 }
             }
         }
-        else if (slideId === 'slide_memo96_5') {
+        // Slide 5 Takeaway scaling
+        else if (slideId === 'slide_memo96_5' || (slideId === 'slide_memo96_4' && canvas.querySelector('.takeaway-box-v96'))) {
             const box = canvas.querySelector('.takeaway-box-v96');
             if (box) {
                 if (progress > 0.2) {

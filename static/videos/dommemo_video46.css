@@ -56,13 +56,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 25px;
+    gap: 55px;
     width: 100%;
     position: relative;
 }
 
 .falling-anchor-v46 {
-                font-size: 110px;
+                font-size: 190px;
                 transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 z-index: 5;
             }
@@ -123,7 +123,7 @@
 }
 
 .diagram-node-icon {
-    font-size: 36px;
+    font-size: 70px;
     transition: transform 0.3s ease;
 }
 
@@ -245,7 +245,7 @@
                 justify-content: space-around;
             }
             .anchor-icon {
-                font-size: 45px;
+                font-size: 70px;
                 opacity: 0.2;
                 transition: all 0.4s ease;
             }
@@ -388,7 +388,7 @@
 /* --- SLIDE 5: TAKEAWAY --- */
 .slide-memo46-5-container {
     justify-content: center !important;
-    padding-top: 0px !important;
+    padding-top: 60px !important;
 }
 
 .takeaway-radar-v46 {
@@ -427,7 +427,7 @@
 }
 
 .takeaway-face-v46 {
-    font-size: 70px;
+    font-size: 190px;
     margin-bottom: 12px;
 }
 

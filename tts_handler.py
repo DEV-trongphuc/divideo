@@ -87,7 +87,17 @@ def synthesize_google_tts(text, voice_name, output_path):
 async def synthesize_edge_tts(text, voice, output_path):
     """Fallback synthesizer using Microsoft Edge-TTS (high quality neural voice)."""
     import edge_tts
-    communicate = edge_tts.Communicate(text, voice)
+    pitch = "+0Hz"
+    rate = "+0%"
+    
+    if voice.endswith("-Warm"):
+        voice = voice[:-5]
+        pitch = "-7Hz"
+    elif voice.endswith("-Deep"):
+        voice = voice[:-5]
+        pitch = "-12Hz"
+        
+    communicate = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch)
     await communicate.save(output_path)
 
 def normalize_text_for_tts(text):

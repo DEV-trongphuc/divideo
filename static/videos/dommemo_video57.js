@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo57-5-container">
                         <div class="takeaway-radar-v57"></div>
-                        <div class="takeaway-box-v57" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v57" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v57">😇</div>
                             <div class="takeaway-text-v57">
                                 "Đừng vội tin cậy hoàn toàn vào ấn tượng ban đầu. Hào quang lấp lánh bên ngoài đôi khi chỉ là một tấm rèm che đi sự thật!"

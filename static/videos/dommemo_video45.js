@@ -213,7 +213,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo45-5-container">
                         <div class="takeaway-radar-v45"></div>
-                        <div class="takeaway-box-v45" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v45" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v45">🌱</div>
                             <div class="takeaway-text-v45">
                                 "Hãy tin tưởng và trao đi những kỳ vọng tốt đẹp. Bạn đang trực tiếp gieo hạt mầm thành công vào tương lai của những người xung quanh!"
@@ -239,9 +239,9 @@
             if (seed && stars) {
                 if (progress > 0.45) {
                     seed.textContent = '🌿';
-                    seed.style.transform = 'scale(1.5) rotate(5deg)';
+                    seed.style.transform = 'translateY(-20px) scale(1.3) rotate(5deg)';
                     stars.style.opacity = '1';
-                    stars.style.transform = 'translateY(-20px)';
+                    stars.style.transform = 'translateY(15px) scale(1.1)';
                 } else {
                     seed.textContent = '🌱';
                     seed.style.transform = 'scale(1) rotate(0deg)';

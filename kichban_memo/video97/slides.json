@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo97_1",
-    "title": "Vòng lặp Dopamine",
-    "subtitle": "VÌ SAO CUỘC CHIẾN THU HÚT SỰ CHÚ Ý ĐANG TÀN PHÁ NÃO BỘ CỦA BẠN?",
     "layout": "title",
-    "script": "Tại sao bạn lại liên tục vuốt màn hình điện thoại vô thức để tìm kiếm các thông báo hay video ngắn tiếp theo? Bạn đang bị điều khiển?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Vòng lặp Dopamine",
+    "subtitle": "VÌ SAO MẠNG XÃ HỘI ĐANG TÀN PHÁ NÃO BỘ CỦA BẠN?",
+    "script": "Tại sao bạn lại liên tục vuốt màn hình điện thoại vô thức để tìm kiếm các thông báo hay video ngắn tiếp theo? Bạn đang bị điều khiển?"
   },
   {
     "id": "slide_memo97_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "DOPAMINE LOOP",
     "layout": "diagram",
-    "script": "Đó chính là Vòng lặp Dopamine vô tận. Mạng xã hội sử dụng thuật toán phần thưởng biến thiên để liên tục kích hoạt dopamine, giữ chân bạn online.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo97_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA VÒNG LẶP DOPAMINE",
-    "layout": "metrics",
-    "script": "Mô phỏng: Mỗi lượt vuốt màn hình tạo ra một đỉnh dopamine ngắn hạn, nhưng đổi lại, năng lượng tập trung sâu của bạn bị rút cạn nhanh chóng.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo97_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Tập trung sâu mang lại sự thỏa mãn bền vững, lâu dài. Lướt mạng liên tục tạo sự thỏa mãn ngắn hạn, gây nghiện và mệt mỏi.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Vuốt màn hình điện thoại",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Nhận phần thưởng ngẫu nhiên",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Đỉnh dopamine bùng nổ",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Khát khao vuốt tiếp tục",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "DOPAMINE LOOP",
+    "script": "Đó chính là Vòng lặp Dopamine vô tận. Mạng xã hội sử dụng thuật toán phần thưởng biến thiên để liên tục kích hoạt dopamine, giữ chân bạn online."
   },
   {
-    "id": "slide_memo97_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy thiết lập giới hạn thời gian sử dụng điện thoại và dành thời gian cho các hoạt động thực tế. Hãy giành lại quyền làm chủ bộ não của bạn!",
+    "id": "slide_memo97_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA VÒNG LẶP DOPAMINE",
+    "script": "Mô phỏng: Mỗi lượt vuốt màn hình tạo ra một đỉnh dopamine ngắn hạn, nhưng đổi lại, năng lượng tập trung sâu của bạn bị rút cạn nhanh chóng."
+  },
+  {
+    "id": "slide_memo97_4",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🧘",
+        "title": "Tập Trung Trạng Thái Sâu",
+        "desc": "Sản sinh dopamine bền vững, dịu nhẹ"
+      },
+      {
+        "icon": "📱",
+        "title": "Nghiện Lướt Di Động",
+        "desc": "Các kích thích dopamine ảo dồn dập"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Tập trung sâu mang lại sự thỏa mãn bền vững. Lướt mạng liên tục tạo sự thỏa mãn ngắn hạn, gây nghiện và mệt mỏi."
+  },
+  {
+    "id": "slide_memo97_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy thiết lập giới hạn thời gian sử dụng điện thoại và dành thời gian cho các hoạt động thực tế. Hãy giành lại quyền làm chủ bộ não của bạn!"
   },
   {
     "id": "slide_memo97_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

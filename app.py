@@ -318,6 +318,8 @@ def get_voices():
             {"id": "google-vi-VN-Wavenet-C", "name": "Google: Nữ MN (Miền Nam, Wavenet)"},
             {"id": "google-vi-VN-Neural2-A", "name": "Google: Nữ MB (Miền Bắc, Neural2)"},
             {"id": "vi-VN-NamMinhNeural", "name": "Edge: Nam Minh (Nam VN - Trầm ấm)"},
+            {"id": "vi-VN-NamMinhNeural-Warm", "name": "Edge: Nam Minh (Miền Nam - Trầm ấm, Hạ Tone)"},
+            {"id": "vi-VN-NamMinhNeural-Deep", "name": "Edge: Nam Minh (Miền Nam - Giọng trầm sâu)"},
             {"id": "vi-VN-HoaiMyNeural", "name": "Edge: Hoài Mỹ (Nữ VN - Truyền cảm)"},
             {"id": "en-US-AriaNeural", "name": "Edge: Aria (Female US)"},
             {"id": "en-US-GuyNeural", "name": "Edge: Guy (Male US)"}

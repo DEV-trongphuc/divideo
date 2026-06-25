@@ -206,7 +206,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo48-5-container">
                         <div class="takeaway-radar-v48"></div>
-                        <div class="takeaway-box-v48" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v48" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v48">🚨</div>
                             <div class="takeaway-text-v48">
                                 "Nếu cần giúp đỡ nơi đông người, hãy chỉ đích danh một người cụ thể. Đừng kêu cứu chung chung giữa đám đông!"

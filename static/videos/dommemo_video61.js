@@ -213,7 +213,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo61-5-container">
                         <div class="takeaway-radar-v61"></div>
-                        <div class="takeaway-box-v61" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v61" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v61">↔️</div>
                             <div class="takeaway-text-v61">
                                 "Hãy luôn xác thực thông tin bằng các công cụ đo lường khách quan. Đừng chỉ tin vào những gì mắt bạn trực tiếp nhìn thấy!"

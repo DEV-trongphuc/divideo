@@ -213,7 +213,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo47-5-container">
                         <div class="takeaway-radar-v47"></div>
-                        <div class="takeaway-box-v47" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v47" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v47">🧱</div>
                             <div class="takeaway-text-v47">
                                 "Hãy cho bộ não nghỉ ngơi sau mỗi 45 phút làm việc lặp lại. Đừng để những khối gạch ảo xây kín thời gian nghỉ ngơi của bạn!"

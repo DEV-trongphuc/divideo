@@ -213,7 +213,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo52-5-container">
                         <div class="takeaway-radar-v52"></div>
-                        <div class="takeaway-box-v52" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v52" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v52">🛡️</div>
                             <div class="takeaway-text-v52">
                                 "Sự thật là không ai hoàn toàn miễn nhiễm với truyền thông. Hãy luôn giữ cái đầu lạnh và thận trọng với những thông tin bạn tiếp nhận!"

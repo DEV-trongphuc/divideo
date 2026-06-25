@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo65_1",
-    "title": "Hiệu ứng Pratfall",
-    "subtitle": "VÌ SAO MẮC LỖI NHỎ LẠI GIÚP BẠN ĐÁNG YÊU HƠN?",
     "layout": "title",
-    "script": "Bạn luôn muốn tỏ ra hoàn hảo trước mặt mọi người. Nhưng sự thật là, một lỗi lầm vụng về nhỏ lại giúp bạn kéo mọi người xích lại gần hơn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Hiệu ứng Pratfall",
+    "subtitle": "VÌ SAO MẮC LỖI NHỎ LẠI GIÚP BẠN ĐÁNG YÊU HƠN?",
+    "script": "Bạn luôn muốn tỏ ra hoàn hảo trước mặt mọi người. Nhưng một lỗi lầm vụng về nhỏ lại giúp bạn kéo mọi người xích lại gần hơn."
   },
   {
     "id": "slide_memo65_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "PRATFALL EFFECT",
-    "layout": "diagram",
-    "script": "Hiện tượng này gọi là Hiệu ứng Pratfall. Người tài giỏi thỉnh thoảng phạm một lỗi nhỏ sẽ trở nên gần gũi, thực tế và đáng mến hơn trong mắt người khác.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🛡️",
+        "title": "Hoàn Hảo Tuyệt Đối",
+        "desc": "Tạo khoảng cách xa lạ"
+      },
+      {
+        "icon": "☕",
+        "title": "Tài Năng & Vụng Về",
+        "desc": "Gần gũi và thực tế"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Người hoàn hảo tuyệt đối tạo khoảng cách và áp lực. Người tài năng nhưng vụng về tạo sự đồng cảm và kết nối ấm áp."
   },
   {
     "id": "slide_memo65_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG PRATFALL",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi tách cà phê đổ xuống, sự hoàn hảo biến mất nhưng mức độ yêu mến trong lòng người quan sát lập tức tăng vọt nhờ cảm giác chân thật.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo65_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Người hoàn hảo tuyệt đối tạo khoảng cách và áp lực. Người tài năng nhưng vụng về tạo sự đồng cảm và kết nối ấm áp.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG PRATFALL",
+    "script": "Mô phỏng: Khi tách cà phê đổ xuống, sự hoàn hảo biến mất nhưng mức độ yêu mến trong lòng người quan sát lập tức tăng vọt nhờ cảm giác chân thật."
   },
   {
-    "id": "slide_memo65_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Đừng sợ mắc những lỗi nhỏ trước mặt người khác. Sự chân thật và một chút vụng về chính là chất keo kết nối mạnh mẽ nhất!",
+    "id": "slide_memo65_4",
+    "layout": "diagram",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Chuyên môn cao",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Mắc lỗi nhỏ",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Bớt hoàn hảo",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Lòng mến mộ tăng",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "PRATFALL EFFECT",
+    "script": "Hiện tượng này gọi là Hiệu ứng Pratfall. Người tài giỏi thỉnh thoảng phạm một lỗi nhỏ sẽ trở nên gần gũi, thực tế và đáng mến hơn trong mắt người khác."
+  },
+  {
+    "id": "slide_memo65_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Đừng sợ mắc những lỗi nhỏ trước mặt người khác. Sự chân thật và một chút vụng về chính là chất keo kết nối mạnh mẽ nhất!"
   },
   {
     "id": "slide_memo65_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

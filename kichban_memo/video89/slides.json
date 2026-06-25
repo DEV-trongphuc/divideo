@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo89_1",
-    "title": "Thiên kiến Xác nhận",
-    "subtitle": "VÌ SAO BẠN CHỈ TIN VÀO NHỮNG THÔNG TIN CỦNG CỐ NIỀM TIN SẴN CÓ?",
     "layout": "title",
-    "script": "Tại sao khi tin vào một lý thuyết, bạn chỉ đọc bài viết ủng hộ nó và lập tức lướt qua các bài viết phản bác? Bạn đang tìm sự thật, hay tìm sự đồng tình?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Thiên kiến Xác nhận",
+    "subtitle": "VÌ SAO BẠN CHỈ TIN VÀO NIỀM TIN SẴN CÓ CỦA MÌNH?",
+    "script": "Tại sao bạn chỉ đọc bài viết ủng hộ giả thuyết của mình và lướt qua các bài viết phản bác? Bạn đang tìm sự thật, hay tìm sự đồng tình?"
   },
   {
     "id": "slide_memo89_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "CONFIRMATION BIAS",
     "layout": "diagram",
-    "script": "Đó gọi là Thiên kiến Xác nhận. Bộ não có xu hướng tìm kiếm, ghi nhớ và diễn dịch thông tin theo cách củng cố các định kiến sẵn có của bản thân.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo89_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA THIÊN KIẾN XÁC NHẬN",
-    "layout": "metrics",
-    "script": "Mô phỏng: Màng lọc niềm tin chỉ cho phép các ý kiến đồng điệu đi vào bộ nhớ đệm, đồng thời dựng khiên chắn đẩy lùi mọi thông tin trái chiều.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo89_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Người khách quan lắng nghe đa chiều để tìm sự thật. Người thiên kiến chỉ tìm các mảnh ghép để tự làm hài lòng quan điểm cá nhân.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Tiếp nhận thông tin mới",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. So khớp niềm tin sẵn có",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Chấp nhận thông tin khớp",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Lọc bỏ thông tin trái chiều",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "CONFIRMATION BIAS",
+    "script": "Đó gọi là Thiên kiến Xác nhận. Bộ não có xu hướng tìm kiếm, ghi nhớ và diễn dịch thông tin theo cách củng cố các định kiến sẵn có của bản thân."
   },
   {
-    "id": "slide_memo89_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy chủ động tìm kiếm các thông tin phản biện và lắng nghe tiếng nói trái chiều. Đó là cách duy nhất để xây dựng tư duy sắc bén!",
+    "id": "slide_memo89_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA THIÊN KIẾN XÁC NHẬN",
+    "script": "Mô phỏng: Màng lọc niềm tin chỉ cho phép các ý kiến đồng điệu đi vào bộ nhớ đệm, đồng thời dựng khiên chắn đẩy lùi mọi thông tin trái chiều."
+  },
+  {
+    "id": "slide_memo89_4",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🧠",
+        "title": "Tư Duy Khách Quan",
+        "desc": "Tìm kiếm bằng chứng phản biện"
+      },
+      {
+        "icon": "🔍",
+        "title": "Lọc Thiên Kiến",
+        "desc": "Chỉ đọc bài viết đồng điệu"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Người khách quan lắng nghe đa chiều để tìm sự thật. Người thiên kiến chỉ tìm các mảnh ghép để tự làm hài lòng quan điểm cá nhân."
+  },
+  {
+    "id": "slide_memo89_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy chủ động tìm kiếm các thông tin phản luận và lắng nghe tiếng nói trái chiều. Đó là cách duy nhất để xây dựng tư duy sắc bén!"
   },
   {
     "id": "slide_memo89_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

@@ -79,17 +79,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v99 node-1">
                                 <span class="diagram-node-icon">💬</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Xung đột chưa giải quyết</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v99 node-2">
-                                <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span class="diagram-node-icon">🔄</span>
+                                <span>2. Vòng lặp mở chạy ngầm</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v99 node-3">
-                                <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span class="diagram-node-icon">🔋</span>
+                                <span>3. Tiêu hao tài nguyên não</span>
                             </div>
                         </div>
 
@@ -142,38 +142,38 @@
                         <div class="comp-row-v99">
                             <div class="comp-card-v99 card-left card-active">
                                 <div class="comp-header-v99">
-                                    <h3>TRẠNG THÁI A</h3>
+                                    <h3>Vòng Lặp Quan Hệ Mở</h3>
                                     <div class="comp-icon-v99">💬</div>
                                 </div>
                                 <div class="comp-bullet-list-v99">
                                     <div class="comp-bullet-row-v99" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v99">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Tin nhắn treo chưa có phản hồi</span>
                                     </div>
                                     <div class="comp-bullet-row-v99" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v99">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Đầu óc phán đoán, phân tích liên tục</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v99">BẢN NĂNG</div>
+                                <div class="comp-footer-v99">85% ÁP LỰC</div>
                             </div>
 
                             <div class="comp-card-v99 card-right card-inactive">
                                 <div class="comp-header-v99">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v99">⚙️</div>
+                                    <h3>Vòng Lặp Đã Đóng</h3>
+                                    <div class="comp-icon-v99">🤝</div>
                                 </div>
                                 <div class="comp-bullet-list-v99">
                                     <div class="comp-bullet-row-v99" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v99">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Đối thoại cởi mở, giải quyết xong</span>
                                     </div>
                                     <div class="comp-bullet-row-v99" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v99">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Não giải phóng bộ nhớ đệm lập tức</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v99">NHẬN THỨC MỚI</div>
+                                <div class="comp-footer-v99">10% BÌNH YÊN</div>
                             </div>
                         </div>
                     </div>
@@ -205,22 +205,26 @@
     }
 
     function updateFrame(slideId, canvas, progress) {
+        // Slide 1 Hook Animation
         if (slideId === 'slide_memo99_1') {
             const main = canvas.querySelector('.hook-main-icon-v99');
             const sub = canvas.querySelector('.hook-sub-icon-v99');
             if (main && sub) {
                 if (progress > 0.45) {
-                    main.style.transform = 'translateX(40px) scale(1.2)';
+                    main.style.transform = 'translateY(-25px) scale(1.3)';
+                    main.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
                     sub.style.opacity = '1';
-                    sub.style.transform = 'scale(1.3)';
+                    sub.style.transform = 'translateY(15px) scale(1.1)';
+                    sub.style.transition = 'all 0.5s ease';
                 } else {
-                    main.style.transform = 'translateX(0) scale(1)';
+                    main.style.transform = 'translateY(0) scale(1)';
                     sub.style.opacity = '0.2';
-                    sub.style.transform = 'scale(1)';
+                    sub.style.transform = 'translateY(0) scale(1)';
                 }
             }
         }
-        else if (slideId === 'slide_memo99_2') {
+        // Slide 2 Diagram Nodes Sequential Highlight (if active on slide 2)
+        else if (slideId === 'slide_memo99_2' && canvas.querySelector('.sleep-diagram-board')) {
             const n1 = canvas.querySelector('.node-1');
             const n2 = canvas.querySelector('.node-2');
             const n3 = canvas.querySelector('.node-3');
@@ -247,6 +251,7 @@
                 if (a2) a2.classList.remove('highlight-link');
             }
         }
+        // Slide 3 Interactive Simulator
         else if (slideId === 'slide_memo99_3') {
             const badge = canvas.querySelector('.state-indicator-badge');
             const actor = canvas.querySelector('.sim-actor-v99');
@@ -289,7 +294,8 @@
                 }
             }
         }
-        else if (slideId === 'slide_memo99_4') {
+        // Slide 4 Dual Comparison Card Toggling
+        else if (slideId === 'slide_memo99_4' && canvas.querySelector('.comp-row-v99')) {
             const leftCard = canvas.querySelector('.card-left');
             const rightCard = canvas.querySelector('.card-right');
 
@@ -313,7 +319,8 @@
                 }
             }
         }
-        else if (slideId === 'slide_memo99_5') {
+        // Slide 5 Takeaway scaling
+        else if (slideId === 'slide_memo99_5' || (slideId === 'slide_memo99_4' && canvas.querySelector('.takeaway-box-v99'))) {
             const box = canvas.querySelector('.takeaway-box-v99');
             if (box) {
                 if (progress > 0.2) {

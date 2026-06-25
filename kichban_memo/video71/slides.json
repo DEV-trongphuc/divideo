@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo71_1",
-    "title": "Ảo giác Minh bạch",
-    "subtitle": "VÌ SAO BẠN LUÔN NGHĨ NGƯỜI KHÁC THẤY RÕ SỰ LO LẮNG CỦA MÌNH?",
     "layout": "title",
-    "script": "Đứng thuyết trình trước đám đông, bạn cảm giác như mọi người đều nghe thấy tiếng tim đập và nhìn thấu sự hoảng loạn bên trong. Thực sự có vậy?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Ảo giác Minh bạch",
+    "subtitle": "VÌ SAO BẠN LUÔN NGHĨ NGƯỜI KHÁC THẤY RÕ SỰ LO LẮNG CỦA MÌNH?",
+    "script": "Đứng thuyết trình trước đám đông, bạn cảm giác như mọi người đều nghe thấy tiếng tim đập và nhìn thấu sự hoảng loạn bên trong. Thực sự có vậy?"
   },
   {
     "id": "slide_memo71_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "ILLUSION OF TRANSPARENCY",
-    "layout": "diagram",
-    "script": "Đó gọi là Ảo giác Minh bạch. Con người thường đánh giá quá cao mức độ mà người khác có thể đọc được trạng thái cảm xúc cá nhân của mình.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🔮",
+        "title": "Nhận Thức Cá Nhân",
+        "desc": "Nhận biết rõ từng nhịp tim đập"
+      },
+      {
+        "icon": "👥",
+        "title": "Nhận Diện Số Đông",
+        "desc": "Chỉ nhìn thấy hình ảnh đứng yên"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Cảm giác cá nhân tự thấy mình lộ liễu 90%. Thực tế, người quan sát chỉ phát hiện chưa tới 5% dấu hiệu lo lắng."
   },
   {
     "id": "slide_memo71_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC MINH BẠCH",
     "layout": "metrics",
-    "script": "Mô phỏng: Dù bên trong cơ thể bạn lo lắng vỡ òa, mồ hôi rơi rớt, nhưng trong mắt người đối diện, bạn trông vẫn cực kỳ bình thản và ổn định.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo71_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Cảm giác cá nhân tự thấy mình lộ liễu 90%. Thực tế, người quan sát chỉ phát hiện chưa tới 5% dấu hiệu lo lắng.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC MINH BẠCH",
+    "script": "Mô phỏng: Dù bên trong cơ thể bạn lo lắng vỡ òa, mồ hôi rơi rớt, nhưng trong mắt người đối diện, bạn trông vẫn cực kỳ bình thản và ổn định."
   },
   {
-    "id": "slide_memo71_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Mọi người không hề nhìn thấu tâm can của bạn đâu. Hãy hít một hơi thật sâu, tự tin bước lên và nói lời của bạn!",
+    "id": "slide_memo71_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// PHÂN TÍCH ẢO GIÁC MINH BẠCH\nlet internalIntensity = 100;\nlet observerPerception = internalIntensity * 0.05; // Chỉ thấy 5%\nconsole.log(`Người khác thấy lo lắng ở mức: ${observerPerception}%`);",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Cảm giác cá nhân tự thấy mình lộ liễu 90%. Thực tế, người quan sát chỉ phát hiện chưa tới 5% dấu hiệu lo lắng."
+  },
+  {
+    "id": "slide_memo71_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Mọi người không hề nhìn thấu tâm can của bạn đâu. Hãy hít một hơi thật sâu, tự tin bước lên và nói lời của bạn!"
   },
   {
     "id": "slide_memo71_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

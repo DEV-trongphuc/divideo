@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo88_1",
-    "title": "Ảo giác Trôi nổi",
-    "subtitle": "ĐIỀU GÌ XẢY RA KHI BẠN CÔ LẬP HOÀN TOÀN CÁC GIÁC QUAN?",
     "layout": "title",
-    "script": "Nằm trong một bể nước tối đen, không âm thanh, không ánh sáng. Bộ não của bạn sẽ nghỉ ngơi, hay tự tạo ra một thế giới kỳ lạ khác?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Ảo giác Trôi nổi",
+    "subtitle": "ĐIỀU GÌ XẢY RA KHI BẠN CÔ LẬP HOÀN TOÀN CÁC GIÁC QUAN?",
+    "script": "Nằm trong một bể nước tối đen, không âm thanh, không ánh sáng. Bộ não của bạn sẽ nghỉ ngơi, hay tự tạo ra một thế giới kỳ lạ khác?"
   },
   {
     "id": "slide_memo88_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "SENSORY DEPRIVATION",
-    "layout": "diagram",
-    "script": "Đó chính là Hiện tượng Cô lập Giác quan. Khi bị cắt đứt nguồn kích thích từ môi trường, vỏ não sẽ tự động tăng độ nhạy và tạo ra ảo giác để tự lấp đầy.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "👁️",
+        "title": "Nhận Tín Hiệu Thực Tế",
+        "desc": "Ánh sáng và âm thanh liên tục"
+      },
+      {
+        "icon": "🌌",
+        "title": "Cắt Đứt Giác Quan",
+        "desc": "Tín hiệu đầu vào rơi về mức 0"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Trạng thái bình thường tiếp nhận thông tin khách quan. Trạng thái cô lập buộc não bộ phải tự phóng chiếu thế giới nội tâm ra ngoài."
   },
   {
     "id": "slide_memo88_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC TRÔI NỔI",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi các tín hiệu giác quan bên ngoài rơi về mức 0, các làn sóng ảo giác trong não lập tức bùng phát mạnh mẽ để bù đắp sự thiếu hụt.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo88_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Trạng thái bình thường tiếp nhận thông tin khách quan. Trạng thái cô lập buộc não bộ phải tự phóng chiếu thế giới nội tâm ra ngoài.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC TRÔI NỔI",
+    "script": "Mô phỏng: Khi các tín hiệu giác quan bên ngoài rơi về mức 0, các làn sóng ảo giác trong não lập tức bùng phát mạnh mẽ để bù đắp sự thiếu hụt."
   },
   {
-    "id": "slide_memo88_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Bộ não là một cỗ máy xử lý thông tin không bao giờ ngừng nghỉ. Khi thế giới im lặng, nội tâm bạn sẽ bắt đầu lên tiếng!",
+    "id": "slide_memo88_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// CÔ LẬP GIÁC QUAN TRONG BỂ\nlet sensoryInput = 0; // Tối hoàn toàn\nlet brainHallucinationThreshold = 10;\nlet corticalSensitivity = 150; // Độ nhạy vọt lên\nif (sensoryInput < brainHallucinationThreshold) {\n    triggerHallucinations(); // Tự sinh ảo giác\n}",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Trạng thái bình thường tiếp nhận thông tin khách quan. Trạng thái cô lập buộc não bộ phải tự phóng chiếu thế giới nội tâm ra ngoài."
+  },
+  {
+    "id": "slide_memo88_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Bộ não là một cỗ máy xử lý thông tin không bao giờ ngừng nghỉ. Khi thế giới im lặng, nội tâm bạn sẽ bắt đầu lên tiếng!"
   },
   {
     "id": "slide_memo88_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

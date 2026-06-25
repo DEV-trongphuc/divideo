@@ -526,12 +526,12 @@ function setupEventListeners() {
                         localStorage.setItem('currentScript', currentScript);
                         await loadScriptList();
                         await fetchSlides();
-                        alert(`ÄÃ£ táº¡o ká»‹ch báº£n má»›i: ${data.name}`);
+                        alert(`Đã tạo kịch bản mới: ${data.name}`);
                     } else {
-                        alert(`Lá»—i: ${data.error}`);
+                        alert(`Lỗi: ${data.error}`);
                     }
                 } catch (err) {
-                    alert(`KhÃ´ng táº¡o Ä‘Æ°á»£c ká»‹ch báº£n: ${err.message}`);
+                    alert(`Không tạo được kịch bản: ${err.message}`);
                 }
             }
         });
@@ -546,7 +546,7 @@ function setupEventListeners() {
             testVoiceBtn.disabled = true;
             testVoiceBtn.innerHTML = '<i class="export-spinner" style="width: 12px; height: 12px; border-width: 2px;"></i>';
             try {
-                const testText = "Xin chÃ o! ÄÃ¢y lÃ  báº£n nghe thá»­ Ã¢m thanh cá»§a giá»ng Ä‘á»c Ä‘Æ°á»£c chá»n.";
+                const testText = "Xin chào! Đây là bản nghe thử âm thanh của giọng đọc được chọn.";
                 const refVoiceSelect = document.getElementById('slide-ref-voice-select');
                 const voxcpmBtn = document.getElementById('tts-mode-voxcpm-btn');
                 const isVoxCPM = voxcpmBtn && voxcpmBtn.classList.contains('active');

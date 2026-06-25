@@ -213,7 +213,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo50-5-container">
                         <div class="takeaway-radar-v50"></div>
-                        <div class="takeaway-box-v50" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v50" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v50">🤯</div>
                             <div class="takeaway-text-v50">
                                 "Để tránh mệt mỏi quyết định, hãy giới hạn bản thân trước 3 lựa chọn hàng đầu. Sự đơn giản chính là bí quyết giải thoát tâm trí!"

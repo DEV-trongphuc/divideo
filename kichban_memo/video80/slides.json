@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo80_1",
-    "title": "Lệch lạc Đồng thuận Giả",
-    "subtitle": "VÌ SAO BẠN TIN RẰNG TẤT CẢ MỌI NGƯỜI ĐỀU ĐỒNG Ý VỚI QUAN ĐIỂM CỦA BẠN?",
     "layout": "title",
-    "script": "Bạn yêu thích một ca sĩ và tin rằng cả thế giới đều phải hâm mộ họ giống bạn. Tại sao bộ não lại thích áp đặt suy nghĩ lên người khác?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Lệch lạc Đồng thuận Giả",
+    "subtitle": "VÌ SAO BẠN TIN RẰNG MỌI NGƯỜI ĐỀU ĐỒNG SUY NGHĨ VỚI MÌNH?",
+    "script": "Bạn yêu thích một ca sĩ và tin rằng cả thế giới đều phải hâm mộ họ giống bạn. Tại sao bộ não lại thích áp đặt suy nghĩ lên người khác?"
   },
   {
     "id": "slide_memo80_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "FALSE CONSENSUS EFFECT",
-    "layout": "diagram",
-    "script": "Hiện tượng này là Lệch lạc Đồng thuận Giả. Chúng ta đánh giá quá cao mức độ mà người khác chia sẻ niềm tin, thói quen và quan điểm của mình.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🗣️",
+        "title": "Đồng Thuận Giả Tạo",
+        "desc": "Phóng chiếu ý kiến cá nhân ra ngoài"
+      },
+      {
+        "icon": "🌈",
+        "title": "Đa Dạng Quan Điểm",
+        "desc": "Thừa nhận sự khác biệt xã hội"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Người áp đặt tin rằng ý kiến của mình là chuẩn mực chung. Người cởi mở hiểu rằng mỗi cá nhân có một thế giới quan độc lập."
   },
   {
     "id": "slide_memo80_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA LỆCH LẠC ĐỒNG THUẬN GIẢ",
     "layout": "metrics",
-    "script": "Mô phỏng: Bạn phóng chiếu ý kiến cá nhân ra xung quanh, tin tưởng 85% mọi người đồng ý, nhưng thực tế chỉ số đồng thuận thực sự chỉ đạt 15%.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo80_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Người áp đặt tin rằng ý kiến của mình là chuẩn mực chung. Người cởi mở hiểu rằng mỗi cá nhân có một thế giới quan độc lập.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA LỆCH LẠC ĐỒNG THUẬN GIẢ",
+    "script": "Mô phỏng: Bạn phóng chiếu ý kiến cá nhân ra xung quanh, tin tưởng 85% mọi người đồng ý, nhưng thực tế chỉ số đồng thuận thực sự chỉ đạt 15%."
   },
   {
-    "id": "slide_memo80_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy tôn trọng sự khác biệt và lắng nghe nhiều góc nhìn khác nhau. Thế giới đa sắc màu chính là vẻ đẹp của cuộc sống!",
+    "id": "slide_memo80_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// CHỈ SỐ PHÓNG CHIẾU ĐỒNG THUẬN\nlet myOpinion = \"A\";\nlet projectedAgreement = 0.85; // Não ảo tưởng 85% đồng ý\nlet actualAgreement = getActualStatistics(\"Opinion A\");\nconsole.log(`Độ lệch: ${projectedAgreement - actualAgreement}`);",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Người áp đặt tin rằng ý kiến của mình là chuẩn mực chung. Người cởi mở hiểu rằng mỗi cá nhân có một thế giới quan độc lập."
+  },
+  {
+    "id": "slide_memo80_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy tôn trọng sự khác biệt và lắng nghe nhiều góc nhìn khác nhau. Thế giới đa sắc màu chính là vẻ đẹp của cuộc sống!"
   },
   {
     "id": "slide_memo80_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

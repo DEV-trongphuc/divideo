@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo100_1",
-    "title": "Đồng bộ Bán cầu",
-    "subtitle": "BÍ QUYẾT KÍCH HOẠT TRẠNG THÁI TẬP TRUNG ĐỈNH CAO CỦA CẢ HAI BÁN CẦU NÃO",
     "layout": "title",
-    "script": "Bạn muốn vừa sáng tạo bay bổng, vừa tư duy logic sắc bén cùng một lúc? Làm thế nào để hai bán cầu não trái và phải đồng bộ hoạt động?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Đồng bộ Bán cầu",
+    "subtitle": "KÍCH HOẠT SỰ ĐỒNG BỘ CẢ HAI BÁN CẦU NÃO",
+    "script": "Bạn muốn vừa sáng tạo bay bổng, vừa tư duy logic sắc bén cùng một lúc? Làm thế nào để hai bán cầu não trái và phải đồng bộ hoạt động?"
   },
   {
     "id": "slide_memo100_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "HEMISPHERE SYNC",
-    "layout": "diagram",
-    "script": "Đó chính là Trạng thái Đồng bộ Bán cầu Não. Khi các sóng não trái và phải đồng bộ tần số, bạn sẽ bước vào trạng thái dòng chảy tập trung tối đa.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "💔",
+        "title": "Hoạt Động Lệch Pha",
+        "desc": "Sóng não trái-phải lệch tần số"
+      },
+      {
+        "icon": "🧠",
+        "title": "Đồng Bộ Đồng Pha",
+        "desc": "Hai bán cầu não đồng bộ tần số"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Não hoạt động lệch pha gây căng thẳng, tư duy rời rạc. Não đồng bộ đồng pha mang lại sự sáng tạo bùng nổ và hiệu suất làm việc vượt trội."
   },
   {
     "id": "slide_memo100_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA ĐỒNG BỘ BÁN CẦU",
     "layout": "metrics",
-    "script": "Mô phỏng: Hai bán cầu não trái (logic) và phải (sáng tạo) phát ra các sóng lệch pha, khi đồng bộ tần số sẽ hợp nhất tạo ra vầng hào quang phát sáng rực rỡ.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo100_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Não hoạt động lệch pha gây căng thẳng, tư duy rời rạc. Não đồng bộ đồng pha mang lại sự sáng tạo bùng nổ và hiệu suất làm việc vượt trội.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ĐỒNG BỘ BÁN CẦU",
+    "script": "Mô phỏng: Hai bán cầu não trái (logic) và phải (sáng tạo) phát ra các sóng lệch pha, khi đồng bộ tần số sẽ hợp nhất tạo ra vầng hào quang phát sáng rực rỡ."
   },
   {
-    "id": "slide_memo100_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy rèn luyện sự đồng bộ bằng cách thiền định, nghe âm thanh tần số kép (binaural beats) và phối hợp cả phân tích logic lẫn liên tưởng sáng tạo!",
+    "id": "slide_memo100_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// ĐỒNG BỘ HAI BÁN CẦU NÃO\nlet leftFrequency = 14.5; // Hz (Beta)\nlet rightFrequency = 14.5; // Đồng bộ hoàn hảo\nlet coherence = (leftFrequency == rightFrequency) ? 0.98 : 0.20;\nif (coherence > 0.90) {\n    engageState(State.Flow); // Trạng thái đỉnh cao\n}",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Não hoạt động lệch pha gây căng thẳng, tư duy rời rạc. Não đồng bộ đồng pha mang lại sự sáng tạo bùng nổ và hiệu suất làm việc vượt trội."
+  },
+  {
+    "id": "slide_memo100_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy rèn luyện sự đồng bộ bằng cách thiền định, nghe âm thanh tần số kép (binaural beats) và phối hợp cả phân tích logic lẫn liên tưởng sáng tạo!"
   },
   {
     "id": "slide_memo100_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

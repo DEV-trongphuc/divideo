@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo74_1",
-    "title": "Hiệu ứng Khán giả",
-    "subtitle": "VÌ SAO CÓ NGƯỜI NHÌN LẠI KHIẾN BẠN LÀM NHANH HƠN HOẶC VỤNG VỀ ĐI?",
     "layout": "title",
-    "script": "Khi bạn gõ bàn phím một mình thì cực nhanh, nhưng chỉ cần sếp đứng sau lưng nhìn, bạn lập tức gõ sai liên tục. Tại sao vậy?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Hiệu ứng Khán giả",
+    "subtitle": "VÌ SAO CÓ NGƯỜI NHÌN LẠI KHIẾN BẠN GÕ PHÍM SAI LIÊN TỤC?",
+    "script": "Khi bạn gõ bàn phím một mình thì cực nhanh, nhưng chỉ cần sếp đứng sau lưng nhìn, bạn lập tức gõ sai liên tục. Tại sao vậy?"
   },
   {
     "id": "slide_memo74_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "AUDIENCE EFFECT",
-    "layout": "diagram",
-    "script": "Đó là Hiệu ứng Khán giả. Sự hiện diện của người khác làm tăng mức độ hưng phấn sinh lý, thúc đẩy việc thực hiện các tác vụ quen thuộc nhưng cản trở tác vụ khó.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🧘",
+        "title": "Làm Việc Độc Lập",
+        "desc": "Hệ thần kinh giao cảm bình tĩnh"
+      },
+      {
+        "icon": "👀",
+        "title": "Làm Dưới Sự Giám Sát",
+        "desc": "Kích hoạt adrenaline khẩn cấp"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Làm việc một mình giữ tâm lý ổn định, cân bằng. Làm việc dưới sự giám sát đẩy cao năng suất nhưng dễ phát sinh lỗi kỹ thuật."
   },
   {
     "id": "slide_memo74_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG KHÁN GIẢ",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi có ánh mắt quan sát rọi xuống, tốc độ xử lý việc đơn giản vọt lên 150%, nhưng chỉ số căng thẳng cũng leo thang nhanh chóng.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo74_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Làm việc một mình giữ tâm lý ổn định, cân bằng. Làm việc dưới sự giám sát đẩy cao năng suất nhưng dễ phát sinh lỗi kỹ thuật.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG KHÁN GIẢ",
+    "script": "Mô phỏng: Khi có ánh mắt quan sát rọi xuống, tốc độ xử lý việc đơn giản vọt lên 150%, nhưng chỉ số căng thẳng cũng leo thang nhanh chóng."
   },
   {
-    "id": "slide_memo74_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy tập trung vào chính nhiệm vụ thay vì ánh mắt của người khác. Hãy xem khán giả chỉ là những người ủng hộ bạn!",
+    "id": "slide_memo74_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// CHỈ SỐ HIỆU SUẤT DƯỚI KHÁN GIẢ\nlet baseSpeed = 100;\nlet baseError = 0.02;\nif (hasAudience == true && taskDifficulty == \"Hard\") {\n    speedMultiplier = 1.20;\n    errorRateMultiplier = 3.50; // Sai sót tăng vọt\n}",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Làm việc một mình giữ tâm lý ổn định, cân bằng. Làm việc dưới sự giám sát đẩy cao năng suất nhưng dễ phát sinh lỗi kỹ thuật."
+  },
+  {
+    "id": "slide_memo74_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy tập trung vào chính nhiệm vụ thay vì ánh mắt của người khác. Hãy xem khán giả chỉ là những người ủng hộ bạn!"
   },
   {
     "id": "slide_memo74_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

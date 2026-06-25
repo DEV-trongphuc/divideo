@@ -10,7 +10,7 @@
     const keywordsData = {
         "slide_memo89_1": [
                 {
-                        "text": "sao khi tin",
+                        "text": "sao bạn chỉ",
                         "start": 1.5,
                         "end": 6.5,
                         "class": "active-green"
@@ -78,18 +78,18 @@
 
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v89 node-1">
-                                <span class="diagram-node-icon">🔍</span>
-                                <span>1. Đầu Vào</span>
+                                <span class="diagram-node-icon">📜</span>
+                                <span>1. Tiếp nhận thông tin mới</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v89 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. So khớp niềm tin sẵn có</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v89 node-3">
-                                <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span class="diagram-node-icon">✅</span>
+                                <span>3. Chấp nhận thông tin khớp</span>
                             </div>
                         </div>
 
@@ -142,38 +142,38 @@
                         <div class="comp-row-v89">
                             <div class="comp-card-v89 card-left card-active">
                                 <div class="comp-header-v89">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v89">🔍</div>
+                                    <h3>Tư Duy Khách Quan</h3>
+                                    <div class="comp-icon-v89">🧠</div>
                                 </div>
                                 <div class="comp-bullet-list-v89">
                                     <div class="comp-bullet-row-v89" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v89">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Tìm kiếm bằng chứng phản biện</span>
                                     </div>
                                     <div class="comp-bullet-row-v89" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v89">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Cân nhắc kỹ ý kiến trái chiều</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v89">BẢN NĂNG</div>
+                                <div class="comp-footer-v89">SÁNG SUỐT</div>
                             </div>
 
                             <div class="comp-card-v89 card-right card-inactive">
                                 <div class="comp-header-v89">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v89">⚙️</div>
+                                    <h3>Lọc Thiên Kiến</h3>
+                                    <div class="comp-icon-v89">🔍</div>
                                 </div>
                                 <div class="comp-bullet-list-v89">
                                     <div class="comp-bullet-row-v89" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v89">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Chỉ đọc bài viết đồng điệu</span>
                                     </div>
                                     <div class="comp-bullet-row-v89" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v89">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Bỏ qua các cảnh báo bất tiện</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v89">NHẬN THỨC MỚI</div>
+                                <div class="comp-footer-v89">PHIẾN DIỆN</div>
                             </div>
                         </div>
                     </div>
@@ -188,7 +188,7 @@
                         <div class="takeaway-box-v89" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v89">🔍</div>
                             <div class="takeaway-text-v89">
-                                "Hãy chủ động tìm kiếm các thông tin phản biện và lắng nghe tiếng nói trái chiều. Đó là cách duy nhất để xây dựng tư duy sắc bén!"
+                                "Hãy chủ động tìm kiếm các thông tin phản luận và lắng nghe tiếng nói trái chiều. Đó là cách duy nhất để xây dựng tư duy sắc bén!"
                             </div>
                         </div>
                     </div>
@@ -205,22 +205,26 @@
     }
 
     function updateFrame(slideId, canvas, progress) {
+        // Slide 1 Hook Animation
         if (slideId === 'slide_memo89_1') {
             const main = canvas.querySelector('.hook-main-icon-v89');
             const sub = canvas.querySelector('.hook-sub-icon-v89');
             if (main && sub) {
                 if (progress > 0.45) {
-                    main.style.transform = 'translateX(40px) scale(1.2)';
+                    main.style.transform = 'translateY(-25px) scale(1.3)';
+                    main.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
                     sub.style.opacity = '1';
-                    sub.style.transform = 'scale(1.3)';
+                    sub.style.transform = 'translateY(15px) scale(1.1)';
+                    sub.style.transition = 'all 0.5s ease';
                 } else {
-                    main.style.transform = 'translateX(0) scale(1)';
+                    main.style.transform = 'translateY(0) scale(1)';
                     sub.style.opacity = '0.2';
-                    sub.style.transform = 'scale(1)';
+                    sub.style.transform = 'translateY(0) scale(1)';
                 }
             }
         }
-        else if (slideId === 'slide_memo89_2') {
+        // Slide 2 Diagram Nodes Sequential Highlight (if active on slide 2)
+        else if (slideId === 'slide_memo89_2' && canvas.querySelector('.sleep-diagram-board')) {
             const n1 = canvas.querySelector('.node-1');
             const n2 = canvas.querySelector('.node-2');
             const n3 = canvas.querySelector('.node-3');
@@ -247,6 +251,7 @@
                 if (a2) a2.classList.remove('highlight-link');
             }
         }
+        // Slide 3 Interactive Simulator
         else if (slideId === 'slide_memo89_3') {
             const badge = canvas.querySelector('.state-indicator-badge');
             const actor = canvas.querySelector('.sim-actor-v89');
@@ -289,7 +294,8 @@
                 }
             }
         }
-        else if (slideId === 'slide_memo89_4') {
+        // Slide 4 Dual Comparison Card Toggling
+        else if (slideId === 'slide_memo89_4' && canvas.querySelector('.comp-row-v89')) {
             const leftCard = canvas.querySelector('.card-left');
             const rightCard = canvas.querySelector('.card-right');
 
@@ -313,7 +319,8 @@
                 }
             }
         }
-        else if (slideId === 'slide_memo89_5') {
+        // Slide 5 Takeaway scaling
+        else if (slideId === 'slide_memo89_5' || (slideId === 'slide_memo89_4' && canvas.querySelector('.takeaway-box-v89'))) {
             const box = canvas.querySelector('.takeaway-box-v89');
             if (box) {
                 if (progress > 0.2) {

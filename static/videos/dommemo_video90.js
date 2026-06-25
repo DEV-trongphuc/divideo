@@ -72,29 +72,46 @@
         else if (slideId === 'slide_memo90_2') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                    <div class="memo-wrapper slide-memo90-2-container">
-                        <span class="ambient-sleep-particle-v90" style="top: 8%; left: 85%; animation-delay: -2s;">🧠</span>
-                        <span class="ambient-sleep-particle-v90" style="top: 82%; left: 10%; animation-delay: -4s;">⚡</span>
+                    <div class="memo-wrapper slide-memo90-4-container">
+                        <span class="ambient-sleep-particle-v90" style="top: 12%; left: 85%; animation-delay: -2s;">✨</span>
+                        <span class="ambient-sleep-particle-v90" style="top: 78%; left: 12%; animation-delay: -5s;">🧠</span>
 
-                        <div class="sleep-diagram-board">
-                            <div class="diagram-node-v90 node-1">
-                                <span class="diagram-node-icon">⚡</span>
-                                <span>1. Đầu Vào</span>
+                        <div class="comp-row-v90">
+                            <div class="comp-card-v90 card-left card-active">
+                                <div class="comp-header-v90">
+                                    <h3>Trải Nghiệm Thường Ngày</h3>
+                                    <div class="comp-icon-v90">🕰️</div>
+                                </div>
+                                <div class="comp-bullet-list-v90">
+                                    <div class="comp-bullet-row-v90" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v90">✨</span>
+                                        <span>Não ghi nhận thông tin lướt qua</span>
+                                    </div>
+                                    <div class="comp-bullet-row-v90" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v90">✨</span>
+                                        <span>Mật độ ký ức ở mức tối thiểu</span>
+                                    </div>
+                                </div>
+                                <div class="comp-footer-v90">1x TỐC ĐỘ</div>
                             </div>
-                            <span class="node-link-arrow arrow-1">➡️</span>
-                            <div class="diagram-node-v90 node-2">
-                                <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
-                            </div>
-                            <span class="node-link-arrow arrow-2">➡️</span>
-                            <div class="diagram-node-v90 node-3">
-                                <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
-                            </div>
-                        </div>
 
-                        <div style="font-size: 15px; color: rgba(255,255,255,0.4); text-align: center; max-width: 650px; line-height: 1.5; border: 1.5px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.01); z-index: 10;">
-                            💡 *Co giãn Thời gian*: Hiện tượng này là Sự co giãn nhận thức thời gian. Trong tình huống khẩn cấp, hạch hạnh nhân kích hoạt trạng thái siêu tập trung, ghi lại ký ức với mật độ cực dày.
+                            <div class="comp-card-v90 card-right card-inactive">
+                                <div class="comp-header-v90">
+                                    <h3>Khoảnh Khắc Nguy Hiểm</h3>
+                                    <div class="comp-icon-v90">⚡</div>
+                                </div>
+                                <div class="comp-bullet-list-v90">
+                                    <div class="comp-bullet-row-v90" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v90">❌</span>
+                                        <span>Kích hoạt hạch hạnh nhân tối đa</span>
+                                    </div>
+                                    <div class="comp-bullet-row-v90" style="opacity:1; transform:translateY(0);">
+                                        <span class="comp-bullet-icon-v90">❌</span>
+                                        <span>Ghi lại mọi chi tiết để sinh tồn</span>
+                                    </div>
+                                </div>
+                                <div class="comp-footer-v90">5x QUAY CHẬM</div>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -139,42 +156,15 @@
                         <span class="ambient-sleep-particle-v90" style="top: 12%; left: 85%; animation-delay: -2s;">✨</span>
                         <span class="ambient-sleep-particle-v90" style="top: 78%; left: 12%; animation-delay: -5s;">🧠</span>
 
-                        <div class="comp-row-v90">
-                            <div class="comp-card-v90 card-left card-active">
-                                <div class="comp-header-v90">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v90">⚡</div>
-                                </div>
-                                <div class="comp-bullet-list-v90">
-                                    <div class="comp-bullet-row-v90" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v90">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
-                                    </div>
-                                    <div class="comp-bullet-row-v90" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v90">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
-                                    </div>
-                                </div>
-                                <div class="comp-footer-v90">BẢN NĂNG</div>
-                            </div>
+                        <div class="sleep-diagram-board" style="width:720px; height:340px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.25);">
+                            <pre style='color:#a7f3d0; font-family:monospace; text-align:left; font-size:15px; line-height:1.6; background:rgba(0,0,0,0.5); padding:20px; border-radius:12px; margin:0;'>// MẬT ĐỘ KÝ ỨC TRONG NGUY HIỂM
+let threatLevel = 0.95; // Nguy kịch
+let memoryCaptureRate = threatLevel > 0.80 ? 500 : 24; // Số khung hình/giây vọt lên
+let perceivedDuration = memoryCaptureRate / 24; // Trôi chậm gấp nhiều lần</pre>
+                        </div>
 
-                            <div class="comp-card-v90 card-right card-inactive">
-                                <div class="comp-header-v90">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v90">⚙️</div>
-                                </div>
-                                <div class="comp-bullet-list-v90">
-                                    <div class="comp-bullet-row-v90" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v90">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
-                                    </div>
-                                    <div class="comp-bullet-row-v90" style="opacity:1; transform:translateY(0);">
-                                        <span class="comp-bullet-icon-v90">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
-                                    </div>
-                                </div>
-                                <div class="comp-footer-v90">NHẬN THỨC MỚI</div>
-                            </div>
+                        <div style="font-size: 15px; color: rgba(255,255,255,0.4); text-align: center; max-width: 650px; line-height: 1.5; border: 1.5px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.01); z-index: 10;">
+                            💡 *Quy luật Trí Não*: So sánh: Trạng thái bình thường ghi nhớ thông tin thưa thớt. Trạng thái nguy hiểm ghi nhớ từng chi tiết nhỏ nhất để tìm cách sinh tồn.
                         </div>
                     </div>
                 `;
@@ -205,22 +195,26 @@
     }
 
     function updateFrame(slideId, canvas, progress) {
+        // Slide 1 Hook Animation
         if (slideId === 'slide_memo90_1') {
             const main = canvas.querySelector('.hook-main-icon-v90');
             const sub = canvas.querySelector('.hook-sub-icon-v90');
             if (main && sub) {
                 if (progress > 0.45) {
-                    main.style.transform = 'translateX(40px) scale(1.2)';
+                    main.style.transform = 'translateY(-25px) scale(1.3)';
+                    main.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
                     sub.style.opacity = '1';
-                    sub.style.transform = 'scale(1.3)';
+                    sub.style.transform = 'translateY(15px) scale(1.1)';
+                    sub.style.transition = 'all 0.5s ease';
                 } else {
-                    main.style.transform = 'translateX(0) scale(1)';
+                    main.style.transform = 'translateY(0) scale(1)';
                     sub.style.opacity = '0.2';
-                    sub.style.transform = 'scale(1)';
+                    sub.style.transform = 'translateY(0) scale(1)';
                 }
             }
         }
-        else if (slideId === 'slide_memo90_2') {
+        // Slide 2 Diagram Nodes Sequential Highlight (if active on slide 2)
+        else if (slideId === 'slide_memo90_2' && canvas.querySelector('.sleep-diagram-board')) {
             const n1 = canvas.querySelector('.node-1');
             const n2 = canvas.querySelector('.node-2');
             const n3 = canvas.querySelector('.node-3');
@@ -247,6 +241,7 @@
                 if (a2) a2.classList.remove('highlight-link');
             }
         }
+        // Slide 3 Interactive Simulator
         else if (slideId === 'slide_memo90_3') {
             const badge = canvas.querySelector('.state-indicator-badge');
             const actor = canvas.querySelector('.sim-actor-v90');
@@ -289,7 +284,8 @@
                 }
             }
         }
-        else if (slideId === 'slide_memo90_4') {
+        // Slide 4 Dual Comparison Card Toggling
+        else if (slideId === 'slide_memo90_4' && canvas.querySelector('.comp-row-v90')) {
             const leftCard = canvas.querySelector('.card-left');
             const rightCard = canvas.querySelector('.card-right');
 
@@ -313,7 +309,8 @@
                 }
             }
         }
-        else if (slideId === 'slide_memo90_5') {
+        // Slide 5 Takeaway scaling
+        else if (slideId === 'slide_memo90_5' || (slideId === 'slide_memo90_4' && canvas.querySelector('.takeaway-box-v90'))) {
             const box = canvas.querySelector('.takeaway-box-v90');
             if (box) {
                 if (progress > 0.2) {

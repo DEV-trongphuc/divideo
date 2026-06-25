@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo84_1",
-    "title": "Bẫy Vùng an toàn",
-    "subtitle": "VÌ SAO BỘ NÃO LUÔN THUYẾT PHỤC BẠN Ở YÊN TRONG VÙNG AN TOÀN?",
     "layout": "title",
-    "script": "Bạn muốn học kỹ năng mới hay đổi công việc, nhưng một giọng nói bên trong luôn bảo bạn: 'Thôi, ở đây đang yên ổn mà'. Tại sao não lại sợ thay đổi?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Bẫy Vùng an toàn",
+    "subtitle": "VÌ SAO BÃO NÃO LUÔN BẮT BẠN Ở YÊN TRONG VÙNG AN TOÀN?",
+    "script": "Bạn muốn học kỹ năng mới, nhưng một giọng nói bên trong luôn bảo bạn: 'Thôi, ở đây đang yên ổn mà'. Tại sao não lại sợ thay đổi?"
   },
   {
     "id": "slide_memo84_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "COMFORT ZONE TRAP",
-    "layout": "diagram",
-    "script": "Đó là Bẫy Vùng an toàn. Bộ não ưu tiên sự ổn định và quen thuộc để tiêu thụ ít năng lượng nhất, đồng thời coi mọi sự thay đổi là mối đe dọa sinh tồn.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "🛋️",
+        "title": "Trong Vùng Thoải Mái",
+        "desc": "Năng lượng tiêu thụ cực thấp"
+      },
+      {
+        "icon": "🌀",
+        "title": "Bứt Phá Ra Ngoài",
+        "desc": "Kích hoạt học hỏi chủ động"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Ở trong vùng quen thuộc an toàn nhưng không tiến bộ. Bước ra ngoài vùng thử thách kích hoạt học hỏi và mở rộng giới hạn bản thân."
   },
   {
     "id": "slide_memo84_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA BẪY VÙNG AN TOÀN",
     "layout": "metrics",
-    "script": "Mô phỏng: Nằm yên trong vùng thoải mái giữ năng lượng tiêu hao cực thấp, nhưng khi bước ra ngoài, biểu đồ kỹ năng mới lập tức tăng vọt.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo84_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Ở trong vùng quen thuộc an toàn nhưng không tiến bộ. Bước ra ngoài vùng thử thách kích hoạt học hỏi và mở rộng giới hạn bản thân.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA BẪY VÙNG AN TOÀN",
+    "script": "Mô phỏng: Nằm yên trong vùng thoải mái giữ năng lượng tiêu hao cực thấp, nhưng khi bước ra ngoài, biểu đồ kỹ năng mới lập tức tăng vọt."
   },
   {
-    "id": "slide_memo84_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Sự phát triển thực sự chỉ bắt đầu ở rìa vùng an toàn của bạn. Hãy dũng cảm bước ra ngoài và đón nhận những thử thách mới!",
+    "id": "slide_memo84_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// CHỈ SỐ PHÁT TRIỂN NĂNG LỰC\nlet zone = \"Comfort\";\nlet energyCost = (zone == \"Comfort\") ? 0.10 : 0.80;\nlet skillGrowth = (zone == \"Comfort\") ? 0.00 : 0.95;\nconsole.log(`Tỷ lệ phát triển: ${skillGrowth * 100}%`);",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Ở trong vùng quen thuộc an toàn nhưng không tiến bộ. Bước ra ngoài vùng thử thách kích hoạt học hỏi và mở rộng giới hạn bản thân."
+  },
+  {
+    "id": "slide_memo84_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Sự phát triển thực sự chỉ bắt đầu ở rìa vùng an toàn của bạn. Hãy dũng cảm bước ra ngoài và đón nhận những thử thách mới!"
   },
   {
     "id": "slide_memo84_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

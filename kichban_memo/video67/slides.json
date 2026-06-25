@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo67_1",
-    "title": "Hiệu ứng Spotlight",
-    "subtitle": "VÌ SAO BẠN LUÔN NGHĨ AI CŨNG ĐANG CHĂM CHĂM NHÌN VÀO MÌNH?",
     "layout": "title",
-    "script": "Bạn đi ngoài đường và lỡ mặc ngược áo, liền cảm thấy như hàng trăm ánh mắt đang đổ dồn vào mình. Có thật sự như vậy không?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Hiệu ứng Spotlight",
+    "subtitle": "VÌ SAO BẠN LUÔN NGHĨ AI CŨNG ĐANG NHÌN VÀO MÌNH?",
+    "script": "Bạn đi ngoài đường và lỡ mặc ngược áo, liền cảm thấy như hàng trăm ánh mắt đang đổ dồn vào mình. Có thật sự như vậy không?"
   },
   {
     "id": "slide_memo67_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "SPOTLIGHT EFFECT",
-    "layout": "diagram",
-    "script": "Đó chính là Hiệu ứng Tiêu điểm. Bộ não tự động lấy bản thân làm trung tâm vũ trụ, phóng đại mức độ chú ý mà người khác dành cho mình lên gấp nhiều lần.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "👁️",
+        "title": "Bộ Lọc Cá Nhân",
+        "desc": "Quan sát kỹ lỗi lầm bản thân"
+      },
+      {
+        "icon": "👥",
+        "title": "Ánh Nhìn Số Đông",
+        "desc": "Bận rộn với mối lo riêng"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Người lo âu tin rằng 90% đám đông đang soi xét mình. Thực tế, chưa đầy 10% nhận ra sự hiện diện của bạn."
   },
   {
     "id": "slide_memo67_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG SPOTLIGHT",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi ánh đèn spotlight rọi thẳng vào đầu bạn, chỉ số lo âu vọt lên đỉnh điểm, dù xung quanh mọi người đang bận nhìn vào chiếc điện thoại của họ.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo67_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Người lo âu tin rằng 90% đám đông đang soi xét mình. Thực tế, chưa đầy 10% nhận ra sự hiện diện của bạn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG SPOTLIGHT",
+    "script": "Mô phỏng: Khi ánh đèn spotlight rọi thẳng vào đầu bạn, chỉ số lo âu vọt lên đỉnh điểm, dù xung quanh mọi người đang bận nhìn vào chiếc điện thoại của họ."
   },
   {
-    "id": "slide_memo67_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Mọi người đều quá bận rộn lo lắng về chính họ để chú ý đến lỗi nhỏ của bạn. Hãy tự tin thả lỏng và tận hưởng cuộc sống!",
+    "id": "slide_memo67_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// THUẬT TOÁN ĐÁNH GIÁ SỰ CHÚ Ý\nlet selfFocus = 1.0;\nlet perceivedAttention = selfFocus * 5.0; // Phóng đại 5 lần\nlet actualAttention = perceivedAttention / 10.0;\nconsole.log(actualAttention); // Thực tế chỉ 10%",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Người lo âu tin rằng 90% đám đông đang soi xét mình. Thực tế, chưa đầy 10% nhận ra sự hiện diện của bạn."
+  },
+  {
+    "id": "slide_memo67_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Mọi người đều quá bận rộn lo lắng về chính họ để chú ý đến lỗi nhỏ của bạn. Hãy tự tin thả lỏng và tận hưởng cuộc sống!"
   },
   {
     "id": "slide_memo67_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

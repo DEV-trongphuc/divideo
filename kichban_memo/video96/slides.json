@@ -1,86 +1,97 @@
 [
   {
     "id": "slide_memo96_1",
-    "title": "Hiệu quả Bản thân",
-    "subtitle": "VÌ SAO NIỀM TIN VÀO PHƯƠNG PHÁP QUYẾT ĐỊNH THÀNH CÔNG THỰC TẾ?",
     "layout": "title",
-    "script": "Tại sao hai người có cùng năng lực nhưng lại đạt kết quả hoàn toàn khác nhau? Niềm tin vào khả năng hành động có thực sự kiến tạo kết quả?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Hiệu quả Bản thân",
+    "subtitle": "VÌ SAO NIỀM TIN VÀO NĂNG LỰC QUYẾT ĐỊNH THÀNG CÔNG?",
+    "script": "Tại sao hai người có cùng năng lực nhưng lại đạt kết quả hoàn toàn khác nhau? Niềm tin vào khả năng hành động có thực sự kiến tạo kết quả?"
   },
   {
     "id": "slide_memo96_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "SELF-EFFICACY",
-    "layout": "diagram",
-    "script": "Đó gọi là Hiệu ứng Hiệu quả Bản thân. Niềm tin vững chắc vào việc mình có thể hoàn thành nhiệm vụ trực tiếp thúc đẩy sự kiên trì và nỗ lực.",
+    "layout": "cards",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "❓",
+        "title": "Hoài Nghi Bản Thân",
+        "desc": "Dễ từ bỏ khi gặp trở ngại đầu"
+      },
+      {
+        "icon": "🎯",
+        "title": "Tin Tưởng Hành Động",
+        "desc": "Nhìn nhận trở ngại là bài học"
+      }
+    ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Thiếu niềm tin dẫn đến việc bỏ cuộc sớm khi gặp khó khăn. Tin tưởng năng lực bản thân tạo động lực tìm kiếm giải pháp vượt khó."
   },
   {
     "id": "slide_memo96_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA HIỆU QUẢ BẢN THÂN",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi kim niềm tin bản thân được kéo lên mức tối đa, khả năng vượt qua nghịch cảnh và đạt mục tiêu vọt lên 95%.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo96_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Thiếu niềm tin dẫn đến việc bỏ cuộc sớm khi gặp khó khăn. Tin tưởng năng lực bản thân tạo động lực tìm kiếm giải pháp vượt khó.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU QUẢ BẢN THÂN",
+    "script": "Mô phỏng: Khi kim niềm tin bản thân được kéo lên mức tối đa, khả năng vượt qua nghịch cảnh và đạt mục tiêu vọt lên 95%."
   },
   {
-    "id": "slide_memo96_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Hãy bắt đầu bằng việc tin tưởng vào khả năng học hỏi của chính mình. Bạn mạnh mẽ và kiên cường hơn những gì bạn nghĩ!",
+    "id": "slide_memo96_4",
+    "layout": "code",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
+    "cards": [],
+    "code": "// CHỈ SỐ HIỆU QUẢ BẢN THÂN\nlet selfBelief = 0.95;\nlet resilience = selfBelief * 1.5;\nif (resilience > 1.0) {\n    executeTask(Task.Complete); // Kiên trì vượt qua khó khăn\n}",
+    "diagram": [],
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "So sánh: Thiếu niềm tin dẫn đến việc bỏ cuộc sớm khi gặp khó khăn. Tin tưởng năng lực bản thân tạo động lực tìm kiếm giải pháp vượt khó."
+  },
+  {
+    "id": "slide_memo96_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy bắt đầu bằng việc tin tưởng vào khả năng học hỏi của chính mình. Bạn mạnh mẽ và kiên cường hơn những gì bạn nghĩ!"
   },
   {
     "id": "slide_memo96_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

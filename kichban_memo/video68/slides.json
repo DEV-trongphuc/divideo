@@ -1,86 +1,118 @@
 [
   {
     "id": "slide_memo68_1",
-    "title": "Hiệu ứng Đà điểu",
-    "subtitle": "TẠI SAO CHÚNG TA TRÁNH NÉ THÔNG TIN TIÊU CỰC NHƯ ĐÀ ĐIỂU CHÔN ĐẦU?",
     "layout": "title",
-    "script": "Tài khoản ngân hàng hết sạch tiền hoặc điểm thi kém, bạn chọn cách không thèm mở ứng dụng ra xem. Bạn nghĩ trốn tránh sẽ giúp mọi thứ biến mất?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Hiệu ứng Đà điểu",
+    "subtitle": "TẠI SAO CHÚNG TA TRÁNH NÉ THÔNG TIN TIÊU CỰC NHƯ ĐÀ ĐIỂU?",
+    "script": "Tài khoản ngân hàng hết sạch tiền hoặc điểm thi kém, bạn chọn cách không thèm mở ứng dụng ra xem. Bạn nghĩ trốn tránh sẽ giúp mọi thứ biến mất?"
   },
   {
     "id": "slide_memo68_2",
-    "title": "Cơ chế Thần kinh",
-    "subtitle": "OSTRICH EFFECT",
     "layout": "diagram",
-    "script": "Đó là Hiệu ứng Đà điểu. Con người có xu hướng từ chối tiếp nhận thông tin tiêu cực hoặc đe dọa, tựa như đà điểu chôn đầu xuống cát để tự an ủi.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo68_3",
-    "title": "Mô phỏng Hoạt động",
-    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG ĐÀ ĐIỂU",
-    "layout": "metrics",
-    "script": "Mô phỏng: Khi thị trường lao dốc, chú đà điểu lập tức chôn sâu đầu xuống cát, tạm thời tắt đi cảnh báo đỏ nhưng thực tế tài sản vẫn tiếp tục suy giảm.",
-    "voice": "google-vi-VN-Neural2-D",
-    "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
-    "cards": [],
-    "code": "",
-    "diagram": []
-  },
-  {
-    "id": "slide_memo68_4",
-    "title": "So sánh Nhận thức",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
-    "layout": "cards",
-    "script": "So sánh: Người đối mặt chủ động xử lý rủi ro kịp thời. Người tránh né có cảm giác an toàn giả tạo nhưng gánh chịu tổn thất lớn hơn về sau.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [
+      {
+        "id": "node_m1",
+        "label": "1. Tin xấu xuất hiện",
+        "type": "start"
+      },
+      {
+        "id": "node_m2",
+        "label": "2. Não sợ tổn thương",
+        "type": "process"
+      },
+      {
+        "id": "node_m3",
+        "label": "3. Tránh né đối mặt",
+        "type": "process"
+      },
+      {
+        "id": "node_m4",
+        "label": "4. Hậu quả tích lũy",
+        "type": "success"
+      }
+    ],
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "OSTRICH EFFECT",
+    "script": "Đó là Hiệu ứng Đà điểu. Con người có xu hướng từ chối tiếp nhận thông tin tiêu cực hoặc đe dọa, tựa như đà điểu chôn đầu xuống cát để tự an ủi."
   },
   {
-    "id": "slide_memo68_5",
-    "title": "Mẹo Trí Não",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "layout": "title",
-    "script": "Thông tin xấu không biến mất chỉ vì bạn nhắm mắt lại. Hãy dũng cảm nhìn thẳng vào sự thật để tìm ra giải pháp xử lý sớm nhất!",
+    "id": "slide_memo68_3",
+    "layout": "metrics",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
-    "duration": 11.5,
+    "duration": 12.0,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG ĐÀ ĐIỂU",
+    "script": "Mô phỏng: Khi thị trường lao dốc, chú đà điểu lập tức chôn sâu đầu xuống cát, tạm thời tắt đi cảnh báo đỏ nhưng thực tế tài sản vẫn tiếp tục suy giảm."
+  },
+  {
+    "id": "slide_memo68_4",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [
+      {
+        "icon": "👁️",
+        "title": "Đột Phá Đối Mặt",
+        "desc": "Nhận diện sự thật khách quan"
+      },
+      {
+        "icon": "🦩",
+        "title": "Tránh Né Đà Điểu",
+        "desc": "Bóp méo thực tế để an ủi"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "So sánh: Người đối mặt chủ động xử lý rủi ro kịp thời. Người tránh né có cảm giác an toàn giả tạo nhưng gánh chịu tổn thất lớn hơn về sau."
+  },
+  {
+    "id": "slide_memo68_5",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Thông tin xấu không biến mất chỉ vì bạn nhắm mắt lại. Hãy dũng cảm nhìn thẳng vào sự thật để tìm ra giải pháp xử lý sớm nhất!"
   },
   {
     "id": "slide_memo68_6",
-    "title": "Khám phá cùng DOM Memo",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
     "audioPath": "",
     "duration": 7.5,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

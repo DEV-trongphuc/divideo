@@ -56,18 +56,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 25px;
+    gap: 55px;
     width: 100%;
     position: relative;
 }
 
 .giant-lips-v62 {
-                font-size: 110px;
+                font-size: 190px;
                 transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 z-index: 5;
             }
             .ear-receiver-v62 {
-                font-size: 80px;
+                font-size: 190px;
                 transition: all 0.5s ease;
                 z-index: 2;
             }
@@ -123,7 +123,7 @@
 }
 
 .diagram-node-icon {
-    font-size: 36px;
+    font-size: 70px;
     transition: transform 0.3s ease;
 }
 
@@ -382,7 +382,7 @@
 /* --- SLIDE 5: TAKEAWAY --- */
 .slide-memo62-5-container {
     justify-content: center !important;
-    padding-top: 0px !important;
+    padding-top: 60px !important;
 }
 
 .takeaway-radar-v62 {
@@ -421,7 +421,7 @@
 }
 
 .takeaway-face-v62 {
-    font-size: 70px;
+    font-size: 190px;
     margin-bottom: 12px;
 }
 
