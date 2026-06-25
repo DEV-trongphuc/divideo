@@ -59,6 +59,9 @@
                         <span class="ambient-sound-particle-v22" style="top: 20%; left: 80%; animation-delay: -5s;">⚡</span>
 
                         <div class="fan-hook-box">
+                            <div class="sound-wave-ring" style="animation-delay: 0s; left: 380px; top: 140px;"></div>
+                            <div class="sound-wave-ring" style="animation-delay: 0.6s; left: 380px; top: 140px;"></div>
+                            <div class="sound-wave-ring" style="animation-delay: 1.2s; left: 380px; top: 140px;"></div>
                             <div class="spinning-fan-icon">🌀</div>
                         </div>
                     </div>
@@ -225,7 +228,23 @@
     // ── ANIMATION FRAME UPDATES ────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_memo22_1') {
-            // Handled by CSS spin
+            // spinning fan & pulsing wave rings
+            const fan = canvas.querySelector('.spinning-fan-icon');
+            if (fan) {
+                const r = progress * 1440;
+                fan.style.transform = `rotate(${r}deg)`;
+            }
+            const rings = canvas.querySelectorAll('.sound-wave-ring');
+            rings.forEach((ring, idx) => {
+                const p = (progress * 2 + idx * 0.3) % 1;
+                const size = 100 + p * 400;
+                const opacity = 1 - p;
+                ring.style.width = `${size}px`;
+                ring.style.height = `${size}px`;
+                ring.style.opacity = `${opacity}`;
+                ring.style.left = `${450 - size/2}px`;
+                ring.style.top = `${190 - size/2}px`;
+            });
         }
         else if (slideId === 'slide_memo22_2') {
             const soundNode = canvas.querySelector('.node-sound');

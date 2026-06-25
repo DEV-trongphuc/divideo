@@ -489,3 +489,32 @@
     text-shadow: 0 0 12px rgba(248, 113, 113, 0.55) !important;
     border-color: var(--memo25-red) !important;
 }
+
+/* --- CUSTOM HOOK OVERRIDES FOR PREMIUM ANIMATION --- */
+.check-hook-box {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+.hook-todo-list {
+    transform: scale(1.25) !important;
+    gap: 15px !important;
+}
+.hook-todo-item {
+    font-size: 28px !important;
+    padding: 12px 24px !important;
+    border-radius: 14px !important;
+    transition: all 0.3s ease !important;
+}
+.hook-todo-item.pending {
+    font-size: 30px !important;
+    animation: shake-pending 0.2s infinite alternate !important;
+    box-shadow: 0 0 25px rgba(239,68,68,0.4) !important;
+    border-color: var(--memo25-red) !important;
+    background: rgba(239, 68, 68, 0.12) !important;
+}
+@keyframes shake-pending {
+    0% { transform: rotate(-1.5deg) scale(1.02); }
+    100% { transform: rotate(1.5deg) scale(1.02); }
+}

@@ -276,12 +276,18 @@
         if (slideId === 'slide_memo14_1') {
             const warningTag = canvas.querySelector('.blind-spot-warning-tag');
             const coneZone = canvas.querySelector('.blind-spot-cone-zone');
+            const eye = canvas.querySelector('.eye-vector');
+
+            if (eye) {
+                const angle = Math.sin(progress * Math.PI * 2) * 15;
+                eye.style.transform = `rotate(${angle}deg) scale(1.4)`;
+            }
 
             if (progress > 0.35) {
                 if (coneZone) coneZone.classList.add('show-spot');
                 if (warningTag) {
                     warningTag.style.opacity = '1';
-                    warningTag.style.transform = 'scale(1)';
+                    warningTag.style.transform = 'scale(1.3)';
                 }
             } else {
                 if (coneZone) coneZone.classList.remove('show-spot');

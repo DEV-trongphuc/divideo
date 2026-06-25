@@ -223,7 +223,20 @@
     // ── ANIMATION FRAME UPDATES ────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_memo24_1') {
-            // Handled by CSS
+            const note = canvas.querySelector('.pulsing-music-note');
+            if (note) {
+                note.style.transform = `rotate(${progress * 360}deg) scale(${1.2 + Math.sin(progress * 15) * 0.15})`;
+            }
+            if (isPlaying && Math.random() < 0.1) {
+                const heart = document.createElement('span');
+                heart.className = 'hook-exposure-heart';
+                heart.textContent = Math.random() > 0.5 ? '❤️' : '💖';
+                heart.style.left = `${300 + Math.random() * 300}px`;
+                heart.style.top = `${150 + Math.random() * 150}px`;
+                const container = canvas.querySelector('.exposure-hook-box');
+                if (container) container.appendChild(heart);
+                setTimeout(() => heart.remove(), 2000);
+            }
         }
         else if (slideId === 'slide_memo24_2') {
             const expNode = canvas.querySelector('.node-exposure');

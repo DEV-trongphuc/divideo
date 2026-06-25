@@ -479,3 +479,32 @@
     text-shadow: 0 0 12px rgba(252, 165, 165, 0.55) !important;
     border-color: var(--memo19-red) !important;
 }
+
+/* --- CUSTOM HOOK OVERRIDES FOR PREMIUM ANIMATION --- */
+.price-hook-box {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+.wine-bottle-container {
+    transform: scale(1.7) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.wine-bottle-icon {
+    font-size: 110px !important;
+    animation: sway-wine 2s infinite alternate ease-in-out;
+}
+.price-tag-badge {
+    font-size: 16px !important;
+    padding: 6px 14px !important;
+    border-radius: 8px !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+@keyframes sway-wine {
+    0% { transform: rotate(-8deg); }
+    100% { transform: rotate(8deg); }
+}

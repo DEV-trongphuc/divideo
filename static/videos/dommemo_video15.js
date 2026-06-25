@@ -263,27 +263,32 @@
             const lockNode = canvas.querySelector('.sim-lock-node');
             const questionCloud = canvas.querySelector('.question-cloud-v15');
 
-            // Key slides from left: 120px to left: 390px (progress 0.0 to 0.6)
-            const kX = 120 + (390 - 120) * Math.min(1.0, progress / 0.6);
-            if (keyNode) keyNode.style.left = `${kX}px`;
+            // Key slides from left: 100px to left: 450px (progress 0.0 to 0.6)
+            const kX = 100 + (450 - 100) * Math.min(1.0, progress / 0.6);
+            if (keyNode) {
+                keyNode.style.left = `${kX}px`;
+                keyNode.style.transform = `scale(1.4) rotate(${progress > 0.6 ? 90 : 0}deg)`;
+            }
 
             if (progress > 0.6) {
                 if (lockNode && !lockNode.classList.contains('locked')) {
                     lockNode.textContent = '🔓';
                     lockNode.classList.add('locked');
                 }
+                if (lockNode) lockNode.style.transform = 'scale(1.6)';
                 if (questionCloud) {
                     questionCloud.style.opacity = '1';
-                    questionCloud.style.transform = 'translateY(-20px)';
+                    questionCloud.style.transform = 'translateY(-30px) scale(1.5)';
                 }
             } else {
                 if (lockNode) {
                     lockNode.textContent = '🔒';
                     lockNode.classList.remove('locked');
+                    lockNode.style.transform = 'scale(1.3) rotate(' + (Math.sin(progress * 20) * 5) + 'deg)';
                 }
                 if (questionCloud) {
                     questionCloud.style.opacity = '0';
-                    questionCloud.style.transform = 'translateY(0)';
+                    questionCloud.style.transform = 'translateY(0) scale(1)';
                 }
             }
         }

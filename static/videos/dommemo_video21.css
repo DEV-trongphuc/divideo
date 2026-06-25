@@ -494,3 +494,20 @@
     text-shadow: 0 0 12px rgba(248, 113, 113, 0.55) !important;
     border-color: var(--memo21-red) !important;
 }
+
+/* --- CUSTOM HOOK OVERRIDES FOR PREMIUM ANIMATION --- */
+.emotion-hook-box {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+.happy-sad-emoji-wrapper {
+    display: flex !important;
+    gap: 60px !important;
+}
+.hook-happy-emoji, .hook-sad-emoji {
+    font-size: 140px !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    display: inline-block;
+}

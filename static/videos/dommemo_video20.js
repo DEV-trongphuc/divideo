@@ -60,6 +60,13 @@
 
                         <div class="music-hook-box">
                             <div class="pulsing-headphones">🎧</div>
+                            <div class="hook-equalizer-container-v20">
+                                <div class="hook-eq-bar" style="animation-delay: -0.1s;"></div>
+                                <div class="hook-eq-bar" style="animation-delay: -0.4s;"></div>
+                                <div class="hook-eq-bar" style="animation-delay: -0.2s;"></div>
+                                <div class="hook-eq-bar" style="animation-delay: -0.6s;"></div>
+                                <div class="hook-eq-bar" style="animation-delay: -0.3s;"></div>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -230,7 +237,16 @@
     // ── ANIMATION FRAME UPDATES ────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_memo20_1') {
-            // Handled by CSS animations
+            // headphones pulsing equalizers
+            const hp = canvas.querySelector('.pulsing-headphones');
+            if (hp) {
+                hp.style.transform = `scale(${1 + Math.sin(progress * 15) * 0.08}) rotate(${Math.sin(progress * 10) * 4}deg)`;
+            }
+            const bars = canvas.querySelectorAll('.hook-eq-bar');
+            bars.forEach((bar, idx) => {
+                const height = 15 + Math.sin(progress * 30 + idx) * 45;
+                bar.style.height = `${height}px`;
+            });
         }
         else if (slideId === 'slide_memo20_2') {
             const stimNode = canvas.querySelector('.node-stimulus');

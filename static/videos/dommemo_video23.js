@@ -59,8 +59,9 @@
                         <span class="ambient-context-particle-v23" style="top: 20%; left: 80%; animation-delay: -5s;">🏖️</span>
 
                         <div class="scan-hook-box">
+                            <div class="hook-context-bg-v23" style="left: 100px; top: 120px; font-size: 140px; position: absolute; opacity: 0.15;">🏢</div>
                             <div class="pulsing-face-v23">👤</div>
-                            <div class="hook-laser-line-v23"></div>
+                            <div class="hook-laser-line-v23" style="position: absolute; left: 255px;"></div>
                         </div>
                     </div>
                 `;
@@ -224,7 +225,14 @@
     // ── ANIMATION FRAME UPDATES ────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_memo23_1') {
-            // Laser scan run automatically by CSS
+            const bg = canvas.querySelector('.hook-context-bg-v23');
+            if (bg) {
+                if (progress < 0.5) {
+                    bg.textContent = '🏢';
+                } else {
+                    bg.textContent = '🏖️';
+                }
+            }
         }
         else if (slideId === 'slide_memo23_2') {
             const faceNode = canvas.querySelector('.node-face');

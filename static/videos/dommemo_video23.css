@@ -470,3 +470,42 @@
     text-shadow: 0 0 12px rgba(253, 224, 71, 0.55) !important;
     border-color: var(--memo23-gold) !important;
 }
+
+/* --- CUSTOM HOOK OVERRIDES FOR PREMIUM ANIMATION --- */
+.scan-hook-box {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+.pulsing-face-v23 {
+    font-size: 180px !important;
+    animation: breathe-face 2s infinite alternate ease-in-out !important;
+    display: inline-block;
+}
+.hook-laser-line-v23 {
+    width: 250px !important;
+    height: 5px !important;
+    background: var(--memo23-blue) !important;
+    box-shadow: 0 0 15px var(--memo23-blue) !important;
+    animation: laser-sweep 2.5s infinite alternate ease-in-out !important;
+}
+.hook-context-bg-v23 {
+    position: absolute;
+    font-size: 100px;
+    opacity: 0.15;
+    z-index: 1;
+    animation: context-float 4s infinite alternate ease-in-out;
+}
+@keyframes breathe-face {
+    0% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(255,255,255,0.1)); }
+    100% { transform: scale(1.1); filter: drop-shadow(0 0 35px var(--memo23-purple)); }
+}
+@keyframes laser-sweep {
+    0% { top: 30px; }
+    100% { top: 350px; }
+}
+@keyframes context-float {
+    0% { transform: translateY(-10px) rotate(-5deg); }
+    100% { transform: translateY(10px) rotate(5deg); }
+}

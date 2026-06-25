@@ -485,3 +485,33 @@
     text-shadow: 0 0 12px rgba(192, 132, 252, 0.55) !important;
     border-color: var(--memo22-purple) !important;
 }
+
+/* --- CUSTOM HOOK OVERRIDES FOR PREMIUM ANIMATION --- */
+.fan-hook-box {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+.spinning-fan-icon {
+    font-size: 180px !important;
+    animation: spin-fan-v22 0.5s infinite linear !important;
+    display: inline-block;
+    filter: drop-shadow(0 0 35px var(--memo22-blue));
+}
+@keyframes spin-fan-v22 {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.sound-wave-ring {
+    position: absolute;
+    border: 3px solid rgba(139, 92, 246, 0.4);
+    border-radius: 50%;
+    animation: expand-wave-ring 2s infinite linear;
+    pointer-events: none;
+    z-index: 1;
+}
+@keyframes expand-wave-ring {
+    0% { width: 100px; height: 100px; opacity: 1; }
+    100% { width: 500px; height: 500px; opacity: 0; }
+}

@@ -66,6 +66,7 @@
                                 <span>A</span>
                                 <span class="hook-option-lbl">CHỌN A</span>
                             </div>
+                            <div class="center-brain-v16">🧠</div>
 
                             <!-- Choice B Node -->
                             <div class="hook-option-node opt-b">
@@ -264,6 +265,7 @@
         if (slideId === 'slide_memo16_1') {
             const optA = canvas.querySelector('.opt-a');
             const optB = canvas.querySelector('.opt-b');
+            const brain = canvas.querySelector('.center-brain-v16');
 
             if (progress >= 0.25) {
                 if (optA && !optA.classList.contains('focused')) {
@@ -272,9 +274,17 @@
                 if (optB && optB.classList.contains('focused')) {
                     optB.classList.remove('focused');
                 }
+                if (brain) {
+                    brain.style.transform = 'scale(1.2) translateX(-30px)';
+                    brain.style.filter = 'drop-shadow(0 0 35px var(--memo16-emerald))';
+                }
             } else {
                 if (optA) optA.classList.remove('focused');
                 if (optB) optB.classList.remove('focused');
+                if (brain) {
+                    brain.style.transform = '';
+                    brain.style.filter = '';
+                }
             }
         }
         else if (slideId === 'slide_memo16_2') {

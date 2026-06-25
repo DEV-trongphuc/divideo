@@ -560,3 +560,28 @@
     text-shadow: 0 0 12px rgba(52, 211, 153, 0.55) !important;
     border-color: #10b981 !important;
 }
+
+/* --- CUSTOM HOOK OVERRIDES FOR PREMIUM ANIMATION --- */
+.lock-gate-box {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+.sim-key-node {
+    font-size: 140px !important;
+    filter: drop-shadow(0 0 35px rgba(245, 158, 11, 0.6)) !important;
+    transition: left 0.1s linear, transform 0.2s ease !important;
+}
+.sim-lock-node {
+    font-size: 160px !important;
+    right: 120px !important;
+    filter: drop-shadow(0 0 35px var(--memo15-primary)) !important;
+    transition: all 0.3s ease !important;
+}
+.question-cloud-v15 {
+    font-size: 130px !important;
+    right: 320px !important;
+    top: 60px !important;
+    transition: all 0.4s ease !important;
+}

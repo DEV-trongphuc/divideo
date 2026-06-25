@@ -59,7 +59,7 @@
                         <span class="ambient-audio-particle" style="top: 25%; left: 80%; animation-delay: -5s;">💬</span>
 
                         <div class="audio-hook-box">
-                            <div class="audio-grid-bg"></div>
+                            <div class="hook-megaphone-v17">📢</div>
                             <div class="phrase-box-v17">
                                 <span class="phrase-word">Bộ</span>
                                 <span class="phrase-word">não</span>
@@ -241,11 +241,16 @@
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_memo17_1') {
             const targetWord = canvas.querySelector('.word-target');
+            const megaphone = canvas.querySelector('.hook-megaphone-v17');
+            
+            if (megaphone) {
+                megaphone.style.transform = `scale(${1 + Math.sin(progress * 20) * 0.1}) rotate(${Math.sin(progress * 15) * 5}deg)`;
+            }
+
             if (targetWord) {
                 if (progress >= 0.5) {
                     targetWord.textContent = 'đoán trước';
                     targetWord.className = 'phrase-word word-target word-restored';
-                    // Spring scaling and glowing animation
                     const scaleVal = Math.min(1.15, 1 + (progress - 0.5) * 0.3);
                     targetWord.style.transform = `scale(${scaleVal})`;
                 } else {

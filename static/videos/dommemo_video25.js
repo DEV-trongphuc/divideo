@@ -236,7 +236,7 @@
     // ── ANIMATION FRAME UPDATES ────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_memo25_1') {
-            // Handled by CSS animations
+            // todo pending item vibration handled via CSS keyframes keying off pending class
         }
         else if (slideId === 'slide_memo25_2') {
             const startNode = canvas.querySelector('.node-start');

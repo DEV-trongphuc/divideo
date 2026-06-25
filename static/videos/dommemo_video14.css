@@ -578,3 +578,27 @@
     text-shadow: 0 0 12px rgba(52, 211, 153, 0.55) !important;
     border-color: #10b981 !important;
 }
+
+/* --- CUSTOM HOOK OVERRIDES FOR PREMIUM ANIMATION --- */
+.hook-eye-field {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+.eye-vector {
+    font-size: 170px !important;
+    left: 80px !important;
+    filter: drop-shadow(0 0 35px var(--memo14-primary)) !important;
+    transition: all 0.1s linear !important;
+}
+.vision-cone {
+    width: 620px !important;
+    height: 400px !important;
+    left: 200px !important;
+}
+.blind-spot-cone-zone {
+    width: 620px !important;
+    height: 240px !important;
+    left: 200px !important;
+}

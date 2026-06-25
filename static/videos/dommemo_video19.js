@@ -238,22 +238,25 @@
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_memo19_1') {
             const tag = canvas.querySelector('.price-tag-badge');
-            const icon = canvas.querySelector('.wine-bottle-icon');
-
+            const bottle = canvas.querySelector('.wine-bottle-icon');
             if (tag) {
                 if (progress >= 0.5) {
-                    tag.textContent = 'Giá: $100';
-                    tag.className = 'price-tag-badge tag-hundred-dollar';
-                    // Apply smooth scale-up transition
-                    const scaleVal = Math.min(1.2, 1 + (progress - 0.5) * 0.4);
-                    if (icon) icon.style.transform = `scale(${scaleVal}) rotate(5deg)`;
-                    tag.style.transform = `scale(${scaleVal})`;
+                    tag.textContent = 'Giá: $90 👑';
+                    tag.className = 'price-tag-badge tag-ninety-dollar';
+                    tag.style.transform = 'scale(1.4)';
+                    tag.style.background = 'var(--memo19-gold)';
+                    tag.style.boxShadow = '0 0 25px var(--memo19-gold)';
                 } else {
                     tag.textContent = 'Giá: $10';
                     tag.className = 'price-tag-badge tag-ten-dollar';
-                    if (icon) icon.style.transform = 'scale(1) rotate(0deg)';
-                    tag.style.transform = '';
+                    tag.style.transform = 'scale(1)';
+                    tag.style.background = '';
+                    tag.style.boxShadow = '';
                 }
+            }
+            if (bottle) {
+                const r = Math.sin(progress * Math.PI * 4) * 8;
+                bottle.style.transform = `rotate(${r}deg) scale(1.3)`;
             }
         }
         else if (slideId === 'slide_memo19_2') {

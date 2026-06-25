@@ -59,6 +59,7 @@
 
                         <div class="eye-hook-box">
                             <div class="shaking-bg-v18"></div>
+                            <span class="hook-giant-eye-v18">👁️</span>
                             <div class="gaze-target-hook gaze-left"></div>
                         </div>
                     </div>
@@ -231,31 +232,47 @@
         if (slideId === 'slide_memo18_1') {
             const target = canvas.querySelector('.gaze-target-hook');
             const shakeBg = canvas.querySelector('.shaking-bg-v18');
+            const giantEye = canvas.querySelector('.hook-giant-eye-v18');
+
+            // Dot sweeps back & forth
+            const period = progress * Math.PI * 2;
+            const isMoving = Math.sin(period) > 0.3 || Math.sin(period) < -0.3;
+
+            if (isMoving) {
+                if (shakeBg) shakeBg.classList.add('active-shake');
+            } else {
+                if (shakeBg) shakeBg.classList.remove('active-shake');
+            }
 
             if (target && shakeBg) {
-                // Two movement periods: 0.3 -> 0.45 (left to right) and 0.7 -> 0.85 (right to left)
                 if (progress >= 0.3 && progress < 0.45) {
                     const ratio = (progress - 0.3) / 0.15;
                     const offset = -180 + 360 * ratio;
                     target.style.transform = `translateX(${offset}px)`;
-                    shakeBg.classList.add('active-shake');
                 } else if (progress >= 0.45 && progress < 0.7) {
                     target.className = 'gaze-target-hook gaze-right';
                     target.style.transform = '';
-                    shakeBg.classList.remove('active-shake');
                 } else if (progress >= 0.7 && progress < 0.85) {
                     const ratio = (progress - 0.7) / 0.15;
                     const offset = 180 - 360 * ratio;
                     target.style.transform = `translateX(${offset}px)`;
-                    shakeBg.classList.add('active-shake');
                 } else if (progress >= 0.85) {
                     target.className = 'gaze-target-hook gaze-left';
                     target.style.transform = '';
-                    shakeBg.classList.remove('active-shake');
                 } else {
                     target.className = 'gaze-target-hook gaze-left';
                     target.style.transform = '';
-                    shakeBg.classList.remove('active-shake');
+                }
+            }
+
+            const isLeft = progress < 0.35 || progress > 0.75;
+            if (isLeft) {
+                if (giantEye) {
+                    giantEye.style.transform = 'translateX(-80px) scale(1.4) scaleX(1)';
+                }
+            } else {
+                if (giantEye) {
+                    giantEye.style.transform = 'translateX(80px) scale(1.4) scaleX(-1)';
                 }
             }
         }

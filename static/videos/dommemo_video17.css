@@ -460,3 +460,41 @@
     text-shadow: 0 0 12px rgba(129, 140, 248, 0.55) !important;
     border-color: #6366f1 !important;
 }
+
+/* --- CUSTOM HOOK OVERRIDES FOR PREMIUM ANIMATION --- */
+.audio-hook-box {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+.phrase-box-v17 {
+    font-size: 40px !important;
+    gap: 15px !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 2.5px solid var(--memo17-glass-border) !important;
+    padding: 30px 40px !important;
+    border-radius: 24px !important;
+    transform: scale(1.15) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5) !important;
+}
+.phrase-word {
+    transition: all 0.3s ease !important;
+}
+.phrase-word.word-target {
+    font-size: 44px !important;
+    font-weight: 900 !important;
+    color: var(--memo17-orange) !important;
+    text-shadow: 0 0 20px var(--memo17-orange) !important;
+}
+.hook-megaphone-v17 {
+    font-size: 110px !important;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    animation: pulse-megaphone 1s infinite alternate ease-in-out;
+}
+@keyframes pulse-megaphone {
+    0% { transform: scale(1) rotate(-10deg); }
+    100% { transform: scale(1.15) rotate(10deg); }
+}

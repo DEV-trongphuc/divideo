@@ -59,6 +59,7 @@
                         <span class="ambient-sleep-particle-v26" style="top: 20%; left: 80%; animation-delay: -5s;">🔋</span>
 
                         <div class="sleep-hook-box">
+                            <div class="hook-angry-cloud-v26" style="opacity: 0; left: 160px; top: 80px;">😡</div>
                             <div class="hook-chat-bubble">Ok.</div>
                         </div>
                     </div>
@@ -224,11 +225,22 @@
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_memo26_1') {
             const bubble = canvas.querySelector('.hook-chat-bubble');
+            const cloud = canvas.querySelector('.hook-angry-cloud-v26');
             if (bubble) {
-                if (progress >= 0.5) {
-                    bubble.className = 'hook-chat-bubble shaking-bubble';
+                if (progress > 0.45) {
+                    bubble.textContent = 'Ok. 😒 (Nói móc?)';
+                    bubble.classList.add('shaking-bubble');
+                    if (cloud) {
+                        cloud.style.opacity = '0.6';
+                        cloud.style.transform = 'scale(1.4)';
+                    }
                 } else {
-                    bubble.className = 'hook-chat-bubble';
+                    bubble.textContent = 'Ok.';
+                    bubble.classList.remove('shaking-bubble');
+                    if (cloud) {
+                        cloud.style.opacity = '0';
+                        cloud.style.transform = 'scale(0.8)';
+                    }
                 }
             }
         }

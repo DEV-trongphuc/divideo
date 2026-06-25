@@ -245,7 +245,21 @@
     // ── ANIMATION FRAME UPDATES ────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_memo21_1') {
-            // Handled by CSS
+            const happy = canvas.querySelector('.hook-happy-emoji');
+            const sad = canvas.querySelector('.hook-sad-emoji');
+            if (happy && sad) {
+                if (progress < 0.5) {
+                    happy.style.transform = 'scale(1.4) rotate(10deg)';
+                    happy.style.opacity = '1';
+                    sad.style.transform = 'scale(0.8)';
+                    sad.style.opacity = '0.2';
+                } else {
+                    happy.style.transform = 'scale(0.8)';
+                    happy.style.opacity = '0.2';
+                    sad.style.transform = 'scale(1.4) rotate(-10deg)';
+                    sad.style.opacity = '1';
+                }
+            }
         }
         else if (slideId === 'slide_memo21_2') {
             const peakNode = canvas.querySelector('.node-peak');
