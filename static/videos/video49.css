@@ -201,6 +201,7 @@
     position: relative;
     z-index: 1;
     box-sizing: border-box;
+    margin-top: -45px;
 }
 
 .v49-stream-producer {
@@ -391,6 +392,7 @@
     height: 420px;
     position: relative;
     z-index: 1;
+    margin-top: -45px;
 }
 
 /* Left Card: 3D Flipping Coin */
@@ -584,6 +586,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: -40px;
 }
 
 .v49-sparse-capsule, .v49-dense-grid-card {
@@ -699,6 +702,7 @@
     height: 420px;
     position: relative;
     z-index: 1;
+    margin-top: -45px;
 }
 
 .v49-chart-container {
@@ -844,6 +848,7 @@
     position: relative;
     z-index: 1;
     align-items: center;
+    margin-top: -30px;
 }
 
 .v49-transition-layout .v49-sparse-capsule,

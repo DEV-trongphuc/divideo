@@ -47,7 +47,7 @@
             if (needsTemplate) {
                 canvas.innerHTML = `
                     <div class="v26-scene-wrapper">
-                        <div class="v37-grid-bg blue-tint" style="position:absolute; inset:0; background-image:radial-gradient(rgba(59,130,246,0.04) 1.5px, transparent 1.5px); background-size:20px 20px; pointer-events:none;"></div>
+                        <div class="v37-grid-bg" style="position:absolute; inset:0; background-image:radial-gradient(rgba(245,158,11,0.05) 1.5px, transparent 1.5px); background-size:20px 20px; pointer-events:none;"></div>
                         <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
                             <div class="v26-zip-intro-container">
                                 <div class="v26-zip-glow-ring"></div>
@@ -58,11 +58,11 @@
                             </div>
                             
                             <!-- Premium Badge and Label in Glass Card -->
-                            <div class="glass-card" style="text-align: center; width: 440px; padding: 18px 24px; border-radius: 20px; border: 1.5px solid rgba(59, 130, 246, 0.4); background: rgba(12, 16, 24, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55); margin-top: 15px;">
-                                <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.1); color: #60a5fa; border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
+                            <div class="glass-card" style="text-align: center; width: 440px; padding: 18px 24px; border-radius: 20px; border: 1.5px solid rgba(245, 158, 11, 0.45); background: rgba(12, 16, 24, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55); margin-top: 15px;">
+                                <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1); color: #fbbf24; border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
                                     <i data-lucide="folder-archive" style="width:14px;height:14px;"></i> Lossless Compression
                                 </div>
-                                <div style="font-family:'Fira Code', monospace; font-size: 15px; font-weight: bold; color: #60a5fa; line-height: 1.45;">
+                                <div style="font-family:'Fira Code', monospace; font-size: 15px; font-weight: bold; color: #fbbf24; line-height: 1.45;">
                                     Bí ẩn tệp .ZIP: Làm sao nén file không mất một chữ?
                                 </div>
                             </div>
@@ -77,18 +77,18 @@
                     <div class="v26-zoom-container">
                         <!-- ZIP Logo visual representation -->
                         <div class="zip-icon-anim" style="position:relative; width:280px; height:280px; display:flex; align-items:center; justify-content:center;">
-                            <div style="position:absolute; inset:0; background:radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%); filter:blur(25px);"></div>
-                            <img src="/static/zip_icon.png" style="width:220px; height:220px; z-index:5; filter:drop-shadow(0 15px 30px rgba(59, 130, 246, 0.45));" alt="ZIP File Icon">
+                            <div style="position:absolute; inset:0; background:radial-gradient(circle, rgba(245,158,11,0.25) 0%, transparent 70%); filter:blur(25px);"></div>
+                            <img src="/static/zip_icon.png" style="width:220px; height:220px; z-index:5; filter:drop-shadow(0 15px 30px rgba(245, 158, 11, 0.45));" alt="ZIP File Icon">
                             
                             <!-- Floating Binary Particles (Wow aesthetics) -->
-                            <div class="v26-binary-particle" style="position:absolute; left:-45px; top:30px; color:#3b82f6; font-size:24px; animation:v26-float-particle-1 4s infinite ease-in-out;">1</div>
+                            <div class="v26-binary-particle" style="position:absolute; left:-45px; top:30px; color:#fbbf24; font-size:24px; animation:v26-float-particle-1 4s infinite ease-in-out;">1</div>
                             <div class="v26-binary-particle" style="position:absolute; right:-35px; top:60px; color:#10b981; font-size:20px; animation:v26-float-particle-2 5s infinite ease-in-out; animation-delay:1s;">0</div>
                             <div class="v26-binary-particle" style="position:absolute; left:-25px; bottom:40px; color:#f59e0b; font-size:22px; animation:v26-float-particle-3 6s infinite ease-in-out; animation-delay:2s;">1</div>
-                            <div class="v26-binary-particle" style="position:absolute; right:-55px; bottom:30px; color:#3b82f6; font-size:26px; animation:v26-float-particle-1 5s infinite ease-in-out; animation-delay:0.5s;">0</div>
+                            <div class="v26-binary-particle" style="position:absolute; right:-55px; bottom:30px; color:#fbbf24; font-size:26px; animation:v26-float-particle-1 5s infinite ease-in-out; animation-delay:0.5s;">0</div>
                             <div class="v26-binary-particle" style="position:absolute; left:50%; top:-45px; transform:translateX(-50%); color:#10b981; font-size:18px; animation:v26-float-particle-2 4s infinite ease-in-out; animation-delay:1.5s;">0</div>
                             <div class="v26-binary-particle" style="position:absolute; left:40%; bottom:-45px; transform:translateX(-50%); color:#f59e0b; font-size:24px; animation:v26-float-particle-3 5s infinite ease-in-out; animation-delay:0.8s;">1</div>
                         </div>
-                        <div style="font-size:28px; font-weight:bold; color:#fff; text-shadow:0 0 15px rgba(59,130,246,0.35); text-align:center; letter-spacing:1px; margin-top:15px;">
+                        <div style="font-size:28px; font-weight:bold; color:#fbbf24; text-shadow:0 0 20px rgba(245,158,11,0.45); text-align:center; letter-spacing:1px; margin-top:15px;">
                             Lossless Compression
                         </div>
                     </div>

@@ -524,7 +524,7 @@
                 }
                 if (cardBad) {
                     cardBad.style.borderColor = 'rgba(239, 68, 68, 0.6)';
-                    cardBad.style.background = 'rgba(239, 68, 68, 0.05)';
+                    cardBad.style.background = 'rgba(239, 68, 68, 0.08)';
                 }
                 if (blockGood) {
                     blockGood.style.opacity = '0.35';
@@ -532,8 +532,8 @@
                     blockGood.style.transform = 'none';
                 }
                 if (cardGood) {
-                    cardGood.style.borderColor = 'rgba(255,255,255,0.06)';
-                    cardGood.style.background = 'rgba(30, 41, 59, 0.45)';
+                    cardGood.style.borderColor = 'rgba(255,255,255,0.08)';
+                    cardGood.style.background = 'rgba(10, 15, 30, 0.3)';
                 }
             }
             // Phase 2: Highlight Integer Cents solution (progress > 0.5)
@@ -544,8 +544,8 @@
                     blockBad.style.transform = 'none';
                 }
                 if (cardBad) {
-                    cardBad.style.borderColor = 'rgba(255,255,255,0.06)';
-                    cardBad.style.background = 'rgba(30, 41, 59, 0.45)';
+                    cardBad.style.borderColor = 'rgba(255,255,255,0.08)';
+                    cardBad.style.background = 'rgba(10, 15, 30, 0.3)';
                 }
                 if (blockGood) {
                     blockGood.style.opacity = '1';
@@ -554,14 +554,14 @@
                 }
                 if (cardGood) {
                     cardGood.style.borderColor = 'rgba(16, 185, 129, 0.6)';
-                    cardGood.style.background = 'rgba(16, 185, 129, 0.05)';
+                    cardGood.style.background = 'rgba(16, 185, 129, 0.08)';
                 }
             }
             else {
                 if (blockBad) { blockBad.style.opacity = '1'; blockBad.style.boxShadow = 'none'; blockBad.style.transform = 'none'; }
                 if (blockGood) { blockGood.style.opacity = '1'; blockGood.style.boxShadow = 'none'; blockGood.style.transform = 'none'; }
-                if (cardBad) { cardBad.style.borderColor = 'rgba(255,255,255,0.06)'; cardBad.style.background = 'rgba(30, 41, 59, 0.45)'; }
-                if (cardGood) { cardGood.style.borderColor = 'rgba(255,255,255,0.06)'; cardGood.style.background = 'rgba(30, 41, 59, 0.45)'; }
+                if (cardBad) { cardBad.style.borderColor = 'rgba(255,255,255,0.08)'; cardBad.style.background = 'rgba(10, 15, 30, 0.75)'; }
+                if (cardGood) { cardGood.style.borderColor = 'rgba(255,255,255,0.08)'; cardGood.style.background = 'rgba(10, 15, 30, 0.75)'; }
             }
         }
     }

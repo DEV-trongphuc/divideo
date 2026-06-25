@@ -339,6 +339,14 @@
                             🔥 Tiết kiệm 96% dung lượng bộ nhớ RAM!
                         </div>
                     </div>
+
+                    <!-- Bit Array visual representation -->
+                    <div class="glass-card v28-bit-array-card" style="padding:15px; border-radius:20px; display:flex; flex-direction:column; align-items:center; gap:10px; width: 100%; opacity:0; transform:translateY(15px); transition:all 0.4s ease-out; box-sizing:border-box;">
+                        <div style="font-size:12px; font-weight:bold; color:#10b981; font-family:sans-serif; text-transform:uppercase; letter-spacing:0.8px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px; width:100%; text-align:center;">
+                            Mô Phỏng Mảng Bit trong RAM (Bloom Filter Array)
+                        </div>
+                        ${renderBitArrayHTML('v28-array-4', 12)}
+                    </div>
                 </div>
             `;
         }
@@ -821,10 +829,45 @@
         else if (slideId === 'slide_bloom_4') {
             const ramVal = canvas.querySelector('#v28-ram-val-bf');
             const ramBar = canvas.querySelector('#v28-ram-bar-bf');
+            const bitArrayCard = canvas.querySelector('.v28-bit-array-card');
+            const array = canvas.querySelector('#v28-array-4');
 
             const currentMB = Math.round(progress * 600);
             if (ramVal) ramVal.textContent = `${currentMB} MB / 600 MB`;
             if (ramBar) ramBar.style.width = `${progress * 100}%`;
+
+            // Animate bit array card fade-in when talking about Bloom filter array
+            if (bitArrayCard) {
+                if (progress > 0.20) {
+                    bitArrayCard.style.opacity = '1';
+                    bitArrayCard.style.transform = 'translateY(0)';
+                } else {
+                    bitArrayCard.style.opacity = '0';
+                    bitArrayCard.style.transform = 'translateY(15px)';
+                }
+            }
+
+            // Animate bits lighting up
+            if (array) {
+                const targetBits = [
+                    { idx: 2, threshold: 0.28 },
+                    { idx: 5, threshold: 0.40 },
+                    { idx: 8, threshold: 0.52 },
+                    { idx: 10, threshold: 0.64 }
+                ];
+                targetBits.forEach(tb => {
+                    const node = array.querySelector(`#v28-array-4-bit-${tb.idx}`);
+                    if (node) {
+                        if (progress >= tb.threshold) {
+                            node.textContent = '1';
+                            node.className = 'v28-bit-node active-good';
+                        } else {
+                            node.textContent = '0';
+                            node.className = 'v28-bit-node';
+                        }
+                    }
+                });
+            }
         }
         else if (slideId === 'slide_bloom_5') {
             const array = canvas.querySelector('#v28-array-5');

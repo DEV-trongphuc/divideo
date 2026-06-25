@@ -422,48 +422,23 @@
             canvas.innerHTML = `
                 <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; zoom:1.0;">
                     
-                    <div class="glass-card cyber-grid" style="width:100%; max-width:860px; height:450px; padding:24px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                    <div class="glass-card cyber-grid" style="width:100%; max-width:860px; height:520px; padding:24px; border:2px solid rgba(245,158,11,0.25); border-radius:24px; background:#0c0f17; box-shadow:0 0 30px rgba(245,158,11,0.15); display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
                         
                         <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(245,158,11,0.15); padding-bottom:8px;">
                             <div style="font-size:22px; font-weight:bold; color:var(--gold-primary);">So Sánh Tiết Kiệm Bộ Nhớ (100 Triệu Accounts)</div>
                             <div style="font-size:13px; background:rgba(16,185,129,0.12); padding:2px 10px; border-radius:6px; color:#10b981; font-family:monospace; font-weight:bold;">MEMORY METRICS</div>
                         </div>
 
-                        <!-- Main Content: Split into Left (Bars) and Right (Grid Scale) -->
-                        <div style="display:flex; gap:30px; align-items:center; justify-content:space-between; flex:1; margin:15px 0;">
+                        <!-- Main Content: Stacked Vertically - Visual Grid on Top, Bars at the Bottom -->
+                        <div style="display:flex; flex-direction:column; gap:16px; flex:1; margin:15px 0; width:100%;">
                             
-                            <!-- Left: Memory Bars (55%) -->
-                            <div style="flex:1.4; display:flex; flex-direction:column; gap:20px;">
-                                <!-- SQL Table Row -->
-                                <div style="display:flex; flex-direction:column; gap:8px; text-align:left;">
-                                    <div style="display:flex; justify-content:space-between; align-items:flex-end; font-size:13px; font-family:sans-serif; color:#ccc; font-weight:bold;">
-                                        <span>SQL Table (Row Record + Index)</span>
-                                        <span style="color:#ef4444; font-size:24px; font-weight:bold; font-family:monospace;" class="lbl-traditional-memory">0 MB</span>
-                                    </div>
-                                    <div style="width:100%; height:28px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; padding:5px; box-sizing:border-box;">
-                                        <div class="growth-bar" style="width:0%; height:16px; border-radius:8px;"></div>
-                                    </div>
-                                </div>
-
-                                <!-- Redis Bitmap Row -->
-                                <div style="display:flex; flex-direction:column; gap:8px; text-align:left;">
-                                    <div style="display:flex; justify-content:space-between; align-items:flex-end; font-size:13px; font-family:sans-serif; color:#ccc; font-weight:bold;">
-                                        <span>Redis Bitmap (1 bit / account)</span>
-                                        <span style="color:#10b981; font-size:24px; font-weight:bold; font-family:monospace;" class="lbl-optimized-memory">0 MB</span>
-                                    </div>
-                                    <div style="width:100%; height:28px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; padding:5px; box-sizing:border-box;">
-                                        <div class="growth-bar-optimized" style="width:0%; height:16px; border-radius:8px;"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Right: Visual Scale Grid (45%) -->
-                            <div class="glass-card" style="flex:1; border:1px solid rgba(255,255,255,0.08); background:rgba(0,0,0,0.3); border-radius:16px; padding:15px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; height:200px; box-sizing:border-box;">
+                            <!-- Top: Visual Scale Grid -->
+                            <div class="glass-card" style="width:100%; border:1px solid rgba(255,255,255,0.08); background:rgba(0,0,0,0.3); border-radius:16px; padding:12px 15px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; height:215px; box-sizing:border-box;">
                                 <div style="font-size:12px; color:#aaa; font-weight:bold; font-family:monospace; text-transform:uppercase; letter-spacing:0.5px; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:4px; width:100%; text-align:center;">
                                     Tỷ lệ quy đổi (1 block = 12.5 MB)
                                 </div>
                                 
-                                <div style="display:flex; gap:25px; align-items:center; justify-content:center; flex:1;">
+                                <div style="display:flex; gap:40px; align-items:center; justify-content:center; flex:1; width:100%;">
                                     <!-- SQL Grid (8x8) -->
                                     <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
                                         <div style="display:grid; grid-template-columns:repeat(8, 14px); grid-template-rows:repeat(8, 14px); gap:3px;" class="s5-sql-grid">
@@ -485,6 +460,30 @@
                                 </div>
                             </div>
 
+                            <!-- Bottom: Memory Bars -->
+                            <div style="width:100%; display:flex; flex-direction:column; gap:12px;">
+                                <!-- SQL Table Row -->
+                                <div style="display:flex; flex-direction:column; gap:6px; text-align:left;">
+                                    <div style="display:flex; justify-content:space-between; align-items:flex-end; font-size:12px; font-family:sans-serif; color:#ccc; font-weight:bold;">
+                                        <span>SQL Table (Row Record + Index)</span>
+                                        <span style="color:#ef4444; font-size:20px; font-weight:bold; font-family:monospace;" class="lbl-traditional-memory">0 MB</span>
+                                    </div>
+                                    <div style="width:100%; height:24px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; overflow:hidden; padding:4px; box-sizing:border-box;">
+                                        <div class="growth-bar" style="width:0%; height:14px; border-radius:7px;"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Redis Bitmap Row -->
+                                <div style="display:flex; flex-direction:column; gap:6px; text-align:left;">
+                                    <div style="display:flex; justify-content:space-between; align-items:flex-end; font-size:12px; font-family:sans-serif; color:#ccc; font-weight:bold;">
+                                        <span>Redis Bitmap (1 bit / account)</span>
+                                        <span style="color:#10b981; font-size:20px; font-weight:bold; font-family:monospace;" class="lbl-optimized-memory">0 MB</span>
+                                    </div>
+                                    <div style="width:100%; height:24px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; overflow:hidden; padding:4px; box-sizing:border-box;">
+                                        <div class="growth-bar-optimized" style="width:0%; height:14px; border-radius:7px;"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Promotional metric highlight -->
@@ -513,12 +512,12 @@
                     <div class="s6-diagram-wrapper" style="position:relative; width:500px; height:540px; margin:0 auto; box-sizing:border-box;">
                         <!-- SVG lines -->
                         <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;" class="s6-svg-canvas">
-                            <!-- Client -> WS Gateway (Y=110 to 150) -->
-                            <path d="M 250 110 L 250 150" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" fill="none" class="s6-dashed-link s6-link-1"></path>
-                            <!-- WS Gateway -> Presence Service (Y=250 to 290) -->
-                            <path d="M 250 250 L 250 290" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" fill="none" class="s6-dashed-link s6-link-2"></path>
-                            <!-- Presence Service -> Redis Bitmap (Y=390 to 430) -->
-                            <path d="M 250 390 L 250 430" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" fill="none" class="s6-dashed-link s6-link-3"></path>
+                            <!-- Client -> WS Gateway (Y=140 to 170) -->
+                            <path d="M 250 140 L 250 170" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" fill="none" class="s6-dashed-link s6-link-1"></path>
+                            <!-- WS Gateway -> Presence Service (Y=270 to 300) -->
+                            <path d="M 250 270 L 250 300" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" fill="none" class="s6-dashed-link s6-link-2"></path>
+                            <!-- Presence Service -> Redis Bitmap (Y=400 to 430) -->
+                            <path d="M 250 400 L 250 430" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" fill="none" class="s6-dashed-link s6-link-3"></path>
                         </svg>
 
                         <!-- Dynamic flowing packets canvas -->
@@ -531,7 +530,7 @@
                         </div>
 
                         <!-- 2. WebSocket Gateway Server -->
-                        <div class="s6-node-card-premium s6-gateway-srv-premium" style="top:150px;">
+                        <div class="s6-node-card-premium s6-gateway-srv-premium" style="top:170px;">
                             <div class="s6-icon-wrapper">
                                 <i data-lucide="server" style="width:26px; height:26px;"></i>
                             </div>
@@ -542,7 +541,7 @@
                         </div>
 
                         <!-- 3. Presence Service Node -->
-                        <div class="s6-node-card-premium s6-presence-srv-premium" style="top:290px;">
+                        <div class="s6-node-card-premium s6-presence-srv-premium" style="top:300px;">
                             <div class="s6-icon-wrapper">
                                 <i data-lucide="git-branch" style="width:26px; height:26px;"></i>
                             </div>
@@ -884,12 +883,53 @@
                 if (optimizedMemory) optimizedMemory.textContent = `${optVal} MB`;
 
                 if (barTraditional) barTraditional.style.width = `${t * 96}%`;
-                if (barOptimized) barOptimized.style.width = `${Math.max(2, t * 12.5 / 800 * 100)}%`;
+                if (barOptimized) barOptimized.style.width = `${Math.max(3.5, (t * 12.5 / 800) * 100)}%`;
+
+                // Update Visual Scale Grid
+                const activeCellsCount = Math.floor(t * 64);
+                for (let i = 0; i < 64; i++) {
+                    const cell = canvas.querySelector(`.sql-cell-${i}`);
+                    if (cell) {
+                        if (i < activeCellsCount) {
+                            cell.style.background = '#ef4444';
+                            cell.style.borderColor = '#ef4444';
+                            cell.style.boxShadow = '0 0 6px rgba(239, 68, 68, 0.6)';
+                        } else {
+                            cell.style.background = 'rgba(255,255,255,0.05)';
+                            cell.style.borderColor = 'rgba(255,255,255,0.1)';
+                            cell.style.boxShadow = 'none';
+                        }
+                    }
+                }
+                const redisBlock = canvas.querySelector('.s5-redis-block');
+                if (redisBlock) {
+                    redisBlock.style.opacity = t;
+                    if (t > 0) {
+                        redisBlock.style.boxShadow = `0 0 ${10 + t * 10}px rgba(16,185,129,0.7)`;
+                    } else {
+                        redisBlock.style.boxShadow = 'none';
+                    }
+                }
             } else {
                 if (traditionalMemory) traditionalMemory.textContent = '0 MB';
                 if (optimizedMemory) optimizedMemory.textContent = '0 MB';
                 if (barTraditional) barTraditional.style.width = '0%';
                 if (barOptimized) barOptimized.style.width = '0%';
+
+                // Reset grid
+                for (let i = 0; i < 64; i++) {
+                    const cell = canvas.querySelector(`.sql-cell-${i}`);
+                    if (cell) {
+                        cell.style.background = 'rgba(255,255,255,0.05)';
+                        cell.style.borderColor = 'rgba(255,255,255,0.1)';
+                        cell.style.boxShadow = 'none';
+                    }
+                }
+                const redisBlock = canvas.querySelector('.s5-redis-block');
+                if (redisBlock) {
+                    redisBlock.style.opacity = 0;
+                    redisBlock.style.boxShadow = 'none';
+                }
             }
         }
         else if (slideId === 'slide_active_6') {
@@ -906,62 +946,61 @@
 
             if (packetCanvas) packetCanvas.innerHTML = '';
 
+            // Loop the heartbeat flow 4 times over the slide duration
+            const t = (progress * 4) % 1.0;
+
             // Heartbeat status indicators
             let packetsHTML = '';
             let gwPulse = false;
             let prPulse = false;
             let rdPulse = false;
 
-            // Phase 1: client -> Gateway (Y=110 to Y=150) - Center X is 250px
-            // progress: 0.05 -> 0.20
-            if (progress > 0.05 && progress <= 0.20) {
-                const t = (progress - 0.05) / 0.15;
-                const y = 110 + t * 40;
+            // Phase 1: Client -> WS Gateway (Y=140 to Y=170)
+            if (t > 0.05 && t <= 0.25) {
+                const pct = (t - 0.05) / 0.20;
+                const y = 140 + pct * 30;
                 packetsHTML += `<circle cx="250" cy="${y}" r="5.5" fill="#0084ff" filter="drop-shadow(0 0 10px #0084ff)"></circle>`;
-                if (y - 12 >= 110) {
+                if (y - 12 >= 140) {
                     packetsHTML += `<circle cx="250" cy="${y - 12}" r="4" fill="#0084ff" opacity="0.6" filter="drop-shadow(0 0 6px #0084ff)"></circle>`;
                 }
-                if (y - 24 >= 110) {
+                if (y - 24 >= 140) {
                     packetsHTML += `<circle cx="250" cy="${y - 24}" r="2.5" fill="#0084ff" opacity="0.3" filter="drop-shadow(0 0 4px #0084ff)"></circle>`;
                 }
-                if (t >= 0.85) gwPulse = true;
+                if (pct >= 0.75) gwPulse = true;
             }
 
-            // Phase 2: Gateway -> Presence Service (Y=250 to Y=290) - Center X is 250px
-            // progress: 0.20 -> 0.35
-            if (progress > 0.20 && progress <= 0.35) {
+            // Phase 2: WS Gateway -> Presence Srv (Y=270 to Y=300)
+            if (t > 0.25 && t <= 0.45) {
                 gwPulse = true;
-                const t = (progress - 0.20) / 0.15;
-                const y = 250 + t * 40;
+                const pct = (t - 0.25) / 0.20;
+                const y = 270 + pct * 30;
                 packetsHTML += `<circle cx="250" cy="${y}" r="5.5" fill="#8b5cf6" filter="drop-shadow(0 0 10px #8b5cf6)"></circle>`;
-                if (y - 12 >= 250) {
+                if (y - 12 >= 270) {
                     packetsHTML += `<circle cx="250" cy="${y - 12}" r="4" fill="#8b5cf6" opacity="0.6" filter="drop-shadow(0 0 6px #8b5cf6)"></circle>`;
                 }
-                if (y - 24 >= 250) {
+                if (y - 24 >= 270) {
                     packetsHTML += `<circle cx="250" cy="${y - 24}" r="2.5" fill="#8b5cf6" opacity="0.3" filter="drop-shadow(0 0 4px #8b5cf6)"></circle>`;
                 }
-                if (t >= 0.85) prPulse = true;
+                if (pct >= 0.75) prPulse = true;
             }
 
-            // Phase 3: Presence Service -> Redis Bitmap (Y=390 to Y=430) - Center X is 250px
-            // progress: 0.35 -> 0.50
-            if (progress > 0.35 && progress <= 0.50) {
+            // Phase 3: Presence Srv -> Redis Bitmap (Y=400 to Y=430)
+            if (t > 0.45 && t <= 0.65) {
                 prPulse = true;
-                const t = (progress - 0.35) / 0.15;
-                const y = 390 + t * 40;
+                const pct = (t - 0.45) / 0.20;
+                const y = 400 + pct * 30;
                 packetsHTML += `<circle cx="250" cy="${y}" r="5.5" fill="#ef4444" filter="drop-shadow(0 0 10px #ef4444)"></circle>`;
-                if (y - 12 >= 390) {
+                if (y - 12 >= 400) {
                     packetsHTML += `<circle cx="250" cy="${y - 12}" r="4" fill="#ef4444" opacity="0.6" filter="drop-shadow(0 0 6px #ef4444)"></circle>`;
                 }
-                if (y - 24 >= 390) {
+                if (y - 24 >= 400) {
                     packetsHTML += `<circle cx="250" cy="${y - 24}" r="2.5" fill="#ef4444" opacity="0.3" filter="drop-shadow(0 0 4px #ef4444)"></circle>`;
                 }
-                if (t >= 0.9) rdPulse = true;
+                if (pct >= 0.75) rdPulse = true;
             }
 
             // Phase 4: Client green dot pulses upon success validation
-            // progress > 0.50
-            if (progress > 0.50) {
+            if (t > 0.65 && t <= 0.95) {
                 rdPulse = true;
                 if (clientDot) {
                     clientDot.style.backgroundColor = '#10b981';
@@ -982,7 +1021,7 @@
 
             // Dynamic links highlight
             if (link1) {
-                if (progress > 0.05 && progress <= 0.20) {
+                if (t > 0.05 && t <= 0.25) {
                     link1.style.stroke = '#0084ff';
                     link1.style.strokeWidth = '3.5px';
                     link1.style.opacity = '0.95';
@@ -993,7 +1032,7 @@
                 }
             }
             if (link2) {
-                if (progress > 0.20 && progress <= 0.35) {
+                if (t > 0.25 && t <= 0.45) {
                     link2.style.stroke = '#8b5cf6';
                     link2.style.strokeWidth = '3.5px';
                     link2.style.opacity = '0.95';
@@ -1004,7 +1043,7 @@
                 }
             }
             if (link3) {
-                if (progress > 0.35 && progress <= 0.50) {
+                if (t > 0.45 && t <= 0.65) {
                     link3.style.stroke = '#ef4444';
                     link3.style.strokeWidth = '3.5px';
                     link3.style.opacity = '0.95';
@@ -1031,7 +1070,7 @@
 
             // Premium Node highlights
             if (clientNode) {
-                const isClientActive = progress > 0.05 && progress <= 0.60;
+                const isClientActive = t > 0.05 && t <= 0.95;
                 clientNode.classList.toggle('active-client', isClientActive);
             }
             if (gatewaySrv) {
