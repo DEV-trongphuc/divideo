@@ -5421,7 +5421,6 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     background: rgba(16, 185, 129, 0.08) !important;
     border: 2px solid rgba(16, 185, 129, 0.4) !important;
     box-shadow: 0 0 20px rgba(16, 185, 129, 0.25) !important;
-    transform: scale(1.15) translateY(-2px);
 }
 
 .ai-keyword-tag.active-gold {
@@ -5429,7 +5428,6 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     background: rgba(245, 158, 11, 0.08) !important;
     border: 2px solid rgba(245, 158, 11, 0.4) !important;
     box-shadow: 0 0 20px rgba(245, 158, 11, 0.25) !important;
-    transform: scale(1.15) translateY(-2px);
 }
 
 .ai-keyword-tag.active-bad {
@@ -5437,7 +5435,6 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     background: rgba(239, 68, 68, 0.08) !important;
     border: 2px solid rgba(239, 68, 68, 0.4) !important;
     box-shadow: 0 0 20px rgba(239, 68, 68, 0.25) !important;
-    transform: scale(1.15) translateY(-2px);
 }
 
 /* --- Template 14: Dedicated Hook Layout --- */

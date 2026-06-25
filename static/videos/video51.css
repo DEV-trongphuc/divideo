@@ -21,7 +21,7 @@
     align-items: center;
     gap: 32px;
     padding: 8px;
-    zoom: 1.5;
+    zoom: 1.25;
     overflow: visible;
 }
 
@@ -35,6 +35,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 28px;
 }
 
 .v51-scene-row {
@@ -116,38 +117,162 @@
 .v51-status-badge.red { color: #fca5a5; }
 .v51-status-badge.green { color: #34d399; }
 
-/* Slide 1 - Spy Icon container */
-.v51-spy-badge-container {
+/* Slide 1 - Premium Spinning Rings & Spy Logo (Inspired by Video 24) */
+.v51-avatar-intro-container {
     position: relative;
-    width: 140px;
-    height: 140px;
+    width: 240px;
+    height: 240px;
+    margin: 10px 0;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.v51-avatar-glow-ring {
+    position: absolute;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%);
-    margin-bottom: 10px;
+    border: 2.5px dashed rgba(168, 85, 247, 0.55);
+    animation: v51-logo-spin 25s linear infinite;
+    pointer-events: none;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.15), inset 0 0 20px rgba(168, 85, 247, 0.1);
 }
 
-.v51-spy-icon {
+.v51-avatar-glow-ring.inner {
+    width: 190px;
+    height: 190px;
+    border: 1.5px solid rgba(168, 85, 247, 0.35);
+    animation: v51-logo-spin-rev 15s linear infinite;
+}
+
+.v51-giant-avatar {
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: v51-logo-float 3.5s ease-in-out infinite;
+    z-index: 2;
+}
+
+.v51-spy-icon-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3.5px solid var(--incog-purple);
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(15, 23, 42, 0.98) 80%);
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.45), inset 0 0 15px rgba(168, 85, 247, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.v51-spy-svg {
+    width: 95px;
+    height: 95px;
     color: var(--incog-purple);
-    filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.4));
-    animation: spyPulse 3s infinite ease-in-out;
+    filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.8));
 }
 
-@keyframes spyPulse {
-    0%, 100% { transform: scale(1); opacity: 0.95; filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.4)); }
-    50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.6)); }
+.v51-avatar-purple-dot {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--incog-purple);
+    border: 4.5px solid #0b0f19;
+    box-shadow: 0 0 15px var(--incog-purple), inset 0 0 6px rgba(255,255,255,0.7);
+    animation: v51-dot-pulse 1.8s infinite ease-in-out;
 }
 
-/* Device simulation */
+/* Slide 1b - Premium Phone Mockup */
+.v51-phone-mock {
+    width: 200px;
+    height: 290px;
+    background: #090d16;
+    border: 6px solid #1e293b;
+    border-radius: 24px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(168, 85, 247, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 auto;
+    border-bottom: 8px solid #1e293b;
+}
+
+.v51-phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 10px;
+    background: #1e293b;
+    border-radius: 0 0 8px 8px;
+    z-index: 10;
+}
+
+.v51-phone-status-bar {
+    height: 18px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7px;
+    color: var(--incog-text-muted);
+    font-family: sans-serif;
+    margin-top: 1px;
+    z-index: 5;
+    background: rgba(0,0,0,0.2);
+}
+
+.v51-phone-status-bar .right-icons {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.v51-phone-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 8px 8px 8px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Animations */
+@keyframes v51-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes v51-logo-spin-rev {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes v51-logo-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes v51-dot-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(168, 85, 247, 0.8); }
+    50% { transform: scale(1.15); box-shadow: 0 0 24px rgba(168, 85, 247, 1); }
+}
+
+/* Laptop Mockup (Slide 2 & Slide 5) */
 .v51-laptop-mock {
-    width: 220px;
-    height: 140px;
-    border: 6px solid #1f2937;
+    width: 330px;
+    height: 195px;
+    border: 7px solid #1f2937;
     border-radius: 12px 12px 0 0;
     background: #0f172a;
     position: relative;
@@ -158,8 +283,8 @@
 }
 
 .v51-laptop-base {
-    width: 260px;
-    height: 8px;
+    width: 370px;
+    height: 10px;
     background: #374151;
     border-radius: 0 0 8px 8px;
     position: relative;
@@ -170,28 +295,29 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 12px;
     box-sizing: border-box;
     position: relative;
 }
 
+/* Browser Mockup inside Laptop/Phone */
 .v51-browser-tab-bar {
     display: flex;
-    gap: 4px;
+    gap: 5px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
-    padding-bottom: 4px;
-    margin-bottom: 8px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .v51-browser-tab {
-    font-size: 8px;
+    font-size: 10px;
     color: var(--incog-text-muted);
     background: rgba(255,255,255,0.04);
-    padding: 2px 6px;
+    padding: 3px 8px;
     border-radius: 4px;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     font-family: sans-serif;
 }
 
@@ -203,38 +329,61 @@
 
 /* Trash simulation (Slide 2) */
 .v51-trash-can {
-    width: 50px;
-    height: 60px;
-    border: 2px solid var(--incog-text-muted);
-    border-radius: 4px 4px 8px 8px;
+    width: 85px;
+    height: 100px;
+    border: 2.5px solid var(--incog-text-muted);
+    border-radius: 6px 6px 12px 12px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--incog-text-muted);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .v51-trash-can.glow {
     border-color: var(--incog-purple);
     color: var(--incog-purple);
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
 }
 
 .v51-trash-lid {
     position: absolute;
-    top: -6px;
-    left: -4px;
-    right: -4px;
-    height: 4px;
+    top: -8px;
+    left: -5px;
+    right: -5px;
+    height: 5px;
     background: var(--incog-text-muted);
     border-radius: 2px;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .v51-trash-can.glow .v51-trash-lid {
     background: var(--incog-purple);
-    transform: translateY(-5px) rotate(-12deg);
+    transform: translateY(-6px) rotate(-20deg);
+}
+
+/* Rumble Animation when chips hit */
+@keyframes v51-trash-rumble {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    15% { transform: scale(1.05) rotate(-3deg); }
+    30% { transform: scale(1.05) rotate(3deg); }
+    45% { transform: scale(1.02) rotate(-2deg); }
+    60% { transform: scale(1.02) rotate(2deg); }
+    75% { transform: scale(1.01) rotate(-1deg); }
+    90% { transform: scale(1.01) rotate(1deg); }
+}
+
+.v51-trash-can.rumble {
+    animation: v51-trash-rumble 0.5s ease-out;
+    border-color: var(--incog-purple) !important;
+    color: var(--incog-purple) !important;
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.6) !important;
+}
+
+.v51-trash-can.rumble .v51-trash-lid {
+    background: var(--incog-purple) !important;
+    transform: translateY(-8px) rotate(-25deg) !important;
 }
 
 /* Local Data Chips */
@@ -255,54 +404,92 @@
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Slide 3 & 4 - Network nodes & data streams */
+/* High-fidelity Network Nodes (Slides 3, 4, 6) */
 .v51-node {
-    width: 64px;
-    height: 64px;
-    border-radius: 12px;
-    background: rgba(17, 24, 39, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: 82px;
+    height: 82px;
+    border-radius: 16px;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 6px;
     font-family: sans-serif;
-    font-size: 9px;
-    font-weight: bold;
+    font-size: 10px;
+    font-weight: 800;
     color: var(--incog-text-muted);
     position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.v51-node i {
-    width: 20px;
-    height: 20px;
+.v51-node::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
 }
 
 .v51-node.active-user {
     border-color: var(--incog-cyan);
     color: #fff;
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), inset 0 0 10px rgba(6, 182, 212, 0.1);
+}
+.v51-node.active-user::before {
+    background: var(--incog-cyan);
+    box-shadow: 0 0 8px var(--incog-cyan);
+    animation: v51-led-blink 1s infinite alternate;
 }
 
 .v51-node.active-purple {
     border-color: var(--incog-purple);
     color: #fff;
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3), inset 0 0 10px rgba(168, 85, 247, 0.1);
+}
+.v51-node.active-purple::before {
+    background: var(--incog-purple);
+    box-shadow: 0 0 8px var(--incog-purple);
+    animation: v51-led-blink 0.8s infinite alternate;
 }
 
 .v51-node.active-red {
     border-color: var(--incog-red);
     color: #fff;
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3), inset 0 0 10px rgba(239, 68, 68, 0.1);
+}
+.v51-node.active-red::before {
+    background: var(--incog-red);
+    box-shadow: 0 0 8px var(--incog-red);
+    animation: v51-led-blink 0.5s infinite alternate;
 }
 
 .v51-node.active-green {
     border-color: var(--incog-green);
     color: #fff;
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3), inset 0 0 10px rgba(16, 185, 129, 0.1);
+}
+.v51-node.active-green::before {
+    background: var(--incog-green);
+    box-shadow: 0 0 8px var(--incog-green);
+    animation: v51-led-blink 0.8s infinite alternate;
+}
+
+@keyframes v51-led-blink {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.v51-node i {
+    width: 28px;
+    height: 28px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
 .v51-network-wire {
@@ -318,7 +505,7 @@
     position: absolute;
     top: 50%;
     left: 0;
-    width: 20px;
+    width: 30px;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--incog-cyan), transparent);
     transform: translateY(-50%);
@@ -330,7 +517,7 @@
     position: absolute;
     top: 50%;
     left: 0;
-    width: 20px;
+    width: 30px;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--incog-purple), transparent);
     transform: translateY(-50%);
@@ -342,7 +529,7 @@
     position: absolute;
     top: 50%;
     left: 0;
-    width: 20px;
+    width: 30px;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--incog-red), transparent);
     transform: translateY(-50%);
@@ -350,21 +537,55 @@
 }
 
 @keyframes flowPulse {
-    0% { left: -10%; }
-    100% { left: 110%; }
+    0% { left: -20%; }
+    100% { left: 120%; }
+}
+
+/* Flying packet elements */
+.v51-packet-dot {
+    position: absolute;
+    height: 16px;
+    padding: 0 8px;
+    background: var(--incog-cyan);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    font-weight: 800;
+    color: #030712;
+    font-family: monospace;
+    box-shadow: 0 0 12px var(--incog-cyan);
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+    opacity: 0;
+    transition: transform 0.05s linear, opacity 0.15s ease;
+}
+
+.v51-packet-dot.red {
+    background: var(--incog-red);
+    color: #fff;
+    box-shadow: 0 0 12px var(--incog-red);
+}
+
+.v51-packet-dot.encrypted {
+    background: var(--incog-green);
+    color: #030712;
+    box-shadow: 0 0 12px var(--incog-green);
 }
 
 /* Logging list simulation */
 .v51-log-terminal {
-    width: 170px;
-    height: 120px;
+    width: 190px;
+    height: 135px;
     border-radius: 8px;
     background: #030712;
     border: 1px solid rgba(255,255,255,0.06);
     padding: 8px;
     box-sizing: border-box;
-    font-family: monospace;
-    font-size: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 9px;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -378,8 +599,8 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    opacity: 0.4;
-    transition: opacity 0.2s ease;
+    opacity: 0.25;
+    transition: opacity 0.25s ease, color 0.25s ease;
 }
 
 .v51-log-line.active {
@@ -394,53 +615,118 @@
     text-shadow: 0 0 4px rgba(16, 185, 129, 0.4);
 }
 
-/* Server details panel (Slide 5) */
+/* Slide 5 - Server Fingerprint collection & scanner */
+.v51-laser-scanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--incog-red), transparent);
+    box-shadow: 0 0 8px var(--incog-red);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+.v51-fingerprint-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--incog-purple);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--incog-purple);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 12;
+    transition: opacity 0.2s ease;
+}
+
 .v51-server-panel {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    width: 180px;
+    width: 215px;
     padding: 10px;
-    background: rgba(0,0,0,0.2);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.v51-server-panel::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .v51-panel-item {
     display: flex;
     justify-content: space-between;
     font-family: monospace;
-    font-size: 9px;
+    font-size: 10px;
     color: var(--incog-text-muted);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    padding-bottom: 4px;
 }
 
 .v51-panel-item span.highlight {
     color: #fff;
     font-weight: bold;
+    opacity: 0.3;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.v51-panel-item span.highlight.active {
+    opacity: 1;
 }
 
 .v51-panel-item span.highlight.red {
     color: var(--incog-red);
-    text-shadow: 0 0 4px rgba(239, 68, 68, 0.3);
+    text-shadow: 0 0 6px rgba(239, 68, 68, 0.4);
 }
 
 .v51-panel-item span.highlight.purple {
     color: var(--incog-purple);
-    text-shadow: 0 0 4px rgba(168, 85, 247, 0.3);
+    text-shadow: 0 0 6px rgba(168, 85, 247, 0.4);
 }
 
-/* Lock overlay for VPN (Slide 6) */
+/* Slide 6 - Secure VPN hex tunnel & shield overlay */
 .v51-vpn-tunnel {
     position: absolute;
     top: 50%;
-    left: 10%;
-    right: 10%;
-    height: 12px;
-    background: rgba(168, 85, 247, 0.1);
-    border: 1px dashed rgba(168, 85, 247, 0.3);
-    border-radius: 6px;
+    left: 15%;
+    width: 25%;
+    height: 20px;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(168, 85, 247, 0.05),
+        rgba(168, 85, 247, 0.05) 5px,
+        rgba(168, 85, 247, 0.1) 5px,
+        rgba(168, 85, 247, 0.1) 10px
+    );
+    border: 1.5px solid rgba(168, 85, 247, 0.35);
+    border-radius: 10px;
     transform: translateY(-50%);
     z-index: 1;
     pointer-events: none;
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.1);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.15), inset 0 0 8px rgba(168, 85, 247, 0.08);
+}
+
+/* Override global keywords panel vertical offset */
+.keywords-panel {
+    top: 220px !important;
+}
+
+/* Shift keyword panel up if it has 3 tags to prevent overlap */
+.keywords-panel:has(.ai-keyword-tag:nth-child(3)) {
+    top: 180px !important;
 }
