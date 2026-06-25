@@ -75,7 +75,7 @@
     "voice": "google-vi-VN-Neural2-D"
   },
   {
-    "audioPath": "/kichban/video48/mp3/slide_active_6.mp3",
+    "audioPath": "",
     "cards": [],
     "code": "",
     "diagram": [],
@@ -83,10 +83,10 @@
     "id": "slide_active_6",
     "layout": "title",
     "refVoice": "default_voxcpm",
-    "script": "Tóm lại, tính khoảng cách thủ công chỉ hợp với app siêu nhỏ. Còn với hệ thống lớn, Redis Geospatial là tiêu chuẩn vàng: tìm kiếm siêu tốc, sẵn sàng mở rộng. Bấm tim, lưu video và follow Turnio.dev để làm chủ kiến thức hệ thống mỗi ngày nhé!",
+    "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "scriptHash": "",
-    "subtitle": "FOLLOW @TURNIO.DEV ĐỂ LÀM CHỦ KIẾN THỨC",
-    "title": "Làm chủ Hệ thống cùng Turnio.dev!",
+    "subtitle": "⚡ FOLLOW @TURNIO.DEV ĐỂ HỌC KIẾN THỨC THÚ VỊ MỖI NGÀY",
+    "title": "Làm chủ Thiết kế Hệ thống cùng Turnio.dev!",
     "voice": "google-vi-VN-Neural2-D"
   }
 ]

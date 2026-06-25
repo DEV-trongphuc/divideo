@@ -230,12 +230,12 @@
   {
     "id": "slide_n1_13b",
     "layout": "title",
-    "title": "Ấn follow @Turnio.dev nhé!",
-    "subtitle": "⚡ FOLLOW @TURNIO.DEV ĐỂ THEO DÕI BÀI VIẾT MỚI",
-    "script": "Ấn follow kênh để học thêm nhiều mẹo lập trình Backend cực chất từ Turnio.dev nhé!",
+    "title": "Làm chủ Thiết kế Hệ thống cùng Turnio.dev!",
+    "subtitle": "⚡ FOLLOW @TURNIO.DEV ĐỂ HỌC KIẾN THỨC THÚ VỊ MỖI NGÀY",
+    "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "voice": "google-vi-VN-Standard-B",
     "refVoice": "",
-    "audioPath": "/kichban/video1/mp3/slide_n1_13b.mp3",
+    "audioPath": "",
     "duration": 7.124583333333334,
     "scriptHash": "074c0f0749b3575468b93c5e0f7f537d"
   }

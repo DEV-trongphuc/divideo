@@ -112,6 +112,7 @@
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 8px !important;
+    text-wrap: balance !important;
 }
 
 /* Layout vertical nodes */
@@ -1063,30 +1064,29 @@
 .v35-status-badge {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    padding: 3px 6px;
-    border-radius: 6px;
-    font-size: 9px;
-    font-weight: 800;
+    gap: 6px;
+    padding: 0px;
+    font-size: 11px;
+    font-weight: 900;
     text-transform: uppercase;
 }
 
 .v35-status-badge.gold {
-    background: rgba(245, 158, 11, 0.12);
+    background: transparent !important;
     color: var(--cookie-gold);
-    border: 1px solid rgba(245, 158, 11, 0.25);
+    border: none !important;
 }
 
 .v35-status-badge.green {
-    background: rgba(16, 185, 129, 0.12);
+    background: transparent !important;
     color: var(--cookie-green);
-    border: 1px solid rgba(16, 185, 129, 0.25);
+    border: none !important;
 }
 
 .v35-status-badge.red {
-    background: rgba(239, 68, 68, 0.12);
+    background: transparent !important;
     color: var(--cookie-red);
-    border: 1px solid rgba(239, 68, 68, 0.25);
+    border: none !important;
 }
 
 /* Cookie Giant Item (Slide 1 Intro) */

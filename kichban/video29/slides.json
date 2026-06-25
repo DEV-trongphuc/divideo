@@ -152,9 +152,9 @@
   {
     "id": "slide_fb_11",
     "layout": "title",
-    "title": "Lập trình hệ thống cùng Turnio.dev!",
-    "subtitle": "⚡ ẤN FOLLOW KÊNH ĐỂ THEO DÕI BÀI VIẾT MỚI",
-    "script": "Nếu bạn muốn trở thành một kiến trúc sư phần mềm thực chiến và làm chủ những công nghệ thú vị này, hãy nhấn Follow kênh Turnio.dev ngay hôm nay để nhận thêm nhiều video bổ ích nhé!",
+    "title": "Làm chủ Thiết kế Hệ thống cùng Turnio.dev!",
+    "subtitle": "⚡ FOLLOW @TURNIO.DEV ĐỂ HỌC KIẾN THỨC THÚ VỊ MỖI NGÀY",
+    "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "",

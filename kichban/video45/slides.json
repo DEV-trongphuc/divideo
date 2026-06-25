@@ -75,7 +75,7 @@
     "voice": "google-vi-VN-Neural2-D"
   },
   {
-    "audioPath": "/kichban/video45/mp3/slide_float_6.mp3",
+    "audioPath": "",
     "cards": [],
     "code": "",
     "diagram": [],
@@ -83,9 +83,9 @@
     "id": "slide_float_6",
     "layout": "title",
     "refVoice": "default_voxcpm",
-    "script": "Hãy luôn cẩn trọng với các phép toán số thực khi thiết kế hệ thống backend. Nhấn tim, chia sẻ và Follow kênh Turnio.dev để cùng làm chủ kiến thức lập trình đỉnh cao mỗi ngày nhé!",
+    "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "scriptHash": "",
-    "subtitle": "ẤN FOLLOW @TURNIO.DEV ĐỂ LÀM CHỦ HỆ THỐNG",
+    "subtitle": "⚡ FOLLOW @TURNIO.DEV ĐỂ HỌC KIẾN THỨC THÚ VỊ MỖI NGÀY",
     "title": "Làm chủ Thiết kế Hệ thống cùng Turnio.dev!",
     "voice": "google-vi-VN-Neural2-D"
   }

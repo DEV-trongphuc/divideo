@@ -105,7 +105,7 @@
     "voice": "google-vi-VN-Neural2-D"
   },
   {
-    "audioPath": "/kichban/video20/mp3/slide_qrcode_7.mp3",
+    "audioPath": "",
     "cards": [],
     "code": "",
     "diagram": [],
@@ -113,10 +113,10 @@
     "id": "slide_qrcode_7",
     "layout": "title",
     "refVoice": "giong_nam_tram_am.wav",
-    "script": "Khả năng tự sửa lỗi Reed-Solomon giúp mã QR cực kỳ linh hoạt và bền bỉ trong thực tế, từ tem nhãn trầy xước đến thiết kế thương hiệu sáng tạo. Nếu thấy video này thú vị, hãy thả tim, chia sẻ và nhấn Follow Turnio chấm dev để cùng khám phá thêm nhiều kiến thức kỹ thuật thú vị nhé!",
+    "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "scriptHash": "edb3b2d8965be6da673d13b320f71873",
-    "subtitle": "⚡ ẤN FOLLOW KÊNH ĐỂ THEO DÕI BÀI VIẾT MỚI",
-    "title": "Làm chủ công nghệ cùng Turnio.dev!",
+    "subtitle": "⚡ FOLLOW @TURNIO.DEV ĐỂ HỌC KIẾN THỨC THÚ VỊ MỖI NGÀY",
+    "title": "Làm chủ Thiết kế Hệ thống cùng Turnio.dev!",
     "voice": "google-vi-VN-Neural2-D"
   }
 ]

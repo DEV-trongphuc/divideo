@@ -75,7 +75,7 @@
     "voice": "google-vi-VN-Neural2-D"
   },
   {
-    "audioPath": "/kichban/video46/mp3/slide_api_6.mp3",
+    "audioPath": "",
     "cards": [],
     "code": "",
     "diagram": [],
@@ -83,10 +83,10 @@
     "id": "slide_api_6",
     "layout": "title",
     "refVoice": "default_voxcpm",
-    "script": "Tóm lại, RESTful vẫn là vị vua phổ biến nhất, còn GraphQL là trợ thủ đắc lực cho các hệ thống phức tạp, đa nền tảng. Hãy nhấn tim, chia sẻ và Follow Turnio.dev để đón xem những video kiến thức lập trình đỉnh cao mỗi ngày nhé!",
+    "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "scriptHash": "",
-    "subtitle": "ẤN FOLLOW @TURNIO.DEV ĐỂ LÀM CHỦ KIẾN THỨC",
-    "title": "Thiết kế Hệ thống cùng Turnio.dev!",
+    "subtitle": "⚡ FOLLOW @TURNIO.DEV ĐỂ HỌC KIẾN THỨC THÚ VỊ MỖI NGÀY",
+    "title": "Làm chủ Thiết kế Hệ thống cùng Turnio.dev!",
     "voice": "google-vi-VN-Neural2-D"
   }
 ]

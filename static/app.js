@@ -4508,8 +4508,7 @@ function animateVisualizer() {
                     let activeColor = 'var(--gold-primary)';
                     // Equalizer colors: green, orange, red
                     if (dotIdx >= 5) activeColor = '#ff4a4a'; // Red
-                    else if (dotIdx >= 3) activeColor = '#f59e0b'; // Gold
-                    else activeColor = '#10b981'; // Green
+                    else activeColor = 'var(--gold-primary)'; // Gold (green turned to gold)
                     
                     dot.style.backgroundColor = activeColor;
                     dot.style.opacity = '1';

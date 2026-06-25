@@ -173,7 +173,7 @@
                     </div>
 
                     <!-- Decoded Summary badge -->
-                    <div class="v32-glass-card" style="padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; border-color: rgba(255,255,255,0.08);">
+                    <div class="v32-glass-card v32-status-card" style="padding: 14px 20px; border-color: rgba(255,255,255,0.08);">
                         <span class="v32-status-badge green" style="font-size: 10px;"><i data-lucide="key-round"></i> jwt authorized</span>
                         <div style="font-family: 'Fira Code', monospace; font-size: 12px; font-weight: 800; color: var(--jwt-text-muted);" id="v32-token-desc">
                             Generating session token...

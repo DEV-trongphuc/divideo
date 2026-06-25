@@ -46,10 +46,9 @@
         if (window.lucide) window.lucide.createIcons();
     }
 
-    function sceneWrap(inner, absolute, tint) {
-        const bgClass = tint ? ` v50-scene-bg ${tint}` : ' v50-scene-bg';
+    function sceneWrap(inner, absolute) {
         const absHtml = absolute || '';
-        return `<div class="v50-zoom-container"><div class="${bgClass.trim()}"></div>${absHtml}<div class="v50-scene-content">${inner}</div></div>`;
+        return `<div class="v50-zoom-container">${absHtml}<div class="v50-scene-content">${inner}</div></div>`;
     }
 
     // A simple 21x21 binary matrix representing a static QR Code (Version 1)
@@ -202,21 +201,21 @@
         }
         else if (slideId === 'slide_qr_anatomy') {
             canvas.innerHTML = sceneWrap(`
-                <div class="v50-scene-row" style="gap:36px; position:relative; justify-content:center; align-items:center; margin-top: 15px;">
-                    <div class="v50-qr-wrapper" style="padding: 8px; transform: scale(1.1);">
+                <div class="v50-scene-row" style="gap:95px; position:relative; justify-content:center; align-items:center; margin-top: 15px;">
+                    <div class="v50-qr-wrapper" style="padding: 8px; transform: scale(1.6); transform-origin: center;">
                         ${makeQRHTML('anatomy', false, false)}
                     </div>
-                    <div class="v50-anatomy-legend" style="display:flex; flex-direction:column; gap:8px; font-family:sans-serif; text-align:left;">
-                        <div style="display:flex; align-items:center; gap:6px; font-size:9.5px;" id="v50-legend-0">
-                            <span style="width:10px; height:10px; background:var(--qr-cyan); border-radius:2px;"></span>
+                    <div class="v50-anatomy-legend" style="display:flex; flex-direction:column; gap:16px; font-family:sans-serif; text-align:left;">
+                        <div style="display:flex; align-items:center; gap:10px; font-size:14px;" id="v50-legend-0">
+                            <span style="width:14px; height:14px; background:var(--qr-cyan); border-radius:3px; flex-shrink:0;"></span>
                             <span style="font-weight:800; color:#fff;">Finder (Định vị góc)</span>
                         </div>
-                        <div style="display:flex; align-items:center; gap:6px; font-size:9.5px;" id="v50-legend-1">
-                            <span style="width:10px; height:10px; background:var(--qr-gold); border-radius:2px;"></span>
+                        <div style="display:flex; align-items:center; gap:10px; font-size:14px;" id="v50-legend-1">
+                            <span style="width:14px; height:14px; background:var(--qr-gold); border-radius:3px; flex-shrink:0;"></span>
                             <span style="font-weight:800; color:#fff;">Alignment (Căn chỉnh lệch)</span>
                         </div>
-                        <div style="display:flex; align-items:center; gap:6px; font-size:9.5px;" id="v50-legend-2">
-                            <span style="width:10px; height:10px; background:var(--qr-purple); border-radius:2px;"></span>
+                        <div style="display:flex; align-items:center; gap:10px; font-size:14px;" id="v50-legend-2">
+                            <span style="width:14px; height:14px; background:var(--qr-purple); border-radius:3px; flex-shrink:0;"></span>
                             <span style="font-weight:800; color:#fff;">Format/Version (Phiên bản)</span>
                         </div>
                     </div>
@@ -394,37 +393,44 @@
                     <span class="v50-status-badge red"><i data-lucide="shield-alert" style="width:12px;height:12px;"></i> SECURITY WARNING</span>
                     <span style="color:var(--qr-red);" id="v50-security-status">Cảnh giác: Kẻ xấu có thể dán đè mã QR khác để chiếm đoạt tiền.</span>
                 </div>
-            `, null, 'red-tint');
+                `, null);
             initIcons();
         }
         else if (slideId === 'slide_qr_outro') {
             canvas.innerHTML = sceneWrap(`
-                <div class="v50-outro-grid">
-                    <div class="v50-outro-card c1" id="v50-outro-c1">
-                        <div class="v50-outro-icon" style="background:rgba(6,182,212,0.12);"><i data-lucide="database" style="width:14px;height:14px;color:var(--qr-cyan);"></i></div>
-                        <span class="v50-outro-label">Lưu trữ lớn</span>
-                        <span class="v50-outro-desc">Lưu ma trận 2D chứa hơn 7000 chữ số.</span>
+                <div class="v50-scene-row" style="gap:40px; margin-top: 10px;">
+                    <!-- QR Stand on the left -->
+                    <div style="display:flex; flex-direction:column; align-items:center;">
+                        <div class="v50-qr-stand" style="transform: scale(1.05);">
+                            <div class="v50-qr-stand-logo" style="color:var(--qr-cyan); border-color:rgba(6,182,212,0.3); background:rgba(6,182,212,0.05);">FOLLOW ME</div>
+                            <div class="v50-qr-wrapper" style="padding: 6px;">
+                                ${makeQRHTML('normal', true, false)}
+                            </div>
+                        </div>
+                        <div class="v50-qr-stand-base"></div>
                     </div>
-                    <div class="v50-outro-card c2" id="v50-outro-c2">
-                        <div class="v50-outro-icon" style="background:rgba(16,185,129,0.12);"><i data-lucide="toggle-right" style="width:14px;height:14px;color:var(--qr-green);"></i></div>
-                        <span class="v50-outro-label">QR Động</span>
-                        <span class="v50-outro-desc">Tự động hóa thông tin hóa đơn lẻ tẻ.</span>
-                    </div>
-                    <div class="v50-outro-card c3" id="v50-outro-c3">
-                        <div class="v50-outro-icon" style="background:rgba(245,158,11,0.12);"><i data-lucide="shield" style="width:14px;height:14px;color:var(--qr-gold);"></i></div>
-                        <span class="v50-outro-label">Sửa lỗi mạnh</span>
-                        <span class="v50-outro-desc">Thuật toán Reed-Solomon sửa lỗi tới 30%.</span>
-                    </div>
-                    <div class="v50-outro-card c4" id="v50-outro-c4">
-                        <div class="v50-outro-icon" style="background:rgba(168,85,247,0.12);"><i data-lucide="shield-alert" style="width:14px;height:14px;color:var(--qr-purple);"></i></div>
-                        <span class="v50-outro-label">An toàn GD</span>
-                        <span class="v50-outro-desc">Luôn xác minh tên tài khoản khi chuyển tiền.</span>
-                    </div>
+                    <!-- Phone mock on the right simulating successful payment -->
+                    ${phoneMockHTML('v50-outro-phone', 'Cảm ơn bạn!', `
+                        <div class="v50-phone-bill" style="align-items:center; justify-content:center; gap:16px; padding-top:20px;">
+                            <div style="width:45px; height:45px; border-radius:50%; background:rgba(16,185,129,0.15); border:2.5px solid var(--qr-green); display:flex; align-items:center; justify-content:center; color:var(--qr-green); box-shadow:0 0 15px rgba(16,185,129,0.3);">
+                                <i data-lucide="check" style="width:24px; height:24px; stroke-width:3;"></i>
+                            </div>
+                            <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+                                <span style="font-size:12px; font-weight:900; color:#fff;">THÀNH CÔNG</span>
+                                <span style="font-size:8px; color:var(--qr-text-muted);">Đã chuyển tới Cafe Cầu Đất</span>
+                            </div>
+                            <div style="width:100%; border-top:1px dashed rgba(255,255,255,0.1); margin:4px 0;"></div>
+                            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+                                <span style="font-size:7px; color:var(--qr-text-muted);">Đồng hành cùng</span>
+                                <span style="font-size:10px; font-weight:900; color:var(--qr-cyan);">@Turnio.dev</span>
+                            </div>
+                        </div>
+                    `)}
                 </div>
                 <div class="v50-glass-card glow-green v50-status-card">
                     <span class="v50-status-badge green"><i data-lucide="check-circle" style="width:12px;height:12px;"></i> VIETQR BILLING</span>
-                    <span style="color:#fff;" id="v50-outro-status">Tìm hiểu để thanh toán nhanh và an toàn hơn!</span>
-                </div>`, null, 'green-tint');
+                    <span style="color:#fff;" id="v50-outro-status">Thanh toán nhanh chóng, chính xác và bảo mật cao.</span>
+                </div>`, null);
             initIcons();
         }
     }
@@ -669,10 +675,10 @@
             }
         }
         else if (slideId === 'slide_qr_outro') {
-            canvas.querySelectorAll('.v50-outro-card').forEach((card, i) => {
-                const threshold = 0.08 + i * 0.22;
-                card.classList.toggle('active', progress >= threshold);
-            });
+            const status = canvas.querySelector('#v50-outro-status');
+            if (status) {
+                status.innerHTML = 'Thanh toán nhanh chóng, chính xác và bảo mật cao.';
+            }
         }
     }
 

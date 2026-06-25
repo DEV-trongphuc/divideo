@@ -1348,24 +1348,23 @@
 .v34-status-badge {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    padding: 3px 6px;
-    border-radius: 6px;
-    font-size: 9px;
-    font-weight: 800;
+    gap: 6px;
+    padding: 0px;
+    font-size: 11px;
+    font-weight: 900;
     text-transform: uppercase;
 }
 
 .v34-status-badge.green {
-    background: rgba(16, 185, 129, 0.12);
+    background: transparent !important;
     color: var(--chat-green);
-    border: 1px solid rgba(16, 185, 129, 0.25);
+    border: none !important;
 }
 
 .v34-status-badge.red {
-    background: rgba(239, 68, 68, 0.12);
+    background: transparent !important;
     color: var(--chat-red);
-    border: 1px solid rgba(239, 68, 68, 0.25);
+    border: none !important;
 }
 
 .v34-status-val-pill {
@@ -2329,5 +2328,6 @@
     line-height: 1.45 !important;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
     letter-spacing: 0.1px !important;
+    text-wrap: balance !important;
 }
 
