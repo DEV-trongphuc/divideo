@@ -331,6 +331,13 @@
     50% { opacity: 1; }
 }
 
+.v32-status-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+}
+
 .v32-status-badge {
     padding: 5px 10px;
     border-radius: 8px;

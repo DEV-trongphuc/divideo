@@ -327,7 +327,7 @@
                     </div>
                 </div>
                 <div class="v35-glass-card glow-red" style="margin-top: 4px;">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div class="v35-status-card">
                         <span class="v35-status-badge red"><i data-lucide="alert-triangle" style="width:12px;height:12px;"></i> HTTP Stateless</span>
                         <span style="font-family:'Fira Code', monospace; font-size: 11px; font-weight: bold; color: var(--cookie-red);" id="v35-stateless-status">Khởi động...</span>
                     </div>
@@ -359,7 +359,7 @@
                     </div>
                 </div>
                 <div class="v35-glass-card glow-gold" style="margin-top: 4px;">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div class="v35-status-card">
                         <span class="v35-status-badge gold"><i data-lucide="save" style="width:12px;height:12px;"></i> Header Response</span>
                         <span style="font-family:'Fira Code', monospace; font-size: 11px; font-weight: bold; color: var(--cookie-gold);" id="v35-header-status">Đang phản hồi...</span>
                     </div>
@@ -390,7 +390,7 @@
                     </div>
                 </div>
                 <div class="v35-glass-card glow-green" style="margin-top: 4px;">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div class="v35-status-card">
                         <span class="v35-status-badge green"><i data-lucide="check-circle" style="width:12px;height:12px;"></i> Profile Restored</span>
                         <span style="font-family:'Fira Code', monospace; font-size: 11px; font-weight: bold; color: var(--cookie-green);" id="v35-tracking-status">Tự động nhận diện...</span>
                     </div>
@@ -422,7 +422,7 @@
                     </div>
                 </div>
                 <div class="v35-glass-card glow-red" id="v35-security-card" style="margin-top: 4px;">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div class="v35-status-card">
                         <span class="v35-status-badge red" id="v35-security-badge"><i data-lucide="shield-alert" style="width:12px;height:12px;"></i> Hijack Alert</span>
                         <span style="font-family:'Fira Code', monospace; font-size: 11px; font-weight: bold; color: var(--cookie-red);" id="v35-security-status">XSS Cookie Theft...</span>
                     </div>
@@ -463,7 +463,7 @@
                         <span class="v35-recap-desc">HttpOnly chống XSS, Secure mã hóa kênh truyền bảo vệ cookie.</span>
                     </div>
                 </div>
-                <div class="v35-glass-card glow-green" style="display:flex; justify-content:space-between; align-items:center; margin-top:14px;">
+                <div class="v35-glass-card glow-green v35-status-card" style="margin-top:14px;">
                     <span class="v35-status-badge green"><i data-lucide="shield-check" style="width:12px;height:12px;"></i> Session Verified</span>
                     <span style="font-family:'Fira Code', monospace; font-size:10px; font-weight:bold; color:var(--cookie-green);">Production Security Standards</span>
                 </div>`, null);

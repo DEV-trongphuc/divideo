@@ -329,7 +329,7 @@
                     </div>
                     ${phoneMock('v34-phone-bob', 'Bob', false)}
                 </div>
-                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;margin-top:15px;width:440px;padding:12px 20px;margin-left:auto;margin-right:auto;">
+                <div class="v34-glass-card glow-green v34-status-card" style="margin-top:15px;width:440px;padding:12px 20px;margin-left:auto;margin-right:auto;">
                     <span class="v34-status-badge green"><i data-lucide="message-circle" style="width:12px;height:12px;"></i> Real-time</span>
                     <span style="color:#fff;" id="v34-intro-status">Đang gửi tin nhắn...</span>
                 </div>`, null, 'green-tint');
@@ -353,7 +353,7 @@
                         ${serverMockHTML('v34-http', 'HTTP Server', 'Idle', false, 'Waiting for request...', false)}
                     </div>
                 </div>
-                <div class="v34-glass-card glow-red" style="display:flex;justify-content:space-between;align-items:center;margin-top:15px;padding:12px 20px;">
+                <div class="v34-glass-card glow-red v34-status-card">
                     <span style="font-size:10px;font-weight:bold;color:var(--chat-text-muted);text-transform:uppercase;">HTTP Cycle</span>
                     <span style="color:var(--chat-red);" id="v34-http-status">Server không thể push chủ động</span>
                 </div>`;
@@ -545,7 +545,7 @@
                     ${serverMockHTML('v34-flow', 'WS Server', 'Active', true, 'Listening...', false, wsServerCustomBody)}
                     ${phoneMock('v34-flow-bob', 'Bob', false)}
                 </div>
-                <div class="v34-glass-card glow-green v34-status-card" style="margin-top:15px;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
+                <div class="v34-glass-card glow-green v34-status-card">
                     <span class="v34-status-badge green"><i data-lucide="send" style="width:12px;height:12px;"></i> Instant Push</span>
                     <span style="color:var(--chat-cyan);" id="v34-flow-status">{"type":"msg","text":"Xin chào!"}</span>
                 </div>`;
@@ -607,7 +607,7 @@
                     <!-- Server 2 -->
                     ${serverMockHTML('v34-redis-s2', 'WS Server 2 (👨‍💻 Bob Connected)', 'Active', true, 'Subscribed to chat:room:42', false)}
                 </div>
-                <div class="v34-glass-card glow-purple" style="display:flex;justify-content:space-between;align-items:center;margin-top:15px;padding:12px 20px;">
+                <div class="v34-glass-card glow-purple v34-status-card">
                     <span class="v34-status-badge green"><i data-lucide="radio-tower" style="width:12px;height:12px;"></i> Channel</span>
                     <span style="color:var(--chat-purple);" id="v34-redis-status">chat:room:42</span>
                 </div>`;
@@ -647,7 +647,7 @@
                     </div>
                 </div>
                 <div class="v34-packet-wrap" id="v34-arch-pkt"><div class="v34-packet-core green"></div><span class="v34-packet-label">msg</span></div>
-                <div class="v34-glass-card glow-green v34-status-card" style="margin-top:15px;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
+                <div class="v34-glass-card glow-green v34-status-card">
                     <span class="v34-status-label">PRODUCTION PIPELINE</span>
                     <span style="color:var(--chat-green);" id="v34-arch-status">Initializing...</span>
                 </div>`, null, 'green-tint');
@@ -718,7 +718,7 @@
                         <span class="v34-outro-desc">PostgreSQL lưu lịch sử, WS push live.</span>
                     </div>
                 </div>
-                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;">
+                <div class="v34-glass-card glow-green v34-status-card">
                     <span class="v34-status-badge green"><i data-lucide="check-circle" style="width:12px;height:12px;"></i> Chat Architecture</span>
                     <span style="font-size:11px;font-weight:bold;color:#fff;">Production Ready ✓</span>
                 </div>`, null, 'green-tint');

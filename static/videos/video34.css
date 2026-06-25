@@ -99,6 +99,13 @@
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
+.v34-status-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+}
+
 /* Layout stacks */
 .v34-vertical-stack {
     display: flex;
