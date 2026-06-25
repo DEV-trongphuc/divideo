@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo98_1",
+    "id": "slide_memo98_1",
+    "title": "Lệch lạc Gán ghép",
+    "subtitle": "VÌ SAO BẠN LUÔN KHẮT KHE VỚI LỖI CỦA NGƯỜI KHÁC NHƯNG DỄ DÃI VỚI MÌNH?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f59e0b",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": true,
-    "data": {
-      "title": "Lệch lạc Gán ghép",
-      "subtitle": "VÌ SAO BẠN LUÔN KHẮT KHE VỚI LỖI CỦA NGƯỜI KHÁC NHƯNG DỄ DÃI VỚI MÌNH?",
-      "script": "Một người đi muộn, bạn nghĩ ngay: 'Họ thật vô kỷ luật'. Nhưng khi chính bạn đi muộn, bạn đổ lỗi cho tắc đường. Tại sao lại bất công như thế?"
-    }
+    "script": "Một người đi muộn, bạn nghĩ ngay: 'Họ thật vô kỷ luật'. Nhưng khi chính bạn đi muộn, bạn đổ lỗi cho tắc đường. Tại sao lại bất công như thế?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo98_2",
+    "id": "slide_memo98_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "FUNDAMENTAL ATTRIBUTION ERROR",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f59e0b",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "FUNDAMENTAL ATTRIBUTION ERROR",
-      "script": "Đó là Sai lầm Gán ghép Cơ bản. Chúng ta thường giải thích hành vi của người khác bằng tính cách của họ, nhưng giải thích hành vi của mình bằng hoàn cảnh."
-    }
+    "script": "Đó là Sai lầm Gán ghép Cơ bản. Chúng ta thường giải thích hành vi của người khác bằng tính cách của họ, nhưng giải thích hành vi của mình bằng hoàn cảnh.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo98_3",
+    "id": "slide_memo98_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA LỆCH LẠC GÁN GHÉP",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f59e0b",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Khi gán mác cho người khác, bạn quy chụp do tính cách lười biếng. Nhưng khi gán mác cho mình, bạn đổ lỗi cho kẹt xe ngoại cảnh."
-    }
+    "script": "Mô phỏng: Khi gán mác cho người khác, bạn quy chụp do tính cách lười biếng. Nhưng khi gán mác cho mình, bạn đổ lỗi cho kẹt xe ngoại cảnh.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo98_4",
+    "id": "slide_memo98_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f59e0b",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Phán xét phiến diện bỏ qua các yếu tố hoàn cảnh khách quan. Thấu hiểu đa chiều giúp cảm thông và xây dựng mối quan hệ tốt đẹp."
-    }
+    "script": "So sánh: Phán xét phiến diện bỏ qua các yếu tố hoàn cảnh khách quan. Thấu hiểu đa chiều giúp cảm thông và xây dựng mối quan hệ tốt đẹp.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo98_5",
+    "id": "slide_memo98_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f59e0b",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Hãy bao dung hơn với người khác và nghiêm khắc hơn với bản thân. Sự thấu hiểu hoàn cảnh chính là nền tảng của lòng nhân ái!"
-    }
+    "script": "Hãy bao dung hơn với người khác và nghiêm khắc hơn với bản thân. Sự thấu hiểu hoàn cảnh chính là nền tảng của lòng nhân ái!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo98_6",
+    "id": "slide_memo98_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f59e0b",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

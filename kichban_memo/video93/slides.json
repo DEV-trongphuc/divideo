@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo93_1",
+    "id": "slide_memo93_1",
+    "title": "Zeigarnik Ngược",
+    "subtitle": "MẸO GIẢI PHÓNG BỘ NHỚ ĐỆM CỦA NÃO BỘ BẰNG VIỆC VIẾT RA GIẤY",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#6366f1",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Zeigarnik Ngược",
-      "subtitle": "MẸO GIẢI PHÓNG BỘ NHỚ ĐỆM CỦA NÃO BỘ BẰNG VIỆC VIẾT RA GIẤY",
-      "script": "Bạn nằm trằn trọc cả đêm vì lo lắng những việc phải làm vào ngày mai. Làm thế nào để tắt đi những vòng lặp suy nghĩ phiền toái này?"
-    }
+    "script": "Bạn nằm trằn trọc cả đêm vì lo lắng những việc phải làm vào ngày mai. Làm thế nào để tắt đi những vòng lặp suy nghĩ phiền toái này?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo93_2",
+    "id": "slide_memo93_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "REVERSE ZEIGARNIK",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#6366f1",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "REVERSE ZEIGARNIK",
-      "script": "Đó là Hiệu ứng Zeigarnik Ngược. Việc viết các đầu việc cần làm ra giấy thuyết phục bộ não rằng kế hoạch đã được thiết lập, giải phóng bộ nhớ đệm."
-    }
+    "script": "Đó là Hiệu ứng Zeigarnik Ngược. Việc viết các đầu việc cần làm ra giấy thuyết phục bộ não rằng kế hoạch đã được thiết lập, giải phóng bộ nhớ đệm.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo93_3",
+    "id": "slide_memo93_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ZEIGARNIK NGƯỢC",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#6366f1",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Chuyển các công việc đang chạy ngầm trong đầu ra cuốn sổ tay giúp giảm tải áp lực cho CPU nhận thức từ 90% xuống còn 10%."
-    }
+    "script": "Mô phỏng: Chuyển các công việc đang chạy ngầm trong đầu ra cuốn sổ tay giúp giảm tải áp lực cho CPU nhận thức từ 90% xuống còn 10%.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo93_4",
+    "id": "slide_memo93_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#6366f1",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Để công việc trong đầu tiêu tốn năng lượng suy nghĩ liên tục. Ghi chép ra giấy giải phóng tâm trí, mang lại sự bình yên tức thì."
-    }
+    "script": "So sánh: Để công việc trong đầu tiêu tốn năng lượng suy nghĩ liên tục. Ghi chép ra giấy giải phóng tâm trí, mang lại sự bình yên tức thì.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo93_5",
+    "id": "slide_memo93_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#6366f1",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Trước khi đi ngủ hoặc bắt đầu ngày mới, hãy viết mọi việc ra giấy. Hãy giải phóng bộ não để tập trung vào việc tận hưởng hiện tại!"
-    }
+    "script": "Trước khi đi ngủ hoặc bắt đầu ngày mới, hãy viết mọi việc ra giấy. Hãy giải phóng bộ não để tập trung vào việc tận hưởng hiện tại!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo93_6",
+    "id": "slide_memo93_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#6366f1",
-    "neutralColor": "#f59e0b",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

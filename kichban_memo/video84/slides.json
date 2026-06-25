@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo84_1",
+    "id": "slide_memo84_1",
+    "title": "Bẫy Vùng an toàn",
+    "subtitle": "VÌ SAO BỘ NÃO LUÔN THUYẾT PHỤC BẠN Ở YÊN TRONG VÙNG AN TOÀN?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Bẫy Vùng an toàn",
-      "subtitle": "VÌ SAO BỘ NÃO LUÔN THUYẾT PHỤC BẠN Ở YÊN TRONG VÙNG AN TOÀN?",
-      "script": "Bạn muốn học kỹ năng mới hay đổi công việc, nhưng một giọng nói bên trong luôn bảo bạn: 'Thôi, ở đây đang yên ổn mà'. Tại sao não lại sợ thay đổi?"
-    }
+    "script": "Bạn muốn học kỹ năng mới hay đổi công việc, nhưng một giọng nói bên trong luôn bảo bạn: 'Thôi, ở đây đang yên ổn mà'. Tại sao não lại sợ thay đổi?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo84_2",
+    "id": "slide_memo84_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "COMFORT ZONE TRAP",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "COMFORT ZONE TRAP",
-      "script": "Đó là Bẫy Vùng an toàn. Bộ não ưu tiên sự ổn định và quen thuộc để tiêu thụ ít năng lượng nhất, đồng thời coi mọi sự thay đổi là mối đe dọa sinh tồn."
-    }
+    "script": "Đó là Bẫy Vùng an toàn. Bộ não ưu tiên sự ổn định và quen thuộc để tiêu thụ ít năng lượng nhất, đồng thời coi mọi sự thay đổi là mối đe dọa sinh tồn.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo84_3",
+    "id": "slide_memo84_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA BẪY VÙNG AN TOÀN",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Nằm yên trong vùng thoải mái giữ năng lượng tiêu hao cực thấp, nhưng khi bước ra ngoài, biểu đồ kỹ năng mới lập tức tăng vọt."
-    }
+    "script": "Mô phỏng: Nằm yên trong vùng thoải mái giữ năng lượng tiêu hao cực thấp, nhưng khi bước ra ngoài, biểu đồ kỹ năng mới lập tức tăng vọt.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo84_4",
+    "id": "slide_memo84_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Ở trong vùng quen thuộc an toàn nhưng không tiến bộ. Bước ra ngoài vùng thử thách kích hoạt học hỏi và mở rộng giới hạn bản thân."
-    }
+    "script": "So sánh: Ở trong vùng quen thuộc an toàn nhưng không tiến bộ. Bước ra ngoài vùng thử thách kích hoạt học hỏi và mở rộng giới hạn bản thân.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo84_5",
+    "id": "slide_memo84_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Sự phát triển thực sự chỉ bắt đầu ở rìa vùng an toàn của bạn. Hãy dũng cảm bước ra ngoài và đón nhận những thử thách mới!"
-    }
+    "script": "Sự phát triển thực sự chỉ bắt đầu ở rìa vùng an toàn của bạn. Hãy dũng cảm bước ra ngoài và đón nhận những thử thách mới!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo84_6",
+    "id": "slide_memo84_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo69_1",
+    "id": "slide_memo69_1",
+    "title": "Hiệu ứng Chiến thắng",
+    "subtitle": "VÌ SAO CHIẾN THẮNG LẦN ĐẦU LÀM TĂNG CƠ HỘI CHIẾN THẮNG LẦN SAU?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Hiệu ứng Chiến thắng",
-      "subtitle": "VÌ SAO CHIẾN THẮNG LẦN ĐẦU LÀM TĂNG CƠ HỘI CHIẾN THẮNG LẦN SAU?",
-      "script": "Tại sao các võ sĩ hoặc game thủ thường được xếp đấu với các đối thủ yếu trước để lấy đà? Liệu chiến thắng có phải là một thói quen sinh học?"
-    }
+    "script": "Tại sao các võ sĩ hoặc game thủ thường được xếp đấu với các đối thủ yếu trước để lấy đà? Liệu chiến thắng có phải là một thói quen sinh học?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo69_2",
+    "id": "slide_memo69_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "WINNER EFFECT",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "WINNER EFFECT",
-      "script": "Hiện tượng này gọi là Hiệu ứng Người chiến thắng. Khi thắng cuộc, não bộ giải phóng lượng lớn dopamine và testosterone, định hình lại cấu trúc thần kinh tự tin hơn."
-    }
+    "script": "Hiện tượng này gọi là Hiệu ứng Người chiến thắng. Khi thắng cuộc, não bộ giải phóng lượng lớn dopamine và testosterone, định hình lại cấu trúc thần kinh tự tin hơn.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo69_3",
+    "id": "slide_memo69_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG CHIẾN THẮNG",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Sau khi vượt qua thử thách nhỏ đầu tiên, ngọn lửa testosterone bùng cháy, nâng tỷ lệ chiến thắng trong thử thách tiếp theo từ 50% lên 90%."
-    }
+    "script": "Mô phỏng: Sau khi vượt qua thử thách nhỏ đầu tiên, ngọn lửa testosterone bùng cháy, nâng tỷ lệ chiến thắng trong thử thách tiếp theo từ 50% lên 90%.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo69_4",
+    "id": "slide_memo69_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Thất bại liên tục làm tăng cortisol gây sợ hãi, e dè. Chiến thắng liên tiếp tích lũy sự chủ động, áp chế tinh thần đối thủ."
-    }
+    "script": "So sánh: Thất bại liên tục làm tăng cortisol gây sợ hãi, e dè. Chiến thắng liên tiếp tích lũy sự chủ động, áp chế tinh thần đối thủ.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo69_5",
+    "id": "slide_memo69_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Để chinh phục mục tiêu lớn, hãy bắt đầu bằng việc tích lũy những chiến thắng nhỏ mỗi ngày. Hormon chiến thắng sẽ đưa bạn đi xa!"
-    }
+    "script": "Để chinh phục mục tiêu lớn, hãy bắt đầu bằng việc tích lũy những chiến thắng nhỏ mỗi ngày. Hormon chiến thắng sẽ đưa bạn đi xa!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo69_6",
+    "id": "slide_memo69_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

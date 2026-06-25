@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo99_1",
+    "id": "slide_memo99_1",
+    "title": "Vòng lặp Xã hội",
+    "subtitle": "VÌ SAO CÁC CUỘC TRANH CÃI CHƯA GIẢI QUYẾT LẠI LÀM BẠN MẤT NGỦ?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Vòng lặp Xã hội",
-      "subtitle": "VÌ SAO CÁC CUỘC TRANH CÃI CHƯA GIẢI QUYẾT LẠI LÀM BẠN MẤT NGỦ?",
-      "script": "Một tin nhắn dỗi hờn chưa trả lời hoặc một cuộc cãi vã chưa có hồi kết cứ lặp đi lặp lại trong đầu bạn cả đêm. Tại sao não không chịu buông tha?"
-    }
+    "script": "Một tin nhắn dỗi hờn chưa trả lời hoặc một cuộc cãi vã chưa có hồi kết cứ lặp đi lặp lại trong đầu bạn cả đêm. Tại sao não không chịu buông tha?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo99_2",
+    "id": "slide_memo99_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "SOCIAL OPEN LOOPS",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "SOCIAL OPEN LOOPS",
-      "script": "Đó là Hiện tượng Vòng lặp Xã hội Mở. Bộ não coi các mối quan hệ xã hội là yếu tố sinh tồn tối thượng, giữ các cuộc xung đột chưa giải quyết ở chế độ chạy ngầm."
-    }
+    "script": "Đó là Hiện tượng Vòng lặp Xã hội Mở. Bộ não coi các mối quan hệ xã hội là yếu tố sinh tồn tối thượng, giữ các cuộc xung đột chưa giải quyết ở chế độ chạy ngầm.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo99_3",
+    "id": "slide_memo99_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA VÒNG LẶP XÃ HỘI",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Tin nhắn chưa được phản hồi tạo ra một vòng lặp stress liên tục trong thùy trán, chỉ được đóng lại khi cuộc đối thoại được giải quyết ổn thỏa."
-    }
+    "script": "Mô phỏng: Tin nhắn chưa được phản hồi tạo ra một vòng lặp stress liên tục trong thùy trán, chỉ được đóng lại khi cuộc đối thoại được giải quyết ổn thỏa.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo99_4",
+    "id": "slide_memo99_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Vòng lặp mở tiêu tốn glucose nhận thức, gây căng thẳng mệt mỏi. Vòng lặp đóng mang lại cảm giác bình yên và thư thái tinh thần."
-    }
+    "script": "So sánh: Vòng lặp mở tiêu tốn glucose nhận thức, gây căng thẳng mệt mỏi. Vòng lặp đóng mang lại cảm giác bình yên và thư thái tinh thần.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo99_5",
+    "id": "slide_memo99_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Hãy cố gắng giải quyết các xung đột nhỏ trước khi đi ngủ. Sự rõ ràng và hòa giải sẽ mang lại cho bạn giấc ngủ ngon lành nhất!"
-    }
+    "script": "Hãy cố gắng giải quyết các xung đột nhỏ trước khi đi ngủ. Sự rõ ràng và hòa giải sẽ mang lại cho bạn giấc ngủ ngon lành nhất!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo99_6",
+    "id": "slide_memo99_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

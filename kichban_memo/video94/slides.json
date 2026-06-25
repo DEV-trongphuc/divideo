@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo94_1",
+    "id": "slide_memo94_1",
+    "title": "Hội chứng Giả mạo",
+    "subtitle": "VÌ SAO BẠN THÀNH CÔNG NHƯNG LUÔN LO SỢ MÌNH LÀ KẺ LỪA ĐẢO?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#f43f5e",
-    "neutralColor": "#eab308",
-    "isCustom": true,
-    "data": {
-      "title": "Hội chứng Giả mạo",
-      "subtitle": "VÌ SAO BẠN THÀNH CÔNG NHƯNG LUÔN LO SỢ MÌNH LÀ KẺ LỪA ĐẢO?",
-      "script": "Bạn đạt kết quả cao hoặc được thăng chức, nhưng thầm nghĩ: 'Chỉ là do may mắn thôi, mình không giỏi thế'. Tại sao bạn lại phủ nhận chính mình?"
-    }
+    "script": "Bạn đạt kết quả cao hoặc được thăng chức, nhưng thầm nghĩ: 'Chỉ là do may mắn thôi, mình không giỏi thế'. Tại sao bạn lại phủ nhận chính mình?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo94_2",
+    "id": "slide_memo94_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "IMPOSTOR SYNDROME",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#f43f5e",
-    "neutralColor": "#eab308",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "IMPOSTOR SYNDROME",
-      "script": "Đó gọi là Hội chứng Kẻ giả mạo. Người mắc hội chứng này luôn nghi ngờ năng lực bản thân, lo sợ người khác sẽ phát hiện ra mình là kẻ lừa dối."
-    }
+    "script": "Đó gọi là Hội chứng Kẻ giả mạo. Người mắc hội chứng này luôn nghi ngờ năng lực bản thân, lo sợ người khác sẽ phát hiện ra mình là kẻ lừa dối.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo94_3",
+    "id": "slide_memo94_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HỘI CHỨNG GIẢ MẠO",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#f43f5e",
-    "neutralColor": "#eab308",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Dù xung quanh đầy cúp vàng và lời khen, chỉ số tự tin bên trong vẫn chạm đáy, tạo ra ảo ảnh chiếc mặt nạ che giấu năng lực."
-    }
+    "script": "Mô phỏng: Dù xung quanh đầy cúp vàng và lời khen, chỉ số tự tin bên trong vẫn chạm đáy, tạo ra ảo ảnh chiếc mặt nạ che giấu năng lực.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo94_4",
+    "id": "slide_memo94_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#f43f5e",
-    "neutralColor": "#eab308",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Đánh giá khách quan ghi nhận nỗ lực và kết quả thực tế. Hội chứng giả mạo bóp méo thành tựu thành sự may mắn ngẫu nhiên."
-    }
+    "script": "So sánh: Đánh giá khách quan ghi nhận nỗ lực và kết quả thực tế. Hội chứng giả mạo bóp méo thành tựu thành sự may mắn ngẫu nhiên.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo94_5",
+    "id": "slide_memo94_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#f43f5e",
-    "neutralColor": "#eab308",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Thành công của bạn là kết quả của nỗ lực thực tế. Hãy dũng cảm cởi bỏ mặt nạ nghi ngờ và tự hào về những gì bạn đã cống hiến!"
-    }
+    "script": "Thành công của bạn là kết quả của nỗ lực thực tế. Hãy dũng cảm cởi bỏ mặt nạ nghi ngờ và tự hào về những gì bạn đã cống hiến!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo94_6",
+    "id": "slide_memo94_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#f43f5e",
-    "neutralColor": "#eab308",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

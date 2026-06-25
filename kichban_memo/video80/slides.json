@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo80_1",
+    "id": "slide_memo80_1",
+    "title": "Lệch lạc Đồng thuận Giả",
+    "subtitle": "VÌ SAO BẠN TIN RẰNG TẤT CẢ MỌI NGƯỜI ĐỀU ĐỒNG Ý VỚI QUAN ĐIỂM CỦA BẠN?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #6366f11f 0%, #05070bf2 100%)",
-    "primaryColor": "#6366f1",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Lệch lạc Đồng thuận Giả",
-      "subtitle": "VÌ SAO BẠN TIN RẰNG TẤT CẢ MỌI NGƯỜI ĐỀU ĐỒNG Ý VỚI QUAN ĐIỂM CỦA BẠN?",
-      "script": "Bạn yêu thích một ca sĩ và tin rằng cả thế giới đều phải hâm mộ họ giống bạn. Tại sao bộ não lại thích áp đặt suy nghĩ lên người khác?"
-    }
+    "script": "Bạn yêu thích một ca sĩ và tin rằng cả thế giới đều phải hâm mộ họ giống bạn. Tại sao bộ não lại thích áp đặt suy nghĩ lên người khác?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo80_2",
+    "id": "slide_memo80_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "FALSE CONSENSUS EFFECT",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #6366f11f 0%, #05070bf2 100%)",
-    "primaryColor": "#6366f1",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "FALSE CONSENSUS EFFECT",
-      "script": "Hiện tượng này là Lệch lạc Đồng thuận Giả. Chúng ta đánh giá quá cao mức độ mà người khác chia sẻ niềm tin, thói quen và quan điểm của mình."
-    }
+    "script": "Hiện tượng này là Lệch lạc Đồng thuận Giả. Chúng ta đánh giá quá cao mức độ mà người khác chia sẻ niềm tin, thói quen và quan điểm của mình.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo80_3",
+    "id": "slide_memo80_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA LỆCH LẠC ĐỒNG THUẬN GIẢ",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #6366f11f 0%, #05070bf2 100%)",
-    "primaryColor": "#6366f1",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Bạn phóng chiếu ý kiến cá nhân ra xung quanh, tin tưởng 85% mọi người đồng ý, nhưng thực tế chỉ số đồng thuận thực sự chỉ đạt 15%."
-    }
+    "script": "Mô phỏng: Bạn phóng chiếu ý kiến cá nhân ra xung quanh, tin tưởng 85% mọi người đồng ý, nhưng thực tế chỉ số đồng thuận thực sự chỉ đạt 15%.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo80_4",
+    "id": "slide_memo80_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #6366f11f 0%, #05070bf2 100%)",
-    "primaryColor": "#6366f1",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Người áp đặt tin rằng ý kiến của mình là chuẩn mực chung. Người cởi mở hiểu rằng mỗi cá nhân có một thế giới quan độc lập."
-    }
+    "script": "So sánh: Người áp đặt tin rằng ý kiến của mình là chuẩn mực chung. Người cởi mở hiểu rằng mỗi cá nhân có một thế giới quan độc lập.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo80_5",
+    "id": "slide_memo80_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #6366f11f 0%, #05070bf2 100%)",
-    "primaryColor": "#6366f1",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Hãy tôn trọng sự khác biệt và lắng nghe nhiều góc nhìn khác nhau. Thế giới đa sắc màu chính là vẻ đẹp của cuộc sống!"
-    }
+    "script": "Hãy tôn trọng sự khác biệt và lắng nghe nhiều góc nhìn khác nhau. Thế giới đa sắc màu chính là vẻ đẹp của cuộc sống!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo80_6",
+    "id": "slide_memo80_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #6366f11f 0%, #05070bf2 100%)",
-    "primaryColor": "#6366f1",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

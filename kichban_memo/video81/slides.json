@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo81_1",
+    "id": "slide_memo81_1",
+    "title": "Mệt mỏi Quyết định",
+    "subtitle": "VÌ SAO CÀNG VỀ CUỐI NGÀY BẠN CÀNG DỄ ĐƯA RA QUYẾT ĐỊNH SAI LẦM?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
-    "primaryColor": "#ef4444",
-    "secondaryColor": "#10b981",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Mệt mỏi Quyết định",
-      "subtitle": "VÌ SAO CÀNG VỀ CUỐI NGÀY BẠN CÀNG DỄ ĐƯA RA QUYẾT ĐỊNH SAI LẦM?",
-      "script": "Tại sao sau một ngày làm việc mệt mỏi, bạn lại dễ dàng bấm mua những món đồ vô bổ trên mạng hoặc chọn ăn đồ ăn nhanh thay vì tự nấu?"
-    }
+    "script": "Tại sao sau một ngày làm việc mệt mỏi, bạn lại dễ dàng bấm mua những món đồ vô bổ trên mạng hoặc chọn ăn đồ ăn nhanh thay vì tự nấu?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo81_2",
+    "id": "slide_memo81_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "DECISION FATIGUE",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
-    "primaryColor": "#ef4444",
-    "secondaryColor": "#10b981",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "DECISION FATIGUE",
-      "script": "Đó chính là Mệt mỏi Quyết định. Khả năng cân nhắc và đưa ra lựa chọn sáng suốt của não bộ sẽ cạn kiệt dần sau mỗi quyết định trong ngày."
-    }
+    "script": "Đó chính là Mệt mỏi Quyết định. Khả năng cân nhắc và đưa ra lựa chọn sáng suốt của não bộ sẽ cạn kiệt dần sau mỗi quyết định trong ngày.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo81_3",
+    "id": "slide_memo81_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA MỆT MỎI QUYẾT ĐỊNH",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
-    "primaryColor": "#ef4444",
-    "secondaryColor": "#10b981",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Khi pin năng lượng nhận thức giảm dần từ 100% xuống còn 5%, bộ não lập tức chuyển sang chế độ lười biếng, chọn phương án dễ nhất."
-    }
+    "script": "Mô phỏng: Khi pin năng lượng nhận thức giảm dần từ 100% xuống còn 5%, bộ não lập tức chuyển sang chế độ lười biếng, chọn phương án dễ nhất.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo81_4",
+    "id": "slide_memo81_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
-    "primaryColor": "#ef4444",
-    "secondaryColor": "#10b981",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Buổi sáng tràn đầy năng lượng đưa ra quyết định lý trí, sáng suốt. Buổi tối mệt mỏi dễ thỏa hiệp và đưa ra lựa chọn sai lầm."
-    }
+    "script": "So sánh: Buổi sáng tràn đầy năng lượng đưa ra quyết định lý trí, sáng suốt. Buổi tối mệt mỏi dễ thỏa hiệp và đưa ra lựa chọn sai lầm.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo81_5",
+    "id": "slide_memo81_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
-    "primaryColor": "#ef4444",
-    "secondaryColor": "#10b981",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Hãy đưa ra những quyết định quan trọng nhất vào buổi sáng. Đồng thời thiết lập các thói quen cố định để giải phóng năng lượng cho não!"
-    }
+    "script": "Hãy đưa ra những quyết định quan trọng nhất vào buổi sáng. Đồng thời thiết lập các thói quen cố định để giải phóng năng lượng cho não!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo81_6",
+    "id": "slide_memo81_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
-    "primaryColor": "#ef4444",
-    "secondaryColor": "#10b981",
-    "neutralColor": "#f59e0b",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

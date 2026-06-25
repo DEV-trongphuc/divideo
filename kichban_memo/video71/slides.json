@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo71_1",
+    "id": "slide_memo71_1",
+    "title": "Ảo giác Minh bạch",
+    "subtitle": "VÌ SAO BẠN LUÔN NGHĨ NGƯỜI KHÁC THẤY RÕ SỰ LO LẮNG CỦA MÌNH?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#ec4899",
-    "isCustom": true,
-    "data": {
-      "title": "Ảo giác Minh bạch",
-      "subtitle": "VÌ SAO BẠN LUÔN NGHĨ NGƯỜI KHÁC THẤY RÕ SỰ LO LẮNG CỦA MÌNH?",
-      "script": "Đứng thuyết trình trước đám đông, bạn cảm giác như mọi người đều nghe thấy tiếng tim đập và nhìn thấu sự hoảng loạn bên trong. Thực sự có vậy?"
-    }
+    "script": "Đứng thuyết trình trước đám đông, bạn cảm giác như mọi người đều nghe thấy tiếng tim đập và nhìn thấu sự hoảng loạn bên trong. Thực sự có vậy?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo71_2",
+    "id": "slide_memo71_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "ILLUSION OF TRANSPARENCY",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#ec4899",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "ILLUSION OF TRANSPARENCY",
-      "script": "Đó gọi là Ảo giác Minh bạch. Con người thường đánh giá quá cao mức độ mà người khác có thể đọc được trạng thái cảm xúc cá nhân của mình."
-    }
+    "script": "Đó gọi là Ảo giác Minh bạch. Con người thường đánh giá quá cao mức độ mà người khác có thể đọc được trạng thái cảm xúc cá nhân của mình.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo71_3",
+    "id": "slide_memo71_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC MINH BẠCH",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#ec4899",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Dù bên trong cơ thể bạn lo lắng vỡ òa, mồ hôi rơi rớt, nhưng trong mắt người đối diện, bạn trông vẫn cực kỳ bình thản và ổn định."
-    }
+    "script": "Mô phỏng: Dù bên trong cơ thể bạn lo lắng vỡ òa, mồ hôi rơi rớt, nhưng trong mắt người đối diện, bạn trông vẫn cực kỳ bình thản và ổn định.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo71_4",
+    "id": "slide_memo71_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#ec4899",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Cảm giác cá nhân tự thấy mình lộ liễu 90%. Thực tế, người quan sát chỉ phát hiện chưa tới 5% dấu hiệu lo lắng."
-    }
+    "script": "So sánh: Cảm giác cá nhân tự thấy mình lộ liễu 90%. Thực tế, người quan sát chỉ phát hiện chưa tới 5% dấu hiệu lo lắng.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo71_5",
+    "id": "slide_memo71_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#ec4899",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Mọi người không hề nhìn thấu tâm can của bạn đâu. Hãy hít một hơi thật sâu, tự tin bước lên và nói lời của bạn!"
-    }
+    "script": "Mọi người không hề nhìn thấu tâm can của bạn đâu. Hãy hít một hơi thật sâu, tự tin bước lên và nói lời của bạn!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo71_6",
+    "id": "slide_memo71_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#ec4899",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo89_1",
+    "id": "slide_memo89_1",
+    "title": "Thiên kiến Xác nhận",
+    "subtitle": "VÌ SAO BẠN CHỈ TIN VÀO NHỮNG THÔNG TIN CỦNG CỐ NIỀM TIN SẴN CÓ?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Thiên kiến Xác nhận",
-      "subtitle": "VÌ SAO BẠN CHỈ TIN VÀO NHỮNG THÔNG TIN CỦNG CỐ NIỀM TIN SẴN CÓ?",
-      "script": "Tại sao khi tin vào một lý thuyết, bạn chỉ đọc bài viết ủng hộ nó và lập tức lướt qua các bài viết phản bác? Bạn đang tìm sự thật, hay tìm sự đồng tình?"
-    }
+    "script": "Tại sao khi tin vào một lý thuyết, bạn chỉ đọc bài viết ủng hộ nó và lập tức lướt qua các bài viết phản bác? Bạn đang tìm sự thật, hay tìm sự đồng tình?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo89_2",
+    "id": "slide_memo89_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "CONFIRMATION BIAS",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "CONFIRMATION BIAS",
-      "script": "Đó gọi là Thiên kiến Xác nhận. Bộ não có xu hướng tìm kiếm, ghi nhớ và diễn dịch thông tin theo cách củng cố các định kiến sẵn có của bản thân."
-    }
+    "script": "Đó gọi là Thiên kiến Xác nhận. Bộ não có xu hướng tìm kiếm, ghi nhớ và diễn dịch thông tin theo cách củng cố các định kiến sẵn có của bản thân.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo89_3",
+    "id": "slide_memo89_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA THIÊN KIẾN XÁC NHẬN",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Màng lọc niềm tin chỉ cho phép các ý kiến đồng điệu đi vào bộ nhớ đệm, đồng thời dựng khiên chắn đẩy lùi mọi thông tin trái chiều."
-    }
+    "script": "Mô phỏng: Màng lọc niềm tin chỉ cho phép các ý kiến đồng điệu đi vào bộ nhớ đệm, đồng thời dựng khiên chắn đẩy lùi mọi thông tin trái chiều.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo89_4",
+    "id": "slide_memo89_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Người khách quan lắng nghe đa chiều để tìm sự thật. Người thiên kiến chỉ tìm các mảnh ghép để tự làm hài lòng quan điểm cá nhân."
-    }
+    "script": "So sánh: Người khách quan lắng nghe đa chiều để tìm sự thật. Người thiên kiến chỉ tìm các mảnh ghép để tự làm hài lòng quan điểm cá nhân.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo89_5",
+    "id": "slide_memo89_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Hãy chủ động tìm kiếm các thông tin phản biện và lắng nghe tiếng nói trái chiều. Đó là cách duy nhất để xây dựng tư duy sắc bén!"
-    }
+    "script": "Hãy chủ động tìm kiếm các thông tin phản biện và lắng nghe tiếng nói trái chiều. Đó là cách duy nhất để xây dựng tư duy sắc bén!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo89_6",
+    "id": "slide_memo89_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

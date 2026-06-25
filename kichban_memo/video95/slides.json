@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo95_1",
+    "id": "slide_memo95_1",
+    "title": "Ảo giác Tự tin",
+    "subtitle": "VÌ SAO CHÚNG TA THƯỜNG ĐÁNH GIÁ QUÁ CAO NĂNG LỰC ĐÁNH GIÁ CỦA MÌNH?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
-    "primaryColor": "#fbbf24",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Ảo giác Tự tin",
-      "subtitle": "VÌ SAO CHÚNG TA THƯỜNG ĐÁNH GIÁ QUÁ CAO NĂNG LỰC ĐÁNH GIÁ CỦA MÌNH?",
-      "script": "Tại sao hầu hết mọi người đều tin rằng mình lái xe giỏi hơn mức trung bình? Liệu sự tự tin có đang vượt quá năng lực thực tế?"
-    }
+    "script": "Tại sao hầu hết mọi người đều tin rằng mình lái xe giỏi hơn mức trung bình? Liệu sự tự tin có đang vượt quá năng lực thực tế?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo95_2",
+    "id": "slide_memo95_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "OVERCONFIDENCE EFFECT",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
-    "primaryColor": "#fbbf24",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "OVERCONFIDENCE EFFECT",
-      "script": "Đó gọi là Ảo giác Tự tin Thái quá. Chúng ta thường đánh giá độ chính xác của các phán đoán cá nhân cao hơn nhiều so với kết quả thực tế."
-    }
+    "script": "Đó gọi là Ảo giác Tự tin Thái quá. Chúng ta thường đánh giá độ chính xác của các phán đoán cá nhân cao hơn nhiều so với kết quả thực tế.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo95_3",
+    "id": "slide_memo95_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC TỰ TIN",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
-    "primaryColor": "#fbbf24",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Thước đo ước tính độ chính xác tự tin vọt lên 90%, trong khi kết quả kiểm tra thực tế chỉ đạt mức trung bình 40%."
-    }
+    "script": "Mô phỏng: Thước đo ước tính độ chính xác tự tin vọt lên 90%, trong khi kết quả kiểm tra thực tế chỉ đạt mức trung bình 40%.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo95_4",
+    "id": "slide_memo95_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
-    "primaryColor": "#fbbf24",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Tự tin thái quá tạo quyết định liều lĩnh, thiếu cơ sở. Tự tin điềm tĩnh dựa trên số liệu và kiểm chứng khách quan."
-    }
+    "script": "So sánh: Tự tin thái quá tạo quyết định liều lĩnh, thiếu cơ sở. Tự tin điềm tĩnh dựa trên số liệu và kiểm chứng khách quan.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo95_5",
+    "id": "slide_memo95_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
-    "primaryColor": "#fbbf24",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Hãy luôn khiêm tốn học hỏi và sẵn sàng kiểm chứng lại các quyết định của mình. Sự cẩn trọng chính là tấm khiên bảo vệ bạn!"
-    }
+    "script": "Hãy luôn khiêm tốn học hỏi và sẵn sàng kiểm chứng lại các quyết định của mình. Sự cẩn trọng chính là tấm khiên bảo vệ bạn!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo95_6",
+    "id": "slide_memo95_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
-    "primaryColor": "#fbbf24",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#3b82f6",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

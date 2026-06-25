@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo88_1",
+    "id": "slide_memo88_1",
+    "title": "Ảo giác Trôi nổi",
+    "subtitle": "ĐIỀU GÌ XẢY RA KHI BẠN CÔ LẬP HOÀN TOÀN CÁC GIÁC QUAN?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Ảo giác Trôi nổi",
-      "subtitle": "ĐIỀU GÌ XẢY RA KHI BẠN CÔ LẬP HOÀN TOÀN CÁC GIÁC QUAN?",
-      "script": "Nằm trong một bể nước tối đen, không âm thanh, không ánh sáng. Bộ não của bạn sẽ nghỉ ngơi, hay tự tạo ra một thế giới kỳ lạ khác?"
-    }
+    "script": "Nằm trong một bể nước tối đen, không âm thanh, không ánh sáng. Bộ não của bạn sẽ nghỉ ngơi, hay tự tạo ra một thế giới kỳ lạ khác?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo88_2",
+    "id": "slide_memo88_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "SENSORY DEPRIVATION",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "SENSORY DEPRIVATION",
-      "script": "Đó chính là Hiện tượng Cô lập Giác quan. Khi bị cắt đứt nguồn kích thích từ môi trường, vỏ não sẽ tự động tăng độ nhạy và tạo ra ảo giác để tự lấp đầy."
-    }
+    "script": "Đó chính là Hiện tượng Cô lập Giác quan. Khi bị cắt đứt nguồn kích thích từ môi trường, vỏ não sẽ tự động tăng độ nhạy và tạo ra ảo giác để tự lấp đầy.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo88_3",
+    "id": "slide_memo88_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC TRÔI NỔI",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Khi các tín hiệu giác quan bên ngoài rơi về mức 0, các làn sóng ảo giác trong não lập tức bùng phát mạnh mẽ để bù đắp sự thiếu hụt."
-    }
+    "script": "Mô phỏng: Khi các tín hiệu giác quan bên ngoài rơi về mức 0, các làn sóng ảo giác trong não lập tức bùng phát mạnh mẽ để bù đắp sự thiếu hụt.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo88_4",
+    "id": "slide_memo88_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Trạng thái bình thường tiếp nhận thông tin khách quan. Trạng thái cô lập buộc não bộ phải tự phóng chiếu thế giới nội tâm ra ngoài."
-    }
+    "script": "So sánh: Trạng thái bình thường tiếp nhận thông tin khách quan. Trạng thái cô lập buộc não bộ phải tự phóng chiếu thế giới nội tâm ra ngoài.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo88_5",
+    "id": "slide_memo88_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Bộ não là một cỗ máy xử lý thông tin không bao giờ ngừng nghỉ. Khi thế giới im lặng, nội tâm bạn sẽ bắt đầu lên tiếng!"
-    }
+    "script": "Bộ não là một cỗ máy xử lý thông tin không bao giờ ngừng nghỉ. Khi thế giới im lặng, nội tâm bạn sẽ bắt đầu lên tiếng!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo88_6",
+    "id": "slide_memo88_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
-    "primaryColor": "#a855f7",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#10b981",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

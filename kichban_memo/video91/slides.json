@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo91_1",
+    "id": "slide_memo91_1",
+    "title": "Hiệu ứng Hawthorne",
+    "subtitle": "VÌ SAO BẠN LUÔN CHĂM CHỈ VÀ LÀM VIỆC TỐT HƠN KHI BIẾT CÓ NGƯỜI ĐANG NHÌN?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Hiệu ứng Hawthorne",
-      "subtitle": "VÌ SAO BẠN LUÔN CHĂM CHỈ VÀ LÀM VIỆC TỐT HƠN KHI BIẾT CÓ NGƯỜI ĐANG NHÌN?",
-      "script": "Tại sao năng suất của công nhân lại tăng vọt khi nhà máy thay đổi độ sáng đèn, nhưng kỳ lạ là năng suất vẫn cao ngay cả khi đèn bị chỉnh tối đi?"
-    }
+    "script": "Tại sao năng suất của công nhân lại tăng vọt khi nhà máy thay đổi độ sáng đèn, nhưng kỳ lạ là năng suất vẫn cao ngay cả khi đèn bị chỉnh tối đi?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo91_2",
+    "id": "slide_memo91_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "HAWTHORNE EFFECT",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "HAWTHORNE EFFECT",
-      "script": "Đó là Hiệu ứng Hawthorne. Con người có xu hướng thay đổi và cải thiện hành vi của mình khi biết bản thân đang được quan sát và chú ý."
-    }
+    "script": "Đó là Hiệu ứng Hawthorne. Con người có xu hướng thay đổi và cải thiện hành vi của mình khi biết bản thân đang được quan sát và chú ý.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo91_3",
+    "id": "slide_memo91_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG HAWTHORNE",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Khi chiếc camera giám sát bật sáng, chỉ số năng suất lao động của đội ngũ lập tức tăng vọt thêm 40% so với trạng thái tự do."
-    }
+    "script": "Mô phỏng: Khi chiếc camera giám sát bật sáng, chỉ số năng suất lao động của đội ngũ lập tức tăng vọt thêm 40% so với trạng thái tự do.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo91_4",
+    "id": "slide_memo91_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Trạng thái tự do làm việc theo nhịp độ tự nhiên, thoải mái. Trạng thái bị giám sát thúc đẩy ý thức tự giác và cải thiện hiệu suất."
-    }
+    "script": "So sánh: Trạng thái tự do làm việc theo nhịp độ tự nhiên, thoải mái. Trạng thái bị giám sát thúc đẩy ý thức tự giác và cải thiện hiệu suất.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo91_5",
+    "id": "slide_memo91_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Ứng dụng hiệu ứng này bằng cách làm việc nhóm hoặc nhờ người giám sát mục tiêu của bạn. Sự chú ý tích cực chính là động lực mạnh mẽ!"
-    }
+    "script": "Ứng dụng hiệu ứng này bằng cách làm việc nhóm hoặc nhờ người giám sát mục tiêu của bạn. Sự chú ý tích cực chính là động lực mạnh mẽ!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo91_6",
+    "id": "slide_memo91_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#f59e0b",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo86_1",
+    "id": "slide_memo86_1",
+    "title": "Bẫy Tự giới hạn",
+    "subtitle": "VÌ SAO BẠN TỰ TẠO RA CHƯỚNG NGẠI TRƯỚC KHI BẮT ĐẦU THỬ THÁCH?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#6b7280",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Bẫy Tự giới hạn",
-      "subtitle": "VÌ SAO BẠN TỰ TẠO RA CHƯỚNG NGẠI TRƯỚC KHI BẮT ĐẦU THỬ THÁCH?",
-      "script": "Trước ngày thi quan trọng, bạn thay vì ôn bài lại đi chơi game muộn. Tại sao bạn lại cố tình phá hoại cơ hội thành công của chính mình?"
-    }
+    "script": "Trước ngày thi quan trọng, bạn thay vì ôn bài lại đi chơi game muộn. Tại sao bạn lại cố tình phá hoại cơ hội thành công của chính mình?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo86_2",
+    "id": "slide_memo86_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "SELF-HANDICAPPING",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#6b7280",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "SELF-HANDICAPPING",
-      "script": "Hiện tượng này là Bẫy Tự giới hạn. Chúng ta tự tạo ra chướng ngại trước thử thách để có lý do đổ lỗi nếu thất bại, bảo vệ lòng tự trọng của bản thân."
-    }
+    "script": "Hiện tượng này là Bẫy Tự giới hạn. Chúng ta tự tạo ra chướng ngại trước thử thách để có lý do đổ lỗi nếu thất bại, bảo vệ lòng tự trọng của bản thân.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo86_3",
+    "id": "slide_memo86_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA BẪY TỰ GIỚI HẠN",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#6b7280",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Tự xây dựng rào cản cản đường chạy giúp bạn có cái cớ đổ lỗi cho rào cản thay vì thừa nhận năng lực kém nếu thua cuộc."
-    }
+    "script": "Mô phỏng: Tự xây dựng rào cản cản đường chạy giúp bạn có cái cớ đổ lỗi cho rào cản thay vì thừa nhận năng lực kém nếu thua cuộc.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo86_4",
+    "id": "slide_memo86_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#6b7280",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Đối mặt thực tế giúp rút kinh nghiệm và sửa sai. Tự giới hạn bảo vệ cái tôi giả tạo nhưng làm tăng nguy cơ thất bại thực tế."
-    }
+    "script": "So sánh: Đối mặt thực tế giúp rút kinh nghiệm và sửa sai. Tự giới hạn bảo vệ cái tôi giả tạo nhưng làm tăng nguy cơ thất bại thực tế.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo86_5",
+    "id": "slide_memo86_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#6b7280",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Thất bại là một phần của sự phát triển. Đừng sợ hãi nó đến mức tự chặn đứng cơ hội thể hiện năng lực tốt nhất của bản thân!"
-    }
+    "script": "Thất bại là một phần của sự phát triển. Đừng sợ hãi nó đến mức tự chặn đứng cơ hội thể hiện năng lực tốt nhất của bản thân!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo86_6",
+    "id": "slide_memo86_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#f43f5e",
-    "secondaryColor": "#6b7280",
-    "neutralColor": "#f59e0b",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo83_1",
+    "id": "slide_memo83_1",
+    "title": "Hiệu ứng Ringelmann",
+    "subtitle": "VÌ SAO LÀM VIỆC NHÓM CÀNG ĐÔNG, HIỆU SUẤT CÁ NHÂN LẠI CÀNG GIẢM?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#eab308",
-    "isCustom": true,
-    "data": {
-      "title": "Hiệu ứng Ringelmann",
-      "subtitle": "VÌ SAO LÀM VIỆC NHÓM CÀNG ĐÔNG, HIỆU SUẤT CÁ NHÂN LẠI CÀNG GIẢM?",
-      "script": "Một người kéo dây đạt lực 100 kg. Nhưng tại sao nhóm 8 người kéo chung lại chỉ đạt tổng lực 300 kg thay vì 800 kg như lý thuyết?"
-    }
+    "script": "Một người kéo dây đạt lực 100 kg. Nhưng tại sao nhóm 8 người kéo chung lại chỉ đạt tổng lực 300 kg thay vì 800 kg như lý thuyết?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo83_2",
+    "id": "slide_memo83_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "RINGELMANN EFFECT",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#eab308",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "RINGELMANN EFFECT",
-      "script": "Đó chính là Hiệu ứng Ringelmann. Khi số lượng thành viên trong nhóm tăng lên, nỗ lực cá nhân của mỗi người vô thức giảm đi do tâm lý ỷ lại tập thể."
-    }
+    "script": "Đó chính là Hiệu ứng Ringelmann. Khi số lượng thành viên trong nhóm tăng lên, nỗ lực cá nhân của mỗi người vô thức giảm đi do tâm lý ỷ lại tập thể.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo83_3",
+    "id": "slide_memo83_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG RINGELMANN",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#eab308",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Khi kéo dây một mình, bạn dồn 100% sức lực. Nhưng khi có thêm 7 người khác cùng kéo, sức kéo cá nhân của bạn âm thầm giảm xuống còn 35%."
-    }
+    "script": "Mô phỏng: Khi kéo dây một mình, bạn dồn 100% sức lực. Nhưng khi có thêm 7 người khác cùng kéo, sức kéo cá nhân của bạn âm thầm giảm xuống còn 35%.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo83_4",
+    "id": "slide_memo83_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#eab308",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Làm việc độc lập nâng cao tinh thần trách nhiệm. Làm việc nhóm lớn không phân rõ nhiệm vụ dễ tạo cơ hội cho sự trốn tránh."
-    }
+    "script": "So sánh: Làm việc độc lập nâng cao tinh thần trách nhiệm. Làm việc nhóm lớn không phân rõ nhiệm vụ dễ tạo cơ hội cho sự trốn tránh.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo83_5",
+    "id": "slide_memo83_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#eab308",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Để làm việc nhóm hiệu quả, hãy chia nhỏ nhóm và giao trách nhiệm rõ ràng cho từng cá nhân. Sự minh bạch giúp loại bỏ sự ỷ lại!"
-    }
+    "script": "Để làm việc nhóm hiệu quả, hãy chia nhỏ nhóm và giao trách nhiệm rõ ràng cho từng cá nhân. Sự minh bạch giúp loại bỏ sự ỷ lại!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo83_6",
+    "id": "slide_memo83_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
-    "primaryColor": "#3b82f6",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#eab308",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo78_1",
+    "id": "slide_memo78_1",
+    "title": "Hiệu ứng Google",
+    "subtitle": "VÌ SAO ĐIỆN THOẠI THÔNG MINH ĐANG DẦN LÀM SUY GIẢM TRÍ NHỚ CỦA BẠN?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#22c55e",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Hiệu ứng Google",
-      "subtitle": "VÌ SAO ĐIỆN THOẠI THÔNG MINH ĐANG DẦN LÀM SUY GIẢM TRÍ NHỚ CỦA BẠN?",
-      "script": "Bạn dễ dàng quên đi số điện thoại của người thân hoặc một kiến thức vừa đọc, vì nghĩ rằng chỉ cần gõ Google là ra ngay. Não bạn đang lười đi?"
-    }
+    "script": "Bạn dễ dàng quên đi số điện thoại của người thân hoặc một kiến thức vừa đọc, vì nghĩ rằng chỉ cần gõ Google là ra ngay. Não bạn đang lười đi?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo78_2",
+    "id": "slide_memo78_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "GOOGLE EFFECT",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#22c55e",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "GOOGLE EFFECT",
-      "script": "Hiện tượng này gọi là Hiệu ứng Google. Bộ não có xu hướng quên đi những thông tin mà nó tin là có thể dễ dàng tra cứu trực tuyến bất cứ lúc nào."
-    }
+    "script": "Hiện tượng này gọi là Hiệu ứng Google. Bộ não có xu hướng quên đi những thông tin mà nó tin là có thể dễ dàng tra cứu trực tuyến bất cứ lúc nào.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo78_3",
+    "id": "slide_memo78_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG GOOGLE",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#22c55e",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Khi hệ thống tìm kiếm trực tuyến được bật, chỉ số lưu trữ dài hạn của não lập tức sụt giảm từ 80% xuống còn 20%."
-    }
+    "script": "Mô phỏng: Khi hệ thống tìm kiếm trực tuyến được bật, chỉ số lưu trữ dài hạn của não lập tức sụt giảm từ 80% xuống còn 20%.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo78_4",
+    "id": "slide_memo78_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#22c55e",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Trí nhớ tự nhiên giúp liên kết tư duy sâu sắc, nhanh chóng. Trí nhớ kỹ thuật số tạo sự phụ thuộc và hạn chế sự hiểu biết bản chất."
-    }
+    "script": "So sánh: Trí nhớ tự nhiên giúp liên kết tư duy sâu sắc, nhanh chóng. Trí nhớ kỹ thuật số tạo sự phụ thuộc và hạn chế sự hiểu biết bản chất.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo78_5",
+    "id": "slide_memo78_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#22c55e",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Đừng quá lạm dụng các công cụ tìm kiếm. Hãy chủ động ghi nhớ và tư duy sâu để xây dựng một bộ não nhạy bén và độc lập!"
-    }
+    "script": "Đừng quá lạm dụng các công cụ tìm kiếm. Hãy chủ động ghi nhớ và tư duy sâu để xây dựng một bộ não nhạy bén và độc lập!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo78_6",
+    "id": "slide_memo78_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
-    "primaryColor": "#22c55e",
-    "secondaryColor": "#a855f7",
-    "neutralColor": "#3b82f6",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo90_1",
+    "id": "slide_memo90_1",
+    "title": "Co giãn Thời gian",
+    "subtitle": "TẠI SAO 1 GIÂY TRONG NGUY HIỂM LẠI DÀI NHƯ CẢ TIẾNG ĐỒNG HỒ?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Co giãn Thời gian",
-      "subtitle": "TẠI SAO 1 GIÂY TRONG NGUY HIỂM LẠI DÀI NHƯ CẢ TIẾNG ĐỒNG HỒ?",
-      "script": "Trong khoảnh khắc trượt chân ngã hoặc gặp tai nạn giao thông, bạn cảm giác như mọi thứ xung quanh chuyển động chậm lại như phim quay chậm. Tại sao?"
-    }
+    "script": "Trong khoảnh khắc trượt chân ngã hoặc gặp tai nạn giao thông, bạn cảm giác như mọi thứ xung quanh chuyển động chậm lại như phim quay chậm. Tại sao?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo90_2",
+    "id": "slide_memo90_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "CHRONOCEPTION",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "CHRONOCEPTION",
-      "script": "Hiện tượng này là Sự co giãn nhận thức thời gian. Trong tình huống khẩn cấp, hạch hạnh nhân kích hoạt trạng thái siêu tập trung, ghi lại ký ức với mật độ cực dày."
-    }
+    "script": "Hiện tượng này là Sự co giãn nhận thức thời gian. Trong tình huống khẩn cấp, hạch hạnh nhân kích hoạt trạng thái siêu tập trung, ghi lại ký ức với mật độ cực dày.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo90_3",
+    "id": "slide_memo90_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA CO GIÃN THỜI GIAN",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Khi mối nguy hiểm ập đến, lượng adrenaline bùng nổ làm mật độ thông tin ghi nhớ tăng vọt, khiến 1 giây thực tế kéo giãn dài bằng 5 giây cảm nhận."
-    }
+    "script": "Mô phỏng: Khi mối nguy hiểm ập đến, lượng adrenaline bùng nổ làm mật độ thông tin ghi nhớ tăng vọt, khiến 1 giây thực tế kéo giãn dài bằng 5 giây cảm nhận.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo90_4",
+    "id": "slide_memo90_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Trạng thái bình thường ghi nhớ thông tin thưa thớt, lướt qua. Trạng thái nguy hiểm ghi nhớ từng chi tiết nhỏ nhất để tìm cách sinh tồn."
-    }
+    "script": "So sánh: Trạng thái bình thường ghi nhớ thông tin thưa thớt, lướt qua. Trạng thái nguy hiểm ghi nhớ từng chi tiết nhỏ nhất để tìm cách sinh tồn.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo90_5",
+    "id": "slide_memo90_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Thời gian không thực sự chậm lại, chính bộ não đã hoạt động phi thường để bảo vệ bạn. Hãy trân trọng cỗ máy sinh học kỳ diệu bên trong mình!"
-    }
+    "script": "Thời gian không thực sự chậm lại, chính bộ não đã hoạt động phi thường để bảo vệ bạn. Hãy trân trọng cỗ máy sinh học kỳ diệu bên trong mình!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo90_6",
+    "id": "slide_memo90_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
-    "primaryColor": "#eab308",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#10b981",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

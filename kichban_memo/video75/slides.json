@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo75_1",
+    "id": "slide_memo75_1",
+    "title": "Hiệu ứng Người ngoài cuộc",
+    "subtitle": "VÌ SAO ĐÁM ĐÔNG CÀNG ĐÔNG, BẠN CÀNG ÍT CÓ CƠ HỘI ĐƯỢC CỨU GIÚP?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": true,
-    "data": {
-      "title": "Hiệu ứng Người ngoài cuộc",
-      "subtitle": "VÌ SAO ĐÁM ĐÔNG CÀNG ĐÔNG, BẠN CÀNG ÍT CÓ CƠ HỘI ĐƯỢC CỨU GIÚP?",
-      "script": "Nếu gặp tai nạn trên đường vắng, cơ hội được cứu của bạn rất cao. Nhưng giữa phố đông người qua lại, tại sao ai cũng lạnh lùng đi qua?"
-    }
+    "script": "Nếu gặp tai nạn trên đường vắng, cơ hội được cứu của bạn rất cao. Nhưng giữa phố đông người qua lại, tại sao ai cũng lạnh lùng đi qua?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo75_2",
+    "id": "slide_memo75_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "BYSTANDER EFFECT",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "BYSTANDER EFFECT",
-      "script": "Hiện tượng này gọi là Hiệu ứng Người ngoài cuộc. Trách nhiệm cứu giúp bị khuếch tán trong đám đông, ai cũng nghĩ sẽ có người khác làm thay mình."
-    }
+    "script": "Hiện tượng này gọi là Hiệu ứng Người ngoài cuộc. Trách nhiệm cứu giúp bị khuếch tán trong đám đông, ai cũng nghĩ sẽ có người khác làm thay mình.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo75_3",
+    "id": "slide_memo75_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG NGƯỜI NGOÀI CUỘC",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Khi chỉ có 1 người, trách nhiệm cứu giúp là 100%. Nhưng khi đám đông tăng lên 10 người, trách nhiệm cá nhân phân rã xuống còn 10%."
-    }
+    "script": "Mô phỏng: Khi chỉ có 1 người, trách nhiệm cứu giúp là 100%. Nhưng khi đám đông tăng lên 10 người, trách nhiệm cá nhân phân rã xuống còn 10%.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo75_4",
+    "id": "slide_memo75_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Nơi ít người kích hoạt nghĩa vụ đạo đức tức thì. Nơi đông người tạo sự ỷ lại tập thể và tâm lý e ngại nổi bật."
-    }
+    "script": "So sánh: Nơi ít người kích hoạt nghĩa vụ đạo đức tức thì. Nơi đông người tạo sự ỷ lại tập thể và tâm lý e ngại nổi bật.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo75_5",
+    "id": "slide_memo75_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Nếu cần giúp đỡ nơi đông người, hãy chỉ đích danh một người cụ thể. Điều đó kích hoạt trách nhiệm trực tiếp của họ!"
-    }
+    "script": "Nếu cần giúp đỡ nơi đông người, hãy chỉ đích danh một người cụ thể. Điều đó kích hoạt trách nhiệm trực tiếp của họ!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo75_6",
+    "id": "slide_memo75_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#6366f1",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

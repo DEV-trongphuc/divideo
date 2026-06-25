@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo82_1",
+    "id": "slide_memo82_1",
+    "title": "Định luật Yerkes-Dodson",
+    "subtitle": "TẠI SAO CĂNG THẲNG VỪA PHẢI MỚI GIÚP BẠN ĐẠT HIỆU SUẤT ĐỈNH CAO?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Định luật Yerkes-Dodson",
-      "subtitle": "TẠI SAO CĂNG THẲNG VỪA PHẢI MỚI GIÚP BẠN ĐẠT HIỆU SUẤT ĐỈNH CAO?",
-      "script": "Bạn nghĩ thoải mái hoàn toàn sẽ giúp làm việc tốt nhất? Thực ra, không có chút áp lực nào lại khiến bạn lười biếng và trì trệ hơn."
-    }
+    "script": "Bạn nghĩ thoải mái hoàn toàn sẽ giúp làm việc tốt nhất? Thực ra, không có chút áp lực nào lại khiến bạn lười biếng và trì trệ hơn.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo82_2",
+    "id": "slide_memo82_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "YERKES-DODSON LAW",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "YERKES-DODSON LAW",
-      "script": "Định luật Yerkes-Dodson chỉ ra rằng hiệu suất làm việc đạt đỉnh cao ở mức độ căng thẳng vừa phải. Quá ít áp lực gây chán nản, quá nhiều gây hoảng loạn."
-    }
+    "script": "Định luật Yerkes-Dodson chỉ ra rằng hiệu suất làm việc đạt đỉnh cao ở mức độ căng thẳng vừa phải. Quá ít áp lực gây chán nản, quá nhiều gây hoảng loạn.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo82_3",
+    "id": "slide_memo82_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ĐỊNH LUẬT YERKES-DODSON",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Trạng thái kích thích tăng dần từ lười biếng (0%) lên mức tối ưu (50% áp lực) giúp hiệu suất vọt lên đỉnh cao trước khi rơi vào hoảng loạn."
-    }
+    "script": "Mô phỏng: Trạng thái kích thích tăng dần từ lười biếng (0%) lên mức tối ưu (50% áp lực) giúp hiệu suất vọt lên đỉnh cao trước khi rơi vào hoảng loạn.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo82_4",
+    "id": "slide_memo82_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Quá thư giãn gây mất tập trung. Căng thẳng tối ưu kích hoạt tập trung cực độ. Quá tải áp lực làm tê liệt tư duy."
-    }
+    "script": "So sánh: Quá thư giãn gây mất tập trung. Căng thẳng tối ưu kích hoạt tập trung cực độ. Quá tải áp lực làm tê liệt tư duy.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo82_5",
+    "id": "slide_memo82_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Hãy học cách đón nhận áp lực vừa phải như một động lực tích cực. Đó chính là nhiên liệu đưa bạn đến đỉnh cao hiệu suất!"
-    }
+    "script": "Hãy học cách đón nhận áp lực vừa phải như một động lực tích cực. Đó chính là nhiên liệu đưa bạn đến đỉnh cao hiệu suất!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo82_6",
+    "id": "slide_memo82_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#ef4444",
-    "neutralColor": "#f59e0b",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

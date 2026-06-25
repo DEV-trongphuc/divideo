@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo79_1",
+    "id": "slide_memo79_1",
+    "title": "Ảo giác Độc bản",
+    "subtitle": "VÌ SAO BẠN LUÔN NGHĨ ĐIỂM TỐT CỦA MÌNH LÀ ĐỘC NHẤT VÔ NHỊ?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Ảo giác Độc bản",
-      "subtitle": "VÌ SAO BẠN LUÔN NGHĨ ĐIỂM TỐT CỦA MÌNH LÀ ĐỘC NHẤT VÔ NHỊ?",
-      "script": "Bạn tự hào mình là người hiếm hoi biết tiết kiệm điện hoặc chăm chỉ đọc sách trong công ty. Liệu bạn có thực sự độc bản như bạn nghĩ?"
-    }
+    "script": "Bạn tự hào mình là người hiếm hoi biết tiết kiệm điện hoặc chăm chỉ đọc sách trong công ty. Liệu bạn có thực sự độc bản như bạn nghĩ?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo79_2",
+    "id": "slide_memo79_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "FALSE UNIQUENESS EFFECT",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "FALSE UNIQUENESS EFFECT",
-      "script": "Đó chính là Ảo giác Độc bản. Chúng ta thường đánh giá quá cao mức độ độc đáo của các khả năng, phẩm chất tốt đẹp của bản thân so với số đông."
-    }
+    "script": "Đó chính là Ảo giác Độc bản. Chúng ta thường đánh giá quá cao mức độ độc đáo của các khả năng, phẩm chất tốt đẹp của bản thân so với số đông.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo79_3",
+    "id": "slide_memo79_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA ẢO GIÁC ĐỘC BẢN",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Khi so sánh bản thân với nhóm đối chiếu rộng lớn hơn, chỉ số độc nhất của bạn sụt giảm từ 90% xuống mức trung bình 25%."
-    }
+    "script": "Mô phỏng: Khi so sánh bản thân với nhóm đối chiếu rộng lớn hơn, chỉ số độc nhất của bạn sụt giảm từ 90% xuống mức trung bình 25%.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo79_4",
+    "id": "slide_memo79_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Ảo tưởng độc bản mang lại sự tự tin ngắn hạn nhưng gây kiêu ngạo. Nhìn nhận khiêm tốn giúp hòa nhập và học hỏi tiến bộ."
-    }
+    "script": "So sánh: Ảo tưởng độc bản mang lại sự tự tin ngắn hạn nhưng gây kiêu ngạo. Nhìn nhận khiêm tốn giúp hòa nhập và học hỏi tiến bộ.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo79_5",
+    "id": "slide_memo79_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#f59e0b",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Sự tự tin là tốt, nhưng sự khiêm tốn sẽ giúp bạn nhìn nhận bản thân khách quan hơn để không ngừng học hỏi và phát triển!"
-    }
+    "script": "Sự tự tin là tốt, nhưng sự khiêm tốn sẽ giúp bạn nhìn nhận bản thân khách quan hơn để không ngừng học hỏi và phát triển!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo79_6",
+    "id": "slide_memo79_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
-    "primaryColor": "#ec4899",
-    "secondaryColor": "#3b82f6",
-    "neutralColor": "#f59e0b",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]

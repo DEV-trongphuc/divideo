@@ -1,86 +1,86 @@
 [
   {
-    "slideId": "slide_memo76_1",
+    "id": "slide_memo76_1",
+    "title": "Hiệu ứng Sở hữu",
+    "subtitle": "VÌ SAO ĐỒ CỦA BẠN BÁN ĐI LUÔN ĐƯỢC HÉT GIÁ CAO HƠN THỰC TẾ?",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#f59e0b",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Hiệu ứng Sở hữu",
-      "subtitle": "VÌ SAO ĐỒ CỦA BẠN BÁN ĐI LUÔN ĐƯỢC HÉT GIÁ CAO HƠN THỰC TẾ?",
-      "script": "Bạn muốn bán chiếc điện thoại cũ với giá 10 triệu vì thấy nó gắn bó với mình, nhưng người mua chỉ trả 5 triệu. Tại sao lại lệch nhau như vậy?"
-    }
+    "script": "Bạn muốn bán chiếc điện thoại cũ với giá 10 triệu vì thấy nó gắn bó với mình, nhưng người mua chỉ trả 5 triệu. Tại sao lại lệch nhau như vậy?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo76_2",
+    "id": "slide_memo76_2",
+    "title": "Cơ chế Thần kinh",
+    "subtitle": "ENDOWMENT EFFECT",
     "layout": "diagram",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#f59e0b",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Cơ Chế Hoạt Động",
-      "subtitle": "ENDOWMENT EFFECT",
-      "script": "Đó là Hiệu ứng Sở hữu. Con người tự động gán giá trị cao hơn cho một vật chỉ đơn giản vì họ đang sở hữu nó và sợ cảm giác mất mát đi."
-    }
+    "script": "Đó là Hiệu ứng Sở hữu. Con người tự động gán giá trị cao hơn cho một vật chỉ đơn giản vì họ đang sở hữu nó và sợ cảm giác mất mát đi.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo76_3",
+    "id": "slide_memo76_3",
+    "title": "Mô phỏng Hoạt động",
+    "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG SỞ HỮU",
     "layout": "metrics",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#f59e0b",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Trình Mô Phỏng",
-      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
-      "script": "Mô phỏng: Cầm chiếc cốc trên tay (sở hữu), định giá bán của bạn vọt lên $25. Nhưng khi đóng vai người mua, bạn chỉ sẵn sàng trả đúng $5."
-    }
+    "script": "Mô phỏng: Cầm chiếc cốc trên tay (sở hữu), định giá bán của bạn vọt lên $25. Nhưng khi đóng vai người mua, bạn chỉ sẵn sàng trả đúng $5.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo76_4",
+    "id": "slide_memo76_4",
+    "title": "So sánh Nhận thức",
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#f59e0b",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "So Sánh Thực Tế",
-      "subtitle": "ĐỐI CHIẾU HÀNH VI",
-      "script": "So sánh: Người bán đánh giá món đồ cộng kèm giá trị kỷ niệm. Người mua đánh giá khách quan dựa trên công năng và thị trường thực tế."
-    }
+    "script": "So sánh: Người bán đánh giá món đồ cộng kèm giá trị kỷ niệm. Người mua đánh giá khách quan dựa trên công năng và thị trường thực tế.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo76_5",
+    "id": "slide_memo76_5",
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#f59e0b",
-    "neutralColor": "#3b82f6",
-    "isCustom": true,
-    "data": {
-      "title": "Lời Khuyên Tỉnh Thức",
-      "subtitle": "BÀI HỌC CUỘC SỐNG",
-      "script": "Hãy tỉnh táo trước khi mua bán. Đừng để cảm xúc sở hữu bóp méo giá trị thực tế của các tài sản bạn đang nắm giữ!"
-    }
+    "script": "Hãy tỉnh táo trước khi mua bán. Đừng để cảm xúc sở hữu bóp méo giá trị thực tế của các tài sản bạn đang nắm giữ!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   },
   {
-    "slideId": "slide_memo76_6",
+    "id": "slide_memo76_6",
+    "title": "Khám phá cùng DOM Memo",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
-    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
-    "primaryColor": "#10b981",
-    "secondaryColor": "#f59e0b",
-    "neutralColor": "#3b82f6",
-    "isCustom": false,
-    "data": {
-      "title": "Khám phá cùng DOM Memo",
-      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
-      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
-    }
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
   }
 ]
