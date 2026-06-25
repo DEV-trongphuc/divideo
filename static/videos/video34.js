@@ -89,8 +89,20 @@
         return html;
     }
 
+    function makeVoiceBubbleHTML(isSender, isAnimating, durationText) {
+        const alignClass = isSender ? 'sent' : 'recv';
+        const animClass = isAnimating ? ' animating' : '';
+        const dur = durationText || '0:04';
+        let html = `<div class="v34-bubble v34-voice-bubble ${alignClass} visible${animClass}"><div class="v34-voice-play-btn"><i data-lucide="play" style="width:10px;height:10px;fill:currentColor;color:#fff;"></i></div><div class="v34-voice-waveform-grid">`;
+        for (let col = 0; col < 12; col++) {
+            html += `<div class="v34-wave-bar"><div class="v34-wave-dot"></div><div class="v34-wave-dot"></div><div class="v34-wave-dot"></div></div>`;
+        }
+        html += `</div><span class="v34-voice-duration">${dur}</span><div class="v34-bubble-meta">${isSender ? 'Gửi ✓' : 'vừa xong'}</div></div>`;
+        return html;
+    }
+
     function phoneMock(id, name, isSender) {
-        const titleText = name === 'Alice' ? 'User A (Alice)' : 'User B (Bob)';
+        const titleText = name === 'Alice' ? '👩‍💻 User A (Alice)' : '👨‍💻 User B (Bob)';
         const inputDefault = isSender ? 'Xin chào...' : 'Nhập tin nhắn...';
         return `
         <div class="v34-phone" id="${id}">
@@ -193,9 +205,13 @@
     }
 
     // HTML Component Generators
-    function serverMockHTML(idPrefix, title, statusLabel, activeLed, codeText, isError) {
+    function serverMockHTML(idPrefix, title, statusLabel, activeLed, codeText, isError, customBody) {
         const ledClass = isError ? 'active error' : (activeLed ? 'active' : '');
         const activeColorClass = isError ? 'glow-red' : (activeLed ? 'active-green' : '');
+        const bodyContent = customBody || `
+            <span class="v34-term-title">Web Logs: ${statusLabel || 'Idle'}</span>
+            <div class="v34-term-log" id="${idPrefix}-term-log">${codeText || 'Waiting for HTTP requests...'}</div>
+        `;
         return `
         <div class="v34-server-mock ${activeColorClass}" id="${idPrefix}-server">
             <div class="v34-server-header">
@@ -209,8 +225,7 @@
                 </div>
             </div>
             <div class="v34-server-terminal">
-                <span class="v34-term-title">Web Logs: ${statusLabel || 'Idle'}</span>
-                <div class="v34-term-log" id="${idPrefix}-term-log">${codeText || 'Waiting for HTTP requests...'}</div>
+                ${bodyContent}
             </div>
         </div>`;
     }
@@ -218,13 +233,20 @@
     function redisHubHTML(idPrefix, title, isBursting) {
         const burstClass = isBursting ? ' burst' : '';
         return `
-        <div class="v34-redis-hub" id="${idPrefix}-redis-hub">
+        <div class="v34-redis-hub" id="${idPrefix}-redis-hub" style="width: 140px; height: 110px;">
             <div class="v34-redis-ring r1"></div>
             <div class="v34-redis-ring r2"></div>
             <div class="v34-redis-ring r3"></div>
-            <div class="v34-redis-core${burstClass}" id="${idPrefix}-redis-core">
-                <i data-lucide="database" style="width:14px;height:14px;color:var(--chat-purple);"></i>
-                <span>Redis</span>
+            <div class="v34-redis-core${burstClass}" id="${idPrefix}-redis-core" style="width: 115px; height: 90px; border-radius: 10px; flex-direction: column; padding: 6px 8px; box-sizing: border-box; display: flex; align-items: center; justify-content: center;">
+                <div style="display:flex; align-items:center; gap:4px; margin-bottom: 2px;">
+                    <i data-lucide="database" style="width:11px;height:11px;color:var(--chat-purple);"></i>
+                    <span style="font-size: 7.5px; font-weight: 900; color: var(--chat-purple); text-transform: uppercase;">Redis Pub/Sub</span>
+                </div>
+                <div class="v34-redis-channels-grid">
+                    <div class="v34-channel-cell" id="v34-chan-41">room:41</div>
+                    <div class="v34-channel-cell" id="v34-chan-42">room:42</div>
+                    <div class="v34-channel-cell" id="v34-chan-43">room:43</div>
+                </div>
             </div>
         </div>`;
     }
@@ -307,15 +329,15 @@
                     </div>
                     ${phoneMock('v34-phone-bob', 'Bob', false)}
                 </div>
-                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;width:440px;padding:18px 24px;margin-left:auto;margin-right:auto;">
+                <div class="v34-glass-card glow-green" style="display:flex;justify-content:space-between;align-items:center;margin-top:15px;width:440px;padding:12px 20px;margin-left:auto;margin-right:auto;">
                     <span class="v34-status-badge green"><i data-lucide="message-circle" style="width:12px;height:12px;"></i> Real-time</span>
-                    <span style="font-family:'Fira Code',monospace;font-size:11px;font-weight:bold;color:var(--chat-text-muted);" id="v34-intro-status">Đang gửi tin nhắn...</span>
+                    <span style="color:#fff;" id="v34-intro-status">Đang gửi tin nhắn...</span>
                 </div>`, null, 'green-tint');
             canvas.querySelector('#v34-phone-alice-chat').innerHTML =
-                '<div class="v34-bubble sent" id="v34-intro-sent">Xin chào! 👋<div class="v34-bubble-meta">Gửi ✓</div></div>';
+                makeVoiceBubbleHTML(true, true, '0:04').replace('v34-voice-bubble', 'v34-voice-bubble" id="v34-intro-sent');
             canvas.querySelector('#v34-phone-bob-chat').innerHTML =
                 '<div class="v34-typing" id="v34-intro-typing"><span></span><span></span><span></span></div>' +
-                '<div class="v34-bubble recv" id="v34-intro-recv">Xin chào! 👋<div class="v34-bubble-meta">vừa xong</div></div>' +
+                makeVoiceBubbleHTML(false, false, '0:04').replace('v34-voice-bubble', 'v34-voice-bubble" id="v34-intro-recv') +
                 '<div class="v34-delivered-toast" id="v34-intro-toast"><i data-lucide="check-circle" style="width:12px;height:12px;"></i> Delivered instantly</div>';
             initIcons();
         }
@@ -331,9 +353,9 @@
                         ${serverMockHTML('v34-http', 'HTTP Server', 'Idle', false, 'Waiting for request...', false)}
                     </div>
                 </div>
-                <div class="v34-glass-card glow-red" style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+                <div class="v34-glass-card glow-red" style="display:flex;justify-content:space-between;align-items:center;margin-top:15px;padding:12px 20px;">
                     <span style="font-size:10px;font-weight:bold;color:var(--chat-text-muted);text-transform:uppercase;">HTTP Cycle</span>
-                    <span style="font-family:'Fira Code',monospace;font-size:11px;font-weight:bold;color:var(--chat-red);" id="v34-http-status">Server không thể push chủ động</span>
+                    <span style="color:var(--chat-red);" id="v34-http-status">Server không thể push chủ động</span>
                 </div>`;
 
             const absolute = `
@@ -353,24 +375,36 @@
                             <span>Client Poll</span>
                             <span class="v34-node-sub">⏱ Every 3 seconds</span>
                         </div>
-                        ${serverMockHTML('v34-poll', 'HTTP Server (Polling)', 'Idle', false, 'Waiting...', false)}
-                    </div>
-                </div>
-                <div class="v34-glass-card glow-red" style="margin-top:4px;">
-                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;align-items:center;">
-                        <span style="font-size:10px;font-weight:bold;color:var(--chat-text-muted);">⚡ POLL STORM LOG (CPU Spike)</span>
-                        <div style="display:flex;align-items:center;gap:12px;">
-                            <span style="font-size:9px;color:var(--chat-text-muted);">Req Rate: <strong id="v34-poll-req-rate" style="color:var(--chat-red);font-family:'Fira Code',monospace;">0 req/s</strong></span>
-                            <div style="display:flex;align-items:center;gap:6px;">
-                                <span style="font-size:9px;color:var(--chat-text-muted);">CPU:</span>
-                                <div class="v34-metrics-bar">
-                                    <div class="v34-metrics-fill" id="v34-poll-cpu"></div>
+                        <div class="v34-poll-grid" id="v34-poll-grid">
+                            ${Array.from({length: 12}, (_, i) => `
+                                <div class="v34-poll-cell" id="v34-poll-cell-${i}">
+                                    <i data-lucide="refresh-cw" class="icon-refresh"></i>
+                                    <i data-lucide="x-circle" class="icon-fail" style="display:none; color: var(--chat-red);"></i>
+                                    <i data-lucide="check-circle" class="icon-success" style="display:none; color: var(--chat-green);"></i>
+                                    <span>#${i+1}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        ${serverMockHTML('v34-poll', 'HTTP Server (Polling)', 'Idle', false, '', false, `
+                            <div class="v34-poll-server-term-content">
+                                <div class="poll-server-row">
+                                    <span class="lbl">CPU LOAD:</span>
+                                    <span class="val red" id="v34-poll-cpu-val">12%</span>
+                                </div>
+                                <div class="v34-metrics-bar" style="width: 100%; height: 6px; background: rgba(255, 255, 255, 0.1); border-radius: 3px; overflow: hidden; margin: 3px 0 6px 0;">
+                                    <div class="v34-metrics-fill" id="v34-poll-cpu" style="width: 12%;"></div>
+                                </div>
+                                <div class="poll-server-row">
+                                    <span class="lbl">REQ RATE:</span>
+                                    <span class="val red" id="v34-poll-req-rate">0 req/s</span>
+                                </div>
+                                <div class="poll-server-row">
+                                    <span class="lbl">EMPTY REQS:</span>
+                                    <span class="val yellow" id="v34-poll-counter">0</span>
                                 </div>
                             </div>
-                            <span class="v34-status-val-pill red" id="v34-poll-counter">0 empty</span>
-                        </div>
+                        `)}
                     </div>
-                    <div class="v34-poll-log" id="v34-poll-log"></div>
                 </div>`;
 
             const absolute = `
@@ -397,6 +431,18 @@
                             <div class="v34-console-line green">✓ Connected</div>
                             <div class="v34-console-line" style="font-size: 8px; color: var(--chat-text-muted);">Ready to stream</div>
                         </div>
+                    </div>
+
+                    <!-- Connection Tunnel Grid -->
+                    <div class="v34-ws-tunnel-grid" id="v34-ws-tunnel-grid">
+                        <div class="v34-tunnel-cell" id="v34-tunnel-cell-0"></div>
+                        <div class="v34-tunnel-cell" id="v34-tunnel-cell-1"></div>
+                        <div class="v34-tunnel-cell" id="v34-tunnel-cell-2"></div>
+                        <div class="v34-tunnel-cell" id="v34-tunnel-cell-3"></div>
+                        <div class="v34-tunnel-cell" id="v34-tunnel-cell-4"></div>
+                        <div class="v34-tunnel-cell" id="v34-tunnel-cell-5"></div>
+                        <div class="v34-tunnel-cell" id="v34-tunnel-cell-6"></div>
+                        <div class="v34-tunnel-cell" id="v34-tunnel-cell-7"></div>
                     </div>
 
                     <!-- Server side (Mini Server Rack with LEDs) -->
@@ -481,15 +527,27 @@
                 </div>`, null, null);
         }
         else if (slideId === 'slide_chat_ws_flow') {
+            const wsServerCustomBody = `
+                <span class="v34-term-title">Active Sockets Registry</span>
+                <div class="v34-socket-registry-grid">
+                    <div class="v34-socket-cell" id="v34-sock-alice">👩‍💻 User A (Alice)</div>
+                    <div class="v34-socket-cell">👵 User C</div>
+                    <div class="v34-socket-cell">🧔 User D</div>
+                    <div class="v34-socket-cell">👩‍🎨 User E</div>
+                    <div class="v34-socket-cell">👨‍🚀 User F</div>
+                    <div class="v34-socket-cell" id="v34-sock-bob">👨‍💻 User B (Bob)</div>
+                </div>
+                <div class="v34-term-log success" id="v34-flow-term-log" style="margin-top:5px;font-size:7.5px;min-height:24px;line-height:1.2;">Listening...</div>
+            `;
             const inner = `
                 <div class="v34-flow-stage" id="v34-flow-container">
                     ${phoneMock('v34-flow-alice', 'Alice', true)}
-                    ${serverMockHTML('v34-flow', 'WS Server', 'Active', true, 'Listening...', false)}
+                    ${serverMockHTML('v34-flow', 'WS Server', 'Active', true, 'Listening...', false, wsServerCustomBody)}
                     ${phoneMock('v34-flow-bob', 'Bob', false)}
                 </div>
-                <div class="v34-glass-card glow-green v34-status-card" style="margin-top:4px;">
+                <div class="v34-glass-card glow-green v34-status-card" style="margin-top:15px;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
                     <span class="v34-status-badge green"><i data-lucide="send" style="width:12px;height:12px;"></i> Instant Push</span>
-                    <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-cyan);" id="v34-flow-status">{"type":"msg","text":"Xin chào!"}</span>
+                    <span style="color:var(--chat-cyan);" id="v34-flow-status">{"type":"msg","text":"Xin chào!"}</span>
                 </div>`;
 
             const absolute = `
@@ -502,9 +560,9 @@
 
             canvas.innerHTML = sceneWrap(inner, absolute, 'green-tint');
             canvas.querySelector('#v34-flow-alice-chat').innerHTML =
-                '<div class="v34-bubble sent visible" id="v34-flow-sent">Xin chào!<div class="v34-bubble-meta">Đã gửi ✓</div></div>';
+                makeVoiceBubbleHTML(true, true, '0:04').replace('v34-voice-bubble', 'v34-voice-bubble" id="v34-flow-sent');
             canvas.querySelector('#v34-flow-bob-chat').innerHTML =
-                '<div class="v34-bubble recv" id="v34-flow-recv">Xin chào!<div class="v34-bubble-meta">vừa xong</div></div>';
+                makeVoiceBubbleHTML(false, false, '0:04').replace('v34-voice-bubble', 'v34-voice-bubble" id="v34-flow-recv');
             initIcons();
         }
         else if (slideId === 'slide_chat_scale_problem') {
@@ -523,8 +581,8 @@
                         ${serverMockHTML('v34-scale-s2', 'WS Server 2', 'Active', true, 'Bob connected', false)}
                     </div>
                 </div>
-                <div class="v34-glass-card glow-red" style="margin-top:4px;">
-                    <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-red);" id="v34-scale-status">❌ Message stuck on Server 1</span>
+                <div class="v34-glass-card glow-red" style="margin-top:15px;padding:12px 20px;">
+                    <span style="color:var(--chat-red);" id="v34-scale-status">❌ Message stuck on Server 1</span>
                 </div>`;
 
             const absolute = `
@@ -541,17 +599,17 @@
             const inner = `
                 <div class="v34-redis-vertical-layout" id="v34-redis-container">
                     <!-- Server 1 -->
-                    ${serverMockHTML('v34-redis-s1', 'WS Server 1 (Alice Connected)', 'Active', true, 'Publishing payload to Redis...', false)}
+                    ${serverMockHTML('v34-redis-s1', 'WS Server 1 (👩‍💻 Alice Connected)', 'Active', true, 'Publishing payload to Redis...', false)}
                     
                     <!-- Redis Hub -->
                     ${redisHubHTML('v34-redis', 'Redis Pub/Sub', false)}
                     
                     <!-- Server 2 -->
-                    ${serverMockHTML('v34-redis-s2', 'WS Server 2 (Bob Connected)', 'Active', true, 'Subscribed to chat:room:42', false)}
+                    ${serverMockHTML('v34-redis-s2', 'WS Server 2 (👨‍💻 Bob Connected)', 'Active', true, 'Subscribed to chat:room:42', false)}
                 </div>
-                <div class="v34-glass-card glow-purple" style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+                <div class="v34-glass-card glow-purple" style="display:flex;justify-content:space-between;align-items:center;margin-top:15px;padding:12px 20px;">
                     <span class="v34-status-badge green"><i data-lucide="radio-tower" style="width:12px;height:12px;"></i> Channel</span>
-                    <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-purple);" id="v34-redis-status">chat:room:42</span>
+                    <span style="color:var(--chat-purple);" id="v34-redis-status">chat:room:42</span>
                 </div>`;
 
             const absolute = `
@@ -589,9 +647,9 @@
                     </div>
                 </div>
                 <div class="v34-packet-wrap" id="v34-arch-pkt"><div class="v34-packet-core green"></div><span class="v34-packet-label">msg</span></div>
-                <div class="v34-glass-card glow-green v34-status-card" style="margin-top:4px;">
+                <div class="v34-glass-card glow-green v34-status-card" style="margin-top:15px;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
                     <span class="v34-status-label">PRODUCTION PIPELINE</span>
-                    <span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:bold;color:var(--chat-green);" id="v34-arch-status">Initializing...</span>
+                    <span style="color:var(--chat-green);" id="v34-arch-status">Initializing...</span>
                 </div>`, null, 'green-tint');
             initIcons();
         }
@@ -627,8 +685,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="v34-glass-card glow-green" style="text-align:center;margin-top:4px;">
-                    <span style="font-size:11px;font-weight:bold;color:var(--chat-green);" id="v34-cmp-verdict">WebSocket wins on all metrics 🏆</span>
+                <div class="v34-glass-card glow-green" style="text-align:center;margin-top:15px;padding:12px 20px;">
+                    <span style="color:var(--chat-green);" id="v34-cmp-verdict">WebSocket wins on all metrics 🏆</span>
                 </div>`, null, null);
             initIcons();
         }
@@ -689,29 +747,44 @@
 
             if (progress < 0.2) {
                 if (alice) alice.classList.add('active-send');
-                if (sent) sent.classList.add('visible');
+                if (sent) {
+                    sent.classList.add('visible');
+                    sent.classList.remove('animating');
+                }
                 if (typing) typing.classList.remove('active');
-                if (recv) recv.classList.remove('visible');
+                if (recv) {
+                    recv.classList.remove('visible', 'animating');
+                }
                 if (lineL) lineL.classList.remove('active');
                 if (lineR) lineR.classList.remove('active');
-                if (status) status.textContent = 'Alice nhấn Gửi...';
+                if (status) status.textContent = '👩‍💻 Alice gửi Voice Message...';
                 if (toast) toast.classList.remove('show');
-                if (aliceInput) aliceInput.textContent = 'Xin chào!';
+                if (aliceInput) aliceInput.textContent = '🎤 Voice Message (0:04)';
             } else if (progress < 0.55) {
                 if (lineL) lineL.classList.add('active');
                 if (lineR) lineR.classList.add('active');
                 if (typing) typing.classList.add('active');
-                if (recv) recv.classList.remove('visible');
+                if (sent) {
+                    sent.classList.add('visible', 'animating');
+                }
+                if (recv) {
+                    recv.classList.remove('visible', 'animating');
+                }
                 if (status) status.textContent = '⚡ WebSocket pushing...';
                 if (latency) latency.classList.add('flash');
             } else {
                 if (bob) bob.classList.add('active-recv');
                 if (typing) typing.classList.remove('active');
-                if (recv) recv.classList.add('visible');
-                if (toast) toast.classList.add('show');
                 if (sent) {
-                    sent.innerHTML = 'Xin chào! 👋<div class="v34-bubble-meta">Đã xem ✓✓</div>';
+                    sent.classList.add('visible');
+                    sent.classList.remove('animating');
+                    const meta = sent.querySelector('.v34-bubble-meta');
+                    if (meta) meta.textContent = 'Đã xem ✓✓';
                 }
+                if (recv) {
+                    recv.classList.add('visible', 'animating');
+                }
+                if (toast) toast.classList.add('show');
                 if (status) {
                     status.textContent = '✓ Nhận tức thì — không cần F5';
                     status.style.color = 'var(--chat-green)';
@@ -728,13 +801,11 @@
 
             const cOff = getNodeConnectionPoint(client, server, container);
             const sOff = getNodeConnectionPoint(server, client, container);
-            const cycle = (progress * 2.5) % 1;
+            const cycle = (progress * 4) % 1;
 
-            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
-            if (!pathsDrawn && client && server) {
+            if (client && server) {
                 drawSVGPath(canvas, '#v34-path-http-req', client, server, container, 'flow-blue');
                 drawSVGPath(canvas, '#v34-path-http-res', server, client, container, 'flow-green');
-                canvas.setAttribute('data-paths-drawn', 'true');
             }
 
             if (cycle < 0.42) {
@@ -789,43 +860,57 @@
             const pollCount = Math.min(5, Math.floor(progress * 6) + 1);
             const cpuPct = Math.min(98, 12 + progress * 88);
 
+            const activeCellCount = Math.floor(progress * 13);
+            for (let i = 0; i < 12; i++) {
+                const cell = canvas.querySelector(`#v34-poll-cell-${i}`);
+                if (cell) {
+                    const iconRefresh = cell.querySelector('.icon-refresh');
+                    const iconFail = cell.querySelector('.icon-fail');
+                    const iconSuccess = cell.querySelector('.icon-success');
+                    const spanText = cell.querySelector('span');
+
+                    if (i < activeCellCount) {
+                        if (i === 11) {
+                            cell.className = 'v34-poll-cell success-hit';
+                            if (iconRefresh) iconRefresh.style.display = 'none';
+                            if (iconFail) iconFail.style.display = 'none';
+                            if (iconSuccess) iconSuccess.style.display = 'inline-block';
+                            if (spanText) spanText.textContent = 'Hit ✓';
+                        } else {
+                            cell.className = 'v34-poll-cell empty-fail';
+                            if (iconRefresh) iconRefresh.style.display = 'none';
+                            if (iconFail) iconFail.style.display = 'inline-block';
+                            if (iconSuccess) iconSuccess.style.display = 'none';
+                            if (spanText) spanText.textContent = 'Empty ✗';
+                        }
+                    } else {
+                        cell.className = 'v34-poll-cell';
+                        if (iconRefresh) iconRefresh.style.display = 'inline-block';
+                        if (iconFail) iconFail.style.display = 'none';
+                        if (iconSuccess) iconSuccess.style.display = 'none';
+                        if (spanText) spanText.textContent = `#${i+1}`;
+                    }
+                }
+            }
+
+            const cpuVal = canvas.querySelector('#v34-poll-cpu-val');
+            if (cpuVal) cpuVal.textContent = `${Math.round(cpuPct)}%`;
             if (cpu) {
                 cpu.style.width = `${cpuPct}%`;
                 cpu.className = cpuPct > 65 ? 'v34-metrics-fill critical' : 'v34-metrics-fill';
             }
             if (rate) rate.textContent = `${Math.round(3333 * Math.min(1, progress * 1.2))} req/s`;
-            if (counter) counter.textContent = `${Math.max(0, pollCount - 1)} empty requests`;
+            if (counter) counter.textContent = `${Math.max(0, activeCellCount - 1)}`;
             if (server) server.className = cpuPct > 65 ? 'v34-server-mock active-red' : 'v34-server-mock';
-
-            if (log) {
-                let html = '';
-                for (let i = 0; i < pollCount; i++) {
-                    const isHit = i === pollCount - 1 && progress > 0.88;
-                    html += `<div class="v34-poll-line visible ${isHit ? 'hit' : 'empty'}">[${(i + 1) * 3}s] GET /messages → ${isHit ? '200 ["Hello!"] ✓' : '200 []'}</div>`;
-                }
-                log.innerHTML = html;
-            }
-
-            if (serverLog) {
-                if (progress > 0.88) {
-                    serverLog.innerHTML = 'GET /messages HTTP/1.1\nResult: 200 OK (New msg: "Hello!")';
-                    serverLog.className = 'v34-term-log success';
-                } else {
-                    serverLog.innerHTML = `Spam Rate: ${Math.round(3333 * Math.min(1, progress * 1.2))} req/s\nCPU Load: ${Math.round(cpuPct)}% (Warning)`;
-                    serverLog.className = cpuPct > 65 ? 'v34-term-log error' : 'v34-term-log highlight';
-                }
-            }
 
             const cOff = getNodeConnectionPoint(client, server, container);
             const sOff = getNodeConnectionPoint(server, client, container);
 
-            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
-            if (!pathsDrawn && client && server) {
+            if (client && server) {
                 drawSVGPath(canvas, '#v34-path-poll', client, server, container, 'flow-red');
-                canvas.setAttribute('data-paths-drawn', 'true');
             }
 
-            placePacket(pkt, cOff, sOff, (progress * 10) % 1);
+            placePacket(pkt, cOff, sOff, (progress * 12) % 1);
         }
         else if (slideId === 'slide_chat_websocket_intro') {
             const client = canvas.querySelector('#v34-ws-client-box');
@@ -837,15 +922,38 @@
             if (client) client.classList.toggle('active-blue', progress > 0.1);
             if (server) server.classList.toggle('active-green', progress > 0.2);
 
-            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
-            if (!pathsDrawn && client && server) {
+            // Animate WS tunnel grid cells
+            const timeStep = Math.floor(Date.now() / 80); // change frame every 80ms
+            for (let i = 0; i < 8; i++) {
+                const cell = canvas.querySelector(`#v34-tunnel-cell-${i}`);
+                if (cell) {
+                    cell.className = 'v34-tunnel-cell';
+                    if (progress > 0.15) {
+                        // Left column flow (0, 2, 4, 6) downwards: client to server
+                        if (i % 2 === 0) {
+                            const indexOffset = (i / 2);
+                            if ((timeStep + indexOffset) % 4 === 0) {
+                                cell.className = 'v34-tunnel-cell pulse-blue';
+                            }
+                        } 
+                        // Right column flow (1, 3, 5, 7) upwards: server to client
+                        else {
+                            const indexOffset = Math.floor(i / 2);
+                            if ((timeStep - indexOffset + 40) % 4 === 0) {
+                                cell.className = 'v34-tunnel-cell pulse-green';
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (client && server) {
                 drawSVGPath(canvas, '#v34-path-ws-intro', client, server, container, 'flowing');
-                canvas.setAttribute('data-paths-drawn', 'true');
             }
 
             const cOff = getNodeConnectionPoint(client, server, container);
             const sOff = getNodeConnectionPoint(server, client, container);
-            const spd = progress * 5;
+            const spd = progress * 10;
 
             if (pktFwd && cOff && sOff) {
                 if (progress > 0.15) {
@@ -918,40 +1026,53 @@
             const sOff2 = getNodeConnectionPoint(server, bob, container);
             const bOff = getNodeConnectionPoint(bob, server, container);
 
-            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
-            if (!pathsDrawn && alice && server && bob) {
+            if (alice && server && bob) {
                 drawSVGPath(canvas, '#v34-path-flow-a-s', alice, server, container, 'flow-blue');
                 drawSVGPath(canvas, '#v34-path-flow-s-b', server, bob, container, 'flow-green');
-                canvas.setAttribute('data-paths-drawn', 'true');
             }
 
-            if (progress < 0.38) {
-                placePacket(pkt1, aOff, sOff, progress / 0.38);
+            const sockAlice = canvas.querySelector('#v34-sock-alice');
+            const sockBob = canvas.querySelector('#v34-sock-bob');
+            const sent = canvas.querySelector('#v34-flow-sent');
+
+            if (progress < 0.22) {
+                const t1 = Math.min(1, progress / 0.15);
+                placePacket(pkt1, aOff, sOff, t1);
                 hidePacket(pkt2);
-                if (recv) recv.classList.remove('visible');
-                if (status) status.textContent = '{"type":"msg","from":"Alice"}';
+                if (sent) sent.classList.add('visible', 'animating');
+                if (recv) recv.classList.remove('visible', 'animating');
+                if (status) status.textContent = '{"type":"voice","length":4}';
                 if (serverLog) {
-                    serverLog.innerHTML = 'Receiving WebSocket frame from A...\nPayload: {"text": "Xin chào!"}';
+                    serverLog.innerHTML = 'Receiving WebSocket frame from 👩‍💻 A...\nPayload: {"voice_len": 4}';
                     serverLog.className = 'v34-term-log highlight';
                 }
-            } else if (progress < 0.72) {
+                if (sockAlice) sockAlice.className = 'v34-socket-cell active-alice';
+                if (sockBob) sockBob.className = 'v34-socket-cell';
+            } else if (progress < 0.44) {
                 hidePacket(pkt1);
-                placePacket(pkt2, sOff2, bOff, (progress - 0.38) / 0.34);
-                if (recv) recv.classList.remove('visible');
-                if (status) status.textContent = 'Server push down to User B socket';
+                const t2 = Math.min(1, (progress - 0.22) / 0.15);
+                placePacket(pkt2, sOff2, bOff, t2);
+                if (sent) { sent.classList.add('visible'); sent.classList.remove('animating'); }
+                if (recv) recv.classList.remove('visible', 'animating');
+                if (status) status.textContent = 'Server push down to 👨‍💻 User B socket';
                 if (serverLog) {
-                    serverLog.innerHTML = 'Routing to B socket...\nFrame PUSH active';
+                    serverLog.innerHTML = 'Routing to 👨‍💻 B socket...\nFrame PUSH active';
                     serverLog.className = 'v34-term-log success';
                 }
+                if (sockAlice) sockAlice.className = 'v34-socket-cell active-alice';
+                if (sockBob) sockBob.className = 'v34-socket-cell active-bob';
             } else {
                 hidePacket(pkt1);
                 hidePacket(pkt2);
-                if (recv) recv.classList.add('visible');
-                if (status) status.textContent = '✓ Delivered instantly (Bob received)';
+                if (sent) { sent.classList.add('visible'); sent.classList.remove('animating'); }
+                if (recv) recv.classList.add('visible', 'animating');
+                if (status) status.textContent = '✓ Delivered instantly (👨‍💻 Bob received)';
                 if (serverLog) {
                     serverLog.innerHTML = 'Frame delivered successfully.\nConnection: active';
                     serverLog.className = 'v34-term-log success';
                 }
+                if (sockAlice) sockAlice.className = 'v34-socket-cell active-alice';
+                if (sockBob) sockBob.className = 'v34-socket-cell active-bob';
             }
         }
         else if (slideId === 'slide_chat_scale_problem') {
@@ -965,28 +1086,26 @@
             const s1Off = getNodeConnectionPoint(s1, block, container);
             const bOff = getNodeConnectionPoint(block, s1, container);
 
-            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
-            if (!pathsDrawn && lb && s1 && block) {
+            if (lb && s1 && block) {
                 drawSVGPath(canvas, '#v34-path-scale-s1-mid', lb, s1, container, 'flow-blue');
                 drawSVGPath(canvas, '#v34-path-scale-block', s1, block, container, 'flow-red');
-                canvas.setAttribute('data-paths-drawn', 'true');
             }
 
-            if (progress < 0.5) {
-                const t = progress / 0.5;
+            if (progress < 0.3) {
+                const t = Math.min(1, progress / 0.2);
                 placePacket(pkt, s1Off, bOff, t);
                 if (block) block.classList.remove('active');
-                if (status) status.textContent = 'Alice gửi tin nhắn cho Bob...';
+                if (status) status.textContent = '👩‍💻 Alice gửi tin nhắn cho 👨‍💻 Bob...';
                 if (s1Log) {
-                    s1Log.innerHTML = 'User A sent message to Bob.\nLooking up User B socket connection...';
+                    s1Log.innerHTML = '👩‍💻 User A sent message to 👨‍💻 Bob.\nLooking up User B socket connection...';
                     s1Log.className = 'v34-term-log highlight';
                 }
             } else {
                 hidePacket(pkt);
                 if (block) block.classList.add('active');
-                if (status) status.textContent = '❌ Lỗi: Bob đang ở Server 2. Server 1 không có socket của Bob!';
+                if (status) status.textContent = '❌ Lỗi: 👨‍💻 Bob đang ở Server 2. Server 1 không có socket của Bob!';
                 if (s1Log) {
-                    s1Log.innerHTML = 'Lookup failed: User B not connected to Node 1.\nError: Stuck message!';
+                    s1Log.innerHTML = 'Lookup failed: 👨‍💻 User B not connected to Node 1.\nError: Stuck message!';
                     s1Log.className = 'v34-term-log error';
                 }
             }
@@ -1012,15 +1131,16 @@
                 y: s2Center.y
             };
 
-            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
-            if (!pathsDrawn && s1 && core && s2) {
+            if (s1 && core && s2) {
                 drawSVGPath(canvas, '#v34-path-r-s1-redis', s1, core, container, 'flow-gold');
                 drawSVGPath(canvas, '#v34-path-r-redis-s2', core, s2, container, 'flow-purple');
-                canvas.setAttribute('data-paths-drawn', 'true');
             }
 
-            if (progress < 0.32) {
-                placePacket(pkt1, s1Off, rOff1, progress / 0.32);
+            const chan42 = canvas.querySelector('#v34-chan-42');
+
+            if (progress < 0.25) {
+                const t1 = Math.min(1, progress / 0.15);
+                placePacket(pkt1, s1Off, rOff1, t1);
                 hidePacket(pkt2);
                 hidePacket(pkt3);
                 if (status) status.textContent = 'WS Server 1 publishes message to Redis';
@@ -1032,25 +1152,30 @@
                     s2Log.innerHTML = 'Subscribed to channel chat:room:42\nListening...';
                     s2Log.className = 'v34-term-log';
                 }
-            } else if (progress < 0.58) {
+                if (chan42) chan42.className = 'v34-channel-cell active-publish';
+            } else if (progress < 0.5) {
                 hidePacket(pkt1);
-                placePacket(pkt2, rOff2, s2Off, (progress - 0.32) / 0.26);
+                const t2 = Math.min(1, (progress - 0.25) / 0.15);
+                placePacket(pkt2, rOff2, s2Off, t2);
                 if (core) core.classList.add('burst');
                 if (s2) s2.classList.add('active-green');
                 if (status) status.textContent = 'Redis Pub/Sub broadcasts to Server 2';
                 if (s2Log) {
-                    s2Log.innerHTML = 'Received Redis broadcast!\nRecipient B is online on this server. Routing...';
+                    s2Log.innerHTML = 'Received Redis broadcast!\nRecipient 👨‍💻 B is online on this server. Routing...';
                     s2Log.className = 'v34-term-log highlight';
                 }
+                if (chan42) chan42.className = 'v34-channel-cell active-broadcast';
             } else {
                 hidePacket(pkt1);
                 hidePacket(pkt2);
-                placePacket(pkt3, s2OffRight, { x: s2OffRight.x + 35, y: s2OffRight.y - 15 }, (progress - 0.58) / 0.42);
-                if (status) status.textContent = '✓ WS Server 2 pushes successfully to User B socket!';
+                const t3 = Math.min(1, (progress - 0.5) / 0.18);
+                placePacket(pkt3, s2OffRight, { x: s2OffRight.x + 35, y: s2OffRight.y - 15 }, t3);
+                if (status) status.textContent = '✓ WS Server 2 pushes successfully to 👨‍💻 User B socket!';
                 if (s2Log) {
-                    s2Log.innerHTML = 'WebSocket push to B: success\nDelivered real-time!';
+                    s2Log.innerHTML = 'WebSocket push to 👨‍💻 B: success\nDelivered real-time!';
                     s2Log.className = 'v34-term-log success';
                 }
+                if (chan42) chan42.className = 'v34-channel-cell active-broadcast';
             }
         }
         else if (slideId === 'slide_chat_full_arch') {
@@ -1084,13 +1209,11 @@
                 if (c) c.classList.toggle('lit', progress > (i + 1) * 0.16);
             });
 
-            const pathsDrawn = canvas.getAttribute('data-paths-drawn') === 'true';
-            if (!pathsDrawn && nodes[0] && nodes[1] && nodes[2] && nodes[3] && nodes[4]) {
+            if (nodes[0] && nodes[1] && nodes[2] && nodes[3] && nodes[4]) {
                 drawSVGPath(canvas, '#v34-path-arch-1', nodes[0], nodes[1], container, 'flow-blue');
                 drawSVGPath(canvas, '#v34-path-arch-2', nodes[1], nodes[2], container, 'flow-green');
                 drawSVGPath(canvas, '#v34-path-arch-3', nodes[2], nodes[3], container, 'flow-purple');
                 drawSVGPath(canvas, '#v34-path-arch-4', nodes[3], nodes[4], container, 'flowing');
-                canvas.setAttribute('data-paths-drawn', 'true');
             }
 
             const seg = Math.min(3, Math.floor(progress * 4));

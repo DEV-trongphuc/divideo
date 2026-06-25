@@ -94,6 +94,25 @@ function initVisualizerBars(numBars = 40) {
     for (let i = 0; i < numBars; i++) {
         const bar = document.createElement('div');
         bar.className = `visualizer-bar bar-${i + 1}`;
+        bar.style.display = 'flex';
+        bar.style.flexDirection = 'column-reverse';
+        bar.style.gap = '2.5px';
+        bar.style.height = '100%';
+        bar.style.justifyContent = 'flex-start';
+        bar.style.background = 'transparent';
+        
+        // Add 6 stacked square indicator dots per bar column
+        for (let j = 0; j < 6; j++) {
+            const dot = document.createElement('div');
+            dot.className = 'visualizer-dot';
+            dot.style.width = '8px';
+            dot.style.height = '6px';
+            dot.style.borderRadius = '1.5px';
+            dot.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+            dot.style.opacity = '0.35';
+            dot.style.transition = 'all 0.1s ease';
+            bar.appendChild(dot);
+        }
         container.appendChild(bar);
     }
     visualizerBars = null; // Clear cached array to trigger re-query
@@ -4479,7 +4498,31 @@ function animateVisualizer() {
         const targetH = targets[idx] || 8;
         const nextH = currentH + (targetH - currentH) * 0.18; // Easing coefficient (0.18)
         prevHeights[idx] = nextH;
-        bar.style.height = `${nextH}px`;
+        
+        const dots = bar.querySelectorAll('.visualizer-dot');
+        if (dots.length > 0) {
+            // Map nextH (typically 8 to 50) to active dots (0 to 6)
+            const activeCount = Math.min(6, Math.floor((nextH - 8) / 6.0));
+            dots.forEach((dot, dotIdx) => {
+                if (dotIdx < activeCount) {
+                    let activeColor = 'var(--gold-primary)';
+                    // Equalizer colors: green, orange, red
+                    if (dotIdx >= 5) activeColor = '#ff4a4a'; // Red
+                    else if (dotIdx >= 3) activeColor = '#f59e0b'; // Gold
+                    else activeColor = '#10b981'; // Green
+                    
+                    dot.style.backgroundColor = activeColor;
+                    dot.style.opacity = '1';
+                    dot.style.boxShadow = `0 0 6px ${activeColor}`;
+                } else {
+                    dot.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                    dot.style.opacity = '0.35';
+                    dot.style.boxShadow = 'none';
+                }
+            });
+        } else {
+            bar.style.height = `${nextH}px`;
+        }
     });
 }
 let activeExportPollInterval = null;
