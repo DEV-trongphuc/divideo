@@ -124,18 +124,13 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="v55-glass-card glow-gold">
-                    <span class="v55-status-badge gold"><i data-lucide="help-circle" style="width:12px;height:12px;"></i> BÍ ẨN THANG MÁY</span>
-                    <span style="color:#fff;" id="v55-s1-status">Bấm nút đi xuống, nhưng thang máy lại chạy vụt lên trên trước?</span>
-                </div>
             `);
             initIcons();
         }
         else if (slideId === 'slide_elev_2') {
             canvas.innerHTML = sceneWrap(`
                 <div class="v55-scene-row">
-                    <div class="v55-building-wrapper">
+                    <div class="v55-building-wrapper" style="position: absolute; left: 100px; top: 20px;">
                         ${makeFloorLabelsHTML()}
                         ${makeBuildingHTML('s2')}
 
@@ -155,35 +150,30 @@
                     </div>
 
                     <!-- Queue display board + graph -->
-                    <div class="v55-glass-card glow-red" style="position:absolute; right:10px; top:35px; width:220px; height:245px; padding:12px 15px; display:flex; flex-direction:column; gap:6px; justify-content:center; text-align:left;">
-                        <span style="font-size:11px; font-weight:800; color:var(--elev-red); letter-spacing:0.5px;">FCFS QUEUE</span>
-                        <span style="font-size:14px; font-weight:bold; color:#fff; line-height:1.2; margin:0;">Bấm lần lượt:</span>
-                        <div style="font-family:monospace; font-size:11px; color:#ef4444; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); padding:6px; border-radius:6px; line-height:1.4;">
+                    <div class="v55-glass-card glow-red" style="position:absolute; right:15px; top:50px; width:260px; height:270px; padding:16px; display:flex; flex-direction:column; gap:8px; justify-content:center; text-align:left;">
+                        <span style="font-size:12px; font-weight:800; color:var(--elev-red); letter-spacing:0.8px;">FCFS QUEUE</span>
+                        <span style="font-size:16px; font-weight:bold; color:#fff; line-height:1.2; margin:0;">Bấm lần lượt:</span>
+                        <div style="font-family:monospace; font-size:13px; color:#ef4444; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); padding:8px 10px; border-radius:8px; line-height:1.5;">
                             1. Tầng 5 ➔ Đón<br>
                             2. Tầng 2 ➔ Đón<br>
                             3. Tầng 4 ➔ Đón
                         </div>
-                        <div style="font-size:11px; color:#9ca3af; font-family:sans-serif;" id="s2-distance-board">Hành trình: 0 tầng</div>
+                        <div style="font-size:13px; color:#e5e7eb; font-family:sans-serif; font-weight:bold; margin-top:2px;" id="s2-distance-board">Hành trình: 0 tầng</div>
                         
                         <!-- Live Graph Container -->
-                        <div class="v55-graph-container">
+                        <div class="v55-graph-container" style="height:86px; margin-top:4px;">
                             <svg class="v55-graph-svg" id="s2-graph-svg">
-                                <line class="v55-graph-grid" x1="0" y1="10" x2="190" y2="10" />
-                                <line class="v55-graph-grid" x1="0" y1="23" x2="190" y2="23" />
-                                <line class="v55-graph-grid" x1="0" y1="36" x2="190" y2="36" />
-                                <line class="v55-graph-grid" x1="0" y1="49" x2="190" y2="49" />
-                                <line class="v55-graph-grid" x1="0" y1="62" x2="190" y2="62" />
+                                <line class="v55-graph-grid" x1="0" y1="10" x2="230" y2="10" />
+                                <line class="v55-graph-grid" x1="0" y1="24" x2="230" y2="24" />
+                                <line class="v55-graph-grid" x1="0" y1="38" x2="230" y2="38" />
+                                <line class="v55-graph-grid" x1="0" y1="52" x2="230" y2="52" />
+                                <line class="v55-graph-grid" x1="0" y1="66" x2="230" y2="66" />
                                 
                                 <path id="s2-graph-path" class="v55-graph-path red" d="" />
-                                <circle id="s2-graph-dot" class="v55-graph-dot red" r="4" cx="0" cy="62" />
+                                <circle id="s2-graph-dot" class="v55-graph-dot red" r="4.5" cx="0" cy="66" />
                             </svg>
                         </div>
                     </div>
-                </div>
-
-                <div class="v55-glass-card glow-red">
-                    <span class="v55-status-badge red"><i data-lucide="alert-triangle" style="width:12px;height:12px;"></i> THUẬT TOÁN FCFS</span>
-                    <span style="color:#fff;" id="v55-s2-status">FCFS: Ai bấm trước đi trước làm cabin chạy hỗn loạn giữa các tầng.</span>
                 </div>
             `);
             initIcons();
@@ -191,7 +181,7 @@
         else if (slideId === 'slide_elev_3') {
             canvas.innerHTML = sceneWrap(`
                 <div class="v55-scene-row">
-                    <div class="v55-building-wrapper">
+                    <div class="v55-building-wrapper" style="position: absolute; left: 100px; top: 20px;">
                         ${makeFloorLabelsHTML()}
                         ${makeBuildingHTML('s3')}
 
@@ -211,42 +201,37 @@
                     </div>
 
                     <!-- Scan status board + graph -->
-                    <div class="v55-glass-card glow-green" style="position:absolute; right:10px; top:35px; width:220px; height:245px; padding:12px 15px; display:flex; flex-direction:column; gap:6px; justify-content:center; text-align:left;">
-                        <span style="font-size:11px; font-weight:800; color:var(--elev-green); letter-spacing:0.5px;">SCAN SWEEP</span>
-                        <span style="font-size:14px; font-weight:bold; color:#fff; line-height:1.2; margin:0;">Quét đi lên (UP):</span>
-                        <div style="font-family:monospace; font-size:11px; color:#10b981; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); padding:6px; border-radius:6px; line-height:1.4;">
+                    <div class="v55-glass-card glow-green" style="position:absolute; right:15px; top:50px; width:260px; height:270px; padding:16px; display:flex; flex-direction:column; gap:8px; justify-content:center; text-align:left;">
+                        <span style="font-size:12px; font-weight:800; color:var(--elev-green); letter-spacing:0.8px;">SCAN SWEEP</span>
+                        <span style="font-size:16px; font-weight:bold; color:#fff; line-height:1.2; margin:0;">Quét đi lên (UP):</span>
+                        <div style="font-family:monospace; font-size:13px; color:#10b981; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); padding:8px 10px; border-radius:8px; line-height:1.5;">
                             • Quét Tầng 2 ➔ Gom<br>
                             • Quét Tầng 4 ➔ Gom<br>
                             • Quét Tầng 5 ➔ Gom
                         </div>
-                        <div style="font-size:11px; color:#9ca3af; font-family:sans-serif;" id="s3-distance-board">Hành trình: 0 tầng</div>
+                        <div style="font-size:13px; color:#e5e7eb; font-family:sans-serif; font-weight:bold; margin-top:2px;" id="s3-distance-board">Hành trình: 0 tầng</div>
                         
                         <!-- Live Graph Container -->
-                        <div class="v55-graph-container">
+                        <div class="v55-graph-container" style="height:86px; margin-top:4px;">
                             <svg class="v55-graph-svg" id="s3-graph-svg">
-                                <line class="v55-graph-grid" x1="0" y1="10" x2="190" y2="10" />
-                                <line class="v55-graph-grid" x1="0" y1="23" x2="190" y2="23" />
-                                <line class="v55-graph-grid" x1="0" y1="36" x2="190" y2="36" />
-                                <line class="v55-graph-grid" x1="0" y1="49" x2="190" y2="49" />
-                                <line class="v55-graph-grid" x1="0" y1="62" x2="190" y2="62" />
+                                <line class="v55-graph-grid" x1="0" y1="10" x2="230" y2="10" />
+                                <line class="v55-graph-grid" x1="0" y1="24" x2="230" y2="24" />
+                                <line class="v55-graph-grid" x1="0" y1="38" x2="230" y2="38" />
+                                <line class="v55-graph-grid" x1="0" y1="52" x2="230" y2="52" />
+                                <line class="v55-graph-grid" x1="0" y1="66" x2="230" y2="66" />
                                 
                                 <path id="s3-graph-path" class="v55-graph-path green" d="" />
-                                <circle id="s3-graph-dot" class="v55-graph-dot green" r="4" cx="0" cy="62" />
+                                <circle id="s3-graph-dot" class="v55-graph-dot green" r="4.5" cx="0" cy="66" />
                             </svg>
                         </div>
                     </div>
-                </div>
-
-                <div class="v55-glass-card glow-green">
-                    <span class="v55-status-badge green"><i data-lucide="zap" style="width:12px;height:12px;"></i> THUẬT TOÁN SCAN</span>
-                    <span style="color:#fff;" id="v55-s3-status">SCAN: Thang máy chỉ di chuyển theo một chiều, gom khách dọc đường.</span>
                 </div>
             `);
             initIcons();
         }
         else if (slideId === 'slide_elev_4') {
             canvas.innerHTML = sceneWrap(`
-                <div class="v55-scene-row" style="height:340px;">
+                <div class="v55-scene-row" style="height: 420px; padding-top: 60px; box-sizing: border-box;">
                     <div class="v55-comparison-grid">
                         <!-- Left FCFS Column -->
                         <div class="v55-comparison-column">
@@ -296,11 +281,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="v55-glass-card glow-green">
-                    <span class="v55-status-badge green"><i data-lucide="bar-chart-2" style="width:12px;height:12px;"></i> SO SÁNH HIỆU NĂNG</span>
-                    <span style="color:#fff;" id="v55-s4-status">SCAN cắt giảm tới 55% quãng đường di chuyển và hao mòn động cơ.</span>
                 </div>
             `);
             initIcons();
@@ -612,7 +592,7 @@
 
             const graphPath = canvas.querySelector('#s2-graph-path');
             const graphDot = canvas.querySelector('#s2-graph-dot');
-            updateLiveGraph(graphPath, graphDot, 190, 76, path, progress, 9);
+            updateLiveGraph(graphPath, graphDot, 230, 76, path, progress, 9);
 
             const totalDistance = 9;
             const currentDist = Math.min(totalDistance, (progress * totalDistance).toFixed(1));
@@ -734,7 +714,7 @@
 
             const graphPath = canvas.querySelector('#s3-graph-path');
             const graphDot = canvas.querySelector('#s3-graph-dot');
-            updateLiveGraph(graphPath, graphDot, 190, 76, path, progress, 4);
+            updateLiveGraph(graphPath, graphDot, 230, 76, path, progress, 4);
 
             const totalDistance = 4;
             const currentDist = Math.min(totalDistance, (progress * totalDistance).toFixed(1));

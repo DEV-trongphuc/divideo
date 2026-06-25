@@ -69,28 +69,96 @@
     position: absolute;
     display: flex;
     align-items: center;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 11px;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px 14px;
+    border-radius: 24px;
+    font-size: 12px;
     font-weight: bold;
     color: #fff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.45), 0 0 12px rgba(96, 165, 250, 0.08);
     z-index: 5;
     pointer-events: none;
-    transition: all 0.1s linear;
+    transition: opacity 0.15s ease, transform 0.1s linear;
+    will-change: transform, opacity;
 }
 
 .v28-flying-avatar-circle {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: var(--bf-blue);
     display: inline-block;
+    box-shadow: 0 0 8px currentColor;
+}
+
+/* Phone Mockup Styling */
+.v28-phone-frame {
+    width: 290px;
+    height: 460px;
+    background: #080c14;
+    border: 7px solid rgba(255, 255, 255, 0.12);
+    border-radius: 44px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 25px rgba(96,165,250,0.08);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    box-sizing: border-box;
+    z-index: 2;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Ripple absorption effect inside phone */
+.v28-phone-ripple {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(96,165,250,0.4) 0%, transparent 70%);
+    opacity: 0;
+    z-index: 9;
+    pointer-events: none;
+}
+.v28-phone-ripple.active {
+    animation: v28-ripple-blast 0.45s ease-out forwards;
+}
+@keyframes v28-ripple-blast {
+    0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+}
+
+/* Input shake effect on username taken */
+.v28-input-shake {
+    animation: v28-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    border-color: var(--bf-red) !important;
+    box-shadow: 0 0 15px rgba(248, 113, 113, 0.2) !important;
+}
+@keyframes v28-shake {
+    10%, 90% { transform: translate3d(-1.5px, 0, 0); }
+    20%, 80% { transform: translate3d(3px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-5px, 0, 0); }
+    40%, 60% { transform: translate3d(5px, 0, 0); }
+}
+
+/* Typing Cursor blinking */
+.v28-typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 14px;
+    background: var(--bf-blue);
+    margin-left: 2px;
+    animation: v28-cursor-blink 0.8s infinite;
+}
+@keyframes v28-cursor-blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
 }
 
 /* RAM Comparison Bars (Slide 3 & 4) */
@@ -473,4 +541,198 @@
 .v28-queue-packet {
     animation: v28-packet-glow 0.6s ease-in-out infinite alternate;
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   ADDITIONAL CUSTOM STYLES FOR REFRACTORED SLIDES 2 & 3
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Platter spin keyframe */
+@keyframes v28-platter-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.v28-disk-spinning-fast {
+    animation: v28-platter-spin 0.4s linear infinite !important;
+}
+
+.v28-disk-spinning-slow {
+    animation: v28-platter-spin 1.5s linear infinite !important;
+}
+
+.v28-disk-spinning-stuck {
+    animation: v28-platter-spin 5.0s linear infinite !important;
+}
+
+/* Shaking/Wobbling platter for disk distress */
+@keyframes v28-disk-shake {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    10%, 30%, 50%, 70%, 90% { transform: translate(-1.5px, 1.5px) scale(0.98); }
+    20%, 40%, 60%, 80% { transform: translate(1.5px, -1.5px) scale(1.02); }
+}
+
+.v28-disk-shaking {
+    animation: v28-disk-shake 0.15s linear infinite !important;
+}
+
+/* Hard drive arm read head sweep */
+@keyframes v28-arm-sweep-fast {
+    0%, 100% { transform: rotate(-5deg); }
+    30% { transform: rotate(25deg); }
+    70% { transform: rotate(5deg); }
+}
+@keyframes v28-arm-sweep-slow {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+
+.v28-arm-sweeping-fast {
+    animation: v28-arm-sweep-fast 0.25s ease-in-out infinite;
+    transform-origin: 6px 6px;
+}
+
+.v28-arm-sweeping-slow {
+    animation: v28-arm-sweep-slow 1.2s ease-in-out infinite;
+    transform-origin: 6px 6px;
+}
+
+/* SVG gauge circle progress indicator */
+.v28-gauge-circle {
+    transition: stroke-dashoffset 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+/* Client queries flowing downwards */
+@keyframes v28-packet-downward {
+    0% { transform: translateY(-30px) scale(0.85); opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { transform: translateY(120px) scale(0.85); opacity: 0; }
+}
+
+.v28-flying-packet-flow {
+    position: absolute;
+    animation: v28-packet-downward 1.5s infinite linear;
+    pointer-events: none;
+}
+
+/* High Fidelity RAM Stick Module */
+.v28-ram-module {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    border: 2px solid #334155;
+    border-radius: 12px;
+    padding: 14px;
+    position: relative;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.v28-ram-chips-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.v28-ram-chip-block {
+    width: 22%;
+    height: 52px;
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2.5px;
+    padding: 3px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+    position: relative;
+}
+
+.v28-ram-chip-cell {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 1px;
+    transition: all 0.25s ease;
+}
+
+.v28-ram-chip-cell.state-good {
+    background: #10b981;
+    box-shadow: 0 0 5px #10b981;
+}
+
+.v28-ram-chip-cell.state-warning {
+    background: #f59e0b;
+    box-shadow: 0 0 5px #f59e0b;
+}
+
+.v28-ram-chip-cell.state-danger {
+    background: #ef4444;
+    box-shadow: 0 0 6px #ef4444;
+}
+
+/* DDR5 Pin contacts along the bottom */
+.v28-ram-pins {
+    height: 8px;
+    width: 100%;
+    display: flex;
+    gap: 1.5px;
+    background: #1e293b;
+    border-radius: 2px;
+    padding: 0 2px;
+    box-sizing: border-box;
+}
+
+.v28-ram-pin {
+    flex: 1;
+    height: 100%;
+    background: linear-gradient(180deg, #d97706 0%, #b45309 100%);
+    border-radius: 0 0 1px 1px;
+}
+
+/* Dynamic cash billing display */
+.v28-billing-counter {
+    background: #020617;
+    border: 1.5px solid rgba(239, 68, 68, 0.2);
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-family: monospace;
+    font-size: 26px;
+    font-weight: 900;
+    color: #ef4444;
+    text-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
+    letter-spacing: 1px;
+}
+
+.v28-billing-unit {
+    font-size: 14px;
+    color: rgba(239, 68, 68, 0.5);
+    margin-left: 6px;
+    font-weight: 700;
+}
+
+/* Money flying away animation */
+@keyframes v28-cash-float {
+    0% { transform: translateY(10px) rotate(0deg) scale(0.8); opacity: 0; }
+    20% { opacity: 0.9; }
+    80% { opacity: 0.9; }
+    100% { transform: translateY(-75px) rotate(25deg) scale(1.1); opacity: 0; }
+}
+
+.v28-flying-dollar-bill {
+    position: absolute;
+    color: #34d399;
+    font-weight: bold;
+    font-size: 18px;
+    animation: v28-cash-float 2.0s infinite ease-out;
+    pointer-events: none;
+    z-index: 50;
+    text-shadow: 0 0 8px rgba(52, 211, 153, 0.4);
+}
+
 

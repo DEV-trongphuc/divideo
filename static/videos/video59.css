@@ -1,0 +1,503 @@
+/* video59.css - Unix Year 2038 Overflow Bug Simulation */
+
+:root {
+    --v59-bg: #070b13;
+    --v59-green: #10b981;
+    --v59-green-glow: rgba(16, 185, 129, 0.35);
+    --v59-red: #ef4444;
+    --v59-red-glow: rgba(239, 68, 68, 0.4);
+    --v59-yellow: #f59e0b;
+    --v59-yellow-glow: rgba(245, 158, 11, 0.35);
+    --v59-blue: #3b82f6;
+    --v59-blue-glow: rgba(59, 130, 246, 0.3);
+    --v59-card-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Set modern typography */
+.v59-scene-content, .v59-scene-content * {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Base Zoom Container */
+.v59-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    zoom: 1.35;
+    overflow: visible;
+}
+
+.v59-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v59-scene-row {
+    width: 640px;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+/* Glassmorphic Cards */
+.v59-card {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--v59-card-border);
+    border-radius: 24px;
+    padding: 18px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v59-clock-card {
+    width: 270px;
+    height: 380px;
+    justify-content: space-between;
+}
+
+.v59-register-card {
+    width: 330px;
+    height: 380px;
+    justify-content: space-between;
+}
+
+/* Card Header */
+.v59-card-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 8px;
+}
+.v59-card-lbl {
+    font-size: 8.5px;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--v59-blue);
+    text-shadow: 0 0 8px var(--v59-blue-glow);
+}
+.v59-status-badge {
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+.v59-status-badge.stable {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid var(--v59-green);
+    color: var(--v59-green);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+}
+.v59-status-badge.warning {
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid var(--v59-yellow);
+    color: var(--v59-yellow);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.15);
+}
+.v59-status-badge.error {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid var(--v59-red);
+    color: var(--v59-red);
+    box-shadow: 0 0 12px var(--v59-red-glow);
+}
+
+/* Clock Body elements */
+.v59-clock-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 8px;
+    padding: 10px 0;
+}
+
+.v59-device-icon-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.v59-device-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid var(--v59-green);
+    opacity: 0;
+}
+.v59-device-pulse.active {
+    animation: v59-pulse-ring 2s infinite cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes v59-pulse-ring {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+.v59-date-str {
+    font-size: 20px;
+    font-weight: 900;
+    color: #fff;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s;
+}
+.v59-date-str.crashed {
+    color: var(--v59-red);
+    text-shadow: 0 0 10px var(--v59-red-glow);
+}
+
+.v59-time-str {
+    font-size: 24px;
+    font-weight: 900;
+    color: #fff;
+    font-family: monospace;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s;
+}
+.v59-time-str.crashed {
+    color: var(--v59-red);
+    text-shadow: 0 0 10px var(--v59-red-glow);
+}
+
+/* Clock Footer Description */
+.v59-clock-desc {
+    font-size: 9px;
+    color: var(--v59-yellow);
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+    border-radius: 12px;
+    background: rgba(245, 158, 11, 0.05);
+    border: 1px solid rgba(245, 158, 11, 0.1);
+}
+
+/* Register Grid */
+.v59-register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    gap: 12px;
+}
+
+.v59-bit-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+    width: 100%;
+}
+
+.v59-bit-cell {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.25), 
+                background-color 0.25s ease, 
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+    will-change: transform, opacity;
+}
+
+.v59-bit-num {
+    font-size: 11px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: monospace;
+}
+.v59-bit-lbl {
+    font-size: 6px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+}
+
+/* Active states for bits */
+.v59-bit-cell.active {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: var(--v59-yellow);
+    transform: scale(1.08);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+}
+.v59-bit-cell.active .v59-bit-num {
+    color: var(--v59-yellow);
+    text-shadow: 0 0 5px var(--v59-yellow-glow);
+}
+
+.v59-bit-cell.sign {
+    border-color: var(--v59-blue);
+    background: rgba(59, 130, 246, 0.08);
+}
+.v59-bit-cell.sign.active {
+    transform: scale(1.08);
+}
+.v59-bit-cell.sign.crashed {
+    border-color: var(--v59-red);
+    background: rgba(239, 68, 68, 0.15);
+    transform: scale(1.08);
+    box-shadow: 0 0 12px var(--v59-red-glow);
+}
+.v59-bit-cell.sign.crashed .v59-bit-num {
+    color: var(--v59-red);
+    text-shadow: 0 0 6px var(--v59-red-glow);
+}
+
+/* 64-bit mode layout tweaks */
+.v59-bit-grid.mode-64 {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 3px;
+}
+.v59-bit-grid.mode-64 .v59-bit-cell {
+    border-radius: 5px;
+}
+.v59-bit-grid.mode-64 .v59-bit-num {
+    font-size: 8px;
+}
+.v59-bit-grid.mode-64 .v59-bit-lbl {
+    display: none;
+}
+.v59-bit-grid.mode-64 .v59-bit-cell.active {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: var(--v59-green);
+    transform: scale(1.08);
+}
+.v59-bit-grid.mode-64 .v59-bit-cell.active .v59-bit-num {
+    color: var(--v59-green);
+    text-shadow: 0 0 4px var(--v59-green-glow);
+}
+
+/* Register Metrics Counter */
+.v59-register-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 8px;
+}
+
+.v59-metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.v59-metric-lbl {
+    font-size: 8px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+}
+.v59-metric-val {
+    font-size: 15px;
+    font-weight: 900;
+    font-family: monospace;
+    color: #fff;
+    transition: color 0.3s;
+}
+.v59-metric-val.green {
+    color: var(--v59-green);
+    text-shadow: 0 0 8px var(--v59-green-glow);
+}
+.v59-metric-val.yellow {
+    color: var(--v59-yellow);
+    text-shadow: 0 0 8px var(--v59-yellow-glow);
+}
+.v59-metric-val.red {
+    color: var(--v59-red);
+    text-shadow: 0 0 8px var(--v59-red-glow);
+}
+
+/* ── LAYOUT MODES / SHAKE ON CRASH ────────────────────────────────────────── */
+
+.v59-scene-row.shake-active {
+    animation: v59-shake-intense 0.15s infinite;
+}
+
+@keyframes v59-shake-intense {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(0px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(2px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(2px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.v59-card.shake-red {
+    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 0 35px rgba(239, 68, 68, 0.25), inset 0 1px 0 rgba(239, 68, 68, 0.2);
+}
+.v59-card.glow-green {
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 35px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(16, 185, 129, 0.15);
+}
+
+/* 1. Intro Only (Large Centered Clock Focus) */
+.v59-scene-row.intro-only #s-register-card {
+    display: none !important;
+}
+.v59-scene-row.intro-only #s-clock-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.3);
+    width: 320px;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 24px;
+    background: none !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.v59-scene-row.intro-only #s-clock-card .v59-clock-display {
+    gap: 12px;
+}
+.v59-scene-row.intro-only #s-clock-card .v59-date-str {
+    font-size: 25px;
+    color: var(--v59-yellow);
+    text-shadow: 0 0 12px var(--v59-yellow-glow);
+}
+.v59-scene-row.intro-only #s-clock-card .v59-time-str {
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.v59-scene-row.intro-only #s-clock-card .v59-clock-desc {
+    font-size: 10px;
+    width: 100%;
+}
+
+/* 2. Intro Radar Ripple Rings */
+.v59-intro-ripple {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    width: 440px;
+    height: 440px;
+    border: 1.5px dashed rgba(245, 158, 11, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    display: none;
+}
+.v59-scene-row.intro-only .v59-intro-ripple {
+    display: block;
+}
+.v59-scene-row.intro-only #s-ripple-1 {
+    animation: v59-ripple-out 4s infinite linear;
+}
+.v59-scene-row.intro-only #s-ripple-2 {
+    animation: v59-ripple-out 4s infinite linear;
+    animation-delay: 1.3s;
+}
+.v59-scene-row.intro-only #s-ripple-3 {
+    animation: v59-ripple-out 4s infinite linear;
+    animation-delay: 2.6s;
+}
+@keyframes v59-ripple-out {
+    0% { transform: translate(-50%, -50%) scale(0.4) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    80% { opacity: 0.15; }
+    100% { transform: translate(-50%, -50%) scale(1.3) rotate(60deg); opacity: 0; }
+}
+
+
+/* ── ADVANCED INTERACTIVE ANIMATIONS (ADDED) ─────────────────────────────── */
+
+/* 1. Staggered 64-bit Expansion transition */
+.v59-bit-cell.cell-upper {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+}
+.v59-bit-grid.mode-64 .v59-bit-cell.cell-upper {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+    display: flex !important;
+}
+
+/* 2. Bit Flip scale-pop transition - handled smoothly via GPU-accelerated CSS scaling */
+
+/* 3. Blinking Clock Colon */
+.v59-time-colon {
+    animation: v59-colon-blink 1s infinite steps(1);
+    opacity: 1;
+}
+@keyframes v59-colon-blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.15; }
+    100% { opacity: 1; }
+}
+
+/* 4. Crash Digital Glitch Text Effect */
+.v59-date-str.crashed, .v59-time-str.crashed {
+    animation: v59-glitch 0.25s infinite alternate ease-in-out;
+}
+@keyframes v59-glitch {
+    0% { text-shadow: 2px -1px 0 var(--v59-red-glow), -1px 2px 0 var(--v59-blue-glow); transform: translate(0.5px, 0.5px); }
+    25% { text-shadow: -2px 1px 0 var(--v59-red-glow), 2px -2px 0 var(--v59-blue-glow); transform: translate(-0.5px, -0.5px); }
+    50% { text-shadow: 1.5px 1.5px 0 var(--v59-red-glow), -1.5px 1px 0 var(--v59-blue-glow); transform: translate(1px, -0.5px); }
+    75% { text-shadow: -1px -1.5px 0 var(--v59-red-glow), 1px 1.5px 0 var(--v59-blue-glow); transform: translate(-0.5px, 1px); }
+    100% { text-shadow: 2px -1px 0 var(--v59-red-glow), -1px 2px 0 var(--v59-blue-glow); transform: translate(0.5px, -0.5px); }
+}
+
+/* 5. Emitted "Seconds" Particles */
+.v59-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--v59-yellow);
+    box-shadow: 0 0 8px var(--v59-yellow-glow);
+    pointer-events: none;
+    z-index: 20;
+    transition: opacity 0.1s ease;
+}
+.v59-particle.red-smoke {
+    width: 5px;
+    height: 5px;
+    background: var(--v59-red);
+    box-shadow: 0 0 6px var(--v59-red-glow);
+}
+

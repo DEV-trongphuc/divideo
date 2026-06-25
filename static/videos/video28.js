@@ -88,32 +88,39 @@
             canvas.innerHTML = `
                 <div class="v28-zoom-container" style="justify-content: flex-start; padding-top: 10px; gap: 14px; zoom: 1.25;">
                     <!-- Container for Phone Mockup and Flying Request Tags -->
-                    <div style="position: relative; width: 100%; height: 430px; display: flex; justify-content: center; align-items: center; box-sizing: border-box; margin-top: 0px;">
+                    <div style="position: relative; width: 100%; height: 480px; display: flex; justify-content: center; align-items: center; box-sizing: border-box; margin-top: 0px;">
                         
                         <!-- Flying Request Tags (Left side) with avatar circles -->
-                        <div id="v28-req-tag-l1" class="v28-flying-card" style="position: absolute; left: 5px; top: 60px; opacity: 0;">
-                            <span class="v28-flying-avatar-circle" style="background:#60a5fa;"></span> @alex
+                        <div id="v28-req-tag-l1" class="v28-flying-card" style="opacity: 0;">
+                            <span class="v28-flying-avatar-circle" style="background:#60a5fa; color:#60a5fa;"></span> @alex
                         </div>
-                        <div id="v28-req-tag-l2" class="v28-flying-card" style="position: absolute; left: 20px; top: 180px; opacity: 0;">
-                            <span class="v28-flying-avatar-circle" style="background:#34d399;"></span> @bob
+                        <div id="v28-req-tag-l2" class="v28-flying-card" style="opacity: 0;">
+                            <span class="v28-flying-avatar-circle" style="background:#34d399; color:#34d399;"></span> @bob
                         </div>
-                        <div id="v28-req-tag-l3" class="v28-flying-card" style="position: absolute; left: 0px; top: 300px; opacity: 0;">
-                            <span class="v28-flying-avatar-circle" style="background:#fbbf24;"></span> @charlie
+                        <div id="v28-req-tag-l3" class="v28-flying-card" style="opacity: 0;">
+                            <span class="v28-flying-avatar-circle" style="background:#fbbf24; color:#fbbf24;"></span> @charlie
+                        </div>
+                        <div id="v28-req-tag-l4" class="v28-flying-card" style="opacity: 0;">
+                            <span class="v28-flying-avatar-circle" style="background:#8b5cf6; color:#8b5cf6;"></span> @lucas
                         </div>
 
                         <!-- Flying Request Tags (Right side) -->
-                        <div id="v28-req-tag-r1" class="v28-flying-card" style="position: absolute; right: 5px; top: 70px; opacity: 0;">
-                            <span class="v28-flying-avatar-circle" style="background:#f87171;"></span> @david
+                        <div id="v28-req-tag-r1" class="v28-flying-card" style="opacity: 0;">
+                            <span class="v28-flying-avatar-circle" style="background:#f87171; color:#f87171;"></span> @david
                         </div>
-                        <div id="v28-req-tag-r2" class="v28-flying-card" style="position: absolute; right: 20px; top: 190px; opacity: 0;">
-                            <span class="v28-flying-avatar-circle" style="background:#60a5fa;"></span> @emma
+                        <div id="v28-req-tag-r2" class="v28-flying-card" style="opacity: 0;">
+                            <span class="v28-flying-avatar-circle" style="background:#60a5fa; color:#60a5fa;"></span> @emma
                         </div>
-                        <div id="v28-req-tag-r3" class="v28-flying-card" style="position: absolute; right: 0px; top: 290px; opacity: 0;">
-                            <span class="v28-flying-avatar-circle" style="background:#34d399;"></span> @fiona
+                        <div id="v28-req-tag-r3" class="v28-flying-card" style="opacity: 0;">
+                            <span class="v28-flying-avatar-circle" style="background:#34d399; color:#34d399;"></span> @fiona
+                        </div>
+                        <div id="v28-req-tag-r4" class="v28-flying-card" style="opacity: 0;">
+                            <span class="v28-flying-avatar-circle" style="background:#f97316; color:#f97316;"></span> @henry
                         </div>
 
                         <!-- Smartphone Mockup - Larger & High-fidelity -->
-                        <div class="v28-phone-frame" style="width: 250px; height: 410px; position: relative; display: flex; flex-direction: column; padding: 12px; box-sizing: border-box; transition: all 0.3s; z-index: 2; background: #0c0f17; border: 3px solid rgba(255,255,255,0.08); border-radius: 36px; box-shadow: 0 20px 40px rgba(0,0,0,0.8);">
+                        <div class="v28-phone-frame" id="v28-phone">
+                            <div class="v28-phone-ripple" id="v28-phone-ripple"></div>
                             
                             <!-- Phone Screen Area -->
                             <div style="flex: 1; border-radius: 24px; background: linear-gradient(135deg, rgba(14, 18, 30, 0.45) 0%, rgba(7, 9, 15, 0.45) 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 16px; box-sizing: border-box; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.04);">
@@ -125,9 +132,9 @@
                                 <div id="v28-phone-screen-glow" style="position: absolute; inset: 0; background: radial-gradient(circle, rgba(96,165,250,0.1) 0%, transparent 70%); pointer-events: none; transition: all 0.3s ease; z-index: 1;"></div>
                                 
                                 <!-- Dynamic Island notch -->
-                                <div style="width: 90px; height: 18px; background: #000; border-radius: 9px; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: space-between; padding: 0 8px; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.06); z-index: 11; position: relative;">
+                                <div style="width: 100px; height: 20px; background: #000; border-radius: 10px; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.06); z-index: 11; position: relative;">
                                     <div style="width: 6px; height: 6px; border-radius: 50%; background: #1a202c;"></div>
-                                    <div style="width: 30px; height: 3px; background: rgba(255,255,255,0.15); border-radius: 1.5px;"></div>
+                                    <div style="width: 32px; height: 3px; background: rgba(255,255,255,0.15); border-radius: 1.5px;"></div>
                                     <div style="width: 6px; height: 6px; border-radius: 50%; background: #0a101f;"></div>
                                 </div>
 
@@ -151,8 +158,9 @@
                                     <!-- Username Form Fields -->
                                     <div style="display: flex; flex-direction: column; gap: 6px; text-align: left; margin-top: 4px;">
                                         <div style="font-size: 10px; color: rgba(255,255,255,0.4); font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px;">Username</div>
-                                        <div style="width: 100%; height: 38px; border-radius: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; padding: 0 12px; box-sizing: border-box; transition: border-color 0.25s;">
+                                        <div style="width: 100%; height: 38px; border-radius: 10px; background: rgba(0,0,0,0.5); border: 1.5px solid rgba(255,255,255,0.1); display: flex; align-items: center; padding: 0 12px; box-sizing: border-box; transition: all 0.25s;" id="v28-phone-input-container">
                                             <span id="v28-phone-username-val" style="font-size: 14px; font-family: monospace; color: #fff; font-weight: bold; letter-spacing: 0.5px;"></span>
+                                            <span class="v28-typing-cursor" id="v28-cursor"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -192,112 +200,257 @@
         }
         else if (slideId === 'slide_bloom_2') {
             canvas.innerHTML = `
-                <div class="v28-zoom-container">
+                <div class="v28-zoom-container" style="zoom: 1.35; gap: 14px;">
                     <!-- DB performance monitor layout -->
-                    <div class="glass-card" style="padding:18px; border-radius:20px; width:100%; display:flex; flex-direction:column; gap:16px; position:relative; overflow:hidden;">
+                    <div class="glass-card" style="padding:16px; border-radius:20px; width:100%; display:flex; flex-direction:column; gap:12px; position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.08);">
                         <!-- Sweep scanline overlay -->
                         <div class="v28-db-scanline"></div>
 
                         <!-- Header status -->
                         <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:8px;">
                             <div style="display:flex; align-items:center; gap:8px;">
-                                <i data-lucide="database" style="width:20px; height:20px; color:#60a5fa;" id="v28-db-icon"></i>
-                                <span style="font-weight:900; color:#fff; font-size:13px; text-transform:uppercase; letter-spacing:0.5px;">Database Cluster</span>
+                                <i data-lucide="database" style="width:16px; height:16px; color:#60a5fa;" id="v28-db-icon"></i>
+                                <span style="font-weight:950; color:#fff; font-size:12px; text-transform:uppercase; letter-spacing:0.5px;">Database Cluster (PostgreSQL)</span>
                             </div>
-                            <span style="font-size:11px; font-weight:800; color:#34d399; background:rgba(52,211,153,0.1); padding:2px 8px; border-radius:6px;" id="v28-db-status">ONLINE</span>
+                            <span style="font-size:9.5px; font-weight:800; color:#34d399; background:rgba(52,211,153,0.1); padding:2px 8px; border-radius:6px; border:1px solid rgba(52,211,153,0.15);" id="v28-db-status">ONLINE</span>
                         </div>
                         
-                        <!-- Visual Row: Disk Cylinder + Gauges -->
-                        <div style="display:flex; gap:20px; align-items:center; justify-content:space-between;">
-                            <!-- Left: Disk Cylinder Visual with LEDs -->
-                            <div style="display:flex; flex-direction:column; gap:6px; align-items:center; justify-content:center; width:80px; height:90px; position:relative; flex-shrink:0; background:rgba(0,0,0,0.25); border-radius:12px; padding:6px; border:1px solid rgba(255,255,255,0.05);">
-                                <!-- Disk platter layers -->
-                                <div id="v28-disk-p1" style="width:54px; height:15px; border-radius:50%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.2); transition:all 0.3s; position:relative; display:flex; align-items:center; justify-content:center;">
-                                    <div style="width:16px; height:5px; border-radius:50%; background:rgba(255,255,255,0.1);"></div>
-                                    <div style="position:absolute; top:2px; right:6px; width:4px; height:4px; border-radius:50%; background:#34d399; transition:background 0.15s;" class="v28-disk-led"></div>
+                        <!-- Stage 1 & 2 Pipeline -->
+                        <div style="display:flex; flex-direction:column; gap:8px; position:relative; width:100%;">
+                            <!-- Client row -->
+                            <div style="display:flex; justify-content:space-around; align-items:center; background:rgba(0,0,0,0.2); border-radius:10px; padding:6px 12px; border:1px solid rgba(255,255,255,0.03);">
+                                <div id="v28-client-a" style="display:flex; align-items:center; gap:4px; opacity:0.65; transition:all 0.3s;">
+                                    <i data-lucide="laptop" style="width:12px; height:12px; color:#60a5fa;"></i>
+                                    <span style="font-size:9px; font-weight:800; color:rgba(255,255,255,0.6);">Client A</span>
                                 </div>
-                                <div id="v28-disk-p2" style="width:54px; height:15px; border-radius:50%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.2); transition:all 0.3s; position:relative; display:flex; align-items:center; justify-content:center;">
-                                    <div style="width:16px; height:5px; border-radius:50%; background:rgba(255,255,255,0.1);"></div>
-                                    <div style="position:absolute; top:2px; right:6px; width:4px; height:4px; border-radius:50%; background:#34d399; transition:background 0.15s;" class="v28-disk-led"></div>
+                                <div id="v28-client-b" style="display:flex; align-items:center; gap:4px; opacity:0.65; transition:all 0.3s;">
+                                    <i data-lucide="laptop" style="width:12px; height:12px; color:#34d399;"></i>
+                                    <span style="font-size:9px; font-weight:800; color:rgba(255,255,255,0.6);">Client B</span>
                                 </div>
-                                <div id="v28-disk-p3" style="width:54px; height:15px; border-radius:50%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.2); transition:all 0.3s; position:relative; display:flex; align-items:center; justify-content:center;">
-                                    <div style="width:16px; height:5px; border-radius:50%; background:rgba(255,255,255,0.1);"></div>
-                                    <div style="position:absolute; top:2px; right:6px; width:4px; height:4px; border-radius:50%; background:#34d399; transition:background 0.15s;" class="v28-disk-led"></div>
+                                <div id="v28-client-c" style="display:flex; align-items:center; gap:4px; opacity:0.65; transition:all 0.3s;">
+                                    <i data-lucide="laptop" style="width:12px; height:12px; color:#fbbf24;"></i>
+                                    <span style="font-size:9px; font-weight:800; color:rgba(255,255,255,0.6);">Client C</span>
                                 </div>
                             </div>
                             
-                            <!-- Right: Performance gauges -->
-                            <div style="flex:1; display:flex; flex-direction:column; gap:10px; text-align:left;">
-                                <!-- CPU Load bar -->
-                                <div>
-                                    <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; font-family:monospace; margin-bottom:4px;">
-                                        <span style="color:rgba(255,255,255,0.555);">CPU LOAD:</span>
-                                        <span id="v28-cpu-val" style="color:#34d399; font-weight:bold;">15%</span>
-                                    </div>
-                                    <div class="v28-ram-bar-outer" style="height:10px; margin:0;">
-                                        <div class="v28-ram-bar-fill" id="v28-cpu-fill" style="width:15%; background:#34d399;"></div>
-                                    </div>
+                            <!-- Transit Tube (Stage 2) -->
+                            <div style="width:100%; height:110px; background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.05); border-radius:12px; position:relative; overflow:hidden; display:flex; justify-content:center; align-items:center;" id="v28-transit-pipe">
+                                <div id="v28-pipe-label" style="font-size:10px; font-weight:900; color:rgba(255,255,255,0.2); text-transform:uppercase; letter-spacing:1px; z-index:1;">
+                                    Query Pipeline
                                 </div>
                                 
-                                <!-- Latency meter -->
-                                <div>
-                                    <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; font-family:monospace; margin-bottom:4px;">
-                                        <span style="color:rgba(255,255,255,0.555);">DISK LATENCY:</span>
-                                        <span id="v28-latency-val" style="color:#34d399; font-weight:bold;">1.2 ms</span>
+                                <div style="display:flex; flex-direction:column; gap:16px; position:absolute; left:12px; opacity:0.15; color:#fff;">
+                                    <i data-lucide="chevron-down" style="width:12px; height:12px;"></i>
+                                    <i data-lucide="chevron-down" style="width:12px; height:12px;"></i>
+                                </div>
+                                <div style="display:flex; flex-direction:column; gap:16px; position:absolute; right:12px; opacity:0.15; color:#fff;">
+                                    <i data-lucide="chevron-down" style="width:12px; height:12px;"></i>
+                                    <i data-lucide="chevron-down" style="width:12px; height:12px;"></i>
+                                </div>
+                                
+                                <!-- Four pre-rendered query packets to animate smoothly in JS -->
+                                <div id="v28-q-pack-0" style="position:absolute; left:8px; width:220px; height:20px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:6px; font-size:8px; font-family:monospace; color:#fff; padding:0 8px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
+                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:150px;">SELECT * FROM users WHERE u...</span>
+                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
+                                </div>
+                                <div id="v28-q-pack-1" style="position:absolute; left:48px; width:200px; height:20px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:6px; font-size:8px; font-family:monospace; color:#fff; padding:0 8px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
+                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:130px;">SELECT * FROM users WHERE u...</span>
+                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
+                                </div>
+                                <div id="v28-q-pack-2" style="position:absolute; left:24px; width:210px; height:20px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:6px; font-size:8px; font-family:monospace; color:#fff; padding:0 8px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
+                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:140px;">SELECT * FROM users WHERE u...</span>
+                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
+                                </div>
+                                <div id="v28-q-pack-3" style="position:absolute; left:36px; width:215px; height:20px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:6px; font-size:8px; font-family:monospace; color:#fff; padding:0 8px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
+                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:145px;">SELECT * FROM users WHERE u...</span>
+                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stage 3 Visuals: Hard Disk + HUD Gauges -->
+                        <div style="display:flex; gap:16px; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:12px;">
+                            <!-- Left: High-fidelity Hard Drive Platter (SVG) -->
+                            <div style="display:flex; justify-content:center; align-items:center; width:100px; height:100px; background:rgba(0,0,0,0.3); border-radius:16px; border:1px solid rgba(255,255,255,0.06); box-shadow:inset 0 2px 5px rgba(0,0,0,0.5); flex-shrink:0; position:relative; overflow:visible;">
+                                <svg width="86" height="86" viewBox="0 0 100 100" style="overflow:visible;" id="v28-hdd-svg">
+                                    <!-- Platter casing -->
+                                    <rect x="2" y="2" width="96" height="96" rx="10" fill="#0f172a" stroke="rgba(255,255,255,0.08)" stroke-width="2" />
+                                    <!-- Platter wheel disk -->
+                                    <circle cx="46" cy="52" r="38" fill="url(#platterGrad)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" id="v28-hdd-platter" style="transform-origin: 46px 52px;" class="v28-disk-spinning-fast" />
+                                    <!-- Platter metallic spindle -->
+                                    <circle cx="46" cy="52" r="8" fill="#334155" stroke="rgba(255,255,255,0.2)" />
+                                    <circle cx="46" cy="52" r="3" fill="#020617" />
+                                    
+                                    <!-- Shiny disk reflection accents -->
+                                    <path d="M 18 24 L 28 34 M 64 80 L 74 90" stroke="rgba(255,255,255,0.15)" stroke-width="2.5" stroke-linecap="round" />
+                                    
+                                    <!-- Magnetic write-head arm -->
+                                    <g id="v28-hdd-arm" class="v28-arm-sweeping-slow" style="transform-origin: 82px 18px;">
+                                        <!-- Pivot node -->
+                                        <circle cx="82" cy="18" r="6" fill="#64748b" stroke="rgba(255,255,255,0.3)" />
+                                        <!-- Metal arm -->
+                                        <line x1="82" y1="18" x2="48" y2="48" stroke="#94a3b8" stroke-width="3" stroke-linecap="round" />
+                                        <line x1="82" y1="18" x2="48" y2="48" stroke="#cbd5e1" stroke-width="1" stroke-linecap="round" />
+                                        <!-- Actuator Head tip -->
+                                        <polygon points="48,48 44,45 45,51" fill="#334155" />
+                                        <!-- Write head led pointer -->
+                                        <circle cx="48" cy="48" r="1.5" fill="#34d399" id="v28-hdd-led" />
+                                    </g>
+                                    
+                                    <defs>
+                                        <linearGradient id="platterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#64748b" />
+                                            <stop offset="30%" stop-color="#1e293b" />
+                                            <stop offset="50%" stop-color="#94a3b8" />
+                                            <stop offset="70%" stop-color="#0f172a" />
+                                            <stop offset="100%" stop-color="#475569" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            
+                            <!-- Right: Performance HUD gauges -->
+                            <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:8px;">
+                                <div style="display:flex; gap:16px; justify-content:center; align-items:center;">
+                                    <!-- CPU load gauge -->
+                                    <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+                                        <div style="position:relative; width:52px; height:52px; display:flex; align-items:center; justify-content:center;">
+                                            <svg width="52" height="52" viewBox="0 0 60 60">
+                                                <circle cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="5.5" />
+                                                <circle id="v28-gauge-cpu" cx="30" cy="30" r="24" fill="none" stroke="#34d399" stroke-width="5.5" 
+                                                        class="v28-gauge-circle" stroke-dasharray="150.8" stroke-dashoffset="150.8" stroke-linecap="round" />
+                                            </svg>
+                                            <span id="v28-cpu-val" style="position:absolute; font-size:10px; font-family:monospace; font-weight:900; color:#fff;">15%</span>
+                                        </div>
+                                        <span style="font-size:9px; font-weight:800; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.5px;">CPU Load</span>
                                     </div>
-                                    <div class="v28-ram-bar-outer" style="height:10px; margin:0;">
-                                        <div class="v28-ram-bar-fill" id="v28-latency-fill" style="width:5%; background:#34d399;"></div>
+                                    
+                                    <!-- Latency gauge -->
+                                    <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+                                        <div style="position:relative; width:52px; height:52px; display:flex; align-items:center; justify-content:center;">
+                                            <svg width="52" height="52" viewBox="0 0 60 60">
+                                                <circle cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="5.5" />
+                                                <circle id="v28-gauge-latency" cx="30" cy="30" r="24" fill="none" stroke="#34d399" stroke-width="5.5" 
+                                                        class="v28-gauge-circle" stroke-dasharray="150.8" stroke-dashoffset="150.8" stroke-linecap="round" />
+                                            </svg>
+                                            <span id="v28-latency-val" style="position:absolute; font-size:9px; font-family:monospace; font-weight:900; color:#fff;">1.2 ms</span>
+                                        </div>
+                                        <span style="font-size:9px; font-weight:800; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.5px;">Disk I/O</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Queue bottleneck lane -->
-                        <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:12px; text-align:left;">
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; font-size:11px; font-weight:800; font-family:monospace;">
-                                <span style="color:rgba(255,255,255,0.555);">QUEUE:</span>
-                                <span id="v28-queue-val" style="color:#34d399; font-weight:bold;">0 Requests</span>
-                            </div>
-                            <!-- Request transit lane visual -->
-                            <div style="width:100%; height:32px; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.05); border-radius:8px; position:relative; overflow:hidden; display:flex; align-items:center; padding:0 8px; box-sizing:border-box;" id="v28-queue-lane">
-                                <div style="display:flex; gap:6px; width:100%; height:100%; align-items:center; justify-content:flex-end;" id="v28-queue-pile">
-                                    <!-- Dynamic queue items pile up here -->
-                                </div>
-                            </div>
+                        <!-- Queue bottleneck status -->
+                        <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:10px; text-align:left; display:flex; justify-content:space-between; align-items:center;">
+                            <span style="font-size:10px; font-weight:800; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.5px;">Queue State:</span>
+                            <span id="v28-queue-val" style="font-size:11px; font-weight:900; color:#34d399; font-family:monospace;">0 Requests</span>
                         </div>
                     </div>
 
                     <!-- Alert overlay -->
-                    <div class="glass-card v28-alert-card" id="v28-db-alert" style="padding:12px 16px; display:flex; align-items:center; justify-content:center; gap:10px; opacity:0; transform:translateY(12px); transition:all 0.3s; width: 100%;">
-                        <i data-lucide="alert-octagon" style="width:20px; height:20px; color:#f87171; flex-shrink: 0;"></i>
-                        <span style="font-size:12px; color:#f87171; font-weight:900; letter-spacing:0.5px; text-align:left;">🚨 NGHẼN DISK I/O: DATABASE QUÁ TẢI TRUY XUẤT</span>
+                    <div class="glass-card v28-alert-card" id="v28-db-alert" style="padding:10px 14px; display:flex; align-items:center; justify-content:center; gap:8px; opacity:0; transform:translateY(12px); transition:all 0.3s; width: 100%;">
+                        <i data-lucide="alert-octagon" style="width:18px; height:18px; color:#f87171; flex-shrink: 0;"></i>
+                        <span style="font-size:11px; color:#f87171; font-weight:900; letter-spacing:0.5px; text-align:left;">🚨 NGHẼN DISK I/O: DATABASE QUÁ TẢI TRUY XUẤT</span>
                     </div>
                 </div>
             `;
         }
         else if (slideId === 'slide_bloom_3') {
             canvas.innerHTML = `
-                <div class="v28-zoom-container">
-                    <div class="glass-card" style="padding:20px; border-radius:20px; text-align:left; width: 100%;">
-                        <div style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:bold; color:rgba(255,255,255,0.5); border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.8px;">
-                            <i data-lucide="database" style="width:16px; height:16px; color:#ef4444;"></i> RAM Redis String Cache
+                <div class="v28-zoom-container" style="zoom: 1.35; gap: 14px;">
+                    <!-- DDR5 RAM Cache module visualization -->
+                    <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:6px;">
+                        <div style="width:100%; display:flex; justify-content:space-between; font-size:10px; font-weight:800; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.8px; padding:0 4px;">
+                            <span>DDR5 RAM Cache Stick</span>
+                            <span style="color:#ef4444;" class="v28-gold-glow">Redis Node</span>
                         </div>
                         
-                        <div class="v28-ram-container">
-                            <div>
-                                <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:13px; margin-bottom:4px;">
-                                    <span style="color:rgba(255,255,255,0.5);">500M Username Thô:</span>
-                                    <span style="color:#ef4444; font-weight:bold;" id="v28-ram-val-redis">0 GB / 15 GB</span>
+                        <div class="v28-ram-module">
+                            <div class="v28-ram-chips-grid">
+                                <!-- Chip 1 -->
+                                <div class="v28-ram-chip-block">
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
                                 </div>
-                                <div class="v28-ram-bar-outer">
-                                    <div class="v28-ram-bar-fill" id="v28-ram-bar-redis" style="background:#ef4444;"></div>
+                                <!-- Chip 2 -->
+                                <div class="v28-ram-chip-block">
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
                                 </div>
+                                <!-- Chip 3 -->
+                                <div class="v28-ram-chip-block">
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                </div>
+                                <!-- Chip 4 -->
+                                <div class="v28-ram-chip-block">
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                    <div class="v28-ram-chip-cell"></div>
+                                </div>
+                            </div>
+                            <div class="v28-ram-pins">
+                                ${Array.from({ length: 44 }).map(() => '<div class="v28-ram-pin"></div>').join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cost Dashboard & Calculations -->
+                    <div class="glass-card" style="padding:16px; border-radius:20px; text-align:left; width: 100%; border:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:12px; position:relative; overflow:hidden;">
+                        <!-- Money floating container -->
+                        <div id="v28-money-container" style="position:absolute; inset:0; pointer-events:none; overflow:hidden; border-radius:20px;">
+                            <div class="v28-flying-dollar-bill" id="v28-bill-0" style="left:20%; display:none;">$</div>
+                            <div class="v28-flying-dollar-bill" id="v28-bill-1" style="left:50%; display:none;">$</div>
+                            <div class="v28-flying-dollar-bill" id="v28-bill-2" style="left:80%; display:none;">$</div>
+                        </div>
+
+                        <!-- Cash register billing cost -->
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span style="font-size:11px; font-weight:800; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.5px;">Server Cost:</span>
+                            <div class="v28-billing-counter" id="v28-ram-cost-counter">
+                                $0<span class="v28-billing-unit">/ Month</span>
                             </div>
                         </div>
 
-                        <div style="margin-top:16px; border-top:1px solid rgba(255,255,255,0.08); padding-top:12px; display:flex; justify-content:space-between; align-items:center;">
-                            <span style="font-size:12px; color:rgba(255,255,255,0.4);">Ước tính chi phí RAM máy chủ:</span>
-                            <span style="font-size:15px; font-weight:900; color:#ef4444;">~$250 / Tháng</span>
+                        <!-- Technical storage math math formula list -->
+                        <div style="background:rgba(0,0,0,0.3); border-radius:12px; padding:10px; border:1px solid rgba(255,255,255,0.04); display:flex; flex-direction:column; gap:4px; font-family:monospace; font-size:10px; line-height:1.4;">
+                            <div style="display:flex; justify-content:space-between;">
+                                <span style="color:rgba(255,255,255,0.45);">Total Usernames:</span>
+                                <span style="color:#fff; font-weight:bold;">500,000,000</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <span style="color:rgba(255,255,255,0.45);">Avg String Size:</span>
+                                <span style="color:#fff; font-weight:bold;">~30 Bytes</span>
+                            </div>
+                            <div style="border-top:1px dashed rgba(255,255,255,0.1); margin:3px 0;"></div>
+                            <div style="display:flex; justify-content:space-between; font-size:11px;">
+                                <span style="color:#60a5fa; font-weight:800;">Memory Required:</span>
+                                <span id="v28-ram-val-redis" style="color:#ef4444; font-weight:900;">0.0 GB / 15.0 GB</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -566,76 +719,110 @@
     // ── ANIMATION UPDATE FRAME ─────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_bloom_1') {
-            const l1 = canvas.querySelector('#v28-req-tag-l1');
-            const l2 = canvas.querySelector('#v28-req-tag-l2');
-            const l3 = canvas.querySelector('#v28-req-tag-l3');
-            const r1 = canvas.querySelector('#v28-req-tag-r1');
-            const r2 = canvas.querySelector('#v28-req-tag-r2');
-            const r3 = canvas.querySelector('#v28-req-tag-r3');
+            const tags = [
+                { id: 'l1', side: 'left', startX: 4, startY: 60, delay: 0.0 },
+                { id: 'l2', side: 'left', startX: 1, startY: 160, delay: 0.25 },
+                { id: 'l3', side: 'left', startX: 5, startY: 270, delay: 0.5 },
+                { id: 'l4', side: 'left', startX: 0, startY: 360, delay: 0.75 },
+                { id: 'r1', side: 'right', startX: 4, startY: 80, delay: 0.12 },
+                { id: 'r2', side: 'right', startX: 1, startY: 170, delay: 0.37 },
+                { id: 'r3', side: 'right', startX: 5, startY: 280, delay: 0.62 },
+                { id: 'r4', side: 'right', startX: 0, startY: 370, delay: 0.87 }
+            ];
 
-            const animateTag = (el, start, duration, dir, baseVal) => {
+            let triggerRipple = false;
+
+            tags.forEach(tag => {
+                const el = canvas.querySelector(`#v28-req-tag-${tag.id}`);
                 if (!el) return;
-                const t = (progress - start) / duration;
-                if (t >= 0 && t <= 1) {
-                    el.style.opacity = t < 0.3 ? (t * 3.3) : ((1 - t) * 1.4);
-                    const pos = baseVal + t * 50;
-                    if (dir === 'left') {
-                        el.style.left = `${pos}px`;
-                    } else {
-                        el.style.right = `${pos}px`;
-                    }
+                
+                // Continuous loop of flying requests:
+                // Multiply progress by a factor to make them fly fast and repeatedly
+                const speedMult = 4.0; 
+                let t = ((progress * speedMult) + tag.delay) % 1.0;
+                
+                // Flight path coordinate calculation:
+                // Move from start% to 50% center
+                const curX = tag.startX + (50 - tag.startX) * t;
+                const curY = tag.startY + (180 - tag.startY) * t;
+                const scale = 1.0 - t * 0.65;
+                const opacity = t < 0.15 ? (t / 0.15) : (t > 0.85 ? (1.0 - t) / 0.15 : 1.0);
+                
+                if (tag.side === 'left') {
+                    el.style.left = `${curX}%`;
+                    el.style.right = 'auto';
+                    el.style.transform = `translate3d(-50%, 0, 0) scale(${scale})`;
                 } else {
-                    el.style.opacity = '0';
+                    el.style.right = `${curX}%`;
+                    el.style.left = 'auto';
+                    el.style.transform = `translate3d(50%, 0, 0) scale(${scale})`;
                 }
-            };
+                
+                el.style.top = `${curY}px`;
+                el.style.opacity = opacity;
+                
+                // If tag is close to absorption notch, trigger ripple flag
+                if (t > 0.90 && t < 0.98) {
+                    triggerRipple = true;
+                }
+            });
 
-            animateTag(l1, 0.0, 0.35, 'left', 5);
-            animateTag(l2, 0.2, 0.35, 'left', 20);
-            animateTag(l3, 0.4, 0.35, 'left', 0);
-
-            animateTag(r1, 0.1, 0.35, 'right', 5);
-            animateTag(r2, 0.3, 0.35, 'right', 20);
-            animateTag(r3, 0.5, 0.35, 'right', 0);
+            // Absorption ripple animation
+            const ripple = canvas.querySelector('#v28-phone-ripple');
+            if (ripple) {
+                if (triggerRipple) {
+                    ripple.classList.add('active');
+                } else {
+                    ripple.classList.remove('active');
+                }
+            }
 
             // Phone screen typing & status logic
             const usernameVal = canvas.querySelector('#v28-phone-username-val');
             const statusVal = canvas.querySelector('#v28-phone-status');
             const phoneBtn = canvas.querySelector('#v28-phone-btn');
             const screenGlow = canvas.querySelector('#v28-phone-screen-glow');
+            const inputContainer = canvas.querySelector('#v28-phone-input-container');
 
             let username = "";
             let statusText = "";
             let color = "var(--bf-blue)";
             let btnText = "Sign Up";
+            let isTaken = false;
 
             if (progress < 0.2) {
                 username = "alex";
                 statusText = "✓ AVAILABLE";
                 color = "var(--bf-green)";
                 btnText = "Success";
+                isTaken = false;
             } else if (progress < 0.4) {
                 username = "bob";
                 statusText = "✓ AVAILABLE";
                 color = "var(--bf-green)";
                 btnText = "Success";
+                isTaken = false;
             } else if (progress < 0.6) {
                 username = "charlie";
                 statusText = "✗ TAKEN";
                 color = "var(--bf-red)";
                 btnText = "Taken";
+                isTaken = true;
             } else if (progress < 0.8) {
                 username = "david";
                 statusText = "✓ AVAILABLE";
                 color = "var(--bf-green)";
                 btnText = "Success";
+                isTaken = false;
             } else {
                 username = "emma";
                 statusText = "✗ TAKEN";
                 color = "var(--bf-red)";
                 btnText = "Taken";
+                isTaken = true;
             }
 
-            // Typing simulation calculation
+            // Typing simulation calculation inside subranges
             const subRange = 0.2;
             const subProgress = (progress % subRange) / subRange;
             const fullWord = username;
@@ -664,18 +851,35 @@
                     phoneBtn.textContent = btnText;
                     phoneBtn.style.background = color;
                     phoneBtn.style.color = "#000";
+                    phoneBtn.style.boxShadow = `0 4px 15px ${color}40`;
                 } else {
                     phoneBtn.textContent = "Checking...";
                     phoneBtn.style.background = "rgba(96,165,250,0.2)";
                     phoneBtn.style.color = "var(--bf-blue)";
+                    phoneBtn.style.boxShadow = "none";
                 }
             }
 
             if (screenGlow) {
                 if (subProgress > 0.6) {
-                    screenGlow.style.background = `radial-gradient(circle, ${color}33 0%, transparent 70%)`;
+                    screenGlow.style.background = `radial-gradient(circle, ${color}2b 0%, transparent 70%)`;
                 } else {
                     screenGlow.style.background = "radial-gradient(circle, rgba(96,165,250,0.1) 0%, transparent 70%)";
+                }
+            }
+
+            // Shake input field and flash borders
+            if (inputContainer) {
+                inputContainer.classList.remove('v28-input-shake');
+                if (subProgress > 0.6) {
+                    inputContainer.style.borderColor = color;
+                    inputContainer.style.boxShadow = `0 0 10px ${color}33`;
+                    if (isTaken) {
+                        inputContainer.classList.add('v28-input-shake');
+                    }
+                } else {
+                    inputContainer.style.borderColor = "rgba(96,165,250,0.4)";
+                    inputContainer.style.boxShadow = "0 0 10px rgba(96,165,250,0.15)";
                 }
             }
 
@@ -683,8 +887,9 @@
             const totalCounter = canvas.querySelector('#v28-counter-total');
             const speedCounter = canvas.querySelector('#v28-counter-speed');
 
-            const totalBase = 500000000;
-            const totalClimb = Math.floor(progress * 124500);
+            const totalBase = 500124500;
+            // Real-time counter ticks up to show heavy traffic load
+            const totalClimb = Math.floor(progress * 135000);
             if (totalCounter) {
                 totalCounter.textContent = (totalBase + totalClimb).toLocaleString('vi-VN');
             }
@@ -696,17 +901,22 @@
         }
         else if (slideId === 'slide_bloom_2') {
             const cpuVal = canvas.querySelector('#v28-cpu-val');
-            const cpuFill = canvas.querySelector('#v28-cpu-fill');
+            const cpuGauge = canvas.querySelector('#v28-gauge-cpu');
             const latencyVal = canvas.querySelector('#v28-latency-val');
-            const latencyFill = canvas.querySelector('#v28-latency-fill');
+            const latencyGauge = canvas.querySelector('#v28-gauge-latency');
             const queueVal = canvas.querySelector('#v28-queue-val');
-            const queuePile = canvas.querySelector('#v28-queue-pile');
             const dbStatus = canvas.querySelector('#v28-db-status');
             const dbIcon = canvas.querySelector('#v28-db-icon');
             const alertBox = canvas.querySelector('#v28-db-alert');
             const scanline = canvas.querySelector('.v28-db-scanline');
+            const hddPlatter = canvas.querySelector('#v28-hdd-platter');
+            const hddArm = canvas.querySelector('#v28-hdd-arm');
+            const hddLed = canvas.querySelector('#v28-hdd-led');
+            const clientA = canvas.querySelector('#v28-client-a');
+            const clientB = canvas.querySelector('#v28-client-b');
+            const clientC = canvas.querySelector('#v28-client-c');
 
-            // Toggle scanning sweep
+            // 1. Scanline sweep
             if (scanline) {
                 if (progress > 0.05 && progress < 0.9) {
                     scanline.classList.add('scanning');
@@ -715,31 +925,136 @@
                 }
             }
 
-            // 1. CPU Load climbs from 15% to 100%
+            // 2. CPU load calculation & gauge update
             const cpu = Math.round(15 + progress * 85);
             if (cpuVal) cpuVal.textContent = `${cpu}%`;
-            if (cpuFill) {
-                cpuFill.style.width = `${cpu}%`;
-                cpuFill.style.background = cpu > 80 ? 'var(--bf-red)' : (cpu > 45 ? 'var(--bf-orange)' : 'var(--bf-green)');
+            if (cpuGauge) {
+                const cpuOffset = 150.8 - (cpu / 100) * 150.8;
+                cpuGauge.style.strokeDashoffset = cpuOffset;
+                const cpuColor = cpu > 80 ? 'var(--bf-red)' : (cpu > 45 ? 'var(--bf-orange)' : 'var(--bf-green)');
+                cpuGauge.style.stroke = cpuColor;
+                if (cpuVal) cpuVal.style.color = cpuColor;
             }
 
-            // 2. Latency climbs exponentially from 1.2ms to 320ms
+            // 3. Latency calculation & gauge update
             const latency = (1.2 + progress * progress * 318.8).toFixed(1);
             if (latencyVal) latencyVal.textContent = `${latency} ms`;
-            if (latencyFill) {
-                const latPercent = Math.min(100, (latency / 320) * 100);
-                latencyFill.style.width = `${latPercent}%`;
-                latencyFill.style.background = latency > 150 ? 'var(--bf-red)' : (latency > 20 ? 'var(--bf-orange)' : 'var(--bf-green)');
+            if (latencyGauge) {
+                const latPercent = Math.min(100, (parseFloat(latency) / 320) * 100);
+                const latOffset = 150.8 - (latPercent / 100) * 150.8;
+                latencyGauge.style.strokeDashoffset = latOffset;
+                const latColor = latency > 150 ? 'var(--bf-red)' : (latency > 20 ? 'var(--bf-orange)' : 'var(--bf-green)');
+                latencyGauge.style.stroke = latColor;
+                if (latencyVal) latencyVal.style.color = latColor;
             }
 
-            // 3. Queue count climbs from 0 to 50
+            // 4. Clients activation pulse
+            if (clientA && clientB && clientC) {
+                const cycle = Math.floor(Date.now() / 300) % 3;
+                clientA.style.opacity = (cycle === 0) ? '1' : '0.5';
+                clientA.style.transform = (cycle === 0) ? 'scale(1.05)' : 'scale(1)';
+                clientB.style.opacity = (cycle === 1) ? '1' : '0.5';
+                clientB.style.transform = (cycle === 1) ? 'scale(1.05)' : 'scale(1)';
+                clientC.style.opacity = (cycle === 2) ? '1' : '0.5';
+                clientC.style.transform = (cycle === 2) ? 'scale(1.05)' : 'scale(1)';
+            }
+
+            // 5. Query packet stream animation
+            const packs = [
+                canvas.querySelector('#v28-q-pack-0'),
+                canvas.querySelector('#v28-q-pack-1'),
+                canvas.querySelector('#v28-q-pack-2'),
+                canvas.querySelector('#v28-q-pack-3')
+            ];
+
+            const pipeHeight = 110;
+            packs.forEach((p, idx) => {
+                if (p) {
+                    const statusText = p.querySelector('.v28-pack-status');
+                    if (progress < 0.35) {
+                        // Quick flow state
+                        const speed = 400 + idx * 50;
+                        const y = (progress * speed + idx * 25) % (pipeHeight - 20);
+                        p.style.transform = `translateY(${y}px)`;
+                        p.style.opacity = '1';
+                        p.style.borderColor = 'rgba(96,165,250,0.3)';
+                        p.style.background = 'rgba(96,165,250,0.1)';
+                        if (statusText) {
+                            statusText.textContent = 'OK';
+                            statusText.style.color = '#34d399';
+                        }
+                    } else if (progress >= 0.35 && progress < 0.7) {
+                        // Clogging state (stack up)
+                        const targetY = pipeHeight - 24 - idx * 22;
+                        const y = targetY + Math.sin(Date.now() / 100 + idx) * 1.5;
+                        p.style.transform = `translateY(${y}px)`;
+                        p.style.opacity = '1';
+                        p.style.borderColor = 'rgba(251,191,36,0.6)';
+                        p.style.background = 'rgba(251,191,36,0.15)';
+                        if (statusText) {
+                            statusText.textContent = 'DELAY';
+                            statusText.style.color = '#fbbf24';
+                        }
+                    } else {
+                        // Clogged / Timed out (red & shaking)
+                        const targetY = pipeHeight - 24 - idx * 22;
+                        const shake = (Math.random() - 0.5) * 2;
+                        p.style.transform = `translateY(${targetY}px) translateX(${shake}px)`;
+                        p.style.opacity = '1';
+                        p.style.borderColor = 'rgba(239,68,68,0.7)';
+                        p.style.background = 'rgba(239,68,68,0.2)';
+                        if (statusText) {
+                            statusText.textContent = 'TIMEOUT';
+                            statusText.style.color = '#ef4444';
+                        }
+                    }
+                }
+            });
+
+            // 6. Hard Disk platter spinning & distress animation
+            if (hddPlatter) {
+                hddPlatter.classList.remove('v28-disk-spinning-fast', 'v28-disk-spinning-slow', 'v28-disk-spinning-stuck', 'v28-disk-shaking');
+                if (progress < 0.4) {
+                    hddPlatter.classList.add('v28-disk-spinning-fast');
+                    hddPlatter.style.stroke = 'rgba(255,255,255,0.25)';
+                } else if (progress >= 0.4 && progress < 0.7) {
+                    hddPlatter.classList.add('v28-disk-spinning-slow', 'v28-disk-shaking');
+                    hddPlatter.style.stroke = 'var(--bf-orange)';
+                } else {
+                    hddPlatter.classList.add('v28-disk-spinning-stuck', 'v28-disk-shaking');
+                    hddPlatter.style.stroke = 'var(--bf-red)';
+                }
+            }
+
+            // 7. HDD Read/Write Arm sweeper speed
+            if (hddArm) {
+                hddArm.classList.remove('v28-arm-sweeping-slow', 'v28-arm-sweeping-fast');
+                if (progress < 0.4) {
+                    hddArm.classList.add('v28-arm-sweeping-slow');
+                } else {
+                    hddArm.classList.add('v28-arm-sweeping-fast');
+                }
+            }
+
+            // 8. HDD Head LED color
+            if (hddLed) {
+                if (progress < 0.4) {
+                    hddLed.setAttribute('fill', '#34d399');
+                } else if (progress >= 0.4 && progress < 0.7) {
+                    hddLed.setAttribute('fill', '#fbbf24');
+                } else {
+                    hddLed.setAttribute('fill', '#ef4444');
+                }
+            }
+
+            // 9. Queue text count & status updating
             const queueCount = Math.round(progress * 50);
             if (queueVal) {
                 if (queueCount > 40) {
-                    queueVal.textContent = `QUÁ TẢI (${queueCount} requests)`;
+                    queueVal.textContent = `QUÁ TẢI (${queueCount} reqs)`;
                     queueVal.style.color = 'var(--bf-red)';
                 } else if (queueCount > 15) {
-                    queueVal.textContent = `Cảnh báo (${queueCount} requests)`;
+                    queueVal.textContent = `Cảnh báo (${queueCount} reqs)`;
                     queueVal.style.color = 'var(--bf-orange)';
                 } else {
                     queueVal.textContent = `${queueCount} Requests`;
@@ -747,69 +1062,30 @@
                 }
             }
 
-            // 4. Populate queue visual blocks (pile up as glowing circular packet dots)
-            if (queuePile) {
-                const maxDots = 16;
-                const numDots = Math.min(maxDots, Math.floor(progress * 20));
-                let dotsHtml = "";
-                for (let i = 0; i < numDots; i++) {
-                    const dotColor = i < 5 ? 'var(--bf-green)' : (i < 10 ? 'var(--bf-orange)' : 'var(--bf-red)');
-                    dotsHtml += `
-                        <div class="v28-queue-packet" style="width: 12px; height: 12px; border-radius: 50%; background: ${dotColor}; box-shadow: 0 0 8px ${dotColor}; border: 1px solid rgba(255,255,255,0.2); flex-shrink: 0;"></div>
-                    `;
-                }
-                queuePile.innerHTML = dotsHtml;
-            }
-
-            // 5. Hard drive cylinder LEDs & Platter status
-            const platters = ['#v28-disk-p1', '#v28-disk-p2', '#v28-disk-p3'];
-            platters.forEach(id => {
-                const platter = canvas.querySelector(id);
-                if (platter) {
-                    const led = platter.querySelector('.v28-disk-led');
-                    if (progress >= 0.7) {
-                        platter.style.borderColor = 'var(--bf-red)';
-                        platter.style.background = 'rgba(248, 113, 113, 0.15)';
-                        if (led) led.style.background = 'var(--bf-red)';
-                    } else if (progress >= 0.4) {
-                        platter.style.borderColor = 'var(--bf-orange)';
-                        platter.style.background = 'rgba(251, 191, 36, 0.08)';
-                        if (led) {
-                            const isLit = Math.floor(Date.now() / 150) % 2 === 0;
-                            led.style.background = isLit ? 'var(--bf-orange)' : 'transparent';
-                        }
-                    } else {
-                        platter.style.borderColor = 'rgba(255,255,255,0.2)';
-                        platter.style.background = 'rgba(255,255,255,0.05)';
-                        if (led) {
-                            const isLit = Math.floor(Date.now() / 400) % 2 === 0;
-                            led.style.background = isLit ? 'var(--bf-green)' : 'transparent';
-                        }
-                    }
-                }
-            });
-
-            // 6. DB status text & icon
+            // 10. Database server status
             if (dbStatus) {
                 if (progress >= 0.7) {
-                    dbStatus.textContent = "CRASHED";
+                    dbStatus.textContent = "I/O BOTTLENECK";
                     dbStatus.style.color = "var(--bf-red)";
+                    dbStatus.style.borderColor = "rgba(248, 113, 113, 0.4)";
                     dbStatus.style.background = "rgba(248, 113, 113, 0.15)";
                     if (dbIcon) dbIcon.style.color = "var(--bf-red)";
                 } else if (progress >= 0.4) {
                     dbStatus.textContent = "OVERLOADED";
                     dbStatus.style.color = "var(--bf-orange)";
+                    dbStatus.style.borderColor = "rgba(251, 191, 36, 0.3)";
                     dbStatus.style.background = "rgba(251, 191, 36, 0.1)";
                     if (dbIcon) dbIcon.style.color = "var(--bf-orange)";
                 } else {
                     dbStatus.textContent = "ONLINE";
                     dbStatus.style.color = "var(--bf-green)";
+                    dbStatus.style.borderColor = "rgba(52, 211, 153, 0.2)";
                     dbStatus.style.background = "rgba(52, 211, 153, 0.1)";
                     if (dbIcon) dbIcon.style.color = "var(--bf-blue)";
                 }
             }
 
-            // 7. Alert overlay
+            // 11. Alert box overlay fade-in
             if (progress >= 0.7 && alertBox) {
                 alertBox.style.opacity = '1';
                 alertBox.style.transform = 'translateY(0)';
@@ -820,11 +1096,65 @@
         }
         else if (slideId === 'slide_bloom_3') {
             const ramVal = canvas.querySelector('#v28-ram-val-redis');
-            const ramBar = canvas.querySelector('#v28-ram-bar-redis');
+            const costCounter = canvas.querySelector('#v28-ram-cost-counter');
+            const cells = canvas.querySelectorAll('.v28-ram-chip-cell');
+            const bill0 = canvas.querySelector('#v28-bill-0');
+            const bill1 = canvas.querySelector('#v28-bill-1');
+            const bill2 = canvas.querySelector('#v28-bill-2');
 
+            // 1. RAM Capacity values
             const currentGB = (progress * 15.0).toFixed(1);
-            if (ramVal) ramVal.textContent = `${currentGB} GB / 15 GB`;
-            if (ramBar) ramBar.style.width = `${progress * 100}%`;
+            if (ramVal) ramVal.textContent = `${currentGB} GB / 15.0 GB`;
+
+            // 2. RAM Module cells sequential lighting
+            if (cells.length > 0) {
+                const numLit = Math.floor(progress * cells.length);
+                cells.forEach((cell, i) => {
+                    cell.classList.remove('state-good', 'state-warning', 'state-danger');
+                    if (i < numLit) {
+                        if (i < cells.length * 0.4) {
+                            cell.classList.add('state-good');
+                        } else if (i < cells.length * 0.75) {
+                            cell.classList.add('state-warning');
+                        } else {
+                            cell.classList.add('state-danger');
+                        }
+                    }
+                });
+            }
+
+            // 3. Billing cash counter odometer
+            const cost = Math.round(progress * 250);
+            if (costCounter) {
+                costCounter.innerHTML = `$${cost}<span class="v28-billing-unit">/ Month</span>`;
+            }
+
+            // 4. Money flying particle animation
+            if (progress > 0.15) {
+                const speed = 1.3;
+                if (bill0) {
+                    bill0.style.display = 'block';
+                    const y0 = (100 - ((progress * speed) % 1.0) * 110);
+                    bill0.style.top = `${y0}%`;
+                    bill0.style.opacity = Math.sin(Math.PI * ((progress * speed) % 1.0));
+                }
+                if (bill1) {
+                    bill1.style.display = 'block';
+                    const y1 = (100 - ((progress * speed + 0.33) % 1.0) * 110);
+                    bill1.style.top = `${y1}%`;
+                    bill1.style.opacity = Math.sin(Math.PI * ((progress * speed + 0.33) % 1.0));
+                }
+                if (bill2) {
+                    bill2.style.display = 'block';
+                    const y2 = (100 - ((progress * speed + 0.66) % 1.0) * 110);
+                    bill2.style.top = `${y2}%`;
+                    bill2.style.opacity = Math.sin(Math.PI * ((progress * speed + 0.66) % 1.0));
+                }
+            } else {
+                if (bill0) bill0.style.display = 'none';
+                if (bill1) bill1.style.display = 'none';
+                if (bill2) bill2.style.display = 'none';
+            }
         }
         else if (slideId === 'slide_bloom_4') {
             const ramVal = canvas.querySelector('#v28-ram-val-bf');

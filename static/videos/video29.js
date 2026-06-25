@@ -170,18 +170,18 @@
         }
         else if (slideId === 'slide_fb_2') {
             canvas.innerHTML = `
-                <div class="v29-zoom-container" style="justify-content: flex-start; padding-top: 0; gap: 8px; zoom: 1.25;">
-                    <div class="v29-fb-card" style="padding: 12px; width: 100%; display: flex; flex-direction: column; gap: 10px;">
+                <div class="v29-zoom-container" style="justify-content: flex-start; padding-top: 10px; gap: 14px; zoom: 1.15;">
+                    <div class="v29-fb-card" style="padding: 16px; width: 100%; display: flex; flex-direction: column; gap: 14px;">
                         
-                        <!-- Grid layout representing User & Friend tables -->
-                        <div class="v29-db-grid">
+                        <!-- Stack layout representing User & Friend tables vertically with bigger text -->
+                        <div class="v29-db-stack">
                             <!-- Table 1: User list -->
-                            <div class="v29-db-card" id="v29-db-user">
+                            <div class="v29-db-card-large" id="v29-db-user">
                                 <div class="v29-db-scanline"></div>
-                                <div style="font-size:11px; font-weight:bold; color:var(--fb-blue); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px; display:flex; align-items:center; gap:4px;">
-                                    <i data-lucide="table" style="width:12px; height:12px;"></i> Table: User (3B Rows)
+                                <div style="font-size:14px; font-weight:bold; color:var(--fb-blue); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.5px; display:flex; align-items:center; gap:6px;">
+                                    <i data-lucide="table" style="width:16px; height:16px;"></i> Table: User (3 Tỷ hàng)
                                 </div>
-                                <table class="v29-db-table">
+                                <table class="v29-db-table-large">
                                     <thead>
                                         <tr>
                                             <th>id</th>
@@ -190,36 +190,24 @@
                                     </thead>
                                     <tbody>
                                         <tr class="v29-row-a">
-                                            <td><span class="v29-badge-id">1</span></td>
-                                            <td><span class="v29-badge-code blue">A</span> <span class="v29-cell-name">Alice</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="v29-badge-id">2</span></td>
-                                            <td><span class="v29-badge-code blue">B</span> <span class="v29-cell-name">Bob</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="v29-badge-id">3</span></td>
-                                            <td><span class="v29-badge-code blue">C</span> <span class="v29-cell-name">Charlie</span></td>
-                                        </tr>
-                                        <tr class="v29-db-row-dots">
-                                            <td>...</td>
-                                            <td>...</td>
+                                            <td><span class="v29-badge-id-large">1</span></td>
+                                            <td><span class="v29-badge-code-large blue">A</span> <span class="v29-cell-name">Alice</span></td>
                                         </tr>
                                         <tr class="v29-row-x">
-                                            <td><span class="v29-badge-id">3.0B</span></td>
-                                            <td><span class="v29-badge-code blue">X</span> <span class="v29-cell-name">Xavier</span></td>
+                                            <td><span class="v29-badge-id-large">3.0B</span></td>
+                                            <td><span class="v29-badge-code-large blue">X</span> <span class="v29-cell-name">Xavier</span></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
 
                             <!-- Table 2: Friends Mapping -->
-                            <div class="v29-db-card" id="v29-db-friend">
+                            <div class="v29-db-card-large" id="v29-db-friend">
                                 <div class="v29-db-scanline"></div>
-                                <div style="font-size:11px; font-weight:bold; color:var(--fb-orange); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px; display:flex; align-items:center; gap:4px;">
-                                    <i data-lucide="git-commit" style="width:12px; height:12px;"></i> Table: Friend Map
+                                <div style="font-size:14px; font-weight:bold; color:var(--fb-orange); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.5px; display:flex; align-items:center; gap:6px;">
+                                    <i data-lucide="git-commit" style="width:16px; height:16px;"></i> Table: Friend Map
                                 </div>
-                                <table class="v29-db-table">
+                                <table class="v29-db-table-large">
                                     <thead>
                                         <tr>
                                             <th>user_id</th>
@@ -228,92 +216,45 @@
                                     </thead>
                                     <tbody>
                                         <tr class="v29-row-a">
-                                            <td><span class="v29-badge-code blue">A</span></td>
-                                            <td><span class="v29-badge-code orange">B</span></td>
+                                            <td><span class="v29-badge-code-large blue">A</span></td>
+                                            <td><span class="v29-badge-code-large orange">B</span></td>
                                         </tr>
                                         <tr class="v29-row-a v29-row-mutual">
-                                            <td><span class="v29-badge-code blue">A</span></td>
-                                            <td><span class="v29-badge-code orange">C</span></td>
-                                        </tr>
-                                        <tr class="v29-row-a v29-row-mutual">
-                                            <td><span class="v29-badge-code blue">A</span></td>
-                                            <td><span class="v29-badge-code orange">D</span></td>
-                                        </tr>
-                                        <tr class="v29-db-row-dots">
-                                            <td>...</td>
-                                            <td>...</td>
+                                            <td><span class="v29-badge-code-large blue">A</span></td>
+                                            <td><span class="v29-badge-code-large orange">C</span></td>
                                         </tr>
                                         <tr class="v29-row-x v29-row-mutual">
-                                            <td><span class="v29-badge-code blue">X</span></td>
-                                            <td><span class="v29-badge-code orange">C</span></td>
-                                        </tr>
-                                        <tr class="v29-row-x v29-row-mutual">
-                                            <td><span class="v29-badge-code blue">X</span></td>
-                                            <td><span class="v29-badge-code orange">D</span></td>
-                                        </tr>
-                                        <tr class="v29-row-x">
-                                            <td><span class="v29-badge-code blue">X</span></td>
-                                            <td><span class="v29-badge-code orange">Y</span></td>
-                                        </tr>
-                                        <tr class="v29-db-row-dots">
-                                            <td>...</td>
-                                            <td>...</td>
+                                            <td><span class="v29-badge-code-large blue">X</span></td>
+                                            <td><span class="v29-badge-code-large orange">C</span></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
 
-                        <!-- IDE Query Editor -->
-                        <div class="v29-ide-window">
-                            <div class="v29-ide-header">
-                                <div class="v29-ide-dots">
-                                    <span class="v29-dot red"></span>
-                                    <span class="v29-dot yellow"></span>
-                                    <span class="v29-dot green"></span>
-                                </div>
-                                <div class="v29-ide-title">query.sql</div>
-                                <div style="width: 42px;"></div>
-                            </div>
-                            <div class="v29-ide-body">
-                                <div class="v29-ide-line-numbers">
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                </div>
-                                <div class="v29-ide-code">
-                                    <div><span class="sql-keyword">SELECT</span> friend_id <span class="sql-keyword">FROM</span> <span class="sql-table">Friend</span> <span class="sql-keyword">WHERE</span> user_id = <span class="sql-string">'A'</span></div>
-                                    <div><span class="sql-keyword intersect">INTERSECT</span></div>
-                                    <div><span class="sql-keyword">SELECT</span> friend_id <span class="sql-keyword">FROM</span> <span class="sql-table">Friend</span> <span class="sql-keyword">WHERE</span> user_id = <span class="sql-string">'X'</span>;</div>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Metrics Dashboard Panel -->
-                        <div class="v29-metrics-panel">
+                        <div class="v29-metrics-panel" style="padding: 12px 0 0 0; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; gap: 14px;">
                             <!-- Metric 1: Scan Rows -->
-                            <div class="v29-metric-card">
-                                <div class="v29-metric-header">
-                                    <span class="v29-metric-label">FULL TABLE SCAN</span>
-                                    <i data-lucide="database" class="v29-metric-icon"></i>
+                            <div class="v29-metric-card" style="flex: 1; text-align: left;">
+                                <div class="v29-metric-header" style="display:flex; justify-content:space-between; align-items:center;">
+                                    <span class="v29-metric-label" style="font-size:11px; font-weight:800; color:rgba(255,255,255,0.45);">FULL TABLE SCAN</span>
+                                    <i data-lucide="database" class="v29-metric-icon" style="width:14px; height:14px; color:var(--fb-blue);"></i>
                                 </div>
-                                <div class="v29-metric-value" id="v29-scan-rows">0 / 3 Tỷ hàng</div>
-                                <div class="v29-metric-bar">
-                                    <div class="v29-metric-bar-fill" id="v29-scan-bar"></div>
+                                <div class="v29-metric-value-large" id="v29-scan-rows" style="color:#fff;">0 / 3 Tỷ hàng</div>
+                                <div class="v29-metric-bar" style="height:8px; margin-top:6px;">
+                                    <div class="v29-metric-bar-fill" id="v29-scan-bar" style="height:100%;"></div>
                                 </div>
                             </div>
-
-                            <div class="v29-metrics-divider"></div>
 
                             <!-- Metric 2: Latency -->
-                            <div class="v29-metric-card">
-                                <div class="v29-metric-header">
-                                    <span class="v29-metric-label">ĐỘ TRỄ TRUY VẤN</span>
-                                    <i data-lucide="clock" class="v29-metric-icon"></i>
+                            <div class="v29-metric-card" style="flex: 1; text-align: left;">
+                                <div class="v29-metric-header" style="display:flex; justify-content:space-between; align-items:center;">
+                                    <span class="v29-metric-label" style="font-size:11px; font-weight:800; color:rgba(255,255,255,0.45);">ĐỘ TRỄ TRUY VẤN</span>
+                                    <i data-lucide="clock" class="v29-metric-icon" style="width:14px; height:14px; color:var(--fb-orange);"></i>
                                 </div>
-                                <div class="v29-metric-value" id="v29-latency-val">50 ms</div>
-                                <div class="v29-metric-bar">
-                                    <div class="v29-metric-bar-fill" id="v29-latency-bar"></div>
+                                <div class="v29-metric-value-large" id="v29-latency-val" style="color:var(--fb-green);">50 ms</div>
+                                <div class="v29-metric-bar" style="height:8px; margin-top:6px;">
+                                    <div class="v29-metric-bar-fill" id="v29-latency-bar" style="height:100%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -322,7 +263,7 @@
                     <!-- Bottleneck Alert -->
                     <div class="v29-fb-card v29-alert-card" id="v29-db-alert" style="padding:12px 16px; display:flex; align-items:center; justify-content:center; gap:10px; opacity:0; transform:translateY(12px); transition:all 0.3s; width: 100%;">
                         <i data-lucide="alert-octagon" style="width:24px; height:24px; color:#f87171; flex-shrink: 0;"></i>
-                        <span style="font-size:13px; color:#f87171; font-weight:900; letter-spacing:0.5px; text-align:left;">🚨 NGHẼN DATABASE: 3 TỶ USER KHÔNG THỂ JOIN!</span>
+                        <span style="font-size:14px; color:#f87171; font-weight:900; letter-spacing:0.5px; text-align:left;">🚨 NGHẼN DATABASE: 3 TỶ USER KHÔNG THỂ JOIN!</span>
                     </div>
                 </div>
             `;
@@ -424,31 +365,79 @@
         }
         else if (slideId === 'slide_fb_6') {
             canvas.innerHTML = `
-                <div class="v29-zoom-container">
-                    <div style="font-size:18px; font-weight:800; color:var(--fb-text-muted); text-transform:uppercase; text-align:center; margin-bottom:5px; letter-spacing:0.8px;">
+                <div class="v29-zoom-container" style="zoom: 1.25; gap: 14px; display:flex; flex-direction:column; width:100%;">
+                    <div style="font-size:18px; font-weight:900; color:rgba(255,255,255,0.45); text-transform:uppercase; text-align:center; margin-bottom:4px; letter-spacing:0.8px;">
                         Thử thách KOL: Quá nhiều followers
                     </div>
 
-                    <!-- Ronaldo Card vs normal user split layout -->
-                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; width:100%;">
-                        <!-- Left: Ronaldo Profile Info -->
-                        <div class="v29-fb-card" style="padding:16px; text-align:center; border-color:rgba(251,191,36,0.3);">
-                            <div style="width:50px; height:50px; border-radius:50%; background:linear-gradient(135deg, #f59e0b 0%, #d97706 100%); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; margin: 0 auto 8px auto; color:#fff; box-shadow:0 4px 10px rgba(0,0,0,0.3);">CR7</div>
-                            <div style="font-weight:900; font-size:13px;">C. Ronaldo</div>
-                            <div style="font-size:11px; color:var(--fb-orange); font-weight:bold; margin-top:2px;">50M Followers</div>
+                    <!-- CR7 Profile vs HashSet acceleration split layout -->
+                    <div style="display:grid; grid-template-columns: 1.1fr 1.2fr; gap:14px; width:100%; box-sizing:border-box;">
+                        
+                        <!-- Left: CR7 Profile Card with Ticking Followers and Traffic -->
+                        <div class="v29-fb-card v29-avatar-gold-glow" style="padding:16px; text-align:center; position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; gap:8px;">
+                            <!-- Floating queries in CR7 card representing user queries -->
+                            <div class="v29-request-incoming" id="v29-req-0" style="left:10px; top:60px; display:none;">Join A?</div>
+                            <div class="v29-request-incoming" id="v29-req-1" style="right:10px; top:110px; display:none;">Join X?</div>
+                            <div class="v29-request-incoming" id="v29-req-2" style="left:20px; top:130px; display:none;">Common?</div>
+
+                            <!-- Avatar with premium frame -->
+                            <div style="position:relative; width:64px; height:64px; margin-bottom:2px;">
+                                <img src="https://cdnmedia.baotintuc.vn/Upload/EqV5H9rWgvy9oNikwkHLXA/files/02102025-Cristiano-Ronaldo-1.png" 
+                                     style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid #fbbf24; background:#1e293b;" />
+                                <!-- Online LED -->
+                                <div style="position:absolute; bottom:2px; right:2px; width:10px; height:10px; border-radius:50%; background:#34d399; border:2px solid #242526;"></div>
+                            </div>
                             
-                            <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:8px; margin-top:8px; font-size:10px; color:rgba(255,255,255,0.4); text-transform:uppercase; font-weight:bold;">Đọc Hai con trỏ?</div>
-                            <div style="color:var(--fb-red); font-size:12px; font-weight:bold; margin-top:4px;">❌ QUÁ TẢI (O(N) LỚN)</div>
+                            <!-- Name and Verified Blue Badge -->
+                            <div style="display:flex; align-items:center; justify-content:center; gap:2px;">
+                                <span style="font-weight:900; font-size:14px; color:#fff;">C. Ronaldo</span>
+                                <span class="v29-verified-badge">✓</span>
+                            </div>
+                            
+                            <!-- Follower count ticker -->
+                            <div id="v29-cr7-followers" style="font-size:12px; color:#fbbf24; font-weight:800; font-family:monospace; background:rgba(251,191,36,0.1); padding:2px 8px; border-radius:6px; border:1px solid rgba(251,191,36,0.2);">
+                                50.000.000 Followers
+                            </div>
+                            
+                            <!-- Database state under naive two-pointer intersection -->
+                            <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:8px; margin-top:4px; font-size:9px; color:rgba(255,255,255,0.45); text-transform:uppercase; font-weight:bold; width:100%;">
+                                Hai con trỏ O(N)
+                            </div>
+                            <div id="v29-cr7-status" style="color:var(--fb-red); font-size:11px; font-weight:900; letter-spacing:0.5px; padding:4px; border-radius:6px; border:1px solid rgba(248,113,113,0.2); width:100%; box-sizing:border-box;">
+                                ❌ QUÁ TẢI (50M REQS)
+                            </div>
                         </div>
 
-                        <!-- Right: HashSet & Bitmap acceleration -->
-                        <div class="v29-fb-card" style="padding:16px; text-align:center; border-color:rgba(52,211,153,0.3);">
-                            <div style="width:50px; height:50px; border-radius:50%; background:linear-gradient(135deg, #10b981 0%, #059669 100%); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:20px; margin: 0 auto 8px auto; color:#000;"><i data-lucide="zap" style="width:24px; height:24px; color:#000;"></i></div>
-                            <div style="font-weight:900; font-size:13px;">Giải pháp tăng tốc</div>
-                            <div style="font-size:11px; color:var(--fb-green); font-weight:bold; margin-top:2px;">Thời gian tra cứu O(1)</div>
+                        <!-- Right: HashSet lookup simulator -->
+                        <div class="v29-fb-card" style="padding:16px; border-color:rgba(52,211,153,0.3); display:flex; flex-direction:column; gap:8px;">
+                            <div style="font-weight:900; font-size:13px; color:#fff; text-align:center;">HashSet Lookup</div>
+                            <div style="font-size:11px; color:var(--fb-green); font-weight:bold; text-align:center; background:rgba(52,211,153,0.1); padding:2px 8px; border-radius:6px; border:1px solid rgba(52,211,153,0.2); display:inline-block; margin:0 auto;">
+                                Tốc độ tra cứu O(1)
+                            </div>
                             
-                            <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:8px; margin-top:8px; font-size:10px; color:rgba(255,255,255,0.4); text-transform:uppercase; font-weight:bold;">Cấu trúc tối ưu</div>
-                            <div style="color:var(--fb-green); font-size:12px; font-weight:bold; margin-top:4px;">HashSet / Bitmap / Graph DB</div>
+                            <!-- HashTable layout representation -->
+                            <div class="v29-hashtable-container" style="margin-top:6px;">
+                                <div class="v29-hashtable-row">
+                                    <span class="v29-hashtable-index">[0]</span>
+                                    <div class="v29-hashtable-bucket"><span class="v29-hash-val-badge">Bob</span></div>
+                                </div>
+                                <div class="v29-hashtable-row">
+                                    <span class="v29-hashtable-index">[1]</span>
+                                    <div class="v29-hashtable-bucket"><span class="v29-hash-val-badge">Charlie</span></div>
+                                </div>
+                                <div class="v29-hashtable-row">
+                                    <span class="v29-hashtable-index">[2]</span>
+                                    <div class="v29-hashtable-bucket" id="v29-bucket-target"><span class="v29-hash-val-badge target">Alice</span></div>
+                                </div>
+                                <div class="v29-hashtable-row">
+                                    <span class="v29-hashtable-index">[3]</span>
+                                    <div class="v29-hashtable-bucket"><span class="v29-hash-val-badge">David</span></div>
+                                </div>
+                            </div>
+
+                            <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:6px; text-align:center; font-size:11px; font-weight:800; color:var(--fb-green); transition: all 0.3s;" id="v29-hash-result">
+                                Query: Alice -> Found in 0.1ms
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -489,62 +478,126 @@
         else if (slideId === 'slide_fb_8') {
             canvas.innerHTML = `
                 <div class="v29-zoom-container">
-                    <div style="font-size:18px; font-weight:800; color:var(--fb-text-muted); text-transform:uppercase; text-align:center; margin-bottom:2px; letter-spacing:0.8px;">
+                    <div style="font-size:18px; font-weight:800; color:var(--fb-text-muted); text-transform:uppercase; text-align:center; margin-bottom:4px; letter-spacing:0.8px;">
                         Gợi ý kết bạn (AI Ranker scoring)
                     </div>
 
-                    <div style="display:flex; gap:16px; width:100%; box-sizing:border-box;">
+                    <div style="display:flex; gap:16px; width:100%; box-sizing:border-box; align-items: stretch;">
                         <!-- Left Panel: Ranking Score Dashboard -->
-                        <div class="v29-fb-card" style="padding:16px; flex:1.2; display:flex; flex-direction:column; gap:10px; text-align:left;">
-                            <div style="font-size:12px; color:var(--fb-text-muted); font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Các tiêu chí chấm điểm</div>
+                        <div class="v29-fb-card" style="padding:16px; flex:1.2; display:flex; flex-direction:column; gap:8px; text-align:left;">
+                            <div style="font-size:12px; color:var(--fb-text-muted); font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:6px; text-transform:uppercase; letter-spacing:0.5px; display:flex; align-items:center; gap:6px;">
+                                <i data-lucide="bar-chart-3" style="width:13px; height:13px; color:var(--fb-blue);"></i> Các tiêu chí chấm điểm
+                            </div>
                             
                             <div class="v29-score-card">
                                 <!-- Metric 1 -->
-                                <div>
-                                    <div class="v29-score-item">
-                                        <span>Bạn chung (Mutual Friends)</span>
-                                        <span style="color:var(--fb-blue);">+40 điểm</span>
+                                <div class="v29-criteria-row">
+                                    <div class="v29-criteria-icon-wrap">
+                                        <i data-lucide="users" style="width:14px; height:14px;"></i>
                                     </div>
-                                    <div class="v29-progress-container"><div class="v29-progress-fill" id="v29-score-fill-1" style="background:var(--fb-blue);"></div></div>
+                                    <div class="v29-criteria-info">
+                                        <div class="v29-score-item">
+                                            <span>Bạn chung (Mutual Friends)</span>
+                                            <span class="v29-score-points blue">+40 điểm</span>
+                                        </div>
+                                        <div class="v29-progress-container">
+                                            <div class="v29-progress-fill blue" id="v29-score-fill-1"></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- Metric 2 -->
-                                <div>
-                                    <div class="v29-score-item">
-                                        <span>Cùng thành phố / Khu vực</span>
-                                        <span style="color:var(--fb-green);">+20 điểm</span>
+                                <div class="v29-criteria-row">
+                                    <div class="v29-criteria-icon-wrap">
+                                        <i data-lucide="map-pin" style="width:14px; height:14px;"></i>
                                     </div>
-                                    <div class="v29-progress-container"><div class="v29-progress-fill" id="v29-score-fill-2" style="background:var(--fb-green);"></div></div>
+                                    <div class="v29-criteria-info">
+                                        <div class="v29-score-item">
+                                            <span>Cùng thành phố / Khu vực</span>
+                                            <span class="v29-score-points green">+20 điểm</span>
+                                        </div>
+                                        <div class="v29-progress-container">
+                                            <div class="v29-progress-fill green" id="v29-score-fill-2"></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- Metric 3 -->
-                                <div>
-                                    <div class="v29-score-item">
-                                        <span>Check-in gần nhau (Proximity)</span>
-                                        <span style="color:var(--fb-orange);">+15 điểm</span>
+                                <div class="v29-criteria-row">
+                                    <div class="v29-criteria-icon-wrap">
+                                        <i data-lucide="navigation" style="width:14px; height:14px;"></i>
                                     </div>
-                                    <div class="v29-progress-container"><div class="v29-progress-fill" id="v29-score-fill-3" style="background:var(--fb-orange);"></div></div>
+                                    <div class="v29-criteria-info">
+                                        <div class="v29-score-item">
+                                            <span>Check-in gần nhau (Proximity)</span>
+                                            <span class="v29-score-points orange">+15 điểm</span>
+                                        </div>
+                                        <div class="v29-progress-container">
+                                            <div class="v29-progress-fill orange" id="v29-score-fill-3"></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- Metric 4 -->
-                                <div>
-                                    <div class="v29-score-item">
-                                        <span>Cùng trường học / Công ty</span>
-                                        <span style="color:rgba(255,255,255,0.85);">+25 điểm</span>
+                                <div class="v29-criteria-row">
+                                    <div class="v29-criteria-icon-wrap">
+                                        <i data-lucide="briefcase" style="width:14px; height:14px;"></i>
                                     </div>
-                                    <div class="v29-progress-container"><div class="v29-progress-fill" id="v29-score-fill-4" style="background:rgba(255,255,255,0.4);"></div></div>
+                                    <div class="v29-criteria-info">
+                                        <div class="v29-score-item">
+                                            <span>Cùng trường học / Công ty</span>
+                                            <span class="v29-score-points purple">+25 điểm</span>
+                                        </div>
+                                        <div class="v29-progress-container">
+                                            <div class="v29-progress-fill purple" id="v29-score-fill-4"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Right Panel: People You May Know Card -->
-                        <div class="v29-fb-card" id="v29-suggest-card" style="padding:16px; flex:0.8; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; border-color:rgba(255,255,255,0.05); transition:all 0.4s ease; opacity: 0.75; transform:scale(0.95);">
-                            <div style="width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg, #1877f2 0%, #155dfc 100%); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; box-shadow:0 4px 10px rgba(0,0,0,0.3);">Y</div>
-                            <div style="font-weight:900; font-size:12px;">Yuri Miller</div>
+                        <div class="v29-fb-card" id="v29-suggest-card" style="padding:16px; flex:0.8; display:flex; flex-direction:column; align-items:center; justify-content:space-between; border-color:rgba(255,255,255,0.05); transition:all 0.4s ease; opacity: 0.75; transform:scale(0.95); background: radial-gradient(circle at top left, rgba(24, 119, 242, 0.12), rgba(15, 23, 42, 0.98));">
+                            <div class="v29-badge-suggest">Gợi ý kết bạn</div>
                             
-                            <!-- Overall Score overlay -->
-                            <div style="font-size:16px; font-weight:900; color:var(--fb-blue); margin-top:2px;" id="v29-score-total">Score: 0</div>
-                            <div style="font-size:9px; color:var(--fb-text-muted); text-transform:uppercase; font-weight:800; letter-spacing:0.5px;">Gợi ý kết bạn</div>
+                            <!-- Avatar with dashed spinning ring -->
+                            <div class="v29-avatar-wrapper">
+                                <div class="v29-avatar-ring"></div>
+                                <img src="https://scontent.fsgn5-21.fna.fbcdn.net/v/t39.30808-6/668933919_1261633489494055_7499248789811692787_n.jpg?stp=dst-jpg_tt6&cstp=mx894x891&ctp=s894x891&_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=wvLh2Riq2QMQ7kNvwGt_IxC&_nc_oc=AdrHuRf8zauOjhCJSY0xbW89HJfw-nvDaIMyH4iuu8k4qCMhvobjx6UuzBZg6t7PkOw&_nc_zt=23&_nc_ht=scontent.fsgn5-21.fna&_nc_gid=3hvTf0ik8SHGLNgNHWbq5A&_nc_ss=7b2a8&oh=00_Af90XAmsbWyRbIGON5gM-rT2yLYpw1T5lJtUnqS6l6SW-w&oe=6A42FD48" 
+                                     class="v29-avatar-img" />
+                                <div class="v29-online-dot"></div>
+                            </div>
                             
-                            <button style="width:100%; height:26px; border-radius:6px; background:var(--fb-blue); border:none; color:#fff; font-size:10px; font-weight:bold; text-transform:uppercase; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:4px; margin-top:4px;">
-                                <i data-lucide="user-plus" style="width:10px; height:10px; color:#fff;"></i> Thêm bạn bè
+                            <!-- Name and Blue Verified Badge -->
+                            <div style="display:flex; align-items:center; gap:4px; margin-top:2px;">
+                                <span style="font-weight:900; font-size:14px; color:#fff; white-space:nowrap;">Turnio DEV</span>
+                                <span class="v29-verified-badge" style="width:12px; height:12px; font-size:7px; margin-left: 0;">✓</span>
+                            </div>
+
+                            <!-- Social Proof: Mutual Friends overlapping avatars -->
+                            <div class="v29-mutual-avatars">
+                                <div class="v29-mutual-avatar-group">
+                                    <img src="https://cdnmedia.baotintuc.vn/Upload/EqV5H9rWgvy9oNikwkHLXA/files/02102025-Cristiano-Ronaldo-1.png" class="v29-mini-avatar" />
+                                    <span class="v29-mini-avatar letter">Y</span>
+                                    <span class="v29-mini-avatar letter blue">X</span>
+                                </div>
+                                <span style="font-size: 8px; color: var(--fb-text-muted); font-weight: 700; white-space: nowrap;">9 bạn chung bao gồm CR7</span>
+                            </div>
+                            
+                            <!-- Overall Score overlay inside HUD ring -->
+                            <div class="v29-score-hud">
+                                <svg class="v29-hud-svg" viewBox="0 0 80 80">
+                                    <defs>
+                                        <linearGradient id="v29-hud-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#1877f2" />
+                                            <stop offset="100%" stop-color="#60a5fa" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle class="v29-hud-bg" cx="40" cy="40" r="34" />
+                                    <circle class="v29-hud-fill" id="v29-hud-fill-circle" cx="40" cy="40" r="34" stroke-dasharray="213.63" stroke-dashoffset="213.63" />
+                                </svg>
+                                <div class="v29-hud-value" id="v29-score-value">0%</div>
+                            </div>
+                            
+                            <button class="v29-add-btn">
+                                <i data-lucide="user-plus" style="width:12px; height:12px; color:#fff;"></i> Thêm bạn bè
                             </button>
                         </div>
                     </div>
@@ -671,7 +724,7 @@
             
             const dbUser = canvas.querySelector('#v29-db-user');
             const dbFriend = canvas.querySelector('#v29-db-friend');
-
+ 
             // Trigger scanlines
             if (dbUser && dbFriend) {
                 const scanlineUser = dbUser.querySelector('.v29-db-scanline');
@@ -685,7 +738,7 @@
                     if (scanlineFriend) scanlineFriend.classList.remove('scanning');
                 }
             }
-
+ 
             // 1. Scan rows increments from 0 to 3 billion
             const bill = (progress * 3.0).toFixed(2);
             if (scanRows) {
@@ -697,7 +750,7 @@
                     scanRows.style.color = "#fff";
                 }
             }
-
+ 
             // 2. Latency grows exponentially
             if (latencyVal) {
                 if (progress < 0.1) {
@@ -709,7 +762,7 @@
                     latencyVal.style.color = ms > 2000 ? "var(--fb-red)" : (ms > 300 ? "var(--fb-orange)" : "var(--fb-green)");
                 }
             }
-
+ 
             // 3. Warning Alert shows at progress >= 0.6
             if (alertBox) {
                 if (progress >= 0.6) {
@@ -720,11 +773,11 @@
                     alertBox.style.transform = 'translateY(12px)';
                 }
             }
-
+ 
             // 4. Interactive Row highlights
-            const rows = canvas.querySelectorAll('.v29-db-table tr');
+            const rows = canvas.querySelectorAll('.v29-db-table-large tr');
             rows.forEach(r => r.classList.remove('active-row-a', 'active-row-x', 'active-row-mutual'));
-
+ 
             if (progress > 0.1 && progress < 0.45) {
                 canvas.querySelectorAll('.v29-row-a').forEach(r => r.classList.add('active-row-a'));
             } else if (progress >= 0.45 && progress < 0.8) {
@@ -732,11 +785,11 @@
             } else if (progress >= 0.8) {
                 canvas.querySelectorAll('.v29-row-mutual').forEach(r => r.classList.add('active-row-mutual'));
             }
-
+ 
             // 5. Update metric bar fills
             const scanBar = canvas.querySelector('#v29-scan-bar');
             const latencyBar = canvas.querySelector('#v29-latency-bar');
-
+ 
             if (scanBar) {
                 const scanWidth = progress * 100;
                 scanBar.style.width = `${scanWidth}%`;
@@ -748,7 +801,7 @@
                     scanBar.style.boxShadow = '0 0 8px var(--fb-blue)';
                 }
             }
-
+ 
             if (latencyBar) {
                 const latencyPct = progress * progress * 100;
                 latencyBar.style.width = `${latencyPct}%`;
@@ -944,6 +997,87 @@
                 `).join('');
             }
         }
+        else if (slideId === 'slide_fb_6') {
+            const followersEl = canvas.querySelector('#v29-cr7-followers');
+            const statusEl = canvas.querySelector('#v29-cr7-status');
+            const bucketTarget = canvas.querySelector('#v29-bucket-target');
+            const hashResult = canvas.querySelector('#v29-hash-result');
+            
+            // 1. Follower count ticker
+            if (followersEl) {
+                const count = Math.floor(progress * 15);
+                followersEl.textContent = `${(50000000 + count).toLocaleString('vi-VN')} Followers`;
+            }
+
+            // 2. Follower requests stream
+            const req0 = canvas.querySelector('#v29-req-0');
+            const req1 = canvas.querySelector('#v29-req-1');
+            const req2 = canvas.querySelector('#v29-req-2');
+            
+            if (progress > 0.1) {
+                const speed = 1.4;
+                if (req0) {
+                    req0.style.display = 'block';
+                    const y0 = (60 - ((progress * speed) % 1.0) * 80);
+                    req0.style.top = `${y0}px`;
+                    req0.style.opacity = Math.sin(Math.PI * ((progress * speed) % 1.0));
+                }
+                if (req1) {
+                    req1.style.display = 'block';
+                    const y1 = (110 - ((progress * speed + 0.33) % 1.0) * 80);
+                    req1.style.top = `${y1}px`;
+                    req1.style.opacity = Math.sin(Math.PI * ((progress * speed + 0.33) % 1.0));
+                }
+                if (req2) {
+                    req2.style.display = 'block';
+                    const y2 = (130 - ((progress * speed + 0.66) % 1.0) * 80);
+                    req2.style.top = `${y2}px`;
+                    req2.style.opacity = Math.sin(Math.PI * ((progress * speed + 0.66) % 1.0));
+                }
+            } else {
+                if (req0) req0.style.display = 'none';
+                if (req1) req1.style.display = 'none';
+                if (req2) req2.style.display = 'none';
+            }
+
+            // 3. Database status alert under O(N)
+            if (statusEl) {
+                if (progress < 0.45) {
+                    statusEl.textContent = '⏳ ĐANG QUÉT (O(N))';
+                    statusEl.style.color = 'var(--fb-orange)';
+                    statusEl.style.borderColor = 'rgba(251,191,36,0.3)';
+                    statusEl.style.background = 'rgba(251,191,36,0.06)';
+                } else {
+                    statusEl.textContent = '❌ QUÁ TẢI (50M REQS)';
+                    statusEl.style.color = 'var(--fb-red)';
+                    statusEl.style.borderColor = 'rgba(248,113,113,0.3)';
+                    statusEl.style.background = 'rgba(248,113,113,0.06)';
+                }
+            }
+
+            // 4. HashTable simulation lookup success
+            if (bucketTarget) {
+                if (progress >= 0.4) {
+                    bucketTarget.classList.add('active-lookup');
+                } else {
+                    bucketTarget.classList.remove('active-lookup');
+                }
+            }
+
+            // 5. HashTable result message
+            if (hashResult) {
+                if (progress < 0.4) {
+                    hashResult.textContent = 'Query: Alice -> Hashing...';
+                    hashResult.style.color = 'var(--fb-orange)';
+                    hashResult.style.transform = 'scale(1)';
+                } else {
+                    hashResult.textContent = 'Query: Alice -> FOUND IN O(1) (0.1ms)';
+                    hashResult.style.color = 'var(--fb-green)';
+                    hashResult.style.transform = 'scale(1.04)';
+                    hashResult.style.textShadow = '0 0 10px rgba(52,211,153,0.4)';
+                }
+            }
+        }
         else if (slideId === 'slide_fb_7') {
             const s1 = canvas.querySelector('#v29-shard-1');
             const s2 = canvas.querySelector('#v29-shard-2');
@@ -988,7 +1122,8 @@
             const f2 = canvas.querySelector('#v29-score-fill-2');
             const f3 = canvas.querySelector('#v29-score-fill-3');
             const f4 = canvas.querySelector('#v29-score-fill-4');
-            const scoreTotal = canvas.querySelector('#v29-score-total');
+            const scoreValue = canvas.querySelector('#v29-score-value');
+            const hudCircle = canvas.querySelector('#v29-hud-fill-circle');
             const suggestCard = canvas.querySelector('#v29-suggest-card');
 
             // Sequentially fill up criteria bars
@@ -1004,16 +1139,21 @@
             const r4 = progress < 0.75 ? 0 : Math.min(1.0, (progress - 0.75) / 0.25);
             if (f4) f4.style.width = `${r4 * 100}%`;
 
-            const score = Math.round(progress * 92);
-            if (scoreTotal) scoreTotal.textContent = `Score: ${score}`;
+            const scoreVal = Math.round(progress * 92);
+            if (scoreValue) scoreValue.textContent = `${scoreVal}%`;
+            if (hudCircle) {
+                const circ = 213.63; // 2 * Math.PI * 34
+                const offset = circ - (scoreVal / 100) * circ;
+                hudCircle.style.strokeDashoffset = offset;
+            }
 
             // Highlight recommendation card
             if (suggestCard) {
                 if (progress >= 0.75) {
                     suggestCard.style.opacity = '1';
-                    suggestCard.style.transform = 'scale(1.05)';
-                    suggestCard.style.borderColor = 'var(--fb-blue)';
-                    suggestCard.style.boxShadow = '0 0 20px rgba(24, 119, 242, 0.25)';
+                    suggestCard.style.transform = 'scale(1.03)';
+                    suggestCard.style.borderColor = 'rgba(24, 119, 242, 0.7)';
+                    suggestCard.style.boxShadow = '0 10px 40px rgba(24, 119, 242, 0.35)';
                 } else {
                     suggestCard.style.opacity = '0.75';
                     suggestCard.style.transform = 'scale(0.95)';
