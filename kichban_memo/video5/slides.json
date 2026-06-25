@@ -1,0 +1,105 @@
+[
+  {
+    "audioPath": "",
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "duration": 8.0,
+    "id": "slide_memo5_1",
+    "layout": "title",
+    "refVoice": "",
+    "script": "Bạn tìm chìa khóa ròng rã suốt mười phút, để rồi nhận ra nó nằm lù lù ngay trên bàn, ngay trước mắt bạn.",
+    "subtitle": "BÍ ẨN TÂM LÝ HỌC VỀ ĐIỂM MÙ NHẬN THỨC",
+    "title": "Chìa khóa ngay trước mắt",
+    "voice": "google-vi-VN-Neural2-D"
+  },
+  {
+    "audioPath": "",
+    "cards": [],
+    "code": "",
+    "diagram": [
+      {
+        "id": "node_m5_1",
+        "label": "Mắt nhận ánh sáng",
+        "type": "start"
+      },
+      {
+        "id": "node_m5_2",
+        "label": "Vỏ não thị giác xử lý",
+        "type": "process"
+      },
+      {
+        "id": "node_m5_3",
+        "label": "Bộ lọc so khớp (Template Filter)",
+        "type": "warning",
+        "note": "So khớp ảnh ảo"
+      },
+      {
+        "id": "node_m5_4",
+        "label": "Nhận biết ý thức",
+        "type": "success"
+      }
+    ],
+    "duration": 12.0,
+    "id": "slide_memo5_2",
+    "layout": "diagram",
+    "refVoice": "",
+    "script": "Không phải mắt không nhìn thấy, mà là não bộ đã chủ động loại bỏ hình ảnh đó. Nó chỉ tìm kiếm thứ khớp chính xác với hình ảnh bạn đang tưởng tượng trong đầu.",
+    "subtitle": "CƠ CHẾ LỌC TẬP TRUNG (SELECTIVE ATTENTION)",
+    "title": "Bộ lọc hình ảnh của não",
+    "voice": "google-vi-VN-Neural2-D"
+  },
+  {
+    "audioPath": "",
+    "cards": [
+      {
+        "desc": "Móc khóa mới hoặc bị che khuất làm giảm điểm so khớp (matching score) khiến não bỏ qua.",
+        "icon": "eye-off",
+        "title": "Sai lệch bộ lọc"
+      },
+      {
+        "desc": "Căng thẳng thu hẹp tiêu cự chú ý, biến mọi thứ xung quanh thành điểm mù thị giác.",
+        "icon": "alert-circle",
+        "title": "Lọc quá mức"
+      }
+    ],
+    "code": "",
+    "diagram": [],
+    "duration": 12.0,
+    "id": "slide_memo5_3",
+    "layout": "cards",
+    "refVoice": "",
+    "script": "Khi bạn căng thẳng tìm chìa khóa dạng kim loại tròn, nhưng nó lại bị kẹp dưới quyển sách hay có móc khóa khác màu, não sẽ tự động lọc bỏ vì không trùng khớp bộ nhận diện.",
+    "subtitle": "SỰ KHÁC BIỆT GIỮA NHÌN VÀ THẤY",
+    "title": "Tại sao lại có điểm mù?",
+    "voice": "google-vi-VN-Neural2-D"
+  },
+  {
+    "audioPath": "",
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "duration": 11.0,
+    "id": "slide_memo5_4",
+    "layout": "split",
+    "refVoice": "",
+    "script": "Hiện tượng này gọi là mù do không chú ý. Khi tập trung quá mức vào một chi tiết giả định, bạn sẽ hoàn toàn bỏ qua những vật thể rõ ràng khác ngay trước mắt.",
+    "subtitle": "HỘI CHỨNG MÙ DO KHÔNG CHÚ Ý (INATTENTIONAL BLINDNESS)",
+    "title": "Tập trung quá mức = Mù lòa",
+    "voice": "google-vi-VN-Neural2-D"
+  },
+  {
+    "audioPath": "",
+    "cards": [],
+    "code": "",
+    "diagram": [],
+    "duration": 9.0,
+    "id": "slide_memo5_5",
+    "layout": "title",
+    "refVoice": "",
+    "script": "Lần tới nếu mất đồ, hãy nhắm mắt 3 giây, thả lỏng tâm trí và nhìn lại toàn cảnh. Nhấn tim, chia sẻ và Follow DOM Memo để tiêu dùng thông thái hơn nhé!",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BỘ NÃO",
+    "title": "Thả lỏng để nhìn thấy!",
+    "voice": "google-vi-VN-Neural2-D"
+  }
+]

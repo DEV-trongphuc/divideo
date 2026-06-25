@@ -1,0 +1,822 @@
+/* DOM Memo Video 4: Supermarket Psychological Maze Stylesheet */
+
+:root {
+    --memo-primary: #8b5cf6;     /* Purple */
+    --memo-secondary: #f472b6;   /* Light Pink */
+    --memo-pink: #ec4899;        /* Deep Pink */
+    --memo-indigo: #6366f1;      /* Indigo */
+    --memo-dark: #0d0d12;
+    --memo-glass-border: rgba(255, 255, 255, 0.08);
+    --memo-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+/* Base Wrapper - Spacing constrained perfectly to 900x800 to avoid overlapping subtitles */
+.memo-wrapper {
+    width: 900px;
+    height: 800px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 10px;
+    background: transparent;
+    overflow: visible;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Row-based slides layouts */
+.slide-memo4-4-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    padding: 20px !important;
+    gap: 40px !important;
+}
+
+.slide-memo4-3-container {
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding: 20px !important;
+    gap: 25px !important;
+}
+
+.slide-memo4-3-container .memo-left-layout {
+    flex-direction: row !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 20px !important;
+    flex: none !important;
+}
+
+.slide-memo4-3-container .memo-right-layout {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    flex: none !important;
+}
+
+.slide-memo4-3-container .memo-card-item {
+    flex: 1 !important;
+    height: 140px !important;
+}
+
+.slide-memo4-1-container {
+    justify-content: center !important;
+    padding-top: 40px !important;
+}
+
+.slide-memo4-2-container {
+    justify-content: flex-start !important;
+    padding-top: 20px !important;
+    gap: 20px !important;
+}
+
+/* --- SLIDE 1: SHOPPING CART SIMULATION --- */
+.shopping-cart-simulation {
+    width: 700px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid var(--memo-glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--memo-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.supermarket-background-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: 1;
+}
+
+.cart-container-wrap {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-basket {
+    color: var(--memo-primary);
+    font-size: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.45));
+}
+
+.cart-basket i,
+.cart-basket svg {
+    width: 160px;
+    height: 160px;
+}
+
+.cart-items-grid {
+    position: absolute;
+    top: 10px;
+    left: 32px;
+    right: 10px;
+    height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    gap: 4px;
+}
+
+.item-drop {
+    font-size: 32px;
+    opacity: 0;
+    transform: scale(0.5) translateY(-80px);
+    transition: opacity 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cart-items-counter {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 16px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    z-index: 3;
+    margin-bottom: 20px;
+}
+
+.counter-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.5px;
+}
+
+.counter-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: #10b981;
+    transition: color 0.3s;
+}
+
+.sleep-status-badge {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--memo-primary);
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    padding: 6px 20px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    z-index: 3;
+}
+
+/* --- SLIDE 2: SUPERMARKET MAZE --- */
+.supermarket-maze-card {
+    width: 900px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 20px;
+    padding: 20px 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: var(--memo-shadow);
+    margin-top: 0;
+}
+
+.maze-header {
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 10px;
+}
+
+.maze-arena {
+    position: relative;
+    height: 240px;
+    background: rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.03);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.maze-shelf {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.35);
+}
+
+.ms-1 { top: 40px; left: 100px; width: 100px; height: 40px; }
+.ms-2 { top: 140px; left: 100px; width: 100px; height: 40px; }
+.ms-3 { top: 40px; left: 280px; width: 100px; height: 40px; }
+.ms-4 { top: 140px; left: 280px; width: 100px; height: 40px; }
+
+.maze-target-item {
+    position: absolute;
+    top: 110px;
+    right: 20px;
+    color: var(--memo-primary);
+    font-weight: 800;
+    font-size: 16px;
+    text-align: center;
+    border: 1.5px solid var(--memo-primary);
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(139, 92, 246, 0.05);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+}
+
+.maze-entrance {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    font-size: 15px;
+    font-weight: 800;
+    color: #10b981;
+}
+
+.maze-route-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.maze-path-draw {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+}
+
+.impulse-point {
+    opacity: 0;
+    filter: drop-shadow(0 0 6px #ef4444);
+    transition: opacity 0.25s ease;
+}
+
+.impulse-indicator {
+    position: absolute;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 4px 8px;
+    border-radius: 6px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.ii-1 { top: 95px; left: 10px; }
+.ii-2 { bottom: 15px; left: 165px; }
+.ii-3 { top: 15px; left: 285px; }
+
+/* --- SHARED DIAGRAM FLOW --- */
+.memo-diagram-flow {
+    display: flex;
+    align-items: center;
+    width: 900px;
+    justify-content: space-between;
+    max-width: 900px;
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+.flow-step {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 12px;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    box-sizing: border-box;
+    transition: opacity 0.3s;
+}
+
+.flow-step .fs-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flow-step .fs-text {
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+}
+
+.highlighted-step {
+    border-color: var(--memo-primary) !important;
+    background: rgba(139, 92, 246, 0.06) !important;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+}
+
+.highlighted-step .fs-num {
+    background: var(--memo-primary) !important;
+    color: #fff !important;
+}
+
+.flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.flow-arrow i {
+    width: 16px;
+    height: 16px;
+}
+
+.m4-fs1, .m4-fs2, .m4-fs3, .m4-fs4 {
+    opacity: 0.2;
+}
+
+.m4-fa1, .m4-fa2, .m4-fa3 {
+    opacity: 0.2;
+}
+
+/* --- SLIDE 3: SENSORY TRAP --- */
+.memo-left-layout {
+    flex: 0.95;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sensory-trap-card {
+    width: 380px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--memo-shadow);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.music-trap-section,
+.smell-trap-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.divider-vertical {
+    width: 1.5px;
+    height: 80%;
+    background: rgba(255,255,255,0.06);
+    margin: 0 10px;
+}
+
+.trap-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 2;
+}
+
+.pulsing-indigo {
+    background: rgba(99, 102, 241, 0.12);
+    border: 2px solid rgba(99, 102, 241, 0.35);
+    color: var(--memo-indigo);
+    animation: ind-pulse-glow 1.5s infinite alternate;
+}
+
+.pulsing-pink {
+    background: rgba(236, 72, 153, 0.12);
+    border: 2px solid rgba(236, 72, 153, 0.35);
+    color: var(--memo-secondary);
+    animation: pink-pulse-glow 1.5s infinite alternate;
+}
+
+@keyframes ind-pulse-glow {
+    0% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.15); }
+    100% { box-shadow: 0 0 15px rgba(99, 102, 241, 0.4); }
+}
+
+@keyframes pink-pulse-glow {
+    0% { box-shadow: 0 0 5px rgba(236, 72, 153, 0.15); }
+    100% { box-shadow: 0 0 15px rgba(236, 72, 153, 0.4); }
+}
+
+.trap-icon i {
+    width: 24px;
+    height: 24px;
+}
+
+.music-tempo-meter {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 35px;
+    width: 50px;
+}
+
+.tempo-bar {
+    flex: 1;
+    height: 20%;
+    background: var(--memo-indigo);
+    border-radius: 2px;
+}
+
+.scent-cloud-wrap {
+    position: relative;
+    height: 35px;
+    width: 50px;
+    overflow: visible;
+}
+
+.scent-steam {
+    position: absolute;
+    background: radial-gradient(circle, rgba(244, 114, 182, 0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    left: 40%;
+    top: 80%;
+    opacity: 0;
+}
+
+.tempo-label,
+.scent-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 5px;
+    text-align: center;
+}
+
+.sensory-effects-badge {
+    width: 380px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 20px;
+    padding: 16px 20px;
+    box-shadow: var(--memo-shadow);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--memo-indigo);
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
+.memo-card-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 20px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mc-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--memo-primary);
+    flex-shrink: 0;
+}
+
+.mc-icon i,
+.mc-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.mc-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 4px 0;
+}
+
+.mc-content p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.slide-memo4-3-container .memo-left-layout .sensory-trap-card {
+    width: 500px !important;
+    height: 180px !important;
+}
+
+.slide-memo4-3-container .memo-left-layout .sensory-effects-badge {
+    width: 340px !important;
+    height: 180px !important;
+}
+
+/* Card column styles */
+.m4-c1 .mc-icon { color: var(--memo-indigo); background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25); }
+.m4-c2 .mc-icon { color: var(--memo-pink); background: rgba(236,72,153,0.1); border: 1px solid rgba(236,72,153,0.25); }
+
+/* --- SLIDE 4: CHECKOUT CONVEYOR BELT --- */
+.checkout-trap-panel {
+    flex: 1;
+    height: 330px; /* Safe space to clear subtitle */
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease, border-color 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+.sc-red-title { color: #ef4444; }
+.sc-blue-title { color: var(--memo-indigo); }
+
+.conveyor-belt-wrap {
+    height: 70px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.04);
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.belt-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    height: 8px;
+    background: #27272a;
+    border-top: 1px solid #3f3f46;
+}
+
+.belt-rollers {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.belt-rollers span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #52525b;
+}
+
+.belt-items {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    display: flex;
+    gap: 30px;
+    white-space: nowrap;
+}
+
+.b-item {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.checkout-bars-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkout-bar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+.ch-lbl {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+}
+
+.ch-progress-bg {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.ch-progress-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.08s linear;
+}
+
+.willpower-fill {
+    background: #ef4444; /* Drains to red */
+}
+
+.impulse-fill {
+    background: #3b82f6; /* Rises to blue */
+}
+
+.ch-val-label {
+    align-self: flex-end;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 1px;
+}
+
+/* Brain Willpower Depletion GFX on Right */
+.willpower-depletion-gfx {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.willpower-brain-glow {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.12);
+    border: 2px solid rgba(99, 102, 241, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--memo-indigo);
+    font-size: 28px;
+    transition: all 0.3s ease;
+}
+
+.willpower-brain-glow i {
+    width: 32px;
+    height: 32px;
+}
+
+.willpower-status-alert {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 12px;
+}
+
+.alert-inactive {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1.5px solid rgba(16, 185, 129, 0.25);
+    color: #10b981;
+}
+
+.alert-active {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1.5px solid #ef4444;
+    color: #ef4444;
+    animation: alert-flash-glow 0.8s infinite alternate;
+}
+
+@keyframes alert-flash-glow {
+    0% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.2); }
+    100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.45); }
+}
+
+.checkout-labels-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.checkout-desc-txt {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.checkout-status-tag {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.text-red {
+    color: #ef4444;
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+.text-blue {
+    color: var(--memo-indigo);
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+/* Lucide Icon override */
+.lucide-icon-custom {
+    stroke-width: 2;
+}
+
+/* --- KEYWORD TIMING COLORS --- */
+.active-purple {
+    color: #c084fc !important;
+    text-shadow: 0 0 10px rgba(192, 132, 252, 0.5) !important;
+    border-color: #a855f7 !important;
+}
+
+.active-indigo {
+    color: #818cf8 !important;
+    text-shadow: 0 0 10px rgba(129, 140, 248, 0.5) !important;
+    border-color: #6366f1 !important;
+}
+
+.active-pink {
+    color: #f472b6 !important;
+    text-shadow: 0 0 10px rgba(244, 114, 182, 0.5) !important;
+    border-color: #ec4899 !important;
+}

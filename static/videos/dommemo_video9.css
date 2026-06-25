@@ -1,0 +1,841 @@
+/* DOM Memo Video 9: Silence Anxiety Stylesheet */
+
+:root {
+    --memo9-primary: #ec4899;      /* Pink / Alert */
+    --memo9-secondary: #8b5cf6;    /* Purple */
+    --memo9-cyan: #06b6d4;         /* Cyan / Message */
+    --memo9-green: #10b981;        /* Green / Reality */
+    --memo9-dark-bg: #09090e;      /* Deep dark background */
+    --memo9-card-bg: rgba(25, 25, 38, 0.65);
+    --memo9-glass-border: rgba(255, 255, 255, 0.08);
+    --memo9-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Base Wrapper - Spacing constrained perfectly to 900x800 */
+.memo-wrapper {
+    width: 900px;
+    height: 800px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background: transparent;
+    overflow: visible;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Staggered Floating Particles for slide bg */
+@keyframes drift-slow {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.15; }
+    50% { transform: translateY(-50px) translateX(20px) rotate(180deg); opacity: 0.35; }
+    100% { transform: translateY(-100px) translateX(-10px) rotate(360deg); opacity: 0.15; }
+}
+
+.ambient-particle-v9 {
+    position: absolute;
+    font-size: 24px;
+    pointer-events: none;
+    z-index: 0;
+    animation: drift-slow 12s linear infinite;
+    opacity: 0.2;
+}
+
+/* --- SLIDE 1: HOOK (Bộ phim trong đầu) --- */
+.slide-memo9-1-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 30px 40px !important;
+}
+
+/* Left side: Film Reel and thoughts */
+.film-reel-wrap {
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    justify-content: center;
+}
+
+.film-reel-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.film-reel-graphic {
+    width: 240px;
+    height: 240px;
+    border: 12px double rgba(236, 72, 153, 0.4);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+}
+
+.film-reel-inner {
+    width: 200px;
+    height: 200px;
+    border: 3px dashed rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.film-spoke {
+    position: absolute;
+    width: 6px;
+    height: 220px;
+    background: rgba(255, 255, 255, 0.12);
+}
+.film-spoke:nth-child(2) { transform: rotate(45deg); }
+.film-spoke:nth-child(3) { transform: rotate(90deg); }
+.film-spoke:nth-child(4) { transform: rotate(135deg); }
+
+.film-reel-center {
+    width: 60px;
+    height: 60px;
+    background: #111118;
+    border: 4px solid var(--memo9-primary);
+    border-radius: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Rotating effect */
+.reel-spinning {
+    animation: reel-rotate-loop 10s linear infinite;
+}
+
+@keyframes reel-rotate-loop {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Floating movie scenario thought tags */
+.thought-reel-badge {
+    position: absolute;
+    padding: 10px 18px;
+    border-radius: 20px;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1.5px solid rgba(239, 68, 68, 0.4);
+    color: #fca5a5;
+    font-weight: 700;
+    font-size: 17px;
+    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: scale(0.6) translateY(20px);
+}
+
+.thought-reel-badge.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.t-tag1 { top: 0px; left: 10px; }
+.t-tag2 { bottom: 10px; right: 10px; }
+.t-tag3 { top: 200px; left: -30px; }
+
+/* Right side: Phone screen mockup */
+.phone-mockup-v9 {
+    width: 380px;
+    height: 580px;
+    border: 3.5px solid rgba(255, 255, 255, 0.14);
+    border-radius: 36px;
+    background: #0b0b10;
+    padding: 12px;
+    box-sizing: border-box;
+    box-shadow: var(--memo9-shadow), inset 0 0 15px rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-screen-v9 {
+    flex: 1;
+    border-radius: 26px;
+    background: #06060a;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.phone-header-v9 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.phone-header-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-avatar-v9 {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--memo9-secondary), var(--memo9-primary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.user-status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--memo9-green);
+    border-radius: 50%;
+}
+
+.chat-history-v9 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.chat-bubble-v9 {
+    max-width: 75%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 16px;
+    line-height: 1.4;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.chat-bubble-v9.sent {
+    background: linear-gradient(135deg, var(--memo9-cyan), #0891b2);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.chat-bubble-v9.received {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.message-status-txt {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    align-self: flex-end;
+    margin-top: -6px;
+    margin-right: 4px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+/* Custom typing dot indicator */
+.typing-indicator-v9 {
+    background: rgba(255, 255, 255, 0.07);
+    padding: 12px 18px;
+    border-radius: 18px;
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.typing-indicator-v9.visible {
+    opacity: 1;
+}
+
+.typing-dot {
+    width: 7px;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: typing-dot-bounce 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing-dot-bounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1.2) translateY(-6px); opacity: 1; }
+}
+
+
+/* --- SLIDE 2: PUZZLE INFO GAP (Nỗi sợ Khoảng trống) --- */
+.slide-memo9-2-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 20px !important;
+}
+
+.puzzle-board-v9 {
+    position: relative;
+    width: 680px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid var(--memo9-glass-border);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: var(--memo9-shadow);
+}
+
+.puzzle-grid-v9 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 40px;
+}
+
+/* Jigsaw Blocks */
+.puzzle-piece-static {
+    width: 180px;
+    height: 160px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05));
+    border: 2.5px solid rgba(139, 92, 246, 0.4);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    font-weight: 700;
+    gap: 12px;
+    box-shadow: inset 0 0 15px rgba(139, 92, 246, 0.1);
+}
+
+.puzzle-piece-static .piece-icon {
+    font-size: 32px;
+}
+
+/* Empty gap slot */
+.puzzle-slot-empty {
+    width: 200px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 3px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 15px;
+    font-weight: 800;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+.puzzle-slot-empty.highlight-active {
+    border-color: rgba(239, 68, 68, 0.5);
+    background: rgba(239, 68, 68, 0.03);
+}
+
+.puzzle-slot-empty .slot-placeholder-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+    opacity: 0.4;
+}
+
+/* Snapping red assumption piece */
+.puzzle-piece-moving {
+    position: absolute;
+    width: 194px;
+    height: 174px;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.85), rgba(185, 28, 28, 0.95));
+    border: 2.5px solid #ef4444;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    gap: 10px;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4);
+    /* Set default start coordinates to bottom outside canvas or in board corner */
+    top: 250px;
+    left: 20px;
+    transform: rotate(-15deg) scale(0.85);
+    transition: all 0.1s linear; /* Control via JS timeline progress */
+}
+
+.puzzle-piece-moving .moving-piece-icon {
+    font-size: 34px;
+    animation: pulse-alert-icon 1s infinite alternate;
+}
+
+@keyframes pulse-alert-icon {
+    from { transform: scale(1); }
+    to { transform: scale(1.15); filter: drop-shadow(0 0 10px rgba(255,255,255,0.6)); }
+}
+
+/* Gap message badge */
+.gap-anxiety-badge {
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1.5px solid rgba(239, 68, 68, 0.35);
+    color: #fca5a5;
+    font-weight: 700;
+    font-size: 17px;
+    text-align: center;
+    max-width: 580px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.gap-anxiety-badge.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- SLIDE 3: SURVIVAL SHIELD / RADAR (Bản năng Sinh tồn) --- */
+.slide-memo9-3-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 30px 45px !important;
+}
+
+/* Left: Defense Dashboard */
+.radar-panel-v9 {
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+}
+
+.radar-screen-v9 {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.04) 0%, transparent 80%);
+}
+
+.radar-circle-line {
+    position: absolute;
+    border: 1px dashed rgba(236, 72, 153, 0.15);
+    border-radius: 50%;
+}
+
+.radar-circle-line.c1 { width: 120px; height: 120px; }
+.radar-circle-line.c2 { width: 220px; height: 220px; }
+.radar-circle-line.c3 { width: 320px; height: 320px; }
+
+/* The central shield */
+.survival-shield-v9 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(139, 92, 246, 0.2));
+    border: 2.5px solid rgba(236, 72, 153, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 46px;
+    z-index: 5;
+    position: relative;
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Glowing barrier circle when shield is activated */
+.shield-barrier-glow {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid var(--memo9-primary);
+    box-shadow: 0 0 50px rgba(236, 72, 153, 0.6), inset 0 0 30px rgba(236, 72, 153, 0.3);
+    opacity: 0;
+    transform: scale(1);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.shield-barrier-glow.active {
+    opacity: 1;
+    transform: scale(1.4);
+    animation: shield-pulse 1.5s infinite alternate;
+}
+
+@keyframes shield-pulse {
+    0% { transform: scale(1.35); opacity: 0.8; box-shadow: 0 0 40px rgba(236, 72, 153, 0.5); }
+    100% { transform: scale(1.5); opacity: 1; box-shadow: 0 0 65px rgba(236, 72, 153, 0.8); }
+}
+
+/* Right: Metric and telemetry dashboard */
+.telemetry-dashboard-v9 {
+    flex: 0.9;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--memo9-card-bg);
+    border: 1.5px solid var(--memo9-glass-border);
+    border-radius: 20px;
+    padding: 30px 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dashboard-title-v9 {
+    font-size: 15px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.metric-row-v9 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.metric-label-v9 {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: space-between;
+}
+
+.metric-value-highlight {
+    font-weight: 800;
+    color: var(--memo9-primary);
+}
+
+.telemetry-progress-bg {
+    width: 100%;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 7px;
+    overflow: hidden;
+    border: 1.5px solid rgba(255, 255, 255, 0.07);
+}
+
+.telemetry-progress-fill {
+    height: 100%;
+    border-radius: 7px;
+    background: linear-gradient(90deg, var(--memo9-secondary), var(--memo9-primary));
+    width: 10%;
+    transition: width 0.1s linear;
+}
+
+.defense-status-tag {
+    align-self: flex-start;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.5);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.defense-status-tag.active {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.25);
+    animation: blink-tag 1s infinite alternate;
+}
+
+@keyframes blink-tag {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+}
+
+
+/* --- SLIDE 4: DISTORTION COMPARISON (Ảo tưởng Thảm kịch) --- */
+.slide-memo9-4-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 15px !important;
+}
+
+.comparison-row-v9 {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 820px;
+    justify-content: center;
+    align-items: center;
+}
+
+.comparison-card-v9 {
+    flex: 1;
+    height: 380px;
+    border-radius: 24px;
+    border: 2px solid var(--memo9-glass-border);
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card states: scale & focus */
+.comparison-card-v9.card-inactive {
+    transform: scale(0.9);
+    opacity: 0.35;
+    filter: blur(1.5px);
+}
+
+.comparison-card-v9.card-active {
+    transform: scale(1.03);
+    opacity: 1;
+    filter: none;
+    box-shadow: var(--memo9-shadow);
+}
+
+/* Card themes */
+.card-brain-movie {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(20, 10, 10, 0.85) 100%);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+.card-brain-movie.card-active {
+    border-color: #ef4444;
+    box-shadow: 0 15px 35px rgba(239, 68, 68, 0.2);
+}
+
+.card-real-world {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(10, 20, 15, 0.85) 100%);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+.card-real-world.card-active {
+    border-color: #10b981;
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.25);
+}
+
+.comp-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comp-card-header h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.card-brain-movie .comp-card-header h3 { color: #fca5a5; }
+.card-real-world .comp-card-header h3 { color: #a7f3d0; }
+
+.comp-icon-badge {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.card-brain-movie .comp-icon-badge {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.card-real-world .comp-icon-badge {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+.comp-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    justify-content: center;
+}
+
+.comp-item-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.card-brain-movie .comp-item-row { color: rgba(255, 255, 255, 0.9); }
+.card-real-world .comp-item-row { color: rgba(255, 255, 255, 0.9); }
+
+.comp-bullet-icon {
+    font-size: 20px;
+}
+
+.comp-card-footer-lbl {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-brain-movie .comp-card-footer-lbl { color: #f87171; }
+.card-real-world .comp-card-footer-lbl { color: #34d399; }
+
+
+/* --- SLIDE 5: OUTRO (Hãy dừng việc suy diễn) --- */
+.slide-memo9-5-container {
+    justify-content: center !important;
+    padding-top: 60px !important;
+}
+
+.calming-ambient-wave {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    position: absolute;
+    z-index: 1;
+    animation: calm-pulse-wave 4s infinite ease-in-out;
+}
+
+@keyframes calm-pulse-wave {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.6); opacity: 0.9; }
+}
+
+.outro-phone-reply {
+    width: 440px;
+    background: var(--memo9-card-bg);
+    border: 2px solid var(--memo9-glass-border);
+    border-radius: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+    z-index: 2;
+    box-shadow: var(--memo9-shadow);
+    text-align: left;
+    margin-bottom: 25px;
+    transform: translateY(0);
+    animation: outro-float-slow 6s ease-in-out infinite alternate;
+}
+
+@keyframes outro-float-slow {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.outro-phone-header {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.outro-phone-bubble {
+    background: linear-gradient(135deg, var(--memo9-secondary), #6d28d9);
+    padding: 14px 20px;
+    border-radius: 18px;
+    border-bottom-left-radius: 4px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.25);
+    display: inline-block;
+}
+
+.outro-cta-banner-v9 {
+    margin-top: 15px;
+    text-align: center;
+    z-index: 2;
+}
+
+.outro-cta-logo-text {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #ec4899, #8b5cf6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+}
+
+/* Lucide Icon override */
+.lucide-icon-custom {
+    stroke-width: 2.5;
+}
+
+/* --- KEYWORD TIMING COLORS --- */
+.active-pink {
+    color: #f472b6 !important;
+    text-shadow: 0 0 12px rgba(244, 114, 182, 0.55) !important;
+    border-color: #ec4899 !important;
+}
+
+.active-purple {
+    color: #c084fc !important;
+    text-shadow: 0 0 12px rgba(192, 132, 252, 0.55) !important;
+    border-color: #a855f7 !important;
+}
+
+.active-indigo {
+    color: #818cf8 !important;
+    text-shadow: 0 0 12px rgba(129, 140, 248, 0.55) !important;
+    border-color: #6366f1 !important;
+}

@@ -27,12 +27,12 @@
 }
 
 /* Row-based slides layouts */
-.slide-memo3-2-container,
 .slide-memo3-4-container {
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: flex-start !important;
     padding: 20px !important;
+    gap: 40px !important;
 }
 
 .slide-memo3-1-container {
@@ -40,10 +40,34 @@
     padding-top: 40px !important;
 }
 
+.slide-memo3-2-container,
 .slide-memo3-3-container {
     justify-content: flex-start !important;
     padding-top: 20px !important;
     gap: 20px !important;
+}
+
+/* Slide 2 Column-to-Row Flow */
+.slide-memo3-2-container .memo-left-layout {
+    flex-direction: row !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 20px !important;
+    flex: none !important;
+}
+
+.slide-memo3-2-container .memo-right-layout {
+    flex-direction: row !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    flex: none !important;
+}
+
+.slide-memo3-2-container .memo-card-item {
+    flex: 1;
+    height: 110px;
 }
 
 /* --- SLIDE 1: CASSETTE TAPE PLAYBACK --- */

@@ -1,0 +1,667 @@
+/* DOM Memo Video 10: Mirror vs Camera Stylesheet */
+
+:root {
+    --memo10-primary: #f59e0b;     /* Gold / Warm Mirror */
+    --memo10-secondary: #06b6d4;   /* Cyan / Cold Camera */
+    --memo10-accent: #8b5cf6;      /* Purple */
+    --memo10-red: #ef4444;         /* Red alert */
+    --memo10-green: #10b981;       /* Green safe */
+    --memo10-dark: #07070a;
+    --memo10-card-bg: rgba(20, 20, 30, 0.7);
+    --memo10-glass-border: rgba(255, 255, 255, 0.08);
+    --memo10-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
+}
+
+/* Base Wrapper Spacing constrained to 900x800 */
+.memo-wrapper {
+    width: 900px;
+    height: 800px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background: transparent;
+    overflow: visible;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Drifting sparkle particles */
+@keyframes drift-sparkle {
+    0% { transform: translateY(0) scale(0.6) rotate(0deg); opacity: 0.1; }
+    50% { opacity: 0.4; }
+    100% { transform: translateY(-120px) scale(1.1) rotate(180deg); opacity: 0.1; }
+}
+
+.ambient-sparkle {
+    position: absolute;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 0;
+    animation: drift-sparkle 10s linear infinite;
+}
+
+/* --- SLIDE 1: HOOK (Ảo giác Gương Soi) --- */
+.slide-memo10-1-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 30px 40px !important;
+    gap: 30px !important;
+}
+
+/* Mirror Side */
+.mirror-showcase-v10 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.mirror-frame-v10 {
+    width: 320px;
+    height: 440px;
+    border: 12px solid #d97706; /* Bronze/gold outline */
+    border-radius: 160px 160px 20px 20px; /* Arched mirror shape */
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(255, 255, 255, 0.05));
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.25), var(--memo10-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 15px solid #f59e0b;
+}
+
+.mirror-glass-glare {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.1) 50%, transparent 55%);
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+/* Camera Showcase Side */
+.camera-showcase-v10 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.camera-screen-v10 {
+    width: 320px;
+    height: 440px;
+    border: 4px solid rgba(255, 255, 255, 0.15);
+    border-radius: 36px;
+    background: #000;
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.15), var(--memo10-shadow);
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.camera-inner-viewfinder {
+    flex: 1;
+    border-radius: 28px;
+    background: #09090c;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.camera-grid-lines {
+    position: absolute;
+    inset: 0;
+    border-left: 1px dashed rgba(255,255,255,0.06);
+    border-right: 1px dashed rgba(255,255,255,0.06);
+    pointer-events: none;
+}
+.camera-grid-lines::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-top: 1px dashed rgba(255,255,255,0.06);
+    border-bottom: 1px dashed rgba(255,255,255,0.06);
+}
+
+.camera-lens-dot {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #0f172a;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.2);
+}
+
+.camera-lens-dot::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 4px;
+    height: 4px;
+    background: #3b82f6;
+    border-radius: 50%;
+}
+
+/* Portrait illustrations */
+.portrait-v10 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 5;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.portrait-avatar-shape {
+    font-size: 150px;
+    line-height: 1;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+/* Mole/Parting markers that show flip orientation */
+.portrait-marker-badge {
+    position: absolute;
+    padding: 6px 12px;
+    background: rgba(0,0,0,0.75);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    pointer-events: none;
+}
+
+.m-hair { top: 10px; }
+.m-mole { bottom: 20px; }
+
+/* Sub-labels */
+.showcase-lbl {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.mirror-showcase-v10 .showcase-lbl { color: var(--memo10-primary); }
+.camera-showcase-v10 .showcase-lbl { color: var(--memo10-secondary); }
+
+
+/* --- SLIDE 2: MERE EXPOSURE (Hiệu ứng Thân thuộc) --- */
+.slide-memo10-2-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 20px !important;
+}
+
+.telemetry-row-v10 {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 800px;
+    justify-content: center;
+}
+
+.telemetry-card-v10 {
+    flex: 1;
+    background: var(--memo10-card-bg);
+    border: 2px solid var(--memo10-glass-border);
+    border-radius: 24px;
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    box-shadow: var(--memo10-shadow);
+}
+
+.t-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid rgba(255,255,255,0.06);
+    padding-bottom: 12px;
+}
+
+.t-card-header h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.t-card-icon {
+    font-size: 28px;
+}
+
+.card-theme-mirror h3 { color: var(--memo10-primary); }
+.card-theme-camera h3 { color: var(--memo10-secondary); }
+
+.t-metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.t-metric-lbl {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    justify-content: space-between;
+}
+
+.t-metric-val {
+    font-weight: 800;
+}
+
+.card-theme-mirror .t-metric-val { color: var(--memo10-primary); }
+.card-theme-camera .t-metric-val { color: var(--memo10-secondary); }
+
+.t-bar-bg {
+    width: 100%;
+    height: 12px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.t-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    width: 10%;
+    transition: width 0.1s linear;
+}
+
+.card-theme-mirror .t-bar-fill {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.card-theme-camera .t-bar-fill {
+    background: linear-gradient(90deg, #06b6d4, #0891b2);
+}
+
+.t-status-badge {
+    align-self: flex-start;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.card-theme-mirror .t-status-badge {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.card-theme-camera .t-status-badge {
+    background: rgba(6, 182, 212, 0.12);
+    color: #22d3ee;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+
+/* --- SLIDE 3: ASYMMETRY SIMULATION (Nghịch lý Bất đối xứng) --- */
+.slide-memo10-3-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 15px !important;
+}
+
+.asymmetry-board-v10 {
+    width: 720px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid var(--memo10-glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--memo10-shadow);
+}
+
+/* Centered face silhouette outline with asymmetrical features */
+.asymmetric-face-wrap {
+    position: relative;
+    width: 240px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.asymmetric-portrait-graphic {
+    font-size: 200px;
+    line-height: 1;
+    transition: transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+/* Small visual asymmetry anchors (hair partition vs mole) */
+.asymmetry-hair-part {
+    position: absolute;
+    top: 25px;
+    left: 45px;
+    font-size: 32px;
+    pointer-events: none;
+    z-index: 8;
+}
+
+.asymmetry-mole-spot {
+    position: absolute;
+    bottom: 90px;
+    right: 50px;
+    width: 14px;
+    height: 14px;
+    background: #27160c;
+    border-radius: 50%;
+    border: 2px solid #ffd8a8;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 8;
+}
+
+/* Center vertical dashed line of symmetry */
+.symmetry-center-line {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0px;
+    border-left: 3px dashed rgba(239, 68, 68, 0.65);
+    z-index: 10;
+}
+
+.symmetry-center-line::after {
+    content: 'ĐƯỜNG ĐỐI XỨNG';
+    position: absolute;
+    top: 10px;
+    transform: translateX(-50%);
+    background: rgba(239, 68, 68, 0.95);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+}
+
+/* State warning alerts */
+.asymmetry-info-tag {
+    position: absolute;
+    bottom: 25px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.3s ease;
+}
+
+.asymmetry-info-tag.warning-state {
+    border-color: var(--memo10-red);
+    color: #fca5a5;
+    box-shadow: 0 0 15px rgba(239,68,68,0.25);
+    animation: pulse-border 1s infinite alternate;
+}
+
+@keyframes pulse-border {
+    from { border-color: rgba(239, 68, 68, 0.4); }
+    to { border-color: rgba(239, 68, 68, 1); }
+}
+
+
+/* --- SLIDE 4: DUAL COMPARISON CARDS --- */
+.slide-memo10-4-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 15px !important;
+}
+
+.comparison-row-v10 {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 820px;
+    justify-content: center;
+    align-items: center;
+}
+
+.comparison-card-v10 {
+    flex: 1;
+    height: 400px;
+    border-radius: 24px;
+    border: 2px solid var(--memo10-glass-border);
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.comparison-card-v10.card-inactive {
+    transform: scale(0.9);
+    opacity: 0.3;
+    filter: blur(2px);
+}
+
+.comparison-card-v10.card-active {
+    transform: scale(1.03);
+    opacity: 1;
+    filter: none;
+    box-shadow: var(--memo10-shadow);
+}
+
+/* Card Themes */
+.card-view-mirror {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(20, 15, 10, 0.85) 100%);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+.card-view-mirror.card-active {
+    border-color: #f59e0b;
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.25);
+}
+
+.card-view-camera {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(10, 15, 20, 0.85) 100%);
+    border-color: rgba(6, 182, 212, 0.3);
+}
+.card-view-camera.card-active {
+    border-color: #06b6d4;
+    box-shadow: 0 15px 35px rgba(6, 182, 212, 0.25);
+}
+
+.comp-header-v10 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comp-header-v10 h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.card-view-mirror .comp-header-v10 h3 { color: #fde047; }
+.card-view-camera .comp-header-v10 h3 { color: #99f6e4; }
+
+.comp-icon-badge-v10 {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.card-view-mirror .comp-icon-badge-v10 {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+.card-view-camera .comp-icon-badge-v10 {
+    background: rgba(6, 182, 212, 0.2);
+    color: #06b6d4;
+}
+
+.comp-list-v10 {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    justify-content: center;
+}
+
+.comp-row-v10 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.card-view-mirror .comp-row-v10 { color: rgba(255, 255, 255, 0.9); }
+.card-view-camera .comp-row-v10 { color: rgba(255, 255, 255, 0.9); }
+
+.comp-bullet-v10 {
+    font-size: 20px;
+}
+
+.comp-footer-lbl-v10 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-view-mirror .comp-footer-lbl-v10 { color: #facc15; }
+.card-view-camera .comp-footer-lbl-v10 { color: #22d3ee; }
+
+
+/* --- SLIDE 5: OUTRO (Chấp nhận bản thân) --- */
+.slide-memo10-5-container {
+    justify-content: center !important;
+    padding-top: 60px !important;
+}
+
+.calming-ring-v10 {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+    position: absolute;
+    z-index: 1;
+    animation: calm-pulse 4s infinite ease-in-out;
+}
+
+@keyframes calm-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.35; }
+    50% { transform: scale(1.5); opacity: 0.85; }
+}
+
+.outro-reassurance-box {
+    width: 480px;
+    background: var(--memo10-card-bg);
+    border: 2px solid var(--memo10-glass-border);
+    border-radius: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+    z-index: 2;
+    box-shadow: var(--memo10-shadow);
+    text-align: center;
+    margin-bottom: 25px;
+    transform: translateY(0);
+    animation: outro-float 6s ease-in-out infinite alternate;
+}
+
+@keyframes outro-float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-12px); }
+}
+
+.reassurance-face {
+    font-size: 60px;
+    margin-bottom: 12px;
+    animation: bounce 2s infinite alternate;
+}
+
+.reassurance-text {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.outro-cta-banner-v10 {
+    margin-top: 10px;
+    text-align: center;
+    z-index: 2;
+}
+
+.outro-cta-logo-v10 {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, var(--memo10-primary), var(--memo10-accent), var(--memo10-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+}
+
+/* Lucide Icon override */
+.lucide-icon-custom {
+    stroke-width: 2.5;
+}
+
+/* --- KEYWORD TIMING COLORS --- */
+.active-pink {
+    color: #f472b6 !important;
+    text-shadow: 0 0 12px rgba(244, 114, 182, 0.55) !important;
+    border-color: #ec4899 !important;
+}
+
+.active-purple {
+    color: #c084fc !important;
+    text-shadow: 0 0 12px rgba(192, 132, 252, 0.55) !important;
+    border-color: #a855f7 !important;
+}
+
+.active-indigo {
+    color: #818cf8 !important;
+    text-shadow: 0 0 12px rgba(129, 140, 248, 0.55) !important;
+    border-color: #6366f1 !important;
+}

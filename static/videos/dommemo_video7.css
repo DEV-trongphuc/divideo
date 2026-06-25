@@ -1,0 +1,454 @@
+/* DOM Memo Video 7: Frequency Illusion Stylesheet */
+
+:root {
+    --memo-primary: #8b5cf6;     /* Purple */
+    --memo-secondary: #f472b6;   /* Light Pink */
+    --memo-pink: #ec4899;        /* Deep Pink */
+    --memo-indigo: #6366f1;      /* Indigo */
+    --memo-dark: #0d0d12;
+    --memo-glass-border: rgba(255, 255, 255, 0.08);
+    --memo-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+/* Base Layout Container Overrides */
+.slide-memo7-1-container {
+    justify-content: center !important;
+    padding-top: 30px !important;
+    gap: 20px !important;
+}
+
+.slide-memo7-2-container {
+    justify-content: flex-start !important;
+    padding-top: 20px !important;
+    gap: 30px !important;
+}
+
+.slide-memo7-3-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 20px !important;
+    gap: 35px !important;
+}
+
+.slide-memo7-4-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 20px !important;
+    gap: 30px !important;
+}
+
+/* --- SLIDE 1: HOOK (FLOATING WORD CLOUD) --- */
+.ambient-word-cloud {
+    width: 800px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 2px solid var(--memo-glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--memo-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.ambient-word {
+    position: absolute;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.25);
+    white-space: nowrap;
+    transition: all 0.5s ease;
+    user-select: none;
+}
+
+.ambient-word.target-word {
+    font-size: 32px;
+    color: var(--memo-pink);
+    z-index: 10;
+    transition: color 0.4s, transform 0.4s, text-shadow 0.4s;
+}
+
+.ambient-word.target-word.pulsing {
+    color: #facc15 !important;
+    transform: scale(1.3) !important;
+    text-shadow: 0 0 25px rgba(250, 204, 21, 0.95);
+}
+
+/* Positions for Slide 1 background words */
+.w-a1 { top: 60px; left: 80px; font-size: 16px; transform: rotate(-5deg); }
+.w-a2 { top: 90px; right: 120px; font-size: 20px; transform: rotate(10deg); }
+.w-a3 { bottom: 80px; left: 140px; font-size: 18px; transform: rotate(-8deg); }
+.w-a4 { bottom: 100px; right: 90px; font-size: 22px; transform: rotate(5deg); }
+.w-a5 { top: 180px; left: 50px; font-size: 15px; transform: rotate(12deg); opacity: 0.15; }
+.w-a6 { top: 220px; right: 60px; font-size: 17px; transform: rotate(-15deg); opacity: 0.15; }
+
+/* --- SLIDE 2: FREQUENCY NEWS GRID --- */
+.newspaper-mockup {
+    width: 800px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 20px;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--memo-shadow);
+}
+
+.newspaper-header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.np-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--memo-primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.np-date {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 700;
+}
+
+.newspaper-columns {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    margin-top: 15px;
+}
+
+.newspaper-col {
+    flex: 1;
+    background: rgba(255,255,255,0.01);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.col-header {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--memo-indigo);
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 4px;
+}
+
+.col-body-txt {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.5);
+}
+
+.col-body-txt strong {
+    transition: all 0.3s ease;
+}
+
+.col-body-txt strong.highlight-active {
+    color: #ef4444 !important;
+    background: rgba(239, 68, 68, 0.15);
+    border-radius: 4px;
+    padding: 1px 4px;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+/* --- SLIDE 3: ATTENTION SPOTLIGHT SCANNER --- */
+.scan-spotlight-panel {
+    width: 800px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 24px;
+    padding: 25px 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    box-shadow: var(--memo-shadow);
+}
+
+.scan-left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex: 1;
+}
+
+.scan-title-lbl {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--memo-indigo);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: left;
+}
+
+.scan-status-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.scan-desc-txt {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.50);
+}
+
+.scan-status-tag {
+    font-size: 20px;
+    font-weight: 800;
+    color: #facc15;
+    text-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
+    transition: color 0.3s;
+}
+
+.scan-status-tag.scan-active {
+    color: #10b981 !important;
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.word-cloud-container {
+    width: 320px;
+    height: 180px;
+    background: #000;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.word-cloud-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 15px 15px;
+}
+
+.cloud-item {
+    position: absolute;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.12);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.cloud-item.lit {
+    color: #fff;
+    transform: scale(1.15);
+}
+
+.cloud-item.lit.target-lit {
+    color: #facc15 !important;
+    text-shadow: 0 0 12px #eab308;
+    transform: scale(1.3);
+}
+
+/* Positions for Word Cloud cloud-items */
+.ci-1 { top: 25px; left: 20px; }
+.ci-2 { top: 30px; right: 30px; }
+.ci-3 { bottom: 35px; left: 40px; }
+.ci-4 { bottom: 25px; right: 20px; }
+.ci-5 { top: 75px; left: 110px; font-size: 15px; } /* Target Word */
+.ci-6 { top: 120px; left: 30px; }
+.ci-7 { top: 110px; right: 40px; }
+
+/* Spotlight beam */
+.cloud-spotlight-cone {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(139,92,246,0.15) 50%, transparent 70%);
+    box-shadow: 0 0 30px rgba(139,92,246,0.5), inset 0 0 15px rgba(139,92,246,0.3);
+    border: 1px solid rgba(139,92,246,0.2);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: left 0.1s linear, top 0.1s linear;
+}
+
+.cloud-spotlight-cone.target-glow {
+    background: radial-gradient(circle, rgba(255,255,255,0.45) 0%, rgba(250,204,21,0.2) 50%, transparent 70%);
+    box-shadow: 0 0 40px rgba(250,204,21,0.65), inset 0 0 20px rgba(250,204,21,0.35);
+    border-color: rgba(250,204,21,0.3);
+}
+
+/* Sensitivity statistics row */
+.scan-explanation-badge {
+    width: 800px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 16px;
+    padding: 16px 24px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: var(--memo-shadow);
+}
+
+.sc-expl-icon {
+    font-size: 28px;
+}
+
+.sc-expl-text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.75);
+}
+
+.sc-expl-text strong {
+    color: var(--memo-primary);
+}
+
+/* --- SLIDE 4: SENSORY SPLIT CARDS (HEARD VS IGNORED) --- */
+.split-cards-row {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.split-card-item {
+    flex: 1;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid var(--memo-glass-border);
+    border-radius: 24px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--memo-shadow);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.split-card-item.glowing-card {
+    border-color: var(--memo-secondary);
+    background: rgba(244, 114, 182, 0.04);
+    box-shadow: 0 0 25px rgba(244, 114, 182, 0.15);
+}
+
+.split-card-item.dimmed-card {
+    border-color: rgba(255, 255, 255, 0.04);
+    background: rgba(0,0,0,0.4);
+}
+
+.card-title-header {
+    text-align: center;
+}
+
+.card-title-header h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 6px 0;
+}
+
+.card-title-header p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+}
+
+.card-center-gfx {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    transition: all 0.4s ease;
+    z-index: 10;
+}
+
+.glowing-card .card-center-gfx {
+    background: rgba(244, 114, 182, 0.1);
+    border: 2.5px solid rgba(244, 114, 182, 0.4);
+    color: var(--memo-secondary);
+    animation: gold-glow-pulse 1.5s infinite alternate;
+}
+
+.dimmed-card .card-center-gfx {
+    background: rgba(255,255,255,0.03);
+    border: 2.5px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.3);
+}
+
+.card-status-badge {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 6px 16px;
+    border-radius: 30px;
+}
+
+.glowing-card .card-status-badge {
+    color: var(--memo-secondary);
+    background: rgba(244, 114, 182, 0.08);
+    border: 1px solid rgba(244, 114, 182, 0.25);
+}
+
+.dimmed-card .card-status-badge {
+    color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Falling blurred words container inside ignored card */
+.falling-ignored-words {
+    position: absolute;
+    inset: 100px 20px 20px 20px;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.falling-word {
+    position: absolute;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.25);
+    filter: blur(1.5px);
+    animation: word-fall-down 2s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes word-fall-down {
+    0% { transform: translateY(-30px); opacity: 0; }
+    20% { opacity: 0.7; }
+    80% { opacity: 0.7; }
+    100% { transform: translateY(180px); opacity: 0; filter: blur(3px); }
+}

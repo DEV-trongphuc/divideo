@@ -33,6 +33,7 @@
     justify-content: space-between !important;
     align-items: flex-start !important;
     padding: 20px !important;
+    gap: 40px !important;
 }
 
 .slide-memo2-1-container {

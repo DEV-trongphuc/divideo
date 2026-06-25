@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide_memo6_1",
+    "title": "Thần giao cách cảm?",
+    "subtitle": "BẤT NGỜ NHẬN ĐƯỢC TIN NHẮN ĐÚNG LÚC VỪA NGHĨ ĐẾN",
+    "layout": "title",
+    "script": "Bạn vừa mới nghĩ đến họ, điện thoại lập tức rung lên. Có phải giữa hai người thực sự có thần giao cách cảm?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 9.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo6_2",
+    "title": "Bộ lọc Định kiến Xác nhận",
+    "subtitle": "CONFIRMATION BIAS - NÃO BỘ CHỈ NHỚ SỰ TRÙNG HỢP",
+    "layout": "diagram",
+    "script": "Sự thật là không có siêu năng lực nào cả. Đây chỉ là định kiến xác nhận. Bộ não ghi nhớ sâu sắc lần trùng hợp, nhưng quên sạch hàng trăm lần bạn nghĩ về họ mà không có tin nhắn.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo6_3",
+    "title": "Xác suất hay Thần giao?",
+    "subtitle": "THỐNG KÊ THỰC TẾ HÀNG TRĂM LẦN NGHĨ VỀ NHAU",
+    "layout": "metrics",
+    "script": "Mỗi ngày bạn nghĩ về người ấy hai mươi lần. Một năm là hơn bảy ngàn lần. Với con số đó, việc có một vài lần nhắn tin trùng hợp là điều tất yếu theo lý thuyết xác suất!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo6_4",
+    "title": "Bẫy lưu trữ của não",
+    "subtitle": "NÃO BỘ CHỦ ĐỘNG XÓA DỮ LIỆU THẤT BẠI",
+    "layout": "cards",
+    "script": "Khi bạn nghĩ và có tin nhắn, não gắn nhãn 'Kỳ tích' và nhớ mãi. Còn khi nghĩ mà im lặng, não coi là rác và xóa ngay lập tức, tạo ra ảo giác về sự kết nối tâm linh.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo6_5",
+    "title": "Hiểu não bộ để tỉnh táo hơn",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "layout": "title",
+    "script": "Lần tới nếu chuyện này xảy ra, hãy mỉm cười vì biết não đang chơi trò chọn lọc nhé. Thả tim, bình luận và follow DOM Memo để khám phá bí ẩn tâm lý học mỗi ngày!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  }
+]

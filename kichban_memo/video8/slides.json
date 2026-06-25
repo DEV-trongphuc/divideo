@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide_memo8_1",
+    "title": "Thử thách Gấu Trắng",
+    "subtitle": "BẤT NGỜ NHỚ VỀ CON GẤU TRẮNG NGAY KHI BỊ CẤM",
+    "layout": "title",
+    "script": "Tôi có một thử thách cho bạn: Trong năm giây tới, tuyệt đối đừng nghĩ về một con gấu trắng. Nào, bây giờ trong đầu bạn đang hiện lên hình ảnh gì? Có phải là một con gấu trắng muốt không?",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo8_2",
+    "title": "Hiệu ứng Nghĩ Ngược",
+    "subtitle": "IRONIC PROCESS THEORY - LÝ THUYẾT KIỂM SOÁT TÂM TRÍ",
+    "layout": "diagram",
+    "script": "Hiện tượng này gọi là Hiệu ứng nghĩ ngược. Khi bạn cố gắng đè nén một ý nghĩ, não bộ sẽ tự động chia làm hai tiến trình chạy song song để thực thi mệnh lệnh này.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo8_3",
+    "title": "Tiến trình Giám sát ngầm",
+    "subtitle": "NÃO LIÊN TỤC HỎI: 'MÌNH ĐÃ NGHĨ VỀ GẤU TRẮNG CHƯA?'",
+    "layout": "metrics",
+    "script": "Tiến trình giám sát ngầm liên tục rà quét: 'Mình đã nghĩ về gấu trắng chưa?'. Trớ trêu thay, để kiểm tra xem bạn có đang nghĩ về nó hay không, não bắt buộc phải gợi nhớ hình ảnh con gấu trắng lên một lần nữa.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo8_4",
+    "title": "Hiệu ứng Phản ứng dội",
+    "subtitle": "CÀNG CẤM ĐOÁN, Ý NGHĨ CÀNG DỘI LÊN MẠNH MẼ",
+    "layout": "cards",
+    "script": "Kết quả là ý nghĩ bị cấm dội ngược lại mạnh mẽ hơn bình thường, gọi là hiệu ứng dội ngược. Điều này giải thích tại sao khi cố quên chuyện buồn, tâm trí bạn lại chỉ ngập tràn chuyện đó.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo8_5",
+    "title": "Thả lỏng để làm chủ tâm trí",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "layout": "title",
+    "script": "Thay vì cố cấm đoán, hãy học cách chấp nhận và để ý nghĩ tự nhiên trôi qua như những đám mây. Đừng quên thả tim, bình luận và follow DOM Memo để hiểu hơn về bộ não mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  }
+]
