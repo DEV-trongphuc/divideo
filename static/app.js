@@ -280,15 +280,6 @@ function updateProjectBranding() {
     if (avatarImg) {
         avatarImg.textContent = currentProject === 'DOMMemo' ? 'D' : 'T';
     }
-
-    const canvasEl = document.getElementById('tiktok-canvas');
-    if (canvasEl) {
-        if (currentProject === 'DOMMemo') {
-            canvasEl.classList.add('project-dommemo');
-        } else {
-            canvasEl.classList.remove('project-dommemo');
-        }
-    }
 }
 
 // Fetch and load scripts list

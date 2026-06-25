@@ -1,0 +1,647 @@
+/* DOM Memo Video 3: Recorded Voice Paradox Stylesheet */
+
+:root {
+    --memo-primary: #8b5cf6;     /* Purple */
+    --memo-secondary: #f472b6;   /* Light Pink */
+    --memo-pink: #ec4899;        /* Deep Pink */
+    --memo-indigo: #6366f1;      /* Indigo */
+    --memo-dark: #0d0d12;
+    --memo-glass-border: rgba(255, 255, 255, 0.08);
+    --memo-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+/* Base Wrapper - Spacing constrained perfectly to 900x800 to avoid overlapping subtitles */
+.memo-wrapper {
+    width: 900px;
+    height: 800px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 10px;
+    background: transparent;
+    overflow: visible;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Row-based slides layouts */
+.slide-memo3-2-container,
+.slide-memo3-4-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    padding: 20px !important;
+}
+
+.slide-memo3-1-container {
+    justify-content: center !important;
+    padding-top: 40px !important;
+}
+
+.slide-memo3-3-container {
+    justify-content: flex-start !important;
+    padding-top: 20px !important;
+    gap: 20px !important;
+}
+
+/* --- SLIDE 1: CASSETTE TAPE PLAYBACK --- */
+.vintage-mic-ripple {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mic-wave {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 2px solid var(--memo-primary);
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(2px);
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.3);
+}
+
+.cassette-tape-wrap {
+    z-index: 2;
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.cassette-body {
+    width: 420px;
+    height: 260px;
+    background: linear-gradient(135deg, #1b1a26 0%, #0d0c12 100%);
+    border: 3px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: var(--memo-shadow), inset 0 0 10px rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.cassette-label {
+    background: #f472b6;
+    color: #000;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1.5px solid #000;
+}
+
+.cassette-window {
+    flex: 1;
+    background: #06050b;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    margin: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    position: relative;
+}
+
+.tape-reel {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 4px dashed rgba(255, 255, 255, 0.15);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tape-reel .spoke {
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+}
+
+.spoke.s-1 { transform: rotate(0deg); }
+.spoke.s-2 { transform: rotate(60deg); }
+.spoke.s-3 { transform: rotate(120deg); }
+
+.cassette-bottom-holes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cassette-bottom-holes span {
+    width: 14px;
+    height: 14px;
+    background: #000;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.06);
+}
+
+.mic-status-label {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 16px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    z-index: 3;
+    margin-bottom: 20px;
+}
+
+.mic-status-label .mic-icon {
+    color: var(--memo-pink);
+    display: flex;
+    align-items: center;
+}
+
+.mic-status-label .mic-icon i {
+    width: 20px;
+    height: 20px;
+}
+
+.mic-status-text {
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.voice-wave-canvas-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 60px;
+    width: 240px;
+    z-index: 3;
+}
+
+.vwave {
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--memo-secondary) 0%, var(--memo-primary) 100%);
+    border-radius: 4px;
+    transform-origin: center;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+.sleep-status-badge {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--memo-primary);
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    padding: 6px 20px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    z-index: 3;
+}
+
+/* --- SLIDE 2: AIR PROPAGATION --- */
+.memo-left-layout {
+    flex: 0.95;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sound-propagation-card {
+    width: 380px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--memo-shadow);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.mouth-speaker-node,
+.ear-receiver-node {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(139, 92, 246, 0.12);
+    border: 2px solid rgba(139, 92, 246, 0.35);
+    color: var(--memo-primary);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+    z-index: 2;
+    transition: transform 0.15s ease;
+}
+
+.mouth-speaker-node i,
+.ear-receiver-node i {
+    width: 28px;
+    height: 28px;
+}
+
+.ear-receiver-node {
+    background: rgba(244, 114, 182, 0.12);
+    border-color: rgba(244, 114, 182, 0.35);
+    color: var(--memo-secondary);
+    box-shadow: 0 0 20px rgba(244, 114, 182, 0.2);
+}
+
+.propagation-field {
+    flex: 1;
+    height: 100%;
+    position: relative;
+}
+
+.air-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: 50%;
+}
+
+.air-particle.p-1 { left: 20%; top: 40%; }
+.air-particle.p-2 { left: 45%; top: 60%; }
+.air-particle.p-3 { left: 70%; top: 35%; }
+.air-particle.p-4 { left: 85%; top: 55%; }
+
+.wave-ripple {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgba(139, 92, 246, 0.4);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.air-conduction-badge {
+    width: 380px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 20px;
+    padding: 16px 20px;
+    box-shadow: var(--memo-shadow);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--memo-indigo);
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
+/* Card layout column on the right */
+.memo-right-layout {
+    flex: 1.05;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+}
+
+.memo-card-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 18px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mc-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.mc-icon i {
+    width: 24px;
+    height: 24px;
+}
+
+.mc-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 2px 0;
+}
+
+.mc-content p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    line-height: 1.35;
+}
+
+.m3-c1 .mc-icon { color: var(--memo-indigo); background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25); }
+.m3-c2 .mc-icon { color: var(--memo-pink); background: rgba(236,72,153,0.1); border: 1px solid rgba(236,72,153,0.25); }
+
+/* --- SLIDE 3: SKULL ANATOMY --- */
+.skull-anatomy-card {
+    width: 900px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 20px;
+    padding: 20px 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: var(--memo-shadow);
+    margin-top: 0;
+}
+
+.anatomy-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 10px;
+}
+
+.anatomy-view {
+    position: relative;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.head-anatomy-svg {
+    height: 100%;
+    width: auto;
+}
+
+.cochlea-target {
+    animation: cochlea-pulse-glow 1.5s infinite alternate;
+}
+
+@keyframes cochlea-pulse-glow {
+    0% { r: 14px; opacity: 0.6; }
+    100% { r: 18px; opacity: 1; }
+}
+
+.path-label {
+    position: absolute;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+.pl-air {
+    bottom: 25px;
+    left: 20px;
+    color: var(--memo-pink);
+    border: 1px dashed rgba(236,72,153,0.3);
+    background: rgba(236,72,153,0.05);
+}
+
+.pl-bone {
+    top: 25px;
+    right: 20px;
+    color: var(--memo-indigo);
+    border: 1px solid rgba(99,102,241,0.3);
+    background: rgba(99,102,241,0.05);
+}
+
+/* --- SHARED DIAGRAM FLOW FOR VIDEO 3 --- */
+.memo-diagram-flow {
+    display: flex;
+    align-items: center;
+    width: 900px;
+    justify-content: space-between;
+    max-width: 900px;
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+.flow-step {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 12px;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    box-sizing: border-box;
+    transition: opacity 0.3s;
+}
+
+.flow-step .fs-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flow-step .fs-text {
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+}
+
+.highlighted-step {
+    border-color: var(--memo-primary) !important;
+    background: rgba(139, 92, 246, 0.06) !important;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+}
+
+.highlighted-step .fs-num {
+    background: var(--memo-primary) !important;
+    color: #fff !important;
+}
+
+.flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.flow-arrow i {
+    width: 16px;
+    height: 16px;
+}
+
+.m3-fs1, .m3-fs2, .m3-fs3, .m3-fs4 {
+    opacity: 0.2;
+}
+
+.m3-fa1, .m3-fa2, .m3-fa3 {
+    opacity: 0.2;
+}
+
+/* --- SLIDE 4: EQUALIZER FREQUENCY COMPARISON --- */
+.equalizer-compare-panel {
+    flex: 1;
+    height: 330px; /* Safe space to clear subtitle */
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo-glass-border);
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease, border-color 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+.sc-title {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.sc-red-title { color: #ef4444; }
+.sc-blue-title { color: var(--memo-indigo); }
+
+.eq-bars-container {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 12px;
+    height: 120px;
+    margin: 20px 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+.eq-bar {
+    flex: 1;
+    height: 20%;
+    background: #ef4444;
+    border-radius: 4px;
+    transition: height 0.08s ease;
+}
+
+.recorded-eq .eq-bar {
+    background: linear-gradient(0deg, #b91c1c 0%, #ef4444 100%);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+}
+
+.self-eq .eq-bar {
+    background: linear-gradient(0deg, #4f46e5 0%, #6366f1 100%);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+}
+
+.eq-label-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.eq-frequency-desc {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.eq-status-tag {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.text-red {
+    color: #ef4444;
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+.text-blue {
+    color: var(--memo-indigo);
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+/* Lucide Icon override */
+.lucide-icon-custom {
+    stroke-width: 2;
+}
+
+/* --- KEYWORD TIMING COLORS --- */
+.active-purple {
+    color: #c084fc !important;
+    text-shadow: 0 0 10px rgba(192, 132, 252, 0.5) !important;
+    border-color: #a855f7 !important;
+}
+
+.active-indigo {
+    color: #818cf8 !important;
+    text-shadow: 0 0 10px rgba(129, 140, 248, 0.5) !important;
+    border-color: #6366f1 !important;
+}
+
+.active-pink {
+    color: #f472b6 !important;
+    text-shadow: 0 0 10px rgba(244, 114, 182, 0.5) !important;
+    border-color: #ec4899 !important;
+}

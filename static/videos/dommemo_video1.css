@@ -6,75 +6,44 @@
     --memo-pink: #ec4899;        /* Deep Pink */
     --memo-indigo: #6366f1;      /* Indigo */
     --memo-dark: #0d0d12;
-    --memo-card-bg: rgba(255, 255, 255, 0.04);
     --memo-glass-border: rgba(255, 255, 255, 0.08);
     --memo-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
 }
 
-/* Force container stretch & layout overrides */
-.layout-custom-sim-view .sim-canvas-body {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-}
-
-.layout-custom-sim-view {
-    padding: 20px 8px 12px 8px !important;
-}
-
-/* Color overrides for DOM Memo project (Tím nhẹ) */
-#tiktok-canvas.project-dommemo {
-    background: radial-gradient(circle at center, #181335 0%, #080614 100%) !important;
-}
-
-#tiktok-canvas.project-dommemo .header-ep,
-#tiktok-canvas.project-dommemo .header-topic {
-    color: #c084fc !important;
-}
-
-#tiktok-canvas.project-dommemo .sim-username {
-    color: #c084fc !important;
-}
-
-#tiktok-canvas.project-dommemo .layout-title-view h1,
-#tiktok-canvas.project-dommemo .sim-scene-header h2 {
-    background: linear-gradient(135deg, #FFFFFF 30%, #c084fc 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-}
-
-#tiktok-canvas.project-dommemo .title-decorative-line {
-    background: linear-gradient(90deg, transparent 0%, #c084fc 50%, transparent 100%) !important;
-}
-
-#tiktok-canvas.project-dommemo .last-slide-logo-wrapper {
-    border-color: #8b5cf6 !important;
-    box-shadow: 0 0 25px rgba(139, 92, 246, 0.4) !important;
-}
-
-#tiktok-canvas.project-dommemo .last-slide-logo-wrapper .follow-plus-btn {
-    background: #8b5cf6 !important;
-}
-
-#tiktok-canvas.project-dommemo .last-slide-logo-wrapper .follow-ripple-ring {
-    border-color: rgba(139, 92, 246, 0.6) !important;
-}
-
-/* Base Wrapper */
+/* Base Wrapper - Spacing constrained perfectly to 900x800 to avoid overlapping subtitles */
 .memo-wrapper {
-    width: 100% !important;
-    height: 100% !important;
+    width: 900px;
+    height: 800px;
     position: relative;
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 30px 10px;
     background: transparent;
-    overflow: hidden;
+    overflow: visible;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Row-based slides layouts */
+.slide-memo-2-container,
+.slide-memo-4-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    padding: 20px !important;
+}
+
+.slide-memo-1-container {
+    justify-content: center !important;
+    padding-top: 40px !important;
+}
+
+.slide-memo-3-container {
+    justify-content: flex-start !important;
+    padding-top: 20px !important;
+    gap: 20px !important;
 }
 
 /* Vibration Animation */
@@ -97,17 +66,6 @@
 }
 
 /* --- SLIDE 1: HOOK --- */
-.slide-memo-1-container {
-    width: 100% !important;
-    height: 100% !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    zoom: 1.35 !important;
-}
-
 .vibe-ripple-waves {
     position: absolute;
     width: 300px;
@@ -117,22 +75,26 @@
     justify-content: center;
     pointer-events: none;
     z-index: 1;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .vibe-ring {
     position: absolute;
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     border: 3px solid var(--memo-primary);
     border-radius: 50%;
     opacity: 0;
     filter: blur(4px);
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.4), inset 0 0 30px rgba(139, 92, 246, 0.2);
+    box-shadow: 0 0 35px rgba(139, 92, 246, 0.4), inset 0 0 35px rgba(139, 92, 246, 0.2);
 }
 
 .phone-mockup-wrap {
     z-index: 2;
     position: relative;
+    margin-top: 60px;
 }
 
 .phone-case-memo {
@@ -207,6 +169,7 @@
     gap: 20px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(15px);
+    margin-bottom: 10px;
 }
 
 .bell-silent-icon {
@@ -245,7 +208,7 @@
 
 .phantom-title-badge {
     position: absolute;
-    top: 30px;
+    top: 20px;
     font-size: 20px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -259,21 +222,8 @@
 }
 
 /* --- SLIDE 2: CARDS LAYOUT --- */
-.slide-memo-2-container {
-    width: 100% !important;
-    height: 100% !important;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    zoom: 1.25 !important;
-    gap: 40px;
-    padding: 40px;
-}
-
 .memo-left-layout {
-    flex: 0.8;
+    flex: 0.9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -344,7 +294,7 @@
 }
 
 .memo-right-layout {
-    flex: 1.2;
+    flex: 1.1;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -355,10 +305,10 @@
     background: rgba(255, 255, 255, 0.02);
     border: 1.5px solid var(--memo-glass-border);
     border-radius: 20px;
-    padding: 22px 28px;
+    padding: 16px 20px;
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
     text-align: left;
     opacity: 0;
     transform: translateX(-20px);
@@ -366,8 +316,8 @@
 }
 
 .mc-icon {
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     border-radius: 16px;
     background: rgba(139, 92, 246, 0.1);
     border: 1px solid rgba(139, 92, 246, 0.2);
@@ -379,42 +329,29 @@
 }
 
 .mc-icon i {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
 }
 
 .mc-content h3 {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 700;
     color: #fff;
-    margin: 0 0 6px 0;
+    margin: 0 0 4px 0;
 }
 
 .mc-content p {
-    font-size: 21px;
+    font-size: 19px;
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
     line-height: 1.4;
 }
 
 /* --- SLIDE 3: DIAGRAM FLOW --- */
-.slide-memo-3-container {
-    width: 100% !important;
-    height: 100% !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    zoom: 1.25 !important;
-    gap: 40px;
-    padding: 40px;
-}
-
 .brain-svg-wrap {
     position: relative;
-    width: 380px;
-    height: 250px;
+    width: 820px;
+    height: 230px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -424,6 +361,7 @@
     padding: 20px 40px;
     box-sizing: border-box;
     gap: 40px;
+    margin-top: 0;
 }
 
 .brain-outline {
@@ -461,7 +399,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     text-align: left;
 }
 
@@ -473,13 +411,14 @@
 }
 
 .gauge-bar-bg {
-    width: 100%;
-    height: 110px;
+    width: 45px;
+    height: 100px;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    border-radius: 10px;
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    align-self: flex-start;
 }
 
 .gauge-bar-fill {
@@ -514,32 +453,34 @@
 .memo-diagram-flow {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 860px;
     justify-content: space-between;
-    max-width: 960px;
+    max-width: 880px;
+    gap: 10px;
+    margin-bottom: 0;
 }
 
 .flow-step {
     flex: 1;
     background: rgba(255, 255, 255, 0.02);
     border: 1.5px solid var(--memo-glass-border);
-    border-radius: 18px;
-    padding: 16px 12px;
+    border-radius: 12px;
+    padding: 12px 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     box-sizing: border-box;
     transition: opacity 0.3s;
 }
 
 .flow-step .fs-num {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -547,7 +488,7 @@
 }
 
 .flow-step .fs-text {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.85);
     text-align: center;
@@ -556,7 +497,7 @@
 .highlighted-step {
     border-color: var(--memo-primary) !important;
     background: rgba(139, 92, 246, 0.06) !important;
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
 }
 
 .highlighted-step .fs-num {
@@ -568,43 +509,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 10px;
+    padding: 0 2px;
     color: rgba(255, 255, 255, 0.35);
-    transition: opacity 0.3s;
 }
 
 /* --- SLIDE 4: SIMULATION LAYOUT --- */
-.slide-memo-4-container {
-    width: 100% !important;
-    height: 100% !important;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    zoom: 1.25 !important;
-    gap: 30px;
-    padding: 30px;
-}
-
-/* Stimulus Panel instead of Code Panel */
 .stimulus-panel-memo {
     flex: 1.1;
     background: rgba(255, 255, 255, 0.02);
     border: 1.5px solid var(--memo-glass-border);
     border-radius: 20px;
-    padding: 24px;
+    padding: 20px;
     box-shadow: var(--memo-shadow);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 380px;
+    height: 420px;
     box-sizing: border-box;
     text-align: left;
 }
 
 .sp-title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
     color: var(--memo-secondary);
     letter-spacing: 1px;
@@ -616,19 +542,19 @@
 .stimulus-icons-wrap {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-top: 10px;
+    gap: 12px;
+    margin-top: 5px;
 }
 
 .stim-item {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
 }
 
 .stim-icon-wrap {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 12px;
     background: rgba(99, 102, 241, 0.12);
     border: 1px solid rgba(99, 102, 241, 0.25);
@@ -639,19 +565,19 @@
 }
 
 .stim-icon-wrap i {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
 }
 
 .stim-detail h4 {
-    font-size: 21px;
+    font-size: 19px;
     font-weight: 700;
     color: #fff;
     margin: 0 0 2px 0;
 }
 
 .stim-detail p {
-    font-size: 18px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.5);
     margin: 0;
 }
@@ -659,32 +585,32 @@
 .interpretation-arrow {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     color: #f472b6;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
-    margin: 4px 0;
+    margin: 2px 0;
     padding-left: 12px;
 }
 
 .interpretation-arrow i {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
 }
 
 .interpretation-result {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     background: rgba(236, 72, 153, 0.05);
     border: 1px dashed rgba(236, 72, 153, 0.3);
     border-radius: 14px;
-    padding: 12px 16px;
+    padding: 10px 14px;
 }
 
 .ir-icon-wrap {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 12px;
     background: rgba(236, 72, 153, 0.15);
     border: 1px solid rgba(236, 72, 153, 0.3);
@@ -695,12 +621,12 @@
 }
 
 .ir-icon-wrap i {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
 }
 
 .ir-detail h4 {
-    font-size: 21px;
+    font-size: 19px;
     font-weight: 800;
     color: #fff;
     margin: 0 0 2px 0;
@@ -708,18 +634,18 @@
 }
 
 .ir-detail p {
-    font-size: 18px;
+    font-size: 16px;
     color: var(--memo-secondary);
     margin: 0;
 }
 
 .sim-panel-memo {
     flex: 0.9;
-    padding: 28px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 380px;
+    height: 420px;
     background: rgba(255, 255, 255, 0.02);
     border: 1.5px solid var(--memo-glass-border);
     border-radius: 20px;
@@ -727,46 +653,46 @@
 }
 
 .sim-title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
     color: var(--memo-primary);
     letter-spacing: 1px;
     border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 12px;
+    padding-bottom: 10px;
     text-transform: uppercase;
 }
 
 .sim-bars-wrap {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
 }
 
 .sim-bar-item {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     text-align: left;
 }
 
 .sb-label {
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.7);
 }
 
 .sb-progress-bg {
     width: 100%;
-    height: 14px;
+    height: 12px;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 7px;
+    border-radius: 6px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .sb-progress-fill {
     height: 100%;
-    border-radius: 7px;
+    border-radius: 6px;
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -776,7 +702,7 @@
 .signal-fill { background: #f59e0b; }
 
 .sb-value {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: #fff;
     align-self: flex-end;
@@ -784,16 +710,15 @@
 }
 
 .brain-alert-box {
-    border-radius: 14px;
-    padding: 14px 20px;
+    border-radius: 12px;
+    padding: 10px 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     font-weight: 800;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 1px;
-    transition: background 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .alert-inactive {
@@ -816,8 +741,8 @@
 }
 
 .alert-icon-svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
 }
 
 /* Lucide Icon override */
