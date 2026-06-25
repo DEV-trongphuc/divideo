@@ -1,0 +1,462 @@
+/* DOM Memo Video 17: Auditory Prediction Stylesheet */
+
+:root {
+    --memo17-cyan: #06b6d4;        /* Raw physical sound wave */
+    --memo17-orange: #f97316;      /* Brain's predictive restoration */
+    --memo17-pink: #ec4899;        /* Focus / Locked state */
+    --memo17-dark: #060609;
+    --memo17-card-bg: rgba(18, 18, 28, 0.75);
+    --memo17-glass-border: rgba(255, 255, 255, 0.08);
+    --memo17-shadow: 0 20px 45px rgba(0, 0, 0, 0.75);
+}
+
+.memo-wrapper {
+    width: 900px;
+    height: 800px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background: transparent;
+    overflow: visible;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Auditory floating particles */
+@keyframes float-audio {
+    0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 0.1; }
+    50% { opacity: 0.35; }
+    100% { transform: translateY(-70px) scale(1.1) rotate(180deg); opacity: 0.1; }
+}
+
+.ambient-audio-particle {
+    position: absolute;
+    font-size: 22px;
+    pointer-events: none;
+    z-index: 0;
+    animation: float-audio 8s linear infinite;
+}
+
+/* --- SLIDE 1: HOOK (Ảo giác Thính giác) --- */
+.slide-memo17-1-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    padding-top: 30px !important;
+}
+
+.audio-hook-box {
+    width: 760px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 2px solid var(--memo17-glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--memo17-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.audio-grid-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 30px 30px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+.phrase-box-v17 {
+    display: flex;
+    gap: 15px;
+    font-size: 38px;
+    font-weight: 800;
+    color: #fff;
+    z-index: 5;
+}
+
+.phrase-word {
+    padding: 8px 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid var(--memo17-glass-border);
+    transition: all 0.4s ease;
+}
+
+.phrase-word.word-missing {
+    color: rgba(255, 255, 255, 0.1);
+    border-style: dashed;
+    background: transparent;
+}
+
+.phrase-word.word-restored {
+    color: #fff;
+    background: rgba(249, 115, 22, 0.08);
+    border-color: var(--memo17-orange);
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.35);
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+    transform: scale(1.05);
+}
+
+/* --- SLIDE 2: MECHANISM (Cơ chế Tự bù đắp) --- */
+.slide-memo17-2-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 20px !important;
+}
+
+.anatomy-board-v17 {
+    width: 760px;
+    height: 360px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 2px solid var(--memo17-glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: var(--memo17-shadow);
+}
+
+.wave-segment-v17 {
+    width: 20px;
+    background: var(--memo17-cyan);
+    border-radius: 10px;
+    transition: height 0.3s ease, background 0.3s ease;
+}
+
+.wave-segment-v17.shuffled {
+    background: var(--memo17-orange);
+    box-shadow: 0 0 10px var(--memo17-orange);
+}
+
+/* --- SLIDE 3: SOUND BRIDGE SIMULATOR (Cầu nối Âm thanh) --- */
+.slide-memo17-3-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 30px 40px !important;
+}
+
+.sound-panel-v17 {
+    flex: 0 0 440px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo17-glass-border);
+    border-radius: 24px;
+    position: relative;
+    box-shadow: var(--memo17-shadow);
+    overflow: hidden;
+}
+
+.wave-lane-v17 {
+    width: 360px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.bar-v17 {
+    width: 8px;
+    height: 20px;
+    background: var(--memo17-cyan);
+    border-radius: 4px;
+    transition: height 0.15s ease, background 0.15s ease;
+}
+
+.bar-v17.gap-area {
+    background: rgba(255, 255, 255, 0.05);
+    height: 6px;
+}
+
+.prediction-bridge-v17 {
+    position: absolute;
+    left: 120px;
+    width: 120px;
+    height: 4px;
+    background: var(--memo17-orange);
+    box-shadow: 0 0 15px var(--memo17-orange);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prediction-bridge-v17.active-bridge {
+    opacity: 1;
+}
+
+.sound-dashboard-v17 {
+    flex: 0 0 340px;
+    background: var(--memo17-card-bg);
+    border: 1.5px solid var(--memo17-glass-border);
+    border-radius: 20px;
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: left;
+    box-shadow: var(--memo17-shadow);
+}
+
+.sound-status-badge {
+    align-self: flex-start;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.sound-status-badge.broken {
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.sound-status-badge.restored {
+    background: rgba(249, 115, 22, 0.12);
+    color: #fb923c;
+    border-color: var(--memo17-orange);
+    animation: glow-orange-border 1.2s infinite alternate;
+}
+
+@keyframes glow-orange-border {
+    from { box-shadow: 0 0 5px rgba(249, 115, 22, 0.1); }
+    to { box-shadow: 0 0 15px rgba(249, 115, 22, 0.4); }
+}
+
+
+/* --- SLIDE 4: DUAL COMPARISON CARDS --- */
+.slide-memo17-4-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 15px !important;
+}
+
+.comp-row-v17 {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 820px;
+    justify-content: center;
+    align-items: center;
+}
+
+.comp-card-v17 {
+    flex: 1;
+    height: 400px;
+    border-radius: 24px;
+    border: 2px solid var(--memo17-glass-border);
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.comp-card-v17.card-inactive {
+    transform: scale(0.9);
+    opacity: 0.3;
+    filter: blur(2px);
+}
+
+.comp-card-v17.card-active {
+    transform: scale(1.03);
+    opacity: 1;
+    filter: none;
+    box-shadow: var(--memo17-shadow);
+}
+
+.card-theme-raw-input {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.12) 0%, rgba(10, 15, 18, 0.85) 100%);
+    border-color: rgba(6, 182, 212, 0.3);
+}
+
+.card-theme-raw-input.card-active {
+    border-color: #06b6d4;
+    box-shadow: 0 15px 35px rgba(6, 182, 212, 0.25);
+}
+
+.card-theme-brain-output {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.12) 0%, rgba(18, 12, 10, 0.85) 100%);
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+.card-theme-brain-output.card-active {
+    border-color: #f97316;
+    box-shadow: 0 15px 35px rgba(249, 115, 22, 0.25);
+}
+
+.comp-header-v17 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comp-header-v17 h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.card-theme-raw-input .comp-header-v17 h3 { color: #a5f3fc; }
+.card-theme-brain-output .comp-header-v17 h3 { color: #ffedd5; }
+
+.comp-icon-v17 {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.card-theme-raw-input .comp-icon-v17 {
+    background: rgba(6, 182, 212, 0.2);
+    color: #06b6d4;
+}
+
+.card-theme-brain-output .comp-icon-v17 {
+    background: rgba(249, 115, 22, 0.2);
+    color: #f97316;
+}
+
+.comp-bullet-list-v17 {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    justify-content: center;
+}
+
+.comp-bullet-row-v17 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-theme-raw-input .comp-bullet-row-v17 { color: rgba(255, 255, 255, 0.9); }
+.card-theme-brain-output .comp-bullet-row-v17 { color: rgba(255, 255, 255, 0.9); }
+
+.comp-bullet-icon-v17 { font-size: 20px; }
+
+.comp-footer-v17 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-theme-raw-input .comp-footer-v17 { color: #22d3ee; }
+.card-theme-brain-output .comp-footer-v17 { color: #fb923c; }
+
+
+/* --- SLIDE 5: TAKEAWAY (Tỉnh thức Lắng nghe) --- */
+.slide-memo17-5-container {
+    justify-content: center !important;
+    padding-top: 60px !important;
+}
+
+.takeaway-radar-v17 {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 70%);
+    position: absolute;
+    z-index: 1;
+    animation: calm-pulse-v17 4s infinite ease-in-out;
+}
+
+@keyframes calm-pulse-v17 {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.6); opacity: 0.8; }
+}
+
+.takeaway-box-v17 {
+    width: 480px;
+    background: var(--memo17-card-bg);
+    border: 2px solid var(--memo17-glass-border);
+    border-radius: 24px;
+    padding: 26px;
+    box-sizing: border-box;
+    z-index: 2;
+    box-shadow: var(--memo17-shadow);
+    text-align: center;
+    margin-bottom: 25px;
+    transform: translateY(0);
+    animation: float-takeaway-v17 6s ease-in-out infinite alternate;
+}
+
+@keyframes float-takeaway-v17 {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.takeaway-face-v17 {
+    font-size: 60px;
+    margin-bottom: 12px;
+    animation: bounce 2s infinite alternate;
+}
+
+.takeaway-text-v17 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* --- KEYWORD HIGHLIGHT COLORS --- */
+.active-cyan {
+    color: #22d3ee !important;
+    text-shadow: 0 0 12px rgba(34, 211, 238, 0.55) !important;
+    border-color: #06b6d4 !important;
+}
+
+.active-orange {
+    color: #fb923c !important;
+    text-shadow: 0 0 12px rgba(251, 146, 60, 0.55) !important;
+    border-color: #f97316 !important;
+}
+
+.active-pink {
+    color: #f472b6 !important;
+    text-shadow: 0 0 12px rgba(244, 114, 182, 0.55) !important;
+    border-color: #ec4899 !important;
+}
+
+.active-indigo {
+    color: #818cf8 !important;
+    text-shadow: 0 0 12px rgba(129, 140, 248, 0.55) !important;
+    border-color: #6366f1 !important;
+}

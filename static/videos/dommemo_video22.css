@@ -1,0 +1,487 @@
+/* DOM Memo Video 22: Auditory Sensory Gating Stylesheet */
+
+:root {
+    --memo22-amber: #f59e0b;       /* Calm state: Filter active */
+    --memo22-purple: #7c3aed;      /* Stress state: Filter failed */
+    --memo22-dark: #070509;
+    --memo22-card-bg: rgba(22, 18, 28, 0.8);
+    --memo22-glass-border: rgba(255, 255, 255, 0.08);
+    --memo22-shadow: 0 20px 45px rgba(0, 0, 0, 0.75);
+}
+
+.memo-wrapper {
+    width: 900px;
+    height: 800px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background: transparent;
+    overflow: visible;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Floating fan / sound particles */
+@keyframes float-sound-v22 {
+    0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 0.15; }
+    50% { opacity: 0.45; }
+    100% { transform: translateY(-70px) scale(1.15) rotate(180deg); opacity: 0.15; }
+}
+
+.ambient-sound-particle-v22 {
+    position: absolute;
+    font-size: 24px;
+    pointer-events: none;
+    z-index: 0;
+    animation: float-sound-v22 8s linear infinite;
+}
+
+/* --- SLIDE 1: HOOK (Bộ lọc Âm lượng) --- */
+.slide-memo22-1-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    padding-top: 30px !important;
+}
+
+.fan-hook-box {
+    width: 760px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.015);
+    border: 2px solid var(--memo22-glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--memo22-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.spinning-fan-icon {
+    font-size: 85px;
+    animation: fan-spin 2s linear infinite;
+    z-index: 5;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+}
+
+@keyframes fan-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+/* --- SLIDE 2: MECHANISM (Cơ chế Lọc cảm giác) --- */
+.slide-memo22-2-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 20px !important;
+}
+
+.gate-diagram-board {
+    width: 760px;
+    height: 360px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 2px solid var(--memo22-glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: var(--memo22-shadow);
+}
+
+.diagram-node-v22 {
+    width: 140px;
+    height: 140px;
+    border-radius: 20px;
+    border: 2px solid var(--memo22-glass-border);
+    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    position: relative;
+    z-index: 5;
+    transition: all 0.4s ease;
+}
+
+.diagram-node-v22.active-node {
+    border-color: var(--memo22-amber);
+    background: rgba(245, 158, 11, 0.05);
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+    transform: scale(1.05);
+}
+
+.diagram-node-v22.active-node.node-cortex {
+    border-color: var(--memo22-purple);
+    background: rgba(124, 58, 237, 0.05);
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.25);
+}
+
+.diagram-node-icon {
+    font-size: 36px;
+    transition: transform 0.3s ease;
+}
+
+.diagram-node-v22.active-node .diagram-node-icon {
+    transform: scale(1.15);
+}
+
+.node-link-arrow {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.15);
+    transition: color 0.4s ease, transform 0.4s ease;
+    z-index: 2;
+}
+
+.node-link-arrow.highlight-link {
+    color: var(--memo22-amber);
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--memo22-amber);
+}
+
+.node-link-arrow.highlight-link-purple {
+    color: var(--memo22-purple);
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--memo22-purple);
+}
+
+
+/* --- SLIDE 3: GATING SIMULATOR (Mô phỏng Màng lọc) --- */
+.slide-memo22-3-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 30px 40px !important;
+}
+
+.gating-filter-panel-v22 {
+    flex: 0 0 440px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo22-glass-border);
+    border-radius: 24px;
+    position: relative;
+    box-shadow: var(--memo22-shadow);
+    overflow: hidden;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.noise-emitter-v22 {
+    font-size: 45px;
+    animation: bounce-emitter 2s infinite alternate;
+}
+
+@keyframes bounce-emitter {
+    from { transform: scale(0.95); }
+    to { transform: scale(1.1); }
+}
+
+.gating-filter-barrier-v22 {
+    width: 15px;
+    height: 140px;
+    background: var(--memo22-amber);
+    box-shadow: 0 0 15px var(--memo22-amber);
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+
+.gating-filter-barrier-v22.broken-filter {
+    background: rgba(124, 94, 237, 0.15);
+    border: 2px dashed var(--memo22-purple);
+    box-shadow: none;
+    height: 40px;
+    opacity: 0.3;
+}
+
+.receiver-brain-v22 {
+    font-size: 55px;
+    transition: transform 0.2s ease;
+}
+
+.receiver-brain-v22.alarm-shake {
+    animation: jitter-brain 0.2s infinite;
+}
+
+@keyframes jitter-brain {
+    0% { transform: translate(1px, 2px) rotate(0.5deg); }
+    50% { transform: translate(-2px, -1px) rotate(-0.5deg); }
+    100% { transform: translate(2px, 1px) rotate(0.5deg); }
+}
+
+.audio-pulse-dot-v22 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--memo22-amber);
+    box-shadow: 0 0 10px var(--memo22-amber);
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+.gating-dashboard-v22 {
+    flex: 0 0 340px;
+    background: var(--memo22-card-bg);
+    border: 1.5px solid var(--memo22-glass-border);
+    border-radius: 20px;
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: left;
+    box-shadow: var(--memo22-shadow);
+}
+
+.gating-status-badge {
+    align-self: flex-start;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.gating-status-badge.calm {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fde047;
+    border-color: var(--memo22-amber);
+    animation: glow-amber-border 1.2s infinite alternate;
+}
+
+.gating-status-badge.stress {
+    background: rgba(124, 58, 237, 0.12);
+    color: #c084fc;
+    border-color: var(--memo22-purple);
+}
+
+@keyframes glow-amber-border {
+    from { box-shadow: 0 0 5px rgba(245, 158, 11, 0.1); }
+    to { box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); }
+}
+
+
+/* --- SLIDE 4: DUAL COMPARISON CARDS --- */
+.slide-memo22-4-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 15px !important;
+}
+
+.comp-row-v22 {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 820px;
+    justify-content: center;
+    align-items: center;
+}
+
+.comp-card-v22 {
+    flex: 1;
+    height: 400px;
+    border-radius: 24px;
+    border: 2px solid var(--memo22-glass-border);
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.comp-card-v22.card-inactive {
+    transform: scale(0.9);
+    opacity: 0.3;
+    filter: blur(2px);
+}
+
+.comp-card-v22.card-active {
+    transform: scale(1.03);
+    opacity: 1;
+    filter: none;
+    box-shadow: var(--memo22-shadow);
+}
+
+.card-theme-calm {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(10, 15, 12, 0.85) 100%);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.card-theme-calm.card-active {
+    border-color: var(--memo22-amber);
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.25);
+}
+
+.card-theme-stress {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(18, 10, 18, 0.85) 100%);
+    border-color: rgba(124, 58, 237, 0.3);
+}
+
+.card-theme-stress.card-active {
+    border-color: var(--memo22-purple);
+    box-shadow: 0 15px 35px rgba(124, 58, 237, 0.25);
+}
+
+.comp-header-v22 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comp-header-v22 h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.card-theme-calm .comp-header-v22 h3 { color: #fde047; }
+.card-theme-stress .comp-header-v22 h3 { color: #c084fc; }
+
+.comp-icon-v22 {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.card-theme-calm .comp-icon-v22 {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fde047;
+}
+
+.card-theme-stress .comp-icon-v22 {
+    background: rgba(124, 58, 237, 0.2);
+    color: #c084fc;
+}
+
+.comp-bullet-list-v22 {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    justify-content: center;
+}
+
+.comp-bullet-row-v22 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-theme-calm .comp-bullet-row-v22 { color: rgba(255, 255, 255, 0.9); }
+.card-theme-stress .comp-bullet-row-v22 { color: rgba(255, 255, 255, 0.9); }
+
+.comp-bullet-icon-v22 { font-size: 20px; }
+
+.comp-footer-v22 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-theme-calm .comp-footer-v22 { color: #f59e0b; }
+.card-theme-stress .comp-footer-v22 { color: #a78bfa; }
+
+
+/* --- SLIDE 5: TAKEAWAY (Khôi phục Bộ lọc) --- */
+.slide-memo22-5-container {
+    justify-content: center !important;
+    padding-top: 60px !important;
+}
+
+.takeaway-radar-v22 {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
+    position: absolute;
+    z-index: 1;
+    animation: calm-pulse-v22 4s infinite ease-in-out;
+}
+
+@keyframes calm-pulse-v22 {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.6); opacity: 0.8; }
+}
+
+.takeaway-box-v22 {
+    width: 480px;
+    background: var(--memo22-card-bg);
+    border: 2px solid var(--memo22-glass-border);
+    border-radius: 24px;
+    padding: 26px;
+    box-sizing: border-box;
+    z-index: 2;
+    box-shadow: var(--memo22-shadow);
+    text-align: center;
+    margin-bottom: 25px;
+    transform: translateY(0);
+    animation: float-takeaway-v22 6s ease-in-out infinite alternate;
+}
+
+@keyframes float-takeaway-v22 {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.takeaway-face-v22 {
+    font-size: 60px;
+    margin-bottom: 12px;
+    animation: bounce 2s infinite alternate;
+}
+
+.takeaway-text-v22 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* --- KEYWORD HIGHLIGHT COLORS --- */
+.active-amber {
+    color: #fde047 !important;
+    text-shadow: 0 0 12px rgba(253, 224, 71, 0.55) !important;
+    border-color: var(--memo22-amber) !important;
+}
+
+.active-purple {
+    color: #c084fc !important;
+    text-shadow: 0 0 12px rgba(192, 132, 252, 0.55) !important;
+    border-color: var(--memo22-purple) !important;
+}

@@ -1,0 +1,491 @@
+/* DOM Memo Video 25: Zeigarnik Effect Stylesheet */
+
+:root {
+    --memo25-green: #22c55e;       /* Completed task / closed loop */
+    --memo25-gray: #4b5563;        /* Archived silent task */
+    --memo25-red: #ef4444;         /* Open loop warning / active flash */
+    --memo25-dark: #050706;
+    --memo25-card-bg: rgba(18, 28, 22, 0.8);
+    --memo25-glass-border: rgba(255, 255, 255, 0.08);
+    --memo25-shadow: 0 20px 45px rgba(0, 0, 0, 0.75);
+}
+
+.memo-wrapper {
+    width: 900px;
+    height: 800px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background: transparent;
+    overflow: visible;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Floating checkbox particles */
+@keyframes float-check-v25 {
+    0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 0.15; }
+    50% { opacity: 0.45; }
+    100% { transform: translateY(-70px) scale(1.15) rotate(180deg); opacity: 0.15; }
+}
+
+.ambient-check-particle-v25 {
+    position: absolute;
+    font-size: 22px;
+    pointer-events: none;
+    z-index: 0;
+    animation: float-check-v25 8s linear infinite;
+}
+
+/* --- SLIDE 1: HOOK (Hiệu ứng Zeigarnik) --- */
+.slide-memo25-1-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    padding-top: 30px !important;
+}
+
+.check-hook-box {
+    width: 760px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.015);
+    border: 2px solid var(--memo25-glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--memo25-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.hook-todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 420px;
+    text-align: left;
+    z-index: 5;
+}
+
+.hook-todo-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.hook-todo-item.done {
+    text-decoration: line-through;
+    color: var(--memo25-gray);
+}
+
+.hook-todo-item.pending {
+    color: #fff;
+    animation: flash-red-text 1.5s infinite alternate;
+}
+
+@keyframes flash-red-text {
+    from { text-shadow: 0 0 5px rgba(239, 68, 68, 0.1); }
+    to { text-shadow: 0 0 20px rgba(239, 68, 68, 0.6); color: #fee2e2; }
+}
+
+
+/* --- SLIDE 2: MECHANISM (Vòng lặp Nhận thức) --- */
+.slide-memo25-2-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 20px !important;
+}
+
+.check-diagram-board {
+    width: 760px;
+    height: 360px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 2px solid var(--memo25-glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: var(--memo25-shadow);
+}
+
+.diagram-node-v25 {
+    width: 140px;
+    height: 140px;
+    border-radius: 20px;
+    border: 2px solid var(--memo25-glass-border);
+    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    position: relative;
+    z-index: 5;
+    transition: all 0.4s ease;
+}
+
+.diagram-node-v25.active-node {
+    border-color: var(--memo25-red);
+    background: rgba(239, 68, 68, 0.05);
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.25);
+    transform: scale(1.05);
+}
+
+.diagram-node-v25.active-node.node-archive {
+    border-color: var(--memo25-green);
+    background: rgba(34, 197, 94, 0.05);
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.25);
+}
+
+.diagram-node-icon {
+    font-size: 36px;
+    transition: transform 0.3s ease;
+}
+
+.diagram-node-v25.active-node .diagram-node-icon {
+    transform: scale(1.15);
+}
+
+.node-link-arrow {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.15);
+    transition: color 0.4s ease, transform 0.4s ease;
+    z-index: 2;
+}
+
+.node-link-arrow.highlight-link {
+    color: var(--memo25-red);
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--memo25-red);
+}
+
+.node-link-arrow.highlight-link-green {
+    color: var(--memo25-green);
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--memo25-green);
+}
+
+
+/* --- SLIDE 3: MEMORY TAB MANAGER SIMULATOR --- */
+.slide-memo25-3-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 30px 40px !important;
+}
+
+.tab-manager-panel-v25 {
+    flex: 0 0 440px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo25-glass-border);
+    border-radius: 24px;
+    position: relative;
+    box-shadow: var(--memo25-shadow);
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 12px;
+}
+
+.memory-tab-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 18px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.01);
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+}
+
+.memory-tab-row.tab-done {
+    text-decoration: line-through;
+    background: transparent;
+    color: var(--memo25-gray);
+    border-color: rgba(255, 255, 255, 0.02);
+}
+
+.memory-tab-row.tab-pending {
+    background: rgba(239, 68, 68, 0.04);
+    border-color: var(--memo25-red);
+    color: #fff;
+    animation: pulse-tab-border 1.2s infinite alternate;
+}
+
+@keyframes pulse-tab-border {
+    from { box-shadow: 0 0 3px rgba(239, 68, 68, 0.1); }
+    to { box-shadow: 0 0 15px rgba(239, 68, 68, 0.35); }
+}
+
+.buffer-dashboard-v25 {
+    flex: 0 0 340px;
+    background: var(--memo25-card-bg);
+    border: 1.5px solid var(--memo25-glass-border);
+    border-radius: 20px;
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: left;
+    box-shadow: var(--memo25-shadow);
+}
+
+.buffer-status-badge {
+    align-self: flex-start;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.buffer-status-badge.clean {
+    background: rgba(34, 197, 94, 0.12);
+    color: #a7f3d0;
+    border-color: var(--memo25-green);
+}
+
+.buffer-status-badge.overload {
+    background: rgba(239, 68, 68, 0.12);
+    color: #fca5a5;
+    border-color: var(--memo25-red);
+    animation: glow-red-border-v25 1.2s infinite alternate;
+}
+
+@keyframes glow-red-border-v25 {
+    from { box-shadow: 0 0 5px rgba(239, 68, 68, 0.1); }
+    to { box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
+}
+
+
+/* --- SLIDE 4: DUAL COMPARISON CARDS --- */
+.slide-memo25-4-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 15px !important;
+}
+
+.comp-row-v25 {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 820px;
+    justify-content: center;
+    align-items: center;
+}
+
+.comp-card-v25 {
+    flex: 1;
+    height: 400px;
+    border-radius: 24px;
+    border: 2px solid var(--memo25-glass-border);
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.comp-card-v25.card-inactive {
+    transform: scale(0.9);
+    opacity: 0.3;
+    filter: blur(2px);
+}
+
+.comp-card-v25.card-active {
+    transform: scale(1.03);
+    opacity: 1;
+    filter: none;
+    box-shadow: var(--memo25-shadow);
+}
+
+.card-theme-closed {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.12) 0%, rgba(10, 15, 12, 0.85) 100%);
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+.card-theme-closed.card-active {
+    border-color: var(--memo25-green);
+    box-shadow: 0 15px 35px rgba(34, 197, 94, 0.25);
+}
+
+.card-theme-open {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(18, 10, 10, 0.85) 100%);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.card-theme-open.card-active {
+    border-color: var(--memo25-red);
+    box-shadow: 0 15px 35px rgba(239, 68, 68, 0.25);
+}
+
+.comp-header-v25 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comp-header-v25 h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.card-theme-closed .comp-header-v25 h3 { color: #a7f3d0; }
+.card-theme-open .comp-header-v25 h3 { color: #fecaca; }
+
+.comp-icon-v25 {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.card-theme-closed .comp-icon-v25 {
+    background: rgba(34, 197, 94, 0.2);
+    color: #a7f3d0;
+}
+
+.card-theme-open .comp-icon-v25 {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fecaca;
+}
+
+.comp-bullet-list-v25 {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    justify-content: center;
+}
+
+.comp-bullet-row-v25 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-theme-closed .comp-bullet-row-v25 { color: rgba(255, 255, 255, 0.9); }
+.card-theme-open .comp-bullet-row-v25 { color: rgba(255, 255, 255, 0.9); }
+
+.comp-bullet-icon-v25 { font-size: 20px; }
+
+.comp-footer-v25 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-theme-closed .comp-footer-v25 { color: #22c55e; }
+.card-theme-open .comp-footer-v25 { color: #f87171; }
+
+
+/* --- SLIDE 5: TAKEAWAY (Đóng vòng lặp) --- */
+.slide-memo25-5-container {
+    justify-content: center !important;
+    padding-top: 60px !important;
+}
+
+.takeaway-radar-v25 {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.12) 0%, transparent 70%);
+    position: absolute;
+    z-index: 1;
+    animation: calm-pulse-v25 4s infinite ease-in-out;
+}
+
+@keyframes calm-pulse-v25 {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.6); opacity: 0.8; }
+}
+
+.takeaway-box-v25 {
+    width: 480px;
+    background: var(--memo25-card-bg);
+    border: 2px solid var(--memo25-glass-border);
+    border-radius: 24px;
+    padding: 26px;
+    box-sizing: border-box;
+    z-index: 2;
+    box-shadow: var(--memo25-shadow);
+    text-align: center;
+    margin-bottom: 25px;
+    transform: translateY(0);
+    animation: float-takeaway-v25 6s ease-in-out infinite alternate;
+}
+
+@keyframes float-takeaway-v25 {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.takeaway-face-v25 {
+    font-size: 60px;
+    margin-bottom: 12px;
+    animation: bounce 2s infinite alternate;
+}
+
+.takeaway-text-v25 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* --- KEYWORD HIGHLIGHT COLORS --- */
+.active-green {
+    color: #34d399 !important;
+    text-shadow: 0 0 12px rgba(52, 211, 153, 0.55) !important;
+    border-color: var(--memo25-green) !important;
+}
+
+.active-red {
+    color: #f87171 !important;
+    text-shadow: 0 0 12px rgba(248, 113, 113, 0.55) !important;
+    border-color: var(--memo25-red) !important;
+}

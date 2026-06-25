@@ -1,0 +1,479 @@
+/* DOM Memo Video 24: Mere Exposure Effect Stylesheet */
+
+:root {
+    --memo24-crimson: #b91c1c;     /* Unfamiliar danger threat */
+    --memo24-indigo: #6366f1;      /* Familiarity safe connection */
+    --memo24-green: #10b981;       /* Safe / Pleasing state */
+    --memo24-dark: #090505;
+    --memo24-card-bg: rgba(28, 20, 20, 0.8);
+    --memo24-glass-border: rgba(255, 255, 255, 0.08);
+    --memo24-shadow: 0 20px 45px rgba(0, 0, 0, 0.75);
+}
+
+.memo-wrapper {
+    width: 900px;
+    height: 800px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background: transparent;
+    overflow: visible;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Floating exposure particles */
+@keyframes float-exposure-v24 {
+    0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 0.15; }
+    50% { opacity: 0.45; }
+    100% { transform: translateY(-70px) scale(1.15) rotate(120deg); opacity: 0.15; }
+}
+
+.ambient-exposure-particle-v24 {
+    position: absolute;
+    font-size: 22px;
+    pointer-events: none;
+    z-index: 0;
+    animation: float-exposure-v24 8s linear infinite;
+}
+
+/* --- SLIDE 1: HOOK (Hiệu ứng Tiếp xúc) --- */
+.slide-memo24-1-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    padding-top: 30px !important;
+}
+
+.exposure-hook-box {
+    width: 760px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.015);
+    border: 2px solid var(--memo24-glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--memo24-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.pulsing-music-note {
+    font-size: 80px;
+    animation: note-bounce-v24 2.5s infinite ease-in-out alternate;
+    z-index: 5;
+    position: relative;
+}
+
+@keyframes note-bounce-v24 {
+    0% { transform: scale(0.9) rotate(-10deg); filter: drop-shadow(0 0 10px rgba(185, 28, 28, 0.2)); }
+    100% { transform: scale(1.1) rotate(10deg); filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.55)); }
+}
+
+
+/* --- SLIDE 2: MECHANISM (Cơ chế Thân thuộc) --- */
+.slide-memo24-2-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 20px !important;
+}
+
+.exposure-diagram-board {
+    width: 760px;
+    height: 360px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 2px solid var(--memo24-glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: var(--memo24-shadow);
+}
+
+.diagram-node-v24 {
+    width: 140px;
+    height: 140px;
+    border-radius: 20px;
+    border: 2px solid var(--memo24-glass-border);
+    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    position: relative;
+    z-index: 5;
+    transition: all 0.4s ease;
+}
+
+.diagram-node-v24.active-node {
+    border-color: var(--memo24-crimson);
+    background: rgba(185, 28, 28, 0.05);
+    box-shadow: 0 0 25px rgba(185, 28, 28, 0.25);
+    transform: scale(1.05);
+}
+
+.diagram-node-v24.active-node.node-ease {
+    border-color: var(--memo24-indigo);
+    background: rgba(99, 102, 241, 0.05);
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.25);
+}
+
+.diagram-node-icon {
+    font-size: 36px;
+    transition: transform 0.3s ease;
+}
+
+.diagram-node-v24.active-node .diagram-node-icon {
+    transform: scale(1.15);
+}
+
+.node-link-arrow {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.15);
+    transition: color 0.4s ease, transform 0.4s ease;
+    z-index: 2;
+}
+
+.node-link-arrow.highlight-link {
+    color: var(--memo24-crimson);
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--memo24-crimson);
+}
+
+.node-link-arrow.highlight-link-indigo {
+    color: var(--memo24-indigo);
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--memo24-indigo);
+}
+
+
+/* --- SLIDE 3: EXPOSURE SIMULATOR (Mô phỏng Thân thuộc) --- */
+.slide-memo24-3-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 30px 40px !important;
+}
+
+.exposure-panel-v24 {
+    flex: 0 0 440px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1.5px solid var(--memo24-glass-border);
+    border-radius: 24px;
+    position: relative;
+    box-shadow: var(--memo24-shadow);
+    overflow: hidden;
+    gap: 15px;
+}
+
+.shield-layer-v24 {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid var(--memo24-crimson);
+    box-shadow: 0 0 20px rgba(185, 28, 28, 0.4);
+    opacity: 0.8;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 8;
+}
+
+.shield-layer-v24.shield-weak {
+    border-color: var(--memo24-indigo);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    transform: scale(1.15);
+    opacity: 0.35;
+}
+
+.shield-layer-v24.shield-off {
+    border-color: var(--memo24-green);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+    transform: scale(1.3);
+    opacity: 0.1;
+}
+
+.exposure-object-v24 {
+    font-size: 55px;
+    z-index: 5;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.loop-counter-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.exposure-dashboard-v24 {
+    flex: 0 0 340px;
+    background: var(--memo24-card-bg);
+    border: 1.5px solid var(--memo24-glass-border);
+    border-radius: 20px;
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: left;
+    box-shadow: var(--memo24-shadow);
+}
+
+.exposure-status-badge {
+    align-self: flex-start;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.exposure-status-badge.alert {
+    background: rgba(185, 28, 28, 0.12);
+    color: #fca5a5;
+    border-color: var(--memo24-crimson);
+}
+
+.exposure-status-badge.safe {
+    background: rgba(16, 185, 129, 0.12);
+    color: #a7f3d0;
+    border-color: var(--memo24-green);
+    animation: glow-green-border-v24 1.2s infinite alternate;
+}
+
+@keyframes glow-green-border-v24 {
+    from { box-shadow: 0 0 5px rgba(16, 185, 129, 0.1); }
+    to { box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+}
+
+
+/* --- SLIDE 4: DUAL COMPARISON CARDS --- */
+.slide-memo24-4-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding-top: 15px !important;
+}
+
+.comp-row-v24 {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 820px;
+    justify-content: center;
+    align-items: center;
+}
+
+.comp-card-v24 {
+    flex: 1;
+    height: 400px;
+    border-radius: 24px;
+    border: 2px solid var(--memo24-glass-border);
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.comp-card-v24.card-inactive {
+    transform: scale(0.9);
+    opacity: 0.3;
+    filter: blur(2px);
+}
+
+.comp-card-v24.card-active {
+    transform: scale(1.03);
+    opacity: 1;
+    filter: none;
+    box-shadow: var(--memo24-shadow);
+}
+
+.card-theme-alarm {
+    background: linear-gradient(135deg, rgba(185, 28, 28, 0.12) 0%, rgba(10, 12, 15, 0.85) 100%);
+    border-color: rgba(185, 28, 28, 0.3);
+}
+
+.card-theme-alarm.card-active {
+    border-color: var(--memo24-crimson);
+    box-shadow: 0 15px 35px rgba(185, 28, 28, 0.25);
+}
+
+.card-theme-ease {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(18, 14, 18, 0.85) 100%);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.card-theme-ease.card-active {
+    border-color: var(--memo24-indigo);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.25);
+}
+
+.comp-header-v24 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comp-header-v24 h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.card-theme-alarm .comp-header-v24 h3 { color: #fca5a5; }
+.card-theme-ease .comp-header-v24 h3 { color: #c7d2fe; }
+
+.comp-icon-v24 {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.card-theme-alarm .comp-icon-v24 {
+    background: rgba(185, 28, 28, 0.2);
+    color: #fca5a5;
+}
+
+.card-theme-ease .comp-icon-v24 {
+    background: rgba(99, 102, 241, 0.2);
+    color: #c7d2fe;
+}
+
+.comp-bullet-list-v24 {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    justify-content: center;
+}
+
+.comp-bullet-row-v24 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-theme-alarm .comp-bullet-row-v24 { color: rgba(255, 255, 255, 0.9); }
+.card-theme-ease .comp-bullet-row-v24 { color: rgba(255, 255, 255, 0.9); }
+
+.comp-bullet-icon-v24 { font-size: 20px; }
+
+.comp-footer-v24 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-theme-alarm .comp-footer-v24 { color: #ef4444; }
+.card-theme-ease .comp-footer-v24 { color: #818cf8; }
+
+
+/* --- SLIDE 5: TAKEAWAY (Ứng dụng thực tế) --- */
+.slide-memo24-5-container {
+    justify-content: center !important;
+    padding-top: 60px !important;
+}
+
+.takeaway-radar-v24 {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+    position: absolute;
+    z-index: 1;
+    animation: calm-pulse-v24 4s infinite ease-in-out;
+}
+
+@keyframes calm-pulse-v24 {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.6); opacity: 0.8; }
+}
+
+.takeaway-box-v24 {
+    width: 480px;
+    background: var(--memo24-card-bg);
+    border: 2px solid var(--memo24-glass-border);
+    border-radius: 24px;
+    padding: 26px;
+    box-sizing: border-box;
+    z-index: 2;
+    box-shadow: var(--memo24-shadow);
+    text-align: center;
+    margin-bottom: 25px;
+    transform: translateY(0);
+    animation: float-takeaway-v24 6s ease-in-out infinite alternate;
+}
+
+@keyframes float-takeaway-v24 {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.takeaway-face-v24 {
+    font-size: 60px;
+    margin-bottom: 12px;
+    animation: bounce 2s infinite alternate;
+}
+
+.takeaway-text-v24 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* --- KEYWORD HIGHLIGHT COLORS --- */
+.active-crimson {
+    color: #fca5a5 !important;
+    text-shadow: 0 0 12px rgba(252, 165, 165, 0.55) !important;
+    border-color: var(--memo24-crimson) !important;
+}
+
+.active-indigo {
+    color: #c7d2fe !important;
+    text-shadow: 0 0 12px rgba(199, 210, 254, 0.55) !important;
+    border-color: var(--memo24-indigo) !important;
+}
