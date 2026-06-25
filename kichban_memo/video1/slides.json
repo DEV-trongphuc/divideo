@@ -1,0 +1,93 @@
+[
+  {
+    "id": "slide_memo_1",
+    "title": "Điện thoại vừa rung?",
+    "subtitle": "BẤT NGỜ MỞ MÀN HÌNH NHƯNG KHÔNG CÓ THÔNG BÁO",
+    "layout": "title",
+    "script": "Bạn chắc chắn vừa cảm thấy điện thoại rung. Nhưng mở ra chẳng có gì.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 6.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo_2",
+    "title": "Hội chứng Rung ảo giác",
+    "subtitle": "PHANTOM VIBRATION SYNDROME - HIỆN TƯỢNG PHỔ BIẾN",
+    "layout": "cards",
+    "script": "Đây không phải là lỗi của chiếc điện thoại, mà là một hiện tượng tâm lý phổ biến được gọi là Hội chứng rung ảo giác - Phantom Vibration Syndrome. Hơn tám mươi phần trăm người dùng smartphone từng trải qua cảm giác kỳ lạ này.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [
+      {
+        "icon": "bell-off",
+        "title": "Không thông báo",
+        "desc": "Điện thoại hoàn toàn im lặng, không có tin nhắn hay cuộc gọi nhỡ nào cả."
+      },
+      {
+        "icon": "activity",
+        "title": "Cảm giác thật",
+        "desc": "Cơ đùi hoặc túi quần thực sự cảm nhận được nhịp rung rất rõ ràng."
+      },
+      {
+        "icon": "smartphone",
+        "title": "Thói quen kiểm tra",
+        "desc": "Xảy ra thường xuyên hơn ở những người có thói quen kiểm tra máy liên tục."
+      }
+    ],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo_3",
+    "title": "Cơ chế báo động giả của não",
+    "subtitle": "KHI SỰ KỲ VỌNG HẠ THẤP NGƯỠNG NHẬN THỨC",
+    "layout": "diagram",
+    "script": "Tại sao lại như thế? Khi bạn lo lắng hoặc chờ đợi một tin nhắn quan trọng, não bộ sẽ rơi vào trạng thái cảnh giác cao độ. Nó chủ động hạ thấp ngưỡng nhận diện kích thích để phản xạ nhanh hơn.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.0,
+    "cards": [],
+    "code": "",
+    "diagram": [
+      { "id": "node_m1", "label": "Chờ đợi / Lo lắng", "type": "start" },
+      { "id": "node_m2", "label": "Não hạ thấp ngưỡng cảm nhận", "type": "process" },
+      { "id": "node_m3", "label": "Nhiễu nhẹ (Cọ xát quần áo, co cơ)", "type": "warning" },
+      { "id": "node_m4", "label": "Não phán đoán: CÓ RUNG!", "type": "success", "note": "Rung ảo giác xuất hiện" }
+    ]
+  },
+  {
+    "id": "slide_memo_4",
+    "title": "Não tự diễn giải tín hiệu",
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC CỦA NÃO BỘ",
+    "layout": "code",
+    "script": "Khi đó, chỉ một tiếng cọ xát nhẹ của quần áo, hay một cái co cơ đùi bình thường cũng bị não bộ diễn giải nhầm thành điện thoại đang rung. Đối với não, thà báo động nhầm còn hơn bỏ sót tin nhắn quan trọng!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "// THUẬT TOÁN PHÁN ĐOÁN CỦA BỘ NÃO\nif (Expectation == HIGH || Anxiety == HIGH) {\n    SensoryThreshold = LOW; // Cảnh giác cao độ\n}\n\nSignal = ReadSensorySensors(); // Cọ xát quần áo, co cơ...\nif (Signal > SensoryThreshold) {\n    TriggerBrainAlert(\"Điện thoại đang rung!\");\n    // Kết quả: Mở máy ra và... không có gì!\n}",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo_5",
+    "title": "Khám phá tâm lý cùng DOM Memo!",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "layout": "title",
+    "script": "Đã bao giờ bạn cảm nhận thấy tiếng rung ảo giác như vậy chưa? Hãy để lại bình luận bên dưới, nhấn tim và nhấn Follow kênh DOM Memo để cùng khám phá thêm nhiều bí ẩn thú vị về tâm lý học mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  }
+]

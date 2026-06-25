@@ -88,6 +88,77 @@ DEFAULT_SLIDES = [
     }
 ]
 
+DEFAULT_SLIDES_MEMO = [
+    {
+        "id": "slide_memo_1",
+        "title": "BỘ NÃO HOẠT ĐỘNG THẾ NÀO?",
+        "subtitle": "Cơ chế 'Cognitive Dispatch' điều phối thông tin của não bộ",
+        "layout": "title",
+        "script": "Não bộ của chúng ta hoạt động như một bộ xử lý trung tâm, liên tục nhận thông tin kích thích và điều phối các phản ứng cảm xúc hành vi.",
+        "voice": "google-vi-VN-Neural2-D",
+        "refVoice": "",
+        "audioPath": "",
+        "duration": 7.0,
+        "cards": [],
+        "code": "",
+        "diagram": []
+    },
+    {
+        "id": "slide_memo_2",
+        "title": "Kích thích -> Phản hồi",
+        "subtitle": "Quy trình xử lý của hệ thống nhận thức",
+        "layout": "diagram",
+        "script": "Khi có kích thích từ môi trường, não bộ sẽ truy xuất vùng nhớ đệm trước. Nếu có phản xạ sẵn, nó sẽ phản hồi ngay lập tức để tiết kiệm năng lượng xử lý.",
+        "voice": "google-vi-VN-Neural2-D",
+        "refVoice": "",
+        "audioPath": "",
+        "duration": 9.0,
+        "cards": [],
+        "code": "",
+        "diagram": [
+            {"id": "node_m1", "label": "Kích thích bên ngoài", "type": "start"},
+            {"id": "node_m2", "label": "Quét bộ nhớ đệm (Cache)", "type": "process"},
+            {"id": "node_m3", "label": "PHẢN XẠ NHANH (0.1s)", "type": "success", "note": "Không cần suy nghĩ"},
+            {"id": "node_m4", "label": "SUY NGHĨ SÂU", "type": "warning", "note": "Phân tích logic (Vỏ não mới)"},
+            {"id": "node_m5", "label": "Lưu lại phản xạ mới", "type": "process"}
+        ]
+    },
+    {
+        "id": "slide_memo_3",
+        "title": "Hội Chứng Phân Phối Nhận Thức",
+        "subtitle": "Đánh giá khả năng xử lý thông tin",
+        "layout": "code",
+        "script": "Trong tâm lý học nhận thức, việc phân phối tín hiệu được tối ưu hóa qua các thói quen hàng ngày để giảm tải cho vỏ não mới.",
+        "voice": "google-vi-VN-Neural2-D",
+        "refVoice": "",
+        "audioPath": "",
+        "duration": 8.0,
+        "cards": [],
+        "code": "// QUY TRÌNH PHÂN PHỐI NHẬN THỨC\nif (Stimulus == Familiar) {\n    TriggerHabitPath(); // Tốn 0% ý thức\n} else {\n    EngageAnalyticalThinking(); // Tốn 100% ý thức và glucose\n}\n\n// Kết quả: Tạo ra thói quen tốt để tối ưu hóa bộ não!",
+        "diagram": []
+    },
+    {
+        "id": "slide_memo_4",
+        "title": "3 Trụ Cột Của Trí Nhớ",
+        "subtitle": "Các giai đoạn hình thành ký ức trong não bộ",
+        "layout": "cards",
+        "script": "Tóm lại, trí nhớ được hình thành qua 3 giai đoạn chính: Mã hóa thông tin nhận thức, Lưu trữ dài hạn, và Truy xuất (Memo Dispatch) khi cần.",
+        "voice": "google-vi-VN-Neural2-D",
+        "refVoice": "",
+        "audioPath": "",
+        "duration": 9.0,
+        "cards": [
+            {"icon": "zap", "title": "Mã hóa (Encoding)", "desc": "Chuyển kích thích vật lý thành tín hiệu điện hóa thần kinh."},
+            {"icon": "database", "title": "Lưu trữ (Storage)", "desc": "Duy trì thông tin theo thời gian (ngắn hạn hoặc dài hạn)."},
+            {"icon": "git-branch", "title": "Truy xuất (Retrieval)", "desc": "Gửi thông tin từ kho lưu trữ về ý thức để sử dụng."}
+        ],
+        "code": "",
+        "diagram": []
+    }
+]
+
+import re
+
 def sanitize_script_name(name):
     if not name:
         return "video1"
@@ -95,18 +166,25 @@ def sanitize_script_name(name):
     sanitized = re.sub(r'[^a-zA-Z0-9_\-]', '', name)
     return sanitized if sanitized else "video1"
 
-def get_slides_path(script_name):
+def get_project_folder(project_name):
+    if project_name == "DOMMemo":
+        return "kichban_memo"
+    return "kichban"
+
+def get_slides_path(script_name, project_name="TurnioDEV"):
     script_name = sanitize_script_name(script_name)
-    folder = os.path.join("kichban", script_name)
+    project_folder = get_project_folder(project_name)
+    folder = os.path.join(project_folder, script_name)
     os.makedirs(folder, exist_ok=True)
     return os.path.join(folder, "slides.json")
 
-def load_slides(script_name="video1"):
-    path = get_slides_path(script_name)
+def load_slides(script_name="video1", project_name="TurnioDEV"):
+    path = get_slides_path(script_name, project_name)
     if not os.path.exists(path):
+        defaults = DEFAULT_SLIDES_MEMO if project_name == "DOMMemo" else DEFAULT_SLIDES
         # Bootstrap: if loading video1 and root slides.json exists, use it.
-        # Otherwise bootstrap from DEFAULT_SLIDES.
-        if script_name == "video1" and os.path.exists(SLIDES_FILE):
+        # Otherwise bootstrap from defaults.
+        if project_name == "TurnioDEV" and script_name == "video1" and os.path.exists(SLIDES_FILE):
             try:
                 with open(SLIDES_FILE, "r", encoding="utf-8") as f:
                     slides = json.load(f)
@@ -117,16 +195,17 @@ def load_slides(script_name="video1"):
                 pass
         
         with open(path, "w", encoding="utf-8") as f:
-            json.dump(DEFAULT_SLIDES, f, ensure_ascii=False, indent=2)
-        return DEFAULT_SLIDES
+            json.dump(defaults, f, ensure_ascii=False, indent=2)
+        return defaults
     try:
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
-        return DEFAULT_SLIDES
+        defaults = DEFAULT_SLIDES_MEMO if project_name == "DOMMemo" else DEFAULT_SLIDES
+        return defaults
 
-def save_slides(slides, script_name="video1"):
-    path = get_slides_path(script_name)
+def save_slides(slides, script_name="video1", project_name="TurnioDEV"):
+    path = get_slides_path(script_name, project_name)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(slides, f, ensure_ascii=False, indent=2)
@@ -146,31 +225,44 @@ def index():
 def serve_kichban(filename):
     return send_from_directory("kichban", filename)
 
+@app.route("/kichban_memo/<path:filename>")
+def serve_kichban_memo(filename):
+    return send_from_directory("kichban_memo", filename)
+
 @app.route("/logo.png")
 def serve_logo():
     return send_from_directory(app.root_path, "logo.png")
+
+@app.route("/Dom_memo.png")
+@app.route("/dom_memo.png")
+def serve_dom_memo_logo():
+    return send_from_directory(app.root_path, "Dom_memo.png")
 
 
 @app.route("/api/slides", methods=["GET"])
 def get_slides():
     script_name = request.args.get("script", "video1")
-    return jsonify(load_slides(script_name))
+    project_name = request.args.get("project", "TurnioDEV")
+    return jsonify(load_slides(script_name, project_name))
 
 @app.route("/api/slides", methods=["POST"])
 def update_slides():
     script_name = request.args.get("script", "video1")
+    project_name = request.args.get("project", "TurnioDEV")
     slides = request.json
-    save_slides(slides, script_name)
+    save_slides(slides, script_name, project_name)
     return jsonify({"success": True, "message": f"Slides for {script_name} saved successfully."})
 
 @app.route("/api/scripts", methods=["GET"])
 def get_scripts():
+    project_name = request.args.get("project", "TurnioDEV")
+    project_folder = get_project_folder(project_name)
     scripts = []
-    if os.path.exists("kichban"):
-        for entry in os.listdir("kichban"):
-            if os.path.isdir(os.path.join("kichban", entry)):
+    if os.path.exists(project_folder):
+        for entry in os.listdir(project_folder):
+            if os.path.isdir(os.path.join(project_folder, entry)):
                 # Ensure slides.json exists in directory to consider it a script
-                if os.path.exists(os.path.join("kichban", entry, "slides.json")):
+                if os.path.exists(os.path.join(project_folder, entry, "slides.json")):
                     scripts.append(entry)
                 elif entry == "video1":
                     scripts.append(entry)
@@ -190,6 +282,7 @@ def get_scripts():
 def create_script():
     data = request.json or {}
     name = data.get("name", "").strip()
+    project_name = data.get("project", "TurnioDEV")
     if not name:
         return jsonify({"error": "Tên kịch bản không được để trống"}), 400
     
@@ -198,12 +291,12 @@ def create_script():
         return jsonify({"error": "Tên kịch bản không hợp lệ (chỉ chấp nhận chữ cái, số, gạch dưới, gạch ngang)"}), 400
     
     # Check if script folder already exists
-    path = get_slides_path(script_name)
+    path = get_slides_path(script_name, project_name)
     if os.path.exists(path):
         return jsonify({"error": f"Kịch bản '{script_name}' đã tồn tại"}), 400
     
     # Initialize it with defaults
-    load_slides(script_name)
+    load_slides(script_name, project_name)
     return jsonify({"success": True, "name": script_name})
 
 
@@ -259,6 +352,8 @@ def synthesize():
     ref_voice = data.get("refVoice", "")
     voice_preference = data.get("voice", "vi-VN-HoaiMyNeural")
     script_name = sanitize_script_name(data.get("script", "video1"))
+    project_name = data.get("project", "TurnioDEV")
+    project_folder = get_project_folder(project_name)
 
     if not slide_id or not text:
         return jsonify({"error": "Missing slideId or text"}), 400
@@ -284,8 +379,8 @@ def synthesize():
             voice_preference=voice_preference
         )
 
-        # Convert to MP3 under kichban/<script_name>/mp3/
-        mp3_dir = os.path.join("kichban", script_name, "mp3")
+        # Convert to MP3 under project_folder/<script_name>/mp3/
+        mp3_dir = os.path.join(project_folder, script_name, "mp3")
         os.makedirs(mp3_dir, exist_ok=True)
         mp3_filename = f"{slide_id}.mp3"
         mp3_path = os.path.join(mp3_dir, mp3_filename)
@@ -321,16 +416,16 @@ def synthesize():
         except Exception as duration_err:
             print(f"[-] Error parsing audio duration: {duration_err}", file=sys.stderr)
 
-        audio_url = f"/kichban/{script_name}/mp3/{mp3_filename}"
+        audio_url = f"/{project_folder}/{script_name}/mp3/{mp3_filename}"
         
         # Automatically update slide audio path and duration in slides.json
-        slides = load_slides(script_name)
+        slides = load_slides(script_name, project_name)
         for slide in slides:
             if slide["id"] == slide_id:
                 slide["audioPath"] = audio_url
                 slide["duration"] = duration
                 break
-        save_slides(slides, script_name)
+        save_slides(slides, script_name, project_name)
 
         return jsonify({
             "success": True,
@@ -350,7 +445,7 @@ def calculate_slide_hash(slide):
     content = f"{text}||{voice}||{ref_voice}"
     return hashlib.md5(content.encode("utf-8")).hexdigest()
 
-def synthesize_all_thread(script_name, slides):
+def synthesize_all_thread(script_name, slides, project_name="TurnioDEV"):
     global TTS_SYNTHESIS_STATUS
     TTS_SYNTHESIS_STATUS["status"] = "processing"
     TTS_SYNTHESIS_STATUS["progress"] = 0
@@ -358,8 +453,9 @@ def synthesize_all_thread(script_name, slides):
     TTS_SYNTHESIS_STATUS["total"] = len(slides)
     TTS_SYNTHESIS_STATUS["error"] = None
     
-    mp3_dir = os.path.join("kichban", script_name, "mp3")
-    mp4_dir = os.path.join("kichban", script_name, "mp4")
+    project_folder = get_project_folder(project_name)
+    mp3_dir = os.path.join(project_folder, script_name, "mp3")
+    mp4_dir = os.path.join(project_folder, script_name, "mp4")
     os.makedirs(mp3_dir, exist_ok=True)
     os.makedirs(mp4_dir, exist_ok=True)
     
@@ -435,7 +531,7 @@ def synthesize_all_thread(script_name, slides):
             except Exception as duration_err:
                 print(f"[-] Error parsing audio duration: {duration_err}", file=sys.stderr)
                 
-            audio_url = f"/kichban/{script_name}/mp3/{slide_id}.mp3"
+            audio_url = f"/{project_folder}/{script_name}/mp3/{slide_id}.mp3"
             slide["audioPath"] = audio_url
             slide["duration"] = duration
             slide["scriptHash"] = current_hash
@@ -486,7 +582,7 @@ def synthesize_all_thread(script_name, slides):
         except Exception as concat_err:
             print(f"[-] Error concatenating audios: {concat_err}", file=sys.stderr)
             
-    save_slides(slides, script_name)
+    save_slides(slides, script_name, project_name)
     TTS_SYNTHESIS_STATUS["status"] = "completed"
     TTS_SYNTHESIS_STATUS["progress"] = 100
 
@@ -498,10 +594,11 @@ def synthesize_all():
         
     data = request.json or {}
     script_name = sanitize_script_name(data.get("script", "video1"))
+    project_name = data.get("project", "TurnioDEV")
     voice = data.get("voice")
     ref_voice = data.get("refVoice")
     
-    slides = load_slides(script_name)
+    slides = load_slides(script_name, project_name)
     
     # Propagate active slide voice to all slides to ensure one consistent voice
     if voice is not None or ref_voice is not None:
@@ -510,12 +607,12 @@ def synthesize_all():
                 slide["voice"] = voice
             if ref_voice is not None:
                 slide["refVoice"] = ref_voice
-        save_slides(slides, script_name)
+        save_slides(slides, script_name, project_name)
     
     # Run in background thread
     threading.Thread(
         target=synthesize_all_thread,
-        args=(script_name, slides),
+        args=(script_name, slides, project_name),
         daemon=True
     ).start()
     
@@ -525,11 +622,12 @@ def synthesize_all():
 def synthesize_all_status():
     global TTS_SYNTHESIS_STATUS
     script_name = sanitize_script_name(request.args.get("script", "video1"))
+    project_name = request.args.get("project", "TurnioDEV")
     
     # If completed, reload slides to get the updated audioUrls and durations
     slides = []
     if TTS_SYNTHESIS_STATUS["status"] == "completed":
-        slides = load_slides(script_name)
+        slides = load_slides(script_name, project_name)
         # Reset state back to idle so we can synthesize again in the future
         TTS_SYNTHESIS_STATUS = {"status": "idle", "progress": 0, "current": 0, "total": 0, "error": None}
         return jsonify({
@@ -559,7 +657,9 @@ def save_video():
         return jsonify({"error": "No selected file"}), 400
         
     script_name = sanitize_script_name(request.args.get("script", "video1"))
-    mp4_dir = os.path.join("kichban", script_name, "mp4")
+    project_name = request.args.get("project", "TurnioDEV")
+    project_folder = get_project_folder(project_name)
+    mp4_dir = os.path.join(project_folder, script_name, "mp4")
     os.makedirs(mp4_dir, exist_ok=True)
     
     temp_ext = ".webm" if "webm" in file.filename.lower() else ".mp4"
@@ -586,7 +686,7 @@ def save_video():
         else:
             if os.path.exists(temp_path):
                 os.remove(temp_path)
-        return jsonify({"success": True, "filepath": f"/kichban/{script_name}/mp4/video.mp4"})
+        return jsonify({"success": True, "filepath": f"/{project_folder}/{script_name}/mp4/video.mp4"})
     except Exception as e:
         print(f"[-] Error saving/converting video: {e}", file=sys.stderr)
         try:
@@ -596,15 +696,17 @@ def save_video():
                 os.rename(temp_path, output_path)
         except Exception:
             pass
-        return jsonify({"success": True, "filepath": f"/kichban/{script_name}/mp4/video.mp4", "warning": str(e)})
+        return jsonify({"success": True, "filepath": f"/{project_folder}/{script_name}/mp4/video.mp4", "warning": str(e)})
 
 @app.route("/api/export-video", methods=["POST"])
 def export_video_backend():
     data = request.json or {}
     script_name = sanitize_script_name(data.get("script", "video1"))
+    project_name = data.get("project", "TurnioDEV")
+    project_folder = get_project_folder(project_name)
     
     # We can check if an export is already running
-    status_path = os.path.join("kichban", script_name, "export_status.json")
+    status_path = os.path.join(project_folder, script_name, "export_status.json")
     if os.path.exists(status_path):
         try:
             with open(status_path, "r", encoding="utf-8") as f:
@@ -629,7 +731,7 @@ def export_video_backend():
         try:
             import subprocess
             python_exe = sys.executable
-            cmd = [python_exe, "export_video_headless.py", script_name]
+            cmd = [python_exe, "export_video_headless.py", script_name, project_name]
             result = subprocess.run(cmd, capture_output=True, text=True)
             if result.returncode != 0:
                 print(f"[-] Headless export failed: {result.stderr}", file=sys.stderr)
@@ -656,7 +758,9 @@ def export_video_backend():
 @app.route("/api/export-status", methods=["GET"])
 def export_status_backend():
     script_name = sanitize_script_name(request.args.get("script", "video1"))
-    status_path = os.path.join("kichban", script_name, "export_status.json")
+    project_name = request.args.get("project", "TurnioDEV")
+    project_folder = get_project_folder(project_name)
+    status_path = os.path.join(project_folder, script_name, "export_status.json")
     if not os.path.exists(status_path):
         return jsonify({
             "status": "idle",
@@ -726,22 +830,24 @@ def get_voxcpm_status():
 def open_folder():
     data = request.json or {}
     script_name = sanitize_script_name(data.get("script", "video1"))
+    project_name = data.get("project", "TurnioDEV")
+    project_folder = get_project_folder(project_name)
     folder_type = data.get("type", "mp3")
     
     if folder_type == "mp3":
-        path = os.path.abspath(os.path.join("kichban", script_name, "mp3"))
+        path = os.path.abspath(os.path.join(project_folder, script_name, "mp3"))
     elif folder_type == "video":
-        video_file = os.path.abspath(os.path.join("kichban", script_name, "mp4", "video.mp4"))
+        video_file = os.path.abspath(os.path.join(project_folder, script_name, "mp4", "video.mp4"))
         if os.path.exists(video_file):
             path = video_file
         else:
-            path = os.path.abspath(os.path.join("kichban", script_name, "mp4"))
+            path = os.path.abspath(os.path.join(project_folder, script_name, "mp4"))
     else:
         return jsonify({"error": "Invalid folder type"}), 400
         
     if not os.path.exists(path):
         # Fallback to script folder
-        path = os.path.abspath(os.path.join("kichban", script_name))
+        path = os.path.abspath(os.path.join(project_folder, script_name))
         
     try:
         if sys.platform == "win32":

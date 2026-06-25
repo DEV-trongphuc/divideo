@@ -43,22 +43,31 @@
             </div>
 
             <!-- Project / Script Switcher -->
-            <div class="project-switcher">
-                <label for="script-select"><i data-lucide="folder-open"
-                        style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; color: var(--gold-primary); margin-right: 4px;"></i>Kịch
-                    bản:</label>
+            <div class="project-switcher" style="display: inline-flex; align-items: center; gap: 4px;">
+                <label for="project-select" style="display: inline-flex; align-items: center; gap: 4px; font-weight: normal; color: var(--text-muted); font-size: 0.85rem; margin-right: 2px;">
+                    <i data-lucide="layers" style="width: 16px; height: 16px; color: var(--gold-primary);"></i>Dự án:
+                </label>
+                <select id="project-select" class="form-control select-sm"
+                    style="width: 120px; display: inline-block; margin-right: 8px; vertical-align: middle;">
+                    <option value="TurnioDEV">TurnioDEV</option>
+                    <option value="DOMMemo">DOM Memo</option>
+                </select>
+
+                <label for="script-select" style="display: inline-flex; align-items: center; gap: 4px; font-weight: normal; color: var(--text-muted); font-size: 0.85rem; margin-right: 2px;">
+                    <i data-lucide="folder-open" style="width: 16px; height: 16px; color: var(--gold-primary);"></i>Kịch bản:
+                </label>
                 <button id="prev-script-btn" class="btn btn-secondary btn-sm" title="Kịch bản trước" style="padding: 4px 6px; margin-right: 2px; display: inline-flex; align-items: center; justify-content: center; vertical-align: middle;">
                     <i data-lucide="chevron-left" style="width: 14px; height: 14px;"></i>
                 </button>
                 <select id="script-select" class="form-control select-sm"
-                    style="width: 140px; display: inline-block; margin-right: 2px; vertical-align: middle;">
+                    style="width: 100px; display: inline-block; margin-right: 2px; vertical-align: middle;">
                     <!-- Dynamically populated -->
                 </select>
                 <button id="next-script-btn" class="btn btn-secondary btn-sm" title="Kịch bản sau" style="padding: 4px 6px; margin-right: 4px; display: inline-flex; align-items: center; justify-content: center; vertical-align: middle;">
                     <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
                 </button>
-                <button id="create-script-btn" class="btn btn-secondary btn-sm">
-                    <i data-lucide="folder-plus"></i> Tạo kịch bản mới
+                <button id="create-script-btn" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 4px;">
+                    <i data-lucide="folder-plus" style="width: 14px; height: 14px;"></i> Tạo mới
                 </button>
             </div>
 

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "slide_memo2_1",
+    "title": "Càng cố ngủ càng tỉnh?",
+    "subtitle": "NGHỊCH LÝ CỦA SỰ KIỂM SOÁT BẮT BUỘC",
+    "layout": "title",
+    "script": "Bạn tự nhủ: phải ngủ ngay. Và thế là tỉnh táo hơn bao giờ hết.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 6.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo2_2",
+    "title": "Cơn bão suy nghĩ ban đêm",
+    "subtitle": "KHI SỰ CỐ GẮNG TRỞ THÀNH ÁP LỰC CĂNG THẲNG",
+    "layout": "cards",
+    "script": "Khi bạn đặt ra một mục tiêu bắt buộc phải ngủ, bạn đang vô tình kích hoạt hệ thống tự theo dõi của não bộ. Áp lực thời gian đếm ngược làm gia tăng sự căng thẳng tinh thần.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [
+      {
+        "icon": "clock",
+        "title": "Đếm ngược thời gian",
+        "desc": "Não liên tục nhẩm tính: Chỉ còn 5 tiếng nữa là phải thức dậy đi làm rồi."
+      },
+      {
+        "icon": "heart",
+        "title": "Nhịp tim tăng nhẹ",
+        "desc": "Cảm giác lo lắng làm tăng hormone cortisol, khiến tim đập nhanh hơn."
+      },
+      {
+        "icon": "brain",
+        "title": "Tự kiểm tra liên tục",
+        "desc": "Não liên tục tự vấn: Mình đã buồn ngủ chưa? Mình đã ngủ được chưa?"
+      }
+    ],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo2_3",
+    "title": "Vùng não cảnh giác kích hoạt",
+    "subtitle": "KHI GIẤC NGỦ BỊ DIỄN GIẢI NHƯ MỘT NHIỆM VỤ SINH TỒN",
+    "layout": "diagram",
+    "script": "Tại sao lại có nghịch lý này? Việc cố gắng kiểm soát một tiến trình sinh học vô thức như giấc ngủ khiến não bộ hiểu lầm đây là một nhiệm vụ khẩn cấp. Nó lập tức kích hoạt mạng lưới cảnh giác.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.5,
+    "cards": [],
+    "code": "",
+    "diagram": [
+      { "id": "node_m2_1", "label": "Ý chí: 'Phải ngủ ngay!'", "type": "start" },
+      { "id": "node_m2_2", "label": "Não hiểu lầm: Đây là nhiệm vụ sinh tồn", "type": "process" },
+      { "id": "node_m2_3", "label": "Kích hoạt hệ thần kinh giao cảm (Sympathetic)", "type": "warning" },
+      { "id": "node_m2_4", "label": "Não tỉnh táo hoàn toàn", "type": "success", "note": "Mất ngủ nghịch lý" }
+    ]
+  },
+  {
+    "id": "slide_memo2_4",
+    "title": "Cơ chế 'Ý định nghịch lý'",
+    "subtitle": "THẢ LỎNG VÀ CHẤP NHẬN SỰ THỨC TỈNH",
+    "layout": "split",
+    "script": "Để ngủ được, giải pháp là hãy làm ngược lại: Cho phép bản thân thức. Khi bạn từ bỏ nỗ lực kiểm soát, não bộ sẽ nhận ra không có mối nguy hiểm nào, hệ thần kinh tự động dịu lại và bạn chìm vào giấc ngủ.",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 12.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  },
+  {
+    "id": "slide_memo2_5",
+    "title": "Ngủ ngon cùng DOM Memo!",
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HỌC THÊM MẸO TÂM LÝ HAY",
+    "layout": "title",
+    "script": "Tối nay, nếu khó ngủ, hãy thử thả lỏng và chấp nhận thức xem sao nhé. Bấm tim, chia sẻ và nhấn Follow DOM Memo để chăm sóc sức khỏe tinh thần của bạn mỗi ngày nhé!",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
+    "audioPath": "",
+    "duration": 11.0,
+    "cards": [],
+    "code": "",
+    "diagram": []
+  }
+]

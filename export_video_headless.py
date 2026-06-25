@@ -10,14 +10,17 @@ import imageio_ffmpeg
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python export_video_headless.py <script_name>")
+        print("Usage: python export_video_headless.py <script_name> [project_name]")
         sys.exit(1)
 
     script_name = sys.argv[1]
-    slides_path = os.path.join("kichban", script_name, "slides.json")
-    status_path = os.path.join("kichban", script_name, "export_status.json")
-    mp4_dir = os.path.join("kichban", script_name, "mp4")
-    mp3_dir = os.path.join("kichban", script_name, "mp3")
+    project_name = sys.argv[2] if len(sys.argv) > 2 else "TurnioDEV"
+    
+    project_folder = "kichban_memo" if project_name == "DOMMemo" else "kichban"
+    slides_path = os.path.join(project_folder, script_name, "slides.json")
+    status_path = os.path.join(project_folder, script_name, "export_status.json")
+    mp4_dir = os.path.join(project_folder, script_name, "mp4")
+    mp3_dir = os.path.join(project_folder, script_name, "mp3")
     
     os.makedirs(mp4_dir, exist_ok=True)
     
@@ -96,7 +99,7 @@ def main():
             page = context.new_page()
             
             # Navigate to local dashboard
-            page.goto(f"http://localhost:5501/?script={script_name}")
+            page.goto(f"http://localhost:5501/?project={project_name}&script={script_name}")
             
             # Wait for window.getSlides function to be defined and slides to be populated
             page.wait_for_function("window.getSlides && window.getSlides().length > 0", timeout=15000)
@@ -228,7 +231,7 @@ def main():
         shutil.rmtree(temp_dir)
         
         # Complete
-        update_status(100, "Xuất video thành công!", status="completed", filepath=f"/kichban/{script_name}/mp4/video.mp4")
+        update_status(100, "Xuất video thành công!", status="completed", filepath=f"/{project_folder}/{script_name}/mp4/video.mp4")
         print("[+] Video export completed successfully!")
     except Exception as e:
         update_status(90, error=f"Lỗi ghép nối video: {str(e)}", status="failed")

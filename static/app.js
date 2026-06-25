@@ -7,10 +7,15 @@ let redoStack = [];
 const MAX_HISTORY = 100;
 let currentSlideIndex = 0;
 const urlParams = new URLSearchParams(window.location.search);
+const projectParam = urlParams.get('project');
+let currentProject = projectParam || localStorage.getItem('currentProject') || 'TurnioDEV';
+if (projectParam) {
+    localStorage.setItem('currentProject', currentProject);
+}
 const scriptParam = urlParams.get('script');
-let currentScript = scriptParam || localStorage.getItem('currentScript') || 'video17';
+let currentScript = scriptParam || localStorage.getItem('currentScript') || 'video1';
 if (scriptParam) {
-    localStorage.setItem('currentScript', scriptParam);
+    localStorage.setItem('currentScript', currentScript);
 }
 let isPlaying = false;
 let playbackTimer = null;
@@ -232,9 +237,64 @@ const iconMap = {
     'terminal': 'terminal'
 };
 // Fetch and load scripts list
+// Dynamic project branding helper
+function updateProjectBranding() {
+    const logoTag = document.querySelector('.logo-area .logo-tag');
+    if (logoTag) {
+        if (currentProject === 'DOMMemo') {
+            logoTag.innerHTML = `DOM Memo`;
+        } else {
+            logoTag.innerHTML = `Turnio.dev <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
+        }
+    }
+
+    const watermark = document.querySelector('.watermark');
+    if (watermark) {
+        watermark.textContent = currentProject === 'DOMMemo' ? 'DOM Memo' : 'Turnio.dev';
+    }
+
+    const footerHandle = document.querySelector('.canvas-footer .footer-handle');
+    if (footerHandle) {
+        if (currentProject === 'DOMMemo') {
+            footerHandle.innerHTML = `@DOM.Memo <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
+        } else {
+            footerHandle.innerHTML = `@Turnio.dev <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
+        }
+    }
+
+    const simUsername = document.querySelector('.tiktok-sim-bottom .sim-username');
+    if (simUsername) {
+        if (currentProject === 'DOMMemo') {
+            simUsername.innerHTML = `DOM Memo <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
+        } else {
+            simUsername.innerHTML = `Turnio.dev <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
+        }
+    }
+
+    const musicMarquee = document.querySelector('.tiktok-sim-bottom .music-marquee');
+    if (musicMarquee) {
+        musicMarquee.textContent = currentProject === 'DOMMemo' ? 'Nhạc nền gốc - DOM Memo' : 'Nhạc nền gốc - Turnio.dev';
+    }
+
+    const avatarImg = document.querySelector('.tiktok-sim-right .avatar-img');
+    if (avatarImg) {
+        avatarImg.textContent = currentProject === 'DOMMemo' ? 'D' : 'T';
+    }
+
+    const canvasEl = document.getElementById('tiktok-canvas');
+    if (canvasEl) {
+        if (currentProject === 'DOMMemo') {
+            canvasEl.classList.add('project-dommemo');
+        } else {
+            canvasEl.classList.remove('project-dommemo');
+        }
+    }
+}
+
+// Fetch and load scripts list
 async function loadScriptList() {
     try {
-        const response = await fetch(`${API_BASE}/api/scripts`);
+        const response = await fetch(`${API_BASE}/api/scripts?project=${currentProject}`);
         const scriptsList = await response.json();
         const select = document.getElementById('script-select');
         select.innerHTML = '';
@@ -260,6 +320,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 1. Setup Scaling
     adjustCanvasScale();
     window.addEventListener('resize', adjustCanvasScale);
+
+    // Setup Project Selector
+    const projectSelect = document.getElementById('project-select');
+    if (projectSelect) {
+        projectSelect.value = currentProject;
+        projectSelect.addEventListener('change', async (e) => {
+            currentProject = e.target.value;
+            localStorage.setItem('currentProject', currentProject);
+            currentScript = 'video1';
+            localStorage.setItem('currentScript', currentScript);
+
+            // Update URL parameters
+            const newUrl = new URL(window.location.href);
+            newUrl.searchParams.set('project', currentProject);
+            newUrl.searchParams.set('script', currentScript);
+            window.history.pushState({}, '', newUrl.toString());
+
+            updateProjectBranding();
+            await loadScriptList();
+            await fetchSlides();
+        });
+    }
+    updateProjectBranding();
+
     // 2. Load Init Data
     await loadScriptList();
     await fetchSlides();
@@ -295,7 +379,7 @@ function adjustCanvasScale() {
 // Fetch Slides Config
 async function fetchSlides() {
     try {
-        const response = await fetch(`${API_BASE}/api/slides?script=${currentScript}`);
+        const response = await fetch(`${API_BASE}/api/slides?project=${currentProject}&script=${currentScript}`);
         slides = await response.json();
         // Initialize Undo/Redo history
         undoStack = [JSON.stringify(slides)];
@@ -443,7 +527,7 @@ function setupEventListeners() {
                     const response = await fetch(`${API_BASE}/api/scripts`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name: sanitizedName })
+                        body: JSON.stringify({ name: sanitizedName, project: currentProject })
                     });
                     const data = await response.json();
                     if (data.success) {
@@ -484,7 +568,8 @@ function setupEventListeners() {
                         text: testText,
                         refVoice: refVoice,
                         voice: selectedVoice,
-                        script: currentScript
+                        script: currentScript,
+                        project: currentProject
                     })
                 });
                 const data = await response.json();
@@ -800,12 +885,12 @@ function setupEventListeners() {
                 await fetch(`${API_BASE}/api/open-folder`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ script: currentScript, type: 'video' })
+                    body: JSON.stringify({ script: currentScript, project: currentProject, type: 'video' })
                 });
             } catch (err) {
                 console.warn("Folder open API failed locally:", err);
             }
-            window.open(`${API_BASE}/kichban/${currentScript}/mp4/video.mp4`, '_blank');
+            const projectFolder = currentProject === 'DOMMemo' ? 'kichban_memo' : 'kichban'; window.open(`${API_BASE}/${projectFolder}/${currentScript}/mp4/video.mp4`, '_blank');
         });
     }
     // Open MP3 Folder button
@@ -816,7 +901,7 @@ function setupEventListeners() {
                 const res = await fetch(`${API_BASE}/api/open-folder`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ script: currentScript, type: 'mp3' })
+                    body: JSON.stringify({ script: currentScript, project: currentProject, type: 'mp3' })
                 });
                 const data = await res.json();
                 if (!data.success) {
@@ -960,7 +1045,7 @@ function debounceSave() {
 async function saveSlidesToServer() {
     recordHistory();
     try {
-        await fetch(`${API_BASE}/api/slides?script=${currentScript}`, {
+        await fetch(`${API_BASE}/api/slides?project=${currentProject}&script=${currentScript}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(slides)
@@ -1804,10 +1889,14 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
             const iconWrap = document.createElement('div');
             if (isLastSlide) {
                 const isFollowed = (animTime > 2.0);
+                const logoSrc = currentProject === 'DOMMemo' ? `${API_BASE}/Dom_memo.png` : `${API_BASE}/logo.png`;
+                const avatarLetter = currentProject === 'DOMMemo' ? 'D' : 'T';
+                const avatarBg = currentProject === 'DOMMemo' ? '#8B5CF6' : '#F59E0B';
+                const avatarColor = currentProject === 'DOMMemo' ? '#fff' : '#000';
                 iconWrap.className = 'title-slide-icon-wrapper last-slide-logo-wrapper';
                 iconWrap.innerHTML = `
-                    <img src="${API_BASE}/logo.png" crossorigin="anonymous" class="follow-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="logo">
-                    <div class="follow-avatar-placeholder" style="display:none; width:100%; height:100%; border-radius:50%; align-items:center; justify-content:center; background:#F59E0B; color:#000; font-weight:bold; font-size:48px;">T</div>
+                    <img src="${logoSrc}" crossorigin="anonymous" class="follow-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="logo">
+                    <div class="follow-avatar-placeholder" style="display:none; width:100%; height:100%; border-radius:50%; align-items:center; justify-content:center; background:${avatarBg}; color:${avatarColor}; font-weight:bold; font-size:48px;">${avatarLetter}</div>
                     <div class="follow-plus-btn">
                         <i data-lucide="${isFollowed ? 'check' : 'plus'}"></i>
                     </div>
@@ -2773,7 +2862,7 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
                                 </div>
                             ` : `
                                 <div class="spotify-profile-tab">
-                                    <div class="spotify-user-badge">T</div>
+                                    <div class="spotify-user-badge">${currentProject === 'DOMMemo' ? 'D' : 'T'}</div>
                                 </div>
                             `}
                         </div>
@@ -2785,7 +2874,7 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
                             <div class="spotify-playlist-info">
                                 <span class="playlist-tag">PLAYLIST CÃ NHÃ‚N</span>
                                 <h1 class="playlist-name-title">${playlistTitle}</h1>
-                                <p class="playlist-creator-desc">Táº¡o bá»Ÿi <strong>@Turnio.dev</strong> â€¢ ${songs.length} bÃ i hÃ¡t</p>
+                                <p class="playlist-creator-desc">Táº¡o bá»Ÿi <strong>${currentProject === 'DOMMemo' ? '@DOM.Memo' : '@Turnio.dev'}</strong> â€¢ ${songs.length} bÃ i hÃ¡t</p>
                             </div>
                         </div>
                         <!-- Playlist Controls -->
@@ -2953,9 +3042,12 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
             wrapper.className = `layout-transition-view transition-theme-${theme}`;
             const header = document.createElement('div');
             header.className = 'transition-user-header';
+            const avatarLetter = currentProject === 'DOMMemo' ? 'D' : 'T';
+            const handleName = currentProject === 'DOMMemo' ? '@dom.memo' : '@turnio.dev';
+            const handleRole = currentProject === 'DOMMemo' ? 'â€¢ Tâm lý học' : 'â€¢ Backend';
             header.innerHTML = `
-                <div class="transition-user-avatar">T</div>
-                <div class="transition-user-handle">@turnio.dev <span>â€¢ Backend</span></div>
+                <div class="transition-user-avatar">${avatarLetter}</div>
+                <div class="transition-user-handle">${handleName} <span>${handleRole}</span></div>
             `;
             const titleBox = document.createElement('div');
             titleBox.className = 'transition-title-box';
@@ -3931,7 +4023,8 @@ async function generateAudioForActiveSlide() {
                 text: slide.script,
                 refVoice: slide.refVoice,
                 voice: slide.voice,
-                script: currentScript
+                script: currentScript,
+                project: currentProject
             })
         });
         const data = await response.json();
@@ -3957,7 +4050,7 @@ async function generateAudioForActiveSlide() {
 // Check if synthesis is already running on backend and resume progress polling if it is
 async function checkActiveSynthesisProgress() {
     try {
-        const response = await fetch(`${API_BASE}/api/synthesize-all/status?script=${currentScript}`);
+        const response = await fetch(`${API_BASE}/api/synthesize-all/status?project=${currentProject}&script=${currentScript}`);
         const statusData = await response.json();
         if (statusData.status === 'processing') {
             console.log('Detected active synthesis task running in backend, resuming poll...');
@@ -3992,7 +4085,7 @@ function resumeSynthesisPolling(startTime, originalText) {
     btn.disabled = true;
     synthesisPollInterval = setInterval(async () => {
         try {
-            const statusRes = await fetch(`${API_BASE}/api/synthesize-all/status?script=${currentScript}`);
+            const statusRes = await fetch(`${API_BASE}/api/synthesize-all/status?project=${currentProject}&script=${currentScript}`);
             const statusData = await statusRes.json();
             const elapsedMs = Date.now() - startTime;
             const elapsedSec = Math.floor(elapsedMs / 1000);
@@ -4012,7 +4105,7 @@ function resumeSynthesisPolling(startTime, originalText) {
                 btn.disabled = false;
                 btn.innerHTML = originalText;
                 if (typeof lucide !== 'undefined') lucide.createIcons();
-                alert(`Táº¡o giá»ng nÃ³i cho toÃ n bá»™ slide thÃ nh cÃ´ng sau ${timeStr}! CÃ¡c file Ä‘Ã£ Ä‘Æ°á»£c lÆ°u trong thÆ° má»¥c kichban/${currentScript}/mp3/`);
+                alert(`Táº¡o giá»ng nÃ³i cho toÃ n bá»™ slide thÃ nh cÃ´ng sau ${timeStr}! CÃ¡c file Ä‘Ã£ Ä‘Æ°á»£c lÆ°u trong thÆ° má»¥c ${currentProject === 'DOMMemo' ? 'kichban_memo' : 'kichban'}/${currentScript}/mp3/`);
             } else if (statusData.status === 'failed') {
                 clearInterval(synthesisPollInterval);
                 synthesisPollInterval = null;
@@ -4048,6 +4141,7 @@ async function generateAudioForAllSlides() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 script: currentScript,
+                project: currentProject,
                 voice: slides[currentSlideIndex].voice,
                 refVoice: slides[currentSlideIndex].refVoice
             })
@@ -4573,8 +4667,9 @@ async function checkActiveExportStatus() {
                         const statusDesc = statusBox.querySelector('p');
                         if (statusDesc) statusDesc.textContent = 'Hệ thống đang chạy qua các slide và thu âm âm thanh thực tế. Vui lòng không đóng tab.';
                         
-                        alert('Xuất video MP4 chất lượng cao thành công! (kichban/' + currentScript + '/mp4/video.mp4)');
-                        window.open(`${API_BASE}/kichban/${currentScript}/mp4/video.mp4`, '_blank');
+                        const projectFolder = currentProject === 'DOMMemo' ? 'kichban_memo' : 'kichban';
+                        alert('Xuất video MP4 chất lượng cao thành công! (' + projectFolder + '/' + currentScript + '/mp4/video.mp4)');
+                        window.open(`${API_BASE}/${projectFolder}/${currentScript}/mp4/video.mp4`, '_blank');
                     }, 500);
                 } else if (data.status === 'failed') {
                     statusBox.style.display = 'none';
@@ -4623,7 +4718,7 @@ async function startHeadlessMp4Export() {
         const response = await fetch(`${API_BASE}/api/export-video`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ script: currentScript })
+            body: JSON.stringify({ script: currentScript, project: currentProject })
         });
         const data = await response.json();
         
@@ -4719,27 +4814,28 @@ async function startVideoExport() {
         // Trigger download
         const a = document.createElement('a');
         a.href = url;
-        a.download = `turnio_dev_tiktok_9_16_${Date.now()}.mp4`;
+        const filePrefix = currentProject === 'DOMMemo' ? 'dom_memo' : 'turnio_dev';
+        a.download = `${filePrefix}_tiktok_9_16_${Date.now()}.mp4`;
         a.click();
         // Update status box for server saving
         const statusHeader = statusBox.querySelector('h4');
         const statusText = statusBox.querySelector('p');
         const statusProgress = statusBox.querySelector('.progress-bar-container');
         if (statusHeader) statusHeader.textContent = 'Äang lÆ°u video lÃªn mÃ¡y chá»§...';
-        if (statusText) statusText.textContent = `Há»‡ thá»‘ng Ä‘ang chuyá»ƒn Ä‘á»•i vÃ  lÆ°u video thÃ nh kichban/${currentScript}/mp4/video.mp4. Vui lÃ²ng Ä‘á»£i.`;
+        if (statusText) statusText.textContent = `Há»‡ thá»‘ng Ä‘ang chuyá»ƒn Ä‘á»•i vÃ  lÆ°u video thÃ nh ${currentProject === 'DOMMemo' ? 'kichban_memo' : 'kichban'}/${currentScript}/mp4/video.mp4. Vui lÃ²ng Ä‘á»£i.`;
         if (statusProgress) statusProgress.style.display = 'none';
         if (progressText) progressText.style.display = 'none';
         const formData = new FormData();
         const exportFilename = isMp4 ? 'video.mp4' : 'video.webm';
         formData.append('file', blob, exportFilename);
-        fetch(`${API_BASE}/api/save-video?script=${currentScript}`, {
+        fetch(`${API_BASE}/api/save-video?project=${currentProject}&script=${currentScript}`, {
             method: 'POST',
             body: formData
         })
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    alert(`Xuáº¥t vÃ  lÆ°u video lÃªn mÃ¡y chá»§ thÃ nh cÃ´ng (kichban/${currentScript}/mp4/video.mp4)!`);
+                    const projectFolder = currentProject === 'DOMMemo' ? 'kichban_memo' : 'kichban'; alert(`Xuáº¥t vÃ  lÆ°u video lÃªn mÃ¡y chá»§ thÃ nh cÃ´ng (${projectFolder}/${currentScript}/mp4/video.mp4)!`);
                 } else {
                     alert('Xuáº¥t video thÃ nh cÃ´ng, nhÆ°ng khÃ´ng lÆ°u Ä‘Æ°á»£c lÃªn mÃ¡y chá»§: ' + data.error);
                 }
@@ -4885,7 +4981,7 @@ async function redo() {
 }
 async function saveSlidesToServerSilent() {
     try {
-        await fetch(`${API_BASE}/api/slides?script=${currentScript}`, {
+        await fetch(`${API_BASE}/api/slides?project=${currentProject}&script=${currentScript}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(slides)
@@ -5004,7 +5100,8 @@ function updateEpisodeHeader() {
         const num = parseInt(match[0], 10);
         epNumStr = String(num).padStart(3, '0');
     }
-    headerEp.textContent = `TECH DISPATCH \u00b7 EP. ${epNumStr}`;
+    const prefix = currentProject === 'DOMMemo' ? 'MEMO DISPATCH' : 'TECH DISPATCH';
+    headerEp.textContent = `${prefix} \u00b7 EP. ${epNumStr}`;
     
     // Toggle Cloudflare logo visibility
     const cfLogo = document.getElementById('header-cf-logo');
@@ -5040,7 +5137,8 @@ function initScriptTopic() {
 // It removes any previously loaded plugin JS/CSS, then loads the new ones.
 let _loadedVideoScriptName = null;
 function loadVideoScript(scriptName) {
-    if (_loadedVideoScriptName === scriptName) return; // already loaded
+    const cacheKey = `${currentProject}_${scriptName}`;
+    if (_loadedVideoScriptName === cacheKey) return; // already loaded
     // Remove old plugin script + css
     const oldJs = document.getElementById('video-plugin-js');
     const oldCss = document.getElementById('video-plugin-css');
@@ -5048,7 +5146,8 @@ function loadVideoScript(scriptName) {
     if (oldCss) oldCss.remove();
     window.VideoPlugin = null;
     if (!scriptName) return;
-    const basePath = `${API_BASE}/static/videos/${scriptName}`;
+    const filename = currentProject === 'DOMMemo' ? `dommemo_${scriptName}` : scriptName;
+    const basePath = `${API_BASE}/static/videos/${filename}`;
     const cacheBuster = `?t=${Date.now()}`;
     // Load CSS first
     const link = document.createElement('link');
@@ -5061,15 +5160,15 @@ function loadVideoScript(scriptName) {
     script.id = 'video-plugin-js';
     script.src = `${basePath}.js${cacheBuster}`;
     script.onload = () => {
-        console.log(`[App] VideoPlugin loaded for: ${scriptName}`);
+        console.log(`[App] VideoPlugin loaded for: ${filename}`);
         // Re-render current slide with plugin active
         if (slides[currentSlideIndex]) renderActiveSlide(true);
         updateEpisodeHeader();
         initScriptTopic();
     };
-    script.onerror = () => console.warn(`[App] No plugin found for: ${scriptName}`);
+    script.onerror = () => console.warn(`[App] No plugin found for: ${filename}`);
     document.body.appendChild(script);
-    _loadedVideoScriptName = scriptName;
+    _loadedVideoScriptName = cacheKey;
 }
 function updateSQLFlowPaths() {
 
