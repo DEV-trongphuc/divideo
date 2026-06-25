@@ -4379,10 +4379,11 @@ function playSlideAudio(slideIdx) {
         currentAudioElement.onended = () => {
             if (isPlaying && currentSlideIndex === slideIdx) {
                 if (playbackTimer) clearInterval(playbackTimer);
-                // Add a 0.3s slide pause beat
+                // Add a slide pause beat (300ms default, 50ms for DOMMemo)
+                const delay = currentProject === 'DOMMemo' ? 50 : 300;
                 silentTimeout = setTimeout(() => {
                     playSlideNext();
-                }, 300);
+                }, delay);
             }
         };
         currentAudioElement.onerror = () => {

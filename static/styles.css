@@ -5618,3 +5618,74 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
 .layout-hook-view.exiting {
     animation: slideExit 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
+
+/* --- DOMMemo Custom Diagram Slide Enhancements (Larger Nodes & Centered Text) --- */
+.memo-wrapper div[class*="diagram-board"],
+.memo-wrapper .gate-diagram-board,
+.memo-wrapper .sleep-diagram-board {
+    width: 840px !important;
+    height: 380px !important;
+    justify-content: space-around !important;
+    padding: 20px !important;
+}
+
+.memo-wrapper div[class*="diagram-node-v"] {
+    width: 220px !important;
+    height: 160px !important;
+    padding: 15px 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    border-radius: 24px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+}
+
+.memo-wrapper div[class*="diagram-node-v"] span:not(.diagram-node-icon) {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    line-height: 1.4 !important;
+    display: block !important;
+    width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+.memo-wrapper div[class*="diagram-node-v"] span.diagram-node-icon {
+    font-size: 38px !important;
+    display: block !important;
+    margin-bottom: 2px !important;
+}
+
+/* --- DOMMemo Custom Slide 3 Vertical Stack Overrides --- */
+.memo-wrapper[class*="-3-container"] {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 40px !important;
+    padding: 10px 40px !important;
+    margin-top: -65px !important;
+}
+
+.memo-wrapper[class*="-3-container"] > div {
+    flex: none !important;
+    width: 600px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Force specific layout overrides for panel types */
+.memo-wrapper[class*="-3-container"] > div:first-of-type {
+    height: 220px !important;
+    margin-bottom: 0 !important;
+}
+
+.memo-wrapper[class*="-3-container"] > div:last-of-type {
+    height: auto !important;
+    margin-top: 0 !important;
+    padding: 20px 24px !important;
+    gap: 12px !important;
+}

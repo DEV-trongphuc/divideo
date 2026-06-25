@@ -1,20 +1,21 @@
 [
   {
-    "audioPath": "",
+    "audioPath": "/kichban_memo/video4/mp3/slide_memo4_1.mp3",
     "cards": [],
     "code": "",
     "diagram": [],
-    "duration": 6,
+    "duration": 5.456,
     "id": "slide_memo4_1",
     "layout": "title",
     "refVoice": "",
     "script": "Bạn chỉ định vào siêu thị mua sữa, rồi về nhà với cả một túi đồ.",
     "subtitle": "BÍ ẨN TÂM LÝ HỌC HÀNH VI TIÊU DÙNG",
     "title": "Mê cung siêu thị",
-    "voice": "google-vi-VN-Neural2-D"
+    "voice": "vi-VN-NamMinhNeural-Warm",
+    "scriptHash": "9e80fbceb7d510cc4fd941d1b8e12938"
   },
   {
-    "audioPath": "",
+    "audioPath": "/kichban_memo/video4/mp3/slide_memo4_2.mp3",
     "cards": [],
     "code": "",
     "diagram": [
@@ -39,17 +40,18 @@
         "type": "success"
       }
     ],
-    "duration": 11.5,
+    "duration": 9.656,
     "id": "slide_memo4_2",
     "layout": "diagram",
     "refVoice": "",
     "script": "Sữa hay trứng luôn nằm ở góc xa nhất của siêu thị. Điều này buộc bạn phải đi qua hàng chục kệ hàng khác, làm tăng cơ hội bạn nhặt thêm đồ.",
     "subtitle": "TẠI SAO NHỮNG MÓN THIẾT YẾU LẠI Ở CUỐI?",
     "title": "Chiến lược sơ đồ ẩn",
-    "voice": "google-vi-VN-Neural2-D"
+    "voice": "vi-VN-NamMinhNeural-Warm",
+    "scriptHash": "35ede247270445d87a498ec2a439c5ac"
   },
   {
-    "audioPath": "",
+    "audioPath": "/kichban_memo/video4/mp3/slide_memo4_3.mp3",
     "cards": [
       {
         "desc": "Tiết tấu chậm làm giảm tốc độ đi bộ, tăng thời gian ngắm nghía hàng hóa.",
@@ -64,41 +66,44 @@
     ],
     "code": "",
     "diagram": [],
-    "duration": 11,
+    "duration": 10.88,
     "id": "slide_memo4_3",
     "layout": "cards",
     "refVoice": "",
     "script": "Âm nhạc nhịp điệu chậm rãi khiến bạn đi chậm lại và ở lại lâu hơn. Mùi thơm từ lò bánh mì kích thích cơn đói, khiến bạn đưa ra quyết định mua sắm bằng cảm xúc.",
     "subtitle": "MÙI HƯƠNG VÀ ÂM NHẠC CHẬM RÃI",
     "title": "Bẫy cảm giác vô thức",
-    "voice": "google-vi-VN-Neural2-D"
+    "voice": "vi-VN-NamMinhNeural-Warm",
+    "scriptHash": "7c8ae2f8ca6c785d9566e2233fcd5974"
   },
   {
-    "audioPath": "",
+    "audioPath": "/kichban_memo/video4/mp3/slide_memo4_4.mp3",
     "cards": [],
     "code": "",
     "diagram": [],
-    "duration": 11,
+    "duration": 10.592,
     "id": "slide_memo4_4",
     "layout": "split",
     "refVoice": "",
     "script": "Ở quầy thu ngân, bạn phải chờ đợi. Khi năng lượng ý chí cạn kiệt, các món đồ ngọt giá rẻ xếp sẵn hai bên làn xếp hàng sẽ dễ dàng hạ gục bạn.",
     "subtitle": "KHI SỰ MỆT MỎI CHI PHỐI QUYẾT ĐỊNH",
     "title": "Chốt chặn quầy thanh toán",
-    "voice": "google-vi-VN-Neural2-D"
+    "voice": "vi-VN-NamMinhNeural-Warm",
+    "scriptHash": "0a2f880907837c1e73b69fba1387068a"
   },
   {
-    "audioPath": "",
+    "audioPath": "/kichban_memo/video4/mp3/slide_memo4_5.mp3",
     "cards": [],
     "code": "",
     "diagram": [],
-    "duration": 11,
+    "duration": 10.376,
     "id": "slide_memo4_5",
     "layout": "title",
     "refVoice": "",
     "script": "Lần tới, hãy mang theo danh sách cần mua và đi thẳng đến kệ hàng mục tiêu. Nhấn tim, chia sẻ và Follow DOM Memo để tiêu dùng thông thái hơn nhé!",
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ KHÔNG BỊ DẮT MŨI",
     "title": "Làm chủ giỏ hàng của bạn!",
-    "voice": "google-vi-VN-Neural2-D"
+    "voice": "vi-VN-NamMinhNeural-Warm",
+    "scriptHash": "c219d7c0f5803dadb687099df13b0d87"
   }
 ]

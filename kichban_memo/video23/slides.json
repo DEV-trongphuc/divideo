@@ -5,13 +5,14 @@
     "subtitle": "GẶP ĐỒNG NGHIỆP NGOÀI ĐƯỜNG MÀ KHÔNG NHẬN RA?",
     "layout": "title",
     "script": "Tại sao một người đồng nghiệp bạn gặp hàng ngày ở văn phòng, nhưng khi vô tình chạm mặt ở siêu thị hay bãi biển, bạn lại đứng hình mất vài giây mà không thể nhớ ra họ là ai?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video23/mp3/slide_memo23_1.mp3",
+    "duration": 10.064,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "6731edd2bd81115b12586d31dc060a50"
   },
   {
     "id": "slide_memo23_2",
@@ -19,13 +20,14 @@
     "subtitle": "LIÊN KẾT GIỮA KHUÔN MẶT VÀ KHÔNG GIAN",
     "layout": "diagram",
     "script": "Bộ não không chỉ lưu trữ khuôn mặt đơn độc. Nó lưu trữ cả một gói thông tin bao gồm nét mặt, giọng nói, trang phục quen thuộc và bối cảnh xung quanh.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video23/mp3/slide_memo23_2.mp3",
+    "duration": 10.592,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "c953ae935327fed0bfb9ae857549cc19"
   },
   {
     "id": "slide_memo23_3",
@@ -33,13 +35,14 @@
     "subtitle": "QUÁ TRÌNH QUÉT VÀ KHỚP DỮ LIỆU",
     "layout": "metrics",
     "script": "Hãy xem mô phỏng: Khi gặp đồng nghiệp tại văn phòng, bối cảnh khớp hoàn hảo, tỷ lệ nhận diện đạt chín mươi lăm phần trăm. Nhưng khi đổi sang bãi biển, sự lệch bối cảnh khiến tỷ lệ nhận dạng sụt giảm nghiêm trọng.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video23/mp3/slide_memo23_3.mp3",
+    "duration": 13.616,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "477e6c735fd68cf656a8ec90e880398f"
   },
   {
     "id": "slide_memo23_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH BỘ LỌC ĐIỂM ẢNH VÀ BỘ LỌC LIÊN TƯỞNG",
     "layout": "cards",
     "script": "So sánh: Nhận diện chi tiết chỉ quét các pixel ngũ quan trên mặt. Còn nhận diện liên tưởng quét toàn bộ bối cảnh để truy xuất ký ức nhanh gấp đôi. Khi bối cảnh lệch, não buộc phải chạy chế độ quét sâu chậm chạp.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video23/mp3/slide_memo23_4.mp3",
+    "duration": 14.576,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "8ba0bde1b1178c0c9de3a96b7f2a0586"
   },
   {
     "id": "slide_memo23_5",
@@ -61,13 +65,14 @@
     "subtitle": "CHỦ ĐỘNG GỢI NHỚ BỐI CẢNH QUEN THUỘC",
     "layout": "title",
     "script": "Lần tới nếu bất ngờ gặp ai đó mà không nhớ ra, đừng cố nhìn chằm chằm họ. Hãy nhắm mắt và nghĩ về những nơi bạn thường gặp họ, não bộ sẽ lập tức truy xuất ra câu trả lời.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video23/mp3/slide_memo23_5.mp3",
+    "duration": 11.96,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "796480e53c9ecc5b1ab9953e287a7d2f"
   },
   {
     "id": "slide_memo23_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video23/mp3/slide_memo23_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

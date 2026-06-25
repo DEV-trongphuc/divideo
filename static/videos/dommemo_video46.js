@@ -114,17 +114,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v46 node-1">
                                 <span class="diagram-node-icon">⚓</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Giá neo ban đầu cực cao</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v46 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Dùng làm mốc so sánh</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v46 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Thấy giá sau rẻ bất ngờ</span>
                             </div>
                         </div>
 
@@ -176,38 +176,38 @@
                         <div class="comp-row-v46">
                             <div class="comp-card-v46 card-left card-active">
                                 <div class="comp-header-v46">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v46">⚓</div>
+                                    <h3>Đánh Giá Khách Quan</h3>
+                                    <div class="comp-icon-v46">⚖️</div>
                                 </div>
                                 <div class="comp-bullet-list-v46">
                                     <div class="comp-bullet-row-v46" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v46">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Phân tích giá trị thực tế</span>
                                     </div>
                                     <div class="comp-bullet-row-v46" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v46">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Không bị ảnh hưởng bởi mốc giá</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v46">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v46">TỈNH TÁO</div>
                             </div>
 
                             <div class="comp-card-v46 card-right card-inactive">
                                 <div class="comp-header-v46">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v46">⚙️</div>
+                                    <h3>Mắc Neo Tâm Lý</h3>
+                                    <div class="comp-icon-v46">⚓</div>
                                 </div>
                                 <div class="comp-bullet-list-v46">
                                     <div class="comp-bullet-row-v46" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v46">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Dùng số đầu tiên làm chuẩn</span>
                                     </div>
                                     <div class="comp-bullet-row-v46" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v46">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Dễ xuống tiền mua món sau</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v46">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v46">BỊ LỆCH</div>
                             </div>
                         </div>
                     </div>

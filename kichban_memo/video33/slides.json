@@ -5,13 +5,14 @@
     "subtitle": "VÌ SAO KHI ĐÓI BỤNG, MÓN ĂN NÀO CŨNG THẤY NGON HƠN?",
     "layout": "title",
     "script": "Mỗi khi đói cồn cào, đi ngang qua quán ăn nào bạn cũng thấy thơm ngào ngạt và thèm ăn dữ dội. Có phải món ăn hôm nay thực sự ngon hơn không?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video33/mp3/slide_memo33_1.mp3",
+    "duration": 9.992,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "cdc42c1b848288bbc3bca96489f3c866"
   },
   {
     "id": "slide_memo33_2",
@@ -19,41 +20,44 @@
     "subtitle": "HUNGER EXPECTATION",
     "layout": "diagram",
     "script": "Sự thật là khi cơ thể thiếu hụt glucose, dạ dày tiết ra hormone Ghrelin gửi tín hiệu đến não bộ để nâng độ nhạy cảm của khứu giác và vị giác lên mức báo động.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video33/mp3/slide_memo33_2.mp3",
+    "duration": 10.28,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "b0d12560edf7c73d007352d69fa0787d"
   },
   {
     "id": "slide_memo33_3",
     "title": "Mô phỏng Hoạt động",
     "subtitle": "TRỰC QUAN HÓA CƠN ĐÓI NGỌT NGÀO",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi bụng đói, tín hiệu hình ảnh đồ ăn được phóng to và kích thích mạnh, kích hoạt hệ thống tưởng thưởng dopamine khiến món ăn trở nên vô giá.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Khi bụng đói, tín hiệu hình ảnh đồ ăn được phóng to và kích thích mạnh, kích hoạt hệ thống tưởng thưởng dopamine khiến món ăn trở nên vô giá.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video33/mp3/slide_memo33_3.mp3",
+    "duration": 9.8,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "eed1646967a42fd94eb0b65424b01ce9"
   },
   {
     "id": "slide_memo33_4",
     "title": "So sánh Nhận thức",
     "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "script": "So sánh: Khi ăn no, các neuron cảm giác giảm phản xạ kích thích để bảo vệ cơ thể khỏi quá tải. Khi đói, sự thèm ăn tối ưu hóa mọi cảm giác quan.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Khi ăn no, các neuron cảm giác giảm phản xạ kích thích để bảo vệ cơ thể khỏi quá tải. Khi đói, sự thèm ăn tối ưu hóa mọi cảm giác quan.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video33/mp3/slide_memo33_4.mp3",
+    "duration": 11.36,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "45bceddd38c6a4517a384bc86c7d48c8"
   },
   {
     "id": "slide_memo33_5",
@@ -61,13 +65,14 @@
     "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
     "script": "Không phải đầu bếp nấu ngon hơn, mà là bộ não của bạn đang kích hoạt cơ chế sinh tồn tối thượng: tìm thức ăn ngay lập tức!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video33/mp3/slide_memo33_5.mp3",
+    "duration": 8.048,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "6f5da0235bd511093b03484b96b88158"
   },
   {
     "id": "slide_memo33_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video33/mp3/slide_memo33_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

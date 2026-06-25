@@ -114,17 +114,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v30 node-1">
                                 <span class="diagram-node-icon">🔦</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Lỗi nhỏ trên áo</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v30 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Coi mình là trung tâm</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v30 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Nghĩ ai cũng nhìn</span>
                             </div>
                         </div>
 
@@ -176,38 +176,38 @@
                         <div class="comp-row-v30">
                             <div class="comp-card-v30 card-left card-active">
                                 <div class="comp-header-v30">
-                                    <h3>TRẠNG THÁI A</h3>
+                                    <h3>Ảo Giác Tiêu Điểm</h3>
                                     <div class="comp-icon-v30">🔦</div>
                                 </div>
                                 <div class="comp-bullet-list-v30">
                                     <div class="comp-bullet-row-v30" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v30">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Tin rằng 90% soi xét mình</span>
                                     </div>
                                     <div class="comp-bullet-row-v30" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v30">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Tự tạo áp lực lo âu</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v30">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v30">CĂNG THẰNG</div>
                             </div>
 
                             <div class="comp-card-v30 card-right card-inactive">
                                 <div class="comp-header-v30">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v30">⚙️</div>
+                                    <h3>Thực Tế Đám Đông</h3>
+                                    <div class="comp-icon-v30">👥</div>
                                 </div>
                                 <div class="comp-bullet-list-v30">
                                     <div class="comp-bullet-row-v30" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v30">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Chưa đầy 10% chú ý lỗi</span>
                                     </div>
                                     <div class="comp-bullet-row-v30" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v30">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Ai cũng bận việc riêng</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v30">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v30">TỰ NHIÊN</div>
                             </div>
                         </div>
                     </div>
@@ -219,7 +219,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo30-5-container">
                         <div class="takeaway-radar-v30"></div>
-                        <div class="takeaway-box-v30" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v30" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v30">🔦</div>
                             <div class="takeaway-text-v30">
                                 "Đừng quá căng thẳng vì những lỗi lầm nhỏ nhặt. Không ai soi bạn kỹ đến thế đâu, vì ai cũng bận soi chính mình!"

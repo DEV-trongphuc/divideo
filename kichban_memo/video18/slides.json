@@ -5,13 +5,14 @@
     "subtitle": "MẮT BẠN ĐẢO LIÊN TỤC, NHƯNG VÌ SAO THẾ GIỚI KHÔNG RUNG LẮC?",
     "layout": "title",
     "script": "Khi bạn đảo mắt qua lại, thế giới xung quanh đáng lẽ phải rung lắc điên cuồng như một chiếc máy quay cầm tay bị lắc mạnh. Nhưng tại sao bạn lại không cảm nhận được điều đó?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video18/mp3/slide_memo18_1.mp3",
+    "duration": 10.976,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "baddc6f26c2cc39bea6f54d76ad4bfe6"
   },
   {
     "id": "slide_memo18_2",
@@ -19,13 +20,14 @@
     "subtitle": "HIỆU ỨNG SACCADIC SUPPRESSION",
     "layout": "diagram",
     "script": "Hiện tượng này gọi là ức chế vận nhãn. Mỗi lần mắt bạn lia nhanh, bộ não sẽ tạm thời giảm xử lý tín hiệu hình ảnh để chặn hoàn toàn cảm giác nhòe mắt.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video18/mp3/slide_memo18_2.mp3",
+    "duration": 10.712,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "137597a1bce968e63877f2d3defae574"
   },
   {
     "id": "slide_memo18_3",
@@ -33,13 +35,14 @@
     "subtitle": "MÔ PHỎNG QUÁ TRÌNH TẠM DỪNG XỬ LÝ ẢNH",
     "layout": "metrics",
     "script": "Hãy xem mô phỏng: Khi tiêu điểm mắt di chuyển nhanh giữa điểm A và B, não bộ lập tức bật chế độ che mờ và ngắt luồng thông tin hình ảnh thô để bảo vệ thị giác của bạn.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video18/mp3/slide_memo18_3.mp3",
+    "duration": 10.424,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "dd757a023ef43a54f6d88274911067a2"
   },
   {
     "id": "slide_memo18_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH THỊ GIÁC VẬT LÝ VÀ THỊ GIÁC THỰC TẾ",
     "layout": "cards",
     "script": "So sánh: Nếu camera ghi lại, hình ảnh khi đảo mắt sẽ nhòe và rung lắc dữ dội. Nhưng bộ não đã cắt bỏ hoàn toàn phân cảnh nhòe đó, ghép các ảnh tĩnh lại thành một thước phim mượt mà.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video18/mp3/slide_memo18_4.mp3",
+    "duration": 12.728,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "0182469c0a5b7a67fa9771d3f8f4690f"
   },
   {
     "id": "slide_memo18_5",
@@ -61,13 +65,14 @@
     "subtitle": "GIÚP CƠ THỂ TRÁNH BỊ CHÓNG MẶT",
     "layout": "title",
     "script": "Cơ chế này giúp bạn tránh khỏi tình trạng chóng mặt và buồn nôn liên tục khi mắt đảo qua lại. Đó là cách não bộ thiết kế một hệ thống chống rung hoàn hảo nhất thế giới.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video18/mp3/slide_memo18_5.mp3",
+    "duration": 10.808,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "4b8fcb64cbd163e95e3f4161d7859a1f"
   },
   {
     "id": "slide_memo18_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video18/mp3/slide_memo18_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

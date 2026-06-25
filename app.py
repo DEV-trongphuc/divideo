@@ -387,10 +387,11 @@ def synthesize():
         mp3_filename = f"{slide_id}.mp3"
         mp3_path = os.path.join(mp3_dir, mp3_filename)
         
+        pad_dur = "0.8" if project_name == "DOMMemo" else "1.8"
         ffmpeg_path = os.path.abspath("ffmpeg.exe")
         cmd = [
             ffmpeg_path, "-y", "-i", temp_path,
-            "-af", "apad=pad_dur=1.8",
+            "-af", f"apad=pad_dur={pad_dur}",
             "-codec:a", "libmp3lame", "-qscale:a", "2",
             mp3_path
         ]
@@ -401,7 +402,7 @@ def synthesize():
             # Fallback
             cmd_fallback = [
                 ffmpeg_path, "-y", "-i", temp_path,
-                "-af", "apad=pad_dur=1.8",
+                "-af", f"apad=pad_dur={pad_dur}",
                 mp3_path
             ]
             subprocess.run(cmd_fallback, capture_output=True)
@@ -510,9 +511,10 @@ def synthesize_all_thread(script_name, slides, project_name="TurnioDEV"):
                 voice_preference=voice_preference
             )
             
+            pad_dur = "0.8" if project_name == "DOMMemo" else "1.8"
             cmd = [
                 ffmpeg_path, "-y", "-i", temp_wav,
-                "-af", "apad=pad_dur=1.8",
+                "-af", f"apad=pad_dur={pad_dur}",
                 "-codec:a", "libmp3lame", "-qscale:a", "2",
                 mp3_path
             ]

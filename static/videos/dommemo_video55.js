@@ -108,17 +108,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v55 node-1">
                                 <span class="diagram-node-icon">🖼️</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Đọc tin điều trị bệnh</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v55 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Kích hoạt cảm xúc sợ/hy vọng</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v55 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Lựa chọn phương án khác nhau</span>
                             </div>
                         </div>
 
@@ -167,38 +167,38 @@
                         <div class="comp-row-v55">
                             <div class="comp-card-v55 card-left card-active">
                                 <div class="comp-header-v55">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v55">🖼️</div>
+                                    <h3>Tỷ Lệ Sống 80%</h3>
+                                    <div class="comp-icon-v55">🌱</div>
                                 </div>
                                 <div class="comp-bullet-list-v55">
                                     <div class="comp-bullet-row-v55" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v55">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Kích hoạt an tâm, hy vọng</span>
                                     </div>
                                     <div class="comp-bullet-row-v55" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v55">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Đồng ý điều trị lập tức</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v55">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v55">HY VỌNG</div>
                             </div>
 
                             <div class="comp-card-v55 card-right card-inactive">
                                 <div class="comp-header-v55">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v55">⚙️</div>
+                                    <h3>Tỷ Lệ Chết 20%</h3>
+                                    <div class="comp-icon-v55">💀</div>
                                 </div>
                                 <div class="comp-bullet-list-v55">
                                     <div class="comp-bullet-row-v55" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v55">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Kích hoạt nỗi sợ mất mát</span>
                                     </div>
                                     <div class="comp-bullet-row-v55" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v55">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Từ chối và đề phòng tìm cách khác</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v55">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v55">LO SỢ</div>
                             </div>
                         </div>
                     </div>

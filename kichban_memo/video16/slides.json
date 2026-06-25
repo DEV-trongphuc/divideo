@@ -5,13 +5,14 @@
     "subtitle": "BẠN NGHĨ MÌNH TỰ CHỌN, HAY NÃO ĐÃ CHỌN TRƯỚC?",
     "layout": "title",
     "script": "Có bao giờ bạn chọn một món ăn, hay mua một món đồ và nghĩ mình hoàn toàn tự chọn? Nhưng thực ra, bộ não của bạn có thể đã nghiêng về một đáp án từ trước khi bạn nhận thức được điều đó.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video16/mp3/slide_memo16_1.mp3",
+    "duration": 11.936,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "9dc8564c50b1612bf1ece84418a1bb88"
   },
   {
     "id": "slide_memo16_2",
@@ -19,13 +20,14 @@
     "subtitle": "KHI NÃO BỘ ĐÃ CHỌN XONG TRƯỚC KHI BẠN KỊP PHÁT HIỆN",
     "layout": "diagram",
     "script": "Hiện tượng này được minh chứng qua các thí nghiệm đo sóng não. Trước khi bạn đưa ra ý định nhấn nút, các vùng vỏ não vận động đã tự động kích hoạt và chuẩn bị cho hành động từ trước đó tới nửa giây.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video16/mp3/slide_memo16_2.mp3",
+    "duration": 12.2,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "005117409d06551e34ef3da99a56ce69"
   },
   {
     "id": "slide_memo16_3",
@@ -33,13 +35,14 @@
     "subtitle": "KHOẢNG TRỄ GIỮA XỬ LÝ VÔ THỨC VÀ Ý THỨC CHỦ QUAN",
     "layout": "metrics",
     "script": "Hãy xem mô phỏng: Khi bạn đứng trước lựa chọn A hoặc B, vùng vô thức trong não đã tích lũy điện thế và chốt đáp án A trước. Phải mất tới vài trăm mili giây sau, ý thức mới nhận ra và tạo cảm giác 'tôi vừa tự chọn'.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video16/mp3/slide_memo16_3.mp3",
+    "duration": 14.528,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "762b4fb5d0f74cec0b458ab73014db61"
   },
   {
     "id": "slide_memo16_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH TỐC ĐỘ XỬ LÝ VÀ VAI TRÒ CỦA HAI HỆ THỐNG",
     "layout": "cards",
     "script": "Hãy phân biệt: Vô thức quyết định tức thì dựa trên thói quen, cảm xúc và ký ức cũ. Còn ý thức đi chậm hơn, chỉ đóng vai trò biện minh, hợp lý hóa và giải thích cho lựa chọn đã được định đoạt từ trước.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video16/mp3/slide_memo16_4.mp3",
+    "duration": 13.448,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "6b32ed4ca3f41f3e2d161a89378a9678"
   },
   {
     "id": "slide_memo16_5",
@@ -61,13 +65,14 @@
     "subtitle": "LÀM CHỦ Ý THỨC ĐỂ TRÁNH BỊ DẪN DẮT BỞI THÓI QUEN VÔ THỨC",
     "layout": "title",
     "script": "Làm sao để làm chủ? Trước các quyết định quan trọng hay mua sắm ngẫu hứng, hãy dừng lại 3 giây. Khoảng dừng này giúp ý thức kịp can thiệp, phá vỡ thói quen tự động và đưa ra lựa chọn thực sự sáng suốt.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video16/mp3/slide_memo16_5.mp3",
+    "duration": 13.976,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "0a76d45b429f5399cabc832ba99d1ea1"
   },
   {
     "id": "slide_memo16_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video16/mp3/slide_memo16_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

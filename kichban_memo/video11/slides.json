@@ -5,13 +5,14 @@
     "subtitle": "BẠN KHÔNG THỰC SỰ NHÌN THẾ GIỚI THEO THỜI GIAN THỰC",
     "layout": "title",
     "script": "Có bao giờ bạn nhận ra: Thứ bạn đang thấy không phải là hiện tại? Mọi hình ảnh bạn 'nhìn' đều là một phiên bản đã trễ vài phần giây so với thực tế.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban_memo/video11/mp3/slide_memo11_1.mp3",
+    "duration": 10.136,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "fe13f124f0fb41484e6510b461073e11"
   },
   {
     "id": "slide_memo11_2",
@@ -19,13 +20,14 @@
     "subtitle": "NÃO CẦN 80 MILI-GIÂY ĐỂ XỬ LÝ TÍN HIỆU",
     "layout": "diagram",
     "script": "Khi có một sự kiện xảy ra, ánh sáng cần truyền qua mắt, kích hoạt võng mạc, truyền qua dây thần kinh thị giác rồi mới được vỏ não xử lý. Quy trình này tốn khoảng tám mươi mili-giây.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video11/mp3/slide_memo11_2.mp3",
+    "duration": 12.032,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "24c93b03bc46f910bc70a022da600467"
   },
   {
     "id": "slide_memo11_3",
@@ -33,13 +35,14 @@
     "subtitle": "NÃO GOM TẤT CẢ TÍN HIỆU VÀO MỘT KHUNG HÌNH CHUNG",
     "layout": "metrics",
     "script": "Để bạn không thấy thế giới bị giật lag, não bộ hoạt động như một bộ đồng bộ hóa. Nó gom ánh sáng, âm thanh và chuyển động, trì hoãn lại một chút để ghép chúng thành một trải nghiệm liền mạch.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video11/mp3/slide_memo11_3.mp3",
+    "duration": 12.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "6f6db38ff90c210ef0ad5869144eb3c6"
   },
   {
     "id": "slide_memo11_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH GIỮA THỜI GIAN THỰC VÀ BẢN DỰNG CỦA NÃO",
     "layout": "cards",
     "script": "Hãy so sánh: Thực tế khách quan là những khoảnh khắc rời rạc diễn ra tức thời ở tốc độ ánh sáng. Trong khi đó, trải nghiệm của bạn là một bản dựng đã trễ tám mươi mili-giây, nhưng mượt mà và trọn vẹn.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video11/mp3/slide_memo11_4.mp3",
+    "duration": 13.064,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "91c681ab0a5dd05d69c7e78500ae4706"
   },
   {
     "id": "slide_memo11_5",
@@ -61,13 +65,14 @@
     "subtitle": "Ý THỨC CỦA CHÚNG TA ĐANG SỐNG TRONG QUÁ KHỨ 80ms",
     "layout": "title",
     "script": "Đúng vậy, ý thức của chúng ta thực ra đang sống trong quá khứ! Hãy thả lỏng tâm trí và tận hưởng từng khoảnh khắc trọn vẹn ở hiện tại.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 8.0,
+    "audioPath": "/kichban_memo/video11/mp3/slide_memo11_5.mp3",
+    "duration": 9.44,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "e3378732222ac279a5631d58bcc6891f"
   },
   {
     "id": "slide_memo11_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video11/mp3/slide_memo11_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

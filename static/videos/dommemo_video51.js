@@ -107,18 +107,18 @@
 
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v51 node-1">
-                                <span class="diagram-node-icon">🔍</span>
-                                <span>1. Đầu Vào</span>
+                                <span class="diagram-node-icon">🚗</span>
+                                <span>1. Vừa chú ý xe đỏ</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v51 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Bộ lọc lưới ưu tiên xe đỏ</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v51 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Đi đâu cũng thấy xe đỏ</span>
                             </div>
                         </div>
 
@@ -171,38 +171,38 @@
                         <div class="comp-row-v51">
                             <div class="comp-card-v51 card-left card-active">
                                 <div class="comp-header-v51">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v51">🔍</div>
+                                    <h3>Không Chú Ý</h3>
+                                    <div class="comp-icon-v51">🌫️</div>
                                 </div>
                                 <div class="comp-bullet-list-v51">
                                     <div class="comp-bullet-row-v51" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v51">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Xe đỏ chạy qua như tạp âm</span>
                                     </div>
                                     <div class="comp-bullet-row-v51" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v51">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Không lưu vào trí nhớ</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v51">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v51">BÌNH THƯỜNG</div>
                             </div>
 
                             <div class="comp-card-v51 card-right card-inactive">
                                 <div class="comp-header-v51">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v51">⚙️</div>
+                                    <h3>Ảo Giác Tần Suất</h3>
+                                    <div class="comp-icon-v51">🚗</div>
                                 </div>
                                 <div class="comp-bullet-list-v51">
                                     <div class="comp-bullet-row-v51" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v51">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Mắt tự động quét tìm xe đỏ</span>
                                     </div>
                                     <div class="comp-bullet-row-v51" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v51">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Tưởng xe đỏ đột ngột tăng nhiều</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v51">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v51">NỔI BẬT</div>
                             </div>
                         </div>
                     </div>

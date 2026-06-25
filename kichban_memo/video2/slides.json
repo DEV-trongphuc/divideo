@@ -5,13 +5,14 @@
     "subtitle": "NGHỊCH LÝ CỦA SỰ KIỂM SOÁT BẮT BUỘC",
     "layout": "title",
     "script": "Bạn tự nhủ: phải ngủ ngay. Và thế là tỉnh táo hơn bao giờ hết.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 6.0,
+    "audioPath": "/kichban_memo/video2/mp3/slide_memo2_1.mp3",
+    "duration": 7.464,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "31427e8fc4cf682e711bc1da4aafdc51"
   },
   {
     "id": "slide_memo2_2",
@@ -19,10 +20,10 @@
     "subtitle": "KHI SỰ CỐ GẮNG TRỞ THÀNH ÁP LỰC CĂNG THẲNG",
     "layout": "cards",
     "script": "Khi bạn đặt ra một mục tiêu bắt buộc phải ngủ, bạn đang vô tình kích hoạt hệ thống tự theo dõi của não bộ. Áp lực thời gian đếm ngược làm gia tăng sự căng thẳng tinh thần.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video2/mp3/slide_memo2_2.mp3",
+    "duration": 12.048,
     "cards": [
       {
         "icon": "clock",
@@ -41,7 +42,8 @@
       }
     ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "8831c63b7d04bab24a8e1a01ed0534c7"
   },
   {
     "id": "slide_memo2_3",
@@ -49,18 +51,36 @@
     "subtitle": "KHI GIẤC NGỦ BỊ DIỄN GIẢI NHƯ MỘT NHIỆM VỤ SINH TỒN",
     "layout": "diagram",
     "script": "Tại sao lại có nghịch lý này? Việc cố gắng kiểm soát một tiến trình sinh học vô thức như giấc ngủ khiến não bộ hiểu lầm đây là một nhiệm vụ khẩn cấp. Nó lập tức kích hoạt mạng lưới cảnh giác.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video2/mp3/slide_memo2_3.mp3",
+    "duration": 13.896,
     "cards": [],
     "code": "",
     "diagram": [
-      { "id": "node_m2_1", "label": "Ý chí: 'Phải ngủ ngay!'", "type": "start" },
-      { "id": "node_m2_2", "label": "Não hiểu lầm: Đây là nhiệm vụ sinh tồn", "type": "process" },
-      { "id": "node_m2_3", "label": "Kích hoạt hệ thần kinh giao cảm (Sympathetic)", "type": "warning" },
-      { "id": "node_m2_4", "label": "Não tỉnh táo hoàn toàn", "type": "success", "note": "Mất ngủ nghịch lý" }
-    ]
+      {
+        "id": "node_m2_1",
+        "label": "Ý chí: 'Phải ngủ ngay!'",
+        "type": "start"
+      },
+      {
+        "id": "node_m2_2",
+        "label": "Não hiểu lầm: Đây là nhiệm vụ sinh tồn",
+        "type": "process"
+      },
+      {
+        "id": "node_m2_3",
+        "label": "Kích hoạt hệ thần kinh giao cảm (Sympathetic)",
+        "type": "warning"
+      },
+      {
+        "id": "node_m2_4",
+        "label": "Não tỉnh táo hoàn toàn",
+        "type": "success",
+        "note": "Mất ngủ nghịch lý"
+      }
+    ],
+    "scriptHash": "e2ee97ecaefc268ea443d9e90cdfeb08"
   },
   {
     "id": "slide_memo2_4",
@@ -68,13 +88,14 @@
     "subtitle": "THẢ LỎNG VÀ CHẤP NHẬN SỰ THỨC TỈNH",
     "layout": "split",
     "script": "Để ngủ được, giải pháp là hãy làm ngược lại: Cho phép bản thân thức. Khi bạn từ bỏ nỗ lực kiểm soát, não bộ sẽ nhận ra không có mối nguy hiểm nào, hệ thần kinh tự động dịu lại và bạn chìm vào giấc ngủ.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video2/mp3/slide_memo2_4.mp3",
+    "duration": 14.64,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "c790433b3262ce9be1e2767caad85c3e"
   },
   {
     "id": "slide_memo2_5",
@@ -82,12 +103,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HỌC THÊM MẸO TÂM LÝ HAY",
     "layout": "title",
     "script": "Tối nay, nếu khó ngủ, hãy thử thả lỏng và chấp nhận thức xem sao nhé. Bấm tim, chia sẻ và nhấn Follow DOM Memo để chăm sóc sức khỏe tinh thần của bạn mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban_memo/video2/mp3/slide_memo2_5.mp3",
+    "duration": 12.936,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "9b3a50ec3b2c4c1e74fcee6e99fc4383"
   }
 ]

@@ -108,17 +108,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v38 node-1">
                                 <span class="diagram-node-icon">🔋</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Cuối ngày làm việc mệt</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v38 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Vỏ não cạn glucose</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v38 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Đưa quyết định lười nhất</span>
                             </div>
                         </div>
 
@@ -167,38 +167,38 @@
                         <div class="comp-row-v38">
                             <div class="comp-card-v38 card-left card-active">
                                 <div class="comp-header-v38">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v38">🔋</div>
+                                    <h3>Sáng Sớm Tỉnh Táo</h3>
+                                    <div class="comp-icon-v38">☀️</div>
                                 </div>
                                 <div class="comp-bullet-list-v38">
                                     <div class="comp-bullet-row-v38" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v38">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Năng lượng vỏ não dồi dào</span>
                                     </div>
                                     <div class="comp-bullet-row-v38" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v38">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Đưa quyết định sáng suốt</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v38">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v38">TỐI ƯU</div>
                             </div>
 
                             <div class="comp-card-v38 card-right card-inactive">
                                 <div class="comp-header-v38">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v38">⚙️</div>
+                                    <h3>Khi Mệt Mỏi</h3>
+                                    <div class="comp-icon-v38">🔋</div>
                                 </div>
                                 <div class="comp-bullet-list-v38">
                                     <div class="comp-bullet-row-v38" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v38">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Cạn kiệt ý thức phân tích</span>
                                     </div>
                                     <div class="comp-bullet-row-v38" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v38">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Chọn phương án dễ và an toàn</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v38">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v38">AN TOÀN</div>
                             </div>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo38-5-container">
                         <div class="takeaway-radar-v38"></div>
-                        <div class="takeaway-box-v38" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v38" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v38">🔋</div>
                             <div class="takeaway-text-v38">
                                 "Có những lúc thứ cần sửa chữa không phải là cuộc trò chuyện, mà chỉ là giấc ngủ của bạn. Hãy tắt máy đi ngủ sớm nhé!"

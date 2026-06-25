@@ -5,13 +5,14 @@
     "subtitle": "TẠI SAO NHÌN MỘT CHỮ QUEN THUỘC QUÁ LÂU, NÓ BỖNG KỲ LẠ?",
     "layout": "title",
     "script": "Bạn nhìn chằm chằm vào một từ rất quen thuộc như 'nhà' hay 'đẹp' thật lâu. Một lúc sau, chữ đó bỗng lạ hẳn, giống như bạn chưa từng thấy bao giờ.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video31/mp3/slide_memo31_1.mp3",
+    "duration": 10.448,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "f17b2684dead6423f0c4cc779f955864"
   },
   {
     "id": "slide_memo31_2",
@@ -19,41 +20,44 @@
     "subtitle": "SEMANTIC SATIATION",
     "layout": "diagram",
     "script": "Hiện tượng này gọi là Nhìn Lâu Hóa Lạ. Sự kích thích lặp đi lặp lại khiến các neuron nhận diện ý nghĩa từ bị mệt mỏi tạm thời, làm mất đi sự quen thuộc.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video31/mp3/slide_memo31_2.mp3",
+    "duration": 10.76,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "f36e4581621828a6d999fc445d330aa8"
   },
   {
     "id": "slide_memo31_3",
     "title": "Mô phỏng Hoạt động",
     "subtitle": "TRỰC QUAN HÓA NHÌN LÂU HÓA LẠ",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi mới đọc, chữ liên kết ngay với kho ngữ nghĩa. Nhưng sau khi nhìn liên tục, đường truyền ngôn ngữ bị quá tải, bạn chỉ thấy các nét vẽ xa lạ.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Khi mới đọc, chữ liên kết ngay với kho ngữ nghĩa. Nhưng sau khi nhìn liên tục, đường truyền ngôn ngữ bị quá tải, bạn chỉ thấy các nét vẽ xa lạ.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video31/mp3/slide_memo31_3.mp3",
+    "duration": 11.696,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "93542aabc1bc0573d689031579d5ceb1"
   },
   {
     "id": "slide_memo31_4",
     "title": "So sánh Nhận thức",
     "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "script": "So sánh: Đọc lướt bình thường tốn cực ít điện thần kinh để dịch nghĩa. Nhìn tập trung lâu làm ngập lụt khớp thần kinh, bẻ gãy mối nối ngôn ngữ.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Đọc lướt bình thường tốn cực ít điện thần kinh để dịch nghĩa. Nhìn tập trung lâu làm ngập lụt khớp thần kinh, bẻ gãy mối nối ngôn ngữ.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video31/mp3/slide_memo31_4.mp3",
+    "duration": 10.448,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "c555d1ce529adbcbc15a1f2f257b7a99"
   },
   {
     "id": "slide_memo31_5",
@@ -61,13 +65,14 @@
     "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
     "script": "Bộ não đôi khi có thể biến những điều quen thuộc nhất trở nên xa lạ để duy trì tính chọn lọc của thông tin nhận thức!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video31/mp3/slide_memo31_5.mp3",
+    "duration": 7.088,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "62f0a4c3e1e1a892612ef03b7b5c3432"
   },
   {
     "id": "slide_memo31_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video31/mp3/slide_memo31_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

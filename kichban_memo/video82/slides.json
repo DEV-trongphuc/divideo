@@ -1,97 +1,97 @@
 [
   {
+    "id": "slide_memo82_1",
+    "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
     "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
     "diagram": [],
-    "duration": 12,
-    "id": "slide_memo82_1",
-    "layout": "title",
-    "refVoice": "",
-    "script": "Bạn nghĩ thoải mái hoàn toàn sẽ giúp làm việc tốt nhất? Thực ra, không có chút áp lực nào lại khiến bạn lười biếng và trì trệ hơn.",
-    "subtitle": "TẠI SAO CĂNG THẲNG VỪA PHẢI GIÚP HIỆU SUẤT ĐỈNH CAO?",
     "title": "Định luật Yerkes-Dodson",
-    "voice": "vi-VN-NamMinhNeural"
+    "subtitle": "TẠI SAO CĂNG THẲNG VỪA PHẢI GIÚP HIỆU SUẤT ĐỈNH CAO?",
+    "script": "Bạn nghĩ thoải mái hoàn toàn sẽ giúp làm việc tốt nhất? Thực ra, không có chút áp lực nào lại khiến bạn lười biếng và trì trệ hơn."
   },
   {
+    "id": "slide_memo82_2",
+    "layout": "cards",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
     "audioPath": "",
+    "duration": 12.0,
     "cards": [
       {
-        "desc": "Hệ thần kinh rơi vào uể oải",
         "icon": "🛋️",
-        "title": "Áp Lực Quá Thấp"
+        "title": "Áp Lực Quá Thấp",
+        "desc": "Hệ thần kinh rơi vào uể oải"
       },
       {
-        "desc": "Adrenaline kích thích tập trung",
         "icon": "🎯",
-        "title": "Căng Thẳng Vừa Phải"
+        "title": "Căng Thẳng Vừa Phải",
+        "desc": "Adrenaline kích thích tập trung"
       }
     ],
     "code": "",
     "diagram": [],
-    "duration": 12,
-    "id": "slide_memo82_2",
-    "layout": "cards",
-    "refVoice": "",
-    "script": "So sánh: Quá thư giãn gây mất tập trung. Căng thẳng tối ưu kích hoạt tập trung cực độ. Quá tải áp lực làm tê liệt tư duy.",
-    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "title": "So sánh Nhận thức",
-    "voice": "google-vi-VN-Neural2-D"
+    "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
+    "script": "Quá thư giãn gây mất tập trung. Căng thẳng tối ưu kích hoạt tập trung cực độ. Quá tải áp lực làm tê liệt tư duy."
   },
   {
+    "id": "slide_memo82_3",
+    "layout": "metrics",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
     "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
     "diagram": [],
-    "duration": 12,
-    "id": "slide_memo82_3",
-    "layout": "metrics",
-    "refVoice": "",
-    "script": "Mô phỏng: Trạng thái kích thích tăng dần từ lười biếng (0%) lên mức tối ưu (50% áp lực) giúp hiệu suất vọt lên đỉnh cao trước khi rơi vào hoảng loạn.",
-    "subtitle": "TRỰC QUAN HÓA ĐỊNH LUẬT YERKES-DODSON",
     "title": "Mô phỏng Hoạt động",
-    "voice": "google-vi-VN-Neural2-D"
+    "subtitle": "TRỰC QUAN HÓA ĐỊNH LUẬT YERKES-DODSON",
+    "script": "Trạng thái kích thích tăng dần từ lười biếng (0%) lên mức tối ưu (50% áp lực) giúp hiệu suất vọt lên đỉnh cao trước khi rơi vào hoảng loạn."
   },
   {
+    "id": "slide_memo82_4",
+    "layout": "code",
+    "voice": "google-vi-VN-Neural2-D",
+    "refVoice": "",
     "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "// HIỆU SUẤT THEO ÁP LỰC\nlet stressLevel = 0.50; // Mức căng thẳng tối ưu\nlet performance = -4 * Math.pow((stressLevel - 0.5), 2) + 1; // Hàm parabol ngược\nconsole.log(`Hiệu suất đạt được: ${performance * 100}%`);",
     "diagram": [],
-    "duration": 12,
-    "id": "slide_memo82_4",
-    "layout": "code",
-    "refVoice": "",
-    "script": "So sánh: Quá thư giãn gây mất tập trung. Căng thẳng tối ưu kích hoạt tập trung cực độ. Quá tải áp lực làm tê liệt tư duy.",
-    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
     "title": "Não tự diễn giải tín hiệu",
-    "voice": "google-vi-VN-Neural2-D"
+    "subtitle": "THUẬT TOÁN ĐIỀU PHỐI CẢM GIÁC",
+    "script": "Quá thư giãn gây mất tập trung. Căng thẳng tối ưu kích hoạt tập trung cực độ. Quá tải áp lực làm tê liệt tư duy."
   },
   {
-    "audioPath": "",
-    "cards": [],
-    "code": "",
-    "diagram": [],
-    "duration": 12,
     "id": "slide_memo82_5",
     "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
-    "script": "Hãy học cách đón nhận áp lực vừa phải như một động lực tích cực. Đó chính là nhiên liệu đưa bạn đến đỉnh cao hiệu suất!",
-    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
-    "title": "Mẹo Trí Não",
-    "voice": "google-vi-VN-Neural2-D"
-  },
-  {
     "audioPath": "",
+    "duration": 12.0,
     "cards": [],
     "code": "",
     "diagram": [],
-    "duration": 7.5,
+    "title": "Mẹo Trí Não",
+    "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
+    "script": "Hãy học cách đón nhận áp lực vừa phải như một động lực tích cực. Đó chính là nhiên liệu đưa bạn đến đỉnh cao hiệu suất!"
+  },
+  {
     "id": "slide_memo82_6",
     "layout": "title",
+    "voice": "google-vi-VN-Neural2-D",
     "refVoice": "",
-    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "audioPath": "",
+    "duration": 7.5,
+    "cards": [],
+    "code": "",
+    "diagram": [],
     "title": "Khám phá cùng DOM Memo",
-    "voice": "google-vi-VN-Neural2-D"
+    "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
+    "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!"
   }
 ]

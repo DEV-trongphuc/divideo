@@ -108,17 +108,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v45 node-1">
                                 <span class="diagram-node-icon">🌱</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Gửi niềm tin lớn</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v45 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Thay đổi cách cư xử tốt hơn</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v45 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Người nhận tiến bộ thực tế</span>
                             </div>
                         </div>
 
@@ -170,38 +170,38 @@
                         <div class="comp-row-v45">
                             <div class="comp-card-v45 card-left card-active">
                                 <div class="comp-header-v45">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v45">🌱</div>
+                                    <h3>Bỏ Mặc Ít Tin</h3>
+                                    <div class="comp-icon-v45">🥀</div>
                                 </div>
                                 <div class="comp-bullet-list-v45">
                                     <div class="comp-bullet-row-v45" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v45">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Không khuyến khích động lực</span>
                                     </div>
                                     <div class="comp-bullet-row-v45" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v45">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Hiệu suất giậm chân tại chỗ</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v45">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v45">BÌNH THƯỜNG</div>
                             </div>
 
                             <div class="comp-card-v45 card-right card-inactive">
                                 <div class="comp-header-v45">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v45">⚙️</div>
+                                    <h3>Kỳ Vọng Tích Cực</h3>
+                                    <div class="comp-icon-v45">🌱</div>
                                 </div>
                                 <div class="comp-bullet-list-v45">
                                     <div class="comp-bullet-row-v45" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v45">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Tạo cơ hội và động lực lớn</span>
                                     </div>
                                     <div class="comp-bullet-row-v45" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v45">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Thúc đẩy nỗ lực vượt bậc</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v45">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v45">BÙNG NỔ</div>
                             </div>
                         </div>
                     </div>

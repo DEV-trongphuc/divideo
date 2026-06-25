@@ -101,18 +101,18 @@
 
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v39 node-1">
-                                <span class="diagram-node-icon">🎈</span>
-                                <span>1. Đầu Vào</span>
+                                <span class="diagram-node-icon">🚪</span>
+                                <span>1. Đi qua cánh cửa phòng</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v39 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Não dọn sạch bộ nhớ đệm</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v39 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Quên béng định làm gì</span>
                             </div>
                         </div>
 
@@ -163,38 +163,38 @@
                         <div class="comp-row-v39">
                             <div class="comp-card-v39 card-left card-active">
                                 <div class="comp-header-v39">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v39">🎈</div>
+                                    <h3>Không Gian Cũ</h3>
+                                    <div class="comp-icon-v39">🏠</div>
                                 </div>
                                 <div class="comp-bullet-list-v39">
                                     <div class="comp-bullet-row-v39" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v39">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Bộ nhớ đệm giữ thông tin</span>
                                     </div>
                                     <div class="comp-bullet-row-v39" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v39">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Duy trì ý định rõ ràng</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v39">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v39">ỔN ĐỊNH</div>
                             </div>
 
                             <div class="comp-card-v39 card-right card-inactive">
                                 <div class="comp-header-v39">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v39">⚙️</div>
+                                    <h3>Reset Ngữ Cảnh</h3>
+                                    <div class="comp-icon-v39">🚪</div>
                                 </div>
                                 <div class="comp-bullet-list-v39">
                                     <div class="comp-bullet-row-v39" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v39">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Não xóa bớt thông tin cũ</span>
                                     </div>
                                     <div class="comp-bullet-row-v39" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v39">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Quên việc ngay khi bước qua</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v39">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v39">RESET</div>
                             </div>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo39-5-container">
                         <div class="takeaway-radar-v39"></div>
-                        <div class="takeaway-box-v39" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v39" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v39">🎈</div>
                             <div class="takeaway-text-v39">
                                 "Hiện tượng này không phải đãng trí, mà chỉ là bộ nhớ tạm của bạn vừa bị quá tải dung lượng. Hãy ghi chép nhanh nếu có ý tưởng quan trọng nhé!"

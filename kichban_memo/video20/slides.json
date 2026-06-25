@@ -5,13 +5,14 @@
     "subtitle": "BÀI NHẠC MẮC KẸT TRONG ĐẦU KHÔNG PHẢI TƯỞNG TƯỢNG ĐƠN GIẢN!",
     "layout": "title",
     "script": "Có bao giờ bạn bị một đoạn nhạc lặp đi lặp lại liên tục trong đầu cả ngày mà không cách nào dứt ra được? Hiện tượng sâu tai này thực sự là gì?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video20/mp3/slide_memo20_1.mp3",
+    "duration": 9.584,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "b75699fb2ae4ab6efe497e9630fffbdf"
   },
   {
     "id": "slide_memo20_2",
@@ -19,13 +20,14 @@
     "subtitle": "VỎ NÃO THÍNH GIÁC TỰ PHÁT TÍN HIỆU",
     "layout": "diagram",
     "script": "Khoa học chứng minh: Khi bạn nhớ nhạc, các vùng xử lý âm thanh trong não vẫn có hoạt động gần giống lúc bạn đang nghe nhạc thực tế từ tai truyền vào.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video20/mp3/slide_memo20_2.mp3",
+    "duration": 9.08,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "c9b9aae7f893dc6732059edbe158b162"
   },
   {
     "id": "slide_memo20_3",
@@ -33,13 +35,14 @@
     "subtitle": "SÓNG ÂM TỰ PHÁT TRONG NÃO BỘ",
     "layout": "metrics",
     "script": "Hãy xem mô phỏng: Dù không có bất kỳ âm thanh vật lý nào đi qua tai, thùy thái dương và vỏ não thính giác vẫn liên tục tự đánh trống và phát ra các xung điện để phát nhạc.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video20/mp3/slide_memo20_3.mp3",
+    "duration": 10.208,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "219652591a68a9fff7cc95630ac90b7f"
   },
   {
     "id": "slide_memo20_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH BẢN ĐỒ HOẠT ĐỘNG THẦN KINH",
     "layout": "cards",
     "script": "So sánh: Khi nghe thật, tai tiếp nhận sóng cơ học rồi truyền lên não. Còn khi nhớ nhạc, não tự kích hoạt từ bên trong, bỏ qua hoàn toàn màng nhĩ nhưng vẫn tạo ra trải nghiệm nghe như thật.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video20/mp3/slide_memo20_4.mp3",
+    "duration": 12.608,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "b60ff1bfbcba49dfddef96b464204898"
   },
   {
     "id": "slide_memo20_5",
@@ -61,13 +65,14 @@
     "subtitle": "ĐÓNG LẠI VÒNG LẶP COGNITIVE LOOP",
     "layout": "title",
     "script": "Để giải thoát tâm trí, hãy thử nhai kẹo cao su để chặn cơ chế vận ngôn thầm lặng, hoặc nghe nốt đoạn cuối bài hát để thuyết phục não rằng nhiệm vụ đã hoàn thành.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video20/mp3/slide_memo20_5.mp3",
+    "duration": 9.776,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "4bb31a9ed243980314fd478a84cfc42c"
   },
   {
     "id": "slide_memo20_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video20/mp3/slide_memo20_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

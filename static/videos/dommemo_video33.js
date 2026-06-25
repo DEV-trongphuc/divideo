@@ -107,18 +107,18 @@
 
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v33 node-1">
-                                <span class="diagram-node-icon">🍔</span>
-                                <span>1. Đầu Vào</span>
+                                <span class="diagram-node-icon">🍬</span>
+                                <span>1. Mùi bánh ngọt thơm</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v33 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Não tăng tiết insulin</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v33 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Hạ đường huyết, đói ngấu</span>
                             </div>
                         </div>
 
@@ -167,38 +167,38 @@
                         <div class="comp-row-v33">
                             <div class="comp-card-v33 card-left card-active">
                                 <div class="comp-header-v33">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v33">🍔</div>
+                                    <h3>Điều Kiện Thường</h3>
+                                    <div class="comp-icon-v33">🔋</div>
                                 </div>
                                 <div class="comp-bullet-list-v33">
                                     <div class="comp-bullet-row-v33" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v33">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Đói do cơ thể thiếu chất</span>
                                     </div>
                                     <div class="comp-bullet-row-v33" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v33">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Cần bổ sung calo thực</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v33">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v33">BẢN NĂNG</div>
                             </div>
 
                             <div class="comp-card-v33 card-right card-inactive">
                                 <div class="comp-header-v33">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v33">⚙️</div>
+                                    <h3>Đói Kỳ Vọng</h3>
+                                    <div class="comp-icon-v33">🍬</div>
                                 </div>
                                 <div class="comp-bullet-list-v33">
                                     <div class="comp-bullet-row-v33" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v33">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Đói do kích thích giác quan</span>
                                     </div>
                                     <div class="comp-bullet-row-v33" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v33">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Tự hạ đường huyết tạm thời</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v33">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v33">ẢO GIÁC</div>
                             </div>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo33-5-container">
                         <div class="takeaway-radar-v33"></div>
-                        <div class="takeaway-box-v33" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v33" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v33">🍔</div>
                             <div class="takeaway-text-v33">
                                 "Không phải đầu bếp nấu ngon hơn, mà là bộ não của bạn đang kích hoạt cơ chế sinh tồn tối thượng: tìm thức ăn ngay lập tức!"

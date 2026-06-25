@@ -114,17 +114,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v32 node-1">
                                 <span class="diagram-node-icon">🎵</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Giai điệu lặp đi lặp lại</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v32 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Ký ức âm thanh vô thức</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v32 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Ngân nga quên lời hát</span>
                             </div>
                         </div>
 
@@ -175,38 +175,38 @@
                         <div class="comp-row-v32">
                             <div class="comp-card-v32 card-left card-active">
                                 <div class="comp-header-v32">
-                                    <h3>TRẠNG THÁI A</h3>
+                                    <h3>Giai Điệu Vô Thức</h3>
                                     <div class="comp-icon-v32">🎵</div>
                                 </div>
                                 <div class="comp-bullet-list-v32">
                                     <div class="comp-bullet-row-v32" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v32">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Lưu trữ sâu trong não bộ</span>
                                     </div>
                                     <div class="comp-bullet-row-v32" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v32">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Dễ dàng nhớ và ngân nga</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v32">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v32">TỰ ĐỘNG</div>
                             </div>
 
                             <div class="comp-card-v32 card-right card-inactive">
                                 <div class="comp-header-v32">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v32">⚙️</div>
+                                    <h3>Lời Bài Hát</h3>
+                                    <div class="comp-icon-v32">📝</div>
                                 </div>
                                 <div class="comp-bullet-list-v32">
                                     <div class="comp-bullet-row-v32" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v32">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Đòi hỏi vỏ não phân tích</span>
                                     </div>
                                     <div class="comp-bullet-row-v32" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v32">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Dễ quên nếu không ôn tập</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v32">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v32">Ý THỨC</div>
                             </div>
                         </div>
                     </div>
@@ -218,7 +218,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo32-5-container">
                         <div class="takeaway-radar-v32"></div>
-                        <div class="takeaway-box-v32" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v32" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v32">🎵</div>
                             <div class="takeaway-text-v32">
                                 "Lời ca có thể phai nhạt theo năm tháng, nhưng giai điệu cũ vẫn giữ nguyên vẹn cảm xúc của lần đầu tiên bạn nghe thấy nó!"

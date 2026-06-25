@@ -108,17 +108,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v56 node-1">
                                 <span class="diagram-node-icon">🔮</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Lời bói chung mơ hồ</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v56 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Não tự đối chiếu chọn lọc</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v56 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Tin sái cổ là dành riêng mình</span>
                             </div>
                         </div>
 
@@ -167,38 +167,38 @@
                         <div class="comp-row-v56">
                             <div class="comp-card-v56 card-left card-active">
                                 <div class="comp-header-v56">
-                                    <h3>TRẠNG THÁI A</h3>
+                                    <h3>Lời Khuyên Chung</h3>
                                     <div class="comp-icon-v56">🔮</div>
                                 </div>
                                 <div class="comp-bullet-list-v56">
                                     <div class="comp-bullet-row-v56" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v56">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Viết cho tất cả mọi người</span>
                                     </div>
                                     <div class="comp-bullet-row-v56" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v56">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Mơ hồ dễ đúng với số đông</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v56">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v56">CHUNG CHUNG</div>
                             </div>
 
                             <div class="comp-card-v56 card-right card-inactive">
                                 <div class="comp-header-v56">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v56">⚙️</div>
+                                    <h3>Tự Đối Chiếu</h3>
+                                    <div class="comp-icon-v56">✨</div>
                                 </div>
                                 <div class="comp-bullet-list-v56">
                                     <div class="comp-bullet-row-v56" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v56">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Não tự khớp chi tiết đúng</span>
                                     </div>
                                     <div class="comp-bullet-row-v56" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v56">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Tin bói toán chính xác 100%</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v56">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v56">TỰ PHÙ HỢP</div>
                             </div>
                         </div>
                     </div>

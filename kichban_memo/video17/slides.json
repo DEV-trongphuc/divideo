@@ -5,13 +5,14 @@
     "subtitle": "VÌ SAO BẠN VẪN HIỂU CÂU NÓI BỊ MẤT CHỮ?",
     "layout": "title",
     "script": "Khi ai đó nói chuyện và vô tình nuốt mất vài từ, tại sao tai bạn vẫn nghe thấy một câu hoàn chỉnh? Bộ não của bạn thực chất có thể đoán trước âm thanh trước khi nó xảy ra.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video17/mp3/slide_memo17_1.mp3",
+    "duration": 10.952,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "df9840f045baf67adc12dba4fc0c89a5"
   },
   {
     "id": "slide_memo17_2",
@@ -19,13 +20,14 @@
     "subtitle": "HIỆU ỨNG PHỤC HỒI ÂM PHÂN (PHONEMIC RESTORATION)",
     "layout": "diagram",
     "script": "Hiện tượng này gọi là Phục hồi Âm phân. Khi một từ bị che khuất bởi tiếng ồn, thính giác không đứng yên. Nó tự động truy quét ngữ cảnh để điền nốt phần âm thanh bị khuyết thiếu.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video17/mp3/slide_memo17_2.mp3",
+    "duration": 12.536,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "722deafa6db0bcd890807db2e0ae78d7"
   },
   {
     "id": "slide_memo17_3",
@@ -33,13 +35,14 @@
     "subtitle": "NÃO TỰ ĐIỀN PHẦN KHUYẾT THIẾU BẰNG DỰ ĐOÁN",
     "layout": "metrics",
     "script": "Hãy xem mô phỏng: Khi câu nói truyền đi và gặp một khoảng nhiễu, thính giác bị gián đoạn. Nhưng vùng xử lý thính giác lập tức phóng ra các tín hiệu dự đoán để lấp đầy và nối liền câu.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video17/mp3/slide_memo17_3.mp3",
+    "duration": 11.936,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "6fb640ef2b2f8e57b7ffe22469a4de4d"
   },
   {
     "id": "slide_memo17_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH GIỮA DỮ LIỆU ĐẦU VÀO VÀ TRẢI NGHIỆM THỰC TẾ",
     "layout": "cards",
     "script": "Hãy so sánh: Đầu vào thực tế là một chuỗi âm thanh đứt quãng xen lẫn tiếng ồn. Nhưng trải nghiệm trong đầu bạn lại là một câu nói trơn tru, vì não đã tự động xóa tiếng ồn và dựng lại âm thanh.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video17/mp3/slide_memo17_4.mp3",
+    "duration": 12.464,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "b28e872f23e726be95d67dfb52f82bd0"
   },
   {
     "id": "slide_memo17_5",
@@ -61,13 +65,14 @@
     "subtitle": "RÈN LUYỆN KHẢ NĂNG TẬP TRUNG KHI GIAO TIẾP",
     "layout": "title",
     "script": "Bộ não rất thông minh, nhưng đôi khi nó tự dự đoán sai và làm bạn hiểu lầm ý người khác. Hãy lắng nghe chủ động, hỏi lại khi chưa rõ thay vì để não tự động lấp đầy khoảng trống.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video17/mp3/slide_memo17_5.mp3",
+    "duration": 11.816,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "4856e3e8944d682e0a1fceb12663848d"
   },
   {
     "id": "slide_memo17_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video17/mp3/slide_memo17_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

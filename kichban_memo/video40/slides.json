@@ -5,13 +5,14 @@
     "subtitle": "VÌ SAO BẠN THƯỜNG NHỚ SAI CHI TIẾT CỦA MỘT KỶ NIỆM CŨ?",
     "layout": "title",
     "script": "Bạn cam đoan chiếc áo hôm đó bạn mặc màu đỏ, nhưng khi xem lại bức ảnh chụp cũ, nó lại là màu xanh lá. Tại sao ký ức lại lừa dối bạn?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video40/mp3/slide_memo40_1.mp3",
+    "duration": 10.592,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "ea90c5212004458f5ae6d420c921b929"
   },
   {
     "id": "slide_memo40_2",
@@ -19,41 +20,44 @@
     "subtitle": "MEMORY DISTORT",
     "layout": "diagram",
     "script": "Đó là vì Ký ức không phải video lưu trong ổ cứng. Mỗi lần nhớ lại, não sẽ lôi thông tin ra vùng đệm ý thức và biên soạn lại câu chuyện từ các mảnh ghép nhỏ.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video40/mp3/slide_memo40_2.mp3",
+    "duration": 11.456,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "b5cfc8132d8d97725a71ab5d8e62d8d0"
   },
   {
     "id": "slide_memo40_3",
     "title": "Mô phỏng Hoạt động",
     "subtitle": "TRỰC QUAN HÓA NHỚ SAI KỶ NIỆM",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi recall nhiều lần, ý kiến của người khác và cảm xúc hiện tại sẽ chèn thông tin sai vào. Ký ức cũ được lưu đè bằng một phiên bản đã sửa đổi.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Khi recall nhiều lần, ý kiến của người khác và cảm xúc hiện tại sẽ chèn thông tin sai vào. Ký ức cũ được lưu đè bằng một phiên bản đã sửa đổi.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video40/mp3/slide_memo40_3.mp3",
+    "duration": 11.024,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "42e22c2c43c6720df13a2fd432f0265e"
   },
   {
     "id": "slide_memo40_4",
     "title": "So sánh Nhận thức",
     "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "script": "So sánh: Bản gốc sự kiện chỉ tồn tại duy nhất ở quá khứ. Ký ức hiện tại của bạn thực chất chỉ là bản sao của lần nhớ lại gần nhất mà thôi.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Bản gốc sự kiện chỉ tồn tại duy nhất ở quá khứ. Ký ức hiện tại của bạn thực chất chỉ là bản sao của lần nhớ lại gần nhất mà thôi.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video40/mp3/slide_memo40_4.mp3",
+    "duration": 10.256,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "d9daf125700dadadaf12b1dafd163fee"
   },
   {
     "id": "slide_memo40_5",
@@ -61,13 +65,14 @@
     "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
     "script": "Bạn không hề nói dối, chỉ là bộ não đang hoạt động như một nhà viết kịch tài ba, liên tục chỉnh sửa quá khứ để phù hợp với hiện tại!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video40/mp3/slide_memo40_5.mp3",
+    "duration": 8.672,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "2670fa8a22393af948ad9254dfc3faf8"
   },
   {
     "id": "slide_memo40_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video40/mp3/slide_memo40_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

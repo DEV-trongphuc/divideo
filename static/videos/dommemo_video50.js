@@ -107,18 +107,18 @@
 
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v50 node-1">
-                                <span class="diagram-node-icon">🤯</span>
-                                <span>1. Đầu Vào</span>
+                                <span class="diagram-node-icon">🛍️</span>
+                                <span>1. Quá nhiều món hàng đẹp</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v50 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Quá tải calo so sánh</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v50 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Không mua hoặc hối hận</span>
                             </div>
                         </div>
 
@@ -170,38 +170,38 @@
                         <div class="comp-row-v50">
                             <div class="comp-card-v50 card-left card-active">
                                 <div class="comp-header-v50">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v50">🤯</div>
+                                    <h3>Ít Lựa Chọn (3-4)</h3>
+                                    <div class="comp-icon-v50">⚖️</div>
                                 </div>
                                 <div class="comp-bullet-list-v50">
                                     <div class="comp-bullet-row-v50" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v50">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Dễ dàng cân nhắc so sánh</span>
                                     </div>
                                     <div class="comp-bullet-row-v50" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v50">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Hài lòng cao với quyết định</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v50">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v50">DỄ DÀNG</div>
                             </div>
 
                             <div class="comp-card-v50 card-right card-inactive">
                                 <div class="comp-header-v50">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v50">⚙️</div>
+                                    <h3>Quá Nhiều Lựa Chọn</h3>
+                                    <div class="comp-icon-v50">🛍️</div>
                                 </div>
                                 <div class="comp-bullet-list-v50">
                                     <div class="comp-bullet-row-v50" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v50">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Mất nhiều thời gian đắn đo</span>
                                     </div>
                                     <div class="comp-bullet-row-v50" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v50">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Sợ chọn sai nên trì hoãn</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v50">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v50">MỆT MỎI</div>
                             </div>
                         </div>
                     </div>

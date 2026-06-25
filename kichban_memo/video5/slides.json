@@ -1,20 +1,21 @@
 [
   {
-    "audioPath": "",
+    "audioPath": "/kichban_memo/video5/mp3/slide_memo5_1.mp3",
     "cards": [],
     "code": "",
     "diagram": [],
-    "duration": 8.0,
+    "duration": 7.472,
     "id": "slide_memo5_1",
     "layout": "title",
     "refVoice": "",
     "script": "Bạn tìm chìa khóa ròng rã suốt mười phút, để rồi nhận ra nó nằm lù lù ngay trên bàn, ngay trước mắt bạn.",
     "subtitle": "BÍ ẨN TÂM LÝ HỌC VỀ ĐIỂM MÙ NHẬN THỨC",
     "title": "Chìa khóa ngay trước mắt",
-    "voice": "google-vi-VN-Neural2-D"
+    "voice": "vi-VN-NamMinhNeural-Warm",
+    "scriptHash": "9538fd5e1f6a63c9821094a88cf01f95"
   },
   {
-    "audioPath": "",
+    "audioPath": "/kichban_memo/video5/mp3/slide_memo5_2.mp3",
     "cards": [],
     "code": "",
     "diagram": [
@@ -40,17 +41,18 @@
         "type": "success"
       }
     ],
-    "duration": 12.0,
+    "duration": 10.664,
     "id": "slide_memo5_2",
     "layout": "diagram",
     "refVoice": "",
     "script": "Không phải mắt không nhìn thấy, mà là não bộ đã chủ động loại bỏ hình ảnh đó. Nó chỉ tìm kiếm thứ khớp chính xác với hình ảnh bạn đang tưởng tượng trong đầu.",
     "subtitle": "CƠ CHẾ LỌC TẬP TRUNG (SELECTIVE ATTENTION)",
     "title": "Bộ lọc hình ảnh của não",
-    "voice": "google-vi-VN-Neural2-D"
+    "voice": "vi-VN-NamMinhNeural-Warm",
+    "scriptHash": "64df3e74946f1161a6a96db1f968957c"
   },
   {
-    "audioPath": "",
+    "audioPath": "/kichban_memo/video5/mp3/slide_memo5_3.mp3",
     "cards": [
       {
         "desc": "Móc khóa mới hoặc bị che khuất làm giảm điểm so khớp (matching score) khiến não bỏ qua.",
@@ -65,41 +67,44 @@
     ],
     "code": "",
     "diagram": [],
-    "duration": 12.0,
+    "duration": 10.304,
     "id": "slide_memo5_3",
     "layout": "cards",
     "refVoice": "",
     "script": "Khi bạn căng thẳng tìm chìa khóa dạng kim loại tròn, nhưng nó lại bị kẹp dưới quyển sách hay có móc khóa khác màu, não sẽ tự động lọc bỏ vì không trùng khớp bộ nhận diện.",
     "subtitle": "SỰ KHÁC BIỆT GIỮA NHÌN VÀ THẤY",
     "title": "Tại sao lại có điểm mù?",
-    "voice": "google-vi-VN-Neural2-D"
+    "voice": "vi-VN-NamMinhNeural-Warm",
+    "scriptHash": "e5078fd372f608445ec5163d2dc9c393"
   },
   {
-    "audioPath": "",
+    "audioPath": "/kichban_memo/video5/mp3/slide_memo5_4.mp3",
     "cards": [],
     "code": "",
     "diagram": [],
-    "duration": 11.0,
+    "duration": 9.44,
     "id": "slide_memo5_4",
     "layout": "split",
     "refVoice": "",
     "script": "Hiện tượng này gọi là mù do không chú ý. Khi tập trung quá mức vào một chi tiết giả định, bạn sẽ hoàn toàn bỏ qua những vật thể rõ ràng khác ngay trước mắt.",
     "subtitle": "HỘI CHỨNG MÙ DO KHÔNG CHÚ Ý (INATTENTIONAL BLINDNESS)",
     "title": "Tập trung quá mức = Mù lòa",
-    "voice": "google-vi-VN-Neural2-D"
+    "voice": "vi-VN-NamMinhNeural-Warm",
+    "scriptHash": "b68c1b4a12c05fe38d05778677d96fb8"
   },
   {
-    "audioPath": "",
+    "audioPath": "/kichban_memo/video5/mp3/slide_memo5_5.mp3",
     "cards": [],
     "code": "",
     "diagram": [],
-    "duration": 9.0,
+    "duration": 11.264,
     "id": "slide_memo5_5",
     "layout": "title",
     "refVoice": "",
     "script": "Lần tới nếu mất đồ, hãy nhắm mắt 3 giây, thả lỏng tâm trí và nhìn lại toàn cảnh. Nhấn tim, chia sẻ và Follow DOM Memo để tiêu dùng thông thái hơn nhé!",
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BỘ NÃO",
     "title": "Thả lỏng để nhìn thấy!",
-    "voice": "google-vi-VN-Neural2-D"
+    "voice": "vi-VN-NamMinhNeural-Warm",
+    "scriptHash": "01bd5351c26b7e2991f84d7795c01f53"
   }
 ]

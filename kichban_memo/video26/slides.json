@@ -5,13 +5,14 @@
     "subtitle": "MỘT TIN NHẮN BÌNH THƯỜNG, KHI THIẾU NGỦ LẠI THẤY BỊ NÓI MÓC?",
     "layout": "title",
     "script": "Tại sao khi thiếu ngủ hoặc mệt mỏi, một câu trả lời ngắn gọn như 'Ok' hay 'Tùy' từ đồng nghiệp lại khiến bạn thấy bực tức và nghĩ rằng họ đang có ý đồ xấu với mình?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video26/mp3/slide_memo26_1.mp3",
+    "duration": 9.944,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "b241669fc21d56764d897680e0531918"
   },
   {
     "id": "slide_memo26_2",
@@ -19,13 +20,14 @@
     "subtitle": "SỰ MẤT KIỂM SOÁT CỦA VỎ NÃO TRƯỚC TRÁN",
     "layout": "diagram",
     "script": "Thiếu ngủ làm giảm kết nối giữa vỏ não trước trán vốn chịu trách nhiệm logic và hạch hạnh nhân. Lúc này, hạch hạnh nhân tự do diễn dịch mọi tín hiệu thành mối đe dọa.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video26/mp3/slide_memo26_2.mp3",
+    "duration": 11.024,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "894e9cf722df009072d6d4731d7870d9"
   },
   {
     "id": "slide_memo26_3",
@@ -33,13 +35,14 @@
     "subtitle": "QUÁ TRÌNH PHÂN TÍCH TIN NHẮN TRONG HAI TRẠNG THÁI",
     "layout": "metrics",
     "script": "Hãy xem mô phỏng: Khi ngủ đủ giấc, tin nhắn 'Ok' được nhận diện là trung tính. Nhưng khi thiếu ngủ, hạch hạnh nhân nổi giận, diễn dịch tin nhắn đó thành hành vi gây hấn.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video26/mp3/slide_memo26_3.mp3",
+    "duration": 12.272,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "b8eafb39204bddf1516543b570dd386c"
   },
   {
     "id": "slide_memo26_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH BỘ LỌC ĐÁNH GIÁ CẢM XÚC",
     "layout": "cards",
     "script": "So sánh: Người ngủ đủ giấc có bộ lọc cảm xúc hoạt động khách quan và bình tĩnh. Người thiếu ngủ bị bóp méo nhận thức xã hội, phóng đại sự đe dọa từ các bối cảnh trung lập.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video26/mp3/slide_memo26_4.mp3",
+    "duration": 11.648,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "4418cc42557e5b57106f6c2dc71c6236"
   },
   {
     "id": "slide_memo26_5",
@@ -61,13 +65,14 @@
     "subtitle": "TRÁNH QUYẾT ĐỊNH KHI CƠ THỂ MỆT MỎI",
     "layout": "title",
     "script": "Đừng đọc các email quan trọng hay nhắn tin thảo luận căng thẳng khi đang thiếu ngủ. Hãy đi ngủ sớm, bộ não được nghỉ ngơi sẽ giúp bạn nhìn nhận mọi việc nhẹ nhàng hơn.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video26/mp3/slide_memo26_5.mp3",
+    "duration": 10.904,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "6568eeeaa2f41573e9e87500c3e2812c"
   },
   {
     "id": "slide_memo26_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video26/mp3/slide_memo26_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

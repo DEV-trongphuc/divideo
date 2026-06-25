@@ -107,18 +107,18 @@
 
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v52 node-1">
-                                <span class="diagram-node-icon">🛡️</span>
-                                <span>1. Đầu Vào</span>
+                                <span class="diagram-node-icon">📺</span>
+                                <span>1. Quảng cáo tin tức</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v52 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Nghĩ mình đủ tỉnh táo</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v52 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Lo sợ người khác bị lừa</span>
                             </div>
                         </div>
 
@@ -170,38 +170,38 @@
                         <div class="comp-row-v52">
                             <div class="comp-card-v52 card-left card-active">
                                 <div class="comp-header-v52">
-                                    <h3>TRẠNG THÁI A</h3>
+                                    <h3>Tôi Miễn Nhiễm</h3>
                                     <div class="comp-icon-v52">🛡️</div>
                                 </div>
                                 <div class="comp-bullet-list-v52">
                                     <div class="comp-bullet-row-v52" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v52">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Tin mình sáng suốt lọc tin</span>
                                     </div>
                                     <div class="comp-bullet-row-v52" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v52">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Không bị truyền thông dắt mũi</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v52">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v52">TỰ TIN</div>
                             </div>
 
                             <div class="comp-card-v52 card-right card-inactive">
                                 <div class="comp-header-v52">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v52">⚙️</div>
+                                    <h3>Người Khác Dễ Tin</h3>
+                                    <div class="comp-icon-v52">👥</div>
                                 </div>
                                 <div class="comp-bullet-list-v52">
                                     <div class="comp-bullet-row-v52" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v52">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Lo đám đông bị lừa gạt</span>
                                     </div>
                                     <div class="comp-bullet-row-v52" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v52">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Nghĩ họ thiếu năng lực phân tích</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v52">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v52">LO LẮNG</div>
                             </div>
                         </div>
                     </div>

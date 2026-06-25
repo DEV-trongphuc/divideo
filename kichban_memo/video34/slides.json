@@ -5,13 +5,14 @@
     "subtitle": "VÌ SAO CHỮ BỊ XÁO TRỘN NÉT MÀ NÃO BẠN VẪN ĐỌC HIỂU?",
     "layout": "title",
     "script": "Hãy đọc thử câu này: 'Nã0 bạ n khôg cầ n thấ y đủ từ để hiể u.' Ký tự bị đảo lộn nhưng bạn vẫn hiểu rõ ràng đúng không?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video34/mp3/slide_memo34_1.mp3",
+    "duration": 8.768,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "969779523cc4b83be6959e6b81a10d6f"
   },
   {
     "id": "slide_memo34_2",
@@ -19,41 +20,44 @@
     "subtitle": "TYPOGLYCEMIA",
     "layout": "diagram",
     "script": "Hiện tượng này gọi là Typoglycemia. Bộ não không quét từng chữ cái riêng biệt mà nhận diện hình dáng cả từ và dùng ngữ cảnh để dự đoán từ tiếp theo.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video34/mp3/slide_memo34_2.mp3",
+    "duration": 10.304,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "846ccbab87a73fd08f75449976184098"
   },
   {
     "id": "slide_memo34_3",
     "title": "Mô phỏng Hoạt động",
     "subtitle": "TRỰC QUAN HÓA ĐỌC CHỮ THIẾU NÉT",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi tia quét camera nhận diện chữ lỗi, thuật toán phân tích của bộ não lập tức suy luận từ các chữ cái đầu, cuối và tự điền phần khuyết.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Khi tia quét camera nhận diện chữ lỗi, thuật toán phân tích của bộ não lập tức suy luận từ các chữ cái đầu, cuối và tự điền phần khuyết.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video34/mp3/slide_memo34_3.mp3",
+    "duration": 9.848,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "17f6e9b123ca9a3541a4db5997547c1a"
   },
   {
     "id": "slide_memo34_4",
     "title": "So sánh Nhận thức",
     "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "script": "So sánh: Máy tính đọc máy móc sẽ báo lỗi chính tả lập tức. Bộ não sử dụng suy luận tối ưu hóa, biến đống hỗn loạn thành câu hoàn chỉnh.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Máy tính đọc máy móc sẽ báo lỗi chính tả lập tức. Bộ não sử dụng suy luận tối ưu hóa, biến đống hỗn loạn thành câu hoàn chỉnh.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video34/mp3/slide_memo34_4.mp3",
+    "duration": 10.328,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "10ab4bae13640bf55f80a57480e95dd6"
   },
   {
     "id": "slide_memo34_5",
@@ -61,13 +65,14 @@
     "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
     "script": "Bộ não của bạn liên tục phán đoán và tự vẽ ra thực tế chứ không chỉ tiếp nhận thông tin thụ động từ đôi mắt!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video34/mp3/slide_memo34_5.mp3",
+    "duration": 7.064,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "88553daf08f8f67a8a7f8ddd9e3c2335"
   },
   {
     "id": "slide_memo34_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video34/mp3/slide_memo34_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

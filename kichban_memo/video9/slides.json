@@ -5,13 +5,14 @@
     "subtitle": "NÃO BỘ DỰNG CẢ KỊCH BẢN KHI HỌ CHỈ CHƯA TRẢ LỜI TIN NHẮN",
     "layout": "title",
     "script": "Họ chỉ chưa trả lời tin nhắn của bạn thôi. Nhưng trong đầu bạn, bộ não đã tự dựng cả một kịch bản: Mình đã nói gì sai? Họ ghét mình rồi? Họ đang giận mình sao?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video9/mp3/slide_memo9_1.mp3",
+    "duration": 13.088,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "f89979328dfd91040fbc1d19c8fac62b"
   },
   {
     "id": "slide_memo9_2",
@@ -19,13 +20,14 @@
     "subtitle": "INFORMATION GAP ANXIETY - KHI NÃO GHÉT SỰ MƠ HỒ",
     "layout": "diagram",
     "script": "Hiện tượng này bắt nguồn từ việc bộ não cực kỳ ghét các khoảng trống thông tin. Khi đối diện với sự im lặng mơ hồ, não sẽ chủ động tự điền vào bằng những giả định tiêu cực.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban_memo/video9/mp3/slide_memo9_2.mp3",
+    "duration": 11.168,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "01ac30ea3cbe8354e9813b6c264b247b"
   },
   {
     "id": "slide_memo9_3",
@@ -33,13 +35,14 @@
     "subtitle": "THUẬT TOÁN TÂM LÝ: LUÔN GIẢ ĐỊNH KỊCH BẢN TỆ NHẤT",
     "layout": "metrics",
     "script": "Tại sao lại là tiêu cực? Đây là cơ chế sinh tồn từ thời tiền sử. Não bộ giả định kịch bản tồi tệ nhất để chuẩn bị tâm lý phòng thủ và bảo vệ bạn khỏi nguy cơ bị ruồng bỏ.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video9/mp3/slide_memo9_3.mp3",
+    "duration": 12.872,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "5a623cc27c9d217da5d52a7fb907a51e"
   },
   {
     "id": "slide_memo9_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH GIỮA THỰC TẾ VÀ GIẢ ĐỊNH CỦA NÃO",
     "layout": "cards",
     "script": "Nghịch lý là thực tế rất đơn giản: Họ chỉ đang bận học, đang tắm, hay chỉ đơn giản là ngủ quên. Hãy so sánh bộ phim thảm kịch do não dựng lên và sự thật bình yên ngoài đời thực.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video9/mp3/slide_memo9_4.mp3",
+    "duration": 12.224,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "605ee8f194dda18f5ed29eb808934bca"
   },
   {
     "id": "slide_memo9_5",
@@ -61,13 +65,14 @@
     "subtitle": "LỰA CHỌN THẢ LỎNG VÀ CHỜ ĐỢI BÌNH YÊN",
     "layout": "title",
     "script": "Lần tới nếu gặp sự im lặng, hãy nhớ bộ não đang vẽ chuyện thôi nhé. Đừng vội phán xét, hãy thả lỏng cơ thể và hít thở sâu.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 8.0,
+    "audioPath": "/kichban_memo/video9/mp3/slide_memo9_5.mp3",
+    "duration": 9.608,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "f120205600f64009d65f3f0c7e5d0197"
   },
   {
     "id": "slide_memo9_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video9/mp3/slide_memo9_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

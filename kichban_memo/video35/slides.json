@@ -5,13 +5,14 @@
     "subtitle": "VÌ SAO BẠN NHỚ MẬT KHẨU CŨ NHƯNG QUÊN MẬT KHẨU MỚI?",
     "layout": "title",
     "script": "Bạn đổi mật khẩu tuần trước, nhưng mỗi lần đăng nhập, các ngón tay lại tự gõ mật khẩu cũ. Tại sao tay bạn nhớ trước cả khi bạn kịp nghĩ?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video35/mp3/slide_memo35_1.mp3",
+    "duration": 9.992,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "3399b2c7d71d3e3672a891c1a70a4064"
   },
   {
     "id": "slide_memo35_2",
@@ -19,41 +20,44 @@
     "subtitle": "MUSCLE MEMORY",
     "layout": "diagram",
     "script": "Đó là vì phản xạ tự động hóa được lưu tại Hạch nền. Khi hành động được gõ quá nhiều lần, nó trở thành trí nhớ cơ bắp giúp tiết kiệm năng lượng cho vỏ não trán.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video35/mp3/slide_memo35_2.mp3",
+    "duration": 10.808,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "1aee8a01f9401f1db5530342c1291f0e"
   },
   {
     "id": "slide_memo35_3",
     "title": "Mô phỏng Hoạt động",
     "subtitle": "TRỰC QUAN HÓA TAY NHỚ MẬT KHẨU",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi mở trang đăng nhập, đường truyền thói quen cũ chạy cực nhanh không cần ý thức. Trong khi mật khẩu mới bắt buộc vỏ não trán phải hoạt động chậm chạp.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Khi mở trang đăng nhập, đường truyền thói quen cũ chạy cực nhanh không cần ý thức. Trong khi mật khẩu mới bắt buộc vỏ não trán phải hoạt động chậm chạp.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video35/mp3/slide_memo35_3.mp3",
+    "duration": 10.856,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "92331427a648903b126afb4d780b6697"
   },
   {
     "id": "slide_memo35_4",
     "title": "So sánh Nhận thức",
     "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "script": "So sánh: Thói quen cũ là đường mòn trơn tru, tay tự gõ tức thì. Mật khẩu mới là con đường đất chưa khai phá, đòi hỏi sự tập trung cao độ.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Thói quen cũ là đường mòn trơn tru, tay tự gõ tức thì. Mật khẩu mới là con đường đất chưa khai phá, đòi hỏi sự tập trung cao độ.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video35/mp3/slide_memo35_4.mp3",
+    "duration": 10.904,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "c73fe0cb816ce540ebe5367f1a973fa0"
   },
   {
     "id": "slide_memo35_5",
@@ -61,13 +65,14 @@
     "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
     "script": "Không phải bạn ngốc, mà là bộ não đang ưu tiên sử dụng đường mòn thói quen cũ để tiết kiệm calo tối đa!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video35/mp3/slide_memo35_5.mp3",
+    "duration": 7.184,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "df40b864eeced9b7b29c67d7ab531c42"
   },
   {
     "id": "slide_memo35_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video35/mp3/slide_memo35_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

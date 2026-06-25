@@ -114,17 +114,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v44 node-1">
                                 <span class="diagram-node-icon">🌀</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Cảnh tượng mới tinh</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v44 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Đi tắt vào trí nhớ dài hạn</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v44 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Ảo giác đã từng nhìn thấy</span>
                             </div>
                         </div>
 
@@ -176,38 +176,38 @@
                         <div class="comp-row-v44">
                             <div class="comp-card-v44 card-left card-active">
                                 <div class="comp-header-v44">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v44">🌀</div>
+                                    <h3>Đường Truyền Chuẩn</h3>
+                                    <div class="comp-icon-v44">📥</div>
                                 </div>
                                 <div class="comp-bullet-list-v44">
                                     <div class="comp-bullet-row-v44" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v44">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Đi vào trí nhớ ngắn hạn trước</span>
                                     </div>
                                     <div class="comp-bullet-row-v44" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v44">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Não biết rõ đây là cảnh mới</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v44">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v44">BÌNH THƯỜNG</div>
                             </div>
 
                             <div class="comp-card-v44 card-right card-inactive">
                                 <div class="comp-header-v44">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v44">⚙️</div>
+                                    <h3>Đường Tắt Trí Nhớ</h3>
+                                    <div class="comp-icon-v44">🌀</div>
                                 </div>
                                 <div class="comp-bullet-list-v44">
                                     <div class="comp-bullet-row-v44" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v44">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Ghi đè thẳng vào vùng nhớ cũ</span>
                                     </div>
                                     <div class="comp-bullet-row-v44" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v44">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Lừa não bộ đây là quá khứ</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v44">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v44">ẢO GIÁC</div>
                             </div>
                         </div>
                     </div>
@@ -219,7 +219,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo44-5-container">
                         <div class="takeaway-radar-v44"></div>
-                        <div class="takeaway-box-v44" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v44" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v44">🌀</div>
                             <div class="takeaway-text-v44">
                                 "Không có gì huyền bí, Déjà Vu chỉ là một cú vấp nhẹ của hệ thống đồng bộ hóa hình ảnh trong não bộ của bạn mà thôi!"

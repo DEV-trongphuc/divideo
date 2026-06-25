@@ -114,17 +114,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v53 node-1">
                                 <span class="diagram-node-icon">📉</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Đánh mất 100 nghìn</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v53 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Đau khổ gấp đôi nhận được</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v53 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Sợ rủi ro, không dám thử</span>
                             </div>
                         </div>
 
@@ -175,38 +175,38 @@
                         <div class="comp-row-v53">
                             <div class="comp-card-v53 card-left card-active">
                                 <div class="comp-header-v53">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v53">📉</div>
+                                    <h3>Nhận Được 100K</h3>
+                                    <div class="comp-icon-v53">💵</div>
                                 </div>
                                 <div class="comp-bullet-list-v53">
                                     <div class="comp-bullet-row-v53" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v53">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Vui vẻ ở mức bình thường</span>
                                     </div>
                                     <div class="comp-bullet-row-v53" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v53">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Nhanh chóng trôi qua</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v53">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v53">VUI VẺ</div>
                             </div>
 
                             <div class="comp-card-v53 card-right card-inactive">
                                 <div class="comp-header-v53">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v53">⚙️</div>
+                                    <h3>Đánh Mất 100K</h3>
+                                    <div class="comp-icon-v53">📉</div>
                                 </div>
                                 <div class="comp-bullet-list-v53">
                                     <div class="comp-bullet-row-v53" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v53">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Đau đớn và tiếc nuối gấp đôi</span>
                                     </div>
                                     <div class="comp-bullet-row-v53" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v53">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Ám ảnh tìm cách bù đắp</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v53">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v53">ĐAU KHỔ</div>
                             </div>
                         </div>
                     </div>

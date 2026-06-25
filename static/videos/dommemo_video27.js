@@ -120,17 +120,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v27 node-1">
                                 <span class="diagram-node-icon">🪶</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Cử động tay</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v27 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Dự báo của tiểu não</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v27 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Triệt tiêu nhột</span>
                             </div>
                         </div>
 
@@ -182,38 +182,38 @@
                         <div class="comp-row-v27">
                             <div class="comp-card-v27 card-left card-active">
                                 <div class="comp-header-v27">
-                                    <h3>TRẠNG THÁI A</h3>
+                                    <h3>Tự Cù Mình</h3>
                                     <div class="comp-icon-v27">🪶</div>
                                 </div>
                                 <div class="comp-bullet-list-v27">
                                     <div class="comp-bullet-row-v27" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v27">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Tiểu não chặn trước tín hiệu</span>
                                     </div>
                                     <div class="comp-bullet-row-v27" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v27">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Cảm giác bình thường</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v27">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v27">CHỦ ĐỘNG</div>
                             </div>
 
                             <div class="comp-card-v27 card-right card-inactive">
                                 <div class="comp-header-v27">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v27">⚙️</div>
+                                    <h3>Người Khác Cù</h3>
+                                    <div class="comp-icon-v27">😂</div>
                                 </div>
                                 <div class="comp-bullet-list-v27">
                                     <div class="comp-bullet-row-v27" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v27">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Tín hiệu bất ngờ vỏ não</span>
                                     </div>
                                     <div class="comp-bullet-row-v27" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v27">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Cảm giác nhột phát điên</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v27">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v27">BỊ ĐỘNG</div>
                             </div>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo27-5-container">
                         <div class="takeaway-radar-v27"></div>
-                        <div class="takeaway-box-v27" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v27" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v27">🪶</div>
                             <div class="takeaway-text-v27">
                                 "Tóm lại, bộ não không phải không cảm nhận được ngón tay bạn, nó chỉ biết rất rõ thủ phạm... chính là bạn!"

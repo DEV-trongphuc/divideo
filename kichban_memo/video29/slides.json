@@ -5,13 +5,14 @@
     "subtitle": "RỬA MẶT BẰNG NƯỚC LẠNH CÓ THẬT SỰ NẠP NĂNG LƯỢNG?",
     "layout": "title",
     "script": "Sau khi rửa mặt bằng nước lạnh, bạn thấy tỉnh hẳn người. Nhưng nước lạnh có thật sự nạp thêm năng lượng mới cho não bộ của bạn không?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video29/mp3/slide_memo29_1.mp3",
+    "duration": 9.2,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "81b45881a8180b3e795aab50b159bd94"
   },
   {
     "id": "slide_memo29_2",
@@ -19,13 +20,14 @@
     "subtitle": "COLD WATER EFFECT",
     "layout": "diagram",
     "script": "Sự thật là nước lạnh kích hoạt dây thần kinh tam thoa trên khuôn mặt, gửi tín hiệu kích thích đột ngột lên hệ lưới hoạt hóa ở thân não, buộc bạn phải tỉnh thức.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video29/mp3/slide_memo29_2.mp3",
+    "duration": 9.512,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "73eea21c59ad01b3767adef90f79ed21"
   },
   {
     "id": "slide_memo29_3",
@@ -33,13 +35,14 @@
     "subtitle": "TRỰC QUAN HÓA NƯỚC LẠNH TỈNH TÁO",
     "layout": "metrics",
     "script": "Mô phỏng: Khi da mặt tiếp xúc với nước đá lạnh, hệ thống báo động kích hoạt dòng điện thần kinh chạy thẳng lên não, reset trạng thái buồn ngủ tức thì.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video29/mp3/slide_memo29_3.mp3",
+    "duration": 9.824,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "237cb1612d9cd3416e2dcd623baaecd7"
   },
   {
     "id": "slide_memo29_4",
@@ -47,13 +50,14 @@
     "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
     "script": "So sánh: Cơn buồn ngủ làm giảm nhịp tim và hoạt động não bộ. Rửa nước lạnh kích hoạt phản xạ lặn của động vật có vú, co mạch máu, tăng tuần hoàn.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video29/mp3/slide_memo29_4.mp3",
+    "duration": 10.976,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "48296e434247bf561d4089dd9c32cc72"
   },
   {
     "id": "slide_memo29_5",
@@ -61,13 +65,14 @@
     "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
     "script": "Không phải bạn hết buồn ngủ, chỉ là não bộ vừa nhận một tín hiệu đánh thức nhẹ. Hãy dùng nước lạnh để khởi động lại sự tập trung khi cần thiết!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video29/mp3/slide_memo29_5.mp3",
+    "duration": 9.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "8246e9851e10cf35d2547fc333af2145"
   },
   {
     "id": "slide_memo29_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video29/mp3/slide_memo29_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

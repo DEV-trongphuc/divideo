@@ -108,17 +108,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v41 node-1">
                                 <span class="diagram-node-icon">🗺️</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Đường cong nghiêng thực địa</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v41 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Não làm tròn và vuông góc</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v41 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Vẽ bản đồ tinh thần bị lệch</span>
                             </div>
                         </div>
 
@@ -170,38 +170,38 @@
                         <div class="comp-row-v41">
                             <div class="comp-card-v41 card-left card-active">
                                 <div class="comp-header-v41">
-                                    <h3>TRẠNG THÁI A</h3>
+                                    <h3>Tọa Độ Thực</h3>
                                     <div class="comp-icon-v41">🗺️</div>
                                 </div>
                                 <div class="comp-bullet-list-v41">
                                     <div class="comp-bullet-row-v41" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v41">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Địa hình thực tế ngoằn ngoèo</span>
                                     </div>
                                     <div class="comp-bullet-row-v41" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v41">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Rất khó nhớ chính xác góc</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v41">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v41">PHỨC TẠP</div>
                             </div>
 
                             <div class="comp-card-v41 card-right card-inactive">
                                 <div class="comp-header-v41">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v41">⚙️</div>
+                                    <h3>Bản Đồ Não Bộ</h3>
+                                    <div class="comp-icon-v41">📐</div>
                                 </div>
                                 <div class="comp-bullet-list-v41">
                                     <div class="comp-bullet-row-v41" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v41">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Tự nắn thẳng các con đường</span>
                                     </div>
                                     <div class="comp-bullet-row-v41" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v41">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Lệch hướng định vị thực tế</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v41">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v41">ĐƠN GIẢN</div>
                             </div>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo41-5-container">
                         <div class="takeaway-radar-v41"></div>
-                        <div class="takeaway-box-v41" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v41" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v41">🗺️</div>
                             <div class="takeaway-text-v41">
                                 "Nếu bạn bị vấp chân khi kê lại đồ đạc, đừng tự trách. Chỉ là định vị GPS trong đầu bạn đang tải lại bản đồ mới mà thôi!"

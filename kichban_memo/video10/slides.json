@@ -5,13 +5,14 @@
     "subtitle": "SOI GƯƠNG THẤY ỔN, MỞ CAMERA TRƯỚC LÀ MUỐN TẮT MÁY",
     "layout": "title",
     "script": "Soi gương thì thấy rất ổn, nhưng cứ mở camera trước lên chụp ảnh là bạn chỉ muốn tắt máy ngay lập tức? Có phải camera đang dìm hàng bạn không?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban_memo/video10/mp3/slide_memo10_1.mp3",
+    "duration": 10.232,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "b60b2bb95029d60a8a4bdc835f362b49"
   },
   {
     "id": "slide_memo10_2",
@@ -19,13 +20,14 @@
     "subtitle": "MERE EXPOSURE EFFECT - NÃO ƯU TIÊN SỰ QUEN THUỘC",
     "layout": "diagram",
     "script": "Không phải đâu! Thực chất, bạn đã quen nhìn khuôn mặt mình bị đảo ngược trong gương hàng ngày suốt hàng chục năm qua. Bộ não mặc định coi đó là phiên bản chuẩn đẹp.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video10/mp3/slide_memo10_2.mp3",
+    "duration": 11.312,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "850fcd9dbe695ddc3428ada31047d8a1"
   },
   {
     "id": "slide_memo10_3",
@@ -33,13 +35,14 @@
     "subtitle": "SỰ THẬT: KHUÔN MẶT CON NGƯỜI KHÔNG ĐỐI XỨNG HOÀN HẢO",
     "layout": "metrics",
     "script": "Nhưng camera trước lại chụp cho bạn khuôn mặt đúng chiều thực tế - phiên bản mà người khác nhìn thấy. Do khuôn mặt chúng ta không đối xứng hoàn hảo, việc bị lật ngược đột ngột khiến não cảm thấy lạ lẫm và xấu đi.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video10/mp3/slide_memo10_3.mp3",
+    "duration": 13.16,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "1eaeabb9d3282be3a2ce5e70277de4e6"
   },
   {
     "id": "slide_memo10_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH GIỮA ẢNH GƯƠNG SOI VÀ ẢNH CHỤP CAMERA",
     "layout": "cards",
     "script": "Hãy so sánh: Gương soi cho ta cảm giác thân thuộc, đối xứng và hài hòa ảo. Trong khi đó, camera trước lại ghi lại hình ảnh chân thật, đúng chiều, nhưng khiến não bộ kích hoạt cảnh báo bất thường.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video10/mp3/slide_memo10_4.mp3",
+    "duration": 13.424,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "bb88b6024f5fc65d8d24d4242e28bf66"
   },
   {
     "id": "slide_memo10_5",
@@ -61,13 +65,14 @@
     "subtitle": "BẠN KHÔNG XẤU ĐI, CHỈ LÀ CHƯA QUEN THÔI",
     "layout": "title",
     "script": "Vì thế, bạn không hề xấu đi, chỉ là não bộ chưa quen thôi. Người khác nhìn bạn mỗi ngày đều thấy bạn rất xinh đẹp và tự nhiên. Đừng lo lắng và hãy luôn tin vào chính mình.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 8.0,
+    "audioPath": "/kichban_memo/video10/mp3/slide_memo10_5.mp3",
+    "duration": 12.728,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "bd73fe0754b8322765cd8ae0e1f03a9f"
   },
   {
     "id": "slide_memo10_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video10/mp3/slide_memo10_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

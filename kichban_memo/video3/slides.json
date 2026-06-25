@@ -5,13 +5,14 @@
     "subtitle": "BÍ ẨN TÂM LÝ HỌC & ÂM THANH HỌC",
     "layout": "title",
     "script": "Giọng đó rõ ràng là của bạn, nhưng nghe lại qua ghi âm cứ thấy không giống mình.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 6.0,
+    "audioPath": "/kichban_memo/video3/mp3/slide_memo3_1.mp3",
+    "duration": 6.792,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "2744dc324bc5727915c4642d9166513e"
   },
   {
     "id": "slide_memo3_2",
@@ -19,10 +20,10 @@
     "subtitle": "SỰ DẪN TRUYỀN ÂM THANH QUA KHÔNG KHÍ",
     "layout": "cards",
     "script": "Khi bạn nói, sóng âm truyền qua không khí đến tai người khác. Họ chỉ nghe thấy phần dẫn truyền không khí thuần túy, đó chính là giọng nói thực sự của bạn.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 10.0,
+    "audioPath": "/kichban_memo/video3/mp3/slide_memo3_2.mp3",
+    "duration": 11.304,
     "cards": [
       {
         "icon": "wind",
@@ -36,7 +37,8 @@
       }
     ],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "37d7b23956b343c8ede229dbf8c1d93b"
   },
   {
     "id": "slide_memo3_3",
@@ -44,18 +46,35 @@
     "subtitle": "BỘ LỌC ÂM THANH QUA XƯƠNG SỌ",
     "layout": "diagram",
     "script": "Nhưng khi bạn tự nghe, âm thanh đi qua hai đường. Một là truyền qua không khí ngoài tai, hai là rung động từ dây thanh quản truyền thẳng qua xương sọ lên tai trong.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video3/mp3/slide_memo3_3.mp3",
+    "duration": 11.952,
     "cards": [],
     "code": "",
     "diagram": [
-      { "id": "node_m3_1", "label": "Dây thanh quản rung", "type": "start" },
-      { "id": "node_m3_2", "label": "Sóng âm truyền qua không khí", "type": "process" },
-      { "id": "node_m3_3", "label": "Rung động truyền qua xương sọ", "type": "process" },
-      { "id": "node_m3_4", "label": "Kết hợp tại tai trong (Cảm giác trầm hơn)", "type": "success" }
-    ]
+      {
+        "id": "node_m3_1",
+        "label": "Dây thanh quản rung",
+        "type": "start"
+      },
+      {
+        "id": "node_m3_2",
+        "label": "Sóng âm truyền qua không khí",
+        "type": "process"
+      },
+      {
+        "id": "node_m3_3",
+        "label": "Rung động truyền qua xương sọ",
+        "type": "process"
+      },
+      {
+        "id": "node_m3_4",
+        "label": "Kết hợp tại tai trong (Cảm giác trầm hơn)",
+        "type": "success"
+      }
+    ],
+    "scriptHash": "d7931d75dffbe629f0775cc237ea0a74"
   },
   {
     "id": "slide_memo3_4",
@@ -63,13 +82,14 @@
     "subtitle": "BẬT MÍ TẠI SAO GIỌNG BẠN TRẦM HƠN",
     "layout": "split",
     "script": "Xương sọ đóng vai trò như một bộ lọc âm trầm tự nhiên, tăng cường các tần số thấp. Vì thế, giọng nói bạn tự nghe luôn ấm áp và dày dặn hơn so với thực tế rất nhiều.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban_memo/video3/mp3/slide_memo3_4.mp3",
+    "duration": 12.552,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "a0961894742e8ee92444685e373fe627"
   },
   {
     "id": "slide_memo3_5",
@@ -77,12 +97,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ KHÁM PHÁ BÍ ẨN TÂM LÝ",
     "layout": "title",
     "script": "Đừng lo lắng nếu thấy giọng mình trong ghi âm nghe thật mỏng hay chói tai. Hãy thả lỏng và Follow DOM Memo để khám phá thêm nhiều bí ẩn tâm lý học thú vị nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban_memo/video3/mp3/slide_memo3_5.mp3",
+    "duration": 11.688,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "c23c018f79945f72e6297450db286933"
   }
 ]

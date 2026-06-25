@@ -107,18 +107,18 @@
 
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v36 node-1">
-                                <span class="diagram-node-icon">👅</span>
-                                <span>1. Đầu Vào</span>
+                                <span class="diagram-node-icon">🗣️</span>
+                                <span>1. Nhớ tên người quen</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v36 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Nghẽn liên kết ngữ nghĩa</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v36 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Biết rõ nhưng quên tên</span>
                             </div>
                         </div>
 
@@ -169,38 +169,38 @@
                         <div class="comp-row-v36">
                             <div class="comp-card-v36 card-left card-active">
                                 <div class="comp-header-v36">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v36">👅</div>
+                                    <h3>Thông Suốt</h3>
+                                    <div class="comp-icon-v36">🗣️</div>
                                 </div>
                                 <div class="comp-bullet-list-v36">
                                     <div class="comp-bullet-row-v36" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v36">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Khớp ý nghĩa với tên gọi</span>
                                     </div>
                                     <div class="comp-bullet-row-v36" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v36">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Gọi tên ngay lập tức</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v36">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v36">BÌNH THƯỜNG</div>
                             </div>
 
                             <div class="comp-card-v36 card-right card-inactive">
                                 <div class="comp-header-v36">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v36">⚙️</div>
+                                    <h3>Kẹt Đầu Lưỡi</h3>
+                                    <div class="comp-icon-v36">🌫️</div>
                                 </div>
                                 <div class="comp-bullet-list-v36">
                                     <div class="comp-bullet-row-v36" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v36">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Biết đặc điểm nhưng quên từ</span>
                                     </div>
                                     <div class="comp-bullet-row-v36" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v36">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Nghẽn tạm thời đường truyền</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v36">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v36">NGHẼN MẠNG</div>
                             </div>
                         </div>
                     </div>
@@ -212,7 +212,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo36-5-container">
                         <div class="takeaway-radar-v36"></div>
-                        <div class="takeaway-box-v36" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v36" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v36">👅</div>
                             <div class="takeaway-text-v36">
                                 "Khi quên tên ai đó, hãy tạm thời nghĩ sang chuyện khác. Bộ não sẽ tự động tìm thấy và trả kết quả khi bạn thoải mái nhất!"

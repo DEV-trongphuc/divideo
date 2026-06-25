@@ -5,13 +5,14 @@
     "subtitle": "BẤT NGỜ THẤY MỘT TỪ LẠ XUẤT HIỆN LIÊN TỤC KHẮP NƠI",
     "layout": "title",
     "script": "Hôm qua bạn vừa mới biết một từ rất lạ tai. Hôm nay đi đâu bạn cũng thấy nó xuất hiện: trên báo, trong sách, hay thậm chí từ miệng một người xa lạ. Có phải vũ trụ đang gửi tín hiệu ẩn giấu?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video7/mp3/slide_memo7_1.mp3",
+    "duration": 13.856,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "1591f36c16397248a5919c8571128d1d"
   },
   {
     "id": "slide_memo7_2",
@@ -19,13 +20,14 @@
     "subtitle": "FREQUENCY ILLUSION - BAADER-MEINHOF PHENOMENON",
     "layout": "diagram",
     "script": "Không hề có tâm linh ở đây. Khoa học gọi đây là Ảo giác tần suất - hay hiệu ứng Baader-Meinhof. Tần suất xuất hiện thực tế của từ đó ngoài đời thực vẫn hoàn toàn bình thường.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 10.5,
+    "audioPath": "/kichban_memo/video7/mp3/slide_memo7_2.mp3",
+    "duration": 12.176,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "a0bb942c00f887eb999f6f05300e82e0"
   },
   {
     "id": "slide_memo7_3",
@@ -33,13 +35,14 @@
     "subtitle": "NÃO BỘ BẬT CHẾ ĐỘ 'ƯU TIÊN' ĐỂ TÌM KIẾM ĐỐI TƯỢNG",
     "layout": "metrics",
     "script": "Sau khi bạn biết từ đó, não bộ liền gắn nhãn 'Thông tin quan trọng'. Nó lập tức kích hoạt bộ lọc chú ý chọn lọc, âm thầm quét môi trường xung quanh và làm nổi bật từ đó lên mỗi khi nó lướt qua.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban_memo/video7/mp3/slide_memo7_3.mp3",
+    "duration": 13.04,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "f44e80f354ea668d604305edc25cf06a"
   },
   {
     "id": "slide_memo7_4",
@@ -47,13 +50,14 @@
     "subtitle": "NÃO LỜ ĐI 99% CÁC TỪ LẠ KHÁC MÀ BẠN KHÔNG BIẾT",
     "layout": "cards",
     "script": "Đồng thời, não bộ bỏ qua hàng ngàn từ lạ khác mà bạn chưa từng nghe. Nó chỉ tập trung reo mừng mỗi khi thấy từ đã biết, tạo ra cảm giác giả lập rằng từ đó đang tràn ngập thế giới.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video7/mp3/slide_memo7_4.mp3",
+    "duration": 12.104,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "bfd842841618d4c403faf4cddbad58af"
   },
   {
     "id": "slide_memo7_5",
@@ -61,12 +65,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Lần tới nếu thấy một điều gì đó xuất hiện liên tục, hãy mỉm cười vì biết bộ lọc của não đang hoạt động tốt nhé. Thả tim, bình luận và follow DOM Memo để giải mã tâm lý học thú vị mỗi ngày!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video7/mp3/slide_memo7_5.mp3",
+    "duration": 12.44,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "4584b6094d202caaca99aef1804d73c0"
   }
 ]

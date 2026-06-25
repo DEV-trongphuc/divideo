@@ -105,6 +105,7 @@ def normalize_text_for_tts(text):
         return text
     
     # 1. Phonetic replacements for Vietnamese TTS (done first before tokenization)
+    text = re.sub(r'\bDOM\b', 'Đom', text, flags=re.IGNORECASE)
     text = re.sub(r'\bQR\s*Code\b', 'Quy Rờ Code', text, flags=re.IGNORECASE)
     text = re.sub(r'\bQR\b', 'Quy Rờ', text, flags=re.IGNORECASE)
     text = re.sub(r'\bQ\s+R\b', 'Quy Rờ', text, flags=re.IGNORECASE)

@@ -5,13 +5,14 @@
     "subtitle": "VÌ SAO BẠN KHÔNG THỂ TỰ CÙ MÌNH?",
     "layout": "title",
     "script": "Bạn có thể cười lăn khi người khác cù, nhưng tự cù mình lại gần như không có cảm giác gì. Tại sao lại như vậy?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video27/mp3/slide_memo27_1.mp3",
+    "duration": 8.504,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "a5bc9e2826c01020f95d6d65b0df6b9f"
   },
   {
     "id": "slide_memo27_2",
@@ -19,13 +20,14 @@
     "subtitle": "SELF-TICKLING",
     "layout": "diagram",
     "script": "Đó là vì não bộ đã dự đoán trước chuyển động do chính tay bạn tạo ra. Tiểu não của bạn lập tức tính toán và tự động giảm đi độ bất ngờ của cảm giác đó.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video27/mp3/slide_memo27_2.mp3",
+    "duration": 10.424,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "ae0816bad16434361a99f103589193e6"
   },
   {
     "id": "slide_memo27_3",
@@ -33,13 +35,14 @@
     "subtitle": "TRỰC QUAN HÓA CÙ KHÔNG CƯỜI",
     "layout": "metrics",
     "script": "Mô phỏng: Khi người khác cù, tín hiệu bất ngờ truyền thẳng lên vỏ não cảm giác làm bạn bật cười. Nhưng khi tự cù, tiểu não đã gửi lệnh chặn trước, triệt tiêu cảm giác cười.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video27/mp3/slide_memo27_3.mp3",
+    "duration": 12.248,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "fd13ae3cc89bffbc630a8d3bd253d518"
   },
   {
     "id": "slide_memo27_4",
@@ -47,13 +50,14 @@
     "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
     "script": "So sánh: Người khác cù tạo ra tín hiệu bất ngờ, kích hoạt phản xạ tự vệ. Tự cù có tín hiệu dự phòng từ tiểu não, làm giảm độ nhạy cảm giác xuống tối đa.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video27/mp3/slide_memo27_4.mp3",
+    "duration": 11.552,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "911274196fdcf4d6ce1f463b837af487"
   },
   {
     "id": "slide_memo27_5",
@@ -61,13 +65,14 @@
     "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
     "script": "Tóm lại, bộ não không phải không cảm nhận được ngón tay bạn, nó chỉ biết rất rõ thủ phạm... chính là bạn!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video27/mp3/slide_memo27_5.mp3",
+    "duration": 7.208,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "1fc2a355df398e6eddb06028926b90c7"
   },
   {
     "id": "slide_memo27_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video27/mp3/slide_memo27_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

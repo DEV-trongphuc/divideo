@@ -108,17 +108,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v47 node-1">
                                 <span class="diagram-node-icon">🧱</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Chơi game xếp hình lâu</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v47 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Nơ-ron quen quét hình khối</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v47 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Thấy hình xếp rơi ngoài đời</span>
                             </div>
                         </div>
 
@@ -170,38 +170,38 @@
                         <div class="comp-row-v47">
                             <div class="comp-card-v47 card-left card-active">
                                 <div class="comp-header-v47">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v47">🧱</div>
+                                    <h3>Nhận Thức Thường</h3>
+                                    <div class="comp-icon-v47">🧠</div>
                                 </div>
                                 <div class="comp-bullet-list-v47">
                                     <div class="comp-bullet-row-v47" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v47">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Không bị ám ảnh hình ảnh game</span>
                                     </div>
                                     <div class="comp-bullet-row-v47" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v47">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Nhìn cảnh vật như thực tế</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v47">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v47">ỔN ĐỊNH</div>
                             </div>
 
                             <div class="comp-card-v47 card-right card-inactive">
                                 <div class="comp-header-v47">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v47">⚙️</div>
+                                    <h3>Tetris Effect</h3>
+                                    <div class="comp-icon-v47">🧱</div>
                                 </div>
                                 <div class="comp-bullet-list-v47">
                                     <div class="comp-bullet-row-v47" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v47">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Nơ-ron tiếp tục tìm khối ráp</span>
                                     </div>
                                     <div class="comp-bullet-row-v47" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v47">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Tự sắp xếp đồ đạc trong đầu</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v47">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v47">ÁM ẢNH</div>
                             </div>
                         </div>
                     </div>

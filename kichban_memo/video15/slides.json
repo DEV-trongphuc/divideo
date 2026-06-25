@@ -5,13 +5,14 @@
     "subtitle": "BẠN ĐÃ TỪNG KHÓA CỬA CHƯA, HAY CHỈ LÀ TƯỞNG TƯỢNG?",
     "layout": "title",
     "script": "Có bao giờ bạn đứng trước cơ quan và tự hỏi: Mình đã khóa cửa nhà chưa? Hay bạn chỉ nhớ cảnh mình định khóa? Não bộ có thể khiến bạn tin rằng mình đã làm việc gì đó, dù thực ra chưa làm.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video15/mp3/slide_memo15_1.mp3",
+    "duration": 13.448,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "93c60876e961c84013cebefee00409af"
   },
   {
     "id": "slide_memo15_2",
@@ -19,13 +20,14 @@
     "subtitle": "KHI NÃO BỘ KHÔNG PHÂN BIỆT ĐƯỢC THỰC TẾ VÀ SUY NGHĨ",
     "layout": "diagram",
     "script": "Hiện tượng này gọi là lỗi giám sát nguồn thông tin. Khi một hành động được lặp đi lặp lại hàng ngày, não bộ sẽ tự động hóa nó và dễ dàng trộn lẫn giữa thực tế thực hiện với ý nghĩ định làm.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban_memo/video15/mp3/slide_memo15_2.mp3",
+    "duration": 12.104,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "2364d4af2f51aee130e03644499d8823"
   },
   {
     "id": "slide_memo15_3",
@@ -33,13 +35,14 @@
     "subtitle": "HỆ THỐNG GHI NHẬN KÝ ỨC BỊ QUÁ TẢI VÌ SỰ LẶP LẠI",
     "layout": "metrics",
     "script": "Tại sao lại dễ nhầm? Khi bạn tưởng tượng việc khóa cửa, não kích hoạt các vùng thần kinh giống hệt như khi bạn thực sự vặn chìa khóa. Theo thời gian, ranh giới giữa ký ức thực tế và tưởng tượng bị xóa nhòa.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video15/mp3/slide_memo15_3.mp3",
+    "duration": 14.312,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "0100f5eeaeffc0140ed69231222bf9f9"
   },
   {
     "id": "slide_memo15_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH GIỮA CẢM GIÁC THẬT VÀ HÌNH ẢNH QUEN THUỘC",
     "layout": "cards",
     "script": "Hãy phân biệt: Thực tế là hành động vật lý tạo ra cảm giác ở ngón tay và âm thanh 'tạch'. Còn giả tưởng là bạn chỉ nhớ hình ảnh chiếc khóa. Do quá quen thuộc, não tự động điền hình ảnh đó vào ký ức ngày hôm nay.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video15/mp3/slide_memo15_4.mp3",
+    "duration": 14.576,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "22f05abf98dd96aa951ab009fce793b4"
   },
   {
     "id": "slide_memo15_5",
@@ -61,13 +65,14 @@
     "subtitle": "TẠO RA CÁC KÍCH THÍCH VẬT LÝ RÕ RỆT KHI KHÓA CỬA",
     "layout": "title",
     "script": "Giải pháp là hãy tỉnh thức khi làm các việc quen thuộc. Đọc to 'Tôi đang khóa cửa' hoặc gõ nhẹ vào cửa để tạo ra cảm giác vật lý rõ rệt, giúp não ghi nhận ký ức chính xác.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 8.5,
+    "audioPath": "/kichban_memo/video15/mp3/slide_memo15_5.mp3",
+    "duration": 11.912,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "ee2c4ad2c114e638ec2599f7c39e1d44"
   },
   {
     "id": "slide_memo15_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video15/mp3/slide_memo15_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

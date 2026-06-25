@@ -5,13 +5,14 @@
     "subtitle": "BẤT NGỜ NHỚ VỀ CON GẤU TRẮNG NGAY KHI BỊ CẤM",
     "layout": "title",
     "script": "Tôi có một thử thách cho bạn: Trong năm giây tới, tuyệt đối đừng nghĩ về một con gấu trắng. Nào, bây giờ trong đầu bạn đang hiện lên hình ảnh gì? Có phải là một con gấu trắng muốt không?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video8/mp3/slide_memo8_1.mp3",
+    "duration": 13.04,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "c52ed0085c80dbace42e4a4824bebb14"
   },
   {
     "id": "slide_memo8_2",
@@ -19,13 +20,14 @@
     "subtitle": "IRONIC PROCESS THEORY - LÝ THUYẾT KIỂM SOÁT TÂM TRÍ",
     "layout": "diagram",
     "script": "Hiện tượng này gọi là Hiệu ứng nghĩ ngược. Khi bạn cố gắng đè nén một ý nghĩ, não bộ sẽ tự động chia làm hai tiến trình chạy song song để thực thi mệnh lệnh này.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video8/mp3/slide_memo8_2.mp3",
+    "duration": 10.712,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "a2d3c172c58b7badedd343b99459bf1c"
   },
   {
     "id": "slide_memo8_3",
@@ -33,13 +35,14 @@
     "subtitle": "NÃO LIÊN TỤC HỎI: 'MÌNH ĐÃ NGHĨ VỀ GẤU TRẮNG CHƯA?'",
     "layout": "metrics",
     "script": "Tiến trình giám sát ngầm liên tục rà quét: 'Mình đã nghĩ về gấu trắng chưa?'. Trớ trêu thay, để kiểm tra xem bạn có đang nghĩ về nó hay không, não bắt buộc phải gợi nhớ hình ảnh con gấu trắng lên một lần nữa.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video8/mp3/slide_memo8_3.mp3",
+    "duration": 13.28,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "29091a7a5b4dab23274859e2dbe70080"
   },
   {
     "id": "slide_memo8_4",
@@ -47,13 +50,14 @@
     "subtitle": "CÀNG CẤM ĐOÁN, Ý NGHĨ CÀNG DỘI LÊN MẠNH MẼ",
     "layout": "cards",
     "script": "Kết quả là ý nghĩ bị cấm dội ngược lại mạnh mẽ hơn bình thường, gọi là hiệu ứng dội ngược. Điều này giải thích tại sao khi cố quên chuyện buồn, tâm trí bạn lại chỉ ngập tràn chuyện đó.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video8/mp3/slide_memo8_4.mp3",
+    "duration": 11.912,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "69ef7228362d3f5080c8418c14f51a8d"
   },
   {
     "id": "slide_memo8_5",
@@ -61,12 +65,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Thay vì cố cấm đoán, hãy học cách chấp nhận và để ý nghĩ tự nhiên trôi qua như những đám mây. Đừng quên thả tim, bình luận và follow DOM Memo để hiểu hơn về bộ não mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video8/mp3/slide_memo8_5.mp3",
+    "duration": 12.056,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "5fd019cfcc1d911875ad0e05873e5f65"
   }
 ]

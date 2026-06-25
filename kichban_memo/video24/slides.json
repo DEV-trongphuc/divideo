@@ -5,13 +5,14 @@
     "subtitle": "MỘT BÀI HÁT NGHE LẦN ĐẦU BÌNH THƯỜNG, NGHE VÀI LẦN LẠI NGHIỆN?",
     "layout": "title",
     "script": "Tại sao có những giai điệu hay những người lần đầu tiên gặp bạn thấy rất bình thường, thậm chí là hơi kỳ quặc, nhưng càng nghe, càng gặp lại càng thấy thích và nghiện lúc nào không hay?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video24/mp3/slide_memo24_1.mp3",
+    "duration": 10.232,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "f53de092124556c2ba1c149f59e0c4bf"
   },
   {
     "id": "slide_memo24_2",
@@ -19,13 +20,14 @@
     "subtitle": "HIỆU ỨNG MERE EXPOSURE EFFECT",
     "layout": "diagram",
     "script": "Hiện tượng này gọi là Hiệu ứng tiếp xúc thường xuyên. Sự lặp lại giúp bộ não giảm bớt cảnh giác, tăng cảm giác an toàn và tạo ra phản ứng ưa thích tự nhiên.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video24/mp3/slide_memo24_2.mp3",
+    "duration": 10.472,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "481656133e7c776ac7191b9cf8bfe802"
   },
   {
     "id": "slide_memo24_3",
@@ -33,13 +35,14 @@
     "subtitle": "CHỈ SỐ AN TOÀN VÀ ĐỘ ƯA THÍCH",
     "layout": "metrics",
     "script": "Hãy xem mô phỏng: Ở lần tiếp xúc thứ nhất, chỉ số phòng vệ rất cao. Nhưng qua lần thứ năm và thứ mười, chỉ số an toàn tăng vọt, chuyển biến thái độ từ e dè sang yêu thích.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video24/mp3/slide_memo24_3.mp3",
+    "duration": 12.344,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "557cb383aa170c614e6b6ccc521e4d06"
   },
   {
     "id": "slide_memo24_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH BẢN ĐỒ CẢNH GIÁC THẦN KINH",
     "layout": "cards",
     "script": "So sánh: Lần đầu tiên, vùng hạch hạnh nhân liên tục báo động đỏ vì đối tượng quá lạ lẫm. Lần thứ mười, vùng não thùy trán hoạt động mượt mà, cảm nhận sự an toàn và thích thú cực độ.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video24/mp3/slide_memo24_4.mp3",
+    "duration": 12.848,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "a1bb9fa9fa4ec0bae550a7814fb8c34b"
   },
   {
     "id": "slide_memo24_5",
@@ -61,13 +65,14 @@
     "subtitle": "KIÊN NHẪN VỚI NHỮNG ĐIỀU MỚI MẺ",
     "layout": "title",
     "script": "Đừng vội ghét một kỹ năng mới, một người bạn mới hay một món ăn lạ. Hãy kiên trì tiếp xúc thêm vài lần nữa, bộ não sẽ tự động tìm thấy điểm thú vị và giúp bạn yêu thích nó.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video24/mp3/slide_memo24_5.mp3",
+    "duration": 11.816,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "5746959f1cba55cb24d64f9a0a944b70"
   },
   {
     "id": "slide_memo24_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video24/mp3/slide_memo24_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

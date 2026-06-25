@@ -107,18 +107,18 @@
 
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v34 node-1">
-                                <span class="diagram-node-icon">👁️</span>
-                                <span>1. Đầu Vào</span>
+                                <span class="diagram-node-icon">📖</span>
+                                <span>1. Chữ xáo trộn nét</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v34 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Đoán chữ theo ngữ cảnh</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v34 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Đọc hiểu trôi chảy</span>
                             </div>
                         </div>
 
@@ -167,38 +167,38 @@
                         <div class="comp-row-v34">
                             <div class="comp-card-v34 card-left card-active">
                                 <div class="comp-header-v34">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v34">👁️</div>
+                                    <h3>Đọc Từng Nét</h3>
+                                    <div class="comp-icon-v34">📖</div>
                                 </div>
                                 <div class="comp-bullet-list-v34">
                                     <div class="comp-bullet-row-v34" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v34">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Phân tích chi tiết ký tự</span>
                                     </div>
                                     <div class="comp-bullet-row-v34" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v34">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Tốn nhiều thời gian hơn</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v34">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v34">CHẬM RÃI</div>
                             </div>
 
                             <div class="comp-card-v34 card-right card-inactive">
                                 <div class="comp-header-v34">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v34">⚙️</div>
+                                    <h3>Đọc Cả Từ</h3>
+                                    <div class="comp-icon-v34">✨</div>
                                 </div>
                                 <div class="comp-bullet-list-v34">
                                     <div class="comp-bullet-row-v34" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v34">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Giữ ký tự đầu và cuối</span>
                                     </div>
                                     <div class="comp-bullet-row-v34" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v34">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Não tự lấp đầy ý nghĩa</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v34">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v34">TỐI ƯU</div>
                             </div>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo34-5-container">
                         <div class="takeaway-radar-v34"></div>
-                        <div class="takeaway-box-v34" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v34" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v34">👁️</div>
                             <div class="takeaway-text-v34">
                                 "Bộ não của bạn liên tục phán đoán và tự vẽ ra thực tế chứ không chỉ tiếp nhận thông tin thụ động từ đôi mắt!"

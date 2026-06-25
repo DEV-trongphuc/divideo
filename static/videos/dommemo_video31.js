@@ -106,18 +106,18 @@
 
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v31 node-1">
-                                <span class="diagram-node-icon">🤔</span>
-                                <span>1. Đầu Vào</span>
+                                <span class="diagram-node-icon">📝</span>
+                                <span>1. Lặp từ liên tục</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v31 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Trơ cảm giác nơ-ron</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v31 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Mất ý nghĩa tạm thời</span>
                             </div>
                         </div>
 
@@ -166,38 +166,38 @@
                         <div class="comp-row-v31">
                             <div class="comp-card-v31 card-left card-active">
                                 <div class="comp-header-v31">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v31">🤔</div>
+                                    <h3>Đọc Bình Thường</h3>
+                                    <div class="comp-icon-v31">📝</div>
                                 </div>
                                 <div class="comp-bullet-list-v31">
                                     <div class="comp-bullet-row-v31" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v31">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Kết nối âm thanh - ý nghĩa</span>
                                     </div>
                                     <div class="comp-bullet-row-v31" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v31">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Xử lý nhanh chóng</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v31">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v31">BÌNH THƯỜNG</div>
                             </div>
 
                             <div class="comp-card-v31 card-right card-inactive">
                                 <div class="comp-header-v31">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v31">⚙️</div>
+                                    <h3>Nhìn Lâu Hóa Lạ</h3>
+                                    <div class="comp-icon-v31">🌫️</div>
                                 </div>
                                 <div class="comp-bullet-list-v31">
                                     <div class="comp-bullet-row-v31" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v31">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Tạm thời trơ kết nối từ</span>
                                     </div>
                                     <div class="comp-bullet-row-v31" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v31">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Chữ trông như nét vẽ</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v31">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v31">TRƠ CẢM GIÁC</div>
                             </div>
                         </div>
                     </div>
@@ -209,7 +209,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo31-5-container">
                         <div class="takeaway-radar-v31"></div>
-                        <div class="takeaway-box-v31" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v31" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v31">🤔</div>
                             <div class="takeaway-text-v31">
                                 "Bộ não đôi khi có thể biến những điều quen thuộc nhất trở nên xa lạ để duy trì tính chọn lọc của thông tin nhận thức!"

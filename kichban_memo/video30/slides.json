@@ -5,13 +5,14 @@
     "subtitle": "VÌ SAO BẠN LUÔN NGHĨ NGƯỜI KHÁC ĐỂ Ý MÌNH NHIỀU HƠN THỰC TẾ?",
     "layout": "title",
     "script": "Bạn lỡ nói nhầm một câu hay có một vết bẩn nhỏ trên áo, về nhà vẫn tự trách và nhớ mãi. Nhưng thực tế là người khác có để ý bạn như vậy?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video30/mp3/slide_memo30_1.mp3",
+    "duration": 10.112,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "bf2b735c8bca3c82c5e7f7383efad575"
   },
   {
     "id": "slide_memo30_2",
@@ -19,41 +20,44 @@
     "subtitle": "SPOTLIGHT EFFECT",
     "layout": "diagram",
     "script": "Hiện tượng này gọi là Hiệu ứng Hào quang. Vì bạn là nhân vật chính trong thế giới của mình, bạn phóng đại tầm quan trọng của các chi tiết cá nhân lên gấp nhiều lần.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video30/mp3/slide_memo30_2.mp3",
+    "duration": 10.568,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "c7fa6789d0816af78d9d7f117622c91d"
   },
   {
     "id": "slide_memo30_3",
     "title": "Mô phỏng Hoạt động",
     "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG HÀO QUANG",
     "layout": "metrics",
-    "script": "Mô phỏng: Dưới góc nhìn của bạn, mọi ánh đèn sân khấu đều rọi thẳng vào khuyết điểm nhỏ của bạn. Nhưng trong góc nhìn thực tế, mọi người chỉ rọi đèn vào chính họ.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Dưới góc nhìn của bạn, mọi ánh đèn sân khấu đều rọi thẳng vào khuyết điểm nhỏ của bạn. Nhưng trong góc nhìn thực tế, mọi người chỉ rọi đèn vào chính họ.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video30/mp3/slide_memo30_3.mp3",
+    "duration": 11.408,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "f3715c05c60d8746d1584a5973c63220"
   },
   {
     "id": "slide_memo30_4",
     "title": "So sánh Nhận thức",
     "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "script": "So sánh: Bạn tự soi xét mình 100% thời gian. Xã hội chỉ dành chưa đầy 5% thời gian để nghĩ về bạn, vì họ cũng đang bận lo lắng cho hình ảnh của bản thân.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Bạn tự soi xét mình 100% thời gian. Xã hội chỉ dành chưa đầy 5% thời gian để nghĩ về bạn, vì họ cũng đang bận lo lắng cho hình ảnh của bản thân.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video30/mp3/slide_memo30_4.mp3",
+    "duration": 11.84,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "bda5786c520dadfe9af2c870f05fd303"
   },
   {
     "id": "slide_memo30_5",
@@ -61,13 +65,14 @@
     "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
     "script": "Đừng quá căng thẳng vì những lỗi lầm nhỏ nhặt. Không ai soi bạn kỹ đến thế đâu, vì ai cũng bận soi chính mình!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video30/mp3/slide_memo30_5.mp3",
+    "duration": 8.48,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "e791d4e470653fced8f442cd83804849"
   },
   {
     "id": "slide_memo30_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video30/mp3/slide_memo30_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

@@ -5,13 +5,14 @@
     "subtitle": "BẠN KHÔNG THỰC SỰ CẢM NHẬN THỜI GIAN NHƯ ĐỒNG HỒ",
     "layout": "title",
     "script": "Năm phút chờ thang máy có thể dài vô tận, nhưng ba mươi phút lướt điện thoại lại trôi qua chỉ trong nháy mắt. Tại sao cảm giác về thời gian lại méo mó như vậy?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video13/mp3/slide_memo13_1.mp3",
+    "duration": 10.52,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "8091c30620b89d1405d4185ee331e4a0"
   },
   {
     "id": "slide_memo13_2",
@@ -19,13 +20,14 @@
     "subtitle": "NÃO KHÔNG CÓ ĐỒNG HỒ ĐO NHỊP VẬT LÝ",
     "layout": "diagram",
     "script": "Thực tế, bộ não không có stopwatch sinh học nào cả. Nó ước lượng thời gian một cách chủ quan, phụ thuộc chặt chẽ vào mức độ chú ý, trạng thái cảm xúc và lượng thông tin cần xử lý.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video13/mp3/slide_memo13_2.mp3",
+    "duration": 12.536,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "cd926de76528739bd6bdfee349c5d139"
   },
   {
     "id": "slide_memo13_3",
@@ -33,13 +35,14 @@
     "subtitle": "ATTENTION GATE MODEL - CƠ CHẾ ĐẾM NHỊP Ý THỨC",
     "layout": "metrics",
     "script": "Khi bạn chán nản (như chờ thang máy), cổng chú ý mở rộng, não bộ đếm từng tích tắc nhỏ khiến thời gian giãn nở. Ngược lại, khi lướt mạng, cổng đóng lại, não bỏ qua các nhịp đếm làm thời gian co rút.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video13/mp3/slide_memo13_3.mp3",
+    "duration": 13.976,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "610e478239c4ee49106c645e4b156704"
   },
   {
     "id": "slide_memo13_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH CẢM GIÁC THỜI GIAN GIỮA HAI TRẠNG THÁI",
     "layout": "cards",
     "script": "Hãy so sánh: Chờ đợi nghèo thông tin làm ta tập trung cao độ vào thời gian, kéo dài trải nghiệm. Còn lướt mạng xã hội ngập tràn dopamine lại chiếm trọn ý thức, khiến hàng giờ trôi qua vèo.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video13/mp3/slide_memo13_4.mp3",
+    "duration": 12.632,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "6b6e08d639e5e5d8cafd2c8a55de20b6"
   },
   {
     "id": "slide_memo13_5",
@@ -61,13 +65,14 @@
     "subtitle": "HÃY THẢ LỎNG VÀ SỐNG TRỌN VẸN TỪNG KHOẢNH KHẮC",
     "layout": "title",
     "script": "Hiểu được cơ chế này, bạn sẽ làm chủ được cảm nhận thời gian của mình. Hãy thả lỏng cơ thể và sống trọn vẹn từng khoảnh khắc ở hiện tại.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 8.0,
+    "audioPath": "/kichban_memo/video13/mp3/slide_memo13_5.mp3",
+    "duration": 9.656,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "46098b68ae36f5031504ca747ca4cdbe"
   },
   {
     "id": "slide_memo13_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video13/mp3/slide_memo13_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

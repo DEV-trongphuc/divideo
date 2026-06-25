@@ -107,18 +107,18 @@
 
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v43 node-1">
-                                <span class="diagram-node-icon">👂</span>
-                                <span>1. Đầu Vào</span>
+                                <span class="diagram-node-icon">🔊</span>
+                                <span>1. Tiếng ồn ngẫu nhiên</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v43 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Não đoán từ khóa hợp lý</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v43 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Nghe ra lời nói thì thầm</span>
                             </div>
                         </div>
 
@@ -167,38 +167,38 @@
                         <div class="comp-row-v43">
                             <div class="comp-card-v43 card-left card-active">
                                 <div class="comp-header-v43">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v43">👂</div>
+                                    <h3>Sóng Âm Vật Lý</h3>
+                                    <div class="comp-icon-v43">🔊</div>
                                 </div>
                                 <div class="comp-bullet-list-v43">
                                     <div class="comp-bullet-row-v43" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v43">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Tiếng quạt, gió rít xào xạc</span>
                                     </div>
                                     <div class="comp-bullet-row-v43" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v43">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Không mang thông tin ngôn ngữ</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v43">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v43">VẬT LÝ</div>
                             </div>
 
                             <div class="comp-card-v43 card-right card-inactive">
                                 <div class="comp-header-v43">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v43">⚙️</div>
+                                    <h3>Não Điền Khuyết</h3>
+                                    <div class="comp-icon-v43">✨</div>
                                 </div>
                                 <div class="comp-bullet-list-v43">
                                     <div class="comp-bullet-row-v43" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v43">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Tự suy đoán thành câu nói</span>
                                     </div>
                                     <div class="comp-bullet-row-v43" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v43">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Tạo ra ảo giác tiếng người</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v43">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v43">ĐIỀN KHUYẾT</div>
                             </div>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo43-5-container">
                         <div class="takeaway-radar-v43"></div>
-                        <div class="takeaway-box-v43" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v43" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v43">👂</div>
                             <div class="takeaway-text-v43">
                                 "Lần tới nếu thấy câu nói của ai đó kỳ lạ hoặc gây hấn, hãy hỏi lại cho kỹ. Bạn đang nghe bằng dự đoán của não chứ không chỉ bằng tai đâu!"

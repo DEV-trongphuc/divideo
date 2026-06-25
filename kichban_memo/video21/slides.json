@@ -5,13 +5,14 @@
     "subtitle": "MỘT CHUYẾN ĐI VUI CẢ NGÀY NHƯNG KẾT THÚC KHÓ CHỊU SẼ BỊ NGHĨ LÀ KHÔNG VUI?",
     "layout": "title",
     "script": "Tại sao một chuyến du lịch kéo dài nhiều ngày với vô vàn kỷ niệm đẹp, chỉ cần gặp một sự cố tồi tệ ở phút cuối, lại biến thành một trải nghiệm tồi tệ trong tâm trí bạn?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video21/mp3/slide_memo21_1.mp3",
+    "duration": 9.992,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "d33dbd91b3bc3a8a21fcf46fd1f8a337"
   },
   {
     "id": "slide_memo21_2",
@@ -19,13 +20,14 @@
     "subtitle": "HIỆU ỨNG PEAK-END RULE",
     "layout": "diagram",
     "script": "Khoa học chứng minh: Bộ não không tính trung bình cộng toàn bộ thời gian trải nghiệm. Nó chỉ lựa chọn khoảnh khắc cao trào nhất và phần kết thúc để định hình toàn bộ ký ức.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video21/mp3/slide_memo21_2.mp3",
+    "duration": 11.048,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "3884b299cc3e349fd95999aa4a9ae9ee"
   },
   {
     "id": "slide_memo21_3",
@@ -33,13 +35,14 @@
     "subtitle": "TRỤC TRẢI NGHIỆM THỜI GIAN THỰC",
     "layout": "metrics",
     "script": "Hãy xem mô phỏng: Trải nghiệm thực tế diễn ra qua các mốc thời gian với nhiều cảm xúc thăng trầm. Nhưng khi tổng kết ký ức, bộ não chỉ gom hai điểm: Đỉnh cao trào và Kết thúc để ghi nhớ.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video21/mp3/slide_memo21_3.mp3",
+    "duration": 12.584,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "675ebdf02c90125167f12501ced1ea9a"
   },
   {
     "id": "slide_memo21_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH TOÁN HỌC VÀ TÂM LÝ HỌC",
     "layout": "cards",
     "script": "So sánh: Về toán học, tổng cảm xúc tích cực chiếm đa số thời gian. Nhưng về tâm lý, trí nhớ bị bóp méo hoàn toàn bởi điểm kết thúc tệ hại, khiến bạn đánh giá sai bản chất hành trình.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video21/mp3/slide_memo21_4.mp3",
+    "duration": 12.872,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "79b24d424aeffe7b4a2a6aee8bbf0023"
   },
   {
     "id": "slide_memo21_5",
@@ -61,13 +65,14 @@
     "subtitle": "TỐI ƯU HÓA KÝ ỨC HẠNH PHÚC",
     "layout": "title",
     "script": "Hãy chủ động kết thúc ngày làm việc, cuộc họp, hay chuyến đi bằng một niềm vui nhỏ. Điểm neo tích cực ở phút cuối sẽ giúp bạn lưu giữ những ký ức tuyệt vời nhất.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video21/mp3/slide_memo21_5.mp3",
+    "duration": 10.88,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "81db65b420ba54b3fd43982a7c5dd5bc"
   },
   {
     "id": "slide_memo21_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video21/mp3/slide_memo21_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

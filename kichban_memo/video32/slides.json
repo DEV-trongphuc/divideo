@@ -5,13 +5,14 @@
     "subtitle": "VÌ SAO BẠN NHỚ GIAI ĐIỆU NHƯNG KHÔNG NHỚ LỜI BÀI HÁT?",
     "layout": "title",
     "script": "Bạn có thể ngân nga hoàn hảo nhạc của một bài hát cũ từ 10 năm trước, nhưng lời ca thì không tài nào nhớ nổi một câu. Tại sao vậy?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video32/mp3/slide_memo32_1.mp3",
+    "duration": 9.248,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "351d1daba23ab8f825e17a0e016ef42d"
   },
   {
     "id": "slide_memo32_2",
@@ -19,41 +20,44 @@
     "subtitle": "MUSIC MEMORY",
     "layout": "diagram",
     "script": "Đó là vì giai điệu, nhịp điệu và cảm xúc được xử lý ở bán cầu não phải và hệ viền, có cấu trúc lưu trữ nguyên thủy, bền bỉ hơn rất nhiều so với vùng ngôn ngữ ở bán cầu trái.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video32/mp3/slide_memo32_2.mp3",
+    "duration": 11.144,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "50df771b7f61faf7a80f505c07a8f851"
   },
   {
     "id": "slide_memo32_3",
     "title": "Mô phỏng Hoạt động",
     "subtitle": "TRỰC QUAN HÓA NHỚ NHẠC QUÊN LỜI",
     "layout": "metrics",
-    "script": "Mô phỏng: Khi nghe nhạc, vùng cảm nhận nhịp điệu sáng rực liên tục giữ năng lượng ổn định. Trong khi vùng lưu từ vựng bị lu mờ và phân rã cực nhanh.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Khi nghe nhạc, vùng cảm nhận nhịp điệu sáng rực liên tục giữ năng lượng ổn định. Trong khi vùng lưu từ vựng bị lu mờ và phân rã cực nhanh.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video32/mp3/slide_memo32_3.mp3",
+    "duration": 10.712,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "e251b0ea5ccd2275256ea22f861194e9"
   },
   {
     "id": "slide_memo32_4",
     "title": "So sánh Nhận thức",
     "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
-    "script": "So sánh: Trí nhớ giai điệu được liên kết với phản xạ cơ thể và cảm xúc lâu đời. Trí nhớ ngôn ngữ có độ trễ lớn và dễ bị xóa sạch khi không lặp lại.",
-    "voice": "google-vi-VN-Neural2-D",
+    "script": "Trí nhớ giai điệu được liên kết với phản xạ cơ thể và cảm xúc lâu đời. Trí nhớ ngôn ngữ có độ trễ lớn và dễ bị xóa sạch khi không lặp lại.",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video32/mp3/slide_memo32_4.mp3",
+    "duration": 10.904,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "bdee6761426c94b64691ff3db9263215"
   },
   {
     "id": "slide_memo32_5",
@@ -61,13 +65,14 @@
     "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
     "script": "Lời ca có thể phai nhạt theo năm tháng, nhưng giai điệu cũ vẫn giữ nguyên vẹn cảm xúc của lần đầu tiên bạn nghe thấy nó!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video32/mp3/slide_memo32_5.mp3",
+    "duration": 7.64,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "f43fede6c3179e2301ab0cf45db72493"
   },
   {
     "id": "slide_memo32_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video32/mp3/slide_memo32_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

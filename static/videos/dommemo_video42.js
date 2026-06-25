@@ -107,18 +107,18 @@
 
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v42 node-1">
-                                <span class="diagram-node-icon">😮</span>
-                                <span>1. Đầu Vào</span>
+                                <span class="diagram-node-icon">🌫️</span>
+                                <span>1. Đám mây hoặc vân gỗ</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v42 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Bộ lọc nhận diện khuôn mặt</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v42 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Thấy mắt mũi miệng cười</span>
                             </div>
                         </div>
 
@@ -171,38 +171,38 @@
                         <div class="comp-row-v42">
                             <div class="comp-card-v42 card-left card-active">
                                 <div class="comp-header-v42">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v42">😮</div>
+                                    <h3>Vật Thể Vô Tri</h3>
+                                    <div class="comp-icon-v42">🌫️</div>
                                 </div>
                                 <div class="comp-bullet-list-v42">
                                     <div class="comp-bullet-row-v42" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v42">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Hoa văn ngẫu nhiên tự nhiên</span>
                                     </div>
                                     <div class="comp-bullet-row-v42" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v42">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Không có cấu trúc sinh học</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v42">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v42">VÔ TRI</div>
                             </div>
 
                             <div class="comp-card-v42 card-right card-inactive">
                                 <div class="comp-header-v42">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v42">⚙️</div>
+                                    <h3>Nhìn Mặt Người</h3>
+                                    <div class="comp-icon-v42">😊</div>
                                 </div>
                                 <div class="comp-bullet-list-v42">
                                     <div class="comp-bullet-row-v42" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v42">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Tự ráp nối thành nét mặt</span>
                                     </div>
                                     <div class="comp-bullet-row-v42" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v42">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Phản xạ tiến hóa để tự vệ</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v42">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v42">TIẾN HÓA</div>
                             </div>
                         </div>
                     </div>
@@ -214,7 +214,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo42-5-container">
                         <div class="takeaway-radar-v42"></div>
-                        <div class="takeaway-box-v42" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v42" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v42">😮</div>
                             <div class="takeaway-text-v42">
                                 "Nhìn nhầm ổ điện là cái giá vô cùng nhỏ để tổ tiên chúng ta sống sót và truyền lại bộ não nhạy bén này cho bạn!"

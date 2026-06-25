@@ -5,13 +5,14 @@
     "subtitle": "CÙNG MỘT LY NƯỚC, ĐỔI NHÃN GIÁ CAO HƠN LÀ CẢM THẤY NGON HƠN?",
     "layout": "title",
     "script": "Tại sao cùng một loại nước uống hay món ăn, chỉ cần dán nhãn giá đắt đỏ, chúng ta lại lập tức cảm thấy nó ngon hơn và chất lượng hơn hẳn?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video19/mp3/slide_memo19_1.mp3",
+    "duration": 8.768,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "ea7c67484fe7a7626b7b33fa2d252107"
   },
   {
     "id": "slide_memo19_2",
@@ -19,13 +20,14 @@
     "subtitle": "KỲ VỌNG LÀM THAY ĐỔI CẢM NHẬN VỊ GIÁC",
     "layout": "diagram",
     "script": "Hiện tượng này là hiệu ứng giả dược trong tiêu dùng. Kỳ vọng về giá cả thay đổi cách bộ não mã hóa thông tin về mùi vị và sự hài lòng thực tế.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video19/mp3/slide_memo19_2.mp3",
+    "duration": 9.848,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "d8c592a2812a6551b3c2236f2806f595"
   },
   {
     "id": "slide_memo19_3",
@@ -33,13 +35,14 @@
     "subtitle": "NĂM MỨC ĐỘ HÀI LÒNG CỦA NÃO BỘ",
     "layout": "metrics",
     "script": "Hãy xem mô phỏng: Khi thử hai ly nước giống hệt nhau, ly mười đô chỉ kích hoạt vùng thỏa mãn ở mức trung bình. Nhưng ly một trăm đô kích nổ hoạt động não bộ lên tới chín mươi lăm phần trăm.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video19/mp3/slide_memo19_3.mp3",
+    "duration": 12.344,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "39f1511c6e78f968db4d6cdbb59d6175"
   },
   {
     "id": "slide_memo19_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH THÀNH PHẦN HOÁ HỌC VÀ CẢM NHẬN",
     "layout": "cards",
     "script": "So sánh: Về hóa học vật lý, hai ly nước hoàn toàn đồng nhất. Nhưng về cảm nhận thần kinh, ly đắt tiền mang lại khoái cảm vượt trội do não tự thêu dệt nên.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video19/mp3/slide_memo19_4.mp3",
+    "duration": 11.192,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "c8b04b75e41db8f64d946a6f1a76aa71"
   },
   {
     "id": "slide_memo19_5",
@@ -61,13 +65,14 @@
     "subtitle": "TRÁNH BỊ ĐÁNH LỪA BỞI CHIÊU TRÒ MARKETING",
     "layout": "title",
     "script": "Đừng để nhãn giá đắt đỏ che mờ vị giác của bạn. Hãy rèn luyện sự tỉnh thức khi thưởng thức để cảm nhận giá trị thực của sản phẩm thay vì mua sự kỳ vọng.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video19/mp3/slide_memo19_5.mp3",
+    "duration": 10.256,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "8b769883741c3b6e5b3251adb58feb58"
   },
   {
     "id": "slide_memo19_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video19/mp3/slide_memo19_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

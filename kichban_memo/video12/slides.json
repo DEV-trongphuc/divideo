@@ -5,13 +5,14 @@
     "subtitle": "BẠN KHÔNG THỰC SỰ ĐA NHIỆM KHI CẦN TẬP TRUNG",
     "layout": "title",
     "script": "Bạn nghĩ mình có thể vừa nhắn tin vừa làm việc hiệu quả? Đa nhiệm không phải siêu năng lực. Thực chất, bộ não chỉ đang nhảy qua nhảy lại giữa hai việc cực kỳ nhanh.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video12/mp3/slide_memo12_1.mp3",
+    "duration": 11.624,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "2100045cf90a189da026f0aac1eb229b"
   },
   {
     "id": "slide_memo12_2",
@@ -19,13 +20,14 @@
     "subtitle": "NÃO PHẢI DỌN DẸP VÀ TẢI LẠI THÔNG TIN LIÊN TỤC",
     "layout": "diagram",
     "script": "Mỗi lần đổi việc, não bộ phải xóa bộ nhớ đệm cũ và nạp lại bối cảnh của việc mới. Quá trình dọn dẹp và tải lại thông tin này tiêu tốn năng lượng và tạo ra một khoảng trễ vô hình.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video12/mp3/slide_memo12_2.mp3",
+    "duration": 11.792,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "e47df72d74a516781b31c82b5655d52b"
   },
   {
     "id": "slide_memo12_3",
@@ -33,13 +35,14 @@
     "subtitle": "COGNITIVE PENALTY - HIỆU SUẤT GIẢM TỚI 40%",
     "layout": "metrics",
     "script": "Hậu quả là hiệu suất làm việc của bạn sụt giảm nghiêm trọng, có thể lên tới bốn mươi phần trăm. Thời gian hoàn thành công việc kéo dài hơn và tỷ lệ mắc sai sót tăng gấp đôi.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video12/mp3/slide_memo12_3.mp3",
+    "duration": 11.096,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "2adfcbbfec78b3ec76dc51d6df9ee1e5"
   },
   {
     "id": "slide_memo12_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH GIỮA TẬP TRUNG SÂU VÀ ĐA NHIỆM PHÂN TÁN",
     "layout": "cards",
     "script": "Hãy so sánh: Làm việc tuần tự giúp bảo toàn năng lượng, giải quyết nhanh gọn từng việc. Trong khi đa nhiệm phân tán lại tốn tài nguyên tải lại não bộ, gây mệt mỏi và làm việc dở dang.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video12/mp3/slide_memo12_4.mp3",
+    "duration": 12.248,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "fee30db4bfd4291ff881df551cb65734"
   },
   {
     "id": "slide_memo12_5",
@@ -61,13 +65,14 @@
     "subtitle": "TẬP TRUNG VÀO TỪNG VIỆC MỘT LÀ SIÊU NĂNG LỰC THỰC SỰ",
     "layout": "title",
     "script": "Vì thế, tập trung vào từng việc một mới là siêu năng lực thực sự! Hãy dọn dẹp các yếu tố phân tán bên ngoài và bắt đầu tập trung sâu.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 8.0,
+    "audioPath": "/kichban_memo/video12/mp3/slide_memo12_5.mp3",
+    "duration": 9.656,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "255bd0d7723d74b2a69fc17f890387c8"
   },
   {
     "id": "slide_memo12_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video12/mp3/slide_memo12_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

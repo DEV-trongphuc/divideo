@@ -5,13 +5,14 @@
     "subtitle": "CÙNG MỘT TIẾNG QUẠT, LÚC THÌ BIẾN MẤT, LÚC LẠI CỰC KỲ KHÓ CHỊU?",
     "layout": "title",
     "script": "Tại sao có những lúc tiếng tích tắc của đồng hồ hay tiếng quạt trần hoàn toàn biến mất khỏi đầu bạn, nhưng có lúc nó lại trở nên to và khó chịu đến phát điên?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video22/mp3/slide_memo22_1.mp3",
+    "duration": 9.08,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "fd7d110de92abd071854b7980a8fc9dd"
   },
   {
     "id": "slide_memo22_2",
@@ -19,13 +20,14 @@
     "subtitle": "HIỆU ỨNG AUDITORY SENSORY GATING",
     "layout": "diagram",
     "script": "Hiện tượng này gọi là Gating cảm giác thính giác. Bộ não có một màng lọc tự động để loại bỏ các âm thanh lặp lại vô hại, giúp vỏ não được yên tĩnh.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video22/mp3/slide_memo22_2.mp3",
+    "duration": 10.424,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "054df75bc8bcfa4b2027ca0cc564323b"
   },
   {
     "id": "slide_memo22_3",
@@ -33,13 +35,14 @@
     "subtitle": "BẬT TẮT BỘ LỌC KHI THƯ GIÃN VÀ CĂNG THẲNG",
     "layout": "metrics",
     "script": "Hãy xem mô phỏng: Khi bạn thư thái, màng lọc hoạt động tốt, chặn đứng và hấp thụ mọi tiếng ồn nền. Nhưng khi mệt mỏi hay căng thẳng, bộ lọc bị sập, khiến tiếng ồn tràn ngập tâm trí.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video22/mp3/slide_memo22_3.mp3",
+    "duration": 12.968,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "cf78e633bc98035750d69758022e2509"
   },
   {
     "id": "slide_memo22_4",
@@ -47,13 +50,14 @@
     "subtitle": "SO SÁNH ĐỘ NHẠY THÍNH GIÁC TRONG HAI TRẠNG THÁI",
     "layout": "cards",
     "script": "So sánh: Trong trạng thái thư giãn, các xung âm thanh nền bị lọc bỏ tới chín mươi phần trăm. Nhưng khi căng thẳng, toàn bộ tín hiệu lọt qua thùy thái dương, gây quá tải thính giác.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video22/mp3/slide_memo22_4.mp3",
+    "duration": 12.08,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "4385631a4d8a17e33761f98f920aedec"
   },
   {
     "id": "slide_memo22_5",
@@ -61,13 +65,14 @@
     "subtitle": "RÈN LUYỆN TÂM TRÍ VÀ THIỀN ĐỊNH",
     "layout": "title",
     "script": "Khi thấy tiếng ồn xung quanh trở nên quá khó chịu, đó là báo động não bạn đang mệt. Hãy dừng việc, nghỉ ngơi hoặc thiền định năm phút để khôi phục lại màng lọc cảm giác.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video22/mp3/slide_memo22_5.mp3",
+    "duration": 10.976,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "1ce5d8375a9c16e00cf3e73f1d47acaa"
   },
   {
     "id": "slide_memo22_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video22/mp3/slide_memo22_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

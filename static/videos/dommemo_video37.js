@@ -108,17 +108,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v37 node-1">
                                 <span class="diagram-node-icon">⏰</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Thói quen ngủ đúng giờ</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v37 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Hoạt chất ACTH tăng trước</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v37 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Tự tỉnh giấc dễ chịu</span>
                             </div>
                         </div>
 
@@ -167,38 +167,38 @@
                         <div class="comp-row-v37">
                             <div class="comp-card-v37 card-left card-active">
                                 <div class="comp-header-v37">
-                                    <h3>TRẠNG THÁI A</h3>
+                                    <h3>Nhịp Sinh Học</h3>
                                     <div class="comp-icon-v37">⏰</div>
                                 </div>
                                 <div class="comp-bullet-list-v37">
                                     <div class="comp-bullet-row-v37" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v37">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Hormone tăng dần tự nhiên</span>
                                     </div>
                                     <div class="comp-bullet-row-v37" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v37">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Tỉnh táo nhẹ nhàng</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v37">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v37">ÊM ÁI</div>
                             </div>
 
                             <div class="comp-card-v37 card-right card-inactive">
                                 <div class="comp-header-v37">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v37">⚙️</div>
+                                    <h3>Báo Thức Giật Mình</h3>
+                                    <div class="comp-icon-v37">🔊</div>
                                 </div>
                                 <div class="comp-bullet-list-v37">
                                     <div class="comp-bullet-row-v37" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v37">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Kích hoạt cortisol khẩn cấp</span>
                                     </div>
                                     <div class="comp-bullet-row-v37" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v37">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Tim đập nhanh căng thẳng</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v37">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v37">CÚ SỐC</div>
                             </div>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo37-5-container">
                         <div class="takeaway-radar-v37"></div>
-                        <div class="takeaway-box-v37" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
+                        <div class="takeaway-box-v37" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
                             <div class="takeaway-face-v37">⏰</div>
                             <div class="takeaway-text-v37">
                                 "Hãy duy trì giờ ngủ ổn định. Việc tự thức giấc là dấu hiệu cho thấy bạn đang sở hữu một đồng hồ sinh học vô cùng khỏe mạnh!"

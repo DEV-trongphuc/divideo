@@ -5,13 +5,14 @@
     "subtitle": "TẠI SAO MẮT CÓ ĐIỂM MÙ NHƯNG BẠN KHÔNG THẤY LỖ ĐEN?",
     "layout": "title",
     "script": "Có bao giờ bạn tự hỏi: Tại sao mắt chúng ta có một điểm mù lớn, nhưng bạn chưa từng nhìn thấy một 'lỗ đen' trống rỗng nào trước mặt? Mỗi mắt đều có một vùng hoàn toàn không nhìn thấy, nhưng não bộ đã âm thầm che nó đi.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video14/mp3/slide_memo14_1.mp3",
+    "duration": 13.88,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "92f40d62a5585a9ccf0b887453731ad8"
   },
   {
     "id": "slide_memo14_2",
@@ -19,13 +20,14 @@
     "subtitle": "NƠI DÂY THẦN KINH THỊ GIÁC ĐI XUYÊN QUA MẮT",
     "layout": "diagram",
     "script": "Điểm mù này xuất hiện tại nơi dây thần kinh thị giác đi xuyên qua võng mạc để truyền tín hiệu về não. Tại vị trí này, hoàn toàn không có bất kỳ tế bào cảm quang nào để thu nhận ánh sáng.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban_memo/video14/mp3/slide_memo14_2.mp3",
+    "duration": 11.936,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "6fa63b5482888b03024aceb46ace683a"
   },
   {
     "id": "slide_memo14_3",
@@ -33,13 +35,14 @@
     "subtitle": "HÃY NHẮM MẮT TRÁI, NHÌN VÀO DẤU CỘNG VÀ XEM CHẤM ĐỎ BIẾN MẤT",
     "layout": "metrics",
     "script": "Bạn có muốn tự kiểm chứng? Hãy nhắm mắt trái, nhìn thẳng vào dấu cộng màu xanh. Khi bạn di chuyển điện thoại lại gần hoặc ra xa, chấm tròn màu đỏ bên phải sẽ đột ngột biến mất khỏi tầm nhìn của bạn.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video14/mp3/slide_memo14_3.mp3",
+    "duration": 13.784,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "5b9a93ef9aee0c4747d51acbf05ca491"
   },
   {
     "id": "slide_memo14_4",
@@ -47,13 +50,14 @@
     "subtitle": "NÃO LẤY DỮ LIỆU XUNG QUANH ĐỂ CHẮP VÁ HÌNH ẢNH THIẾU",
     "layout": "cards",
     "script": "Tại sao bạn không thấy lỗ đen đó? Đó là nhờ cơ chế tự lấp đầy của não. Não sẽ lấy các chi tiết xung quanh như màu sắc, đường nét hoặc họa tiết nền để phác họa và lấp vào chỗ trống một cách thông minh.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video14/mp3/slide_memo14_4.mp3",
+    "duration": 13.928,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "a2fb8daf149bce002069bf0bbb36d730"
   },
   {
     "id": "slide_memo14_5",
@@ -61,13 +65,14 @@
     "subtitle": "Ý THỨC CỦA CHÚNG TA CHỈ LÀ MỘT BẢN GIẢ LẬP",
     "layout": "title",
     "script": "Nghịch lý là, chúng ta tin những gì mình thấy, nhưng thực chất đó chỉ là bản dựng tối ưu của não bộ. Đôi khi những gì ta chắc chắn nhất lại là thứ ta tự suy diễn ra.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 8.0,
+    "audioPath": "/kichban_memo/video14/mp3/slide_memo14_5.mp3",
+    "duration": 11.36,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "6a8d96d39aef5b00da992565b46222e1"
   },
   {
     "id": "slide_memo14_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video14/mp3/slide_memo14_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

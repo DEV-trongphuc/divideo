@@ -5,13 +5,14 @@
     "subtitle": "VÌ SAO BẠN VẪN NGHE THẤY AI ĐÓ GỌI TÊN MÌNH GIỮA ĐÁM ĐÔNG?",
     "layout": "title",
     "script": "Quán xá ồn ào tiếng nói chuyện khắp nơi, nhưng chỉ cần ai đó khẽ gọi tên bạn, bạn lập tức quay lại ngay. Tại sao bộ não lại làm được điều kỳ diệu này?",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video28/mp3/slide_memo28_1.mp3",
+    "duration": 10.592,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "e18fc48c0189a90a215e4acb265e5987"
   },
   {
     "id": "slide_memo28_2",
@@ -19,13 +20,14 @@
     "subtitle": "COCKTAIL PARTY",
     "layout": "diagram",
     "script": "Đó là nhờ Hiệu ứng Tiệc Cocktail. Bộ não không xử lý mọi âm thanh như nhau, nó lọc bỏ các tạp âm và ưu tiên những tín hiệu liên quan trực tiếp đến sự sinh tồn của bạn.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video28/mp3/slide_memo28_2.mp3",
+    "duration": 11.336,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "d78b04c5aec5c815487903815a3ada2d"
   },
   {
     "id": "slide_memo28_3",
@@ -33,13 +35,14 @@
     "subtitle": "TRỰC QUAN HÓA HIỆU ỨNG COCKTAIL",
     "layout": "metrics",
     "script": "Mô phỏng: Giữa hàng trăm tiếng nói chuyện mờ nhạt, khi từ khóa 'TÊN BẠN!' xuất hiện, hệ thống radar nhận thức lập tức bùng nổ, tăng khuếch đại tần số đó lên tối đa.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.5,
+    "audioPath": "/kichban_memo/video28/mp3/slide_memo28_3.mp3",
+    "duration": 11.12,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "3e0c44144e84c9a565345903be9fd139"
   },
   {
     "id": "slide_memo28_4",
@@ -47,13 +50,14 @@
     "subtitle": "PHÂN TÍCH HAI KHÍA CẠNH ĐỐI LẬP",
     "layout": "cards",
     "script": "So sánh: Âm thanh nền bị mờ đi và liệt vào danh sách an toàn, không tốn năng lượng xử lý. Tên riêng hoặc âm báo động lập tức xuyên qua bộ lọc chú ý.",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 12.0,
+    "audioPath": "/kichban_memo/video28/mp3/slide_memo28_4.mp3",
+    "duration": 11.072,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "6800f82f98a3d62fbeb6803812227067"
   },
   {
     "id": "slide_memo28_5",
@@ -61,13 +65,14 @@
     "subtitle": "BÀI HỌC VÀ LỜI KHUYÊN CHO BẠN",
     "layout": "title",
     "script": "Tóm lại, giữa cả trăm âm thanh xáo trộn, bộ não của bạn vẫn đang âm thầm lắng nghe và tìm kiếm thứ quan trọng nhất: chính là bạn!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 11.5,
+    "audioPath": "/kichban_memo/video28/mp3/slide_memo28_5.mp3",
+    "duration": 8.72,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "e2fd8ba695a65040474213369dbc1180"
   },
   {
     "id": "slide_memo28_6",
@@ -75,12 +80,13 @@
     "subtitle": "⚡ NHẤN FOLLOW @DOM.MEMO ĐỂ HIỂU HƠN VỀ BẢN THÂN",
     "layout": "title",
     "script": "Hãy nhấn follow DOM Memo để cùng khám phá thêm nhiều điều thú vị và thấu hiểu bản thân mỗi ngày nhé!",
-    "voice": "google-vi-VN-Neural2-D",
+    "voice": "vi-VN-NamMinhNeural-Warm",
     "refVoice": "",
-    "audioPath": "",
-    "duration": 7.5,
+    "audioPath": "/kichban_memo/video28/mp3/slide_memo28_6.mp3",
+    "duration": 6.68,
     "cards": [],
     "code": "",
-    "diagram": []
+    "diagram": [],
+    "scriptHash": "07388f08010e2da45f2c7c4f10969675"
   }
 ]

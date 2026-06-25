@@ -102,17 +102,17 @@
                         <div class="sleep-diagram-board">
                             <div class="diagram-node-v48 node-1">
                                 <span class="diagram-node-icon">🚨</span>
-                                <span>1. Đầu Vào</span>
+                                <span>1. Sự cố trên phố đông</span>
                             </div>
                             <span class="node-link-arrow arrow-1">➡️</span>
                             <div class="diagram-node-v48 node-2">
                                 <span class="diagram-node-icon">🧠</span>
-                                <span>2. Xử Lý Não</span>
+                                <span>2. Nghĩ có người khác giúp</span>
                             </div>
                             <span class="node-link-arrow arrow-2">➡️</span>
                             <div class="diagram-node-v48 node-3">
                                 <span class="diagram-node-icon">✨</span>
-                                <span>3. Nhận Thức</span>
+                                <span>3. Mọi người im lặng đi qua</span>
                             </div>
                         </div>
 
@@ -163,38 +163,38 @@
                         <div class="comp-row-v48">
                             <div class="comp-card-v48 card-left card-active">
                                 <div class="comp-header-v48">
-                                    <h3>TRẠNG THÁI A</h3>
-                                    <div class="comp-icon-v48">🚨</div>
+                                    <h3>Đám Đông Thờ Ơ</h3>
+                                    <div class="comp-icon-v48">👥</div>
                                 </div>
                                 <div class="comp-bullet-list-v48">
                                     <div class="comp-bullet-row-v48" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v48">✨</span>
-                                        <span>Phản xạ tự nhiên của cơ thể</span>
+                                        <span>Phân tán trách nhiệm đám đông</span>
                                     </div>
                                     <div class="comp-bullet-row-v48" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v48">✨</span>
-                                        <span>Diễn ra nhanh chóng, ít tốn calo</span>
+                                        <span>Không ai đứng ra giúp đỡ</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v48">TỰ ĐỘNG HÓA</div>
+                                <div class="comp-footer-v48">PHÂN TÁN</div>
                             </div>
 
                             <div class="comp-card-v48 card-right card-inactive">
                                 <div class="comp-header-v48">
-                                    <h3>TRẠNG THÁI B</h3>
-                                    <div class="comp-icon-v48">⚙️</div>
+                                    <h3>Một Mình Đối Mặt</h3>
+                                    <div class="comp-icon-v48">🚨</div>
                                 </div>
                                 <div class="comp-bullet-list-v48">
                                     <div class="comp-bullet-row-v48" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v48">❌</span>
-                                        <span>Phản ứng chậm do ý thức can thiệp</span>
+                                        <span>Trách nhiệm gánh nặng 100%</span>
                                     </div>
                                     <div class="comp-bullet-row-v48" style="opacity:1; transform:translateY(0);">
                                         <span class="comp-bullet-icon-v48">❌</span>
-                                        <span>Đòi hỏi tập trung và năng lượng</span>
+                                        <span>Lập tức ra tay hành động</span>
                                     </div>
                                 </div>
-                                <div class="comp-footer-v48">Ý THỨC KIỂM SOÁT</div>
+                                <div class="comp-footer-v48">HÀNH ĐỘNG</div>
                             </div>
                         </div>
                     </div>
