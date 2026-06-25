@@ -35,12 +35,12 @@
 
 .v46-intro-card {
     flex: 1;
-    height: 430px;
+    height: 485px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 22px;
     padding: 24px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -92,7 +92,7 @@
 
 .v46-intro-card h3 {
     margin: 5px 0 0 0;
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 800;
 }
 .rest h3 { color: #f87171; }
@@ -100,7 +100,7 @@
 
 .v46-intro-card p {
     margin: 0;
-    font-size: 14px;
+    font-size: 17px;
     color: #94a3b8;
     text-align: center;
     line-height: 1.5;
@@ -129,13 +129,13 @@
 .v46-bubble-speech {
     background: rgba(255, 255, 255, 0.95);
     color: #0b0f19;
-    border-radius: 18px;
-    padding: 12px 18px;
-    font-size: 15px;
+    border-radius: 20px;
+    padding: 15px 22px;
+    font-size: 18px;
     font-weight: bold;
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     position: relative;
-    max-width: 240px;
+    max-width: 280px;
     animation: bubble-bounce 0.4s ease;
 }
 .v46-bubble-speech::after {
@@ -149,16 +149,16 @@
 }
 
 .v46-tray-container {
-    width: 300px;
-    height: 220px;
+    width: 390px;
+    height: 250px;
     background: rgba(255, 255, 255, 0.03);
     border: 2px dashed rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    border-radius: 24px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     transition: all 0.3s;
 }
 
@@ -170,26 +170,26 @@
 
 .v46-tray-label {
     position: absolute;
-    top: -12px;
+    top: -14px;
     background: #ef4444;
     color: #fff;
     font-family: monospace;
     font-weight: 800;
-    font-size: 11px;
-    padding: 2px 10px;
+    font-size: 13px;
+    padding: 4px 12px;
     border-radius: 99px;
 }
 
 .v46-food-item {
-    font-size: 42px;
-    width: 70px;
-    height: 70px;
+    font-size: 54px;
+    width: 96px;
+    height: 96px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(255,255,255,0.03);
     border: 1.5px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
+    border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     position: relative;
     transition: all 0.4s ease;
@@ -205,8 +205,8 @@
 
 .v46-food-item .item-label {
     position: absolute;
-    bottom: -22px;
-    font-size: 11px;
+    bottom: -28px;
+    font-size: 13.5px;
     font-weight: bold;
     color: #94a3b8;
     white-space: nowrap;
@@ -219,18 +219,18 @@
     position: absolute;
     right: 25px;
     bottom: 25px;
-    width: 90px;
-    height: 100px;
+    width: 115px;
+    height: 125px;
     border: 2px solid rgba(239, 68, 68, 0.3);
     background: rgba(239, 68, 68, 0.05);
-    border-radius: 12px 12px 4px 4px;
+    border-radius: 16px 16px 6px 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     color: #f87171;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: bold;
     transition: all 0.3s;
 }
@@ -242,8 +242,8 @@
 }
 
 .v46-trash-bin svg {
-    width: 28px;
-    height: 28px;
+    width: 34px;
+    height: 34px;
 }
 
 .v46-overfetch-panel {
@@ -287,7 +287,7 @@
 
 .v46-buffet-shelf {
     display: flex;
-    gap: 15px;
+    gap: 22px;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -295,15 +295,15 @@
 }
 
 .v46-shelf-item {
-    font-size: 38px;
-    width: 65px;
-    height: 65px;
+    font-size: 50px;
+    width: 90px;
+    height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(255,255,255,0.03);
     border: 1.5px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
+    border-radius: 20px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.25);
     position: relative;
     transition: all 0.3s ease;
@@ -321,8 +321,8 @@
 
 .v46-shelf-item .item-label {
     position: absolute;
-    bottom: -22px;
-    font-size: 11px;
+    bottom: -28px;
+    font-size: 13.5px;
     font-weight: bold;
     color: #94a3b8;
 }
@@ -342,11 +342,11 @@
 }
 
 .v46-salad-bowl {
-    width: 240px;
-    height: 75px;
+    width: 300px;
+    height: 90px;
     background: linear-gradient(to top, rgba(16, 185, 129, 0.25), rgba(16, 185, 129, 0.08));
     border: 3.5px solid #10b981;
-    border-radius: 0 0 120px 120px;
+    border-radius: 0 0 150px 150px;
     box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25);
     position: relative;
     z-index: 2;
@@ -356,18 +356,18 @@
 }
 
 .v46-salad-bowl-label {
-    font-size: 12px;
+    font-size: 14.5px;
     font-weight: 800;
     color: #34d399;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .v46-falling-item {
     position: absolute;
-    font-size: 32px;
+    font-size: 48px;
     z-index: 1;
     opacity: 0;
     pointer-events: none;
@@ -392,7 +392,7 @@
     display: flex;
     width: 100%;
     gap: 60px;
-    height: 480px;
+    height: 520px;
 }
 
 .v46-code-card {
@@ -412,8 +412,8 @@
     padding: 24px;
     box-sizing: border-box;
     font-family: 'Fira Code', monospace;
-    font-size: 15px;
-    line-height: 1.65;
+    font-size: 17.5px;
+    line-height: 1.7;
     text-align: left;
     color: #cbd5e1;
     overflow: hidden;
@@ -466,10 +466,10 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1.5px solid rgba(255, 255, 255, 0.06);
     border-radius: 20px;
-    padding: 18px 24px;
+    padding: 22px 28px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -487,19 +487,19 @@
 }
 
 .v46-compare-label {
-    font-size: 18px;
+    font-size: 21px;
     font-weight: 800;
     color: #fbbf24;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .v46-compare-label svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     flex-shrink: 0;
 }
 
@@ -510,19 +510,19 @@
 
 .v46-compare-cell {
     flex: 1;
-    padding: 14px 20px;
+    padding: 16px 24px;
     border-radius: 12px;
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     transition: all 0.3s ease;
 }
 
 .v46-compare-cell svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
 }
 

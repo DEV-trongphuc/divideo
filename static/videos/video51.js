@@ -110,24 +110,24 @@
                             </div>
                         </div>
                         <div class="v51-phone-screen">
-                            <div style="display:flex; justify-content:center; align-items:center; flex-direction:column; gap:6px; margin-top:15px; margin-bottom:20px;">
-                                <svg class="v51-spy-svg" style="width:44px; height:44px; color:var(--incog-purple);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <div style="display:flex; justify-content:center; align-items:center; flex-direction:column; gap:6px; margin-top:20px; margin-bottom:25px;">
+                                <svg class="v51-spy-svg" style="width:52px; height:52px; color:var(--incog-purple);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M2 10h20M12 2v8M6 10c0 3.31 2.69 6 6 6s6-2.69 6-6M3 10a9 9 0 0 1 18 0M10 16a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM14 16a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
                                 </svg>
-                                <span style="font-size:12px; font-weight:800; color:#fff; font-family:sans-serif;">Ẩn danh</span>
+                                <span style="font-size:14px; font-weight:800; color:#fff; font-family:sans-serif;">Ẩn danh</span>
                             </div>
-                            <div style="text-align:left; font-family:sans-serif; font-size:10px; color:var(--incog-text-muted); display:flex; flex-direction:column; gap:10px; padding:0 8px;">
-                                <span style="font-size:11px; color:#fff; font-weight:bold;">Trình duyệt sẽ không lưu:</span>
+                            <div style="text-align:left; font-family:sans-serif; font-size:11.5px; color:var(--incog-text-muted); display:flex; flex-direction:column; gap:12px; padding:0 10px;">
+                                <span style="font-size:12.5px; color:#fff; font-weight:bold;">Trình duyệt sẽ không lưu:</span>
                                 <div style="display:flex; align-items:center; gap:6px;">
-                                    <i data-lucide="check" style="width:11px; height:11px; color:var(--incog-purple); stroke-width:3;"></i>
+                                    <i data-lucide="check" style="width:13px; height:13px; color:var(--incog-purple); stroke-width:3;"></i>
                                     <span>Lịch sử duyệt web</span>
                                 </div>
                                 <div style="display:flex; align-items:center; gap:6px;">
-                                    <i data-lucide="check" style="width:11px; height:11px; color:var(--incog-purple); stroke-width:3;"></i>
+                                    <i data-lucide="check" style="width:13px; height:13px; color:var(--incog-purple); stroke-width:3;"></i>
                                     <span>Cookies phiên làm việc</span>
                                 </div>
                                 <div style="display:flex; align-items:center; gap:6px;">
-                                    <i data-lucide="check" style="width:11px; height:11px; color:var(--incog-purple); stroke-width:3;"></i>
+                                    <i data-lucide="check" style="width:13px; height:13px; color:var(--incog-purple); stroke-width:3;"></i>
                                     <span>Thông tin biểu mẫu đã nhập</span>
                                 </div>
                             </div>
@@ -143,15 +143,15 @@
         }
         else if (slideId === 'slide_incog_local') {
             canvas.innerHTML = sceneWrap(`
-                <div class="v51-scene-row" style="gap:70px; height: 180px; position:relative; align-items: center;">
+                <div class="v51-scene-row" style="gap:90px; height: 180px; position:relative; align-items: center;">
                     <!-- Laptop screen simulating browser -->
                     <div style="display:flex; flex-direction:column; align-items:center;">
                         <div class="v51-laptop-mock">
                             <div class="v51-laptop-screen">
                                 ${browserTabsHTML('Ẩn danh')}
                                 <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
-                                    <i data-lucide="eye-off" style="width:38px;height:38px;color:var(--incog-purple);"></i>
-                                    <span style="font-size:13px; color:var(--incog-text-muted); font-weight:500;">Tab ẩn danh đang mở</span>
+                                    <i data-lucide="eye-off" style="width:44px;height:44px;color:var(--incog-purple);"></i>
+                                    <span style="font-size:15px; color:var(--incog-text-muted); font-weight:500;">Tab ẩn danh đang mở</span>
                                 </div>
                             </div>
                         </div>
@@ -265,15 +265,15 @@
         }
         else if (slideId === 'slide_incog_server') {
             canvas.innerHTML = sceneWrap(`
-                <div class="v51-scene-row" style="gap:50px; height: 160px; position:relative;">
+                <div class="v51-scene-row" style="gap:65px; height: 160px; position:relative;">
                     <!-- User Browser specs -->
-                    <div class="v51-laptop-mock" style="width:220px; height:145px;">
+                    <div class="v51-laptop-mock" style="width:250px; height:165px;">
                         <div class="v51-laptop-screen">
                             <div class="v51-laser-scanner" id="v51-srv-laser"></div>
                             ${browserTabsHTML('Dịch vụ')}
                             <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; font-family:sans-serif;">
-                                <i data-lucide="user-check" style="width:24px;height:24px;color:var(--incog-cyan);"></i>
-                                <span style="font-size:10px; color:#fff; font-weight:bold;">Đang truy cập Web</span>
+                                <i data-lucide="user-check" style="width:28px;height:28px;color:var(--incog-cyan);"></i>
+                                <span style="font-size:11.5px; color:#fff; font-weight:bold;">Đang truy cập Web</span>
                             </div>
                         </div>
                     </div>
@@ -323,7 +323,7 @@
                     <div class="v51-vpn-tunnel"></div>
 
                     <!-- Secure packet -->
-                    <div class="v51-packet-dot encrypted" id="v51-sol-packet"><i data-lucide="lock" style="width:7px;height:7px;margin-right:2px;display:inline-block;vertical-align:middle;"></i>[AES]</div>
+                    <div class="v51-packet-dot encrypted" id="v51-sol-packet"><i data-lucide="lock" style="width:10px;height:10px;margin-right:3px;display:inline-block;vertical-align:middle;"></i>[AES]</div>
 
                     <!-- Secure Log monitor -->
                     <div class="v51-log-terminal" style="border-color:rgba(16,185,129,0.3);">
@@ -367,7 +367,7 @@
             if (chipHistory) {
                 if (pHist > 0 && pHist < 1) {
                     const archY = -Math.sin(pHist * Math.PI) * 45;
-                    chipHistory.style.transform = `translate(${pHist * 265}px, ${pHist * 50 + archY}px) scale(${1 - pHist * 0.4})`;
+                    chipHistory.style.transform = `translate(${pHist * 295}px, ${pHist * 50 + archY}px) scale(${1 - pHist * 0.4})`;
                     chipHistory.style.opacity = 1 - pHist * 0.5;
                 } else if (pHist >= 1) {
                     chipHistory.style.opacity = 0;
@@ -381,7 +381,7 @@
             if (chipCookies) {
                 if (pCook > 0 && pCook < 1) {
                     const archY = -Math.sin(pCook * Math.PI) * 45;
-                    chipCookies.style.transform = `translate(${pCook * 280}px, ${pCook * 5 + archY}px) scale(${1 - pCook * 0.4})`;
+                    chipCookies.style.transform = `translate(${pCook * 310}px, ${pCook * 5 + archY}px) scale(${1 - pCook * 0.4})`;
                     chipCookies.style.opacity = 1 - pCook * 0.5;
                 } else if (pCook >= 1) {
                     chipCookies.style.opacity = 0;
@@ -395,7 +395,7 @@
             if (chipAutofill) {
                 if (pAuto > 0 && pAuto < 1) {
                     const archY = -Math.sin(pAuto * Math.PI) * 45;
-                    chipAutofill.style.transform = `translate(${pAuto * 260}px, ${-pAuto * 40 + archY}px) scale(${1 - pAuto * 0.4})`;
+                    chipAutofill.style.transform = `translate(${pAuto * 290}px, ${-pAuto * 40 + archY}px) scale(${1 - pAuto * 0.4})`;
                     chipAutofill.style.opacity = 1 - pAuto * 0.5;
                 } else if (pAuto >= 1) {
                     chipAutofill.style.opacity = 0;

@@ -60,7 +60,7 @@
                         <div class="v46-intro-card rest v46-glass" id="s1-card-rest">
                             <div class="v46-intro-icon-wrapper">
                                 <div class="v46-intro-icon-glow"></div>
-                                <span class="icon-placeholder" style="font-size: 110px; line-height: 1;">🍔</span>
+                                <span class="icon-placeholder" style="font-size: 130px; line-height: 1;">🍔</span>
                             </div>
                             <h3>RESTful API</h3>
                             <p>Phục vụ trọn gói Combo cố định định sẵn từ Server.</p>
@@ -70,7 +70,7 @@
                         <div class="v46-intro-card graphql v46-glass" id="s1-card-graphql">
                             <div class="v46-intro-icon-wrapper">
                                 <div class="v46-intro-icon-glow"></div>
-                                <span class="icon-placeholder" style="font-size: 110px; line-height: 1;">🥗</span>
+                                <span class="icon-placeholder" style="font-size: 130px; line-height: 1;">🥗</span>
                             </div>
                             <h3>GraphQL</h3>
                             <p>Tự do lựa chọn nguyên liệu. Client quyết định cấu trúc.</p>
@@ -88,7 +88,7 @@
                             <div class="v46-bubble-speech" id="s2-speech">
                                 Tôi chỉ ăn Hamburger thôi!
                             </div>
-                            <div style="font-size: 13px; color: #94a3b8; font-weight: bold; margin-left: 10px;">
+                            <div style="font-size: 15px; color: #94a3b8; font-weight: bold; margin-left: 10px;">
                                 Client yêu cầu GET /burger
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                         <!-- Badge for Over-fetching -->
                         <div class="v46-overfetch-panel">
                             <div class="v46-badge-warning" id="s2-warning-badge" style="display:none;">OVER-FETCHING!</div>
-                            <div style="font-size:12px; color:#ef4444; font-weight:bold; display:none;" id="s2-waste-txt">
+                            <div style="font-size:14px; color:#ef4444; font-weight:bold; display:none;" id="s2-waste-txt">
                                 +120KB Dữ Liệu Dư Thừa Bị Vứt Bỏ
                             </div>
                         </div>
@@ -133,10 +133,10 @@
                     <div class="v46-buffet-scene-card">
                         <!-- Top: Shelf -->
                         <div class="v46-buffet-header">
-                            <div style="font-size: 13px; color: #10b981; font-weight: bold; font-family: monospace;">
+                            <div style="font-size: 15px; color: #10b981; font-weight: bold; font-family: monospace;">
                                 query { lettuce, tomato }
                             </div>
-                            <div style="font-size: 13px; color: #888;">
+                            <div style="font-size: 15px; color: #888;">
                                 Quầy nguyên liệu (Server Schema)
                             </div>
                         </div>
@@ -370,8 +370,8 @@
                 // Burger stays on tray. Fries and Coke slide and drop to trash bin.
                 // Trash bin is at right: 25px, bottom: 25px. Tray is in center.
                 // Translate values calculated relative to tray container
-                const yTranslate = t * 140; // drop down
-                const xTranslate = t * 80;  // slide right towards trash
+                const yTranslate = t * 155; // drop down
+                const xTranslate = t * 90;  // slide right towards trash
                 const opacityVal = 1 - (t * 0.7);
 
                 if (itemFries) {
@@ -379,7 +379,7 @@
                     itemFries.style.opacity = opacityVal;
                 }
                 if (itemCoke) {
-                    itemCoke.style.transform = `translate(${xTranslate - 30}px, ${yTranslate}px) scale(${1 - t*0.3})`;
+                    itemCoke.style.transform = `translate(${xTranslate - 40}px, ${yTranslate}px) scale(${1 - t*0.3})`;
                     itemCoke.style.opacity = opacityVal;
                 }
             }
@@ -433,14 +433,14 @@
                 if (fallLettuce) {
                     fallLettuce.style.opacity = '1';
                     const y = t * 140;
-                    const x = 200 + t * 40;
+                    const x = 180 + t * 50;
                     fallLettuce.style.left = `${x}px`;
                     fallLettuce.style.top = `${y}px`;
                 }
                 if (fallTomato) {
                     fallTomato.style.opacity = '1';
                     const y = t * 140;
-                    const x = 280 + t * 20;
+                    const x = 270 + t * 40;
                     fallTomato.style.left = `${x}px`;
                     fallTomato.style.top = `${y}px`;
                 }
@@ -457,12 +457,12 @@
                 // Keep them inside the bowl
                 if (fallLettuce) {
                     fallLettuce.style.opacity = '1';
-                    fallLettuce.style.left = '240px';
+                    fallLettuce.style.left = '230px';
                     fallLettuce.style.top = '140px';
                 }
                 if (fallTomato) {
                     fallTomato.style.opacity = '1';
-                    fallTomato.style.left = '300px';
+                    fallTomato.style.left = '310px';
                     fallTomato.style.top = '140px';
                 }
             }

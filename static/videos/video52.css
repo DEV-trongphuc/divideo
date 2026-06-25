@@ -1,0 +1,593 @@
+/* video52.css - Wi-Fi 2.4GHz vs 5GHz styling */
+
+:root {
+    --wifi-bg: #0a0d16;
+    --wifi-card-bg: rgba(15, 23, 42, 0.7);
+    --wifi-blue: #0ea5e9;
+    --wifi-purple: #a855f7;
+    --wifi-green: #10b981;
+    --wifi-red: #ef4444;
+    --wifi-text: #f3f4f6;
+    --wifi-text-muted: #94a3b8;
+}
+
+/* Base zoom container similar to video51 but tailored to video52 */
+.v52-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 8px;
+    zoom: 1.3;
+    overflow: visible;
+}
+
+.v52-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+}
+
+/* Centered fixed-width container to prevent scaling/layout squeezing */
+.v52-scene-row {
+    width: 640px;
+    height: 180px;
+    position: relative;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Glassmorphism card for status */
+.v52-glass-card {
+    background: var(--wifi-card-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.v52-glass-card.glow-blue {
+    border-color: rgba(14, 165, 233, 0.25);
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.15), inset 0 0 10px rgba(14, 165, 233, 0.05);
+}
+
+.v52-glass-card.glow-purple {
+    border-color: rgba(168, 85, 247, 0.25);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.15), inset 0 0 10px rgba(168, 85, 247, 0.05);
+}
+
+.v52-glass-card.glow-green {
+    border-color: rgba(16, 185, 129, 0.25);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.15), inset 0 0 10px rgba(16, 185, 129, 0.05);
+}
+
+.v52-glass-card.glow-gold {
+    border-color: rgba(245, 158, 11, 0.25);
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.15), inset 0 0 10px rgba(245, 158, 11, 0.05);
+}
+
+.v52-status-badge {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    background: transparent;
+}
+.v52-status-badge.blue { color: #38bdf8; }
+.v52-status-badge.purple { color: #c084fc; }
+.v52-status-badge.green { color: #34d399; }
+.v52-status-badge.red { color: #f87171; }
+.v52-status-badge.gold { color: #fbbf24; }
+
+.v52-glass-card span[id] {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* Slide 1 - Logo & Rings (Increased size for premium look) */
+.v52-logo-container {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.v52-logo-ring {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 2px dashed rgba(14, 165, 233, 0.5);
+    animation: v52-spin 30s linear infinite;
+    z-index: 5;
+}
+
+.v52-logo-ring.inner {
+    width: 280px;
+    height: 280px;
+    border: 1.5px dashed rgba(168, 85, 247, 0.4);
+    animation: v52-spin-rev 20s linear infinite;
+    z-index: 5;
+}
+
+.v52-logo-core {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, rgba(15, 23, 42, 0.95) 80%);
+    border: 3px solid var(--wifi-blue);
+    box-shadow: 0 0 35px rgba(14, 165, 233, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    animation: v52-float 4s ease-in-out infinite;
+    z-index: 10;
+}
+
+.v52-logo-core i, .v52-logo-core svg {
+    width: 95px !important;
+    height: 95px !important;
+    color: var(--wifi-blue) !important;
+    filter: drop-shadow(0 0 15px rgba(14, 165, 233, 0.7)) !important;
+    animation: v52-icon-glow 2s infinite alternate ease-in-out;
+}
+
+/* Radiating Wave Pulses */
+.v52-wave-pulse {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 3.5px solid var(--wifi-blue);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+}
+
+.v52-wave-pulse.pulse-1 {
+    animation: v52-wave-radiate 3s infinite linear;
+}
+
+.v52-wave-pulse.pulse-2 {
+    animation: v52-wave-radiate 3s infinite linear;
+    animation-delay: 1s;
+}
+
+.v52-wave-pulse.pulse-3 {
+    animation: v52-wave-radiate 3s infinite linear;
+    animation-delay: 2s;
+}
+
+@keyframes v52-icon-glow {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.6));
+    }
+    100% {
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.9));
+        color: var(--wifi-purple);
+    }
+}
+
+@keyframes v52-wave-radiate {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+        border-color: rgba(14, 165, 233, 0.6);
+        box-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+        border-color: rgba(168, 85, 247, 0);
+        box-shadow: 0 0 30px rgba(168, 85, 247, 0);
+    }
+}
+
+/* Wi-Fi Router Node (Increased size) */
+.v52-router-node {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 2px solid var(--wifi-blue);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.v52-router-node i, .v52-router-node svg {
+    width: 44px !important;
+    height: 44px !important;
+    color: var(--wifi-blue);
+}
+
+.v52-router-node.purple {
+    border-color: var(--wifi-purple);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
+}
+.v52-router-node.purple i, .v52-router-node.purple svg {
+    color: var(--wifi-purple);
+}
+
+/* Client Laptop Node (Increased size) */
+.v52-client-node {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--wifi-text-muted);
+    font-size: 12px;
+    font-weight: 800;
+    transition: all 0.3s;
+}
+
+.v52-client-node i, .v52-client-node svg {
+    width: 44px !important;
+    height: 44px !important;
+}
+
+.v52-client-node.connected-blue {
+    border-color: var(--wifi-blue);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+}
+.v52-client-node.connected-blue i, .v52-client-node.connected-blue svg {
+    color: var(--wifi-blue);
+}
+
+.v52-client-node.connected-purple {
+    border-color: var(--wifi-purple);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+.v52-client-node.connected-purple i, .v52-client-node.connected-purple svg {
+    color: var(--wifi-purple);
+}
+
+.v52-client-node.disconnected {
+    border-color: var(--wifi-red);
+    color: var(--wifi-red);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+.v52-client-node.disconnected i, .v52-client-node.disconnected svg {
+    color: var(--wifi-red);
+}
+
+/* Brick Wall Element (Increased size) */
+.v52-wall {
+    width: 30px;
+    height: 150px;
+    background: #5c221e;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 30px 12px;
+    border: 2px solid #7f1d1d;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    z-index: 5;
+}
+
+/* Moving Vehicles / Waves (Increased size) */
+.v52-vehicle {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+    opacity: 0;
+    pointer-events: none;
+}
+
+.v52-vehicle span:first-child {
+    transform: scaleX(-1);
+    display: inline-block;
+}
+
+.v52-vehicle span.label {
+    font-size: 12px;
+    font-weight: 800;
+    color: #fff;
+    margin-top: 6px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+/* Wave signals radiating */
+.v52-pulse-wave {
+    position: absolute;
+    left: 140px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 120px;
+    width: 2px;
+    border-radius: 50%;
+    border-right: 3px solid rgba(14, 165, 233, 0.4);
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+}
+
+.v52-pulse-wave.purple {
+    border-right-color: rgba(168, 85, 247, 0.45);
+}
+
+/* Collision Spark Effect */
+.v52-crash-spark {
+    position: absolute;
+    font-size: 50px;
+    z-index: 15;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.15s ease;
+}
+
+/* Alert/Success Badges on slides */
+.v52-badge {
+    position: absolute;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    display: none;
+    z-index: 20;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.v52-badge.blue {
+    background: rgba(14, 165, 233, 0.15);
+    border: 1px solid var(--wifi-blue);
+    color: #38bdf8;
+    left: 40px;
+    bottom: -15px;
+}
+
+.v52-badge.green {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--wifi-green);
+    color: #34d399;
+    right: 40px;
+    bottom: -15px;
+}
+
+.v52-badge.red {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid var(--wifi-red);
+    color: #f87171;
+    right: 40px;
+    bottom: -15px;
+}
+
+/* Slide 1b: Choice Nodes */
+.v52-choice-node {
+    width: 160px;
+    height: 185px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px;
+    box-sizing: border-box;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+}
+
+.v52-choice-node.blue {
+    border-color: rgba(14, 165, 233, 0.3);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.1);
+}
+
+.v52-choice-node.purple {
+    border-color: rgba(168, 85, 247, 0.3);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.1);
+}
+
+.v52-choice-node.active-blue {
+    border-color: var(--wifi-blue);
+    box-shadow: 0 0 30px rgba(14, 165, 233, 0.45);
+    transform: scale(1.08);
+}
+
+.v52-choice-node.active-purple {
+    border-color: var(--wifi-purple);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.45);
+    transform: scale(1.08);
+}
+
+.v52-choice-node .emoji {
+    font-size: 48px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+.v52-choice-node .freq {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.v52-choice-node .desc {
+    font-size: 11px;
+    color: var(--wifi-text-muted);
+    font-weight: 600;
+}
+
+/* VS Divider */
+.v52-vs-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 185px;
+}
+
+.v52-vs-line {
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.15), transparent);
+}
+
+.v52-vs-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(30, 41, 59, 0.95);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    color: var(--wifi-text-muted);
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Slide 4: Comparison Matrix Grid */
+.v52-compare-grid {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.v52-compare-col {
+    flex: 1;
+    border-radius: 20px;
+    border: 1.5px solid rgba(255,255,255,0.06);
+    background: rgba(10, 15, 30, 0.7);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: all 0.3s;
+}
+
+.v52-compare-col.active {
+    border-color: rgba(14, 165, 233, 0.35);
+    background: rgba(14, 165, 233, 0.05);
+    box-shadow: 0 10px 25px rgba(14, 165, 233, 0.1);
+}
+
+.v52-compare-col.active.purple {
+    border-color: rgba(168, 85, 247, 0.35);
+    background: rgba(168, 85, 247, 0.05);
+    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.1);
+}
+
+.v52-col-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 10px;
+}
+
+.v52-compare-col.active .v52-col-header.blue { color: #38bdf8; }
+.v52-compare-col.active.purple .v52-col-header.purple { color: #c084fc; }
+
+.v52-compare-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+.v52-compare-item span.label {
+    font-size: 11px;
+    color: var(--wifi-text-muted);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.v52-compare-item div.val {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.v52-compare-item div.val i.good, .v52-compare-item div.val svg.good { color: var(--wifi-green); }
+.v52-compare-item div.val i.bad, .v52-compare-item div.val svg.bad { color: var(--wifi-red); }
+
+/* Keyframes */
+@keyframes v52-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes v52-spin-rev {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes v52-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Override keywords panel height */
+.keywords-panel {
+    top: 230px !important;
+}

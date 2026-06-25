@@ -1,0 +1,634 @@
+/* video54.css - Google Maps Traffic Detection styling */
+
+:root {
+    --map-bg: #0b0f19;
+    --map-card-bg: rgba(15, 23, 42, 0.75);
+    --map-blue: #3b82f6;
+    --map-green: #10b981;
+    --map-orange: #f97316;
+    --map-red: #ef4444;
+    --map-yellow: #fbbf24;
+    --map-text: #f3f4f6;
+    --map-text-muted: #9ca3af;
+}
+
+/* Base zoom container */
+.v54-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 8px;
+    zoom: 1.3;
+    overflow: visible;
+}
+
+.v54-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+}
+
+/* Fixed-width row container to prevent resizing overlaps */
+.v54-scene-row {
+    width: 640px;
+    height: 220px;
+    position: relative;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Glassmorphism status card */
+.v54-glass-card {
+    background: var(--map-card-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.v54-glass-card.glow-blue {
+    border-color: rgba(59, 130, 246, 0.25);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.15), inset 0 0 10px rgba(59, 130, 246, 0.05);
+}
+
+.v54-glass-card.glow-red {
+    border-color: rgba(239, 68, 68, 0.25);
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.15), inset 0 0 10px rgba(239, 68, 68, 0.05);
+}
+
+.v54-glass-card.glow-green {
+    border-color: rgba(16, 185, 129, 0.25);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.15), inset 0 0 10px rgba(16, 185, 129, 0.05);
+}
+
+.v54-glass-card.glow-gold {
+    border-color: rgba(245, 158, 11, 0.25);
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.15), inset 0 0 10px rgba(245, 158, 11, 0.05);
+}
+
+.v54-status-badge {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    background: transparent;
+}
+.v54-status-badge.blue { color: #60a5fa; }
+.v54-status-badge.green { color: #34d399; }
+.v54-status-badge.red { color: #f87171; }
+.v54-status-badge.yellow { color: #fbbf24; }
+.v54-status-badge.gold { color: #f59e0b; }
+
+.v54-glass-card span[id] {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* Slide 1b - Map grid layout */
+.v54-map-grid {
+    position: absolute;
+    left: 40px;
+    top: 10px;
+    width: 320px;
+    height: 200px;
+    background: #0f172a;
+    border: 3px solid #334155;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+/* City Blocks */
+.v54-map-block {
+    position: absolute;
+    background: #1e293b;
+    border: 1px solid rgba(255,255,255,0.03);
+    border-radius: 8px;
+}
+.v54-map-block.b1 { left: 15px; top: 15px; width: 130px; height: 75px; }
+.v54-map-block.b2 { right: 15px; top: 15px; width: 130px; height: 75px; }
+.v54-map-block.b3 { left: 15px; bottom: 15px; width: 130px; height: 75px; }
+.v54-map-block.b4 { right: 15px; bottom: 15px; width: 130px; height: 75px; }
+
+/* Street lanes */
+.v54-street-lane {
+    position: absolute;
+    background: #334155;
+    transition: background-color 0.5s ease;
+}
+
+.v54-street-lane.horizontal {
+    left: 0;
+    right: 0;
+    top: 100px;
+    height: 20px;
+}
+
+.v54-street-lane.vertical {
+    top: 0;
+    bottom: 0;
+    left: 150px;
+    width: 20px;
+}
+
+/* Animated traffic dots/cars on streets */
+.v54-traffic-dot {
+    position: absolute;
+    font-size: 16px;
+    margin-top: -8px; /* offset center */
+    transition: transform 0.1s linear, left 0.1s linear, top 0.1s linear;
+}
+
+/* Satellite / Radar Pulsing icons */
+.v54-satellite-node {
+    position: absolute;
+    right: 60px;
+    top: 20px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--map-text-muted);
+}
+
+.v54-satellite-node i, .v54-satellite-node svg {
+    width: 54px !important;
+    height: 54px !important;
+    color: var(--map-blue);
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.6));
+    animation: v54-sat-float 4s ease-in-out infinite;
+}
+
+.v54-satellite-node span {
+    font-size: 13px;
+    font-weight: 800;
+    margin-top: 10px;
+    color: var(--map-text);
+}
+
+.v54-sat-wave {
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 2.5px solid var(--map-blue);
+    animation: v54-sat-pulse 2.5s infinite linear;
+    pointer-events: none;
+    opacity: 0;
+}
+
+@keyframes v54-sat-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes v54-sat-pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Slide 2 - Phone data transmission */
+.v54-phone-mockup {
+    position: absolute;
+    left: 40px;
+    top: 10px;
+    width: 180px;
+    height: 200px;
+    background: #0f172a;
+    border: 3.5px solid #334155;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Internal navigation map representation */
+.v54-phone-nav-screen {
+    position: absolute;
+    inset: 4px;
+    background: #111827;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.v54-phone-nav-screen::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #60a5fa;
+    box-shadow: 0 0 10px #60a5fa;
+    animation: v54-gps-marker 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes v54-gps-marker {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.4); opacity: 1; }
+}
+
+.v54-phone-gps {
+    font-size: 44px;
+    color: var(--map-blue);
+    animation: v54-phone-gps-pulse 2s infinite alternate ease-in-out;
+    z-index: 2;
+}
+
+@keyframes v54-phone-gps-pulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(59,130,246,0.3)); }
+    100% { transform: scale(1.15); filter: drop-shadow(0 0 15px rgba(59,130,246,0.8)); }
+}
+
+/* Radiating waves from phone */
+.v54-gps-wave {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2.5px solid var(--map-blue);
+    border-radius: 50%;
+    animation: v54-gps-radiate 3s infinite linear;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.v54-gps-wave.w2 { animation-delay: 1.5s; }
+
+@keyframes v54-gps-radiate {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(2.8); opacity: 0; }
+}
+
+/* Cloud database on Right */
+.v54-cloud-node {
+    position: absolute;
+    right: 40px;
+    top: 50px;
+    width: 140px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(30, 41, 59, 0.95);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(59,130,246,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.v54-cloud-node i, .v54-cloud-node svg {
+    width: 44px !important;
+    height: 44px !important;
+    color: var(--map-blue);
+    z-index: 2;
+}
+
+.v54-cloud-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--map-text);
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+/* Database cloud ripple updates */
+.v54-cloud-ripple {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.3);
+    opacity: 0;
+    z-index: 1;
+}
+
+.v54-cloud-ripple-active {
+    animation: v54-cloud-update 0.6s ease-out forwards;
+}
+
+@keyframes v54-cloud-update {
+    0% { transform: scale(0.5); opacity: 0.8; }
+    100% { transform: scale(3.5); opacity: 0; }
+}
+
+/* Flying Data Packets */
+.v54-data-packet {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #38bdf8;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #38bdf8;
+    pointer-events: none;
+}
+
+/* Slide 3 - Traffic Aggregation track */
+.v54-road-track {
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    width: 600px;
+    height: 140px;
+    background: #0f172a;
+    border: 3px solid #334155;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* Centered lane strip */
+.v54-road-lane {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 45px;
+    background: #1e293b;
+    border-top: 2px solid rgba(255,255,255,0.06);
+    border-bottom: 2px solid rgba(255,255,255,0.06);
+    transition: background-color 0.4s ease;
+    overflow: hidden;
+}
+
+.v54-road-lane.slow { background: rgba(249, 115, 22, 0.15); border-color: rgba(249, 115, 22, 0.3); }
+.v54-road-lane.jam { background: rgba(239, 68, 68, 0.18); border-color: rgba(239, 68, 68, 0.3); }
+
+/* Moving dashed dividers */
+.v54-road-divider-container {
+    position: absolute;
+    display: flex;
+    gap: 30px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1200px; /* repeat to look seamless */
+}
+
+.v54-road-divider {
+    width: 40px;
+    height: 3px;
+    background: rgba(255,255,255,0.15);
+}
+
+/* Moving vehicles inside lane */
+.v54-road-car {
+    position: absolute;
+    font-size: 36px;
+    top: 50%;
+    transform: translateY(-50%) scaleX(-1); /* Facing right */
+    display: inline-block;
+    transition: left 0.1s linear;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    z-index: 5;
+}
+
+/* Exhaust smoke */
+.v54-exhaust-smoke {
+    position: absolute;
+    font-size: 20px;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease;
+    z-index: 4;
+}
+
+.v54-exhaust-active {
+    animation: v54-smoke-puff 1.2s infinite ease-out;
+}
+
+@keyframes v54-smoke-puff {
+    0% { transform: translate(-35px, -10px) scale(0.4); opacity: 0.8; }
+    50% { transform: translate(-55px, -20px) scale(1.1); opacity: 0.4; }
+    100% { transform: translate(-75px, -25px) scale(1.4); opacity: 0; }
+}
+
+/* Speedometer/Indicator display */
+.v54-speed-badge {
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 2.5px solid var(--map-green);
+    color: var(--map-green);
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 900;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.v54-speed-badge.slow {
+    border-color: var(--map-orange);
+    color: var(--map-orange);
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.2);
+}
+
+.v54-speed-badge.jam {
+    border-color: var(--map-red);
+    color: var(--map-red);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.25);
+    animation: v54-badge-alarm 0.5s infinite alternate ease-in-out;
+}
+
+@keyframes v54-badge-alarm {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(239, 68, 68, 0.2); }
+    100% { transform: scale(1.05); box-shadow: 0 0 25px rgba(239, 68, 68, 0.6); }
+}
+
+/* Slide 4 - Simon Weckert's handcart experiment */
+.v54-cart-container {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.1s linear;
+}
+
+/* Cart body */
+.v54-cart-body {
+    font-size: 46px;
+    position: relative;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+    transform: scaleX(-1); /* Facing right */
+    display: inline-block;
+}
+
+/* Stacked phones in cart */
+.v54-cart-phones {
+    position: absolute;
+    top: -15px;
+    left: 8px;
+    font-size: 15px;
+    letter-spacing: -2px;
+    display: flex;
+    gap: 1px;
+}
+
+.v54-cart-label {
+    font-size: 10px;
+    font-weight: 800;
+    color: #fff;
+    background: rgba(15,23,42,0.95);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 2px 6px;
+    border-radius: 6px;
+    white-space: nowrap;
+    margin-top: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Warning alert */
+.v54-cart-alert {
+    position: absolute;
+    top: -45px;
+    font-size: 24px;
+    animation: v54-alert-bounce 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes v54-alert-bounce {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-6px) scale(1.15); }
+}
+
+/* Street segment coloration behind the cart */
+.v54-street-color-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 24px;
+    background: var(--map-green);
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.v54-street-color-track-red {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 24px;
+    background: var(--map-red);
+    box-shadow: 0 0 15px rgba(239,68,68,0.4);
+    border-radius: 12px 0 0 12px;
+    width: 0;
+}
+
+/* Side street for approaching car */
+.v54-side-lane {
+    position: absolute;
+    width: 24px;
+    height: 80px;
+    background: var(--map-green);
+    left: 450px;
+    top: 0px;
+    border-radius: 12px 12px 0 0;
+    transition: background-color 0.4s ease;
+}
+
+.v54-turning-car {
+    position: absolute;
+    font-size: 32px;
+    left: 443px;
+    top: -40px;
+    z-index: 12;
+    transition: all 0.15s linear;
+}
+
+/* Vector map styles for Slide 1_b (similar to Video 19) */
+.v54-map-river {
+    fill: none;
+    stroke: rgba(24, 119, 242, 0.15); /* Soft blue river */
+    stroke-width: 20px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.85;
+}
+
+.v54-map-park {
+    fill: rgba(16, 185, 129, 0.08); /* Forest green park */
+    stroke: rgba(16, 185, 129, 0.18);
+    stroke-width: 1px;
+}
+
+.v54-map-grid-street {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.04); /* Thin background street network */
+    stroke-width: 2px;
+}
+
+.v54-map-secondary-street {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.08); /* Background roads */
+    stroke-width: 4px;
+    stroke-linecap: round;
+}
+
+/* Red Cancel/Ban Cross overlay */
+.v54-cancel-cross {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.v54-cancel-active {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.85));
+}
+
