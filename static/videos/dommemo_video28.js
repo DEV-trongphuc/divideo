@@ -226,7 +226,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo28-5-container">
                         <div class="takeaway-radar-v28"></div>
-                        <div class="takeaway-box-v28" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v28" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v28">🔊</div>
                             <div class="takeaway-text-v28">
                                 "Tóm lại, giữa cả trăm âm thanh xáo trộn, bộ não của bạn vẫn đang âm thầm lắng nghe và tìm kiếm thứ quan trọng nhất: chính là bạn!"

@@ -199,7 +199,7 @@
                         <div class="takeaway-radar-v26"></div>
 
                         <!-- Reassurance takeaway box -->
-                        <div class="takeaway-box-v26" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v26" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v26">😴</div>
                             <div class="takeaway-text-v26">
                                 "Đừng bao giờ tranh cãi hay trả lời email quan trọng khi đang thiếu ngủ. Đi ngủ sớm và để bộ não nghỉ ngơi sẽ giải quyết 90% cơn giận nhé!"

@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo38-5-container">
                         <div class="takeaway-radar-v38"></div>
-                        <div class="takeaway-box-v38" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v38" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v38">🔋</div>
                             <div class="takeaway-text-v38">
                                 "Có những lúc thứ cần sửa chữa không phải là cuộc trò chuyện, mà chỉ là giấc ngủ của bạn. Hãy tắt máy đi ngủ sớm nhé!"

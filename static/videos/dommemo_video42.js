@@ -214,7 +214,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo42-5-container">
                         <div class="takeaway-radar-v42"></div>
-                        <div class="takeaway-box-v42" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v42" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v42">😮</div>
                             <div class="takeaway-text-v42">
                                 "Nhìn nhầm ổ điện là cái giá vô cùng nhỏ để tổ tiên chúng ta sống sót và truyền lại bộ não nhạy bén này cho bạn!"

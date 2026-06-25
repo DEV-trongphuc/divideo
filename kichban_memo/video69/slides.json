@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo69_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
+    "primaryColor": "#eab308",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Hiệu ứng Chiến thắng",
+      "subtitle": "VÌ SAO CHIẾN THẮNG LẦN ĐẦU LÀM TĂNG CƠ HỘI CHIẾN THẮNG LẦN SAU?",
+      "script": "Tại sao các võ sĩ hoặc game thủ thường được xếp đấu với các đối thủ yếu trước để lấy đà? Liệu chiến thắng có phải là một thói quen sinh học?"
+    }
+  },
+  {
+    "slideId": "slide_memo69_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
+    "primaryColor": "#eab308",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "WINNER EFFECT",
+      "script": "Hiện tượng này gọi là Hiệu ứng Người chiến thắng. Khi thắng cuộc, não bộ giải phóng lượng lớn dopamine và testosterone, định hình lại cấu trúc thần kinh tự tin hơn."
+    }
+  },
+  {
+    "slideId": "slide_memo69_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
+    "primaryColor": "#eab308",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Sau khi vượt qua thử thách nhỏ đầu tiên, ngọn lửa testosterone bùng cháy, nâng tỷ lệ chiến thắng trong thử thách tiếp theo từ 50% lên 90%."
+    }
+  },
+  {
+    "slideId": "slide_memo69_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
+    "primaryColor": "#eab308",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Thất bại liên tục làm tăng cortisol gây sợ hãi, e dè. Chiến thắng liên tiếp tích lũy sự chủ động, áp chế tinh thần đối thủ."
+    }
+  },
+  {
+    "slideId": "slide_memo69_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
+    "primaryColor": "#eab308",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Để chinh phục mục tiêu lớn, hãy bắt đầu bằng việc tích lũy những chiến thắng nhỏ mỗi ngày. Hormon chiến thắng sẽ đưa bạn đi xa!"
+    }
+  },
+  {
+    "slideId": "slide_memo69_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #eab3081f 0%, #05070bf2 100%)",
+    "primaryColor": "#eab308",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#10b981",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

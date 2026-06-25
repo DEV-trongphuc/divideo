@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo59-5-container">
                         <div class="takeaway-radar-v59"></div>
-                        <div class="takeaway-box-v59" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v59" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v59">🎮</div>
                             <div class="takeaway-text-v59">
                                 "Hãy tỉnh táo trước các thông báo và tính năng vô tận trên điện thoại. Hãy chủ động giành lại quyền kiểm soát dopamine của chính bạn!"

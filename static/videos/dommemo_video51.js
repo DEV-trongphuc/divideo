@@ -214,7 +214,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo51-5-container">
                         <div class="takeaway-radar-v51"></div>
-                        <div class="takeaway-box-v51" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v51" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v51">🔍</div>
                             <div class="takeaway-text-v51">
                                 "Sự thật là tần suất của vật thể không hề tăng lên. Chỉ là bộ não của bạn đang bắt đầu chú ý đến nó nhiều hơn mà thôi!"

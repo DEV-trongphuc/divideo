@@ -203,7 +203,7 @@
                         <div class="takeaway-radar-v22"></div>
 
                         <!-- Reassurance takeaway box -->
-                        <div class="takeaway-box-v22" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v22" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v22">🧘‍♀️</div>
                             <div class="takeaway-text-v22">
                                 "Khi bạn thấy khó chịu với tiếng quạt trần hay đồng hồ, đó là hồi chuông báo động não cần nghỉ ngơi. Hãy nhắm mắt và thở sâu năm phút nhé!"

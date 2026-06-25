@@ -212,7 +212,7 @@
                         <div class="takeaway-radar-v20"></div>
 
                         <!-- Reassurance takeaway box -->
-                        <div class="takeaway-box-v20" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v20" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v20">🍬</div>
                             <div class="takeaway-text-v20">
                                 "Cách tốt nhất để thoát khỏi sâu tai: hãy nhai một phong kẹo cao su hoặc nghe trọn vẹn nốt bài nhạc đó để đóng vòng lặp nhận thức nhé!"

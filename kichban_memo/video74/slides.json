@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo74_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#a855f7",
+    "isCustom": true,
+    "data": {
+      "title": "Hiệu ứng Khán giả",
+      "subtitle": "VÌ SAO CÓ NGƯỜI NHÌN LẠI KHIẾN BẠN LÀM NHANH HƠN HOẶC VỤNG VỀ ĐI?",
+      "script": "Khi bạn gõ bàn phím một mình thì cực nhanh, nhưng chỉ cần sếp đứng sau lưng nhìn, bạn lập tức gõ sai liên tục. Tại sao vậy?"
+    }
+  },
+  {
+    "slideId": "slide_memo74_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#a855f7",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "AUDIENCE EFFECT",
+      "script": "Đó là Hiệu ứng Khán giả. Sự hiện diện của người khác làm tăng mức độ hưng phấn sinh lý, thúc đẩy việc thực hiện các tác vụ quen thuộc nhưng cản trở tác vụ khó."
+    }
+  },
+  {
+    "slideId": "slide_memo74_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#a855f7",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Khi có ánh mắt quan sát rọi xuống, tốc độ xử lý việc đơn giản vọt lên 150%, nhưng chỉ số căng thẳng cũng leo thang nhanh chóng."
+    }
+  },
+  {
+    "slideId": "slide_memo74_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#a855f7",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Làm việc một mình giữ tâm lý ổn định, cân bằng. Làm việc dưới sự giám sát đẩy cao năng suất nhưng dễ phát sinh lỗi kỹ thuật."
+    }
+  },
+  {
+    "slideId": "slide_memo74_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#a855f7",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Hãy tập trung vào chính nhiệm vụ thay vì ánh mắt của người khác. Hãy xem khán giả chỉ là những người ủng hộ bạn!"
+    }
+  },
+  {
+    "slideId": "slide_memo74_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#a855f7",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo71_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#ec4899",
+    "isCustom": true,
+    "data": {
+      "title": "Ảo giác Minh bạch",
+      "subtitle": "VÌ SAO BẠN LUÔN NGHĨ NGƯỜI KHÁC THẤY RÕ SỰ LO LẮNG CỦA MÌNH?",
+      "script": "Đứng thuyết trình trước đám đông, bạn cảm giác như mọi người đều nghe thấy tiếng tim đập và nhìn thấu sự hoảng loạn bên trong. Thực sự có vậy?"
+    }
+  },
+  {
+    "slideId": "slide_memo71_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#ec4899",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "ILLUSION OF TRANSPARENCY",
+      "script": "Đó gọi là Ảo giác Minh bạch. Con người thường đánh giá quá cao mức độ mà người khác có thể đọc được trạng thái cảm xúc cá nhân của mình."
+    }
+  },
+  {
+    "slideId": "slide_memo71_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#ec4899",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Dù bên trong cơ thể bạn lo lắng vỡ òa, mồ hôi rơi rớt, nhưng trong mắt người đối diện, bạn trông vẫn cực kỳ bình thản và ổn định."
+    }
+  },
+  {
+    "slideId": "slide_memo71_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#ec4899",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Cảm giác cá nhân tự thấy mình lộ liễu 90%. Thực tế, người quan sát chỉ phát hiện chưa tới 5% dấu hiệu lo lắng."
+    }
+  },
+  {
+    "slideId": "slide_memo71_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#ec4899",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Mọi người không hề nhìn thấu tâm can của bạn đâu. Hãy hít một hơi thật sâu, tự tin bước lên và nói lời của bạn!"
+    }
+  },
+  {
+    "slideId": "slide_memo71_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#ec4899",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

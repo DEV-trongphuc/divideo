@@ -214,7 +214,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo35-5-container">
                         <div class="takeaway-radar-v35"></div>
-                        <div class="takeaway-box-v35" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v35" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v35">⌨️</div>
                             <div class="takeaway-text-v35">
                                 "Không phải bạn ngốc, mà là bộ não đang ưu tiên sử dụng đường mòn thói quen cũ để tiết kiệm calo tối đa!"

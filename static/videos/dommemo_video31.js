@@ -209,7 +209,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo31-5-container">
                         <div class="takeaway-radar-v31"></div>
-                        <div class="takeaway-box-v31" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v31" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v31">🤔</div>
                             <div class="takeaway-text-v31">
                                 "Bộ não đôi khi có thể biến những điều quen thuộc nhất trở nên xa lạ để duy trì tính chọn lọc của thông tin nhận thức!"

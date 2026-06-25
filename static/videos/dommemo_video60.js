@@ -212,7 +212,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo60-5-container">
                         <div class="takeaway-radar-v60"></div>
-                        <div class="takeaway-box-v60" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v60" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v60">🔥</div>
                             <div class="takeaway-text-v60">
                                 "Sự thật là nước ấm không đổi, chỉ có thang đo trong đầu bạn bị xô lệch. Đừng vội đánh giá một việc khi tâm trí bạn chưa cân bằng!"

@@ -200,7 +200,7 @@
                         <div class="takeaway-radar-v23"></div>
 
                         <!-- Reassurance takeaway box -->
-                        <div class="takeaway-box-v23" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v23" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v23">💡</div>
                             <div class="takeaway-text-v23">
                                 "Đừng cố căng mắt nhìn đối phương khi chưa nhớ ra. Hãy nhắm mắt một giây, nghĩ về không gian làm việc hoặc quán cafe quen, não bạn sẽ có câu trả lời!"

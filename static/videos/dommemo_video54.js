@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo54-5-container">
                         <div class="takeaway-radar-v54"></div>
-                        <div class="takeaway-box-v54" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v54" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v54">🚪</div>
                             <div class="takeaway-text-v54">
                                 "Hãy tỉnh táo trước những lời nhờ vả hạ cấp. Bạn không cần cảm thấy tội lỗi khi từ chối cả hai yêu cầu nếu chúng không hợp lý!"

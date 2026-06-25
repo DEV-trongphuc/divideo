@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo85_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": true,
+    "data": {
+      "title": "Ảo giác Gom nhóm",
+      "subtitle": "VÌ SAO BẠN LUÔN THẤY CÁC QUY LUẬT TRONG NHỮNG SỰ KIỆN NGẪU NHIÊN?",
+      "script": "Tung đồng xu 5 lần ra mặt ngửa liên tiếp, bạn tin chắc lần thứ 6 phải ra mặt sấp. Bộ não của bạn đang vẽ ra quy luật từ sự ngẫu nhiên?"
+    }
+  },
+  {
+    "slideId": "slide_memo85_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "CLUSTERING ILLUSION",
+      "script": "Đó gọi là Ảo giác Gom nhóm. Bộ não con người tiến hóa để tìm kiếm các khuôn mẫu, dẫn đến việc tự động kết nối các dữ liệu ngẫu nhiên thành quy luật."
+    }
+  },
+  {
+    "slideId": "slide_memo85_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Giữa các điểm chấm ngẫu nhiên vô nghĩa, bộ não lập tức vẽ ra các đường liên kết để cố giải nghĩa một hình thù cụ thể."
+    }
+  },
+  {
+    "slideId": "slide_memo85_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Nhìn nhận lý trí chấp nhận sự ngẫu nhiên và độc lập của sự kiện. Nhận thức cảm tính cố tìm điềm báo và quy luật vô căn cứ."
+    }
+  },
+  {
+    "slideId": "slide_memo85_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Không phải sự trùng hợp nào cũng mang thông điệp vũ trụ. Hãy học cách chấp nhận sự ngẫu nhiên để đưa ra các quyết định sáng suốt hơn!"
+    }
+  },
+  {
+    "slideId": "slide_memo85_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

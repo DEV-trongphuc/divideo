@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo97_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Vòng lặp Dopamine",
+      "subtitle": "VÌ SAO CUỘC CHIẾN THU HÚT SỰ CHÚ Ý ĐANG TÀN PHÁ NÃO BỘ CỦA BẠN?",
+      "script": "Tại sao bạn lại liên tục vuốt màn hình điện thoại vô thức để tìm kiếm các thông báo hay video ngắn tiếp theo? Bạn đang bị điều khiển?"
+    }
+  },
+  {
+    "slideId": "slide_memo97_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "DOPAMINE LOOP",
+      "script": "Đó chính là Vòng lặp Dopamine vô tận. Mạng xã hội sử dụng thuật toán phần thưởng biến thiên để liên tục kích hoạt dopamine, giữ chân bạn online."
+    }
+  },
+  {
+    "slideId": "slide_memo97_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Mỗi lượt vuốt màn hình tạo ra một đỉnh dopamine ngắn hạn, nhưng đổi lại, năng lượng tập trung sâu của bạn bị rút cạn nhanh chóng."
+    }
+  },
+  {
+    "slideId": "slide_memo97_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Tập trung sâu mang lại sự thỏa mãn bền vững, lâu dài. Lướt mạng liên tục tạo sự thỏa mãn ngắn hạn, gây nghiện và mệt mỏi."
+    }
+  },
+  {
+    "slideId": "slide_memo97_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Hãy thiết lập giới hạn thời gian sử dụng điện thoại và dành thời gian cho các hoạt động thực tế. Hãy giành lại quyền làm chủ bộ não của bạn!"
+    }
+  },
+  {
+    "slideId": "slide_memo97_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

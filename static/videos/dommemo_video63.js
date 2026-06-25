@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo63-5-container">
                         <div class="takeaway-radar-v63"></div>
-                        <div class="takeaway-box-v63" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v63" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v63">🎨</div>
                             <div class="takeaway-text-v63">
                                 "Sự xung đột nhận thức chứng minh rằng việc tự động hóa ngôn ngữ của bộ não mạnh mẽ hơn chúng ta tưởng rất nhiều!"

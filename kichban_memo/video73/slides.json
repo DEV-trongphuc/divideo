@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo73_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#eab308",
+    "isCustom": true,
+    "data": {
+      "title": "Bẫy Chi phí Chìm",
+      "subtitle": "VÌ SAO BẠN KHÔNG THỂ BỎ MỘT BỘ PHIM DỞ HOẶC MỘT DỰ ÁN THẤT BẠI?",
+      "script": "Bạn mua một vé xem phim dở tệ nhưng vẫn cố ngồi xem hết vì 'tiếc tiền vé'. Bạn nghĩ mình đang tiết kiệm, hay đang lãng phí thêm thời gian?"
+    }
+  },
+  {
+    "slideId": "slide_memo73_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#eab308",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "SUNK COST FALLACY",
+      "script": "Đó chính là Bẫy Chi phí Chìm. Chúng ta đưa ra quyết định dựa trên số tiền hoặc công sức đã mất trong quá khứ, thay vì tính đến lợi ích tương lai."
+    }
+  },
+  {
+    "slideId": "slide_memo73_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#eab308",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Nỗ lực ném thêm tiền vào chiếc bình nứt không giúp hàn gắn chiếc bình, mà chỉ làm tổn thất tích lũy tăng thêm liên tục."
+    }
+  },
+  {
+    "slideId": "slide_memo73_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#eab308",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Quyết định lý trí là cắt lỗ ngay lập tức để bảo toàn tài nguyên. Quyết định cảm tính là cố đấm ăn xôi và chịu lỗ nặng hơn."
+    }
+  },
+  {
+    "slideId": "slide_memo73_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#eab308",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Chi phí đã mất là không thể lấy lại. Đừng lãng phí tương lai chỉ để cố công bù đắp cho những sai lầm đã qua!"
+    }
+  },
+  {
+    "slideId": "slide_memo73_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#eab308",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

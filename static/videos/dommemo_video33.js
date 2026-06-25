@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo33-5-container">
                         <div class="takeaway-radar-v33"></div>
-                        <div class="takeaway-box-v33" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v33" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v33">🍔</div>
                             <div class="takeaway-text-v33">
                                 "Không phải đầu bếp nấu ngon hơn, mà là bộ não của bạn đang kích hoạt cơ chế sinh tồn tối thượng: tìm thức ăn ngay lập tức!"

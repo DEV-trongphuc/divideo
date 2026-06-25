@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo87_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Bù trừ Đạo đức",
+      "subtitle": "VÌ SAO LÀM VIỆC TỐT LẠI KHIẾN BẠN DỄ DÃI HƠN VỚI HÀNH VI XẤU?",
+      "script": "Vừa hoàn thành buổi tập thể dục mệt nhoài, bạn liền tự thưởng cho mình một cốc trà sữa đầy trân châu. Tại sao làm việc tốt lại cấp phép cho việc xấu?"
+    }
+  },
+  {
+    "slideId": "slide_memo87_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "MORAL LICENSING",
+      "script": "Đó chính là Cơ chế Bù trừ Đạo đức. Khi làm một việc tốt, bộ não tích lũy điểm cộng đạo đức, làm giảm cảm giác tội lỗi khi thực hiện hành vi buông thả sau đó."
+    }
+  },
+  {
+    "slideId": "slide_memo87_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Khi đĩa cân làm việc tốt (hiến máu, dọn nhà) nặng ký, nó cấp giấy phép vô hình cho bạn ăn uống vô độ mà không hề cảm thấy cắn rứt."
+    }
+  },
+  {
+    "slideId": "slide_memo87_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Người kỷ luật kiên định với mục tiêu dài hạn. Người bù trừ đạo đức liên tục tự thỏa hiệp, triệt tiêu mọi kết quả tích cực đã đạt được."
+    }
+  },
+  {
+    "slideId": "slide_memo87_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Hãy tỉnh táo trước những phần thưởng tự trao. Đừng để một hành động tích cực nhỏ làm cái cớ phá hỏng kế hoạch dài hạn của bạn!"
+    }
+  },
+  {
+    "slideId": "slide_memo87_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

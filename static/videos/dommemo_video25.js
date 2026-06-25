@@ -211,7 +211,7 @@
                         <div class="takeaway-radar-v25"></div>
 
                         <!-- Reassurance takeaway box -->
-                        <div class="takeaway-box-v25" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v25" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v25">📝</div>
                             <div class="takeaway-text-v25">
                                 "Lần tới trước khi ngủ, hãy dành 2 phút viết Todo-list cho ngày mai. Hành động này thuyết phục não rằng kế hoạch đã sẵn sàng và tắt các cảnh báo dở dang!"

@@ -219,7 +219,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo46-5-container">
                         <div class="takeaway-radar-v46"></div>
-                        <div class="takeaway-box-v46" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v46" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v46">⚓</div>
                             <div class="takeaway-text-v46">
                                 "Hãy cẩn thận với những bảng giá gốc đắt đỏ. Đó chỉ là những chiếc neo tinh vi được thả xuống để khóa chặt ví tiền của bạn!"

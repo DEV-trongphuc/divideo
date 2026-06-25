@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo55-5-container">
                         <div class="takeaway-radar-v55"></div>
-                        <div class="takeaway-box-v55" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v55" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v55">🖼️</div>
                             <div class="takeaway-text-v55">
                                 "Hãy bóc tách lớp vỏ ngôn ngữ để nhìn vào bản chất con số. Đừng để những chiếc khung từ ngữ định đoạt lựa chọn của bạn!"

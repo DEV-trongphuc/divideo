@@ -222,7 +222,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo29-5-container">
                         <div class="takeaway-radar-v29"></div>
-                        <div class="takeaway-box-v29" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v29" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v29">💦</div>
                             <div class="takeaway-text-v29">
                                 "Không phải bạn hết buồn ngủ, chỉ là não bộ vừa nhận một tín hiệu đánh thức nhẹ. Hãy dùng nước lạnh để khởi động lại sự tập trung khi cần thiết!"

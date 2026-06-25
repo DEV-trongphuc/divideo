@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo95_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
+    "primaryColor": "#fbbf24",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Ảo giác Tự tin",
+      "subtitle": "VÌ SAO CHÚNG TA THƯỜNG ĐÁNH GIÁ QUÁ CAO NĂNG LỰC ĐÁNH GIÁ CỦA MÌNH?",
+      "script": "Tại sao hầu hết mọi người đều tin rằng mình lái xe giỏi hơn mức trung bình? Liệu sự tự tin có đang vượt quá năng lực thực tế?"
+    }
+  },
+  {
+    "slideId": "slide_memo95_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
+    "primaryColor": "#fbbf24",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "OVERCONFIDENCE EFFECT",
+      "script": "Đó gọi là Ảo giác Tự tin Thái quá. Chúng ta thường đánh giá độ chính xác của các phán đoán cá nhân cao hơn nhiều so với kết quả thực tế."
+    }
+  },
+  {
+    "slideId": "slide_memo95_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
+    "primaryColor": "#fbbf24",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Thước đo ước tính độ chính xác tự tin vọt lên 90%, trong khi kết quả kiểm tra thực tế chỉ đạt mức trung bình 40%."
+    }
+  },
+  {
+    "slideId": "slide_memo95_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
+    "primaryColor": "#fbbf24",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Tự tin thái quá tạo quyết định liều lĩnh, thiếu cơ sở. Tự tin điềm tĩnh dựa trên số liệu và kiểm chứng khách quan."
+    }
+  },
+  {
+    "slideId": "slide_memo95_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
+    "primaryColor": "#fbbf24",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Hãy luôn khiêm tốn học hỏi và sẵn sàng kiểm chứng lại các quyết định của mình. Sự cẩn trọng chính là tấm khiên bảo vệ bạn!"
+    }
+  },
+  {
+    "slideId": "slide_memo95_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #fbbf241f 0%, #05070bf2 100%)",
+    "primaryColor": "#fbbf24",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#3b82f6",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

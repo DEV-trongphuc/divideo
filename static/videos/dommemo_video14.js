@@ -229,7 +229,7 @@
                         <div class="calming-radar-v14"></div>
                         
                         <!-- Reassurance advice container -->
-                        <div class="reassurance-box-v14" style="transform: scale(0.9); opacity: 0; margin-top: 180px;">
+                        <div class="reassurance-box-v14" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="reassurance-face-v14">🧠</div>
                             <div class="reassurance-text-v14">
                                 "Não bộ lấp đầy thông tin thiếu để bảo vệ bạn khỏi sự hỗn loạn. Hãy tỉnh táo trước những gì bạn cho là hiển nhiên nhé!"
@@ -246,7 +246,7 @@
                         <div class="calming-radar-v14"></div>
                         
                         <!-- CTA follow banner -->
-                        <div class="outro-cta-banner-v14" style="margin-top: 180px; text-align: center; z-index: 2;">
+                        <div class="outro-cta-banner-v14" style="margin-top: 0px; text-align: center; z-index: 2;">
                             <div class="outro-cta-logo-v14">DOM MEMO</div>
                             <p style="font-size: 19px; color: rgba(255,255,255,0.75); font-weight: 600; margin-bottom: 25px;">
                                 Hiểu tâm lý học • Làm chủ cuộc sống

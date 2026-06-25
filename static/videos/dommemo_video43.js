@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo43-5-container">
                         <div class="takeaway-radar-v43"></div>
-                        <div class="takeaway-box-v43" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v43" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v43">👂</div>
                             <div class="takeaway-text-v43">
                                 "Lần tới nếu thấy câu nói của ai đó kỳ lạ hoặc gây hấn, hãy hỏi lại cho kỹ. Bạn đang nghe bằng dự đoán của não chứ không chỉ bằng tai đâu!"

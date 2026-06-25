@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo77_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#f59e0b",
+    "isCustom": true,
+    "data": {
+      "title": "Thiên kiến Sinh tồn",
+      "subtitle": "VÌ SAO VIỆC CHỈ NHÌN VÀO TẤM GƯƠNG THÀNH CÔNG DỄ KHIẾN BẠN THẤT BẠI?",
+      "script": "Bạn nghe câu chuyện Bill Gates bỏ học thành tỷ phú và tin rằng bỏ học là công thức thành công. Bạn có quên mất hàng triệu người bỏ học thất bại?"
+    }
+  },
+  {
+    "slideId": "slide_memo77_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#f59e0b",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "SURVIVORSHIP BIAS",
+      "script": "Đó chính là Thiên kiến Sinh tồn. Chúng ta chỉ tập trung vào những trường hợp thành công nổi bật mà vô tình bỏ qua nhóm thất bại thầm lặng khổng lồ."
+    }
+  },
+  {
+    "slideId": "slide_memo77_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#f59e0b",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Gia cố áo giáp cho máy bay ở những nơi có vết đạn là sai lầm, vì những chiếc bị bắn trúng động cơ đã rơi mất và không thể trở về để báo cáo."
+    }
+  },
+  {
+    "slideId": "slide_memo77_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#f59e0b",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Nhìn nhận phiến diện dẫn đến các quyết định đầu tư sai lầm. Nhìn nhận toàn diện giúp phát hiện các điểm yếu cốt tử thực tế."
+    }
+  },
+  {
+    "slideId": "slide_memo77_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#f59e0b",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Muốn thành công, đừng chỉ học từ người thắng cuộc. Hãy nghiên cứu kỹ bài học từ những người đã thất bại để tránh đi vào vết xe đổ!"
+    }
+  },
+  {
+    "slideId": "slide_memo77_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#f59e0b",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

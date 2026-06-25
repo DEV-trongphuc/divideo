@@ -234,7 +234,7 @@
                         <div class="calming-radar-v15"></div>
                         
                         <!-- Reassurance box -->
-                        <div class="reassurance-box-v15" style="transform: scale(0.9); opacity: 0; margin-top: 180px;">
+                        <div class="reassurance-box-v15" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="reassurance-face-v15">🔑</div>
                             <div class="reassurance-text-v15">
                                 "Lần tới khi khóa cửa, hãy đọc to 'Tôi đang khóa cửa' hoặc gõ nhẹ vào ổ khóa để neo giữ ký ức vật lý thật nhé!"

@@ -215,7 +215,7 @@
                         <div class="takeaway-radar-v17"></div>
 
                         <!-- Reassurance takeaway box -->
-                        <div class="takeaway-box-v17" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v17" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v17">👂</div>
                             <div class="takeaway-text-v17">
                                 "Đôi khi não tự động đoán sai từ bị mất dẫn đến hiểu lầm ý người khác. Hãy lắng nghe chủ động và hỏi lại nếu chưa rõ nhé!"

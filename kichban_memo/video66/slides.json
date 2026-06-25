@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo66_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #8b5cf61f 0%, #05070bf2 100%)",
+    "primaryColor": "#8b5cf6",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#ef4444",
+    "isCustom": true,
+    "data": {
+      "title": "Hiệu ứng Golem",
+      "subtitle": "KỲ VỌNG TIÊU CỰC TRIỆT TIÊU HIỆU SUẤT CỦA BẠN NHƯ THẾ NÀO?",
+      "script": "Nếu ai đó liên tục nghi ngờ và tin rằng bạn sẽ thất bại, bạn có xu hướng thực sự sa sút hiệu suất. Tại sao bóng tối tâm lý này lại linh nghiệm?"
+    }
+  },
+  {
+    "slideId": "slide_memo66_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #8b5cf61f 0%, #05070bf2 100%)",
+    "primaryColor": "#8b5cf6",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#ef4444",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "GOLEM EFFECT",
+      "script": "Hiện tượng này gọi là Hiệu ứng Golem. Kỳ vọng tiêu cực của người quản lý vô tình làm giảm động lực, tạo ra sự tự ti và dẫn đến thất bại thực tế."
+    }
+  },
+  {
+    "slideId": "slide_memo66_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #8b5cf61f 0%, #05070bf2 100%)",
+    "primaryColor": "#8b5cf6",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#ef4444",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Khi gánh chịu những lời nghi ngờ và chỉ trích, hạt mầm nỗ lực bị đè nặng, héo úa dần dưới những đám mây đen áp lực."
+    }
+  },
+  {
+    "slideId": "slide_memo66_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #8b5cf61f 0%, #05070bf2 100%)",
+    "primaryColor": "#8b5cf6",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#ef4444",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Sự tin tưởng nuôi dưỡng tinh thần cống hiến. Kỳ vọng kém cỏi giết chết nỗ lực, kéo chìm sự phát triển của cá nhân."
+    }
+  },
+  {
+    "slideId": "slide_memo66_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #8b5cf61f 0%, #05070bf2 100%)",
+    "primaryColor": "#8b5cf6",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#ef4444",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Hãy tránh xa những kỳ vọng độc hại và lời bàn tán tiêu cực. Bạn xứng đáng được phát triển trong một môi trường tin tưởng!"
+    }
+  },
+  {
+    "slideId": "slide_memo66_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #8b5cf61f 0%, #05070bf2 100%)",
+    "primaryColor": "#8b5cf6",
+    "secondaryColor": "#6b7280",
+    "neutralColor": "#ef4444",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

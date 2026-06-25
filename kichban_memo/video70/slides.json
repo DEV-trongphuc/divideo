@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo70_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Hiệu ứng IKEA",
+      "subtitle": "VÌ SAO ĐỒ TỰ TAY BẠN LẮP RÁP LẠI CÓ VẺ ĐẮT GIÁ HƠN?",
+      "script": "Bạn tự tay ráp chiếc kệ gỗ ọp ẹp và thấy nó đẹp hơn cả đồ mua sẵn đắt tiền. Tại sao bộ não lại thiên vị sản phẩm do chính mình làm ra?"
+    }
+  },
+  {
+    "slideId": "slide_memo70_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "IKEA EFFECT",
+      "script": "Đó chính là Hiệu ứng IKEA. Chúng ta vô thức gán giá trị cao bất thường cho những vật dụng mà bản thân đã bỏ công sức và thời gian để hoàn thành."
+    }
+  },
+  {
+    "slideId": "slide_memo70_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Khi các mảnh ghép rời rạc được lắp ráp hoàn chỉnh thành chiếc hộp gỗ, giá trị chủ quan của nó vọt lên gấp 10 lần trong tâm trí bạn."
+    }
+  },
+  {
+    "slideId": "slide_memo70_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Đồ mua sẵn hoàn hảo nhưng thiếu sự gắn kết cảm xúc. Đồ tự lắp dù lỗi nhẹ vẫn mang lại niềm tự hào cực lớn."
+    }
+  },
+  {
+    "slideId": "slide_memo70_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Hãy ứng dụng hiệu ứng này vào học tập và công việc. Tự tay hoàn thiện dự án sẽ giúp bạn yêu thích và trân trọng kết quả hơn!"
+    }
+  },
+  {
+    "slideId": "slide_memo70_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

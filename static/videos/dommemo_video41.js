@@ -213,7 +213,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo41-5-container">
                         <div class="takeaway-radar-v41"></div>
-                        <div class="takeaway-box-v41" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v41" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v41">🗺️</div>
                             <div class="takeaway-text-v41">
                                 "Nếu bạn bị vấp chân khi kê lại đồ đạc, đừng tự trách. Chỉ là định vị GPS trong đầu bạn đang tải lại bản đồ mới mà thôi!"

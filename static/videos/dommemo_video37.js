@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo37-5-container">
                         <div class="takeaway-radar-v37"></div>
-                        <div class="takeaway-box-v37" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v37" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v37">⏰</div>
                             <div class="takeaway-text-v37">
                                 "Hãy duy trì giờ ngủ ổn định. Việc tự thức giấc là dấu hiệu cho thấy bạn đang sở hữu một đồng hồ sinh học vô cùng khỏe mạnh!"

@@ -219,7 +219,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo44-5-container">
                         <div class="takeaway-radar-v44"></div>
-                        <div class="takeaway-box-v44" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v44" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v44">🌀</div>
                             <div class="takeaway-text-v44">
                                 "Không có gì huyền bí, Déjà Vu chỉ là một cú vấp nhẹ của hệ thống đồng bộ hóa hình ảnh trong não bộ của bạn mà thôi!"

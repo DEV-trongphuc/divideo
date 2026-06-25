@@ -198,7 +198,7 @@
                         <div class="takeaway-radar-v24"></div>
 
                         <!-- Reassurance takeaway box -->
-                        <div class="takeaway-box-v24" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v24" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v24">🌱</div>
                             <div class="takeaway-text-v24">
                                 "Đừng vội từ bỏ những bài học mới, người bạn mới hay món ăn mới. Hãy cho não bộ cơ hội tiếp xúc đủ lâu để làm quen và yêu thích chúng nhé!"

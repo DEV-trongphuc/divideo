@@ -213,7 +213,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo45-5-container">
                         <div class="takeaway-radar-v45"></div>
-                        <div class="takeaway-box-v45" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v45" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v45">🌱</div>
                             <div class="takeaway-text-v45">
                                 "Hãy tin tưởng và trao đi những kỳ vọng tốt đẹp. Bạn đang trực tiếp gieo hạt mầm thành công vào tương lai của những người xung quanh!"

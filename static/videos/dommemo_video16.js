@@ -238,7 +238,7 @@
                         <div class="takeaway-radar-v16"></div>
                         
                         <!-- Reassurance/Takeaway box -->
-                        <div class="takeaway-box-v16" style="transform: scale(0.9); opacity: 0; margin-top: 180px;">
+                        <div class="takeaway-box-v16" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v16">⏱️</div>
                             <div class="takeaway-text-v16">
                                 "Lần tới trước khi mua sắm ngẫu hứng hay phản ứng giận dữ, hãy dừng lại 3 giây để ý thức có cơ hội dẫn dắt hành động thay vì thói quen vô thức!"

@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo100_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Đồng bộ Bán cầu",
+      "subtitle": "BÍ QUYẾT KÍCH HOẠT TRẠNG THÁI TẬP TRUNG ĐỈNH CAO CỦA CẢ HAI BÁN CẦU NÃO",
+      "script": "Bạn muốn vừa sáng tạo bay bổng, vừa tư duy logic sắc bén cùng một lúc? Làm thế nào để hai bán cầu não trái và phải đồng bộ hoạt động?"
+    }
+  },
+  {
+    "slideId": "slide_memo100_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "HEMISPHERE SYNC",
+      "script": "Đó chính là Trạng thái Đồng bộ Bán cầu Não. Khi các sóng não trái và phải đồng bộ tần số, bạn sẽ bước vào trạng thái dòng chảy tập trung tối đa."
+    }
+  },
+  {
+    "slideId": "slide_memo100_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Hai bán cầu não trái (logic) và phải (sáng tạo) phát ra các sóng lệch pha, khi đồng bộ tần số sẽ hợp nhất tạo ra vầng hào quang phát sáng rực rỡ."
+    }
+  },
+  {
+    "slideId": "slide_memo100_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Não hoạt động lệch pha gây căng thẳng, tư duy rời rạc. Não đồng bộ đồng pha mang lại sự sáng tạo bùng nổ và hiệu suất làm việc vượt trội."
+    }
+  },
+  {
+    "slideId": "slide_memo100_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Hãy rèn luyện sự đồng bộ bằng cách thiền định, nghe âm thanh tần số kép (binaural beats) và phối hợp cả phân tích logic lẫn liên tưởng sáng tạo!"
+    }
+  },
+  {
+    "slideId": "slide_memo100_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#fbbf24",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

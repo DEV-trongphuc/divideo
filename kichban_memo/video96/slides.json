@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo96_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": true,
+    "data": {
+      "title": "Hiệu quả Bản thân",
+      "subtitle": "VÌ SAO NIỀM TIN VÀO PHƯƠNG PHÁP QUYẾT ĐỊNH THÀNH CÔNG THỰC TẾ?",
+      "script": "Tại sao hai người có cùng năng lực nhưng lại đạt kết quả hoàn toàn khác nhau? Niềm tin vào khả năng hành động có thực sự kiến tạo kết quả?"
+    }
+  },
+  {
+    "slideId": "slide_memo96_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "SELF-EFFICACY",
+      "script": "Đó gọi là Hiệu ứng Hiệu quả Bản thân. Niềm tin vững chắc vào việc mình có thể hoàn thành nhiệm vụ trực tiếp thúc đẩy sự kiên trì và nỗ lực."
+    }
+  },
+  {
+    "slideId": "slide_memo96_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Khi kim niềm tin bản thân được kéo lên mức tối đa, khả năng vượt qua nghịch cảnh và đạt mục tiêu vọt lên 95%."
+    }
+  },
+  {
+    "slideId": "slide_memo96_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Thiếu niềm tin dẫn đến việc bỏ cuộc sớm khi gặp khó khăn. Tin tưởng năng lực bản thân tạo động lực tìm kiếm giải pháp vượt khó."
+    }
+  },
+  {
+    "slideId": "slide_memo96_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Hãy bắt đầu bằng việc tin tưởng vào khả năng học hỏi của chính mình. Bạn mạnh mẽ và kiên cường hơn những gì bạn nghĩ!"
+    }
+  },
+  {
+    "slideId": "slide_memo96_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #10b9811f 0%, #05070bf2 100%)",
+    "primaryColor": "#10b981",
+    "secondaryColor": "#fbbf24",
+    "neutralColor": "#6366f1",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

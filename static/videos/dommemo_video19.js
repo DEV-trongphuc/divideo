@@ -212,7 +212,7 @@
                         <div class="takeaway-radar-v19"></div>
 
                         <!-- Reassurance takeaway box -->
-                        <div class="takeaway-box-v19" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v19" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v19">🧘</div>
                             <div class="takeaway-text-v19">
                                 "Đừng để những mác giá hàng hiệu che lấp cảm xúc thuần túy của bạn. Hãy thưởng thức một cách tỉnh thức để nhận định đúng giá trị thực!"

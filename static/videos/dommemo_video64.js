@@ -213,7 +213,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo64-5-container">
                         <div class="takeaway-radar-v64"></div>
-                        <div class="takeaway-box-v64" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v64" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v64">🙋</div>
                             <div class="takeaway-text-v64">
                                 "Muốn biến một đối thủ thành đồng minh? Hãy khéo léo nhờ họ giúp đỡ một việc nhỏ nhé!"

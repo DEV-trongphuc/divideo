@@ -205,7 +205,7 @@
                         <div class="takeaway-radar-v18"></div>
 
                         <!-- Reassurance takeaway box -->
-                        <div class="takeaway-box-v18" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v18" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v18">🤩</div>
                             <div class="takeaway-text-v18">
                                 "Saccadic Suppression chính là bộ chống rung cơ học tối tân. Nếu không có nó, mỗi cái liếc mắt của bạn sẽ là một cơn say sóng điên cuồng!"

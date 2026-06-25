@@ -219,7 +219,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo30-5-container">
                         <div class="takeaway-radar-v30"></div>
-                        <div class="takeaway-box-v30" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v30" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v30">🔦</div>
                             <div class="takeaway-text-v30">
                                 "Đừng quá căng thẳng vì những lỗi lầm nhỏ nhặt. Không ai soi bạn kỹ đến thế đâu, vì ai cũng bận soi chính mình!"

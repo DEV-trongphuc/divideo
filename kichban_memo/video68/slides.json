@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo68_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f43f5e",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Hiệu ứng Đà điểu",
+      "subtitle": "TẠI SAO CHÚNG TA TRÁNH NÉ THÔNG TIN TIÊU CỰC NHƯ ĐÀ ĐIỂU CHÔN ĐẦU?",
+      "script": "Tài khoản ngân hàng hết sạch tiền hoặc điểm thi kém, bạn chọn cách không thèm mở ứng dụng ra xem. Bạn nghĩ trốn tránh sẽ giúp mọi thứ biến mất?"
+    }
+  },
+  {
+    "slideId": "slide_memo68_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f43f5e",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "OSTRICH EFFECT",
+      "script": "Đó là Hiệu ứng Đà điểu. Con người có xu hướng từ chối tiếp nhận thông tin tiêu cực hoặc đe dọa, tựa như đà điểu chôn đầu xuống cát để tự an ủi."
+    }
+  },
+  {
+    "slideId": "slide_memo68_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f43f5e",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Khi thị trường lao dốc, chú đà điểu lập tức chôn sâu đầu xuống cát, tạm thời tắt đi cảnh báo đỏ nhưng thực tế tài sản vẫn tiếp tục suy giảm."
+    }
+  },
+  {
+    "slideId": "slide_memo68_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f43f5e",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Người đối mặt chủ động xử lý rủi ro kịp thời. Người tránh né có cảm giác an toàn giả tạo nhưng gánh chịu tổn thất lớn hơn về sau."
+    }
+  },
+  {
+    "slideId": "slide_memo68_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f43f5e",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Thông tin xấu không biến mất chỉ vì bạn nhắm mắt lại. Hãy dũng cảm nhìn thẳng vào sự thật để tìm ra giải pháp xử lý sớm nhất!"
+    }
+  },
+  {
+    "slideId": "slide_memo68_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #f43f5e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f43f5e",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#10b981",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

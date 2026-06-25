@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo34-5-container">
                         <div class="takeaway-radar-v34"></div>
-                        <div class="takeaway-box-v34" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v34" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v34">👁️</div>
                             <div class="takeaway-text-v34">
                                 "Bộ não của bạn liên tục phán đoán và tự vẽ ra thực tế chứ không chỉ tiếp nhận thông tin thụ động từ đôi mắt!"

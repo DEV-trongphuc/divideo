@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo79_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#f59e0b",
+    "isCustom": true,
+    "data": {
+      "title": "Ảo giác Độc bản",
+      "subtitle": "VÌ SAO BẠN LUÔN NGHĨ ĐIỂM TỐT CỦA MÌNH LÀ ĐỘC NHẤT VÔ NHỊ?",
+      "script": "Bạn tự hào mình là người hiếm hoi biết tiết kiệm điện hoặc chăm chỉ đọc sách trong công ty. Liệu bạn có thực sự độc bản như bạn nghĩ?"
+    }
+  },
+  {
+    "slideId": "slide_memo79_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#f59e0b",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "FALSE UNIQUENESS EFFECT",
+      "script": "Đó chính là Ảo giác Độc bản. Chúng ta thường đánh giá quá cao mức độ độc đáo của các khả năng, phẩm chất tốt đẹp của bản thân so với số đông."
+    }
+  },
+  {
+    "slideId": "slide_memo79_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#f59e0b",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Khi so sánh bản thân với nhóm đối chiếu rộng lớn hơn, chỉ số độc nhất của bạn sụt giảm từ 90% xuống mức trung bình 25%."
+    }
+  },
+  {
+    "slideId": "slide_memo79_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#f59e0b",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Ảo tưởng độc bản mang lại sự tự tin ngắn hạn nhưng gây kiêu ngạo. Nhìn nhận khiêm tốn giúp hòa nhập và học hỏi tiến bộ."
+    }
+  },
+  {
+    "slideId": "slide_memo79_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#f59e0b",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Sự tự tin là tốt, nhưng sự khiêm tốn sẽ giúp bạn nhìn nhận bản thân khách quan hơn để không ngừng học hỏi và phát triển!"
+    }
+  },
+  {
+    "slideId": "slide_memo79_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ec48991f 0%, #05070bf2 100%)",
+    "primaryColor": "#ec4899",
+    "secondaryColor": "#3b82f6",
+    "neutralColor": "#f59e0b",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

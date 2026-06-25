@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo94_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#f43f5e",
+    "neutralColor": "#eab308",
+    "isCustom": true,
+    "data": {
+      "title": "Hội chứng Giả mạo",
+      "subtitle": "VÌ SAO BẠN THÀNH CÔNG NHƯNG LUÔN LO SỢ MÌNH LÀ KẺ LỪA ĐẢO?",
+      "script": "Bạn đạt kết quả cao hoặc được thăng chức, nhưng thầm nghĩ: 'Chỉ là do may mắn thôi, mình không giỏi thế'. Tại sao bạn lại phủ nhận chính mình?"
+    }
+  },
+  {
+    "slideId": "slide_memo94_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#f43f5e",
+    "neutralColor": "#eab308",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "IMPOSTOR SYNDROME",
+      "script": "Đó gọi là Hội chứng Kẻ giả mạo. Người mắc hội chứng này luôn nghi ngờ năng lực bản thân, lo sợ người khác sẽ phát hiện ra mình là kẻ lừa dối."
+    }
+  },
+  {
+    "slideId": "slide_memo94_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#f43f5e",
+    "neutralColor": "#eab308",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Dù xung quanh đầy cúp vàng và lời khen, chỉ số tự tin bên trong vẫn chạm đáy, tạo ra ảo ảnh chiếc mặt nạ che giấu năng lực."
+    }
+  },
+  {
+    "slideId": "slide_memo94_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#f43f5e",
+    "neutralColor": "#eab308",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Đánh giá khách quan ghi nhận nỗ lực và kết quả thực tế. Hội chứng giả mạo bóp méo thành tựu thành sự may mắn ngẫu nhiên."
+    }
+  },
+  {
+    "slideId": "slide_memo94_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#f43f5e",
+    "neutralColor": "#eab308",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Thành công của bạn là kết quả của nỗ lực thực tế. Hãy dũng cảm cởi bỏ mặt nạ nghi ngờ và tự hào về những gì bạn đã cống hiến!"
+    }
+  },
+  {
+    "slideId": "slide_memo94_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #a855f71f 0%, #05070bf2 100%)",
+    "primaryColor": "#a855f7",
+    "secondaryColor": "#f43f5e",
+    "neutralColor": "#eab308",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

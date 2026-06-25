@@ -225,7 +225,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo27-5-container">
                         <div class="takeaway-radar-v27"></div>
-                        <div class="takeaway-box-v27" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v27" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v27">🪶</div>
                             <div class="takeaway-text-v27">
                                 "Tóm lại, bộ não không phải không cảm nhận được ngón tay bạn, nó chỉ biết rất rõ thủ phạm... chính là bạn!"

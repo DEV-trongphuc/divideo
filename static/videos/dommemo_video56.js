@@ -210,7 +210,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo56-5-container">
                         <div class="takeaway-radar-v56"></div>
-                        <div class="takeaway-box-v56" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v56" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v56">🔮</div>
                             <div class="takeaway-text-v56">
                                 "Hãy nhớ rằng những lời tiên tri chung chung có thể đúng với bất kỳ ai. Đừng để những mô tả mơ hồ vẽ nên cuộc đời bạn!"

@@ -220,7 +220,7 @@
                         <div class="takeaway-radar-v21"></div>
 
                         <!-- Reassurance takeaway box -->
-                        <div class="takeaway-box-v21" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v21" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v21">🎁</div>
                             <div class="takeaway-text-v21">
                                 "Điểm neo cảm xúc ở phút cuối cực kỳ mạnh mẽ. Hãy tặng một món quà nhỏ hoặc nở nụ cười trước khi chia tay để tạo một kết thúc trọn vẹn nhé!"

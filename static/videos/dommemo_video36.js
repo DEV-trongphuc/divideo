@@ -212,7 +212,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo36-5-container">
                         <div class="takeaway-radar-v36"></div>
-                        <div class="takeaway-box-v36" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v36" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v36">👅</div>
                             <div class="takeaway-text-v36">
                                 "Khi quên tên ai đó, hãy tạm thời nghĩ sang chuyện khác. Bộ não sẽ tự động tìm thấy và trả kết quả khi bạn thoải mái nhất!"

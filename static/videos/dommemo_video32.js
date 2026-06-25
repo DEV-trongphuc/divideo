@@ -218,7 +218,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo32-5-container">
                         <div class="takeaway-radar-v32"></div>
-                        <div class="takeaway-box-v32" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v32" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v32">🎵</div>
                             <div class="takeaway-text-v32">
                                 "Lời ca có thể phai nhạt theo năm tháng, nhưng giai điệu cũ vẫn giữ nguyên vẹn cảm xúc của lần đầu tiên bạn nghe thấy nó!"

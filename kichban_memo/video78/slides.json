@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo78_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#22c55e",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Hiệu ứng Google",
+      "subtitle": "VÌ SAO ĐIỆN THOẠI THÔNG MINH ĐANG DẦN LÀM SUY GIẢM TRÍ NHỚ CỦA BẠN?",
+      "script": "Bạn dễ dàng quên đi số điện thoại của người thân hoặc một kiến thức vừa đọc, vì nghĩ rằng chỉ cần gõ Google là ra ngay. Não bạn đang lười đi?"
+    }
+  },
+  {
+    "slideId": "slide_memo78_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#22c55e",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "GOOGLE EFFECT",
+      "script": "Hiện tượng này gọi là Hiệu ứng Google. Bộ não có xu hướng quên đi những thông tin mà nó tin là có thể dễ dàng tra cứu trực tuyến bất cứ lúc nào."
+    }
+  },
+  {
+    "slideId": "slide_memo78_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#22c55e",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Khi hệ thống tìm kiếm trực tuyến được bật, chỉ số lưu trữ dài hạn của não lập tức sụt giảm từ 80% xuống còn 20%."
+    }
+  },
+  {
+    "slideId": "slide_memo78_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#22c55e",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Trí nhớ tự nhiên giúp liên kết tư duy sâu sắc, nhanh chóng. Trí nhớ kỹ thuật số tạo sự phụ thuộc và hạn chế sự hiểu biết bản chất."
+    }
+  },
+  {
+    "slideId": "slide_memo78_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#22c55e",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Đừng quá lạm dụng các công cụ tìm kiếm. Hãy chủ động ghi nhớ và tư duy sâu để xây dựng một bộ não nhạy bén và độc lập!"
+    }
+  },
+  {
+    "slideId": "slide_memo78_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #22c55e1f 0%, #05070bf2 100%)",
+    "primaryColor": "#22c55e",
+    "secondaryColor": "#a855f7",
+    "neutralColor": "#3b82f6",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

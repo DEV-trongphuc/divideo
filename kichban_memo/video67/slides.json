@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo67_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#ec4899",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Hiệu ứng Spotlight",
+      "subtitle": "VÌ SAO BẠN LUÔN NGHĨ AI CŨNG ĐANG CHĂM CHĂM NHÌN VÀO MÌNH?",
+      "script": "Bạn đi ngoài đường và lỡ mặc ngược áo, liền cảm thấy như hàng trăm ánh mắt đang đổ dồn vào mình. Có thật sự như vậy không?"
+    }
+  },
+  {
+    "slideId": "slide_memo67_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#ec4899",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "SPOTLIGHT EFFECT",
+      "script": "Đó chính là Hiệu ứng Tiêu điểm. Bộ não tự động lấy bản thân làm trung tâm vũ trụ, phóng đại mức độ chú ý mà người khác dành cho mình lên gấp nhiều lần."
+    }
+  },
+  {
+    "slideId": "slide_memo67_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#ec4899",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Khi ánh đèn spotlight rọi thẳng vào đầu bạn, chỉ số lo âu vọt lên đỉnh điểm, dù xung quanh mọi người đang bận nhìn vào chiếc điện thoại của họ."
+    }
+  },
+  {
+    "slideId": "slide_memo67_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#ec4899",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Người lo âu tin rằng 90% đám đông đang soi xét mình. Thực tế, chưa đầy 10% nhận ra sự hiện diện của bạn."
+    }
+  },
+  {
+    "slideId": "slide_memo67_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#ec4899",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Mọi người đều quá bận rộn lo lắng về chính họ để chú ý đến lỗi nhỏ của bạn. Hãy tự tin thả lỏng và tận hưởng cuộc sống!"
+    }
+  },
+  {
+    "slideId": "slide_memo67_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #f59e0b1f 0%, #05070bf2 100%)",
+    "primaryColor": "#f59e0b",
+    "secondaryColor": "#ec4899",
+    "neutralColor": "#3b82f6",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

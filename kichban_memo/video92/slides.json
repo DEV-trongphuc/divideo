@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo92_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Ảo giác Khả thi",
+      "subtitle": "VÌ SAO CHÚNG TA LUÔN ĐÁNH GIÁ THẤP THỜI GIAN HOÀN THÀNH MỘT DỰ ÁN?",
+      "script": "Bạn lập kế hoạch dọn nhà trong 2 tiếng nhưng thực tế lại mất cả ngày trời. Tại sao chúng ta luôn là những kẻ dự báo thời gian tồi tệ nhất?"
+    }
+  },
+  {
+    "slideId": "slide_memo92_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "PLANNING FALLACY",
+      "script": "Đó chính là Ảo giác Khả thi. Con người có xu hướng lạc quan quá mức khi lập kế hoạch, bỏ qua lịch sử chậm trễ và các biến số bất ngờ."
+    }
+  },
+  {
+    "slideId": "slide_memo92_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Bạn kỳ vọng tiến độ hoàn thành trong 2 ngày, nhưng thực tế thanh thời gian liên tục kéo dài và chạm mốc 10 ngày đầy trễ nải."
+    }
+  },
+  {
+    "slideId": "slide_memo92_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Dự kiến lý thuyết trơn tru, không có sự cố. Thực tế triển khai luôn đi kèm các sự cố phát sinh ngoài tầm kiểm soát."
+    }
+  },
+  {
+    "slideId": "slide_memo92_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#3b82f6",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Khi lập kế hoạch, hãy cộng thêm 50% thời gian dự phòng. Nhìn nhận thực tế sẽ giúp bạn làm chủ thời gian và giảm bớt căng thẳng!"
+    }
+  },
+  {
+    "slideId": "slide_memo92_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #ef44441f 0%, #05070bf2 100%)",
+    "primaryColor": "#ef4444",
+    "secondaryColor": "#10b981",
+    "neutralColor": "#3b82f6",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "slideId": "slide_memo65_1",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Hiệu ứng Pratfall",
+      "subtitle": "VÌ SAO MẮC LỖI NHỎ LẠI GIÚP BẠN ĐÁNG YÊU HƠN?",
+      "script": "Bạn luôn muốn tỏ ra hoàn hảo trước mặt mọi người. Nhưng sự thật là, một lỗi lầm vụng về nhỏ lại giúp bạn kéo mọi người xích lại gần hơn."
+    }
+  },
+  {
+    "slideId": "slide_memo65_2",
+    "layout": "diagram",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Cơ Chế Hoạt Động",
+      "subtitle": "PRATFALL EFFECT",
+      "script": "Hiện tượng này gọi là Hiệu ứng Pratfall. Người tài giỏi thỉnh thoảng phạm một lỗi nhỏ sẽ trở nên gần gũi, thực tế và đáng mến hơn trong mắt người khác."
+    }
+  },
+  {
+    "slideId": "slide_memo65_3",
+    "layout": "metrics",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Trình Mô Phỏng",
+      "subtitle": "KIỂM CHỨNG TRỰC QUAN",
+      "script": "Mô phỏng: Khi tách cà phê đổ xuống, sự hoàn hảo biến mất nhưng mức độ yêu mến trong lòng người quan sát lập tức tăng vọt nhờ cảm giác chân thật."
+    }
+  },
+  {
+    "slideId": "slide_memo65_4",
+    "layout": "cards",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "So Sánh Thực Tế",
+      "subtitle": "ĐỐI CHIẾU HÀNH VI",
+      "script": "So sánh: Người hoàn hảo tuyệt đối tạo khoảng cách và áp lực. Người tài năng nhưng vụng về tạo sự đồng cảm và kết nối ấm áp."
+    }
+  },
+  {
+    "slideId": "slide_memo65_5",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": true,
+    "data": {
+      "title": "Lời Khuyên Tỉnh Thức",
+      "subtitle": "BÀI HỌC CUỘC SỐNG",
+      "script": "Đừng sợ mắc những lỗi nhỏ trước mặt người khác. Sự chân thật và một chút vụng về chính là chất keo kết nối mạnh mẽ nhất!"
+    }
+  },
+  {
+    "slideId": "slide_memo65_6",
+    "layout": "title",
+    "bgGradient": "linear-gradient(135deg, #3b82f61f 0%, #05070bf2 100%)",
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#ef4444",
+    "neutralColor": "#fbbf24",
+    "isCustom": false,
+    "data": {
+      "title": "Khám phá cùng DOM Memo",
+      "subtitle": "LIKE VÀ FOLLOW ĐỂ KHÔNG BỎ LỠ KIẾN THỨC MỚI",
+      "script": "Cảm ơn các bạn đã theo dõi hành trình hôm nay cùng DOM Memo. Hãy chia sẻ cảm nghĩ của bạn bên dưới bình luận nhé!"
+    }
+  }
+]

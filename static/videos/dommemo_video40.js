@@ -213,7 +213,7 @@
                 canvas.innerHTML = `
                     <div class="memo-wrapper slide-memo40-5-container">
                         <div class="takeaway-radar-v40"></div>
-                        <div class="takeaway-box-v40" style="transform: scale(0.9); opacity: 0; margin-top: 160px;">
+                        <div class="takeaway-box-v40" style="transform: scale(0.9); opacity: 0; margin-top: 0px;">
                             <div class="takeaway-face-v40">🖼️</div>
                             <div class="takeaway-text-v40">
                                 "Bạn không hề nói dối, chỉ là bộ não đang hoạt động như một nhà viết kịch tài ba, liên tục chỉnh sửa quá khứ để phù hợp với hiện tại!"
