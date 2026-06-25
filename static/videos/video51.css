@@ -1,0 +1,446 @@
+/* video51.css - Incognito Mode styling */
+
+:root {
+    --incog-bg: #0b0f19;
+    --incog-card-bg: rgba(17, 24, 39, 0.6);
+    --incog-purple: #a855f7;
+    --incog-cyan: #06b6d4;
+    --incog-red: #ef4444;
+    --incog-green: #10b981;
+    --incog-text-main: #f3f4f6;
+    --incog-text-muted: #9ca3af;
+}
+
+/* Scene layout containers */
+.v51-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 8px;
+    zoom: 1.5;
+    overflow: visible;
+}
+
+.v51-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.v51-scene-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    width: 100%;
+}
+
+/* Glassmorphism Cards */
+.v51-glass-card {
+    background: var(--incog-card-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-sizing: border-box;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.v51-glass-card.glow-purple {
+    border-color: rgba(168, 85, 247, 0.25);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.15), inset 0 0 10px rgba(168, 85, 247, 0.05);
+}
+
+.v51-glass-card.glow-cyan {
+    border-color: rgba(6, 182, 212, 0.25);
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.15), inset 0 0 10px rgba(6, 182, 212, 0.05);
+}
+
+.v51-glass-card.glow-red {
+    border-color: rgba(239, 68, 68, 0.25);
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.15), inset 0 0 10px rgba(239, 68, 68, 0.05);
+}
+
+.v51-glass-card.glow-green {
+    border-color: rgba(16, 185, 129, 0.25);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.15), inset 0 0 10px rgba(16, 185, 129, 0.05);
+}
+
+/* Status Cards & Badges (Standardized: No backgrounds or borders) */
+.v51-status-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding: 16px 24px !important;
+    margin-top: 10px;
+}
+
+.v51-status-card span[id] {
+    font-size: 13.5px !important;
+    line-height: 1.5;
+    font-family: sans-serif;
+    text-align: left;
+    text-wrap: balance !important;
+    font-weight: 500;
+}
+
+.v51-status-badge {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.v51-status-badge.purple { color: #d8b4fe; }
+.v51-status-badge.cyan { color: #22d3ee; }
+.v51-status-badge.red { color: #fca5a5; }
+.v51-status-badge.green { color: #34d399; }
+
+/* Slide 1 - Spy Icon container */
+.v51-spy-badge-container {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%);
+    margin-bottom: 10px;
+}
+
+.v51-spy-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    color: var(--incog-purple);
+    filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.4));
+    animation: spyPulse 3s infinite ease-in-out;
+}
+
+@keyframes spyPulse {
+    0%, 100% { transform: scale(1); opacity: 0.95; filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.4)); }
+    50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.6)); }
+}
+
+/* Device simulation */
+.v51-laptop-mock {
+    width: 220px;
+    height: 140px;
+    border: 6px solid #1f2937;
+    border-radius: 12px 12px 0 0;
+    background: #0f172a;
+    position: relative;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.v51-laptop-base {
+    width: 260px;
+    height: 8px;
+    background: #374151;
+    border-radius: 0 0 8px 8px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.v51-laptop-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.v51-browser-tab-bar {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+.v51-browser-tab {
+    font-size: 8px;
+    color: var(--incog-text-muted);
+    background: rgba(255,255,255,0.04);
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: sans-serif;
+}
+
+.v51-browser-tab.active {
+    background: rgba(168, 85, 247, 0.15);
+    color: #fff;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* Trash simulation (Slide 2) */
+.v51-trash-can {
+    width: 50px;
+    height: 60px;
+    border: 2px solid var(--incog-text-muted);
+    border-radius: 4px 4px 8px 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--incog-text-muted);
+    transition: all 0.3s ease;
+}
+
+.v51-trash-can.glow {
+    border-color: var(--incog-purple);
+    color: var(--incog-purple);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+.v51-trash-lid {
+    position: absolute;
+    top: -6px;
+    left: -4px;
+    right: -4px;
+    height: 4px;
+    background: var(--incog-text-muted);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.v51-trash-can.glow .v51-trash-lid {
+    background: var(--incog-purple);
+    transform: translateY(-5px) rotate(-12deg);
+}
+
+/* Local Data Chips */
+.v51-data-chip {
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    font-size: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    position: absolute;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Slide 3 & 4 - Network nodes & data streams */
+.v51-node {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background: rgba(17, 24, 39, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-family: sans-serif;
+    font-size: 9px;
+    font-weight: bold;
+    color: var(--incog-text-muted);
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+.v51-node i {
+    width: 20px;
+    height: 20px;
+}
+
+.v51-node.active-user {
+    border-color: var(--incog-cyan);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+}
+
+.v51-node.active-purple {
+    border-color: var(--incog-purple);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+}
+
+.v51-node.active-red {
+    border-color: var(--incog-red);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+.v51-node.active-green {
+    border-color: var(--incog-green);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.v51-network-wire {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.06);
+    position: relative;
+    overflow: visible;
+}
+
+.v51-network-wire.pulse-cyan::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--incog-cyan), transparent);
+    transform: translateY(-50%);
+    animation: flowPulse 2s infinite linear;
+}
+
+.v51-network-wire.pulse-purple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--incog-purple), transparent);
+    transform: translateY(-50%);
+    animation: flowPulse 2s infinite linear;
+}
+
+.v51-network-wire.pulse-red::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--incog-red), transparent);
+    transform: translateY(-50%);
+    animation: flowPulse 2s infinite linear;
+}
+
+@keyframes flowPulse {
+    0% { left: -10%; }
+    100% { left: 110%; }
+}
+
+/* Logging list simulation */
+.v51-log-terminal {
+    width: 170px;
+    height: 120px;
+    border-radius: 8px;
+    background: #030712;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 8px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: hidden;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+}
+
+.v51-log-line {
+    color: var(--incog-text-muted);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+}
+
+.v51-log-line.active {
+    color: var(--incog-red);
+    opacity: 1;
+    text-shadow: 0 0 4px rgba(239, 68, 68, 0.4);
+}
+
+.v51-log-line.secure {
+    color: var(--incog-green);
+    opacity: 1;
+    text-shadow: 0 0 4px rgba(16, 185, 129, 0.4);
+}
+
+/* Server details panel (Slide 5) */
+.v51-server-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 180px;
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px;
+}
+
+.v51-panel-item {
+    display: flex;
+    justify-content: space-between;
+    font-family: monospace;
+    font-size: 9px;
+    color: var(--incog-text-muted);
+}
+
+.v51-panel-item span.highlight {
+    color: #fff;
+    font-weight: bold;
+}
+
+.v51-panel-item span.highlight.red {
+    color: var(--incog-red);
+    text-shadow: 0 0 4px rgba(239, 68, 68, 0.3);
+}
+
+.v51-panel-item span.highlight.purple {
+    color: var(--incog-purple);
+    text-shadow: 0 0 4px rgba(168, 85, 247, 0.3);
+}
+
+/* Lock overlay for VPN (Slide 6) */
+.v51-vpn-tunnel {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 12px;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px dashed rgba(168, 85, 247, 0.3);
+    border-radius: 6px;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.1);
+}

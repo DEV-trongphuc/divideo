@@ -535,7 +535,7 @@
                         </div>
 
                         <!-- Right Panel: People You May Know Card -->
-                        <div class="v29-fb-card" id="v29-suggest-card" style="padding:16px; flex:0.8; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; border-color:rgba(255,255,255,0.05); transition:all 0.4s ease; opacity: 0.2; transform:scale(0.95);">
+                        <div class="v29-fb-card" id="v29-suggest-card" style="padding:16px; flex:0.8; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; border-color:rgba(255,255,255,0.05); transition:all 0.4s ease; opacity: 0.75; transform:scale(0.95);">
                             <div style="width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg, #1877f2 0%, #155dfc 100%); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; color:#fff; box-shadow:0 4px 10px rgba(0,0,0,0.3);">Y</div>
                             <div style="font-weight:900; font-size:12px;">Yuri Miller</div>
                             
@@ -1015,7 +1015,7 @@
                     suggestCard.style.borderColor = 'var(--fb-blue)';
                     suggestCard.style.boxShadow = '0 0 20px rgba(24, 119, 242, 0.25)';
                 } else {
-                    suggestCard.style.opacity = '0.2';
+                    suggestCard.style.opacity = '0.75';
                     suggestCard.style.transform = 'scale(0.95)';
                     suggestCard.style.borderColor = 'rgba(255,255,255,0.05)';
                     suggestCard.style.boxShadow = 'none';
