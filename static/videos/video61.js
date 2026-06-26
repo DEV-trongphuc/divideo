@@ -85,7 +85,7 @@
                     <!-- Split Row Layout -> Stacked Vertically -->
                     <div class="v61-hook-split">
                         <!-- Top Showcase Card -->
-                        <div class="v61-photo-frame" id="s-photo-frame" style="width: 100%; height: 200px; border-radius: 16px;">
+                        <div class="v61-photo-frame" id="s-photo-frame" style="width: 560px; height: 300px; border-radius: 16px;">
                             <div class="v61-hud-corner tl"></div>
                             <div class="v61-hud-corner tr"></div>
                             <div class="v61-hud-corner bl"></div>
@@ -107,7 +107,7 @@
                         </div>
 
                         <!-- Bottom Specs HUD Panel (Wide & Compact) -->
-                        <div class="v61-specs-hud" id="s-specs-hud" style="width: 100%; height: auto; padding: 12px 16px;">
+                        <div class="v61-specs-hud" id="s-specs-hud" style="width: 560px; height: auto; padding: 12px 16px;">
                             <div class="v61-specs-hdr" style="border-bottom: 1.5px solid rgba(0, 242, 254, 0.2); padding-bottom: 4px; margin-bottom: 6px;">
                                 <i data-lucide="cpu" style="width:12px; height:12px;"></i> CHIP SPECS
                             </div>
@@ -414,6 +414,19 @@
             canvas.innerHTML = sceneWrap(`
                 <div class="v61-scene-row">
                     <div class="v61-poll-container" style="width: 560px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <!-- OpenAI Outro Logo + Text Container -->
+                        <div class="v61-outro-logo-container" id="s-outro-oai-logo" style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 22px; position: relative; z-index: 10; opacity: 0;">
+                            <!-- Circle Logo -->
+                            <div class="v61-battle-logo-wrapper oai-wrapper" id="s-outro-oai-circle" style="width: 90px; height: 90px; transform: scale(0);">
+                                <img src="/static/videos/openai_logo.png" class="v61-battle-logo" style="width: 56px; height: 56px;" alt="OpenAI">
+                                <div class="v61-battle-glow"></div>
+                            </div>
+                            <!-- Brand Text -->
+                            <div class="v61-outro-oai-text" id="s-outro-oai-text" style="font-size: 16px; font-weight: 900; color: #fff; letter-spacing: 4px; font-family: 'Outfit', sans-serif; text-shadow: 0 0 10px rgba(245, 158, 11, 0.4); transform: scale(0); opacity: 0;">
+                                OPENAI
+                            </div>
+                        </div>
+
                         <div class="v61-poll-cards" style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
                             <!-- Option A -->
                             <div class="v61-card v61-poll-card opt-a" id="s-poll-opt-a" style="display:flex; flex-direction:row; align-items:center; gap:16px; height:82px; padding:12px 24px; position:relative; overflow:hidden; border-radius:14px; width:100%; opacity:1; transform:scale(1);">
@@ -899,6 +912,28 @@
             
             const pctA = row.querySelector('#s-pct-opt-a');
             const pctB = row.querySelector('#s-pct-opt-b');
+            const outroLogo = row.querySelector('#s-outro-oai-logo');
+            const outroCircle = row.querySelector('#s-outro-oai-circle');
+            const outroText = row.querySelector('#s-outro-oai-text');
+
+            if (outroLogo) {
+                outroLogo.style.opacity = Math.min(1.0, progress / 0.25);
+            }
+
+            if (outroCircle) {
+                const scaleFactor = Math.min(1.0, progress / 0.45);
+                const scale = scaleFactor * (2 - scaleFactor); // easeOutQuad
+                const pulse = 1.0 + Math.sin(progress * 12) * 0.04;
+                outroCircle.style.transform = `scale(${scale * pulse}) rotate(${progress * 180}deg)`;
+            }
+
+            if (outroText) {
+                const textProg = Math.max(0, (progress - 0.2) / 0.45);
+                const textFactor = Math.min(1.0, textProg);
+                const textScale = textFactor * (2 - textFactor); // easeOutQuad
+                outroText.style.transform = `scale(${textScale})`;
+                outroText.style.opacity = textFactor;
+            }
 
             if (cardA) {
                 cardA.className = 'v61-card v61-poll-card opt-a voted';

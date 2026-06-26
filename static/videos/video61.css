@@ -168,8 +168,8 @@
 
 /* Photo container core frame */
 .v61-photo-frame {
-    width: 520px;
-    height: 310px;
+    width: 560px;
+    height: 280px;
     border-radius: 16px;
     border: 2px solid var(--v61-primary);
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.15), inset 0 0 8px rgba(245, 158, 11, 0.08);
