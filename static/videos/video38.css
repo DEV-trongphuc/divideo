@@ -12,23 +12,23 @@
 }
 
 @keyframes tiktokGlowCyan {
-    0%, 100% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.35); }
-    50% { box-shadow: 0 0 25px rgba(0, 242, 254, 0.7); }
+    0%, 100% { box-shadow: 0 0 8px rgba(0, 242, 254, 0.2); }
+    50% { box-shadow: 0 0 14px rgba(0, 242, 254, 0.4); }
 }
 
 @keyframes tiktokGlowMagenta {
-    0%, 100% { box-shadow: 0 0 15px rgba(254, 9, 121, 0.35); }
-    50% { box-shadow: 0 0 25px rgba(254, 9, 121, 0.7); }
+    0%, 100% { box-shadow: 0 0 8px rgba(254, 9, 121, 0.2); }
+    50% { box-shadow: 0 0 14px rgba(254, 9, 121, 0.4); }
 }
 
 @keyframes pulseGlow {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.03); }
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.02); }
 }
 
 @keyframes floatElement {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-5px); }
 }
 
 @keyframes spinIcon {
@@ -37,9 +37,9 @@
 }
 
 @keyframes neonBorderPulse {
-    0% { border-color: rgba(0, 242, 254, 0.3); }
-    50% { border-color: rgba(254, 9, 121, 0.6); }
-    100% { border-color: rgba(0, 242, 254, 0.3); }
+    0% { border-color: rgba(0, 242, 254, 0.25); }
+    50% { border-color: rgba(254, 9, 121, 0.4); }
+    100% { border-color: rgba(0, 242, 254, 0.25); }
 }
 
 /* ── TikTok Icon & Mockup Styles ─────────────────────────────────────────── */
@@ -57,25 +57,25 @@
 }
 
 .tiktok-card:hover {
-    border-color: var(--tiktok-cyan);
-    box-shadow: 0 8px 30px rgba(0, 242, 254, 0.15);
+    border-color: rgba(0, 242, 254, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 242, 254, 0.1);
 }
 
 .floating-gfx {
-    animation: floatElement 3s infinite ease-in-out;
+    animation: floatElement 3.5s infinite ease-in-out;
 }
 
 .spinning-gear {
-    animation: spinIcon 8s linear infinite;
+    animation: spinIcon 10s linear infinite;
 }
 
 .tiktok-phone-container {
     background: var(--tiktok-dark);
-    border: 3px solid rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: 36px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 
-                -4px 0 20px rgba(0, 242, 254, 0.25), 
-                4px 0 20px rgba(254, 9, 121, 0.25);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 
+                -2px 0 10px rgba(0, 242, 254, 0.15), 
+                2px 0 10px rgba(254, 9, 121, 0.15);
     transition: all 0.4s ease;
     overflow: hidden;
 }
@@ -83,7 +83,7 @@
 /* ── Content Delivery Network (CDN) Wave Rings ───────────────────────────── */
 .cdn-wave-ring {
     position: absolute;
-    border: 2px solid var(--tiktok-cyan);
+    border: 1.5px solid rgba(0, 242, 254, 0.5);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
@@ -91,8 +91,8 @@
 }
 
 @keyframes cdnRipple {
-    0% { width: 0; height: 0; opacity: 0.8; }
-    100% { width: 160px; height: 160px; opacity: 0; }
+    0% { width: 0; height: 0; opacity: 0.6; }
+    100% { width: 140px; height: 140px; opacity: 0; }
 }
 
 .cdn-wave-ring.animate {
@@ -103,14 +103,14 @@
 .transcode-step {
     transition: all 0.4s ease;
     opacity: 0.4;
-    transform: translateY(10px);
+    transform: translateY(6px);
 }
 
 .transcode-step.active {
     opacity: 1;
     transform: translateY(0);
-    border-color: var(--tiktok-cyan);
-    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+    border-color: rgba(0, 242, 254, 0.5);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
 }
 
 /* ── Storage Tiering Drive Styles ────────────────────────────────────────── */
@@ -119,34 +119,44 @@
 }
 
 .storage-drive.hot-drive {
-    background: rgba(254, 9, 121, 0.08);
-    border: 1.5px solid var(--tiktok-magenta);
+    background: rgba(254, 9, 121, 0.04);
+    border: 1.2px solid rgba(254, 9, 121, 0.4);
 }
 
 .storage-drive.warm-drive {
-    background: rgba(245, 158, 11, 0.08);
-    border: 1.5px solid #f59e0b;
+    background: rgba(245, 158, 11, 0.04);
+    border: 1.2px solid rgba(245, 158, 11, 0.4);
 }
 
 .storage-drive.cold-drive {
-    background: rgba(59, 130, 246, 0.08);
-    border: 1.5px solid #3b82f6;
+    background: rgba(59, 130, 246, 0.04);
+    border: 1.2px solid rgba(59, 130, 246, 0.4);
 }
 
 .storage-drive.active {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .storage-drive.hot-drive.active {
-    box-shadow: 0 0 25px rgba(254, 9, 121, 0.4);
+    box-shadow: 0 0 15px rgba(254, 9, 121, 0.25);
+    border-color: var(--tiktok-magenta);
 }
 
 .storage-drive.warm-drive.active {
-    box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+    border-color: #f59e0b;
 }
 
 .storage-drive.cold-drive.active {
-    box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.25);
+    border-color: #3b82f6;
+}
+
+/* Override glassmorphic backgrounds globally to be less blurry and more solid black */
+.glass-card {
+    background: rgba(10, 10, 14, 0.94) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
 }
 
 /* ── Extra Premium Animations ────────────────────────────────────────────── */
@@ -206,3 +216,123 @@
     box-sizing: border-box !important;
     overflow: visible !important;
 }
+
+/* ── Scrolling grid background animation ── */
+@keyframes gridScroll {
+    from { background-position: 0 0; }
+    to { background-position: 0 40px; }
+}
+
+.phone-cyber-grid {
+    animation: gridScroll 1.5s linear infinite;
+}
+
+/* ── Neon Fiber Optic Line Flow Animations ── */
+@keyframes lineFlowEffect {
+    to {
+        stroke-dashoffset: -20;
+    }
+}
+
+.cdn-line-flow-1 {
+    animation: lineFlowEffect 0.8s linear infinite;
+    stroke: var(--tiktok-magenta) !important;
+}
+
+.cdn-line-flow-2 {
+    animation: lineFlowEffect 0.8s linear infinite;
+    stroke: var(--tiktok-cyan) !important;
+}
+
+/* ── Double Wave Ripple for CDN Edge ── */
+.cdn-wave-ring.r1 {
+    animation: cdnRipple 2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+.cdn-wave-ring.r2 {
+    animation: cdnRipple 2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite 1s;
+}
+
+/* ── User Phone Screen state ── */
+.user-phone-screen {
+    width: 70px;
+    height: 110px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    background: #09090d;
+    position: absolute;
+    left: 670px;
+    top: 85px;
+    transform: translate(-50%, -50%) scale(0.85);
+    z-index: 12;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+}
+
+.user-phone-screen.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.user-phone-screen.active {
+    border-color: #10b981;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4), 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.user-phone-screen .video-thumb-sim {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.user-phone-screen.active .video-thumb-sim {
+    opacity: 1;
+}
+
+.user-phone-screen .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid rgba(255, 255, 255, 0.1);
+    border-top: 2.5px solid var(--tiktok-cyan);
+    border-radius: 50%;
+    animation: spinIcon 1s linear infinite;
+    position: absolute;
+    z-index: 2;
+}
+
+.user-phone-screen.active .spinner {
+    display: none;
+}
+
+/* Emojis list animation */
+@keyframes speedPulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(254, 9, 121, 0.4)); }
+    50% { transform: scale(1.2); filter: drop-shadow(0 0 6px rgba(254, 9, 121, 0.8)); }
+}
+@keyframes costBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+@keyframes trendFloat {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(2px); }
+}
+
+.anim-speed-emoji {
+    display: inline-block;
+    animation: speedPulse 1.2s infinite ease-in-out;
+}
+.anim-cost-emoji {
+    display: inline-block;
+    animation: costBounce 1.5s infinite ease-in-out;
+}
+.anim-trend-emoji {
+    display: inline-block;
+    animation: trendFloat 2s infinite ease-in-out;
+}
+

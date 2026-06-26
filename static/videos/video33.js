@@ -125,28 +125,89 @@
         const needsTemplate = canvas.getAttribute('data-sim-template') !== slideId || canvas.innerHTML === '';
         if (needsTemplate) {
             canvas.setAttribute('data-sim-template', slideId);
+            canvas.removeAttribute('data-paths-drawn');
         }
 
         if (!needsTemplate) return;
 
         if (slideId === 'slide_yt_intro_a') {
             canvas.innerHTML = `
-                <div class="v33-scene-wrapper">
-                    <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; gap:10px;">
-                        <div class="v33-youtube-intro-container">
-                            <div class="v33-youtube-glow-ring"></div>
-                            <div class="v33-youtube-glow-ring inner"></div>
-                            <div class="v33-giant-youtube-logo">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" />
+                <div class="v33-zoom-container" style="justify-content: center; gap: 20px;">
+                    <!-- SVG Paths layer (moved to direct child of container for perfect coordinate alignment) -->
+                    <svg class="v33-svg-container" id="v33-intro-a-svg">
+                        <path id="path-a-phone-cloud" stroke-dasharray="4 4" />
+                        <path id="path-a-cloud-tv" stroke-dasharray="4 4" />
+                    </svg>
+
+                    <!-- Devices Row -->
+                    <div class="v33-devices-container" id="v33-intro-a-container" style="width:100%;">
+                        <!-- Phone mockup -->
+                        <div class="v33-phone-mockup" id="v33-intro-a-phone">
+                            <div style="font-size: 9px; color: var(--yt-text-muted); display:flex; align-items:center; gap:3px;">
+                                <i data-lucide="smartphone" style="width:12px; height:12px;"></i> Phone Client
+                            </div>
+                            <div class="v33-player-screen">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" style="width:55px; object-fit:contain;" alt="YouTube" />
+                                <div style="position:absolute; bottom:8px; left:8px; font-size:8px; color:#fff; font-weight:bold; background:#ff0000; padding:2px 4px; border-radius:3px; box-shadow:0 2px 6px rgba(0,0,0,0.4);">LIVE</div>
+                            </div>
+                            <div style="display:flex; flex-direction:column; gap:2px;">
+                                <div class="v33-progress-bar">
+                                    <div class="v33-progress-fill" id="v33-intro-a-phone-fill"></div>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; width:100%;">
+                                    <span class="v33-timestamp" id="v33-intro-a-phone-time">23:00</span>
+                                    <span style="font-size:10px; color:var(--yt-text-muted); margin-top:5px;">30:00</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="v33-glass-card" style="text-align: center; width: 440px; padding: 18px 24px; margin-top: 15px; border: 1.5px solid rgba(255, 0, 0, 0.4); background: rgba(15, 10, 10, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55);">
-                            <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(255, 0, 0, 0.4); background: rgba(255, 0, 0, 0.1); color: var(--yt-red); border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
-                                <i data-lucide="youtube" style="width: 14px; height: 14px; color: var(--yt-red);"></i> Watch History
+
+                        <!-- Syncing Cloud Station -->
+                        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;" id="v33-intro-a-cloud">
+                            <div class="v33-node" style="padding: 12px; border-radius:50%; width:50px; height:50px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); border-color:var(--yt-gold);">
+                                <i data-lucide="cloud" style="width:28px; height:28px; color:var(--yt-gold);"></i>
                             </div>
-                            <div style="font-family:'Fira Code', monospace; font-size: 15px; font-weight: bold; color: var(--yt-red); line-height: 1.45;">
-                                Đồng bộ phát lại: Làm sao YouTube nhớ vị trí xem chuẩn xác từng giây?
+                            <span style="font-size:10.5px; font-weight:bold; color:var(--yt-gold);">Cloud Sync</span>
+                        </div>
+
+                        <!-- TV mockup -->
+                        <div style="display:flex; flex-direction:column; align-items:center;" id="v33-intro-a-tv-wrapper">
+                            <div class="v33-tv-mockup" id="v33-intro-a-tv">
+                                <div style="font-size: 9px; color: var(--yt-text-muted); display:flex; align-items:center; gap:3px;">
+                                    <i data-lucide="tv" style="width:12px; height:12px;"></i> Smart TV Client
+                                </div>
+                                <div class="v33-player-screen" style="background:#05070c;">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" style="width:75px; object-fit:contain; opacity:0.15;" id="v33-intro-a-tv-logo" alt="YouTube" />
+                                    
+                                    <!-- Sync Complete badge inside TV screen -->
+                                    <div style="position:absolute; inset:0; background:rgba(245,158,11,0.18); display:none; flex-direction:column; align-items:center; justify-content:center; gap:4px; z-index:5;" id="v33-intro-a-tv-sync-badge">
+                                        <i data-lucide="check-circle" style="width:26px; height:26px; color:var(--yt-gold); animation: v32-pulse-radar 1.5s infinite;"></i>
+                                        <span style="font-size:10px; font-weight:900; color:#fff; text-transform:uppercase; letter-spacing:0.5px;">Resumed 23:17</span>
+                                    </div>
+                                </div>
+                                <div style="display:flex; flex-direction:column; gap:2px;">
+                                    <div class="v33-progress-bar">
+                                        <div class="v33-progress-fill" id="v33-intro-a-tv-fill"></div>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; width:100%;">
+                                        <span class="v33-timestamp" id="v33-intro-a-tv-time">00:00</span>
+                                        <span style="font-size:10px; color:var(--yt-text-muted); margin-top:5px;">30:00</span>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="v33-tv-stand"></div>
+                        </div>
+                    </div>
+
+                    <!-- Flow packets container overlay -->
+                    <div class="v33-packet gold" id="v33-intro-a-pkt-1"></div>
+
+                    <!-- Status description card (yellow theme) -->
+                    <div class="v33-glass-card" style="text-align: center; width: 440px; padding: 18px 24px; border: 1.5px solid var(--yt-gold-glow); background: rgba(15, 12, 10, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55);">
+                        <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--yt-gold-glow); background: rgba(245, 158, 11, 0.1); color: var(--yt-gold); border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
+                            <i data-lucide="youtube" style="width: 14px; height: 14px; color: var(--yt-gold);"></i> Watch History
+                        </div>
+                        <div style="font-family:'Fira Code', monospace; font-size: 15px; font-weight: bold; color: var(--yt-gold); line-height: 1.45;">
+                            Đồng bộ phát lại: Làm sao YouTube nhớ vị trí xem chuẩn xác từng giây?
                         </div>
                     </div>
                 </div>
@@ -616,8 +677,84 @@
         const container = canvas.querySelector('.v33-zoom-container');
 
         if (slideId === 'slide_yt_intro_a') {
-            // Hook slide - no complex simulations, CSS handles animations
-            return;
+            const phoneFill = canvas.querySelector('#v33-intro-a-phone-fill');
+            const phoneTime = canvas.querySelector('#v33-intro-a-phone-time');
+            const tvFill = canvas.querySelector('#v33-intro-a-tv-fill');
+            const tvTime = canvas.querySelector('#v33-intro-a-tv-time');
+            const tvSyncBadge = canvas.querySelector('#v33-intro-a-tv-sync-badge');
+            const tvLogo = canvas.querySelector('#v33-intro-a-tv-logo');
+            const packet = canvas.querySelector('#v33-intro-a-pkt-1');
+
+            const phoneNode = canvas.querySelector('#v33-intro-a-phone');
+            const cloudNode = canvas.querySelector('#v33-intro-a-cloud');
+            const tvNode = canvas.querySelector('#v33-intro-a-tv');
+
+            if (needsDrawPaths(canvas)) {
+                drawSVGPath(canvas, '#path-a-phone-cloud', phoneNode, cloudNode, container);
+                drawSVGPath(canvas, '#path-a-cloud-tv', cloudNode, tvNode, container);
+                canvas.setAttribute('data-paths-drawn', 'true');
+            }
+
+            // Phase 1 (0.0 -> 0.4): Phone is playing, progress bar crawling
+            if (progress <= 0.4) {
+                const subProgress = progress / 0.4;
+                const currentSec = 1380 + subProgress * 17; // 23:00 to 23:17
+                const fillPct = (currentSec / 1800) * 100;
+                
+                if (phoneFill) phoneFill.style.width = `${fillPct}%`;
+                if (phoneTime) phoneTime.textContent = formatTime(currentSec);
+                if (tvFill) tvFill.style.width = `0%`;
+                if (tvTime) tvTime.textContent = '00:00';
+                if (tvSyncBadge) tvSyncBadge.style.display = 'none';
+                if (tvLogo) tvLogo.style.opacity = '0.15';
+                if (packet) packet.style.opacity = '0';
+            } 
+            // Phase 2 (0.4 -> 0.7): Phone paused, checkpoint packet travels Phone -> Cloud -> TV
+            else if (progress > 0.4 && progress <= 0.7) {
+                if (phoneFill) phoneFill.style.width = `77.6%`; // 23:17
+                if (phoneTime) phoneTime.textContent = '23:17';
+                if (tvFill) tvFill.style.width = `0%`;
+                if (tvTime) tvTime.textContent = '00:00';
+                if (tvSyncBadge) tvSyncBadge.style.display = 'none';
+                if (tvLogo) tvLogo.style.opacity = '0.15';
+
+                // Animate packet along Phone -> Cloud -> TV path
+                if (packet && phoneNode && cloudNode && tvNode && container) {
+                    const phoneCoords = getCenterOffset(phoneNode, container);
+                    const cloudCoords = getCenterOffset(cloudNode, container);
+                    const tvCoords = getCenterOffset(tvNode, container);
+
+                    const subProgress = (progress - 0.4) / 0.3; // 0 to 1
+                    let pt;
+
+                    if (subProgress < 0.5) {
+                        const t = subProgress / 0.5;
+                        pt = getPathPoint(phoneCoords, cloudCoords, t);
+                    } else {
+                        const t = (subProgress - 0.5) / 0.5;
+                        pt = getPathPoint(cloudCoords, tvCoords, t);
+                    }
+
+                    packet.style.left = `${pt.x}px`;
+                    packet.style.top = `${pt.y}px`;
+                    packet.style.opacity = '1';
+                }
+            }
+            // Phase 3 (0.7 -> 1.0): Checkpoint received! TV resumes and crawls forward
+            else {
+                if (phoneFill) phoneFill.style.width = `77.6%`;
+                if (phoneTime) phoneTime.textContent = '23:17';
+                if (packet) packet.style.opacity = '0';
+                if (tvSyncBadge) tvSyncBadge.style.display = 'flex';
+                if (tvLogo) tvLogo.style.opacity = '0';
+
+                const subProgress = (progress - 0.7) / 0.3; // 0 to 1
+                const currentSec = 1397 + subProgress * 8; // 23:17 to 23:25
+                const fillPct = (currentSec / 1800) * 100;
+                
+                if (tvFill) tvFill.style.width = `${fillPct}%`;
+                if (tvTime) tvTime.textContent = formatTime(currentSec);
+            }
         }
         else if (slideId === 'slide_yt_intro_b') {
             const phoneFill = canvas.querySelector('#v33-intro-phone-fill');

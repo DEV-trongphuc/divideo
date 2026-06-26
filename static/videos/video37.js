@@ -89,7 +89,7 @@
         else if (slideId === 'slide_v37_you_are_product') {
             if (needsTemplate) {
                 canvas.innerHTML = sceneWrap(`
-                    <div class="v37-vertical-layout" style="zoom:0.90;">
+                    <div class="v37-vertical-layout" style="zoom:1.0;">
                         <!-- User device tracking mockup -->
                         <div class="v37-phone v37-phone-compact">
                             <div class="v37-phone-notch"></div>
@@ -158,7 +158,7 @@
         else if (slideId === 'slide_v37_ad_auction') {
             if (needsTemplate) {
                 canvas.innerHTML = sceneWrap(`
-                    <div class="v37-vertical-layout" style="zoom:0.90;">
+                    <div class="v37-vertical-layout" style="zoom:1.0;">
                         <!-- Advertisers Bidding Cards -->
                         <div class="v37-bidders-row">
                             <!-- Brand A -->
@@ -190,14 +190,14 @@
                         <!-- Central Connection Vectors -->
                         <div class="v37-vertical-connection">
                             <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;">
-                                <path class="v37-s3-path-a v37-dash-path" d="M 55 0 L 170 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
-                                <path class="v37-s3-path-b v37-dash-path" d="M 170 0 L 170 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
-                                <path class="v37-s3-path-c v37-dash-path" d="M 285 0 L 170 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
+                                <path class="v37-s3-path-a v37-dash-path" d="M 70 0 L 220 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
+                                <path class="v37-s3-path-b v37-dash-path" d="M 220 0 L 220 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
+                                <path class="v37-s3-path-c v37-dash-path" d="M 370 0 L 220 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
                             </svg>
                             <!-- Flying packets -->
-                            <div class="v37-s3-packet-a" style="position:absolute; width:8px; height:8px; border-radius:50%; background:#3b82f6; opacity:0; left:55px; top:0; transform:translate(-50%,-50%); z-index:5;"></div>
-                            <div class="v37-s3-packet-b" style="position:absolute; width:8px; height:8px; border-radius:50%; background:#f59e0b; opacity:0; left:170px; top:0; transform:translate(-50%,-50%); z-index:5;"></div>
-                            <div class="v37-s3-packet-c" style="position:absolute; width:8px; height:8px; border-radius:50%; background:#f43f5e; opacity:0; left:285px; top:0; transform:translate(-50%,-50%); z-index:5;"></div>
+                            <div class="v37-s3-packet-a" style="position:absolute; width:8px; height:8px; border-radius:50%; background:#3b82f6; opacity:0; left:70px; top:0; transform:translate(-50%,-50%); z-index:5;"></div>
+                            <div class="v37-s3-packet-b" style="position:absolute; width:8px; height:8px; border-radius:50%; background:#f59e0b; opacity:0; left:220px; top:0; transform:translate(-50%,-50%); z-index:5;"></div>
+                            <div class="v37-s3-packet-c" style="position:absolute; width:8px; height:8px; border-radius:50%; background:#f43f5e; opacity:0; left:370px; top:0; transform:translate(-50%,-50%); z-index:5;"></div>
                         </div>
 
                         <!-- Google Ad Auction Server -->
@@ -238,7 +238,7 @@
         else if (slideId === 'slide_v37_sponsored_ads') {
             if (needsTemplate) {
                 canvas.innerHTML = sceneWrap(`
-                    <div class="v37-vertical-layout" style="zoom:0.90;">
+                    <div class="v37-vertical-layout" style="zoom:1.0;">
                         <!-- Phone Mockup showing Search Result Links -->
                         <div class="v37-phone v37-phone-compact">
                             <div class="v37-phone-notch"></div>
@@ -271,11 +271,11 @@
                         <!-- Central Flow Vectors -->
                         <div class="v37-vertical-connection">
                             <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;">
-                                <path class="v37-s4-path-ad v37-dash-path" d="M 160 0 L 160 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
-                                <path class="v37-s4-path-revenue v37-dash-path" d="M 160 30 L 160 0" fill="none" stroke="rgba(52, 211, 153, 0.45)" stroke-width="3" style="opacity:0;"></path>
+                                <path class="v37-s4-path-ad v37-dash-path" d="M 220 0 L 220 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
+                                <path class="v37-s4-path-revenue v37-dash-path" d="M 220 30 L 220 0" fill="none" stroke="rgba(52, 211, 153, 0.45)" stroke-width="3" style="opacity:0;"></path>
                             </svg>
                             <!-- Click indicators / fly money -->
-                            <div class="v37-s4-money" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#34d399; opacity:0; left:160px; top:30px; transform:translate(-50%,-50%); z-index:5;">💵</div>
+                            <div class="v37-s4-money" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#34d399; opacity:0; left:220px; top:30px; transform:translate(-50%,-50%); z-index:5;">💵</div>
                         </div>
 
                         <!-- Brand B Server (redirection) -->
@@ -312,7 +312,7 @@
         else if (slideId === 'slide_v37_adsense_network') {
             if (needsTemplate) {
                 canvas.innerHTML = sceneWrap(`
-                    <div class="v37-vertical-layout" style="zoom:0.90;">
+                    <div class="v37-vertical-layout" style="zoom:1.0;">
                         <!-- Publisher Website Mockup in Phone frame -->
                         <div class="v37-phone v37-phone-compact">
                             <div class="v37-phone-notch"></div>
@@ -343,12 +343,12 @@
                         <!-- Adsense Hub (Middleman) -->
                         <div class="v37-vertical-connection">
                             <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;">
-                                <path class="v37-s5-path-ad v37-dash-path" d="M 160 30 L 160 0" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2.5"></path>
-                                <path class="v37-s5-path-rev v37-dash-path" d="M 160 30 L 160 0" fill="none" stroke="rgba(52, 211, 153, 0.45)" stroke-width="2.5"></path>
+                                <path class="v37-s5-path-ad v37-dash-path" d="M 220 30 L 220 0" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2.5"></path>
+                                <path class="v37-s5-path-rev v37-dash-path" d="M 220 30 L 220 0" fill="none" stroke="rgba(52, 211, 153, 0.45)" stroke-width="2.5"></path>
                             </svg>
                             <!-- Packet dots -->
-                            <div class="v37-s5-packet-ad" style="position:absolute; width:8px; height:8px; border-radius:50%; background:#f59e0b; opacity:0; left:160px; top:30px; transform:translate(-50%,-50%); z-index:5;"></div>
-                            <div class="v37-s5-packet-rev" style="position:absolute; width:8px; height:8px; border-radius:50%; background:#34d399; opacity:0; left:160px; top:30px; transform:translate(-50%,-50%); z-index:5;"></div>
+                            <div class="v37-s5-packet-ad" style="position:absolute; width:8px; height:8px; border-radius:50%; background:#f59e0b; opacity:0; left:220px; top:30px; transform:translate(-50%,-50%); z-index:5;"></div>
+                            <div class="v37-s5-packet-rev" style="position:absolute; width:8px; height:8px; border-radius:50%; background:#34d399; opacity:0; left:220px; top:30px; transform:translate(-50%,-50%); z-index:5;"></div>
                         </div>
 
                         <!-- Google AdSense Control Center -->
@@ -534,18 +534,18 @@
             // Packets fly from top brands to central auction engine at the bottom: progress 0.1 to 0.45
             if (progress > 0.1 && progress < 0.45) {
                 const t = (progress - 0.1) / 0.35;
-                // A: 55, 0 -> 170, 30
-                const xa = 55 + (170 - 55) * t;
+                // A: 70, 0 -> 220, 30
+                const xa = 70 + (220 - 70) * t;
                 const ya = 30 * t;
                 if (pA) { pA.style.left = `${xa}px`; pA.style.top = `${ya}px`; pA.style.opacity = '1'; }
 
-                // B: 170, 0 -> 170, 30
-                const xb = 170;
+                // B: 220, 0 -> 220, 30
+                const xb = 220;
                 const yb = 30 * t;
                 if (pB) { pB.style.left = `${xb}px`; pB.style.top = `${yb}px`; pB.style.opacity = '1'; }
 
-                // C: 285, 0 -> 170, 30
-                const xc = 285 + (170 - 285) * t;
+                // C: 370, 0 -> 220, 30
+                const xc = 370 + (220 - 370) * t;
                 const yc = 30 * t;
                 if (pC) { pC.style.left = `${xc}px`; pC.style.top = `${yc}px`; pC.style.opacity = '1'; }
             } else {
@@ -608,7 +608,7 @@
                 const t = Math.min(1, (progress - 0.38) / 0.37);
                 const y = 30 - 30 * t;
                 if (money) {
-                    money.style.left = '160px';
+                    money.style.left = '220px';
                     money.style.top = `${y}px`;
                     money.style.opacity = (t < 1) ? '1' : '0';
                 }
@@ -642,7 +642,7 @@
             if (progress > 0.1 && progress < 0.45) {
                 const t = (progress - 0.1) / 0.35;
                 const y = 30 - 30 * t;
-                if (pAd) { pAd.style.left = '160px'; pAd.style.top = `${y}px`; pAd.style.opacity = '1'; }
+                if (pAd) { pAd.style.left = '220px'; pAd.style.top = `${y}px`; pAd.style.opacity = '1'; }
             } else {
                 if (pAd) pAd.style.opacity = '0';
             }
@@ -658,7 +658,7 @@
             if (progress > 0.45) {
                 const t = Math.min(1, (progress - 0.45) / 0.35);
                 const y = 30 - 30 * t;
-                if (pRev) { pRev.style.left = '160px'; pRev.style.top = `${y}px`; pRev.style.opacity = (t < 1) ? '1' : '0'; }
+                if (pRev) { pRev.style.left = '220px'; pRev.style.top = `${y}px`; pRev.style.opacity = (t < 1) ? '1' : '0'; }
                 
                 const share = (t * 1.22).toFixed(2); // 68% of 1.80
                 if (pubShare) pubShare.textContent = `+$${share}`;

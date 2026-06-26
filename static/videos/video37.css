@@ -343,14 +343,19 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
+    max-width: 450px;
+    margin: -60px auto 0 auto;
     box-sizing: border-box;
     gap: 8px;
 }
 
+/* Shift keyword panel up to prevent overlap and increase space */
+.v37-scene-wrapper ~ .keywords-panel {
+    top: 195px !important;
+}
+
 .v37-phone.v37-phone-compact {
-    width: 320px;
+    width: 420px;
     height: 290px;
     padding: 10px 16px;
     border-radius: 28px;
@@ -395,7 +400,7 @@
 
 /* Stacking detail card at the bottom */
 .v37-detail-card {
-    width: 340px;
+    width: 440px;
     height: auto !important;
     padding: 12px 16px !important;
     box-sizing: border-box;
@@ -407,7 +412,7 @@
     display: flex;
     justify-content: space-between;
     gap: 8px;
-    width: 340px;
+    width: 440px;
     margin: 0 auto;
 }
 

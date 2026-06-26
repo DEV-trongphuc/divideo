@@ -1,0 +1,27 @@
+[SLIDE 1]
+Intro: OpenAI tự chế chip AI "Jalapeño"
+Lời thoại: OpenAI vừa âm thầm thực hiện một bước đi cực kỳ táo bạo có thể khiến Nvidia mất ăn mất ngủ: tự thiết kế con chip AI của riêng mình với tên gọi đầy cay nồng – Jalapeño.
+
+[SLIDE 2]
+Sự thật: Cắt đứt mạch máu Nvidia
+Lời thoại: Điểm đáng sợ nhất không phải là con chip này nhanh hơn bao nhiêu, mà là OpenAI đang bắt đầu cắt khỏi “mạch máu” độc quyền của Nvidia. Bấy lâu nay, để chạy ChatGPT, Claude hay Gemini, các công ty bắt buộc phải mua hoặc thuê lượng GPU khổng lồ từ Nvidia.
+
+[SLIDE 3]
+Thiết kế: Chip Inference chuyên dụng cùng Broadcom
+Lời thoại: Jalapeño được OpenAI thiết kế cùng Broadcom, không dùng để train AI từ đầu, mà chuyên tối ưu cho phần quan trọng nhất: Inference – tức là phản hồi câu hỏi cho hàng triệu người dùng thời gian thực.
+
+[SLIDE 4]
+So sánh: Xe tải đa năng vs Xe chuyên chở AI
+Lời thoại: Hãy tưởng tượng: GPU Nvidia giống như những chiếc xe tải đa năng chở gì cũng được, còn Jalapeño là xe chuyên dụng siêu tốc. Nó chỉ làm một việc duy nhất là chạy ChatGPT, nhưng nhanh hơn, cực kỳ ít tốn điện và rẻ hơn rất nhiều ở quy mô cực lớn.
+
+[SLIDE 5]
+Tranh cãi: Xây dựng hệ sinh thái khép kín
+Lời thoại: Bằng cách tự làm chip, OpenAI sẽ giảm chi phí vận hành khổng lồ. Nhưng điều này cũng tạo nên tranh cãi lớn: Khi OpenAI nắm trọn từ mô hình, dữ liệu, hạ tầng đám mây cho đến chip và người dùng cuối, họ đang xây dựng một đế chế AI khép kín hoàn toàn.
+
+[SLIDE 6]
+Outro: Tương lai thuộc về ai?
+Lời thoại: Liệu Jalapeño là cú hích giúp AI rẻ hơn cho toàn nhân loại, hay là bước đệm để một vài ông lớn kiểm soát hoàn toàn tương lai AI?
+
+[SLIDE 7]
+Follow @Turnio.dev
+Lời thoại: Hãy để lại ý kiến dưới phần bình luận, nhấn tim và Follow Turnio chấm dev để cập nhật tin tức công nghệ mới nhất nhé!

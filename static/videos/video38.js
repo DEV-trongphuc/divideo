@@ -63,16 +63,19 @@
                             <!-- Screen Video Simulation -->
                             <div style="flex:1; margin:15px 0; border-radius:24px; border:1px solid rgba(255,255,255,0.06); background:#050508; position:relative; display:flex; justify-content:center; align-items:center; overflow:hidden;">
                                 <!-- Cyber grid -->
-                                <div style="position:absolute; inset:0; background:linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px); background-size: 20px 20px;"></div>
+                                <div class="phone-cyber-grid" style="position:absolute; inset:0; background:linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px); background-size: 20px 20px; pointer-events:none;"></div>
                                 
                                 <!-- Cloud Node at Top -->
-                                <div class="upload-target-cloud" style="position:absolute; top:35px; display:flex; flex-direction:column; align-items:center; gap:8px; z-index:4;">
+                                <div class="upload-target-cloud" style="position:absolute; top:35px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; z-index:4;">
                                     <span class="cloud-icon" style="font-size:75px; filter:drop-shadow(0 0 15px var(--tiktok-cyan)); transition: all 0.3s;">☁️</span>
                                     <span style="font-size:14px; color:var(--tiktok-cyan); font-family:monospace; text-transform:uppercase; letter-spacing:1.5px; font-weight:bold;">TikTok Storage</span>
                                 </div>
 
+                                <!-- Shockwave element centered at cloud icon -->
+                                <div class="cloud-shockwave" style="position:absolute; top:85px; left:50%; transform:translate(-50%, -50%); width:0; height:0; border-radius:50%; border:3px solid #10b981; box-shadow:0 0 20px #10b981; opacity:0; z-index:3; pointer-events:none; transition: all 0.5s ease-out;"></div>
+
                                 <!-- Device Node at Bottom -->
-                                <div class="upload-source-device" style="position:absolute; bottom:25px; display:flex; flex-direction:column; align-items:center; gap:6px; z-index:4;">
+                                <div class="upload-source-device" style="position:absolute; bottom:25px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:6px; z-index:4;">
                                     <span style="font-size:52px; filter:drop-shadow(0 0 8px rgba(255,255,255,0.2));">📱</span>
                                     <span style="font-size:13px; color:rgba(255,255,255,0.4); font-family:monospace;">User Device</span>
                                 </div>
@@ -94,6 +97,13 @@
                                         <span class="upload-status-val">Uploading...</span>
                                     </div>
                                 </div>
+
+                                <!-- Uploading dots -->
+                                <div class="upload-dot dot-1" style="position:absolute; width:12px; height:12px; border-radius:50%; background:var(--tiktok-cyan); box-shadow:0 0 12px var(--tiktok-cyan); left:170px; z-index:3; opacity:0; pointer-events:none;"></div>
+                                <div class="upload-dot dot-2" style="position:absolute; width:12px; height:12px; border-radius:50%; background:var(--tiktok-magenta); box-shadow:0 0 12px var(--tiktok-magenta); left:230px; z-index:3; opacity:0; pointer-events:none;"></div>
+                                <div class="upload-dot dot-3" style="position:absolute; width:12px; height:12px; border-radius:50%; background:var(--tiktok-cyan); box-shadow:0 0 12px var(--tiktok-cyan); left:190px; z-index:3; opacity:0; pointer-events:none;"></div>
+                                <div class="upload-dot dot-4" style="position:absolute; width:12px; height:12px; border-radius:50%; background:var(--tiktok-magenta); box-shadow:0 0 12px var(--tiktok-magenta); left:210px; z-index:3; opacity:0; pointer-events:none;"></div>
+                                <div class="upload-dot dot-5" style="position:absolute; width:12px; height:12px; border-radius:50%; background:var(--tiktok-cyan); box-shadow:0 0 12px var(--tiktok-cyan); left:180px; z-index:3; opacity:0; pointer-events:none;"></div>
 
                                 <!-- Upward stream lines in background -->
                                 <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;">
@@ -195,45 +205,79 @@
             if (needsTemplate) {
                 canvas.innerHTML = `
                     <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:flex-start; align-items:center; gap:20px; zoom:1.15; padding-top:55px;">
-                        <div class="glass-card tiktok-card" style="width:100%; max-width:820px; height:460px; border-radius:24px; padding:24px; background:#08080a; position:relative; overflow:hidden; box-sizing:border-box;">
+                        <div class="glass-card tiktok-card" style="width:100%; max-width:680px; height:500px; border-radius:24px; padding:20px 24px; background:#08080a; position:relative; overflow:hidden; box-sizing:border-box;">
                             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid rgba(0,242,254,0.15); padding-bottom:10px;">
-                                <div style="font-size:22px; font-weight:bold; color:var(--tiktok-cyan); text-transform:uppercase; letter-spacing:0.5px;">Mạng phân phối nội dung (CDN Network)</div>
-                                <div style="font-size:16px; font-weight:bold; color:#10b981; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); padding:6px 14px; border-radius:10px;" class="cdn-latency-lbl">Độ trễ: 350ms</div>
+                                <div style="font-size:20px; font-weight:bold; color:var(--tiktok-cyan); text-transform:uppercase; letter-spacing:0.5px;">Mạng phân phối nội dung (CDN Network)</div>
+                                <div style="font-size:14px; font-weight:bold; color:#10b981; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); padding:5px 12px; border-radius:8px;" class="cdn-latency-lbl">Độ trễ: 350ms</div>
                             </div>
 
                             <!-- Map Area -->
-                            <div style="flex:1; height:340px; margin-top:20px; background:#040406; border-radius:16px; border:1px solid rgba(255,255,255,0.03); position:relative; overflow:hidden; display:flex; justify-content:center; align-items:center;">
-                                <div style="width:750px; height:100%; position:relative;">
+                            <div style="flex:1; height:380px; margin-top:15px; background:#040406; border-radius:16px; border:1px solid rgba(255,255,255,0.03); position:relative; overflow:hidden; display:flex; justify-content:center; align-items:center;">
+                                <div style="width:600px; height:100%; position:relative;">
                                     
                                     <!-- CDN Waves -->
-                                    <div class="cdn-wave-ring r1" style="left: 375px; top: 150px;"></div>
+                                    <div class="cdn-wave-ring r1" style="left: 300px; top: 180px;"></div>
+                                    <div class="cdn-wave-ring r2" style="left: 300px; top: 180px;"></div>
                                     
                                     <!-- SVG Connecting Lines -->
                                     <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;">
                                         <!-- Path Origin -> Edge -->
-                                        <path class="cdn-line-1" d="M 80 150 L 375 150" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3" stroke-dasharray="6 4" />
+                                        <path class="cdn-line-1" d="M 80 180 L 300 180" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3" stroke-dasharray="6 4" />
                                         <!-- Path Edge -> User -->
-                                        <path class="cdn-line-2" d="M 375 150 L 670 150" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3" stroke-dasharray="6 4" />
+                                        <path class="cdn-line-2" d="M 300 180 L 520 180" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3" stroke-dasharray="6 4" />
                                     </svg>
 
                                     <!-- Packets -->
-                                    <div class="cdn-packet-1" style="position:absolute; width:16px; height:16px; border-radius:50%; background:var(--tiktok-magenta); box-shadow:0 0 15px var(--tiktok-magenta); left:80px; top:150px; transform:translate(-50%,-50%); opacity:0; z-index:5;"></div>
-                                    <div class="cdn-packet-2" style="position:absolute; width:16px; height:16px; border-radius:50%; background:var(--tiktok-cyan); box-shadow:0 0 15px var(--tiktok-cyan); left:375px; top:150px; transform:translate(-50%,-50%); opacity:0; z-index:5;"></div>
+                                    <div class="cdn-packet-1" style="position:absolute; width:16px; height:16px; border-radius:50%; background:var(--tiktok-magenta); box-shadow:0 0 15px var(--tiktok-magenta); left:80px; top:180px; transform:translate(-50%,-50%); opacity:0; z-index:5;"></div>
+                                    <div class="cdn-packet-2" style="position:absolute; width:16px; height:16px; border-radius:50%; background:var(--tiktok-cyan); box-shadow:0 0 15px var(--tiktok-cyan); left:300px; top:180px; transform:translate(-50%,-50%); opacity:0; z-index:5;"></div>
 
-                                    <!-- Nodes (Origin, Edge, User) with larger sizes -->
-                                    <div class="cdn-node-origin" style="position:absolute; left:80px; top:150px; transform:translate(-50%,-50%); text-align:center; z-index:10;">
-                                        <div style="width:80px; height:80px; border-radius:50%; background:#1a1a24; border:2px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; font-size:32px; box-shadow:0 4px 15px rgba(0,0,0,0.5);">🇺🇸</div>
-                                        <span style="font-size:14px; font-weight:bold; color:rgba(255,255,255,0.4); display:block; margin-top:6px; width:120px; line-height:1.2;">Origin Server<br>(Mỹ)</span>
+                                    <!-- User Phone Screen -->
+                                    <div class="user-phone-screen" style="left: 520px; top: 90px; position: absolute;">
+                                        <!-- Spinner -->
+                                        <div class="spinner"></div>
+                                        
+                                        <!-- Video Thumbnail Simulation -->
+                                        <div class="video-thumb-sim" style="width:100%; height:100%; position:relative; background:#000; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box; padding:6px;">
+                                            <!-- Top bar -->
+                                            <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+                                                <span style="background:var(--tiktok-magenta); color:#fff; font-size:8px; font-weight:bold; padding:1px 3px; border-radius:3px; text-transform:uppercase; transform:scale(0.85);">Live</span>
+                                                <span style="color:rgba(255,255,255,0.8); font-size:8px; font-family:sans-serif;">❤️ 1.2M</span>
+                                            </div>
+                                            <!-- Center play icon -->
+                                            <div style="display:flex; justify-content:center; align-items:center; flex:1;">
+                                                <span style="font-size:18px; color:var(--tiktok-cyan); filter:drop-shadow(0 0 5px var(--tiktok-cyan)); animation: pulseGlow 1.5s infinite ease-in-out;">▶</span>
+                                            </div>
+                                            <!-- Bottom details -->
+                                            <div style="text-align:left; width:100%;">
+                                                <div style="color:#fff; font-size:8px; font-weight:bold; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:58px;">@trending_video</div>
+                                                <div style="color:rgba(255,255,255,0.6); font-size:6px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:58px;">TikTok CDN Delivery</div>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div class="cdn-node-edge" style="position:absolute; left:375px; top:150px; transform:translate(-50%,-50%); text-align:center; z-index:10;">
-                                        <div style="width:90px; height:90px; border-radius:50%; background:#1a1a24; border:2.5px solid var(--tiktok-cyan); display:flex; align-items:center; justify-content:center; font-size:36px; box-shadow:0 4px 15px rgba(0,0,0,0.5); transition:all 0.3s;" class="cdn-edge-globe">🇸🇬</div>
-                                        <span style="font-size:14px; font-weight:bold; color:var(--tiktok-cyan); display:block; margin-top:6px; width:140px; line-height:1.2;">Edge CDN<br>(Singapore)</span>
+                                    <!-- Nodes (Origin, Edge, User) as premium glassmorphic cards -->
+                                    <div class="cdn-node-origin" style="position:absolute; left:80px; top:180px; transform:translate(-50%,-50%); text-align:center; z-index:10;">
+                                        <div style="width:85px; height:85px; border-radius:18px; background:rgba(20, 20, 30, 0.75); border:1.5px solid rgba(255,255,255,0.1); backdrop-filter:blur(10px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; box-shadow:0 8px 20px rgba(0,0,0,0.5); position:relative;" class="glass-node-origin">
+                                            <i data-lucide="database" style="width:30px; height:30px; color:#fff; filter:drop-shadow(0 0 6px rgba(255,255,255,0.3));"></i>
+                                            <div style="position:absolute; top:-8px; right:-8px; background:rgba(0,0,0,0.8); border:1px solid rgba(255,255,255,0.2); border-radius:5px; padding:1px 4px; font-size:10px; color:#fff; font-family:monospace; font-weight:bold;">🇺🇸 US</div>
+                                        </div>
+                                        <span style="font-size:12px; font-weight:bold; color:rgba(255,255,255,0.4); display:block; margin-top:10px; width:110px; line-height:1.2;">Origin Server<br>(Mỹ)</span>
                                     </div>
 
-                                    <div class="cdn-node-user" style="position:absolute; left:670px; top:150px; transform:translate(-50%,-50%); text-align:center; z-index:10;">
-                                        <div style="width:80px; height:80px; border-radius:50%; background:#1a1a24; border:2px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; font-size:32px; box-shadow:0 4px 15px rgba(0,0,0,0.5);">🇻🇳</div>
-                                        <span style="font-size:14px; font-weight:bold; color:rgba(255,255,255,0.4); display:block; margin-top:6px; width:120px; line-height:1.2;">Bạn<br>(Việt Nam)</span>
+                                    <div class="cdn-node-edge" style="position:absolute; left:300px; top:180px; transform:translate(-50%,-50%); text-align:center; z-index:10;">
+                                        <div style="width:95px; height:95px; border-radius:20px; background:rgba(20, 20, 30, 0.85); border:2px solid rgba(0,242,254,0.3); backdrop-filter:blur(12px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; box-shadow:0 8px 25px rgba(0, 242, 254, 0.15); position:relative; transition: all 0.3s ease;" class="cdn-edge-globe">
+                                            <i data-lucide="globe" style="width:36px; height:36px; color:var(--tiktok-cyan); filter:drop-shadow(0 0 8px rgba(0,242,254,0.4));"></i>
+                                            <div style="position:absolute; top:-8px; right:-8px; background:rgba(0,0,0,0.8); border:1px solid var(--tiktok-cyan); border-radius:5px; padding:1px 4px; font-size:10px; color:var(--tiktok-cyan); font-family:monospace; font-weight:bold;">🇸🇬 SG</div>
+                                        </div>
+                                        <span style="font-size:12px; font-weight:bold; color:var(--tiktok-cyan); display:block; margin-top:10px; width:120px; line-height:1.2;">Edge CDN<br>(Singapore)</span>
+                                    </div>
+
+                                    <div class="cdn-node-user" style="position:absolute; left:520px; top:180px; transform:translate(-50%,-50%); text-align:center; z-index:10;">
+                                        <div style="width:85px; height:85px; border-radius:18px; background:rgba(20, 20, 30, 0.75); border:1.5px solid rgba(255,255,255,0.1); backdrop-filter:blur(10px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; box-shadow:0 8px 20px rgba(0,0,0,0.5); position:relative;" class="glass-node-user">
+                                            <i data-lucide="smartphone" style="width:30px; height:30px; color:#fff; filter:drop-shadow(0 0 6px rgba(255,255,255,0.3));"></i>
+                                            <div style="position:absolute; top:-8px; right:-8px; background:rgba(0,0,0,0.8); border:1px solid rgba(255,255,255,0.2); border-radius:5px; padding:1px 4px; font-size:10px; color:#fff; font-family:monospace; font-weight:bold;">🇻🇳 VN</div>
+                                        </div>
+                                        <span style="font-size:12px; font-weight:bold; color:rgba(255,255,255,0.4); display:block; margin-top:10px; width:110px; line-height:1.2;">Bạn<br>(Việt Nam)</span>
                                     </div>
 
                                 </div>
@@ -246,7 +290,7 @@
         else if (slideId === 'slide_v38_4') {
             if (needsTemplate) {
                 canvas.innerHTML = `
-                    <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:flex-start; align-items:center; gap:20px; zoom:1.15; padding-top:130px;">
+                    <div style="width:100%; height:100%; position:relative; box-sizing:border-box; display:flex; flex-direction:column; justify-content:flex-start; align-items:center; gap:20px; zoom:1.15; padding-top:55px;">
                         <div style="display:flex; justify-content:space-between; width:100%; max-width:820px; gap:24px; position:relative; height:440px; box-sizing:border-box;">
                             
                             <!-- Moving Video element (initial position centered horizontally at left Hot Storage drive) -->
@@ -262,10 +306,16 @@
                                     <div style="font-size:22px; font-weight:900; color:var(--tiktok-magenta); border-bottom:1.5px solid rgba(254,9,121,0.2); padding-bottom:10px; text-transform:uppercase; letter-spacing:0.5px;">Hot Storage</div>
                                     <div style="font-size:14px; color:rgba(255,255,255,0.4); margin-top:6px;">Lưu trên NVMe SSD</div>
                                 </div>
-                                <div style="font-size:16px; color:#fff; display:flex; flex-direction:column; gap:10px;">
-                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px;">⚡ Tốc độ: 7000 MB/s</div>
-                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px;">💰 Chi phí: Rất cao</div>
-                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px;">📈 Ưu tiên: Rất cao</div>
+                                <div style="font-size:15px; color:#fff; display:flex; flex-direction:column; gap:10px;">
+                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:center; gap:8px;">
+                                        <span class="anim-speed-emoji">⚡</span> Tốc độ: <span style="color:#10b981; font-weight:bold;">7000 MB/s</span>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:center; gap:8px;">
+                                        <span class="anim-cost-emoji">💰</span> Chi phí: <span style="color:#ef4444; font-weight:bold;">Rất cao</span>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:center; gap:8px;">
+                                        <span class="anim-trend-emoji">📈</span> Ưu tiên: <span style="color:#10b981; font-weight:bold;">Rất cao</span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -275,10 +325,16 @@
                                     <div style="font-size:22px; font-weight:900; color:#f59e0b; border-bottom:1.5px solid rgba(245,158,11,0.2); padding-bottom:10px; text-transform:uppercase; letter-spacing:0.5px;">Warm Storage</div>
                                     <div style="font-size:14px; color:rgba(255,255,255,0.4); margin-top:6px;">Lưu trên HDD RAID</div>
                                 </div>
-                                <div style="font-size:16px; color:#fff; display:flex; flex-direction:column; gap:10px;">
-                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px;">⚡ Tốc độ: 250 MB/s</div>
-                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px;">💰 Chi phí: Trung bình</div>
-                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px;">📊 Ưu tiên: Trung bình</div>
+                                <div style="font-size:15px; color:#fff; display:flex; flex-direction:column; gap:10px;">
+                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:center; gap:8px;">
+                                        <span class="anim-speed-emoji">⚡</span> Tốc độ: <span style="color:#f59e0b; font-weight:bold;">250 MB/s</span>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:center; gap:8px;">
+                                        <span class="anim-cost-emoji">💰</span> Chi phí: <span style="color:#f59e0b; font-weight:bold;">Trung bình</span>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:center; gap:8px;">
+                                        <span class="anim-trend-emoji">📈</span> Ưu tiên: <span style="color:#f59e0b; font-weight:bold;">Trung bình</span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -288,10 +344,16 @@
                                     <div style="font-size:22px; font-weight:900; color:#3b82f6; border-bottom:1.5px solid rgba(59,130,246,0.2); padding-bottom:10px; text-transform:uppercase; letter-spacing:0.5px;">Cold Storage</div>
                                     <div style="font-size:14px; color:rgba(255,255,255,0.4); margin-top:6px;">Lưu trên Băng từ/HDD</div>
                                 </div>
-                                <div style="font-size:16px; color:#fff; display:flex; flex-direction:column; gap:10px;">
-                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px;">⚡ Tốc độ: 80 MB/s</div>
-                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px;">💰 Chi phí: Rất rẻ</div>
-                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px;">📉 Ưu tiên: Thấp</div>
+                                <div style="font-size:15px; color:#fff; display:flex; flex-direction:column; gap:10px;">
+                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:center; gap:8px;">
+                                        <span class="anim-speed-emoji">⚡</span> Tốc độ: <span style="color:#ef4444; font-weight:bold;">80 MB/s</span>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:center; gap:8px;">
+                                        <span class="anim-cost-emoji">💰</span> Chi phí: <span style="color:#10b981; font-weight:bold;">Rất rẻ</span>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.02); border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:center; gap:8px;">
+                                        <span class="anim-trend-emoji">📉</span> Ưu tiên: <span style="color:#ef4444; font-weight:bold;">Thấp</span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -413,7 +475,6 @@
         }
     }
 
-    // ── ANIMATION UPDATE FRAME ─────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
         if (slideId === 'slide_v38_1') {
             const phone = canvas.querySelector('.tiktok-phone-container');
@@ -424,6 +485,14 @@
             const statusText = canvas.querySelector('.upload-status-val');
             const cloudIcon = canvas.querySelector('.cloud-icon');
             const fileIcon = canvas.querySelector('.upload-file-icon');
+            const shockwave = canvas.querySelector('.cloud-shockwave');
+            const dots = [
+                canvas.querySelector('.dot-1'),
+                canvas.querySelector('.dot-2'),
+                canvas.querySelector('.dot-3'),
+                canvas.querySelector('.dot-4'),
+                canvas.querySelector('.dot-5')
+            ];
 
             if (phone) {
                 const borderHue = progress * 360;
@@ -455,6 +524,40 @@
                     cloudIcon.style.transform = 'scale(1)';
                     cloudIcon.style.filter = 'drop-shadow(0 0 15px var(--tiktok-cyan))';
                 }
+                if (shockwave) {
+                    shockwave.style.width = '0px';
+                    shockwave.style.height = '0px';
+                    shockwave.style.opacity = '0';
+                }
+
+                // Animate uploading dots
+                dots.forEach((dot, idx) => {
+                    if (!dot) return;
+                    const dotOffset = idx * 0.2;
+                    const dotProgress = (ratio * 2.5 + dotOffset) % 1.0;
+                    
+                    const startY = 430;
+                    const endY = 110;
+                    const currentY = startY - (startY - endY) * dotProgress;
+                    
+                    const startX = [170, 230, 190, 210, 180][idx];
+                    const currentX = startX + Math.sin(dotProgress * Math.PI * 2) * 15;
+                    
+                    dot.style.top = `${currentY}px`;
+                    dot.style.left = `${currentX}px`;
+                    
+                    let dotOpacity = 0;
+                    if (dotProgress > 0.05 && dotProgress < 0.95) {
+                        if (dotProgress < 0.2) {
+                            dotOpacity = (dotProgress - 0.05) / 0.15;
+                        } else if (dotProgress > 0.8) {
+                            dotOpacity = (0.95 - dotProgress) / 0.15;
+                        } else {
+                            dotOpacity = 0.8;
+                        }
+                    }
+                    dot.style.opacity = dotOpacity.toString();
+                });
             }
             else if (progress >= 0.8 && progress < 0.9) {
                 // Success phase
@@ -474,6 +577,18 @@
                     cloudIcon.style.transform = 'scale(1.15)';
                     cloudIcon.style.filter = 'drop-shadow(0 0 25px #10b981)';
                 }
+
+                // Animate success shockwave
+                const successRatio = (progress - 0.8) / 0.1;
+                if (shockwave) {
+                    shockwave.style.width = `${100 + successRatio * 200}px`;
+                    shockwave.style.height = `${100 + successRatio * 200}px`;
+                    shockwave.style.opacity = (1 - successRatio).toString();
+                }
+
+                dots.forEach(dot => {
+                    if (dot) dot.style.opacity = '0';
+                });
             }
             else {
                 // Fade out/merging phase (progress >= 0.9)
@@ -487,6 +602,12 @@
                     cloudIcon.style.transform = `scale(${1.15 - ratio * 0.15})`;
                     cloudIcon.style.filter = 'drop-shadow(0 0 15px var(--tiktok-cyan))';
                 }
+                if (shockwave) {
+                    shockwave.style.opacity = '0';
+                }
+                dots.forEach(dot => {
+                    if (dot) dot.style.opacity = '0';
+                });
             }
         }
         else if (slideId === 'slide_v38_2') {
@@ -513,46 +634,98 @@
         else if (slideId === 'slide_v38_3') {
             const p1 = canvas.querySelector('.cdn-packet-1');
             const p2 = canvas.querySelector('.cdn-packet-2');
-            const wave = canvas.querySelector('.cdn-wave-ring');
+            const wave1 = canvas.querySelector('.cdn-wave-ring.r1');
+            const wave2 = canvas.querySelector('.cdn-wave-ring.r2');
             const edgeGlobe = canvas.querySelector('.cdn-edge-globe');
             const latency = canvas.querySelector('.cdn-latency-lbl');
+            const line1 = canvas.querySelector('.cdn-line-1');
+            const line2 = canvas.querySelector('.cdn-line-2');
+            const userPhone = canvas.querySelector('.user-phone-screen');
 
-            // 0.0 -> 0.4: Packet travels Origin -> Edge CDN
-            // 0.4 -> 0.6: Edge CDN ripples/caches
-            // 0.6 -> 1.0: Packet travels CDN Edge -> Local User. Latency drops!
-            
-            if (progress < 0.4) {
-                const ratio = progress / 0.4;
-                const currentX = 80 + (375 - 80) * ratio;
+            if (progress < 0.32) {
+                // Phase 1: Origin -> Edge CDN
+                const ratio = progress / 0.32;
+                const currentX = 80 + (300 - 80) * ratio;
                 if (p1) { p1.style.left = `${currentX}px`; p1.style.opacity = '1'; }
                 if (p2) p2.style.opacity = '0';
-                if (wave) wave.classList.remove('animate');
-                if (edgeGlobe) { edgeGlobe.style.borderColor = 'rgba(255,255,255,0.2)'; edgeGlobe.style.boxShadow = 'none'; }
+                
+                if (wave1) wave1.classList.remove('animate');
+                if (wave2) wave2.classList.remove('animate');
+                
+                if (edgeGlobe) { 
+                    edgeGlobe.style.borderColor = 'rgba(255,255,255,0.2)'; 
+                    edgeGlobe.style.boxShadow = 'none'; 
+                }
+                
+                if (line1) line1.classList.add('cdn-line-flow-1');
+                if (line2) line2.classList.remove('cdn-line-flow-2');
+                
+                if (userPhone) {
+                    userPhone.classList.remove('visible');
+                    userPhone.classList.remove('active');
+                }
                 if (latency) { latency.textContent = 'Độ trễ: 350ms'; latency.style.color = '#ef4444'; }
             }
-            else if (progress >= 0.4 && progress < 0.6) {
+            else if (progress >= 0.32 && progress < 0.68) {
+                // Phase 2: Edge CDN cache storage & buffering spinner activation
                 if (p1) p1.style.opacity = '0';
                 if (p2) p2.style.opacity = '0';
-                if (wave) wave.classList.add('animate');
+                
+                if (wave1) wave1.classList.add('animate');
+                if (wave2) wave2.classList.add('animate');
+                
                 if (edgeGlobe) { 
                     edgeGlobe.style.borderColor = 'var(--tiktok-cyan)'; 
-                    edgeGlobe.style.boxShadow = '0 0 20px var(--tiktok-cyan)';
+                    edgeGlobe.style.boxShadow = '0 0 12px rgba(0, 242, 254, 0.5)';
+                }
+                
+                if (line1) line1.classList.remove('cdn-line-flow-1');
+                if (line2) line2.classList.remove('cdn-line-flow-2');
+                
+                if (userPhone) {
+                    userPhone.classList.add('visible');
+                    userPhone.classList.remove('active');
                 }
                 if (latency) { latency.textContent = 'Đang lưu cache...'; latency.style.color = '#f59e0b'; }
             }
             else {
-                // progress >= 0.6
+                // Phase 3: CDN Edge -> local user (Vietnam)
                 if (p1) p1.style.opacity = '0';
-                if (wave) wave.classList.remove('animate');
+                
+                if (wave1) wave1.classList.remove('animate');
+                if (wave2) wave2.classList.remove('animate');
+                
                 if (edgeGlobe) { 
                     edgeGlobe.style.borderColor = 'var(--tiktok-cyan)'; 
-                    edgeGlobe.style.boxShadow = '0 0 10px var(--tiktok-cyan)';
+                    edgeGlobe.style.boxShadow = '0 0 6px rgba(0, 242, 254, 0.3)';
                 }
                 
-                const ratio = (progress - 0.6) / 0.4; // 0 to 1
-                const currentX = 375 + (670 - 375) * ratio;
-                if (p2) { p2.style.left = `${currentX}px`; p2.style.opacity = '1'; }
-                if (latency) { latency.textContent = 'Độ trễ: 15ms (Mượt)'; latency.style.color = '#10b981'; }
+                const ratio = (progress - 0.68) / 0.32; // 0 to 1
+                
+                // Packet 2 travels from SG (300) to VN (520) and hits VN user around progress = 0.84 (ratio = 0.5)
+                const packetRatio = Math.min(ratio / 0.5, 1);
+                const currentX = 300 + (520 - 300) * packetRatio;
+                
+                if (line1) line1.classList.remove('cdn-line-flow-1');
+                
+                if (packetRatio < 1) {
+                    if (p2) { p2.style.left = `${currentX}px`; p2.style.opacity = '1'; }
+                    if (line2) line2.classList.add('cdn-line-flow-2');
+                    if (userPhone) {
+                        userPhone.classList.add('visible');
+                        userPhone.classList.remove('active');
+                    }
+                    if (latency) { latency.textContent = 'Độ trễ: 15ms (Mượt)'; latency.style.color = '#10b981'; }
+                } else {
+                    // Arrived! Instant playback!
+                    if (p2) p2.style.opacity = '0';
+                    if (line2) line2.classList.remove('cdn-line-flow-2');
+                    if (userPhone) {
+                        userPhone.classList.add('visible');
+                        userPhone.classList.add('active');
+                    }
+                    if (latency) { latency.textContent = 'Độ trễ: 15ms (Mượt)'; latency.style.color = '#10b981'; }
+                }
             }
         }
         else if (slideId === 'slide_v38_4') {
