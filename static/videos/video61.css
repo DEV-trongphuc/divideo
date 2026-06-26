@@ -2,8 +2,8 @@
 
 :root {
     --v61-bg: #05060b;
-    --v61-primary: #ff3e3e; /* Glowing chili red */
-    --v61-primary-glow: rgba(255, 62, 62, 0.45);
+    --v61-primary: #f59e0b; /* Glowing yellow/gold replaces red */
+    --v61-primary-glow: rgba(245, 158, 11, 0.22);
     --v61-nvidia: #76b900; /* NVIDIA Green */
     --v61-nvidia-glow: rgba(118, 185, 0, 0.4);
     --v61-accent: #00f2fe; /* Cyan */
@@ -74,14 +74,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 460px;
+    width: 500px;
     margin-bottom: 5px;
     z-index: 10;
 }
 
 .v61-battle-logo-wrapper {
-    width: 64px;
-    height: 64px;
+    width: 76px;
+    height: 76px;
     border-radius: 50%;
     border: 1.5px solid rgba(255, 255, 255, 0.12);
     background: rgba(15, 23, 42, 0.85);
@@ -94,8 +94,8 @@
 }
 
 .v61-battle-logo {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
     z-index: 3;
 }
@@ -112,15 +112,15 @@
     box-shadow: 0 0 15px var(--v61-primary-glow);
     animation: v61-pulse-halo 2s infinite ease-in-out;
 }
-.nv-wrapper .v61-battle-glow {
-    border: 1px solid var(--v61-nvidia);
-    box-shadow: 0 0 15px var(--v61-nvidia-glow);
+.tsmc-wrapper .v61-battle-glow {
+    border: 1px solid var(--v61-accent);
+    box-shadow: 0 0 15px var(--v61-accent-glow);
     animation: v61-pulse-halo 2s infinite ease-in-out alternate;
 }
 
 .v61-battle-vs {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: var(--v61-gold);
     display: flex;
@@ -131,8 +131,8 @@
     z-index: 5;
 }
 .v61-battle-vs-icon {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     color: #0f172a;
     animation: v61-vs-vibrate 0.6s infinite alternate;
 }
@@ -141,8 +141,8 @@
 .v61-hook-svg {
     position: absolute;
     top: 60px; /* Aligns with bottom of logo row */
-    left: 60px;
-    width: 520px;
+    left: 0;
+    width: 640px;
     height: 330px;
     pointer-events: none;
     z-index: 7;
@@ -161,9 +161,9 @@
     filter: drop-shadow(0 0 4px var(--v61-primary));
 }
 
-.nv-stream {
-    stroke: var(--v61-nvidia);
-    filter: drop-shadow(0 0 4px var(--v61-nvidia));
+.bc-stream {
+    stroke: var(--v61-accent);
+    filter: drop-shadow(0 0 4px var(--v61-accent));
 }
 
 /* Photo container core frame */
@@ -172,7 +172,7 @@
     height: 310px;
     border-radius: 16px;
     border: 2px solid var(--v61-primary);
-    box-shadow: 0 0 30px var(--v61-primary-glow), inset 0 0 15px rgba(255, 62, 62, 0.15);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.15), inset 0 0 8px rgba(245, 158, 11, 0.08);
     overflow: hidden;
     position: relative;
     background: #000;
@@ -274,38 +274,48 @@
 
 /* News ticker spec box */
 .v61-ticker-box {
-    width: 520px;
-    height: 52px;
-    background: var(--v61-card-bg);
-    border: 1px solid var(--v61-border);
+    width: 560px;
+    height: 56px;
+    background: rgba(15, 23, 42, 0.95);
+    border: none;
+    border-bottom: 3px solid var(--v61-primary);
     border-radius: 12px;
     display: flex;
     align-items: center;
-    padding: 6px 15px;
-    gap: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    padding: 0;
+    gap: 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 10px rgba(245, 158, 11, 0.15);
     overflow: hidden;
     z-index: 9;
 }
 
 .v61-ticker-badge {
-    background: var(--v61-primary);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 950;
-    padding: 6px 10px;
-    border-radius: 6px;
-    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, var(--v61-primary) 0%, #d97706 100%);
+    color: #000;
+    font-size: 14px;
+    font-weight: 900;
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px 0 0 12px;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
     animation: v61-flash-ticker 1.5s infinite ease-in-out;
 }
 
 .v61-ticker-text {
-    font-family: monospace;
-    font-size: 11px;
-    color: var(--v61-accent);
-    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 700;
     text-align: left;
     white-space: nowrap;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex: 1;
 }
 
 /* --- Slide 2: Bloodline Disconnect & Spark Explosion --- */
@@ -336,7 +346,7 @@
 }
 .v61-bloodline-card.nvidia-card.crashed {
     filter: grayscale(1) opacity(0.35);
-    border-color: rgba(255, 62, 62, 0.2);
+    border-color: rgba(245, 158, 11, 0.2);
     box-shadow: none;
 }
 
@@ -629,16 +639,17 @@
 
 .v61-bar-bg {
     width: 100%;
-    height: 8px;
+    height: 14px;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
+    border-radius: 7px;
     overflow: hidden;
     position: relative;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .v61-bar-fill {
     height: 100%;
-    border-radius: 4px;
+    border-radius: 7px;
     width: 100%;
     transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -699,7 +710,7 @@
     justify-content: center;
 }
 .v61-compare-card.nvidia-comp .v61-comp-icon-box { background: rgba(118, 185, 0, 0.15); color: var(--v61-nvidia); }
-.v61-compare-card.openai-comp .v61-comp-icon-box { background: rgba(255, 62, 62, 0.15); color: var(--v61-primary); }
+.v61-compare-card.openai-comp .v61-comp-icon-box { background: rgba(245, 158, 11, 0.15); color: var(--v61-primary); }
 
 .v61-comp-display {
     height: 150px;
@@ -724,7 +735,7 @@
 .v61-speed-line {
     position: absolute;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255, 62, 62, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.3), transparent);
     width: 120px;
     z-index: 1;
     pointer-events: none;
@@ -806,8 +817,8 @@
 }
 
 .v61-empire-node.locked {
-    border-color: var(--v61-primary) !important;
-    box-shadow: 0 0 18px var(--v61-primary-glow) !important;
+    border-color: var(--v61-gold) !important;
+    box-shadow: 0 0 18px var(--v61-gold-glow) !important;
 }
 
 /* Layout nodes in a circle with scale(0) by default */
@@ -830,40 +841,36 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: radial-gradient(circle, #1e1114 0%, #0c0809 100%);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: radial-gradient(circle, #251b0f 0%, #0d0905 100%);
+    border: 2px solid rgba(255, 255, 255, 0.15);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    color: rgba(255,255,255,0.4);
     z-index: 10;
     transition: all 0.4s ease;
 }
 
-.v61-center-castle span.icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.4s ease;
-}
-
-.v61-center-castle span.lbl {
-    font-size: 8px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.v61-center-oai-logo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15));
+    transition: filter 0.4s ease, transform 0.1s linear;
 }
 
 .v61-center-castle.locked {
     border-color: var(--v61-primary);
-    color: var(--v61-primary);
-    box-shadow: 0 0 25px var(--v61-primary-glow);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
 }
 
-.v61-center-castle.locked span.icon {
-    transform: scale(1.15);
+.v61-center-castle.locked .v61-center-oai-logo {
+    animation: v61-oai-active-pulse 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes v61-oai-active-pulse {
+    0% { filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.15)); }
+    100% { filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.35)); }
 }
 
 /* SVG loop lines and shield overlay */
@@ -885,9 +892,9 @@
 }
 
 .v61-connection-path.active {
-    stroke: var(--v61-primary);
+    stroke: var(--v61-gold);
     stroke-width: 3.5;
-    filter: drop-shadow(0 0 6px var(--v61-primary-glow));
+    filter: drop-shadow(0 0 6px var(--v61-gold-glow));
 }
 
 .v61-shield-bubble {
@@ -895,8 +902,8 @@
     width: 340px;
     height: 340px;
     border-radius: 50%;
-    border: 2px solid var(--v61-primary);
-    background: radial-gradient(circle, transparent 75%, var(--v61-primary-glow) 100%);
+    border: 2px solid var(--v61-gold);
+    background: radial-gradient(circle, transparent 75%, var(--v61-gold-glow) 100%);
     z-index: 8;
     opacity: 0;
     transform: scale(0.9);
@@ -915,9 +922,9 @@
     position: absolute;
     width: 8px;
     height: 8px;
-    background: var(--v61-primary);
+    background: var(--v61-gold);
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--v61-primary);
+    box-shadow: 0 0 10px var(--v61-gold);
     z-index: 4;
 }
 
@@ -949,17 +956,19 @@
 
 .v61-poll-cards {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 12px;
     width: 100%;
 }
 
 .v61-poll-card {
-    flex: 1;
-    height: 180px;
+    width: 100%;
+    height: 65px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    padding: 18px;
+    padding: 10px 15px;
     position: relative;
     cursor: pointer;
     overflow: hidden;
@@ -1056,7 +1065,7 @@
     justify-content: center;
     gap: 8px;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(255, 62, 62, 0.25);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
     animation: v61-pulse-cta 2s infinite;
 }
 
@@ -1125,13 +1134,13 @@
 }
 
 @keyframes v61-shield-glow {
-    0%, 100% { border-color: rgba(255, 62, 62, 0.7); box-shadow: 0 0 25px rgba(255, 62, 62, 0.2), inset 0 0 25px rgba(255, 62, 62, 0.15); }
-    50% { border-color: rgba(255, 62, 62, 0.95); box-shadow: 0 0 45px rgba(255, 62, 62, 0.4), inset 0 0 45px rgba(255, 62, 62, 0.35); }
+    0%, 100% { border-color: rgba(245, 158, 11, 0.7); box-shadow: 0 0 25px rgba(245, 158, 11, 0.2), inset 0 0 25px rgba(245, 158, 11, 0.15); }
+    50% { border-color: rgba(245, 158, 11, 0.95); box-shadow: 0 0 45px rgba(245, 158, 11, 0.4), inset 0 0 45px rgba(245, 158, 11, 0.35); }
 }
 
 @keyframes v61-pulse-cta {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 62, 62, 0.25); }
-    50% { transform: scale(1.025); box-shadow: 0 0 35px rgba(255, 62, 62, 0.45); }
+    0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(245, 158, 11, 0.15); }
+    50% { transform: scale(1.025); box-shadow: 0 0 20px rgba(245, 158, 11, 0.25); }
 }
 
 @keyframes v61-particle-rise {
@@ -1141,29 +1150,30 @@
     100% { transform: translateY(-125px) translateX(15px) scale(1.2); opacity: 0; }
 }
 
-/* New Hook Split Layout */
+/* New Hook Split Layout -> Stacked Vertically */
 .v61-hook-split {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-    width: 580px;
-    height: 290px;
+    flex-direction: column;
+    gap: 12px;
+    width: 560px;
+    height: auto;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     z-index: 8;
     position: relative;
+    margin: 10px auto 0 auto;
 }
 
 .v61-specs-hud {
-    width: 230px;
-    height: 275px;
+    width: 100%;
+    height: auto;
     background: rgba(10, 15, 30, 0.75);
     border: 1.5px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
-    padding: 15px;
+    padding: 12px 16px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     position: relative;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
@@ -1184,7 +1194,8 @@
 
 .v61-spec-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 10px;
     flex: 1;
 }
@@ -1253,7 +1264,7 @@
 .v61-decor-ring.ring-inner {
     width: 280px;
     height: 280px;
-    border: 1px dashed rgba(255, 62, 62, 0.04);
+    border: 1px dashed rgba(245, 158, 11, 0.04);
 }
 
 /* --- Slide 7: Follow Turnio.dev --- */

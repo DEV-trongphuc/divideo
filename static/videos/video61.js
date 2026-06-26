@@ -8,10 +8,10 @@
     const keywordsData = {
         slide_jla_intro: [
             { text: 'tự thiết kế con chip', start: 4.8, end: 7.2, class: 'active-yellow' },
-            { text: 'Jalapeño', start: 6.8, end: 8.0, class: 'active-red' }
+            { text: 'Jalapeño', start: 6.8, end: 8.0, class: 'active-yellow' }
         ],
         slide_jla_nvidia: [
-            { text: 'cắt khỏi “mạch máu”', start: 3.8, end: 6.8, class: 'active-red' },
+            { text: 'cắt khỏi “mạch máu”', start: 3.8, end: 6.8, class: 'active-yellow' },
             { text: 'phụ thuộc lượng GPU', start: 7.2, end: 11.8, class: 'active-violet' }
         ],
         slide_jla_design: [
@@ -24,16 +24,16 @@
         ],
         slide_jla_empire: [
             { text: 'giảm chi phí vận hành', start: 1.5, end: 4.5, class: 'active-green' },
-            { text: 'đế chế AI khép kín', start: 10.0, end: 13.5, class: 'active-red' }
+            { text: 'đế chế AI khép kín', start: 10.0, end: 13.5, class: 'active-yellow' }
         ],
         slide_jla_outro: [
             { text: 'giúp AI rẻ hơn', start: 1.0, end: 4.2, class: 'active-green' },
-            { text: 'kiểm soát hoàn toàn', start: 4.8, end: 8.5, class: 'active-red' }
+            { text: 'kiểm soát hoàn toàn', start: 4.8, end: 8.5, class: 'active-yellow' }
         ]
     };
 
     const customSlideIds = [
-        'slide_jla_intro', 'slide_jla_nvidia', 'slide_jla_design', 'slide_jla_compare', 'slide_jla_empire', 'slide_jla_outro', 'slide_jla_follow'
+        'slide_jla_intro', 'slide_jla_nvidia', 'slide_jla_design', 'slide_jla_compare', 'slide_jla_empire', 'slide_jla_outro'
     ];
 
     function sceneWrap(inner) {
@@ -62,67 +62,30 @@
                             <div class="v61-battle-glow oai-glow"></div>
                         </div>
                         
-                        <!-- Conflict vs lightning icon -->
+                        <!-- Partnership icon -->
                         <div class="v61-battle-vs">
-                            <i data-lucide="zap" class="v61-battle-vs-icon"></i>
+                            <i data-lucide="plus" class="v61-battle-vs-icon"></i>
                         </div>
                         
-                        <!-- NVIDIA Brand -->
-                        <div class="v61-battle-logo-wrapper nv-wrapper">
-                            <img src="/static/videos/nvidia_logo.png" class="v61-battle-logo" alt="NVIDIA">
-                            <div class="v61-battle-glow nv-glow"></div>
+                        <!-- TSMC Brand -->
+                        <div class="v61-battle-logo-wrapper tsmc-wrapper">
+                            <img src="/static/videos/tsmc_logo.png" class="v61-battle-logo" alt="TSMC">
+                            <div class="v61-battle-glow tsmc-glow"></div>
                         </div>
                     </div>
                     
-                    <!-- SVG Overlay for Curved Data Streams from Logos to Photo -->
+                    <!-- SVG Overlay for Curved Data Streams from Logos to Photo (Centered) -->
                     <svg class="v61-hook-svg" viewBox="0 0 520 330">
-                        <!-- Left Curve: OpenAI logo (~120, 30) to Wafer center (~410, 180) -->
-                        <path class="v61-stream-path oai-stream" id="s-hook-path-left" d="M 120 40 Q 200 140 410 180" />
-                        <!-- Right Curve: Nvidia logo (~400, 30) to Wafer center (~410, 180) -->
-                        <path class="v61-stream-path nv-stream" id="s-hook-path-right" d="M 400 40 Q 380 140 410 180" />
+                        <!-- Left Curve: OpenAI logo (~160, 30) to Photo top (~260, 110) -->
+                        <path class="v61-stream-path oai-stream" id="s-hook-path-left" d="M 140 30 Q 180 90 290 110" />
+                        <!-- Right Curve: TSMC logo (~360, 30) to Photo top (~260, 110) -->
+                        <path class="v61-stream-path tsmc-stream" id="s-hook-path-right" d="M 380 30 Q 340 90 290 110" />
                     </svg>
 
-                    <!-- Split Row Layout -->
+                    <!-- Split Row Layout -> Stacked Vertically -->
                     <div class="v61-hook-split">
-                        <!-- Left Specs HUD Panel -->
-                        <div class="v61-specs-hud" id="s-specs-hud">
-                            <div class="v61-specs-hdr">
-                                <i data-lucide="cpu" style="width:12px; height:12px;"></i> CHIP SPECS
-                            </div>
-                            <div class="v61-spec-list">
-                                <div class="v61-spec-item">
-                                    <span class="v61-spec-lbl">Co-Design Partner</span>
-                                    <span class="v61-spec-val cyan">Broadcom ASIC</span>
-                                </div>
-                                <div class="v61-spec-item">
-                                    <span class="v61-spec-lbl">Processor Type</span>
-                                    <span class="v61-spec-val green">Inference Only</span>
-                                </div>
-                                <div class="v61-spec-item">
-                                    <span class="v61-spec-lbl">Primary Workload</span>
-                                    <span class="v61-spec-val gold">ChatGPT & AI Agent</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Matrix of server nodes -->
-                            <div class="v61-nodes-matrix" id="s-nodes-matrix">
-                                <div class="v61-matrix-dot"></div>
-                                <div class="v61-matrix-dot"></div>
-                                <div class="v61-matrix-dot"></div>
-                                <div class="v61-matrix-dot"></div>
-                                <div class="v61-matrix-dot"></div>
-                                <div class="v61-matrix-dot"></div>
-                                <div class="v61-matrix-dot"></div>
-                                <div class="v61-matrix-dot"></div>
-                                <div class="v61-matrix-dot"></div>
-                                <div class="v61-matrix-dot"></div>
-                                <div class="v61-matrix-dot"></div>
-                                <div class="v61-matrix-dot"></div>
-                            </div>
-                        </div>
-
-                        <!-- Right Showcase Card -->
-                        <div class="v61-photo-frame" id="s-photo-frame" style="width: 320px; height: 275px; border-radius: 16px;">
+                        <!-- Top Showcase Card -->
+                        <div class="v61-photo-frame" id="s-photo-frame" style="width: 100%; height: 200px; border-radius: 16px;">
                             <div class="v61-hud-corner tl"></div>
                             <div class="v61-hud-corner tr"></div>
                             <div class="v61-hud-corner bl"></div>
@@ -134,7 +97,7 @@
                             <div class="v61-chip-badge" style="bottom: 12px; right: 12px; padding: 6px 10px; gap: 6px;">
                                 <span class="v61-badge-pulse"></span>
                                 <span class="v61-badge-icon">
-                                    <i data-lucide="cpu" style="width:14px; height:14px; color:var(--v61-primary)"></i>
+                                    <i data-lucide="cpu" style="width:14px; height:14px; color:var(--v61-gold)"></i>
                                 </span>
                                 <div class="v61-badge-text">
                                     <span class="v61-badge-title" style="font-size: 8.5px;">JALAPEÑO</span>
@@ -142,11 +105,50 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Bottom Specs HUD Panel (Wide & Compact) -->
+                        <div class="v61-specs-hud" id="s-specs-hud" style="width: 100%; height: auto; padding: 12px 16px;">
+                            <div class="v61-specs-hdr" style="border-bottom: 1.5px solid rgba(0, 242, 254, 0.2); padding-bottom: 4px; margin-bottom: 6px;">
+                                <i data-lucide="cpu" style="width:12px; height:12px;"></i> CHIP SPECS
+                            </div>
+                            <div style="display: flex; flex-direction: row; width: 100%; align-items: center; justify-content: space-between; gap: 15px;">
+                                <!-- Spec list (left columns) -->
+                                <div class="v61-spec-list" style="display: flex; flex-direction: row; justify-content: space-between; gap: 15px; flex: 1;">
+                                    <div class="v61-spec-item" style="flex: 1;">
+                                        <span class="v61-spec-lbl">Co-Design Partner</span>
+                                        <span class="v61-spec-val cyan">Broadcom ASIC</span>
+                                    </div>
+                                    <div class="v61-spec-item" style="flex: 1;">
+                                        <span class="v61-spec-lbl">Processor Type</span>
+                                        <span class="v61-spec-val green">Inference Only</span>
+                                    </div>
+                                    <div class="v61-spec-item" style="flex: 1;">
+                                        <span class="v61-spec-lbl">Primary Workload</span>
+                                        <span class="v61-spec-val gold">ChatGPT & AI Agent</span>
+                                    </div>
+                                </div>
+                                <!-- Nodes Matrix (right panel grid) -->
+                                <div class="v61-nodes-matrix" id="s-nodes-matrix" style="border-top: none; border-left: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0; padding-left: 15px; margin-top: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;">
+                                    <div class="v61-matrix-dot"></div>
+                                    <div class="v61-matrix-dot"></div>
+                                    <div class="v61-matrix-dot"></div>
+                                    <div class="v61-matrix-dot"></div>
+                                    <div class="v61-matrix-dot"></div>
+                                    <div class="v61-matrix-dot"></div>
+                                    <div class="v61-matrix-dot"></div>
+                                    <div class="v61-matrix-dot"></div>
+                                    <div class="v61-matrix-dot"></div>
+                                    <div class="v61-matrix-dot"></div>
+                                    <div class="v61-matrix-dot"></div>
+                                    <div class="v61-matrix-dot"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
                     <!-- News ticker box below -->
                     <div class="v61-ticker-box" id="s-ticker-box" style="margin-top: 10px;">
-                        <div class="v61-ticker-badge">BREAKING NEWS</div>
+                        <div class="v61-ticker-badge">AI NEWS</div>
                         <div class="v61-ticker-text" id="s-ticker-text">LOADING DATAFEED...</div>
                     </div>
                 </div>
@@ -360,10 +362,7 @@
 
                         <!-- Center Empire Node -->
                         <div class="v61-center-castle" id="s-center-castle">
-                            <span class="icon" id="s-castle-icon">
-                                <i data-lucide="shield" style="width:36px; height:36px;"></i>
-                            </span>
-                            <span class="lbl">EMPIRE</span>
+                            <img src="/static/videos/openai_logo.png" class="v61-center-oai-logo" id="s-center-oai-logo" alt="OpenAI">
                         </div>
 
                         <!-- Loop Nodes -->
@@ -387,7 +386,7 @@
                         </div>
                         <div class="v61-empire-node v61-node-chip" id="s-node-chip">
                             <span class="icon">
-                                <i data-lucide="cpu" style="width:24px; height:24px; color:var(--v61-primary)"></i>
+                                <i data-lucide="cpu" style="width:24px; height:24px; color:var(--v61-gold)"></i>
                             </span>
                             <span>Chip Tự Chế</span>
                         </div>
@@ -414,79 +413,32 @@
         else if (slideId === 'slide_jla_outro') {
             canvas.innerHTML = sceneWrap(`
                 <div class="v61-scene-row">
-                    <div class="v61-poll-container">
-                        <div class="v61-poll-title-box">
-                            <h3>BẠN NGHĨ GÌ VỀ CHIẾN LƯỢC CHIP MỚI?</h3>
-                            <p>OpenAI xây dựng Jalapeño nhằm mục đích gì?</p>
-                        </div>
-
-                        <div class="v61-poll-cards">
+                    <div class="v61-poll-container" style="width: 560px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <div class="v61-poll-cards" style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
                             <!-- Option A -->
-                            <div class="v61-card v61-poll-card opt-a" id="s-poll-opt-a">
-                                <div class="v61-poll-hdr">
-                                    <span class="v61-poll-badge">Lựa chọn 1</span>
-                                    <span class="v61-poll-pct-text" id="s-pct-opt-a">0%</span>
+                            <div class="v61-card v61-poll-card opt-a" id="s-poll-opt-a" style="display:flex; flex-direction:row; align-items:center; gap:16px; height:82px; padding:12px 24px; position:relative; overflow:hidden; border-radius:14px; width:100%; opacity:1; transform:scale(1);">
+                                <div class="v61-poll-icon-wrap" style="width:42px; height:42px; border-radius:50%; background:rgba(16, 185, 129, 0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                    <i data-lucide="globe" style="width:20px; height:20px; color:#10b981"></i>
                                 </div>
-                                <span class="v61-poll-icon">
-                                    <i data-lucide="globe" style="width:28px; height:28px; color:#10b981"></i>
-                                </span>
-                                <span class="v61-poll-text">Giúp AI rẻ hơn cho nhân loại</span>
-                                <div class="v61-poll-pct-bar" id="s-bar-opt-a"></div>
+                                <div style="flex:1; display:flex; flex-direction:column; justify-content:center; text-align:left; line-height:1.3; z-index:2;">
+                                    <span style="font-size:11px; font-weight:bold; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.5px;">Lựa chọn 1</span>
+                                    <span style="font-size:15px; font-weight:bold; color:#fff; margin-top:3px;">Giúp AI rẻ hơn cho nhân loại</span>
+                                </div>
+                                <div class="v61-poll-pct-text" id="s-pct-opt-a" style="position:static; opacity:1; font-size:24px; font-weight:900; color:#10b981; margin-left:18px; font-family:monospace; transform:none; transition:none; z-index:2;">0%</div>
+                                <div class="v61-poll-pct-bar" id="s-bar-opt-a" style="position:absolute; bottom:0; left:0; height:5px; width:0%; background:#10b981; transition:width 0.8s cubic-bezier(0.16, 1, 0.3, 1); z-index:1;"></div>
                             </div>
-
+ 
                             <!-- Option B -->
-                            <div class="v61-card v61-poll-card opt-b" id="s-poll-opt-b">
-                                <div class="v61-poll-hdr">
-                                    <span class="v61-poll-badge">Lựa chọn 2</span>
-                                    <span class="v61-poll-pct-text" id="s-pct-opt-b">0%</span>
+                            <div class="v61-card v61-poll-card opt-b" id="s-poll-opt-b" style="display:flex; flex-direction:row; align-items:center; gap:16px; height:82px; padding:12px 24px; position:relative; overflow:hidden; border-radius:14px; width:100%; opacity:1; transform:scale(1);">
+                                <div class="v61-poll-icon-wrap" style="width:42px; height:42px; border-radius:50%; background:rgba(245, 158, 11, 0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                    <i data-lucide="shield" style="width:20px; height:20px; color:#f59e0b"></i>
                                 </div>
-                                <span class="v61-poll-icon">
-                                    <i data-lucide="shield" style="width:28px; height:28px; color:#f59e0b"></i>
-                                </span>
-                                <span class="v61-poll-text">Bước đầu độc quyền kiểm soát AI</span>
-                                <div class="v61-poll-pct-bar" id="s-bar-opt-b"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `);
-        }
-        else if (slideId === 'slide_jla_follow') {
-            canvas.innerHTML = sceneWrap(`
-                <div class="v61-scene-row">
-                    <div class="v61-follow-container">
-                        <!-- Floating TikTok action icons -->
-                        <div class="v61-action-floaters">
-                            <div class="v61-floater fl-heart" id="s-fl-heart">
-                                <i data-lucide="heart" style="width:24px; height:24px; color:var(--v61-primary); fill:var(--v61-primary)"></i>
-                            </div>
-                            <div class="v61-floater fl-user" id="s-fl-user">
-                                <i data-lucide="user-plus" style="width:24px; height:24px; color:var(--v61-gold)"></i>
-                            </div>
-                            <div class="v61-floater fl-comment" id="s-fl-comment">
-                                <i data-lucide="message-square" style="width:24px; height:24px; color:var(--v61-accent)"></i>
-                            </div>
-                            <div class="v61-floater fl-share" id="s-fl-share">
-                                <i data-lucide="share-2" style="width:24px; height:24px; color:#d946ef"></i>
-                            </div>
-                        </div>
-
-                        <!-- Main Follow card -->
-                        <div class="v61-follow-card" id="s-follow-card">
-                            <div class="v61-follow-logo-wrap">
-                                <i data-lucide="cpu" class="v61-follow-logo-icon"></i>
-                                <div class="v61-verified-badge">
-                                    <i data-lucide="check" style="width:12px; height:12px; color:#fff; stroke-width:3"></i>
+                                <div style="flex:1; display:flex; flex-direction:column; justify-content:center; text-align:left; line-height:1.3; z-index:2;">
+                                    <span style="font-size:11px; font-weight:bold; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.5px;">Lựa chọn 2</span>
+                                    <span style="font-size:15px; font-weight:bold; color:#fff; margin-top:3px;">Bước đầu độc quyền kiểm soát AI</span>
                                 </div>
-                            </div>
-                            <div class="v61-follow-text-wrap">
-                                <div class="v61-follow-handle">
-                                    Turnio.dev
-                                    <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>
-                                </div>
-                                <div class="v61-follow-desc">
-                                    Cập nhật kiến thức công nghệ
-                                </div>
+                                <div class="v61-poll-pct-text" id="s-pct-opt-b" style="position:static; opacity:1; font-size:24px; font-weight:900; color:#f59e0b; margin-left:18px; font-family:monospace; transform:none; transition:none; z-index:2;">0%</div>
+                                <div class="v61-poll-pct-bar" id="s-bar-opt-b" style="position:absolute; bottom:0; left:0; height:5px; width:0%; background:#f59e0b; transition:width 0.8s cubic-bezier(0.16, 1, 0.3, 1); z-index:1;"></div>
                             </div>
                         </div>
                     </div>
@@ -521,9 +473,9 @@
                 const yRot = Math.cos(progress * 6) * 2.5;
                 frame.style.transform = `translateY(${yShift}px) rotateX(${xRot}deg) rotateY(${yRot}deg)`;
                 
-                // Pulsing glow shadow
-                const glowSize = 25 + Math.sin(progress * 15) * 8;
-                frame.style.boxShadow = `0 0 ${glowSize}px var(--v61-primary-glow)`;
+                // Pulsing glow shadow (reduced neon shadow)
+                const glowSize = 10 + Math.sin(progress * 15) * 3;
+                frame.style.boxShadow = `0 0 ${glowSize}px rgba(245, 158, 11, 0.25)`;
             }
 
             if (img) {
@@ -859,7 +811,7 @@
         else if (slideId === 'slide_jla_empire') {
             const castle = row.querySelector('#s-center-castle');
             const bubble = row.querySelector('#s-shield-bubble');
-            const castleIcon = row.querySelector('#s-castle-icon');
+            const oaiLogo = row.querySelector('#s-center-oai-logo');
 
             const nodes = {
                 cloud: row.querySelector('#s-node-cloud'),
@@ -919,23 +871,20 @@
             popNode(nodes.users, 0.45);
             drawPath(paths.p5, 0.45, 0.55);
 
+            // Animate OpenAI logo scale & rotation
+            if (oaiLogo) {
+                const baseScale = progress < 0.5 ? (progress / 0.5) : 1.0;
+                const pulse = 1.0 + Math.sin(progress * 15) * 0.03;
+                oaiLogo.style.transform = `scale(${baseScale * pulse}) rotate(${progress * 360}deg)`;
+            }
+
             // Loop locked down & shield active
             if (progress > 0.6) {
                 if (castle) castle.classList.add('locked');
-                if (castleIcon && castleIcon.dataset.state !== 'locked') {
-                    castleIcon.dataset.state = 'locked';
-                    castleIcon.innerHTML = `<i data-lucide="lock" style="width:36px; height:36px;"></i>`;
-                    if (typeof lucide !== 'undefined') lucide.createIcons({ node: castleIcon });
-                }
                 if (bubble) bubble.classList.add('active');
                 row.querySelectorAll('.v61-empire-node').forEach(node => node.classList.add('locked'));
             } else {
                 if (castle) castle.classList.remove('locked');
-                if (castleIcon && castleIcon.dataset.state !== 'shield') {
-                    castleIcon.dataset.state = 'shield';
-                    castleIcon.innerHTML = `<i data-lucide="shield" style="width:36px; height:36px;"></i>`;
-                    if (typeof lucide !== 'undefined') lucide.createIcons({ node: castleIcon });
-                }
                 if (bubble) bubble.classList.remove('active');
                 row.querySelectorAll('.v61-empire-node').forEach(node => node.classList.remove('locked'));
             }
@@ -951,45 +900,28 @@
             const pctA = row.querySelector('#s-pct-opt-a');
             const pctB = row.querySelector('#s-pct-opt-b');
 
-            if (progress <= 0.3) {
-                if (cardA) {
-                    cardA.className = 'v61-card v61-poll-card opt-a';
-                    cardA.style.transform = 'scale(0.8) translateY(20px)';
-                    cardA.style.opacity = '0';
-                }
-                if (cardB) {
-                    cardB.className = 'v61-card v61-poll-card opt-b';
-                    cardB.style.transform = 'scale(0.8) translateY(20px)';
-                    cardB.style.opacity = '0';
-                }
-                if (barA) barA.style.width = '0%';
-                if (barB) barB.style.width = '0%';
-                if (pctA) pctA.textContent = '0%';
-                if (pctB) pctB.textContent = '0%';
-            } else {
-                if (cardA) {
-                    cardA.className = 'v61-card v61-poll-card opt-a voted';
-                    cardA.style.transform = 'scale(1) translateY(0)';
-                    cardA.style.opacity = '1';
-                }
-                if (cardB) {
-                    cardB.className = 'v61-card v61-poll-card opt-b voted';
-                    cardB.style.transform = 'scale(1) translateY(0)';
-                    cardB.style.opacity = '1';
-                }
-
-                const factor = Math.min(1.0, (progress - 0.3) / 0.55);
-                const ease = factor * (2 - factor);
-
-                const countA = Math.round(ease * 68);
-                const countB = Math.round(ease * 32);
-
-                if (barA) barA.style.width = `${countA}%`;
-                if (barB) barB.style.width = `${countB}%`;
-
-                if (pctA) pctA.textContent = `${countA}%`;
-                if (pctB) pctB.textContent = `${countB}%`;
+            if (cardA) {
+                cardA.className = 'v61-card v61-poll-card opt-a voted';
+                cardA.style.transform = 'scale(1) translateY(0)';
+                cardA.style.opacity = '1';
             }
+            if (cardB) {
+                cardB.className = 'v61-card v61-poll-card opt-b voted';
+                cardB.style.transform = 'scale(1) translateY(0)';
+                cardB.style.opacity = '1';
+            }
+
+            const factor = Math.min(1.0, progress / 0.65);
+            const ease = factor * (2 - factor);
+
+            const countA = Math.round(ease * 68);
+            const countB = Math.round(ease * 32);
+
+            if (barA) barA.style.width = `${countA}%`;
+            if (barB) barB.style.width = `${countB}%`;
+
+            if (pctA) pctA.textContent = `${countA}%`;
+            if (pctB) pctB.textContent = `${countB}%`;
         }
     }
 

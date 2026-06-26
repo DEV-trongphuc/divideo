@@ -5689,3 +5689,33 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
     padding: 20px 24px !important;
     gap: 12px !important;
 }
+
+/* --- Mobile Responsive Layout Overrides --- */
+@media (max-width: 1024px) {
+    .app-body {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto !important;
+        overflow-y: auto !important;
+        height: auto !important;
+    }
+    
+    .sidebar-panel {
+        border-right: none !important;
+        border-bottom: 1px solid var(--border-color) !important;
+        overflow-y: visible !important;
+        max-height: none !important;
+        flex: none !important;
+    }
+    
+    .preview-panel {
+        padding: 16px !important;
+        min-height: 600px !important;
+        height: auto !important;
+        flex: none !important;
+    }
+
+    .canvas-scaler {
+        overflow: visible !important;
+        min-height: 500px !important;
+    }
+}
