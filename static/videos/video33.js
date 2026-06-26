@@ -623,46 +623,81 @@
         }
         else if (slideId === 'slide_yt_outro') {
             canvas.innerHTML = `
-                <div class="v33-zoom-container" style="justify-content: center; gap: 15px;">
-                    <!-- Key architectural benefits grid dashboard -->
-                    <div class="v33-outro-grid">
+                <div class="v33-zoom-container v33-outro-zoom-wrap" style="flex-direction: column; align-items: center; justify-content: center; gap: 32px; padding: 15px; width: 640px; height: 485px;">
+                    <!-- Left: Sync Engine Core -->
+                    <div class="v33-sync-core-container">
+                        <!-- HUD brackets -->
+                        <div class="v33-hud-bracket tl"></div>
+                        <div class="v33-hud-bracket tr"></div>
+                        <div class="v33-hud-bracket bl"></div>
+                        <div class="v33-hud-bracket br"></div>
                         
-                        <!-- Card 1: Heartbeat interval -->
+                        <!-- Rotating Rings -->
+                        <div class="v33-core-ring ring-outer"></div>
+                        <div class="v33-core-ring ring-inner"></div>
+                        
+                        <!-- Laser Scanner -->
+                        <div class="v33-core-laser"></div>
+                        
+                        <!-- Pulsing Center Shield -->
+                        <div class="v33-core-shield">
+                            <i data-lucide="play" class="v33-core-play-icon"></i>
+                        </div>
+                        <span class="v33-core-label-tag">SYNC ENGINE</span>
+                    </div>
+
+                    <!-- Right: Metrics Cards Grid -->
+                    <div class="v33-outro-right-grid">
+                        <!-- Card 1: Heartbeat -->
                         <div class="v33-outro-card" id="v33-outro-card-1">
-                            <span class="v33-outro-number">5 Giây</span>
+                            <div class="v33-card-header">
+                                <div class="v33-card-icon-wrap red">
+                                    <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                                </div>
+                                <span class="v33-indicator-dot red"></span>
+                            </div>
+                            <span class="v33-outro-number color-red">5 Giây</span>
                             <span class="v33-outro-label">Heartbeat Interval</span>
-                            <span class="v33-outro-desc">Giãn cách gửi mốc xem để tối ưu hóa tần suất ghi từ thiết bị.</span>
+                            <span class="v33-outro-desc">Gửi mốc xem định kỳ mỗi 5s giúp giảm tải kết nối từ thiết bị.</span>
                         </div>
 
-                        <!-- Card 2: Queue Buffer Capacity -->
+                        <!-- Card 2: Write Capacity -->
                         <div class="v33-outro-card" id="v33-outro-card-2">
-                            <span class="v33-outro-number">> 250M/s</span>
+                            <div class="v33-card-header">
+                                <div class="v33-card-icon-wrap orange">
+                                    <i data-lucide="zap" style="width: 14px; height: 14px;"></i>
+                                </div>
+                                <span class="v33-indicator-dot orange"></span>
+                            </div>
+                            <span class="v33-outro-number color-orange">> 250M/s</span>
                             <span class="v33-outro-label">Write Capacity</span>
-                            <span class="v33-outro-desc">Hàng đợi Kafka hấp thụ mượt mà hàng trăm triệu checkpoint ghi cùng lúc.</span>
+                            <span class="v33-outro-desc">Kafka Queue hấp thụ hàng trăm triệu checkpoint ghi cùng lúc.</span>
                         </div>
 
-                        <!-- Card 3: Cache latency -->
+                        <!-- Card 3: Sync Latency -->
                         <div class="v33-outro-card" id="v33-outro-card-3">
-                            <span class="v33-outro-number">< 5ms</span>
+                            <div class="v33-card-header">
+                                <div class="v33-card-icon-wrap cyan">
+                                    <i data-lucide="refresh-cw" style="width: 14px; height: 14px;"></i>
+                                </div>
+                                <span class="v33-indicator-dot cyan"></span>
+                            </div>
+                            <span class="v33-outro-number color-cyan">< 5ms</span>
                             <span class="v33-outro-label">Sync Latency</span>
-                            <span class="v33-outro-desc">Redis Cache phản hồi mốc xem gần như lập tức khi mở thiết bị mới.</span>
+                            <span class="v33-outro-desc">Redis Cache phản hồi mốc xem tức thì khi mở thiết bị mới.</span>
                         </div>
 
                         <!-- Card 4: Database load reduction -->
                         <div class="v33-outro-card" id="v33-outro-card-4">
-                            <span class="v33-outro-number">-95% Tải</span>
+                            <div class="v33-card-header">
+                                <div class="v33-card-icon-wrap green">
+                                    <i data-lucide="trending-down" style="width: 14px; height: 14px;"></i>
+                                </div>
+                                <span class="v33-indicator-dot green"></span>
+                            </div>
+                            <span class="v33-outro-number color-green">-95% Tải</span>
                             <span class="v33-outro-label">DB Load Reduced</span>
-                            <span class="v33-outro-desc">Worker thực hiện Batch Write gom nhóm giúp giảm tải tối đa cho Bigtable.</span>
-                        </div>
-                    </div>
-
-                    <!-- Final success metrics summary card -->
-                    <div class="v33-glass-card" style="display:flex; justify-content:space-between; align-items:center; border-color:var(--yt-gold); background:rgba(245,158,11,0.02);">
-                        <span style="font-size:11px; font-weight:bold; color:var(--yt-gold); text-transform:uppercase; display:inline-flex; align-items:center; gap:5px;">
-                            <i data-lucide="check-circle" style="width:14px; height:14px;"></i> YouTube Sync Architecture
-                        </span>
-                        <div style="font-size:12px; font-weight:bold; color:#fff;">
-                            99.99% Stable Scale
+                            <span class="v33-outro-desc">Batch Write gom nhóm ghi giúp giảm tải tối đa cho Bigtable.</span>
                         </div>
                     </div>
                 </div>
@@ -1271,16 +1306,37 @@
         }
         else if (slideId === 'slide_yt_outro') {
             const cards = canvas.querySelectorAll('.v33-outro-card');
-            
+            const ringOuter = canvas.querySelector('.v33-sync-core-container .ring-outer');
+            const ringInner = canvas.querySelector('.v33-sync-core-container .ring-inner');
+            const laser = canvas.querySelector('.v33-sync-core-container .v33-core-laser');
+            const shield = canvas.querySelector('.v33-sync-core-container .v33-core-shield');
+
+            // Rotate core rings
+            if (ringOuter) ringOuter.style.transform = `rotate(${progress * 180}deg)`;
+            if (ringInner) ringInner.style.transform = `rotate(${-progress * 240}deg)`;
+
+            // Sweep laser scanner
+            if (laser) {
+                const laserY = 15 + Math.sin(progress * 20) * 85; // sweep between 15% and 85%
+                laser.style.top = `${laserY}%`;
+            }
+
+            // Pulse shield scale
+            if (shield) {
+                const pulse = 1.0 + Math.sin(progress * 12) * 0.05;
+                shield.style.transform = `scale(${pulse})`;
+            }
+
+            // Animate metric cards entrance stagger
             cards.forEach((card, index) => {
-                const threshold = 0.1 + index * 0.2;
+                const threshold = 0.1 + index * 0.18;
                 if (progress >= threshold) {
                     card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
+                    card.style.transform = 'translateY(0) scale(1)';
                     card.classList.add('active');
                 } else {
-                    card.style.opacity = '0.2';
-                    card.style.transform = 'scale(0.92)';
+                    card.style.opacity = '0.15';
+                    card.style.transform = 'translateY(15px) scale(0.93)';
                     card.classList.remove('active');
                 }
             });

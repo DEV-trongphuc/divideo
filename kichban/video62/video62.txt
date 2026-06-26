@@ -1,0 +1,23 @@
+[SLIDE 1]
+Intro: Cơn ác mộng Token
+Lời thoại: Bạn có biết 80% chi phí AI đang bị lãng phí vì đống dữ liệu rác này? Một công cụ mã nguồn mở mới tinh vừa xuất hiện giúp giảm tới 90% token của bạn.
+
+[SLIDE 2]
+Vấn đề: Gánh nặng Context
+Lời thoại: Khi chạy RAG, đọc file code hoặc log hệ thống, bạn đang nhồi hàng vạn token rác vào Prompt. Model vừa đọc chậm, vừa ngốn tiền kinh khủng.
+
+[SLIDE 3]
+Giải pháp: Bộ nén thông minh SmartCrusher
+Lời thoại: Thay vì gửi thô, Headroom dùng bộ nén thông minh SmartCrusher để rút gọn JSON và loại bỏ boilerplate trong code thông qua phân tích AST.
+
+[SLIDE 4]
+Cơ chế: Lấy lại dữ liệu gốc CCR
+Lời thoại: Nhưng nếu LLM cần chi tiết? Cực kỳ vi diệu: Headroom lưu bản gốc cục bộ và để lại một mã băm nhỏ. Khi cần, model sẽ tự động truy xuất lại bản gốc.
+
+[SLIDE 5]
+Tích hợp: 3 cách tích hợp
+Lời thoại: Bạn có thể tích hợp như thư viện Python, dựng Proxy trung gian, hoặc dùng wrap để tăng tốc thẳng cho Cursor hay Claude Code.
+
+[SLIDE 6]
+Outro: Tải Headroom ngay
+Lời thoại: Hãy để lại ý kiến dưới phần bình luận, nhấn tim và Follow Turnio chấm dev để cập nhật tin tức công nghệ mới nhất nhé!

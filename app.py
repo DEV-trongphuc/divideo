@@ -313,14 +313,10 @@ def get_voices():
         "fallback_voices": [
             {"id": "google-vi-VN-Wavenet-B", "name": "Google: Nam MN (Miền Nam, Wavenet)"},
             {"id": "google-vi-VN-Standard-B", "name": "Google: Nam MN (Miền Nam, Standard)"},
-            {"id": "google-vi-VN-Neural2-D", "name": "Google: Nam MB (Trầm ấm, Neural2)"},
-            {"id": "google-vi-VN-Wavenet-D", "name": "Google: Nam MB (Miền Bắc, Wavenet)"},
             {"id": "google-vi-VN-Wavenet-C", "name": "Google: Nữ MN (Miền Nam, Wavenet)"},
-            {"id": "google-vi-VN-Neural2-A", "name": "Google: Nữ MB (Miền Bắc, Neural2)"},
             {"id": "vi-VN-NamMinhNeural", "name": "Edge: Nam Minh (Nam VN - Trầm ấm)"},
             {"id": "vi-VN-NamMinhNeural-Warm", "name": "Edge: Nam Minh (Miền Nam - Trầm ấm, Hạ Tone)"},
             {"id": "vi-VN-NamMinhNeural-Deep", "name": "Edge: Nam Minh (Miền Nam - Giọng trầm sâu)"},
-            {"id": "vi-VN-HoaiMyNeural", "name": "Edge: Hoài Mỹ (Nữ VN - Truyền cảm)"},
             {"id": "en-US-AriaNeural", "name": "Edge: Aria (Female US)"},
             {"id": "en-US-GuyNeural", "name": "Edge: Guy (Male US)"}
         ]
@@ -352,7 +348,7 @@ def synthesize():
     slide_id = data.get("slideId")
     text = data.get("text", "").strip()
     ref_voice = data.get("refVoice", "")
-    voice_preference = data.get("voice", "vi-VN-HoaiMyNeural")
+    voice_preference = data.get("voice", "vi-VN-NamMinhNeural")
     script_name = sanitize_script_name(data.get("script", "video1"))
     project_name = data.get("project", "TurnioDEV")
     project_folder = get_project_folder(project_name)
@@ -442,8 +438,8 @@ TTS_SYNTHESIS_STATUS = {"status": "idle", "progress": 0, "current": 0, "total": 
 
 def calculate_slide_hash(slide):
     import hashlib
-    text = slide.get("script", "").strip()
-    voice = slide.get("voice", "vi-VN-HoaiMyNeural")
+    text = slide.get("voiceText", slide.get("script", "")).strip()
+    voice = slide.get("voice", "vi-VN-NamMinhNeural")
     ref_voice = slide.get("refVoice", "")
     content = f"{text}||{voice}||{ref_voice}"
     return hashlib.md5(content.encode("utf-8")).hexdigest()
@@ -474,9 +470,9 @@ def synthesize_all_thread(script_name, slides, project_name="TurnioDEV"):
         global TTS_SYNTHESIS_STATUS
         idx, slide = item
         slide_id = slide["id"]
-        text = slide.get("script", "").strip()
+        text = slide.get("voiceText", slide.get("script", "")).strip()
         ref_voice = slide.get("refVoice", "")
-        voice_preference = slide.get("voice", "vi-VN-HoaiMyNeural")
+        voice_preference = slide.get("voice", "vi-VN-NamMinhNeural")
         
         if not text:
             # Done immediately

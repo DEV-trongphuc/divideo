@@ -204,7 +204,7 @@ def ensure_voice_cache(reference_audio_path):
         
     return reference_audio_path
 
-def synthesize_audio(text, output_path, reference_audio_path=None, voice_preference="en-US-AriaNeural"):
+def synthesize_audio(text, output_path, reference_audio_path=None, voice_preference="vi-VN-NamMinhNeural"):
     """
     Synthesize audio from text.
 
@@ -213,6 +213,12 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
     If VoxCPM is available and initialized, uses VoxCPM for voice cloning.
     Otherwise, falls back to Edge-TTS.
     """
+    # Map Northern voices to Southern fallback voices to prevent Northern voices from being generated
+    if voice_preference in ["google-vi-VN-Neural2-D", "google-vi-VN-Wavenet-D", "vi-VN-HoaiMyNeural"]:
+        voice_preference = "vi-VN-NamMinhNeural"
+    elif voice_preference == "google-vi-VN-Neural2-A":
+        voice_preference = "google-vi-VN-Wavenet-C" # Southern Female
+
     # Clean up input text
     text = text.strip()
     if not text:
@@ -320,7 +326,7 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
             if any(m in voice for m in ["-B", "-D"]):
                 voice = "vi-VN-NamMinhNeural"
             else:
-                voice = "vi-VN-HoaiMyNeural"
+                voice = "vi-VN-NamMinhNeural" # Map female Google to Southern female
         else:
             # English voices
             if any(m in voice for m in ["-B", "-D", "-Guy"]):
@@ -338,7 +344,7 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
     is_vietnamese = any(char in text.lower() for char in vi_chars)
     if is_vietnamese and "vi-VN" not in voice:
         # Default high-quality Vietnamese voice
-        voice = "vi-VN-HoaiMyNeural" # Female, or vi-VN-NamMinhNeural (Male)
+        voice = "vi-VN-NamMinhNeural" # Male Southern voice
         
     print(f"[+] Generating audio using Edge-TTS (voice: {voice})...")
     try:

@@ -454,7 +454,7 @@ function setupEventListeners() {
             subtitle: "MÃ´ táº£ ngáº¯n cá»§a slide",
             layout: "title",
             script: "Viáº¿t lá»i thoáº¡i á»Ÿ Ä‘Ã¢y Ä‘á»ƒ AI Ä‘á»c.",
-            voice: "vi-VN-HoaiMyNeural",
+            voice: "vi-VN-NamMinhNeural",
             refVoice: "",
             audioPath: "",
             duration: 10.0,
@@ -1116,7 +1116,7 @@ function renderActiveSlide(forceRebuild = true) {
     document.getElementById('slide-icon-select').value = slide.icon || '';
     document.getElementById('slide-script-input').value = slide.script || '';
     document.getElementById('slide-ref-voice-select').value = slide.refVoice || 'default_voxcpm';
-    document.getElementById('slide-voice-fallback-select').value = slide.voice || 'vi-VN-HoaiMyNeural';
+    document.getElementById('slide-voice-fallback-select').value = slide.voice || 'vi-VN-NamMinhNeural';
     // Update TTS mode selectors based on slide.refVoice presence
     const hasRefVoice = !!slide.refVoice;
     const standardBtn = document.getElementById('tts-mode-standard-btn');

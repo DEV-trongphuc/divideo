@@ -214,7 +214,7 @@ function concatAudioFiles(videoName, slides) {
 // Synthesize a single slide
 async function synthesizeSlide(videoName, slide, slideIndex, totalSlides) {
     const slideId = slide.id;
-    const text = slide.script ? slide.script.trim() : "";
+    const text = (slide.voiceText || slide.script || "").trim();
     if (!text) {
         console.log(`[-] Slide ${slideIndex}/${totalSlides} (${slideId}): Bỏ qua vì script trống.`);
         return true;

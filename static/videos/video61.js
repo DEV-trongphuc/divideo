@@ -7,8 +7,11 @@
 
     const keywordsData = {
         slide_jla_intro: [
-            { text: 'tự thiết kế con chip', start: 4.8, end: 7.2, class: 'active-yellow' },
-            { text: 'Jalapeño', start: 6.8, end: 8.0, class: 'active-yellow' }
+            { text: 'bước đi cực kỳ táo bạo', start: 2.8, end: 5.2, class: 'active-yellow' }
+        ],
+        slide_jla_chip: [
+            { text: 'tự thiết kế con chip', start: 1.5, end: 4.0, class: 'active-yellow' },
+            { text: 'Jalapeño', start: 4.2, end: 5.2, class: 'active-yellow' }
         ],
         slide_jla_nvidia: [
             { text: 'cắt khỏi “mạch máu”', start: 3.8, end: 6.8, class: 'active-yellow' },
@@ -33,7 +36,7 @@
     };
 
     const customSlideIds = [
-        'slide_jla_intro', 'slide_jla_nvidia', 'slide_jla_design', 'slide_jla_compare', 'slide_jla_empire', 'slide_jla_outro'
+        'slide_jla_intro', 'slide_jla_chip', 'slide_jla_nvidia', 'slide_jla_design', 'slide_jla_compare', 'slide_jla_empire', 'slide_jla_outro'
     ];
 
     function sceneWrap(inner) {
@@ -61,25 +64,25 @@
                             <img src="/static/videos/openai_logo.png" class="v61-battle-logo" alt="OpenAI">
                             <div class="v61-battle-glow oai-glow"></div>
                         </div>
-                        
                         <!-- Partnership icon -->
                         <div class="v61-battle-vs">
                             <i data-lucide="plus" class="v61-battle-vs-icon"></i>
                         </div>
                         
-                        <!-- TSMC Brand -->
-                        <div class="v61-battle-logo-wrapper tsmc-wrapper">
-                            <img src="/static/videos/tsmc_logo.png" class="v61-battle-logo" alt="TSMC">
-                            <div class="v61-battle-glow tsmc-glow"></div>
+                        <!-- Broadcom Brand -->
+                        <div class="v61-battle-logo-wrapper broadcom-wrapper">
+                            <img src="/static/videos/broadcom_logo.png" class="v61-battle-logo" alt="Broadcom">
+                            <div class="v61-battle-glow broadcom-glow"></div>
                         </div>
                     </div>
                     
                     <!-- SVG Overlay for Curved Data Streams from Logos to Photo (Centered) -->
-                    <svg class="v61-hook-svg" viewBox="0 0 520 330">
-                        <!-- Left Curve: OpenAI logo (~160, 30) to Photo top (~260, 110) -->
-                        <path class="v61-stream-path oai-stream" id="s-hook-path-left" d="M 140 30 Q 180 90 290 110" />
-                        <!-- Right Curve: TSMC logo (~360, 30) to Photo top (~260, 110) -->
-                        <path class="v61-stream-path tsmc-stream" id="s-hook-path-right" d="M 380 30 Q 340 90 290 110" />
+                    <svg class="v61-hook-svg" viewBox="0 0 640 330">
+                        <!-- Left Curve: OpenAI logo (x=108) to Photo top center (x=320) -->
+                        <path class="v61-stream-path oai-stream" id="s-hook-path-left" d="M 108 15 Q 180 80 320 110" />
+
+                        <!-- Right Curve: Broadcom logo (x=532) to Photo top center (x=320) -->
+                        <path class="v61-stream-path bc-stream" id="s-hook-path-right" d="M 532 15 Q 460 80 320 110" />
                     </svg>
 
                     <!-- Split Row Layout -> Stacked Vertically -->
@@ -105,51 +108,119 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Bottom Specs HUD Panel (Wide & Compact) -->
-                        <div class="v61-specs-hud" id="s-specs-hud" style="width: 560px; height: auto; padding: 12px 16px;">
-                            <div class="v61-specs-hdr" style="border-bottom: 1.5px solid rgba(0, 242, 254, 0.2); padding-bottom: 4px; margin-bottom: 6px;">
-                                <i data-lucide="cpu" style="width:12px; height:12px;"></i> CHIP SPECS
-                            </div>
-                            <div style="display: flex; flex-direction: row; width: 100%; align-items: center; justify-content: space-between; gap: 15px;">
-                                <!-- Spec list (left columns) -->
-                                <div class="v61-spec-list" style="display: flex; flex-direction: row; justify-content: space-between; gap: 15px; flex: 1;">
-                                    <div class="v61-spec-item" style="flex: 1;">
-                                        <span class="v61-spec-lbl">Co-Design Partner</span>
-                                        <span class="v61-spec-val cyan">Broadcom ASIC</span>
-                                    </div>
-                                    <div class="v61-spec-item" style="flex: 1;">
-                                        <span class="v61-spec-lbl">Processor Type</span>
-                                        <span class="v61-spec-val green">Inference Only</span>
-                                    </div>
-                                    <div class="v61-spec-item" style="flex: 1;">
-                                        <span class="v61-spec-lbl">Primary Workload</span>
-                                        <span class="v61-spec-val gold">ChatGPT & AI Agent</span>
-                                    </div>
-                                </div>
-                                <!-- Nodes Matrix (right panel grid) -->
-                                <div class="v61-nodes-matrix" id="s-nodes-matrix" style="border-top: none; border-left: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0; padding-left: 15px; margin-top: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;">
-                                    <div class="v61-matrix-dot"></div>
-                                    <div class="v61-matrix-dot"></div>
-                                    <div class="v61-matrix-dot"></div>
-                                    <div class="v61-matrix-dot"></div>
-                                    <div class="v61-matrix-dot"></div>
-                                    <div class="v61-matrix-dot"></div>
-                                    <div class="v61-matrix-dot"></div>
-                                    <div class="v61-matrix-dot"></div>
-                                    <div class="v61-matrix-dot"></div>
-                                    <div class="v61-matrix-dot"></div>
-                                    <div class="v61-matrix-dot"></div>
-                                    <div class="v61-matrix-dot"></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     
                     <!-- News ticker box below -->
                     <div class="v61-ticker-box" id="s-ticker-box" style="margin-top: 10px;">
                         <div class="v61-ticker-badge">AI NEWS</div>
                         <div class="v61-ticker-text" id="s-ticker-text">LOADING DATAFEED...</div>
+                    </div>
+                </div>
+            `);
+        }
+        else if (slideId === 'slide_jla_chip') {
+            canvas.innerHTML = sceneWrap(`
+                <div class="v61-scene-row">
+                    <!-- Background Cyber Decoration Rings -->
+                    <div class="v61-decor-ring ring-outer" style="width: 480px; height: 480px;"></div>
+                    <div class="v61-decor-ring ring-inner" style="width: 320px; height: 320px; border-style: dotted; opacity: 0.25;"></div>
+                    
+                    <div class="v61-chip-reveal-container" style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 560px; z-index: 10;">
+                        <!-- Holographic 3D Chip Platform -->
+                        <div class="v61-holo-platform" id="s-chip-card">
+                            <!-- Floating signal waves -->
+                            <div class="v61-signal-wave wave-1"></div>
+                            <div class="v61-signal-wave wave-2"></div>
+                            
+                            <!-- Tech corner brackets -->
+                            <div class="v61-hud-corner tl" style="border-color: var(--v61-primary);"></div>
+                            <div class="v61-hud-corner tr" style="border-color: var(--v61-primary);"></div>
+                            <div class="v61-hud-corner bl" style="border-color: var(--v61-primary);"></div>
+                            <div class="v61-hud-corner br" style="border-color: var(--v61-primary);"></div>
+                            
+                            <!-- SVG Circuit Board Background Grid -->
+                            <svg class="v61-circuit-grid" viewBox="0 0 400 240">
+                                <path d="M 50 120 L 120 120 L 150 90 L 250 90 L 280 120 L 350 120" stroke="rgba(0, 242, 254, 0.15)" stroke-width="1.5" fill="none"/>
+                                <path d="M 80 50 L 140 50 L 180 90" stroke="rgba(245, 158, 11, 0.15)" stroke-width="1.5" fill="none"/>
+                                <path d="M 320 190 L 260 190 L 220 150" stroke="rgba(245, 158, 11, 0.15)" stroke-width="1.5" fill="none"/>
+                                <circle cx="180" cy="90" r="3" fill="var(--v61-primary)" opacity="0.4"/>
+                                <circle cx="220" cy="150" r="3" fill="var(--v61-accent)" opacity="0.4"/>
+                            </svg>
+
+                            <!-- The Layered 3D Chip -->
+                            <div class="v61-chip-3d-wafer" id="s-reveal-chip-icon">
+                                <!-- Silicon Substrate Pattern -->
+                                <div class="v61-chip-die">
+                                    <!-- Central Core CPU with OpenAI Logo -->
+                                    <div class="v61-chip-core">
+                                        <img src="/static/videos/openai_logo.png" class="v61-core-oai-icon" alt="OpenAI">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Holographic Callout Tag -->
+                            <div class="v61-chip-label-tag">
+                                <div style="display: flex; flex-direction: column;">
+                                    <span class="v61-tag-category">ASIC CO-DESIGN</span>
+                                    <span class="v61-tag-name">OPENAI JALAPEÑO</span>
+                                </div>
+                                <div class="v61-tag-badge">5 NM</div>
+                            </div>
+                        </div>
+
+                        <!-- Holographic Spec Dashboard -->
+                        <div class="v61-holo-specs" id="s-reveal-specs">
+                            <!-- Spec Row -->
+                            <div class="v61-holo-spec-row">
+                                <div class="v61-holo-spec-card">
+                                    <div class="v61-holo-spec-icon-wrap cyan">
+                                        <i data-lucide="cpu" style="width: 16px; height: 16px;"></i>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column;">
+                                        <span class="v61-holo-spec-lbl">Co-Design Partner</span>
+                                        <span class="v61-holo-spec-val cyan">Broadcom ASIC</span>
+                                    </div>
+                                </div>
+                                <div class="v61-holo-spec-card">
+                                    <div class="v61-holo-spec-icon-wrap green">
+                                        <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column;">
+                                        <span class="v61-holo-spec-lbl">Processor Type</span>
+                                        <span class="v61-holo-spec-val green">Inference Only</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Spec Row 2 -->
+                            <div class="v61-holo-spec-row">
+                                <div class="v61-holo-spec-card wide">
+                                    <div class="v61-holo-spec-icon-wrap gold">
+                                        <i data-lucide="activity" style="width: 16px; height: 16px;"></i>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; flex: 1;">
+                                        <span class="v61-holo-spec-lbl">Primary Workload</span>
+                                        <span class="v61-holo-spec-val gold">ChatGPT & AI Agent</span>
+                                    </div>
+                                    
+                                    <!-- Mini nodes wave grid on the right of workload -->
+                                    <div class="v61-spec-matrix" id="s-reveal-matrix">
+                                        <div class="v61-matrix-dot"></div>
+                                        <div class="v61-matrix-dot"></div>
+                                        <div class="v61-matrix-dot"></div>
+                                        <div class="v61-matrix-dot"></div>
+                                        <div class="v61-matrix-dot"></div>
+                                        <div class="v61-matrix-dot"></div>
+                                        <div class="v61-matrix-dot"></div>
+                                        <div class="v61-matrix-dot"></div>
+                                        <div class="v61-matrix-dot"></div>
+                                        <div class="v61-matrix-dot"></div>
+                                        <div class="v61-matrix-dot"></div>
+                                        <div class="v61-matrix-dot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `);
@@ -540,6 +611,45 @@
             }
         }
 
+        // Slide 2 (New): Chip Reveal & Specifications Panel
+        else if (slideId === 'slide_jla_chip') {
+            const chipCard = row.querySelector('#s-chip-card');
+            const specsHud = row.querySelector('#s-reveal-specs');
+            const chipIcon = row.querySelector('#s-reveal-chip-icon');
+            const dots = row.querySelectorAll('#s-reveal-matrix .v61-matrix-dot');
+            const ring = row.querySelector('.ring-outer');
+
+            if (chipCard) {
+                chipCard.style.transform = 'scale(1) translateY(0)';
+                chipCard.style.opacity = '1';
+                
+                // Breathing glow shadow
+                const glowSize = 15 + Math.sin(progress * 15) * 5;
+                chipCard.style.boxShadow = `0 0 ${glowSize}px rgba(245, 158, 11, 0.25)`;
+            }
+
+            if (specsHud) {
+                specsHud.style.transform = 'translateY(0)';
+                specsHud.style.opacity = '1';
+            }
+
+            if (chipIcon) {
+                // Rotate CPU Icon wrapper slowly
+                chipIcon.style.transform = `rotate(${progress * 60}deg)`;
+            }
+
+            if (ring) {
+                ring.style.transform = `translate(-50%, -50%) rotate(${progress * 90}deg)`;
+            }
+
+            if (dots.length > 0) {
+                dots.forEach((dot, idx) => {
+                    const active = Math.sin(progress * 80 + idx * 4.3) * Math.cos(progress * 30 - idx * 2.1) > 0.15;
+                    dot.classList.toggle('active', active);
+                });
+            }
+        }
+
         // Slide 2: Data packets flow, scissor snapping, and electric sparks explosion
         else if (slideId === 'slide_jla_nvidia') {
             const nvidiaCard = row.querySelector('#s-nvidia-card');
@@ -659,6 +769,15 @@
             const metCost = row.querySelector('#s-metric-cost');
             const bpFlowPulse = row.querySelector('#s-bp-flow-pulse');
 
+            const updateBar = (bar, pct) => {
+                if (!bar) return;
+                bar.style.width = `${pct}%`;
+                const p = Math.max(10, Math.min(100, pct));
+                const hue = 145 - ((p - 10) / 90) * 130; // 145 at 10% (Green), 15 at 100% (Red/Orange)
+                bar.style.background = `linear-gradient(90deg, hsl(${hue}, 85%, 45%), hsl(${hue}, 85%, 55%))`;
+                bar.style.boxShadow = `0 0 8px hsla(${hue}, 85%, 50%, 0.4)`;
+            };
+
             if (progress < 0.2) {
                 // Training is active initially, Inference is dim
                 if (bpTrain) {
@@ -679,9 +798,9 @@
                     bpFlowPulse.style.opacity = '0';
                 }
                 
-                if (barPower) barPower.style.width = '100%';
-                if (barLatency) barLatency.style.width = '100%';
-                if (barCost) barCost.style.width = '100%';
+                updateBar(barPower, 100);
+                updateBar(barLatency, 100);
+                updateBar(barCost, 100);
 
                 if (metPower) metPower.innerHTML = '<span class="bad">100%</span>';
                 if (metLatency) metLatency.innerHTML = '<span class="bad">50ms</span>';
@@ -708,9 +827,9 @@
                     bpFlowPulse.style.strokeDashoffset = `${-elapsed * 120}`;
                 }
 
-                if (barPower) barPower.style.width = '100%';
-                if (barLatency) barLatency.style.width = '100%';
-                if (barCost) barCost.style.width = '100%';
+                updateBar(barPower, 100);
+                updateBar(barLatency, 100);
+                updateBar(barCost, 100);
 
                 if (metPower) metPower.innerHTML = '<span class="bad">100%</span>';
                 if (metLatency) metLatency.innerHTML = '<span class="bad">50ms</span>';
@@ -746,9 +865,9 @@
                 const finalLatency = 50 - (42 * easeFactor);
                 const finalCost = 100 - (90 * easeFactor);
 
-                if (barPower) barPower.style.width = `${finalPower}%`;
-                if (barLatency) barLatency.style.width = `${(finalLatency / 50) * 100}%`;
-                if (barCost) barCost.style.width = `${finalCost}%`;
+                updateBar(barPower, finalPower);
+                updateBar(barLatency, (finalLatency / 50) * 100);
+                updateBar(barCost, finalCost);
 
                 if (metPower) metPower.innerHTML = `<span class="bad">100%</span><span class="good">${Math.round(finalPower)}%</span>`;
                 if (metLatency) metLatency.innerHTML = `<span class="bad">50ms</span><span class="good">${Math.round(finalLatency)}ms</span>`;
