@@ -34,9 +34,19 @@ def init_voxcpm(checkpoint_dir="./checkpoints/VoxCPM"):
 
     try:
         print(f"[+] Initializing VoxCPM from {checkpoint_dir}...", file=sys.stderr)
-        # Note: optimize=False by default to avoid long torch.compile delays on startup
-        device_override = "cpu"
-        voxcpm_model = VoxCPM(voxcpm_model_path=checkpoint_dir, enable_denoiser=False, optimize=False, device=device_override)
+        import torch
+        # Auto detect GPU: prefer CUDA (RTX cards) over CPU
+        device_override = "cuda" if torch.cuda.is_available() else "cpu"
+        # Enable denoiser (audio cleaner) if CUDA is available for higher quality
+        enable_denoiser = torch.cuda.is_available()
+        
+        print(f"[+] VoxCPM config: device={device_override}, denoiser={enable_denoiser}")
+        voxcpm_model = VoxCPM(
+            voxcpm_model_path=checkpoint_dir,
+            enable_denoiser=enable_denoiser,
+            optimize=False,
+            device=device_override
+        )
         print("[+] VoxCPM loaded successfully!", file=sys.stderr)
         return True
     except Exception as e:
@@ -275,10 +285,16 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
                             reference_audio=reference_audio_path
                         )
                     else:
+                        # Auto tune synthesis steps & denoising based on CUDA availability
+                        steps = 12 if torch.cuda.is_available() else 6
+                        denoise_flag = torch.cuda.is_available()
+                        print(f"[+] VoxCPM generating with timesteps={steps}, denoise={denoise_flag}")
+                        
                         audio_array = voxcpm_model.generate(
                             text=text,
                             reference_wav_path=reference_audio_path,
-                            inference_timesteps=6,
+                            inference_timesteps=steps,
+                            denoise=denoise_flag,
                             retry_badcase=False
                         )
                     print(f"[+] Synthesized to {output_path} using VoxCPM Voice Cloning: {reference_audio_path}")
