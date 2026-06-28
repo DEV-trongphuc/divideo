@@ -8,11 +8,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video28/mp3/slide_bloom_1.mp3",
-    "duration": 22.76,
+    "duration": 20.52,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "729e57bce92c8d25b5d9fd75210e8e88"
   },
   {
     "id": "slide_bloom_2",
@@ -23,11 +23,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video28/mp3/slide_bloom_2.mp3",
-    "duration": 21.16,
+    "duration": 23.08,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "cc8b7ca1ee3fba82a9318332f54065ca"
   },
   {
     "id": "slide_bloom_3",
@@ -38,11 +38,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video28/mp3/slide_bloom_3.mp3",
-    "duration": 21.16,
+    "duration": 18.92,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "040aa40990741ded58ad627cb39914f2"
   },
   {
     "id": "slide_bloom_4",
@@ -53,11 +53,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video28/mp3/slide_bloom_4.mp3",
-    "duration": 21.96,
+    "duration": 21.8,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "4d4fe698072ead8a2929e9647c114e2e"
   },
   {
     "id": "slide_bloom_5",
@@ -68,11 +68,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video28/mp3/slide_bloom_5.mp3",
-    "duration": 23.88,
+    "duration": 25.0,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "9c55997e5b4cf02926ede2f2e8597d7e"
   },
   {
     "id": "slide_bloom_6",
@@ -83,11 +83,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video28/mp3/slide_bloom_6.mp3",
-    "duration": 22.6,
+    "duration": 23.08,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "2a1d290be33788beedb9549b58a80bf8"
   },
   {
     "id": "slide_bloom_7",
@@ -97,27 +97,27 @@
     "script": "Thế nhưng, có một vấn đề xảy ra. Khi kiểm tra tên charlie, các hàm băm trả về vị trí 2, 5 và 8. Kỳ lạ thay, cả 3 bit này đều đã bằng 1! Nhưng thực tế charlie chưa từng đăng ký, các bit này bằng 1 là do username alex đã bật lên trước đó. Đây gọi là hiện tượng Dương tính giả. Thuật toán đoán sai vì các chỉ số băm bị trùng lặp ngẫu nhiên.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 24.0,
+    "audioPath": "/kichban/video28/mp3/slide_bloom_7.mp3",
+    "duration": 23.88,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "d75b85e3f504a24ab0e000a2e5c98905"
   },
   {
     "id": "slide_bloom_8",
     "layout": "custom",
     "title": "Quy tắc cốt lõi:<br>Luật hoạt động của Bloom Filter",
     "subtitle": "📏 THE CORE RULE OF BLOOM FILTER",
-    "script": "Từ hiện tượng trên, ta có quy tắc vàng của Bloom Filter: Nếu bộ lọc báo KHÔNG tồn tại, kết quả chính xác tuyệt đối 100%. Nhưng nếu bộ lọc báo CÓ tồn tại, kết quả chỉ mang tính dự đoán, có khả năng bị dương tính giả. Khi đó, hệ thống mới bắt buộc phải truy vấn xuống database chính thức để xác thực lại thông tin.",
+    "script": "Từ hiện tượng trên, ta có quy tắc vàng của Bloom Filter: Nếu bộ lọc báo không tồn tại, kết quả chính xác tuyệt đối 100%. Nhưng nếu bộ lọc báo có tồn tại, kết quả chỉ mang tính dự đoán, có khả năng bị dương tính giả. Khi đó, hệ thống mới bắt buộc phải truy vấn xuống database chính thức để xác thực lại thông tin.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 22.0,
+    "audioPath": "/kichban/video28/mp3/slide_bloom_8.mp3",
+    "duration": 21.16,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "08b84096f9fd6e7ce5128eb15c13f955"
   },
   {
     "id": "slide_bloom_9",
@@ -127,12 +127,12 @@
     "script": "Trong kiến trúc thực tế, Bloom Filter đóng vai trò như một lá chắn đứng trước database. Mọi yêu cầu đăng ký đều phải đi qua bộ lọc này đầu tiên. Hơn 99% trường hợp tên chưa tồn tại sẽ được bộ lọc cho phép tạo ngay lập tức. Chỉ có chưa đầy 1% trường hợp nghi ngờ trùng mới cần gọi tới Database, giúp giải phóng hoàn toàn gánh nặng cho máy chủ cơ sở dữ liệu!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 24.0,
+    "audioPath": "/kichban/video28/mp3/slide_bloom_9.mp3",
+    "duration": 23.88,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "68a6e36e4be0cabd27a2fe462590da88"
   },
   {
     "id": "slide_bloom_10",
@@ -142,12 +142,12 @@
     "script": "Bloom Filter là cấu trúc dữ liệu kinh điển giúp giải quyết bài toán hiệu năng lưu trữ và truy vấn quy mô lớn cực kỳ hiệu quả.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 10.0,
+    "audioPath": "/kichban/video28/mp3/slide_bloom_10.mp3",
+    "duration": 8.52,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "0a46decb37eccd158e88b38a0b3e99c4"
   },
   {
     "id": "slide_bloom_11",
@@ -157,11 +157,11 @@
     "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban/video28/mp3/slide_bloom_11.mp3",
+    "duration": 8.2,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "31b5ab7adcc111313c7e4d8499df9f39"
   }
 ]

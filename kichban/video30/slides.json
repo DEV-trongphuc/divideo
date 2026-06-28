@@ -7,12 +7,12 @@
     "script": "Hãy tưởng tượng trang web của bạn giống như một quán ăn. Bỗng một ngày, đối thủ thuê hàng ngàn người giả làm thực khách tràn vào quán, đứng chen chúc nhưng không hề mua đồ. Kết quả là, những khách hàng thực sự không thể vào được, và quán ăn của bạn bị tê liệt. Đó chính là tấn công từ chối dịch vụ phân tán - DDoS.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 14.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_1a.mp3",
+    "duration": 22.12,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "90c5913cabb802cba6e053197eca5ab4"
   },
   {
     "id": "slide_cf_1b",
@@ -22,12 +22,12 @@
     "script": "Hàng triệu máy tính ma, hay botnet, đồng loạt gửi request tấn công, khiến máy chủ của bạn quá tải và sập nguồn trong tích tắc. Làm sao để chống lại cơn bão này?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 14.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_1b.mp3",
+    "duration": 11.72,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "f4071f2c4b913b2218a6907fda5bd7a6"
   },
   {
     "id": "slide_cf_2",
@@ -37,12 +37,12 @@
     "script": "Nếu không có lá chắn, mọi request từ internet sẽ đi trực tiếp vào máy chủ của bạn. Khi cuộc tấn công nổ ra, CPU máy chủ nhảy vọt lên 100%, RAM cạn kiệt và băng thông bị bóp nghẹt. Trình duyệt của người dùng thật sẽ hiển thị thông báo lỗi kinh điển: 502 Bad Gateway hoặc Connection Timeout. Đây là kịch bản tồi tệ nhất mà bất kỳ quản trị viên hệ thống nào cũng lo sợ.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 22.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_2.mp3",
+    "duration": 23.56,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "6c650c69680a54d34fbf7372aa952aa5"
   },
   {
     "id": "slide_cf_3",
@@ -52,12 +52,12 @@
     "script": "Để chặn đứng DDoS, Cloudflare không dùng một máy chủ siêu cấp. Thay vào đó, họ xây dựng mạng lưới Anycast Routing khổng lồ trải rộng trên hơn 300 thành phố toàn cầu. Tất cả các trung tâm dữ liệu này đều chia sẻ chung một địa chỉ IP duy nhất. Khi botnet tấn công, lưu lượng khổng lồ không dồn vào một chỗ mà bị phân tán, chia nhỏ ra các Edge Center gần kẻ tấn công nhất để xử lý cục bộ. Máy chủ gốc của bạn được giấu an toàn phía sau!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 26.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_3.mp3",
+    "duration": 25.96,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "deec0faf0dac71e6d1edc41f060ed381"
   },
   {
     "id": "slide_cf_4",
@@ -67,12 +67,12 @@
     "script": "Tại mỗi Edge Center, request không được đi qua ngay mà phải đối mặt với người gác cổng WAF - Web Application Firewall. WAF của Cloudflare phân tích hàng triệu gói tin mỗi giây bằng công nghệ phân tích heuristic và tập luật thông minh. Những request chứa payload độc hại, SQL Injection, hay mang dấu hiệu của botnet sẽ lập tức bị phát hiện, gắn cờ đỏ và bị drop ngay tại biên, không thể chạm tới máy chủ của bạn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 25.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_4.mp3",
+    "duration": 23.88,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "30ce5e2d3fc01e2592f41615aefadd84"
   },
   {
     "id": "slide_cf_5",
@@ -82,12 +82,12 @@
     "script": "Nhưng nếu botnet giả dạng trình duyệt thật cực kỳ tinh vi thì sao? Cloudflare sẽ đưa ra thử thách JavaScript Challenge. Trình duyệt của bạn sẽ tự động chạy một đoạn mã JS ngầm để chứng minh mình là người thật chứ không phải bot thô sơ. Nếu là người dùng thực, quá trình xác thực chỉ mất 1-2 giây hoàn toàn im lặng. Nếu là botnet không hỗ trợ chạy JS, nó sẽ bị kẹt lại và bị chặn vĩnh viễn ngoài cửa.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 24.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_5.mp3",
+    "duration": 23.4,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "9e78e8c7bc574d40c7d11217ff897958"
   },
   {
     "id": "slide_cf_6",
@@ -97,12 +97,12 @@
     "script": "Còn với những cuộc tấn công HTTP Flood cường độ cao? Cloudflare kích hoạt lớp phòng thủ Rate Limiting. Hệ thống theo dõi tần suất gửi request của từng địa chỉ IP. Nếu một IP vượt quá ngưỡng cho phép, ví dụ gửi hơn 200 request trong 1 giây, Cloudflare sẽ lập tức khóa IP đó trong một khoảng thời gian phạt. Điều này giúp ngăn chặn các đợt càn quét brute-force hoặc spam API liên tục.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 23.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_6.mp3",
+    "duration": 25.8,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "79397bd2f95dbf1413d1548bbb745dc3"
   },
   {
     "id": "slide_cf_7",
@@ -112,12 +112,12 @@
     "script": "Sức mạnh thực sự của Cloudflare nằm ở quy mô. Bảo vệ hơn 20% website trên thế giới giúp Cloudflare sở hữu mạng lưới Threat Intelligence khổng lồ. Khi một IP bắt đầu tấn công trang web A tại Mỹ, dữ liệu này lập tức được đồng bộ toàn cầu bằng học máy. Chỉ sau vài mili-giây, IP đó sẽ bị chặn đứng tại châu Âu, châu Á trước khi nó kịp chạm đến trang web B. Một người được bảo vệ, tất cả cùng được bảo vệ!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 26.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_7.mp3",
+    "duration": 23.4,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "7f03c295fefad5a0764d35a58fb5bb28"
   },
   {
     "id": "slide_cf_8",
@@ -127,12 +127,12 @@
     "script": "Hãy nhìn vào sự khác biệt. Với định tuyến Unicast truyền thống, mọi nẻo đường đều dẫn về một máy chủ duy nhất, rất dễ bị nghẽn cổ chai. Còn với Anycast, lưu lượng được phân phối thông minh đến điểm gần nhất. Nó giống như việc bạn mở hàng trăm chi nhánh siêu thị khắp thế giới, khách hàng ở đâu thì vào chi nhánh đó mua sắm, vừa giảm tải cho trụ sở chính vừa giúp tốc độ truy cập nhanh hơn gấp nhiều lần.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 24.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_8.mp3",
+    "duration": 23.56,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "cbea84286a0842a83f3f62db7db5cd18"
   },
   {
     "id": "slide_cf_9",
@@ -142,12 +142,12 @@
     "script": "Lớp bảo vệ cuối cùng là Cloudflare Tunnel. Thay vì mở cổng máy chủ của bạn ra internet công cộng để nhận kết nối, Cloudflare Tunnel sẽ tạo một đường truyền mã hóa ngược từ bên trong máy chủ của bạn đi ra Cloudflare Edge. Máy chủ của bạn không cần mở bất kỳ cổng inbound nào, ẩn hoàn toàn địa chỉ IP thật khỏi thế giới. Hacker dù biết IP của Cloudflare cũng không có cách nào quét cổng hay tấn công trực tiếp vào server của bạn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 26.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_9.mp3",
+    "duration": 23.08,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "15106f4d68672024e87349994d82f892"
   },
   {
     "id": "slide_cf_10",
@@ -157,12 +157,12 @@
     "script": "Chặn hàng triệu request DDoS mỗi giây không phải là phép màu, đó là sự kết hợp hoàn hảo giữa mạng lưới Anycast phân tán, tường lửa WAF, thử thách JS thông minh và trí tuệ nhân tạo quy mô lớn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_10.mp3",
+    "duration": 14.6,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "ac12f4db346c8af12d3f143f81272d06"
   },
   {
     "id": "slide_cf_11",
@@ -172,11 +172,11 @@
     "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban/video30/mp3/slide_cf_11.mp3",
+    "duration": 9.32,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "31b5ab7adcc111313c7e4d8499df9f39"
   }
 ]

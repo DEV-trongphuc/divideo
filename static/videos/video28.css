@@ -588,12 +588,12 @@
 
 .v28-arm-sweeping-fast {
     animation: v28-arm-sweep-fast 0.25s ease-in-out infinite;
-    transform-origin: 6px 6px;
+    transform-origin: 82px 18px;
 }
 
 .v28-arm-sweeping-slow {
     animation: v28-arm-sweep-slow 1.2s ease-in-out infinite;
-    transform-origin: 6px 6px;
+    transform-origin: 82px 18px;
 }
 
 /* SVG gauge circle progress indicator */

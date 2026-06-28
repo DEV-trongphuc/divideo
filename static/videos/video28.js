@@ -86,9 +86,9 @@
 
         if (slideId === 'slide_bloom_1') {
             canvas.innerHTML = `
-                <div class="v28-zoom-container" style="justify-content: flex-start; padding-top: 10px; gap: 14px; zoom: 1.25;">
+                <div class="v28-zoom-container" style="justify-content: flex-start; padding-top: 10px; gap: 14px; zoom: 1.25; overflow: visible !important;">
                     <!-- Container for Phone Mockup and Flying Request Tags -->
-                    <div style="position: relative; width: 100%; height: 480px; display: flex; justify-content: center; align-items: center; box-sizing: border-box; margin-top: 0px;">
+                    <div style="position: relative; width: 100%; height: 440px; display: flex; justify-content: center; align-items: center; box-sizing: border-box; margin-top: -30px;">
                         
                         <!-- Flying Request Tags (Left side) with avatar circles -->
                         <div id="v28-req-tag-l1" class="v28-flying-card" style="opacity: 0;">
@@ -200,158 +200,146 @@
         }
         else if (slideId === 'slide_bloom_2') {
             canvas.innerHTML = `
-                <div class="v28-zoom-container" style="zoom: 1.35; gap: 14px;">
-                    <!-- DB performance monitor layout -->
-                    <div class="glass-card" style="padding:16px; border-radius:20px; width:100%; display:flex; flex-direction:column; gap:12px; position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.08);">
-                        <!-- Sweep scanline overlay -->
-                        <div class="v28-db-scanline"></div>
-
-                        <!-- Header status -->
-                        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:8px;">
-                            <div style="display:flex; align-items:center; gap:8px;">
-                                <i data-lucide="database" style="width:16px; height:16px; color:#60a5fa;" id="v28-db-icon"></i>
-                                <span style="font-weight:950; color:#fff; font-size:12px; text-transform:uppercase; letter-spacing:0.5px;">Database Cluster (PostgreSQL)</span>
+                <div class="v28-zoom-container" style="zoom: 1.35; gap: 10px; padding: 8px; flex-direction: row; align-items: stretch; justify-content: space-between; width: 100%;">
+                    <!-- Left Column: Data Flow System -->
+                    <div style="width: 58%; display: flex; flex-direction: column; gap: 8px;">
+                        <!-- Query Pipeline Card -->
+                        <div class="glass-card" style="padding: 10px; border-radius: 14px; display: flex; flex-direction: column; gap: 8px; border: 1px solid rgba(255,255,255,0.08); background: rgba(10,15,30,0.6); position: relative; overflow: hidden; flex: 1;">
+                            <!-- Sweep scanline overlay -->
+                            <div class="v28-db-scanline"></div>
+                            
+                            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:4px;">
+                                <span style="font-size:9.5px; font-weight:900; color:#fff; text-transform:uppercase; letter-spacing:0.3px;">Query Pipeline</span>
+                                <span id="v28-queue-val" style="font-size:8.5px; font-weight:900; color:#34d399; font-family:monospace;">0 reqs</span>
                             </div>
-                            <span style="font-size:9.5px; font-weight:800; color:#34d399; background:rgba(52,211,153,0.1); padding:2px 8px; border-radius:6px; border:1px solid rgba(52,211,153,0.15);" id="v28-db-status">ONLINE</span>
+
+                            <!-- Laptops -->
+                            <div style="display:flex; justify-content:space-around; align-items:center; background:rgba(0,0,0,0.25); border-radius:6px; padding:2px 4px;">
+                                <div id="v28-client-a" style="display:flex; align-items:center; gap:2px; opacity:0.65; transition:all 0.3s; font-size:8px; font-weight:bold; color:#60a5fa;">
+                                    <i data-lucide="laptop" style="width:9px; height:9px;"></i>A
+                                </div>
+                                <div id="v28-client-b" style="display:flex; align-items:center; gap:2px; opacity:0.65; transition:all 0.3s; font-size:8px; font-weight:bold; color:#34d399;">
+                                    <i data-lucide="laptop" style="width:9px; height:9px;"></i>B
+                                </div>
+                                <div id="v28-client-c" style="display:flex; align-items:center; gap:2px; opacity:0.65; transition:all 0.3s; font-size:8px; font-weight:bold; color:#fbbf24;">
+                                    <i data-lucide="laptop" style="width:9px; height:9px;"></i>C
+                                </div>
+                            </div>
+
+                            <!-- Transit Tube -->
+                            <div style="width:100%; height:110px; background:rgba(5,8,16,0.6); border:1px solid rgba(255,255,255,0.05); border-radius:8px; position:relative; overflow:hidden; display:flex; justify-content:center; align-items:center;" id="v28-transit-pipe">
+                                <div id="v28-pipe-label" style="font-size:8px; font-weight:900; color:rgba(255,255,255,0.12); text-transform:uppercase; letter-spacing:0.5px; z-index:1;">
+                                    Query Bus
+                                </div>
+                                
+                                <div style="display:flex; flex-direction:column; gap:16px; position:absolute; left:6px; opacity:0.15; color:#fff; font-size:8px;">
+                                    <i data-lucide="chevron-down" style="width:8px; height:8px;"></i>
+                                    <i data-lucide="chevron-down" style="width:8px; height:8px;"></i>
+                                </div>
+                                <div style="display:flex; flex-direction:column; gap:16px; position:absolute; right:6px; opacity:0.15; color:#fff; font-size:8px;">
+                                    <i data-lucide="chevron-down" style="width:8px; height:8px;"></i>
+                                    <i data-lucide="chevron-down" style="width:8px; height:8px;"></i>
+                                </div>
+
+                                <!-- Centered query packets -->
+                                <div id="v28-q-pack-0" style="position:absolute; left:calc(50% - 70px); width:140px; height:18px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:5px; font-size:7px; font-family:monospace; color:#fff; padding:0 6px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
+                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:95px; text-align:left;">SELECT username FROM...</span>
+                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
+                                </div>
+                                <div id="v28-q-pack-1" style="position:absolute; left:calc(50% - 70px); width:140px; height:18px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:5px; font-size:7px; font-family:monospace; color:#fff; padding:0 6px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
+                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:95px; text-align:left;">SELECT username FROM...</span>
+                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
+                                </div>
+                                <div id="v28-q-pack-2" style="position:absolute; left:calc(50% - 70px); width:140px; height:18px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:5px; font-size:7px; font-family:monospace; color:#fff; padding:0 6px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
+                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:95px; text-align:left;">SELECT username FROM...</span>
+                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
+                                </div>
+                                <div id="v28-q-pack-3" style="position:absolute; left:calc(50% - 70px); width:140px; height:18px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:5px; font-size:7px; font-family:monospace; color:#fff; padding:0 6px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
+                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:95px; text-align:left;">SELECT username FROM...</span>
+                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <!-- Stage 1 & 2 Pipeline -->
-                        <div style="display:flex; flex-direction:column; gap:8px; position:relative; width:100%;">
-                            <!-- Client row -->
-                            <div style="display:flex; justify-content:space-around; align-items:center; background:rgba(0,0,0,0.2); border-radius:10px; padding:6px 12px; border:1px solid rgba(255,255,255,0.03);">
-                                <div id="v28-client-a" style="display:flex; align-items:center; gap:4px; opacity:0.65; transition:all 0.3s;">
-                                    <i data-lucide="laptop" style="width:12px; height:12px; color:#60a5fa;"></i>
-                                    <span style="font-size:9px; font-weight:800; color:rgba(255,255,255,0.6);">Client A</span>
-                                </div>
-                                <div id="v28-client-b" style="display:flex; align-items:center; gap:4px; opacity:0.65; transition:all 0.3s;">
-                                    <i data-lucide="laptop" style="width:12px; height:12px; color:#34d399;"></i>
-                                    <span style="font-size:9px; font-weight:800; color:rgba(255,255,255,0.6);">Client B</span>
-                                </div>
-                                <div id="v28-client-c" style="display:flex; align-items:center; gap:4px; opacity:0.65; transition:all 0.3s;">
-                                    <i data-lucide="laptop" style="width:12px; height:12px; color:#fbbf24;"></i>
-                                    <span style="font-size:9px; font-weight:800; color:rgba(255,255,255,0.6);">Client C</span>
-                                </div>
+
+                        <!-- HDD Storage Platter Engine (Connected below pipeline) -->
+                        <div class="glass-card" style="padding: 8px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; gap: 6px; border: 1px solid rgba(255,255,255,0.08); background: rgba(10,15,30,0.6); width: 100%;">
+                            <div style="display:flex; align-items:center; gap:4px; font-size:8.5px; font-weight:800; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.5px; border-bottom: 1px solid rgba(255,255,255,0.04); width:100%; padding-bottom:3px;">
+                                <i data-lucide="hard-drive" style="width:10px; height:10px; color:#fbbf24;"></i>
+                                <span>Storage Platter Engine</span>
                             </div>
                             
-                            <!-- Transit Tube (Stage 2) -->
-                            <div style="width:100%; height:110px; background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.05); border-radius:12px; position:relative; overflow:hidden; display:flex; justify-content:center; align-items:center;" id="v28-transit-pipe">
-                                <div id="v28-pipe-label" style="font-size:10px; font-weight:900; color:rgba(255,255,255,0.2); text-transform:uppercase; letter-spacing:1px; z-index:1;">
-                                    Query Pipeline
-                                </div>
-                                
-                                <div style="display:flex; flex-direction:column; gap:16px; position:absolute; left:12px; opacity:0.15; color:#fff;">
-                                    <i data-lucide="chevron-down" style="width:12px; height:12px;"></i>
-                                    <i data-lucide="chevron-down" style="width:12px; height:12px;"></i>
-                                </div>
-                                <div style="display:flex; flex-direction:column; gap:16px; position:absolute; right:12px; opacity:0.15; color:#fff;">
-                                    <i data-lucide="chevron-down" style="width:12px; height:12px;"></i>
-                                    <i data-lucide="chevron-down" style="width:12px; height:12px;"></i>
-                                </div>
-                                
-                                <!-- Four pre-rendered query packets to animate smoothly in JS -->
-                                <div id="v28-q-pack-0" style="position:absolute; left:8px; width:220px; height:20px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:6px; font-size:8px; font-family:monospace; color:#fff; padding:0 8px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
-                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:150px;">SELECT * FROM users WHERE u...</span>
-                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
-                                </div>
-                                <div id="v28-q-pack-1" style="position:absolute; left:48px; width:200px; height:20px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:6px; font-size:8px; font-family:monospace; color:#fff; padding:0 8px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
-                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:130px;">SELECT * FROM users WHERE u...</span>
-                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
-                                </div>
-                                <div id="v28-q-pack-2" style="position:absolute; left:24px; width:210px; height:20px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:6px; font-size:8px; font-family:monospace; color:#fff; padding:0 8px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
-                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:140px;">SELECT * FROM users WHERE u...</span>
-                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
-                                </div>
-                                <div id="v28-q-pack-3" style="position:absolute; left:36px; width:215px; height:20px; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.3); border-radius:6px; font-size:8px; font-family:monospace; color:#fff; padding:0 8px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s linear; box-sizing:border-box;">
-                                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:145px;">SELECT * FROM users WHERE u...</span>
-                                    <span class="v28-pack-status" style="color:#34d399; font-weight:bold;">OK</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Stage 3 Visuals: Hard Disk + HUD Gauges -->
-                        <div style="display:flex; gap:16px; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:12px;">
-                            <!-- Left: High-fidelity Hard Drive Platter (SVG) -->
-                            <div style="display:flex; justify-content:center; align-items:center; width:100px; height:100px; background:rgba(0,0,0,0.3); border-radius:16px; border:1px solid rgba(255,255,255,0.06); box-shadow:inset 0 2px 5px rgba(0,0,0,0.5); flex-shrink:0; position:relative; overflow:visible;">
-                                <svg width="86" height="86" viewBox="0 0 100 100" style="overflow:visible;" id="v28-hdd-svg">
-                                    <!-- Platter casing -->
-                                    <rect x="2" y="2" width="96" height="96" rx="10" fill="#0f172a" stroke="rgba(255,255,255,0.08)" stroke-width="2" />
-                                    <!-- Platter wheel disk -->
-                                    <circle cx="46" cy="52" r="38" fill="url(#platterGrad)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" id="v28-hdd-platter" style="transform-origin: 46px 52px;" class="v28-disk-spinning-fast" />
-                                    <!-- Platter metallic spindle -->
+                            <div style="display:flex; justify-content:center; align-items:center; width:90px; height:90px; background:rgba(0,0,0,0.35); border-radius:12px; border:1px solid rgba(255,255,255,0.05); box-shadow:inset 0 2px 4px rgba(0,0,0,0.4); position:relative; overflow:visible;">
+                                <svg width="82" height="82" viewBox="0 0 100 100" style="overflow:visible;" id="v28-hdd-svg">
+                                    <rect x="2" y="2" width="96" height="96" rx="10" fill="#0b0f19" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
+                                    <circle cx="46" cy="52" r="38" fill="url(#platterGrad)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" id="v28-hdd-platter" style="transform-origin: 46px 52px;" class="v28-disk-spinning-fast" />
                                     <circle cx="46" cy="52" r="8" fill="#334155" stroke="rgba(255,255,255,0.2)" />
                                     <circle cx="46" cy="52" r="3" fill="#020617" />
-                                    
-                                    <!-- Shiny disk reflection accents -->
-                                    <path d="M 18 24 L 28 34 M 64 80 L 74 90" stroke="rgba(255,255,255,0.15)" stroke-width="2.5" stroke-linecap="round" />
-                                    
-                                    <!-- Magnetic write-head arm -->
+                                    <path d="M 18 24 L 28 34 M 64 80 L 74 90" stroke="rgba(255,255,255,0.12)" stroke-width="2" stroke-linecap="round" />
                                     <g id="v28-hdd-arm" class="v28-arm-sweeping-slow" style="transform-origin: 82px 18px;">
-                                        <!-- Pivot node -->
-                                        <circle cx="82" cy="18" r="6" fill="#64748b" stroke="rgba(255,255,255,0.3)" />
-                                        <!-- Metal arm -->
+                                        <circle cx="82" cy="18" r="6" fill="#64748b" stroke="rgba(255,255,255,0.2)" />
                                         <line x1="82" y1="18" x2="48" y2="48" stroke="#94a3b8" stroke-width="3" stroke-linecap="round" />
                                         <line x1="82" y1="18" x2="48" y2="48" stroke="#cbd5e1" stroke-width="1" stroke-linecap="round" />
-                                        <!-- Actuator Head tip -->
                                         <polygon points="48,48 44,45 45,51" fill="#334155" />
-                                        <!-- Write head led pointer -->
                                         <circle cx="48" cy="48" r="1.5" fill="#34d399" id="v28-hdd-led" />
                                     </g>
-                                    
                                     <defs>
                                         <linearGradient id="platterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#64748b" />
+                                            <stop offset="0%" stop-color="#475569" />
                                             <stop offset="30%" stop-color="#1e293b" />
                                             <stop offset="50%" stop-color="#94a3b8" />
                                             <stop offset="70%" stop-color="#0f172a" />
-                                            <stop offset="100%" stop-color="#475569" />
+                                            <stop offset="100%" stop-color="#334155" />
                                         </linearGradient>
                                     </defs>
                                 </svg>
                             </div>
-                            
-                            <!-- Right: Performance HUD gauges -->
-                            <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:8px;">
-                                <div style="display:flex; gap:16px; justify-content:center; align-items:center;">
-                                    <!-- CPU load gauge -->
-                                    <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
-                                        <div style="position:relative; width:52px; height:52px; display:flex; align-items:center; justify-content:center;">
-                                            <svg width="52" height="52" viewBox="0 0 60 60">
-                                                <circle cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="5.5" />
-                                                <circle id="v28-gauge-cpu" cx="30" cy="30" r="24" fill="none" stroke="#34d399" stroke-width="5.5" 
-                                                        class="v28-gauge-circle" stroke-dasharray="150.8" stroke-dashoffset="150.8" stroke-linecap="round" />
-                                            </svg>
-                                            <span id="v28-cpu-val" style="position:absolute; font-size:10px; font-family:monospace; font-weight:900; color:#fff;">15%</span>
-                                        </div>
-                                        <span style="font-size:9px; font-weight:800; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.5px;">CPU Load</span>
-                                    </div>
-                                    
-                                    <!-- Latency gauge -->
-                                    <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
-                                        <div style="position:relative; width:52px; height:52px; display:flex; align-items:center; justify-content:center;">
-                                            <svg width="52" height="52" viewBox="0 0 60 60">
-                                                <circle cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="5.5" />
-                                                <circle id="v28-gauge-latency" cx="30" cy="30" r="24" fill="none" stroke="#34d399" stroke-width="5.5" 
-                                                        class="v28-gauge-circle" stroke-dasharray="150.8" stroke-dashoffset="150.8" stroke-linecap="round" />
-                                            </svg>
-                                            <span id="v28-latency-val" style="position:absolute; font-size:9px; font-family:monospace; font-weight:900; color:#fff;">1.2 ms</span>
-                                        </div>
-                                        <span style="font-size:9px; font-weight:800; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.5px;">Disk I/O</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Queue bottleneck status -->
-                        <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:10px; text-align:left; display:flex; justify-content:space-between; align-items:center;">
-                            <span style="font-size:10px; font-weight:800; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.5px;">Queue State:</span>
-                            <span id="v28-queue-val" style="font-size:11px; font-weight:900; color:#34d399; font-family:monospace;">0 Requests</span>
                         </div>
                     </div>
 
-                    <!-- Alert overlay -->
-                    <div class="glass-card v28-alert-card" id="v28-db-alert" style="padding:10px 14px; display:flex; align-items:center; justify-content:center; gap:8px; opacity:0; transform:translateY(12px); transition:all 0.3s; width: 100%;">
-                        <i data-lucide="alert-octagon" style="width:18px; height:18px; color:#f87171; flex-shrink: 0;"></i>
-                        <span style="font-size:11px; color:#f87171; font-weight:900; letter-spacing:0.5px; text-align:left;">🚨 NGHẼN DISK I/O: DATABASE QUÁ TẢI TRUY XUẤT</span>
+                    <!-- Right Column: Status, Telemetry & Warnings -->
+                    <div style="width: 40%; display: flex; flex-direction: column; gap: 8px; justify-content: space-between;">
+                        <!-- Status & Telemetry Card -->
+                        <div class="glass-card" style="padding: 12px; border-radius: 14px; display: flex; flex-direction: column; gap: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(10,15,30,0.6); flex: 1;">
+                            <div style="display:flex; flex-direction:column; gap:4px; align-items:center; border-bottom: 1px solid rgba(255,255,255,0.04); width:100%; padding-bottom:6px;">
+                                <span style="font-size:8.5px; font-weight:800; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.5px;">Server Node</span>
+                                <span style="font-size:9px; font-weight:900; color:#34d399; background:rgba(52,211,153,0.1); padding:2px 8px; border-radius:5px; border:1px solid rgba(52,211,153,0.15); display:inline-block; margin-top:2px;" id="v28-db-status">ONLINE</span>
+                            </div>
+
+                            <!-- Gauges container (stacked vertically) -->
+                            <div style="display:flex; flex-direction:column; justify-content:space-around; align-items:center; gap:12px; flex: 1;">
+                                <!-- CPU Load Gauge -->
+                                <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+                                    <div style="position:relative; width:54px; height:54px; display:flex; align-items:center; justify-content:center;">
+                                        <svg width="54" height="54" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="5.5" />
+                                            <circle id="v28-gauge-cpu" cx="30" cy="30" r="24" fill="none" stroke="#34d399" stroke-width="5" 
+                                                    class="v28-gauge-circle" stroke-dasharray="150.8" stroke-dashoffset="150.8" stroke-linecap="round" />
+                                        </svg>
+                                        <span id="v28-cpu-val" style="position:absolute; font-size:10px; font-family:monospace; font-weight:900; color:#fff;">15%</span>
+                                    </div>
+                                    <span style="font-size:8.5px; font-weight:800; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.3px;">CPU Load</span>
+                                </div>
+                                
+                                <!-- Disk I/O Latency Gauge -->
+                                <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+                                    <div style="position:relative; width:54px; height:54px; display:flex; align-items:center; justify-content:center;">
+                                        <svg width="54" height="54" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="5.5" />
+                                            <circle id="v28-gauge-latency" cx="30" cy="30" r="24" fill="none" stroke="#34d399" stroke-width="5" 
+                                                    class="v28-gauge-circle" stroke-dasharray="150.8" stroke-dashoffset="150.8" stroke-linecap="round" />
+                                        </svg>
+                                        <span id="v28-latency-val" style="position:absolute; font-size:9px; font-family:monospace; font-weight:900; color:#fff;">1.2 ms</span>
+                                    </div>
+                                    <span style="font-size:8.5px; font-weight:800; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.3px;">Disk I/O</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Warning Alert Card at bottom of Right Column -->
+                        <div class="glass-card v28-alert-card" id="v28-db-alert" style="padding:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; opacity:0; transform:translateY(12px); transition:all 0.3s; border:1px solid rgba(239,68,68,0.25); background: rgba(239,68,68,0.08); min-height: 80px; text-align: center; border-radius: 14px;">
+                            <i data-lucide="alert-triangle" style="width:18px; height:18px; color:#f87171; filter: drop-shadow(0 0 3px #f87171);"></i>
+                            <span style="font-size:9px; color:#f87171; font-weight:900; letter-spacing:0.3px; text-transform:uppercase; line-height: 1.3;">NGHẼN DISK I/O:<br>DATABASE QUÁ TẢI</span>
+                        </div>
                     </div>
                 </div>
             `;
@@ -1064,23 +1052,50 @@
 
             // 10. Database server status
             if (dbStatus) {
+                const pipe = canvas.querySelector('#v28-transit-pipe');
+                const card = pipe ? pipe.closest('.glass-card') : null;
+                
                 if (progress >= 0.7) {
                     dbStatus.textContent = "I/O BOTTLENECK";
                     dbStatus.style.color = "var(--bf-red)";
                     dbStatus.style.borderColor = "rgba(248, 113, 113, 0.4)";
                     dbStatus.style.background = "rgba(248, 113, 113, 0.15)";
+                    if (pipe) {
+                        pipe.style.background = "rgba(239, 68, 68, 0.12)";
+                        pipe.style.borderColor = "rgba(239, 68, 68, 0.3)";
+                    }
+                    if (card) {
+                        card.style.borderColor = "rgba(239, 68, 68, 0.25)";
+                        card.style.boxShadow = "0 8px 32px rgba(239, 68, 68, 0.18)";
+                    }
                     if (dbIcon) dbIcon.style.color = "var(--bf-red)";
                 } else if (progress >= 0.4) {
                     dbStatus.textContent = "OVERLOADED";
                     dbStatus.style.color = "var(--bf-orange)";
                     dbStatus.style.borderColor = "rgba(251, 191, 36, 0.3)";
                     dbStatus.style.background = "rgba(251, 191, 36, 0.1)";
+                    if (pipe) {
+                        pipe.style.background = "rgba(251, 191, 36, 0.08)";
+                        pipe.style.borderColor = "rgba(251, 191, 36, 0.2)";
+                    }
+                    if (card) {
+                        card.style.borderColor = "rgba(251, 191, 36, 0.15)";
+                        card.style.boxShadow = "0 8px 32px rgba(251, 191, 36, 0.08)";
+                    }
                     if (dbIcon) dbIcon.style.color = "var(--bf-orange)";
                 } else {
                     dbStatus.textContent = "ONLINE";
                     dbStatus.style.color = "var(--bf-green)";
                     dbStatus.style.borderColor = "rgba(52, 211, 153, 0.2)";
                     dbStatus.style.background = "rgba(52, 211, 153, 0.1)";
+                    if (pipe) {
+                        pipe.style.background = "rgba(5, 8, 16, 0.5)";
+                        pipe.style.borderColor = "rgba(255, 255, 255, 0.06)";
+                    }
+                    if (card) {
+                        card.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                        card.style.boxShadow = "0 12px 40px rgba(0, 0, 0, 0.45)";
+                    }
                     if (dbIcon) dbIcon.style.color = "var(--bf-blue)";
                 }
             }

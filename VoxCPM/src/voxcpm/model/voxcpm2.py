@@ -436,7 +436,7 @@ class VoxCPM2Model(nn.Module):
                 torch.tensor([self.ref_audio_end_token], dtype=torch.int32, device=device),
             ]
         )
-        feats = torch.cat([z1, ref_feat, z1], dim=0)
+        feats = torch.cat([z1, ref_feat.to(device), z1], dim=0)
         t_mask = torch.cat(
             [
                 torch.tensor([1], dtype=torch.int32),

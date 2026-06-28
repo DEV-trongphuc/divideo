@@ -1,7 +1,15 @@
 const http = require('http');
 
-const API_BASE = 'http://127.0.0.1:5500';
-const SCRIPTS = ['video17'];
+const API_BASE = 'http://127.0.0.1:5501';
+
+// Read arguments: node generate_voices.js <script_name> [project_name]
+const scriptArg = process.argv[2];
+if (!scriptArg) {
+    console.error("[-] Lỗi: Vui lòng truyền tên kịch bản (ví dụ: node generate_voices.js video28)");
+    process.exit(1);
+}
+const SCRIPTS = [scriptArg];
+const PROJECT = process.argv[3] || 'TurnioDEV';
 
 function post(url, data) {
     return new Promise((resolve, reject) => {
@@ -58,19 +66,21 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 async function run() {
     console.log("==========================================================================");
-    console.log("=== BẮT ĐẦU TIẾN TRÌNH TẠO GIỌNG NÓI VOXCPM TRẦM ẤM CHO VIDEO 13, 14, 15 ===");
+    console.log(`=== BẮT ĐẦU TIẾN TRÌNH TẠO GIỌNG NÓI VOXCPM TRẦM ẤM CHO KỊCH BẢN ${SCRIPTS[0].toUpperCase()} ===`);
+    console.log(`=== DỰ ÁN: ${PROJECT} | API SERVER: ${API_BASE} ===`);
     console.log("==========================================================================");
     
     for (const script of SCRIPTS) {
         console.log(`\n--------------------------------------------------------------------------`);
-        console.log(`[+] Đang bắt đầu xử lý kịch bản: ${script}`);
+        console.log(`[+] Đang bắt đầu xử lý kịch bản: ${script} (Project: ${PROJECT})`);
         
         try {
             // Trigger synthesis for current video
             await post(`${API_BASE}/api/synthesize-all`, {
                 script: script,
                 voice: "google-vi-VN-Neural2-D",
-                refVoice: "default_voxcpm"
+                refVoice: "default_voxcpm",
+                project: PROJECT
             });
             
             console.log(`[+] Đã kích hoạt API thành công. Theo dõi trạng thái tiến độ...`);
@@ -79,7 +89,7 @@ async function run() {
             let lastProgress = -1;
             while (true) {
                 await sleep(1500);
-                const status = await get(`${API_BASE}/api/synthesize-all/status?script=${script}`);
+                const status = await get(`${API_BASE}/api/synthesize-all/status?script=${script}&project=${PROJECT}`);
                 
                 if (status.status === 'processing') {
                     if (status.progress !== lastProgress) {
@@ -93,7 +103,7 @@ async function run() {
                     // Final 100% update
                     const bar = '█'.repeat(30);
                     process.stdout.write(`\rProgress: [${bar}] 100% completed!\n`);
-                    console.log(`[SUCCESS] Đã tạo xong toàn bộ giọng nói cho ${script}!`);
+                    console.log(`[SUCCESS] Đã tạo xong toàn bộ giọng nói cho ${script} thuộc dự án ${PROJECT}!`);
                     break;
                 } else if (status.status === 'failed') {
                     console.log(`\n[ERROR] Tiến trình tạo giọng nói cho ${script} thất bại: ${status.error}`);

@@ -173,11 +173,9 @@
                 <div class="v29-zoom-container" style="justify-content: flex-start; padding-top: 10px; gap: 14px; zoom: 1.15;">
                     <div class="v29-fb-card" style="padding: 16px; width: 100%; display: flex; flex-direction: column; gap: 14px;">
                         
-                        <!-- Stack layout representing User & Friend tables vertically with bigger text -->
                         <div class="v29-db-stack">
                             <!-- Table 1: User list -->
                             <div class="v29-db-card-large" id="v29-db-user">
-                                <div class="v29-db-scanline"></div>
                                 <div style="font-size:14px; font-weight:bold; color:var(--fb-blue); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.5px; display:flex; align-items:center; gap:6px;">
                                     <i data-lucide="table" style="width:16px; height:16px;"></i> Table: User (3 Tỷ hàng)
                                 </div>
@@ -203,7 +201,6 @@
 
                             <!-- Table 2: Friends Mapping -->
                             <div class="v29-db-card-large" id="v29-db-friend">
-                                <div class="v29-db-scanline"></div>
                                 <div style="font-size:14px; font-weight:bold; color:var(--fb-orange); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.5px; display:flex; align-items:center; gap:6px;">
                                     <i data-lucide="git-commit" style="width:16px; height:16px;"></i> Table: Friend Map
                                 </div>

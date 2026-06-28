@@ -7,12 +7,12 @@
     "script": "Bạn đã bao giờ tự hỏi: Mỗi ngày, Facebook phải xử lý và liên kết hàng tỷ mối quan hệ phức tạp của hơn 3 tỷ người dùng trên toàn thế giới. Thế nhưng, chỉ trong chưa đầy một giây, khi bạn nhấn vào trang cá nhân của một người lạ, Facebook lập tức hiển thị dòng chữ: Bạn và người này có 128 bạn chung. Tốc độ kinh ngạc này đến từ đâu? Có phải Facebook đang chạy một thuật toán quét toàn bộ cơ sở dữ liệu khổng lồ của họ mỗi lần bạn click hay không? Hôm nay, hãy cùng Turnio giải mã bí mật đằng sau tính năng tưởng chừng đơn giản nhưng cực kỳ tinh vi này nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 28.0,
+    "audioPath": "/kichban/video29/mp3/slide_fb_1.mp3",
+    "duration": 31.88,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "1654aa632e78ebfa95940f7d6a8b1ca6"
   },
   {
     "id": "slide_fb_2",
@@ -22,12 +22,12 @@
     "script": "Nếu là một lập trình viên mới vào nghề, bạn sẽ nghĩ ngay đến việc tạo một bảng SQL tên là Friend, gồm hai cột user_id và friend_id để biểu thị quan hệ bạn bè. Khi muốn tìm bạn chung giữa A và X, bạn sẽ thực hiện một câu lệnh JOIN phức tạp hoặc lấy toàn bộ bạn của A, lấy toàn bộ bạn của X rồi so sánh giao nhau trong mã nguồn. Tư duy này hoàn toàn bình thường ở quy mô nhỏ. Nhưng với 3 tỷ người dùng của Facebook, việc quét hàng tỷ bản ghi liên tục sẽ tạo ra một thảm họa tắc nghẽn, khiến hệ thống tê liệt ngay lập tức.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 26.0,
+    "audioPath": "/kichban/video29/mp3/slide_fb_2.mp3",
+    "duration": 30.6,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "93be76686fdc4e47a0aa7e746fff54f5"
   },
   {
     "id": "slide_fb_3",
@@ -37,12 +37,12 @@
     "script": "Để giải quyết bài toán quy mô lớn, Facebook không nhìn dữ liệu dưới dạng bảng hàng và cột khô khan. Họ xem toàn bộ mạng xã hội là một Đồ thị khổng lồ (Social Graph). Trong đó, mỗi người dùng là một Điểm (Node), và mỗi mối quan hệ bạn bè là một Đường nối (Edge) liên kết hai điểm đó. Việc tìm bạn chung thực chất là bài toán tìm kiếm các Điểm hàng xóm chung (Common Neighbors) được nối trực tiếp với cả hai điểm ban đầu. Mô hình đồ thị này giúp tối ưu hóa tư duy thiết kế hệ thống và tăng tốc truy vấn đáng kể.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 25.0,
+    "audioPath": "/kichban/video29/mp3/slide_fb_3.mp3",
+    "duration": 29.48,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "5f93ba2fa8d056f0da6ebf6abe7ddf54"
   },
   {
     "id": "slide_fb_4",
@@ -52,12 +52,12 @@
     "script": "Vậy Facebook lưu trữ đồ thị này trong bộ nhớ như thế nào? Họ không thực hiện JOIN liên tục trên đĩa cứng. Thay vào đó, họ lưu trữ dưới dạng Danh sách kề (Adjacency List). Dưới mỗi Node người dùng, hệ thống lưu sẵn một mảng danh sách ID bạn bè của người đó, ví dụ tài khoản A có danh sách bạn bè là 2, 5, 9, 11, 18. Mảng danh sách này luôn được sắp xếp theo thứ tự tăng dần. Nhờ việc sắp xếp sẵn này, việc so sánh tìm bạn chung sẽ trở nên nhanh hơn gấp nhiều lần nhờ các thuật toán tối ưu hóa mảng.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 24.0,
+    "audioPath": "/kichban/video29/mp3/slide_fb_4.mp3",
+    "duration": 29.0,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "5b19eac5fab3b4cd31fda953045a34ed"
   },
   {
     "id": "slide_fb_5",
@@ -67,12 +67,12 @@
     "script": "Khi cần tìm bạn chung giữa A và X, thay vì dùng hai vòng lặp lồng nhau chạy mất thời gian O(n nhân m), thuật toán của Facebook sẽ sử dụng Hai con trỏ chạy song song dọc theo hai danh sách kề đã được sắp xếp. Con trỏ bên nào nhỏ hơn sẽ di chuyển tiếp, nếu bằng nhau thì ghi nhận là bạn chung và cả hai cùng tiến. Phương pháp thông minh này giúp độ phức tạp giảm xuống chỉ còn O(n cộng m), tức là chỉ cần duyệt qua hai danh sách bạn bè đúng một lần duy nhất, tính toán kết quả trong tích tắc!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 24.0,
+    "audioPath": "/kichban/video29/mp3/slide_fb_5.mp3",
+    "duration": 28.04,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "9779df7382c11c51ede3d440fc8c2a62"
   },
   {
     "id": "slide_fb_6",
@@ -82,12 +82,12 @@
     "script": "Nhưng chuyện gì xảy ra nếu một trong hai người là người nổi tiếng, ví dụ như Cristiano Ronaldo với hơn 50 triệu người theo dõi? Danh sách kề lúc này quá dài và thuật toán hai con trỏ sẽ trở nên kém hiệu quả. Để xử lý, Facebook sẽ linh hoạt chuyển sang các cấu trúc dữ liệu khác như HashSet để tìm kiếm trong thời gian O(1), hoặc dùng mảng Bitmap để nén dữ liệu và thực hiện phép toán AND trên bit cực kỳ nhanh chóng, hoặc phân phối truy vấn sang các Graph Database chuyên dụng.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 25.0,
+    "audioPath": "/kichban/video29/mp3/slide_fb_6.mp3",
+    "duration": 29.48,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "459fd79b8923968859937a9919010aab"
   },
   {
     "id": "slide_fb_7",
@@ -97,12 +97,12 @@
     "script": "Với lượng dữ liệu khổng lồ, Facebook bắt buộc phải chia nhỏ đồ thị bạn bè ra hàng ngàn máy chủ vật lý, hay còn gọi là Sharding. Ví dụ, danh sách bạn bè từ chữ cái A đến M nằm ở máy chủ 1, từ N đến Z nằm ở máy chủ 2. Khi bạn truy vấn bạn chung, hệ thống chỉ lấy đúng danh sách từ các phân mảnh cần thiết thay vì quét toàn bộ hệ thống, giúp giảm thiểu tối đa băng thông mạng và tối ưu hóa hiệu suất truy vấn song song.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 23.0,
+    "audioPath": "/kichban/video29/mp3/slide_fb_7.mp3",
+    "duration": 25.8,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "df2da901fd68aa4b9758a2ef27dc3555"
   },
   {
     "id": "slide_fb_8",
@@ -112,12 +112,12 @@
     "script": "Tính xong bạn chung mới chỉ là bước khởi đầu. Phần thú vị nhất là làm thế nào Facebook gợi ý đúng người bạn vừa gặp ngoài đời? Hệ thống gợi ý bạn bè (People You May Know) không chỉ dựa vào số lượng bạn chung. AI của Facebook sẽ thu thập hàng loạt tín hiệu: bạn có đi học cùng trường không, làm chung công ty, ở gần khu vực địa lý, check-in cùng địa điểm, hay tham gia chung nhóm không. Sau đó, mô hình học máy sẽ chấm điểm và xếp hạng, ai có điểm số cao nhất sẽ lập tức hiện lên màn hình của bạn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 27.0,
+    "audioPath": "/kichban/video29/mp3/slide_fb_8.mp3",
+    "duration": 28.36,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "5d61b7ef64661b4909416a93db48352a"
   },
   {
     "id": "slide_fb_9",
@@ -127,12 +127,12 @@
     "script": "Có một câu hỏi thú vị: Tại sao Facebook không tính toán và lưu sẵn số lượng bạn chung của tất cả mọi người? Đơn giản vì nếu làm vậy với 3 tỷ user, số cặp quan hệ có thể lên tới 4.5 tỷ tỷ cặp! Không một hệ thống lưu trữ nào trên trái đất có thể gánh nổi dung lượng này. Thay vào đó, Facebook tính toán trực tiếp trên danh sách bạn bè khi có yêu cầu và kết hợp lưu bộ nhớ đệm cache cho những cặp tài khoản thường xuyên tương tác để tối ưu hóa tài nguyên hệ thống.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 25.0,
+    "audioPath": "/kichban/video29/mp3/slide_fb_9.mp3",
+    "duration": 26.44,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "77f0461038cc12b8eeaa85e0e127ba20"
   },
   {
     "id": "slide_fb_10",
@@ -142,12 +142,12 @@
     "script": "Đằng sau dòng chữ 128 bạn chung quen thuộc là cả một kỳ quan về thiết kế hệ thống đồ thị, các thuật toán giao tập hợp và học máy xếp hạng quy mô lớn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 10.0,
+    "audioPath": "/kichban/video29/mp3/slide_fb_10.mp3",
+    "duration": 10.44,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "9674dd0731b7abcfa19aa8220171598a"
   },
   {
     "id": "slide_fb_11",
@@ -157,11 +157,11 @@
     "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban/video29/mp3/slide_fb_11.mp3",
+    "duration": 11.08,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "31b5ab7adcc111313c7e4d8499df9f39"
   }
 ]

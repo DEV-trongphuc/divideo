@@ -384,7 +384,11 @@ def synthesize():
         mp3_path = os.path.join(mp3_dir, mp3_filename)
         
         pad_dur = "0.8" if project_name == "DOMMemo" else "1.8"
-        ffmpeg_path = os.path.abspath("ffmpeg.exe")
+        try:
+            import imageio_ffmpeg
+            ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
+        except ImportError:
+            ffmpeg_path = os.path.abspath("ffmpeg.exe")
         cmd = [
             ffmpeg_path, "-y", "-i", temp_path,
             "-af", f"apad=pad_dur={pad_dur}",
@@ -669,7 +673,11 @@ def save_video():
     output_path = os.path.join(mp4_dir, "video.mp4")
     
     try:
-        ffmpeg_path = os.path.abspath("ffmpeg.exe")
+        try:
+            import imageio_ffmpeg
+            ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
+        except ImportError:
+            ffmpeg_path = os.path.abspath("ffmpeg.exe")
         cmd = [
             ffmpeg_path, "-y", "-i", temp_path,
             "-c:v", "libx264", "-pix_fmt", "yuv420p",

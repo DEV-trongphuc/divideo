@@ -286,7 +286,7 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
                         )
                     else:
                         # Auto tune synthesis steps & denoising based on CUDA availability
-                        steps = 12 if torch.cuda.is_available() else 6
+                        steps = 10 if torch.cuda.is_available() else 6
                         denoise_flag = torch.cuda.is_available()
                         print(f"[+] VoxCPM generating with timesteps={steps}, denoise={denoise_flag}")
                         
