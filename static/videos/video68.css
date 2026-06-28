@@ -1,0 +1,569 @@
+/* video68.css - Einstein GPS Relativity Drift Styles (Rich Animations & Interactive Upgrade) */
+
+:root {
+    --v68-bg: transparent;
+    --v68-primary: #06b6d4; /* Cyan */
+    --v68-primary-glow: rgba(6, 182, 212, 0.55);
+    --v68-gold: #fbbf24; /* Amber Gold */
+    --v68-gold-glow: rgba(251, 191, 36, 0.55);
+    --v68-red: #ef4444;
+    --v68-red-glow: rgba(239, 68, 68, 0.65);
+    --v68-card-bg: rgba(10, 15, 30, 0.85);
+    --v68-border: rgba(255, 255, 255, 0.08);
+}
+
+.v68-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.v68-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v68-scene-row {
+    width: 920px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+/* Larger mobile headings */
+.v68-scene-row h3 {
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    margin-bottom: 12px;
+}
+
+/* Slide 1: Car Navigation app drifting off road (Taller and Wider) */
+.v68-nav-board {
+    width: 860px; /* Wider */
+    height: 520px; /* Taller */
+    background: #0f172a;
+    border: 3px solid #334155;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+    cursor: crosshair; /* Interactive hint */
+}
+
+.v68-map-grid {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+}
+
+/* River shape across map with animated waves */
+.v68-map-river {
+    position: absolute;
+    width: 280px;
+    height: 100%;
+    background: linear-gradient(90deg, #1e3a8a 0%, #1d4ed8 50%, #1e3a8a 100%);
+    opacity: 0.85;
+    right: 120px;
+    top: 0;
+    transform: skewX(-15deg);
+    border-left: 3px solid #3b82f6;
+    border-right: 3px solid #3b82f6;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+    background-size: 50px 50px;
+    background-image: 
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 10px);
+    animation: v68-river-wave 4s linear infinite;
+}
+
+@keyframes v68-river-wave {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+/* Road shape with moving stripes */
+.v68-map-road {
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    background: #334155;
+    left: 200px;
+    top: 0;
+    border-left: 2px solid #64748b;
+    border-right: 2px solid #64748b;
+}
+
+.v68-map-road-stripes {
+    width: 4px;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #cbd5e1 50%, transparent 50%);
+    background-size: 4px 40px;
+    position: absolute;
+    left: calc(50% - 2px);
+    animation: v68-road-scrolling 0.4s linear infinite;
+}
+
+@keyframes v68-road-scrolling {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 40px; }
+}
+
+/* GPS Signals pulse rings */
+.v68-gps-wave {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 2px solid var(--v68-primary);
+    border-radius: 50%;
+    top: -50px;
+    left: calc(50% - 75px);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.5);
+    animation: v68-pulse-expand 2.2s ease-out infinite;
+}
+
+.v68-gps-wave:nth-child(2) {
+    animation-delay: 1.1s;
+}
+
+@keyframes v68-pulse-expand {
+    0% { transform: scale(0.3); opacity: 0.9; }
+    50% { opacity: 0.4; }
+    100% { transform: scale(3.5); opacity: 0; }
+}
+
+/* Nav Arrows & Car design */
+.v68-nav-arrow {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: all 0.08s linear;
+}
+
+.v68-nav-arrow.correct {
+    color: #22c55e;
+    text-shadow: 0 0 12px rgba(34,197,94,0.9);
+}
+
+.v68-nav-arrow.drifted {
+    color: var(--v68-red);
+    text-shadow: 0 0 18px var(--v68-red-glow);
+}
+
+/* Route tracks */
+.v68-route-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 8;
+}
+
+.v68-route-line {
+    fill: none;
+    stroke-width: 4px;
+    stroke-linecap: round;
+}
+.v68-route-line.correct-path {
+    stroke: #22c55e;
+    stroke-dasharray: 8, 6;
+    animation: v68-route-dash 0.6s linear infinite;
+    opacity: 0.6;
+}
+.v68-route-line.drifted-path {
+    stroke: #ef4444;
+    stroke-dasharray: 8, 6;
+    animation: v68-route-dash 0.6s linear infinite;
+    opacity: 0.65;
+}
+
+@keyframes v68-route-dash {
+    to { stroke-dashoffset: -14; }
+}
+
+/* Target Crosshair */
+.v68-target-crosshair {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    color: #eab308;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -85%);
+    pointer-events: none;
+    z-index: 14;
+    filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.6));
+    animation: v68-crosshair-pulse 0.8s infinite alternate;
+}
+
+@keyframes v68-crosshair-pulse {
+    0% { transform: translate(-50%, -85%) scale(0.9); opacity: 0.85; }
+    100% { transform: translate(-50%, -85%) scale(1.1); opacity: 1; }
+}
+
+/* Car trailing smoke particles */
+.v68-smoke-trail {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9;
+}
+
+/* Splash bubble particles when entering water */
+.v68-splash-particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #38bdf8;
+    background: rgba(56, 189, 248, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 11;
+}
+
+/* Drift info card overlay */
+.v68-drift-badge {
+    position: absolute;
+    top: 20px; left: 20px;
+    background: rgba(15,23,42,0.95);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-family: monospace;
+    font-size: 15px;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    z-index: 20;
+}
+
+/* Slide 2: Earth and Orbiting Satellites with laser beams */
+.v68-space-panel {
+    width: 800px;
+    height: 420px;
+    background: radial-gradient(circle at center, #020617 0%, #090d16 100%);
+    border: 2px solid var(--v68-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+.v68-space-stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, #fff 1px, transparent 1.5px),
+        radial-gradient(circle, #fff 1px, transparent 1.5px);
+    background-size: 80px 80px, 120px 120px;
+    background-position: 10px 20px, 40px 70px;
+    opacity: 0.25;
+}
+
+.v68-space-earth {
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle at 30% 30%, #3b82f6 0%, #1d4ed8 70%, #0f172a 100%);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 45px rgba(59, 130, 246, 0.4), inset -10px -10px 30px rgba(0,0,0,0.8);
+    z-index: 5;
+}
+
+.v68-space-earth-atmosphere {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 65%, rgba(6, 182, 212, 0.25) 100%);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.35);
+    z-index: 4;
+    animation: v68-atmosphere-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes v68-atmosphere-pulse {
+    0% { transform: scale(0.97); opacity: 0.7; }
+    100% { transform: scale(1.03); opacity: 1; }
+}
+
+.v68-orbit-line {
+    position: absolute;
+    border: 1px dashed rgba(6, 182, 212, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.v68-orbit-line.o1 { width: 300px; height: 300px; transform: rotateX(45deg) rotateY(45deg); }
+.v68-orbit-line.o2 { width: 300px; height: 300px; transform: rotateX(45deg) rotateY(-45deg); }
+
+.v68-satellite-item {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    color: var(--v68-primary);
+    filter: drop-shadow(0 0 8px var(--v68-primary-glow));
+    z-index: 10;
+}
+
+/* SVG overlay container for laser tracks */
+.v68-space-laser-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 8;
+}
+
+.v68-laser-beam {
+    stroke: var(--v68-primary);
+    stroke-width: 1.5px;
+    stroke-dasharray: 6, 6;
+    animation: v68-laser-dash 1s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes v68-laser-dash {
+    to { stroke-dashoffset: -20; }
+}
+
+/* Slide 3: Time Dilation Clock panel (Space vs Earth) */
+.v68-clocks-panel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 30px;
+    padding: 0 10px;
+}
+
+.v68-clock-card {
+    flex: 1;
+    background: var(--v68-card-bg);
+    border: 2px solid var(--v68-border);
+    border-radius: 28px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    backdrop-filter: blur(25px);
+}
+
+.v68-clock-card.space {
+    border-color: rgba(251, 191, 36, 0.35);
+    box-shadow: inset 0 0 35px rgba(251, 191, 36, 0.1), 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.v68-clock-card.earth {
+    border-color: rgba(6, 182, 212, 0.35);
+    box-shadow: inset 0 0 35px rgba(6, 182, 212, 0.1), 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.v68-clock-title {
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.v68-clock-card.space .v68-clock-title { color: var(--v68-gold); }
+.v68-clock-card.earth .v68-clock-title { color: var(--v68-primary); }
+
+/* Clock HUD visual component */
+.v68-hud-dial {
+    width: 110px;
+    height: 110px;
+    border: 3px solid #cbd5e1;
+    border-radius: 50%;
+    position: relative;
+    margin: 5px 0;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+}
+
+.v68-clock-card.space .v68-hud-dial { border-color: var(--v68-gold); }
+.v68-clock-card.earth .v68-hud-dial { border-color: var(--v68-primary); }
+
+.v68-hud-hand {
+    position: absolute;
+    width: 2px;
+    height: 48px;
+    background: #cbd5e1;
+    bottom: 50%;
+    left: calc(50% - 1px);
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+}
+
+.v68-clock-card.space .v68-hud-hand { background: var(--v68-gold); }
+.v68-clock-card.earth .v68-hud-hand { background: var(--v68-primary); }
+
+.v68-clock-time {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 34px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.v68-clock-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Slide 4: Microsecond Drift Counter board */
+.v68-drift-counter-panel {
+    width: 780px;
+    background: #090d16;
+    border: 2px solid var(--v68-gold);
+    border-radius: 24px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 25px 65px rgba(0,0,0,0.75), inset 0 0 20px rgba(251,191,36,0.1);
+}
+
+.v68-drift-number {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 64px;
+    font-weight: bold;
+    color: var(--v68-gold);
+    text-shadow: 0 0 25px var(--v68-gold-glow);
+}
+
+/* Slide 5: Speed of Light Math */
+.v68-math-board {
+    width: 820px;
+    height: 400px;
+    background: var(--v68-card-bg);
+    border: 2px solid var(--v68-border);
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 25px 55px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.v68-light-pulse-container {
+    width: 100%;
+    height: 120px;
+    background: #020617;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.v68-pulse-laser {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 4px;
+    background: #ef4444;
+    box-shadow: 0 0 15px #ef4444, 0 0 30px #ef4444;
+    border-radius: 2px;
+}
+
+.v68-formula-line {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 26px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Slide 6: Relativistic Corrections Code check */
+.v68-correction-board {
+    width: 800px;
+    background: #090c15;
+    border: 2px solid var(--v68-primary);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7), inset 0 0 20px rgba(6,182,212,0.15);
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    box-sizing: border-box;
+}
+
+.v68-formula-box {
+    width: 320px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 25px;
+    gap: 15px;
+}
+
+.v68-latex-equation {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    color: var(--v68-primary);
+    font-style: italic;
+    background: rgba(6, 182, 212, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(6, 182, 212, 0.15);
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.v68-sync-log-box {
+    flex: 1;
+    background: #03050a;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 12px;
+    padding: 18px;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #cbd5e1;
+    height: 240px;
+}
+
+.v68-sync-line {
+    margin-bottom: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.v68-sync-line.info { color: #94a3b8; }
+.v68-sync-line.warn { color: var(--v68-gold); }
+.v68-sync-line.success { color: #10b981; font-weight: bold; }

@@ -1,0 +1,392 @@
+/* video67.css - Ariane 5 Integer Overflow Rocket Explosion Styles */
+
+:root {
+    --v67-bg: transparent;
+    --v67-cyan: #06b6d4;
+    --v67-cyan-glow: rgba(6, 182, 212, 0.45);
+    --v67-orange: #f97316;
+    --v67-orange-glow: rgba(249, 115, 22, 0.55);
+    --v67-red: #ef4444;
+    --v67-red-glow: rgba(239, 68, 68, 0.65);
+    --v67-card-bg: rgba(15, 23, 42, 0.85);
+    --v67-border: rgba(255, 255, 255, 0.1);
+}
+
+.v67-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.v67-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v67-scene-row {
+    width: 920px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+/* Larger mobile headings */
+.v67-scene-row h3 {
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    margin-bottom: 12px;
+}
+
+/* Slide 1: Rocket launching with scrolling sky */
+.v67-sky-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+}
+
+.v67-sky-clouds {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    top: -100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.06) 60px, transparent 65px),
+        radial-gradient(circle at 80% 40%, rgba(255,255,255,0.06) 80px, transparent 85px),
+        radial-gradient(circle at 30% 70%, rgba(255,255,255,0.06) 70px, transparent 75px),
+        radial-gradient(circle at 75% 85%, rgba(255,255,255,0.06) 90px, transparent 95px);
+    background-size: 400px 400px;
+    background-repeat: repeat-y;
+}
+
+.v67-sky-clouds.scrolling {
+    animation: v67-clouds-scroll 3s linear infinite;
+}
+
+@keyframes v67-clouds-scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(400px); }
+}
+
+/* Ariane 5 Rocket shape */
+.v67-ariane-rocket {
+    position: absolute;
+    width: 50px;
+    height: 280px;
+    z-index: 10;
+    transition: transform 0.1s linear;
+}
+
+.v67-rocket-body {
+    width: 30px;
+    height: 200px;
+    background: linear-gradient(90deg, #e2e8f0 30%, #ffffff 70%, #cbd5e1 100%);
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    left: 10px;
+    top: 0;
+}
+
+/* ESA logo on body */
+.v67-rocket-body::before {
+    content: 'esa';
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #1e3a8a;
+    font-size: 11px;
+    font-weight: 900;
+    font-family: sans-serif;
+    top: 60px;
+    letter-spacing: 1px;
+}
+
+/* Side Boosters */
+.v67-booster {
+    width: 10px;
+    height: 150px;
+    background: linear-gradient(90deg, #94a3b8, #cbd5e1, #64748b);
+    border-radius: 5px 5px 2px 2px;
+    position: absolute;
+    top: 70px;
+}
+
+.v67-booster.left { left: -1px; }
+.v67-booster.right { right: -1px; }
+
+/* Rocket Thruster Fire */
+.v67-fire {
+    position: absolute;
+    width: 16px;
+    height: 90px;
+    left: 17px;
+    top: 200px;
+    background: linear-gradient(180deg, #fff 0%, #ff6a00 30%, #ff2200 70%, transparent 100%);
+    border-radius: 50% 50% 0 0;
+    transform-origin: top center;
+    box-shadow: 0 0 30px rgba(255,87,34,0.8), 0 0 10px rgba(255,235,59,0.5);
+    animation: v67-flame-flicker 0.08s infinite alternate;
+}
+
+.v67-booster-fire {
+    position: absolute;
+    width: 6px;
+    height: 50px;
+    background: linear-gradient(180deg, #fff 0%, #ff8800 40%, transparent 100%);
+    border-radius: 50% 50% 0 0;
+    top: 220px;
+    box-shadow: 0 0 15px rgba(255,136,0,0.7);
+    animation: v67-flame-flicker 0.06s infinite alternate;
+}
+.v67-booster-fire.left { left: 1px; }
+.v67-booster-fire.right { right: 1px; }
+
+@keyframes v67-flame-flicker {
+    0% { transform: scaleX(0.9) scaleY(0.9); }
+    100% { transform: scaleX(1.1) scaleY(1.1); filter: brightness(1.2); }
+}
+
+/* Slide 2: Launch Stats card grid (To rộng ra) */
+.v67-stats-grid {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 30px;
+    padding: 0 10px;
+}
+
+.v67-stat-card {
+    flex: 1;
+    background: var(--v67-card-bg);
+    border: 2px solid var(--v67-border);
+    border-radius: 28px;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    backdrop-filter: blur(25px);
+}
+
+.v67-stat-val {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--v67-orange);
+    text-shadow: 0 0 15px var(--v67-orange-glow);
+}
+
+.v67-stat-lbl {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Slide 3: Code window downcast */
+.v67-code-window {
+    width: 800px;
+    background: #0b0f19;
+    border: 2px solid var(--v67-border);
+    border-radius: 18px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    overflow: hidden;
+}
+
+.v67-code-header {
+    height: 45px;
+    background: #151b2c;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.v67-code-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.v67-code-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.v67-code-dot.close { background: #ef4444; }
+.v67-code-dot.min { background: #eab308; }
+.v67-code-dot.max { background: #22c55e; }
+
+.v67-code-body {
+    padding: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #e2e8f0;
+}
+
+.v67-code-kw { color: #f472b6; font-weight: bold; }
+.v67-code-type { color: #60a5fa; }
+.v67-code-var { color: #a78bfa; }
+.v67-code-comment { color: #64748b; font-style: italic; }
+
+.v67-code-line {
+    border-radius: 4px;
+    padding: 2px 10px;
+    transition: background 0.3s;
+}
+
+.v67-code-line.highlight {
+    background: rgba(239, 68, 68, 0.15);
+    border-left: 4px solid var(--v67-red);
+}
+
+/* Slide 4: Overflow Display Panel */
+.v67-overflow-panel {
+    width: 780px;
+    background: #111827;
+    border: 3px solid #374151;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+}
+
+.v67-counter-board {
+    width: 100%;
+    background: #030712;
+    border: 2px solid #1f2937;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.v67-counter-label {
+    font-family: monospace;
+    font-size: 16px;
+    color: #9ca3af;
+}
+
+.v67-counter-num {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 54px;
+    font-weight: bold;
+    color: #10b981;
+    text-shadow: 0 0 15px rgba(16,185,129,0.5);
+    letter-spacing: 2px;
+}
+
+.v67-counter-num.overflow-active {
+    color: var(--v67-red);
+    text-shadow: 0 0 25px var(--v67-red-glow);
+    animation: v67-glitch-shake 0.1s infinite;
+}
+
+@keyframes v67-glitch-shake {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-2px, 1px); }
+    75% { transform: translate(2px, -1px); }
+}
+
+/* Slide 5: Aerodynamic Stress Meter */
+.v67-stress-panel {
+    width: 820px;
+    background: var(--v67-card-bg);
+    border: 2px solid var(--v67-border);
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+}
+
+.v67-thrust-hud {
+    width: 320px;
+    height: 240px;
+    border: 2px dashed var(--v67-cyan);
+    border-radius: 12px;
+    position: relative;
+    background: rgba(6, 182, 212, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v67-hud-nozzle {
+    width: 50px;
+    height: 70px;
+    background: #475569;
+    border-radius: 4px 4px 15px 15px;
+    transform-origin: top center;
+    transform: rotate(0deg);
+    transition: transform 0.1s ease;
+}
+
+.v67-stress-gauge {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.v67-gauge-bar-outer {
+    width: 100%;
+    height: 35px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.v67-gauge-bar-inner {
+    height: 100%;
+    width: 10%;
+    background: linear-gradient(90deg, #22c55e, #eab308, #ef4444);
+    box-shadow: 0 0 15px rgba(234, 179, 8, 0.4);
+    transition: width 0.1s linear;
+}
+
+/* Slide 6: Self-destruction Explosion effect */
+.v67-explosion-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    z-index: 100;
+    background: radial-gradient(circle, #fff 0%, #ff8800 20%, #ef4444 60%, transparent 100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.v67-fireball-particle {
+    position: absolute;
+    background: radial-gradient(circle, #ffeaa7, #ff7675, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+}

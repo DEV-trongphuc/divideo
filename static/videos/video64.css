@@ -1,0 +1,683 @@
+/* video64.css - Progress Bar UX Simulation Video Animations & Styles */
+
+:root {
+    --v64-bg: #030407;
+    --v64-primary: #06b6d4; /* Neon Cyan */
+    --v64-primary-glow: rgba(6, 182, 212, 0.35);
+    --v64-orange: #ffaa44; /* Stuck Warning Orange/Yellow */
+    --v64-orange-glow: rgba(255, 170, 68, 0.4);
+    --v64-red: #ff5f56; /* Error Red */
+    --v64-green: #10b981; /* Success Green */
+    --v64-green-glow: rgba(16, 185, 129, 0.35);
+    --v64-border: rgba(255, 255, 255, 0.08);
+    --v64-card-bg: rgba(10, 14, 26, 0.9);
+}
+
+.v64-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    zoom: 1.35;
+    overflow: visible;
+}
+
+.v64-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v64-scene-row {
+    width: 640px;
+    height: 485px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+/* --- GRID OF BLOCKS (SQUARES) SIMULATION --- */
+.v64-blocks-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--v64-border);
+    border-radius: 12px;
+}
+
+.v64-grid-block {
+    width: 25px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.v64-grid-block.filled {
+    background: var(--v64-primary);
+    border-color: var(--v64-primary);
+    box-shadow: 0 0 8px var(--v64-primary-glow);
+}
+
+.v64-grid-block.stuck {
+    background: var(--v64-orange);
+    border-color: var(--v64-orange);
+    box-shadow: 0 0 10px var(--v64-orange-glow);
+    animation: v64-pulse-orange 0.8s ease-in-out infinite alternate;
+}
+
+.v64-grid-block.completed {
+    background: var(--v64-green);
+    border-color: var(--v64-green);
+    box-shadow: 0 0 8px var(--v64-green-glow);
+}
+
+@keyframes v64-pulse-orange {
+    0% { opacity: 0.4; filter: brightness(0.8); }
+    100% { opacity: 1; filter: brightness(1.2) drop-shadow(0 0 5px var(--v64-orange)); }
+}
+
+
+/* --- SLIDE 1 & 2: OS INSTALL WINDOW (NO SHAKE) --- */
+.v64-os-window {
+    width: 460px;
+    height: 350px;
+    background: var(--v64-card-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1.5px solid var(--v64-border);
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Stuck style - No shake as requested */
+.v64-os-window.stuck {
+    border-color: rgba(255, 170, 68, 0.4);
+    box-shadow: 0 0 30px rgba(255, 170, 68, 0.15);
+    overflow: visible !important;
+}
+
+.v64-os-header {
+    height: 42px;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1.5px solid var(--v64-border);
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.v64-mac-dots {
+    display: flex;
+    gap: 7px;
+}
+
+.v64-mac-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+.v64-mac-dot.close { background: #ff5f56; }
+.v64-mac-dot.minimize { background: #ffbd2e; }
+.v64-mac-dot.maximize { background: #27c93f; }
+
+.v64-window-title {
+    font-family: 'Fira Code', monospace;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+}
+
+.v64-os-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    height: calc(100% - 42px);
+    box-sizing: border-box;
+}
+
+.v64-installer-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+    letter-spacing: -0.3px;
+}
+
+.v64-progress-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.v64-progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    font-family: monospace;
+}
+
+.v64-status-text {
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 500;
+}
+
+.v64-percent-text {
+    color: var(--v64-primary);
+    font-weight: 800;
+}
+
+.v64-os-window.stuck .v64-percent-text {
+    color: var(--v64-orange);
+}
+
+.v64-progress-bar-bg {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    border: 1px solid var(--v64-border);
+    overflow: hidden;
+    position: relative;
+}
+
+.v64-progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #0891b2, #22d3ee);
+    box-shadow: 0 0 15px var(--v64-primary-glow);
+    border-radius: 5px;
+    transition: width 0.1s linear;
+}
+
+.v64-os-window.stuck .v64-progress-bar-fill {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    box-shadow: 0 0 15px var(--v64-orange-glow);
+}
+
+/* Toast warning alert */
+.v64-warning-toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: rgba(255, 170, 68, 0.08);
+    border: 1.5px solid rgba(255, 170, 68, 0.25);
+    border-radius: 12px;
+    font-size: 12px;
+    color: var(--v64-orange);
+    font-weight: 700;
+    width: 100%;
+    box-sizing: border-box;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.v64-warning-toast.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Stacked Error dialogs (No shake) */
+.v64-error-dialog-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.v64-error-dialog {
+    position: absolute;
+    width: 320px;
+    background: rgba(15, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid rgba(255, 95, 86, 0.4);
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.65);
+    overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+    top: 50%;
+    left: 50%;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.v64-error-dialog.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.v64-err-hdr {
+    height: 36px;
+    background: rgba(255, 95, 86, 0.12);
+    border-bottom: 1.5px solid rgba(255, 95, 86, 0.3);
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.v64-err-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--v64-red);
+}
+
+.v64-err-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.v64-err-msg-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.v64-err-msg-row i {
+    color: var(--v64-red);
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.v64-err-msg {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.v64-err-btn-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.v64-err-btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.8);
+}
+.v64-err-btn.primary {
+    background: var(--v64-red);
+    color: #fff;
+    border: none;
+    font-weight: 700;
+}
+
+#v64-err-dialog-1 { margin-top: -50px; margin-left: -20px; }
+#v64-err-dialog-2 { margin-top: 5px; margin-left: 20px; z-index: 11; }
+#v64-err-dialog-3 { margin-top: 60px; margin-left: -10px; z-index: 12; }
+
+
+/* --- SLIDE 3: HARDWARE SYSTEM DESIGN (PC INTERNAL MODEL) --- */
+.v64-arch-canvas {
+    width: 540px;
+    height: 330px;
+    background: var(--v64-card-bg);
+    border: 1.5px solid var(--v64-border);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.v64-pc-case {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--v64-border);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.v64-pc-component {
+    width: 110px;
+    height: 140px;
+    border: 1.5px solid var(--v64-border);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.v64-pc-component.active {
+    border-color: var(--v64-primary);
+    background: rgba(6, 182, 212, 0.05);
+    box-shadow: 0 0 15px var(--v64-primary-glow);
+}
+
+.v64-pc-component.success {
+    border-color: var(--v64-green);
+    background: rgba(16, 185, 129, 0.05);
+    box-shadow: 0 0 15px var(--v64-green-glow);
+}
+
+.v64-pc-component i {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.v64-pc-component.active i {
+    color: var(--v64-primary);
+}
+
+.v64-pc-component.success i {
+    color: var(--v64-green);
+}
+
+.v64-pc-component-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
+.v64-pc-component.active .v64-pc-component-title {
+    color: #fff;
+}
+.v64-pc-component.success .v64-pc-component-title {
+    color: var(--v64-green);
+}
+
+/* Floating square data blocks inside PC Case */
+.v64-data-square {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--v64-primary);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--v64-primary-glow);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.v64-svg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.v64-link-line {
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 3;
+    stroke-dasharray: 6 4;
+    fill: none;
+    transition: all 0.3s ease;
+}
+
+.v64-link-line.active {
+    stroke: var(--v64-primary);
+    animation: v64-dash 1.2s linear infinite;
+    filter: drop-shadow(0 0 3px var(--v64-primary));
+}
+
+@keyframes v64-dash {
+    to {
+        stroke-dashoffset: -20;
+    }
+}
+
+
+/* --- SLIDE 4: ASYMMETRIC QUEUES (PC SYSTEM MONITOR) --- */
+.v64-monitor-container {
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.v64-monitor-section {
+    background: var(--v64-card-bg);
+    border: 1.5px solid var(--v64-border);
+    border-radius: 16px;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.v64-monitor-section.active {
+    border-color: var(--v64-yellow);
+}
+.v64-monitor-section.success {
+    border-color: var(--v64-green);
+}
+.v64-monitor-section.danger {
+    border-color: var(--v64-orange);
+}
+
+.v64-monitor-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.v64-monitor-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.v64-monitor-status {
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.v64-monitor-section.active .v64-monitor-status { color: var(--v64-yellow); }
+.v64-monitor-section.success .v64-monitor-status { color: var(--v64-green); }
+.v64-monitor-section.danger .v64-monitor-status { color: var(--v64-orange); }
+
+/* Horizontal small blocks representing queue load */
+.v64-monitor-grid-row {
+    display: flex;
+    gap: 4px;
+    width: 100%;
+}
+
+.v64-small-square {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.v64-monitor-section.active .v64-small-square.filled {
+    background: var(--v64-yellow);
+    box-shadow: 0 0 5px var(--v64-yellow-glow);
+}
+
+.v64-monitor-section.success .v64-small-square.filled {
+    background: var(--v64-green);
+    box-shadow: 0 0 5px var(--v64-green-glow);
+}
+
+.v64-monitor-section.danger .v64-small-square.filled {
+    background: var(--v64-orange);
+    box-shadow: 0 0 5px var(--v64-orange-glow);
+}
+
+/* Sticking last block */
+.v64-monitor-section.danger .v64-small-square.filled.stuck {
+    background: var(--v64-orange);
+    animation: v64-pulse-orange 0.8s ease-in-out infinite alternate;
+}
+
+
+/* --- SLIDES 5 & 6: WINDOWS TASK MANAGER STYLE CPU GRAPH --- */
+.v64-chart-card {
+    width: 540px;
+    background: var(--v64-card-bg);
+    border: 1.5px solid var(--v64-border);
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.v64-chart-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.v64-taskmgr-grid-bg {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 190px;
+    position: relative;
+    background: #02060c;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    box-sizing: border-box;
+    margin-bottom: 14px;
+    overflow: hidden;
+}
+
+/* Simulated grid background of Task Manager */
+.v64-taskmgr-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(16, 185, 129, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.07) 1px, transparent 1px);
+    background-size: 25px 25px;
+}
+
+.v64-chart-label-x {
+    position: absolute;
+    bottom: 5px;
+    font-family: monospace;
+    font-size: 9px;
+    color: rgba(16, 185, 129, 0.5);
+    font-weight: 600;
+}
+
+.v64-chart-label-y {
+    position: absolute;
+    right: 8px;
+    font-family: monospace;
+    font-size: 9px;
+    color: rgba(16, 185, 129, 0.5);
+    font-weight: 600;
+}
+
+.v64-chart-legend {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid var(--v64-border);
+}
+
+.v64-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.v64-legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+.v64-legend-color.red {
+    background: var(--v64-orange);
+}
+.v64-legend-color.cyan {
+    background: var(--v64-primary);
+}
+.v64-legend-item span {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.v64-chart-cursor-label {
+    position: absolute;
+    font-family: 'Fira Code', monospace;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 3px 6px;
+    border-radius: 5px;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.v64-chart-cursor-label.red {
+    background: var(--v64-orange);
+    color: #000;
+}
+
+.v64-chart-cursor-label.cyan {
+    background: var(--v64-primary);
+    color: #000;
+}

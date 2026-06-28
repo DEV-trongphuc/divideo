@@ -1,0 +1,327 @@
+/* video69.css - Salami Slicing 1-Cent Rounding Bug Styles (Wider and Premium Upgrade) */
+
+:root {
+    --v69-bg: transparent;
+    --v69-primary: #10b981; /* Neon Green */
+    --v69-primary-glow: rgba(16, 185, 129, 0.45);
+    --v69-gold: #eab308; /* Gold Coins */
+    --v69-gold-glow: rgba(234, 179, 8, 0.55);
+    --v69-pink: #ec4899; /* Accent Pink */
+    --v69-pink-glow: rgba(236, 72, 153, 0.45);
+    --v69-border: rgba(255, 255, 255, 0.08);
+    --v69-card-bg: rgba(9, 15, 26, 0.85);
+}
+
+.v69-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.v69-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v69-scene-row {
+    width: 920px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+/* Larger mobile headings */
+.v69-scene-row h3 {
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    margin-bottom: 12px;
+}
+
+/* Slide 1: Safe Vault with Gold Coins raining */
+.v69-vault-board {
+    width: 800px;
+    height: 420px;
+    background: #020617;
+    border: 3px solid #1e293b;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Safe Door wheels */
+.v69-vault-door {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 12px solid #64748b;
+    border-radius: 50%;
+    background: #334155;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.v69-vault-wheel {
+    width: 120px;
+    height: 120px;
+    border: 8px solid #cbd5e1;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.v69-vault-spoke {
+    position: absolute;
+    width: 6px;
+    height: 140px;
+    background: #cbd5e1;
+}
+.v69-vault-spoke:nth-child(2) { transform: rotate(45deg); }
+.v69-vault-spoke:nth-child(3) { transform: rotate(90deg); }
+.v69-vault-spoke:nth-child(4) { transform: rotate(135deg); }
+
+/* Raining coins */
+.v69-coin {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #ffe066 0%, #f59e0b 100%);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 5;
+    opacity: 0;
+    top: -50px;
+}
+
+/* Slide 2: Bank transaction receipts (Borderless, wider, larger font) */
+.v69-receipts-container {
+    width: 100%;
+    height: 480px;
+    background: transparent; /* No inner box border */
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v69-bank-receipt {
+    width: 580px; /* Much wider */
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px;
+    color: #1e293b;
+    font-family: monospace;
+    font-size: 23px; /* Large readable text */
+    box-shadow: 0 30px 65px rgba(0,0,0,0.65);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.v69-receipt-dashed {
+    border-bottom: 3px dashed #94a3b8;
+    margin: 6px 0;
+}
+
+.v69-receipt-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.v69-receipt-red-cut {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #ef4444;
+    left: 0;
+    top: 298px; /* Perfectly aligned to the NET INTEREST value row under 23px font size */
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 0 10px #ef4444;
+}
+
+/* Slide 3: Residue floating pipe */
+.v69-residue-board {
+    width: 820px;
+    height: 400px;
+    background: var(--v69-card-bg);
+    border: 2px solid var(--v69-border);
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 25px 55px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.v69-pipe-flow {
+    width: 100%;
+    height: 100px;
+    background: #020617;
+    border: 2px solid #1e293b;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.v69-pipe-particle {
+    position: absolute;
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--v69-gold);
+    text-shadow: 0 0 10px var(--v69-gold-glow);
+    left: -80px;
+}
+
+/* Slide 4: Code loop window (Much larger & Premium Glassmorphism) */
+.v69-code-window {
+    width: 820px;
+    background: rgba(10, 15, 30, 0.85); /* Glassmorphic dark */
+    border: 2px solid rgba(16, 185, 129, 0.35); /* Neon Green border */
+    border-radius: 20px;
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 20px rgba(16, 185, 129, 0.1);
+    overflow: hidden;
+    backdrop-filter: blur(25px);
+}
+
+.v69-code-header {
+    height: 50px;
+    background: rgba(21, 27, 44, 0.9);
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.v69-code-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.v69-code-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.v69-code-dot.close { background: #ef4444; }
+.v69-code-dot.min { background: #eab308; }
+.v69-code-dot.max { background: #22c55e; }
+
+.v69-code-body {
+    padding: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 23px; /* Large legible code font size */
+    line-height: 1.8;
+    color: #e2e8f0;
+}
+
+.v69-code-kw { color: #f472b6; font-weight: bold; }
+.v69-code-type { color: #60a5fa; }
+.v69-code-var { color: #a78bfa; }
+.v69-code-comment { color: #64748b; font-style: italic; }
+
+.v69-code-line {
+    border-radius: 6px;
+    padding: 4px 12px;
+    transition: background 0.3s;
+}
+
+.v69-code-line.highlight {
+    background: rgba(16, 185, 129, 0.15);
+    border-left: 5px solid var(--v69-primary);
+}
+
+/* Slide 5: Hacker ledger dashboard */
+.v69-ledger-board {
+    width: 780px;
+    background: #020617;
+    border: 3px solid var(--v69-primary);
+    border-radius: 24px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 25px 65px rgba(0,0,0,0.75), inset 0 0 25px rgba(16,185,129,0.1);
+}
+
+.v69-ledger-num {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 64px;
+    font-weight: bold;
+    color: var(--v69-primary);
+    text-shadow: 0 0 25px var(--v69-primary-glow);
+    letter-spacing: 2px;
+}
+
+/* Slide 6: IEEE 754 float binary converter */
+.v69-converter-board {
+    width: 820px;
+    background: var(--v69-card-bg);
+    border: 2px solid var(--v69-border);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.v69-binary-grid {
+    background: #020617;
+    border: 2px solid #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    font-family: monospace;
+    font-size: 18px;
+    color: #e2e8f0;
+    line-height: 1.6;
+    word-break: break-all;
+    position: relative;
+    overflow: hidden;
+}
+
+.v69-binary-highlight {
+    color: var(--v69-pink);
+    text-shadow: 0 0 8px var(--v69-pink-glow);
+    font-weight: bold;
+}
+
+.v69-binary-cutbar {
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background: var(--v69-pink);
+    box-shadow: 0 0 10px var(--v69-pink-glow);
+    top: 0;
+    left: 280px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}

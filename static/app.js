@@ -219,11 +219,6 @@ function getCardType(card) {
 let mediaRecorder = null;
 let recordedChunks = [];
 let recordTimer = null;
-// Video Export State
-let exportMediaRecorder = null;
-let exportChunks = [];
-let isExporting = false;
-let exportSlideIndex = 0;
 // Lucide Icon mappings
 const iconMap = {
     'database': 'database',
@@ -862,7 +857,10 @@ function setupEventListeners() {
         saveSlidesToServer();
     });
     // Export video button
-    document.getElementById('record-video-btn').addEventListener('click', startVideoExport);
+    const recordVideoBtn = document.getElementById('record-video-btn');
+    if (recordVideoBtn) {
+        recordVideoBtn.addEventListener('click', startVideoExport);
+    }
     // Headless MP4 Export button
     const exportMp4Btn = document.getElementById('export-mp4-btn');
     if (exportMp4Btn) {
@@ -4730,205 +4728,6 @@ async function startHeadlessMp4Export() {
     }
 }
 
-// Widescreen HTML5 Canvas + WebAudio Recording & Export
-async function startVideoExport() {
-    if (slides.length === 0) return;
-    if (isPlaying) stopPlayback();
-    const isMissingAudio = slides.some(s => !s.audioPath);
-    if (isMissingAudio) {
-        if (!confirm('Má»™t sá»‘ slide chÆ°a Ä‘Æ°á»£c táº¡o giá»ng nÃ³i. Báº£n xuáº¥t video sáº½ bá»‹ im láº·ng á»Ÿ cÃ¡c slide nÃ y. Báº¡n cÃ³ muá»‘n tiáº¿p tá»¥c?')) {
-            return;
-        }
-    }
-    const canvas = document.getElementById('tiktok-canvas');
-    const statusBox = document.getElementById('export-status-box');
-    const progressFill = document.getElementById('export-progress');
-    const progressText = document.getElementById('export-progress-text');
-    // Position fixed at (0,0) and scale 1 to prevent html2canvas centering/crop bug
-    canvas.classList.add('is-exporting-canvas');
-    statusBox.classList.add('is-exporting-status');
-    statusBox.style.display = 'flex';
-    isExporting = true;
-    exportChunks = [];
-    exportSlideIndex = 0;
-    window._isCapturingFrame = false;
-    let totalDuration = 0;
-    slides.forEach(s => totalDuration += getSlideDuration(s));
-    // Create hidden canvas to copy DOM element to
-    const hiddenCanvas = document.createElement('canvas');
-    hiddenCanvas.width = 1080;
-    hiddenCanvas.height = 1920;
-    const hiddenCtx = hiddenCanvas.getContext('2d');
-    // Setup Canvas stream from hidden canvas
-    const canvasStream = hiddenCanvas.captureStream(30); // 30 FPS
-    // Setup Audio Stream from AudioContext
-    let dest = null;
-    let exportAudioCtx = null;
-    try {
-        exportAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        dest = exportAudioCtx.createMediaStreamDestination();
-    } catch (e) {
-        console.error('Failed to create WebAudio stream recorder:', e);
-    }
-    // Combine Video & Audio Streams
-    const tracks = [];
-    canvasStream.getVideoTracks().forEach(t => tracks.push(t));
-    if (dest) {
-        dest.stream.getAudioTracks().forEach(t => tracks.push(t));
-    }
-    const combinedStream = new MediaStream(tracks);
-    // Determine mimeType support - prefer MP4 if natively supported by client
-    let options = { mimeType: 'video/mp4;codecs=h264,aac' };
-    if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        options = { mimeType: 'video/mp4;codecs=h264' };
-    }
-    if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        options = { mimeType: 'video/mp4' };
-    }
-    if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        options = { mimeType: 'video/webm;codecs=vp9,opus' };
-    }
-    if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        options = { mimeType: 'video/webm;codecs=vp8,opus' };
-    }
-    if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        options = { mimeType: 'video/webm' };
-    }
-    exportMediaRecorder = new MediaRecorder(combinedStream, options);
-    exportMediaRecorder.ondataavailable = (e) => {
-        if (e.data.size > 0) exportChunks.push(e.data);
-    };
-    exportMediaRecorder.onstop = () => {
-        const isMp4 = exportMediaRecorder.mimeType.includes('mp4');
-        const mime = isMp4 ? 'video/mp4' : 'video/webm';
-        const blob = new Blob(exportChunks, { type: mime });
-        const url = URL.createObjectURL(blob);
-        // Trigger download
-        const a = document.createElement('a');
-        a.href = url;
-        const filePrefix = currentProject === 'DOMMemo' ? 'dom_memo' : 'turnio_dev';
-        a.download = `${filePrefix}_tiktok_9_16_${Date.now()}.mp4`;
-        a.click();
-        // Update status box for server saving
-        const statusHeader = statusBox.querySelector('h4');
-        const statusText = statusBox.querySelector('p');
-        const statusProgress = statusBox.querySelector('.progress-bar-container');
-        if (statusHeader) statusHeader.textContent = 'Äang lÆ°u video lÃªn mÃ¡y chá»§...';
-        if (statusText) statusText.textContent = `Há»‡ thá»‘ng Ä‘ang chuyá»ƒn Ä‘á»•i vÃ  lÆ°u video thÃ nh ${currentProject === 'DOMMemo' ? 'kichban_memo' : 'kichban'}/${currentScript}/mp4/video.mp4. Vui lÃ²ng Ä‘á»£i.`;
-        if (statusProgress) statusProgress.style.display = 'none';
-        if (progressText) progressText.style.display = 'none';
-        const formData = new FormData();
-        const exportFilename = isMp4 ? 'video.mp4' : 'video.webm';
-        formData.append('file', blob, exportFilename);
-        fetch(`${API_BASE}/api/save-video?project=${currentProject}&script=${currentScript}`, {
-            method: 'POST',
-            body: formData
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    const projectFolder = currentProject === 'DOMMemo' ? 'kichban_memo' : 'kichban'; alert(`Xuáº¥t vÃ  lÆ°u video lÃªn mÃ¡y chá»§ thÃ nh cÃ´ng (${projectFolder}/${currentScript}/mp4/video.mp4)!`);
-                } else {
-                    alert('Xuáº¥t video thÃ nh cÃ´ng, nhÆ°ng khÃ´ng lÆ°u Ä‘Æ°á»£c lÃªn mÃ¡y chá»§: ' + data.error);
-                }
-            })
-            .catch(err => {
-                alert('Lá»—i káº¿t ná»‘i khi lÆ°u video lÃªn mÃ¡y chá»§: ' + err.message);
-            })
-            .finally(() => {
-                // Restore layout scaling & UI state
-                canvas.classList.remove('is-exporting-canvas');
-                statusBox.classList.remove('is-exporting-status');
-                statusBox.style.display = 'none';
-                if (statusProgress) statusProgress.style.display = 'block';
-                if (progressText) {
-                    progressText.style.display = 'block';
-                    progressText.textContent = 'Äang chuáº©n bá»‹...';
-                }
-                if (statusHeader) statusHeader.textContent = 'Äang ghi hÃ¬nh video 9:16...';
-                if (statusText) statusText.textContent = 'Há»‡ thá»‘ng Ä‘ang cháº¡y qua cÃ¡c slide vÃ  thu Ã¢m Ã¢m thanh thá»±c táº¿. Vui lÃ²ng khÃ´ng Ä‘Ã³ng tab.';
-                isExporting = false;
-                adjustCanvasScale();
-                if (exportAudioCtx) exportAudioCtx.close();
-            });
-    };
-    exportMediaRecorder.start();
-    // Progression runner
-    runExportSlideLoop(exportAudioCtx, dest, totalDuration, progressFill, progressText, canvas, hiddenCtx);
-}
-function runExportSlideLoop(exportAudioCtx, dest, totalDuration, progressFill, progressText, captureDiv, hiddenCtx) {
-    if (exportSlideIndex >= slides.length) {
-        exportMediaRecorder.stop();
-        return;
-    }
-    const slide = slides[exportSlideIndex];
-    selectSlide(exportSlideIndex);
-    const slideDuration = getSlideDuration(slide);
-    let elapsed = 0;
-    let audio = null;
-    if (slide.audioPath && exportAudioCtx && dest) {
-        audio = new Audio(slide.audioPath + "?t=" + new Date().getTime());
-        const source = exportAudioCtx.createMediaElementSource(audio);
-        source.connect(dest);
-        source.connect(exportAudioCtx.destination);
-        audio.play().catch(e => console.warn('Auto-play blocked inside exporter:', e));
-    }
-    const timer = setInterval(() => {
-        if (audio) {
-            elapsed = audio.currentTime;
-        } else {
-            elapsed += 0.05;
-        }
-        elapsed = Math.min(slideDuration, elapsed);
-        // Update progress visualizer
-        let priorDuration = 0;
-        for (let i = 0; i < exportSlideIndex; i++) {
-            priorDuration += getSlideDuration(slides[i]);
-        }
-        const totalElapsed = priorDuration + elapsed;
-        const pct = (totalElapsed / totalDuration) * 100;
-        progressFill.style.width = `${pct}%`;
-        if (progressText) {
-            const remaining = Math.max(0, Math.round(totalDuration - totalElapsed));
-            const remMin = Math.floor(remaining / 60);
-            const remSec = remaining % 60;
-            const secStr = remSec < 10 ? '0' + remSec : remSec;
-            progressText.textContent = `Äang ghi hÃ¬nh: ${Math.floor(pct)}% | Slide ${exportSlideIndex + 1}/${slides.length} (CÃ²n khoáº£ng ${remMin}:${secStr})`;
-        }
-        // Render animations frame
-        renderCanvasPreview(slide, elapsed, false);
-        // Screenshot the div and draw to hidden canvas
-        if (typeof html2canvas !== 'undefined' && !window._isCapturingFrame) {
-            window._isCapturingFrame = true;
-            html2canvas(captureDiv, {
-                width: 1080,
-                height: 1920,
-                scale: 1,
-                scrollX: 0,
-                scrollY: 0,
-                x: 0,
-                y: 0,
-                backgroundColor: '#050507',
-                logging: false,
-                useCORS: true
-            }).then(tmpCanvas => {
-                hiddenCtx.clearRect(0, 0, 1080, 1920);
-                hiddenCtx.drawImage(tmpCanvas, 0, 0);
-                window._isCapturingFrame = false;
-            }).catch(err => {
-                console.error("html2canvas capture error:", err);
-                window._isCapturingFrame = false;
-            });
-        }
-        // Check slide end
-        const isEnd = audio ? audio.ended : (elapsed >= slideDuration);
-        if (isEnd) {
-            clearInterval(timer);
-            exportSlideIndex++;
-            runExportSlideLoop(exportAudioCtx, dest, totalDuration, progressFill, progressText, captureDiv, hiddenCtx);
-        }
-    }, 50);
-}
 // --- Undo / Redo State Management ---
 function recordHistory() {
     const currentStateStr = JSON.stringify(slides);

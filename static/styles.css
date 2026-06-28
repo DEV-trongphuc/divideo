@@ -5385,7 +5385,7 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
    ========================================================================== */
 .keywords-panel {
     position: absolute;
-    top: 260px;
+    top: 210px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;

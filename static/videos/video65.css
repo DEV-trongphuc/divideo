@@ -1,0 +1,775 @@
+/* video65.css - Transparent and Immersive Spaceship UI & USB-C UI Upgrade */
+
+:root {
+    --v65-bg: transparent; /* Remove black box */
+    --v65-primary: #00f0ff; /* Neon Cyan */
+    --v65-primary-glow: rgba(0, 240, 255, 0.55);
+    --v65-gold: #f59e0b; /* Apollo Retro Gold */
+    --v65-gold-glow: rgba(245, 158, 11, 0.55);
+    --v65-pink: #ec4899; /* Modern Accent Pink */
+    --v65-pink-glow: rgba(236, 72, 153, 0.55);
+    --v65-border: rgba(255, 255, 255, 0.12);
+    --v65-card-bg: rgba(8, 12, 24, 0.85); /* Semitransparent card */
+    --v65-dark-metal: #1a1d22;
+}
+
+/* Zoom container - Transparent to show parent grid */
+.v65-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.v65-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wider and taller row to fill the 1080px design width */
+.v65-scene-row {
+    width: 920px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+/* Larger mobile headings */
+.v65-scene-row h3 {
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+/* Slide 1: Split visual - Card to rộng ra */
+.v65-intro-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+    padding: 0 10px;
+}
+
+.v65-intro-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 48%;
+    padding: 25px 20px;
+    background: var(--v65-card-bg);
+    border: 2px solid var(--v65-border);
+    border-radius: 28px;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    height: 480px;
+    justify-content: space-between;
+}
+
+.v65-intro-side.left {
+    box-shadow: inset 0 0 40px rgba(245, 158, 11, 0.12), 0 20px 40px rgba(0,0,0,0.5);
+    border-color: rgba(245, 158, 11, 0.35);
+}
+
+.v65-intro-side.right {
+    box-shadow: inset 0 0 40px rgba(0, 240, 255, 0.12), 0 20px 40px rgba(0,0,0,0.5);
+    border-color: rgba(0, 240, 255, 0.35);
+}
+
+.v65-intro-icon {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.v65-intro-side.left .v65-intro-icon {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--v65-gold);
+    border: 2px dashed var(--v65-gold);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+}
+
+.v65-intro-side.right .v65-intro-icon {
+    background: rgba(0, 240, 255, 0.15);
+    color: var(--v65-primary);
+    border: 2px dashed var(--v65-primary);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+.v65-intro-title {
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.v65-intro-side.left .v65-intro-title {
+    color: var(--v65-gold);
+}
+
+.v65-intro-side.right .v65-intro-title {
+    color: var(--v65-primary);
+}
+
+.v65-intro-desc {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Mini simulations inside hook cards */
+.v65-mini-sim-box {
+    width: 100%;
+    height: 180px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v65-mini-hud-grid {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: 30px 30px;
+    background-image: 
+        linear-gradient(to right, rgba(245, 158, 11, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 158, 11, 0.04) 1px, transparent 1px);
+}
+
+.v65-mini-orbit {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border: 1px dashed rgba(245, 158, 11, 0.3);
+    border-radius: 50%;
+}
+
+.v65-mini-shuttle {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    color: var(--v65-gold);
+    top: -8px; left: 47px;
+    transform: rotate(90deg);
+}
+
+.v65-mini-telemetry {
+    position: absolute;
+    bottom: 8px; left: 10px; right: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-family: monospace;
+    font-size: 11px;
+    color: var(--v65-gold);
+    text-shadow: 0 0 5px var(--v65-gold-glow);
+}
+
+/* Rộng ra: USB-C mini chip board made wider and larger */
+.v65-mini-chip-board {
+    width: 260px;
+    height: 115px;
+    background: #0b1329;
+    border: 2px solid var(--v65-primary);
+    border-radius: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 25px var(--v65-primary-glow), inset 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.v65-mini-pulse-ring {
+    position: absolute;
+    width: 280px;
+    height: 135px;
+    border: 2px solid var(--v65-primary);
+    border-radius: 20px;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: v65-pulse-out-rect 1.8s infinite ease-out;
+}
+
+@keyframes v65-pulse-out-rect {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 0; }
+}
+
+/* Slide 2: Immersive Space Shuttle HUD / Cockpit View */
+.v65-hud-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: 2px solid rgba(0, 240, 255, 0.3);
+    border-radius: 20px;
+    background: radial-gradient(circle at center, rgba(13, 17, 30, 0.4) 0%, rgba(3, 4, 8, 0.9) 100%);
+    box-shadow: inset 0 0 80px rgba(0, 240, 255, 0.15);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v65-hud-grid {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: 60px 60px;
+    background-image: 
+        linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Orbit circle HUD */
+.v65-hud-orbit {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border: 1px dashed rgba(0, 240, 255, 0.25);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v65-hud-orbit::before {
+    content: '';
+    position: absolute;
+    width: 440px;
+    height: 440px;
+    border: 2px solid rgba(0, 240, 255, 0.1);
+    border-radius: 50%;
+}
+
+/* Telemetry data tags */
+.v65-hud-telemetry {
+    position: absolute;
+    font-family: monospace;
+    font-size: 15px;
+    color: var(--v65-primary);
+    text-shadow: 0 0 8px var(--v65-primary-glow);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: rgba(8, 12, 24, 0.7);
+    padding: 10px 15px;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.v65-hud-telemetry.top-left { top: 25px; left: 25px; }
+.v65-hud-telemetry.top-right { top: 25px; right: 25px; }
+.v65-hud-telemetry.bottom-left { bottom: 25px; left: 25px; }
+.v65-hud-telemetry.bottom-right { bottom: 25px; right: 25px; }
+
+/* Flying Saturn V rocket */
+.v65-rocket-container-hud {
+    position: relative;
+    width: 100px;
+    height: 380px;
+    z-index: 5;
+    transform: translateY(120px);
+}
+
+.v65-saturn-v {
+    width: 32px;
+    height: 200px;
+    background: linear-gradient(90deg, #e2e8f0 30%, #ffffff 70%, #cbd5e1 100%);
+    border-radius: 16px 16px 2px 2px;
+    position: absolute;
+    left: 34px;
+    top: 0;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+/* Saturn V USA stripes */
+.v65-saturn-v::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    top: 50px;
+    background: repeating-linear-gradient(90deg, #000 0px, #000 8px, transparent 8px, transparent 16px);
+}
+
+.v65-saturn-v::after {
+    content: 'USA';
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    font-size: 10px;
+    font-weight: 900;
+    font-family: sans-serif;
+    bottom: 25px;
+    letter-spacing: 2px;
+}
+
+/* Rocket Fins */
+.v65-rocket-fin {
+    position: absolute;
+    width: 0; height: 0;
+    border-style: solid;
+    bottom: 180px;
+}
+
+.v65-rocket-fin.left {
+    border-width: 30px 20px 0 0;
+    border-color: transparent #e2e8f0 transparent transparent;
+    left: 14px;
+}
+
+.v65-rocket-fin.right {
+    border-width: 30px 0 0 20px;
+    border-color: transparent transparent transparent #cbd5e1;
+    right: 14px;
+}
+
+/* Rocket Thruster Fire */
+.v65-rocket-fire {
+    position: absolute;
+    width: 24px;
+    height: 120px;
+    left: 38px;
+    top: 200px;
+    background: linear-gradient(180deg, #fff 0%, #ff8c00 30%, #ff3700 70%, transparent 100%);
+    border-radius: 50% 50% 0 0;
+    transform-origin: top center;
+    box-shadow: 0 0 35px rgba(255,87,34,0.7), 0 0 15px rgba(255,235,59,0.5);
+    animation: v65-flame-flutter 0.08s infinite alternate;
+}
+
+@keyframes v65-flame-flutter {
+    0% { transform: scaleX(0.85) scaleY(0.9); }
+    100% { transform: scaleX(1.15) scaleY(1.1); filter: brightness(1.2); }
+}
+
+.v65-rocket-smoke {
+    position: absolute;
+    bottom: -100px;
+    width: 400px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(200,200,200,0.8) 0%, rgba(120,120,120,0.4) 50%, transparent 80%);
+    filter: blur(10px);
+    z-index: 1;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+/* Slide 3: REALISTIC DSKY Console (780px wide) */
+.v65-dsky-console {
+    width: 780px;
+    background: #25282e;
+    border: 8px solid #4a4e52;
+    border-radius: 16px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.8), inset 0 0 30px rgba(0,0,0,0.7);
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+/* Left Indicator Lights Section (2 Columns x 7 Rows) */
+.v65-dsky-indicator-panel {
+    width: 250px;
+    background: #0f1012;
+    border: 3px solid #3c3f43;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(7, 1fr);
+    gap: 3px;
+    padding: 6px;
+}
+
+.v65-dsky-panel-light {
+    background: #151719;
+    color: rgba(255, 255, 255, 0.05);
+    font-size: 11px;
+    font-weight: 900;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 2px;
+    padding: 4px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.v65-dsky-panel-light.amber.on {
+    background: #ffb000;
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 176, 0, 0.65);
+}
+
+.v65-dsky-panel-light.green.on {
+    background: #33ff33;
+    color: #000;
+    box-shadow: 0 0 15px rgba(51, 255, 51, 0.65);
+}
+
+.v65-dsky-panel-light.red.on {
+    background: #ff3333;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.65);
+}
+
+/* Right Displays Panel (PROG, VERB, NOUN, and 3 registers) */
+.v65-dsky-displays-panel {
+    flex: 1;
+    background: #090a0c;
+    border: 3px solid #3c3f43;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.v65-dsky-header-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid #202226;
+    padding-bottom: 10px;
+}
+
+.v65-dsky-header-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.v65-dsky-mini-label {
+    font-family: monospace;
+    font-size: 12px;
+    color: #8c929c;
+    font-weight: bold;
+}
+
+.v65-dsky-mini-val {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffaa44;
+    text-shadow: 0 0 8px rgba(255,170,68,0.5);
+}
+
+.v65-dsky-reg-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #030405;
+    border: 1px solid #1c1e22;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+.v65-dsky-reg-label {
+    font-family: monospace;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 800;
+}
+
+.v65-dsky-reg-val {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 34px;
+    font-weight: bold;
+    color: #ff9900;
+    text-shadow: 0 0 12px rgba(255, 153, 0, 0.6);
+    letter-spacing: 3px;
+}
+
+/* Slide 4: REAL USB-C POWER DELIVERY PROTOCOL MONITOR */
+.v65-usbc-protocol-board {
+    width: 820px;
+    background: #090d16;
+    border: 2px solid var(--v65-primary);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 0 25px rgba(0,240,255,0.15);
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 380px;
+}
+
+/* Schematic flow */
+.v65-usbc-schematic {
+    width: 320px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-right: 20px;
+}
+
+/* Connector pinout mockup */
+.v65-connector-outline {
+    width: 240px;
+    height: 70px;
+    border: 3px solid #cbd5e1;
+    border-radius: 35px;
+    position: relative;
+    background: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.v65-pin-row {
+    display: flex;
+    justify-content: space-between;
+    width: 88%;
+}
+
+.v65-connector-pin {
+    width: 6px;
+    height: 18px;
+    background: #f59e0b;
+    border-radius: 1px;
+    box-shadow: 0 0 4px rgba(245,158,11,0.5);
+}
+
+/* Chip style in schematic */
+.v65-schematic-chip {
+    width: 140px;
+    height: 100px;
+    background: #111827;
+    border: 2px solid var(--v65-primary);
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0,240,255,0.2);
+}
+
+/* Pulse trace wires */
+.v65-negotiation-log {
+    flex: 1;
+    background: #03050a;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-y: hidden;
+    color: #e2e8f0;
+}
+
+.v65-log-line {
+    margin-bottom: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.v65-log-line.tx { color: #f59e0b; }
+.v65-log-line.rx { color: #00f0ff; }
+.v65-log-line.ok { color: #10b981; font-weight: bold; }
+
+/* Slide 5: High-end Comparison Chart */
+.v65-chart-wrap {
+    width: 840px;
+    background: var(--v65-card-bg);
+    border: 2px solid var(--v65-border);
+    border-radius: 28px;
+    padding: 35px;
+    box-shadow: 0 25px 55px rgba(0,0,0,0.6);
+    backdrop-filter: blur(25px);
+}
+
+.v65-chart-title {
+    font-size: 22px !important;
+    font-weight: 900 !important;
+    color: #fff;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.v65-chart-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.v65-chart-row-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.v65-row-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.v65-row-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.v65-row-number {
+    font-size: 20px;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.v65-row-number.apollo {
+    color: var(--v65-gold);
+    text-shadow: 0 0 8px var(--v65-gold-glow);
+}
+
+.v65-row-number.charger {
+    color: var(--v65-primary);
+    text-shadow: 0 0 8px var(--v65-primary-glow);
+}
+
+.v65-bar-outer {
+    width: 100%;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.v65-bar-inner {
+    height: 100%;
+    width: 0%;
+    border-radius: 12px;
+    transition: width 0.1s linear;
+}
+
+.v65-bar-inner.apollo {
+    background: linear-gradient(90deg, #d97706, var(--v65-gold));
+    box-shadow: 0 0 12px var(--v65-gold-glow);
+}
+
+.v65-bar-inner.charger {
+    background: linear-gradient(90deg, #0284c7, var(--v65-primary));
+    box-shadow: 0 0 12px var(--v65-primary-glow);
+}
+
+/* Slide 6: Radiation Hardening Immersive */
+.v65-shield-wrapper-huge {
+    width: 840px;
+    height: 420px;
+    background: radial-gradient(circle at center, rgba(16, 24, 48, 0.3) 0%, rgba(3, 4, 8, 0.9) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+}
+
+.v65-shield-container {
+    position: relative;
+    width: 320px;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v65-satellite-body {
+    width: 80px;
+    height: 80px;
+    background: #64748b;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Solar panels */
+.v65-solar-panel {
+    position: absolute;
+    width: 90px;
+    height: 35px;
+    background: repeating-linear-gradient(90deg, #1e3a8a 0px, #1e3a8a 10px, #3b82f6 10px, #3b82f6 12px);
+    border: 1.5px solid #60a5fa;
+    border-radius: 4px;
+    top: 102px;
+    z-index: 1;
+}
+
+.v65-solar-panel.left {
+    left: 30px;
+}
+
+.v65-solar-panel.right {
+    right: 30px;
+}
+
+/* Force shield bubble */
+.v65-shield-bubble {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border: 3px solid #38bdf8;
+    border-radius: 50%;
+    z-index: 3;
+    background: radial-gradient(circle, transparent 60%, rgba(56, 189, 248, 0.15) 100%);
+    box-shadow: 0 0 30px rgba(56,189,248,0.4), inset 0 0 30px rgba(56,189,248,0.3);
+    animation: v65-shield-pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes v65-shield-pulse {
+    0% { transform: scale(0.95); opacity: 0.7; }
+    100% { transform: scale(1.05); opacity: 1; }
+}
+
+/* Radiation particles */
+.v65-ray-particle {
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ef4444);
+    z-index: 4;
+}

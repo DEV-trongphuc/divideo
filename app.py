@@ -383,7 +383,7 @@ def synthesize():
         mp3_filename = f"{slide_id}.mp3"
         mp3_path = os.path.join(mp3_dir, mp3_filename)
         
-        pad_dur = "0.8" if project_name == "DOMMemo" else "1.8"
+        pad_dur = "0.8" if project_name == "DOMMemo" else "1.0"
         try:
             import imageio_ffmpeg
             ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
@@ -511,7 +511,7 @@ def synthesize_all_thread(script_name, slides, project_name="TurnioDEV"):
                 voice_preference=voice_preference
             )
             
-            pad_dur = "0.8" if project_name == "DOMMemo" else "1.8"
+            pad_dur = "0.8" if project_name == "DOMMemo" else "1.0"
             cmd = [
                 ffmpeg_path, "-y", "-i", temp_wav,
                 "-af", f"apad=pad_dur={pad_dur}",
