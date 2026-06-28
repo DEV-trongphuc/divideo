@@ -1,0 +1,367 @@
+/* video71.css - Netflix Chaos Monkey Simulator Styles (Borderless, Premium Glassmorphism) */
+
+:root {
+    --v71-bg: transparent;
+    --v71-primary: #10b981; /* Healthy Server Green */
+    --v71-primary-glow: rgba(16, 185, 129, 0.45);
+    --v71-red: #ef4444; /* Dead Server Red */
+    --v71-red-glow: rgba(239, 68, 68, 0.55);
+    --v71-blue: #3b82f6; /* User traffic Blue */
+    --v71-blue-glow: rgba(59, 130, 246, 0.45);
+    --v71-card-bg: rgba(10, 15, 30, 0.8);
+    --v71-border: rgba(255, 255, 255, 0.08);
+}
+
+.v71-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.v71-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v71-scene-row {
+    width: 920px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+/* Larger mobile headings */
+.v71-scene-row h3 {
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    margin-bottom: 12px;
+}
+
+/* Server Grid Layout - Borderless */
+.v71-dashboard {
+    width: 100%;
+    height: 520px;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Netflix Logo Brand Header (Huge Logo at the top) */
+.v71-brand-header {
+    position: absolute;
+    top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 15;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.v71-brand-logo {
+    width: 130px; /* Big branding Netflix logo */
+    height: auto;
+    filter: drop-shadow(0 0 25px rgba(229, 9, 20, 0.65));
+}
+
+.v71-brand-title {
+    font-family: monospace;
+    font-size: 15px;
+    color: #e50914;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
+}
+
+/* Top: Load Balancer Node */
+.v71-balancer-node {
+    position: absolute;
+    top: 140px; /* Shifted down to accommodate brand header */
+    width: 320px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 2px solid #3b82f6;
+    border-radius: 14px;
+    padding: 12px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-family: monospace;
+    font-size: 16px;
+    color: #94a3b8;
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.15);
+    z-index: 10;
+    transition: opacity 0.4s ease;
+}
+
+/* Center: Server Cluster Grid */
+.v71-server-grid {
+    position: absolute;
+    top: 275px; /* Shifted down for perfect layout alignment */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 820px;
+    justify-items: center;
+    z-index: 10;
+    transition: opacity 0.4s ease;
+}
+
+/* Server Node Card Glassmorphism (More beautiful UI) */
+.v71-server-node {
+    width: 240px; /* Wider card */
+    height: 140px; /* Taller card */
+    background: rgba(15, 23, 42, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    backdrop-filter: blur(25px);
+    position: relative;
+}
+
+.v71-server-node.active-green {
+    border-color: var(--v71-primary);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.12), inset 0 0 15px rgba(16, 185, 129, 0.05);
+}
+
+.v71-server-node.active-red {
+    border-color: var(--v71-red);
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.35);
+}
+
+.v71-server-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: monospace;
+    font-size: 13px;
+    color: #64748b;
+    font-weight: bold;
+}
+
+.v71-server-node.active-green .v71-server-hdr { color: var(--v71-primary); }
+.v71-server-node.active-red .v71-server-hdr { color: var(--v71-red); }
+
+.v71-server-status {
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.v71-server-node.active-green .v71-server-status {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--v71-primary);
+}
+
+.v71-server-node.active-red .v71-server-status {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--v71-red);
+}
+
+.v71-server-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 4px 0;
+}
+
+.v71-server-metrics {
+    display: flex;
+    justify-content: space-between;
+    font-family: monospace;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* High fidelity Sparkline graph styling */
+.v71-sparkline {
+    width: 100%;
+    height: 30px;
+    overflow: visible;
+}
+
+.v71-sparkline-path {
+    fill: none;
+    stroke: var(--v71-primary);
+    stroke-width: 2.5px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: d 0.3s ease, stroke 0.3s;
+}
+
+.v71-server-node.active-red .v71-sparkline-path {
+    stroke: var(--v71-red);
+}
+
+.v71-server-load-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.v71-server-load-fill {
+    height: 100%;
+    background: var(--v71-primary);
+    width: 45%;
+    transition: width 0.3s;
+}
+
+.v71-server-node.active-red .v71-server-load-fill {
+    background: var(--v71-red);
+    width: 0% !important;
+}
+
+/* SVG Connection Lines */
+.v71-traffic-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    transition: opacity 0.4s ease;
+}
+
+.v71-traffic-path {
+    fill: none;
+    stroke: rgba(255,255,255,0.03);
+    stroke-width: 2.5px;
+    transition: stroke 0.3s;
+}
+
+.v71-traffic-path.active {
+    stroke: rgba(59, 130, 246, 0.12);
+}
+
+.v71-traffic-path.dead {
+    stroke: rgba(239,68,68,0.12);
+}
+
+/* Moving traffic light dot particles */
+.v71-traffic-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #60a5fa;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #60a5fa, 0 0 20px #60a5fa;
+    pointer-events: none;
+    z-index: 8;
+}
+
+/* Chaos Monkey Target Crosshair */
+.v71-monkey-crosshair {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    color: var(--v71-red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 20;
+    filter: drop-shadow(0 0 15px var(--v71-red-glow));
+    transition: opacity 0.25s, transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.v71-monkey-crosshair.locked {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    animation: v71-crosshair-pulse 0.5s infinite alternate;
+}
+
+@keyframes v71-crosshair-pulse {
+    0% { transform: translate(-50%, -50%) scale(0.9); }
+    100% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* Spark/Sparks when server dies */
+.v71-spark-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #f59e0b;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 12;
+    animation: v71-spark-fly 0.6s ease-out forwards;
+}
+
+@keyframes v71-spark-fly {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--dx), var(--dy)) scale(0.1); opacity: 0; }
+}
+
+/* Dashboard Warnings overlay panel */
+.v71-warning-overlay {
+    position: absolute;
+    bottom: 20px;
+    width: 820px;
+    background: #1e1b4b; /* Deep Indigo CRT */
+    border: 2px solid #ef4444;
+    border-radius: 12px;
+    padding: 0;
+    font-family: monospace;
+    color: #fff;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4), 0 0 15px rgba(239, 68, 68, 0.2);
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.2s;
+}
+
+.v71-warning-stripes {
+    width: 100%;
+    height: 10px;
+    background-size: 20px 20px;
+    background-image: linear-gradient(45deg, 
+        #ef4444 25%, #000 25%, 
+        #000 50%, #ef4444 50%, 
+        #ef4444 75%, #000 75%, #000);
+}
+
+.v71-warning-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ef4444;
+    padding: 10px 15px 5px;
+    display: flex;
+    align-items: center;
+}
+
+.v71-warning-val {
+    font-size: 24px;
+    font-weight: 900;
+    color: #fff;
+    padding: 0 15px 8px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}

@@ -18,7 +18,7 @@ Vì người xem sử dụng điện thoại di động với màn hình nhỏ, 
   * Kích thước gói tin phải to rõ (tối thiểu **50px** đường kính).
   * Icon bên trong to rõ (cỡ chữ `20px` trở lên).
   * Nhãn mô tả gói tin đi kèm (ví dụ: `pass: 123456`) phải có kích thước lớn từ `11px` trở lên, đặt trong khung nền đen viền sáng để đọc rõ trên điện thoại nhỏ.
-
+KHÔNG ĐƯỢC DÙNG HIỆU ỨNG SCAN QUÉT NẾU KO PHẢI SCAN QUÉT.
 ---
 
 ## 2. Quy Chuẩn Slide Hook (Slide Đầu Tiên)

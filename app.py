@@ -210,11 +210,11 @@ def save_slides(slides, script_name="video1", project_name="TurnioDEV"):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(slides, f, ensure_ascii=False, indent=2)
 
-# Startup Initialization of VoxCPM in background
-def start_voxcpm_async():
-    init_voxcpm()
-
-threading.Thread(target=start_voxcpm_async, daemon=True).start()
+# Startup Initialization of VoxCPM in background (Disabled by default to save 5.4GB RAM. It will lazy-load dynamically when voice cloning is requested)
+# def start_voxcpm_async():
+#     init_voxcpm()
+# 
+# threading.Thread(target=start_voxcpm_async, daemon=True).start()
 
 # API Endpoints
 @app.route("/")
@@ -833,6 +833,29 @@ def get_voxcpm_status():
         "model_loaded": model_loaded,
         "download_status": VOXCPM_DOWNLOAD_STATUS
     })
+
+@app.route("/api/voxcpm/unload", methods=["POST"])
+def unload_voxcpm():
+    import tts_handler
+    if tts_handler.voxcpm_model is not None:
+        print("[+] Unloading VoxCPM model to free RAM...")
+        tts_handler.voxcpm_model = None
+        
+        # Force garbage collection to reclaim memory
+        import gc
+        gc.collect()
+        
+        try:
+            import torch
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        except ImportError:
+            pass
+            
+        print("[+] VoxCPM model unloaded and memory cleared.")
+        return jsonify({"success": True, "message": "Model unloaded. RAM released."})
+    else:
+        return jsonify({"success": True, "message": "Model was not loaded."})
 
 @app.route("/api/open-folder", methods=["POST"])
 def open_folder():

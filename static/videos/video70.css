@@ -1,0 +1,479 @@
+/* video70.css - Therac-25 Radiation Race Condition Simulation Styles (Industrial Console Design) */
+
+:root {
+    --v70-bg: transparent;
+    --v70-primary: #10b981; /* Safe Green */
+    --v70-primary-glow: rgba(16, 185, 129, 0.45);
+    --v70-red: #ef4444; /* Overdose Alarm */
+    --v70-red-glow: rgba(239, 68, 68, 0.65);
+    --v70-beam-lethal: #ec4899; /* Violent Magenta Electron beam */
+    --v70-beam-glow: rgba(236, 72, 153, 0.75);
+    --v70-card-bg: rgba(9, 15, 26, 0.85);
+    --v70-border: rgba(255, 255, 255, 0.08);
+}
+
+.v70-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.v70-scene-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v70-scene-row {
+    width: 920px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+/* Larger mobile headings */
+.v70-scene-row h3 {
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    margin-bottom: 12px;
+}
+
+/* Slide 1: General Overdose warning & Laser blast (Borderless, expanded) */
+.v70-blast-board {
+    width: 100% !important; /* No inner card border box */
+    height: 520px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Redroom emergency alarm glow overlay (Deactivated per user request) */
+.v70-room-alarm-glow {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: transparent;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* Top: Dosimeter Stats panel (Wider, larger) */
+.v70-console-readout {
+    position: absolute;
+    top: 15px;
+    width: 820px; /* Much wider */
+    background: rgba(15, 23, 42, 0.95);
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: monospace;
+    font-size: 21px; /* Larger text */
+    color: #94a3b8;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    z-index: 10;
+}
+
+.v70-readout-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Center: Spinning SVG Radioactive Trefoil Symbol (Larger) */
+.v70-hazard-dial-container {
+    position: absolute;
+    top: 145px;
+    width: 270px; /* Larger container */
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.v70-hazard-svg {
+    width: 195px; /* Larger radioactive logo */
+    height: 195px;
+    color: #334155;
+    filter: drop-shadow(0 0 10px rgba(51,65,85,0.2));
+    z-index: 5;
+    transition: color 0.2s, transform 0.1s linear;
+}
+
+.v70-hazard-svg.warning-active {
+    color: var(--v70-red) !important;
+    filter: drop-shadow(0 0 35px var(--v70-red-glow)) !important;
+}
+
+.v70-hazard-ring {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 2px solid rgba(255,255,255,0.03);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+    transition: border-color 0.2s;
+}
+
+.v70-hazard-ring:nth-child(2) {
+    width: 270px;
+    height: 270px;
+}
+
+.v70-hazard-ring.warning-active {
+    border-color: rgba(239, 68, 68, 0.25) !important;
+    animation: v70-ring-pulse 1s linear infinite;
+}
+
+@keyframes v70-ring-pulse {
+    0% { transform: scale(0.92); opacity: 0.9; }
+    100% { transform: scale(1.18); opacity: 0; }
+}
+
+/* Bottom: Vertical Dosimeter Level Gauge (Wider, larger) */
+.v70-dosimeter-container {
+    position: absolute;
+    bottom: 30px;
+    width: 820px; /* Much wider */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+.v70-dosimeter-labels {
+    display: flex;
+    justify-content: space-between;
+    font-family: monospace;
+    font-size: 16px; /* Larger */
+    color: #64748b;
+    font-weight: bold;
+}
+
+.v70-dosimeter-track {
+    width: 100%;
+    height: 32px; /* Thicker track */
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.v70-dosimeter-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #10b981 0%, #fbbf24 50%, #ef4444 100%);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+    transition: width 0.1s linear;
+}
+
+/* Floating, glowing warning overlay panel */
+.v70-overdose-overlay {
+    position: absolute;
+    top: 145px; right: 20px;
+    width: 270px;
+    background: #1e1b4b; /* Deep Indigo CRT */
+    border: 2px solid #ef4444;
+    border-radius: 12px;
+    padding: 0;
+    font-family: monospace;
+    color: #fff;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4), 0 0 15px rgba(239, 68, 68, 0.2);
+    opacity: 0;
+    overflow: hidden;
+}
+
+.v70-warning-stripes {
+    width: 100%;
+    height: 12px;
+    background-size: 20px 20px;
+    background-image: linear-gradient(45deg, 
+        #ef4444 25%, #000 25%, 
+        #000 50%, #ef4444 50%, 
+        #ef4444 75%, #000 75%, #000);
+}
+
+.v70-warning-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ef4444;
+    padding: 10px 15px 5px;
+    display: flex;
+    align-items: center;
+}
+
+.v70-warning-val {
+    font-size: 30px;
+    font-weight: 900;
+    color: #fff;
+    padding: 0 15px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.v70-warning-sub {
+    font-size: 11px;
+    color: #fca5a5;
+    padding: 2px 15px 10px;
+}
+
+.v70-warning-code {
+    background: #000;
+    padding: 8px 15px;
+    font-size: 11px;
+    color: #ef4444;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Slide 2: Turntable Mechanism Simulation */
+.v70-turntable-container {
+    width: 100%;
+    height: 460px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 20px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.v70-turntable-plate {
+    width: 260px;
+    height: 260px;
+    border: 8px solid #475569;
+    border-radius: 50%;
+    background: #334155;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 25px rgba(0,0,0,0.6);
+    transition: transform 0.2s ease-out;
+}
+
+.v70-turntable-sector {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Mode 1: Electron Spreader block */
+.v70-turntable-sector.spreader {
+    top: 20px;
+    background: rgba(16, 185, 129, 0.2);
+    border: 3px solid var(--v70-primary);
+    box-shadow: 0 0 15px var(--v70-primary-glow);
+}
+
+/* Mode 2: Heavy X-ray metal target block */
+.v70-turntable-sector.target {
+    bottom: 20px;
+    background: rgba(234, 179, 8, 0.2);
+    border: 3px solid #eab308;
+    box-shadow: 0 0 15px rgba(234, 179, 8, 0.4);
+}
+
+/* Slide 3: Operator console keystrokes */
+.v70-terminal-window {
+    width: 800px;
+    background: #090d16;
+    border: 2px solid var(--v70-border);
+    border-radius: 18px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    overflow: hidden;
+}
+
+.v70-terminal-header {
+    height: 45px;
+    background: #111827;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.v70-terminal-body {
+    padding: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    line-height: 1.8;
+    color: #10b981; /* Green CRT look */
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+    min-height: 220px;
+    box-sizing: border-box;
+}
+
+.v70-cursor {
+    display: inline-block;
+    width: 12px;
+    height: 24px;
+    background: #10b981;
+    margin-left: 5px;
+    animation: v70-blink 0.8s infinite;
+}
+
+@keyframes v70-blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Slide 4: Multi-thread resource clash (Borderless, wider) */
+.v70-thread-panel {
+    width: 100%;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+.v70-thread-row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.v70-thread-hdr {
+    display: flex;
+    justify-content: space-between;
+    font-family: monospace;
+    font-size: 18px; /* Larger text */
+    font-weight: bold;
+}
+
+.v70-thread-bar-outer {
+    width: 100%;
+    height: 36px; /* Thicker oscilloscope bars */
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid rgba(255,255,255,0.08);
+}
+
+.v70-thread-bar-inner {
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.v70-thread-bar-inner.ui {
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+}
+
+.v70-thread-bar-inner.hardware {
+    background: linear-gradient(90deg, #f59e0b, #ef4444);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+/* Clashing collision node marker */
+.v70-clash-marker {
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    background: #ef4444;
+    box-shadow: 0 0 20px #ef4444, 0 0 40px #ef4444;
+    left: 70%;
+    opacity: 0;
+    z-index: 10;
+}
+
+/* Slide 6: 1-Byte coincidence register overflow (Hologram circle design) */
+.v70-overflow-board {
+    width: 100%;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.v70-hologram-circle-svg {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.v70-holo-ring-bg {
+    fill: none;
+    stroke: rgba(255,255,255,0.03);
+    stroke-width: 10px;
+}
+
+.v70-holo-ring-active {
+    fill: none;
+    stroke: var(--v70-primary);
+    stroke-width: 10px;
+    stroke-linecap: round;
+    stroke-dasharray: 880;
+    stroke-dashoffset: 880;
+    transform: rotate(-90deg);
+    transform-origin: 160px 160px;
+    transition: stroke-dashoffset 0.15s linear, stroke 0.3s;
+}
+
+.v70-holo-ring-active.overflowed {
+    stroke: var(--v70-red) !important;
+    filter: drop-shadow(0 0 15px var(--v70-red-glow));
+}
+
+.v70-register-number {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 96px; /* Larger register display */
+    font-weight: 900;
+    color: var(--v70-primary);
+    text-shadow: 0 0 30px var(--v70-primary-glow);
+    letter-spacing: 2px;
+}
+
+.v70-register-number.overflowed {
+    color: var(--v70-red);
+    text-shadow: 0 0 35px var(--v70-red-glow);
+    animation: v70-glitch-shake 0.1s infinite;
+}
