@@ -37,6 +37,10 @@ def init_voxcpm(checkpoint_dir="./checkpoints/VoxCPM"):
         import torch
         # Auto detect GPU: prefer CUDA (RTX cards) over CPU
         device_override = "cuda" if torch.cuda.is_available() else "cpu"
+        if device_override == "cuda":
+            torch.backends.cuda.matmul.allow_tf32 = True
+            torch.backends.cudnn.allow_tf32 = True
+            print("[+] Enabled TF32 (TensorFloat-32) for accelerated generation.")
         # Disable ZipEnhancer model loading to save massive RAM and GPU memory.
         # Fallback python spectral subtraction will be used instead.
         enable_denoiser = False
