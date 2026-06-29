@@ -30,7 +30,7 @@ from pathlib import Path
 import soundfile as sf
 
 from voxcpm.core import VoxCPM
-from voxcpm.model.voxcpm import LoRAConfig
+from voxcpm.model import LoRAConfig
 
 
 def parse_args():

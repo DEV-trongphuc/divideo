@@ -58,7 +58,7 @@ from .utils import (
 def _trim_audio_silence_vad(audio: torch.Tensor, sample_rate: int, max_silence_ms: float = 200.0, top_db: float = 35.0) -> torch.Tensor:
     if audio.numel() == 0:
         return audio
-    y = audio.squeeze(0).numpy()
+    y = audio.squeeze(0).cpu().float().numpy()
     n = len(y)
     frame_length = 2048
     hop_length = 512
@@ -627,7 +627,7 @@ class VoxCPM2Model(nn.Module):
 
         text_token = text_token.unsqueeze(0).to(self.device)
         text_mask = text_mask.unsqueeze(0).to(self.device)
-        audio_feat = audio_feat.unsqueeze(0).to(self.device).to(get_dtype(self.config.dtype))
+        audio_feat = audio_feat.unsqueeze(0).to(device=self.device, dtype=self._dtype())
         audio_mask = audio_mask.unsqueeze(0).to(self.device)
 
         target_text_length = len(self.text_tokenizer(target_text))
@@ -914,7 +914,7 @@ class VoxCPM2Model(nn.Module):
 
         text_token = text_token.unsqueeze(0).to(self.device)
         text_mask = text_mask.unsqueeze(0).to(self.device)
-        audio_feat = audio_feat.unsqueeze(0).to(self.device).to(get_dtype(self.config.dtype))
+        audio_feat = audio_feat.unsqueeze(0).to(device=self.device, dtype=self._dtype())
         audio_mask = audio_mask.unsqueeze(0).to(self.device)
 
         # run inference
@@ -1115,21 +1115,48 @@ class VoxCPM2Model(nn.Module):
         training: bool = False,
         device: str | None = None,
         lora_config: LoRAConfig = None,
+        dtype: str | None = None,
     ):
         with open(os.path.join(path, "config.json"), "r", encoding="utf-8") as _cfg_f:
             config = VoxCPMConfig.model_validate_json(_cfg_f.read())
         tokenizer = LlamaTokenizerFast.from_pretrained(path)
-        # 1. Load VAE and Model weights on CPU first to avoid virtual memory and safe_open conflicts
+        
+        # 1. Set default device to GPU and default dtype to bfloat16/float16
+        resolved_device = resolve_runtime_device(device, config.device)
+        
+        # Determine dtype
+        if dtype is not None:
+            if isinstance(dtype, str):
+                import torch
+                dtype_map = {
+                    "float16": torch.float16,
+                    "fp16": torch.float16,
+                    "bfloat16": torch.bfloat16,
+                    "bf16": torch.bfloat16,
+                    "float32": torch.float32,
+                    "fp32": torch.float32,
+                }
+                lm_dtype = dtype_map.get(dtype.lower(), torch.float16)
+            else:
+                lm_dtype = dtype
+        else:
+            lm_dtype = torch.float16 if resolved_device == "cuda" else get_dtype(config.dtype)
+            
+        # Safety check: PyTorch does not support float16 on CPU for many operations
+        if resolved_device == "cpu" and lm_dtype == torch.float16:
+            lm_dtype = torch.float32
+
+        # 2. Load VAE and Model weights directly to target device to save CPU memory
         audiovae_safetensors_path = os.path.join(path, "audiovae.safetensors")
         audiovae_pth_path = os.path.join(path, "audiovae.pth")
         if os.path.exists(audiovae_safetensors_path) and SAFETENSORS_AVAILABLE:
-            print(f"Loading AudioVAE from safetensors: {audiovae_safetensors_path}", file=sys.stderr)
-            vae_state_dict = load_file(audiovae_safetensors_path, device="cpu")
+            print(f"Loading AudioVAE from safetensors (lazy) to {resolved_device}: {audiovae_safetensors_path}", file=sys.stderr)
+            vae_state_dict = None
         elif os.path.exists(audiovae_pth_path):
-            print(f"Loading AudioVAE from pytorch: {audiovae_pth_path}", file=sys.stderr)
+            print(f"Loading AudioVAE from pytorch to {resolved_device}: {audiovae_pth_path}", file=sys.stderr)
             checkpoint = torch.load(
                 audiovae_pth_path,
-                map_location="cpu",
+                map_location=resolved_device,
                 weights_only=True,
             )
             vae_state_dict = checkpoint.get("state_dict", checkpoint)
@@ -1141,26 +1168,30 @@ class VoxCPM2Model(nn.Module):
         safetensors_path = os.path.join(path, "model.safetensors")
         pytorch_model_path = os.path.join(path, "pytorch_model.bin")
         if os.path.exists(safetensors_path) and SAFETENSORS_AVAILABLE:
-            print(f"Loading model from safetensors: {safetensors_path}", file=sys.stderr)
-            model_state_dict = load_file(safetensors_path, device="cpu")
+            print(f"Loading model from safetensors (lazy) to {resolved_device}: {safetensors_path}", file=sys.stderr)
+            model_state_dict = None
         elif os.path.exists(pytorch_model_path):
-            print(f"Loading model from pytorch_model.bin: {pytorch_model_path}", file=sys.stderr)
+            print(f"Loading model from pytorch_model.bin to {resolved_device}: {pytorch_model_path}", file=sys.stderr)
             checkpoint = torch.load(
                 pytorch_model_path,
-                map_location="cpu",
+                map_location=resolved_device,
                 weights_only=True,
             )
             model_state_dict = checkpoint.get("state_dict", checkpoint)
         else:
             raise FileNotFoundError(f"Model file not found. Expected either {safetensors_path} or {pytorch_model_path}")
-
-        # 2. Set default device to GPU and default dtype to bfloat16/float16
-        resolved_device = resolve_runtime_device(device, config.device)
-        lm_dtype = get_dtype(config.dtype)
         
         prev_device = torch.get_default_device() if hasattr(torch, "get_default_device") else "cpu"
         prev_dtype = torch.get_default_dtype()
         
+        # Update config.dtype to match the resolved loading dtype string
+        if lm_dtype == torch.float16:
+            config.dtype = "float16"
+        elif lm_dtype == torch.bfloat16:
+            config.dtype = "bfloat16"
+        elif lm_dtype == torch.float32:
+            config.dtype = "float32"
+
         torch.set_default_dtype(lm_dtype)
         if resolved_device == "cuda":
             torch.set_default_device("cuda")
@@ -1191,25 +1222,52 @@ class VoxCPM2Model(nn.Module):
         # 3. Copy weights layer-by-layer, popping and freeing CPU memory immediately
         model_state = model.state_dict()
         with torch.no_grad():
-            for kw in list(vae_state_dict.keys()):
-                val = vae_state_dict.pop(kw)
-                name = f"audio_vae.{kw}"
-                if name in model_state:
-                    model_state[name].copy_(val.to(device=model_state[name].device, dtype=model_state[name].dtype))
-                del val
-            vae_state_dict.clear()
-            del vae_state_dict
+            if vae_state_dict is not None:
+                for kw in list(vae_state_dict.keys()):
+                    val = vae_state_dict.pop(kw)
+                    name = f"audio_vae.{kw}"
+                    if name in model_state:
+                        model_state[name].copy_(val.to(device=model_state[name].device, dtype=model_state[name].dtype))
+                    del val
+                vae_state_dict.clear()
+                del vae_state_dict
+            elif os.path.exists(audiovae_safetensors_path) and SAFETENSORS_AVAILABLE:
+                from safetensors.torch import safe_open
+                with safe_open(audiovae_safetensors_path, framework="pt", device=resolved_device) as f:
+                    for kw in f.keys():
+                        name = f"audio_vae.{kw}"
+                        if name in model_state:
+                            val = f.get_tensor(kw)
+                            model_state[name].copy_(val.to(device=model_state[name].device, dtype=model_state[name].dtype))
+                            del val
 
-            for name in list(model_state_dict.keys()):
-                val = model_state_dict.pop(name)
-                if name in model_state:
-                    model_state[name].copy_(val.to(device=model_state[name].device, dtype=model_state[name].dtype))
-                del val
-            model_state_dict.clear()
-            del model_state_dict
+            if model_state_dict is not None:
+                for name in list(model_state_dict.keys()):
+                    val = model_state_dict.pop(name)
+                    if name in model_state:
+                        model_state[name].copy_(val.to(device=model_state[name].device, dtype=model_state[name].dtype))
+                    del val
+                model_state_dict.clear()
+                del model_state_dict
+            elif os.path.exists(safetensors_path) and SAFETENSORS_AVAILABLE:
+                from safetensors.torch import safe_open
+                with safe_open(safetensors_path, framework="pt", device=resolved_device) as f:
+                    for name in f.keys():
+                        if name in model_state:
+                            val = f.get_tensor(name)
+                            model_state[name].copy_(val.to(device=model_state[name].device, dtype=model_state[name].dtype))
+                            del val
             
             import gc
             gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            if sys.platform == "win32":
+                try:
+                    import ctypes
+                    ctypes.windll.psapi.EmptyWorkingSet(-1)
+                except Exception:
+                    pass
         
         if training:
             return model

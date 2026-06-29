@@ -102,9 +102,8 @@ def bootstrap_repo_modules(monkeypatch):
         monkeypatch.setitem(sys.modules, modname, module)
 
     _load_module("voxcpm.model.utils", SRC / "voxcpm" / "model" / "utils.py")
-    voxcpm = _load_module("voxcpm.model.voxcpm", SRC / "voxcpm" / "model" / "voxcpm.py")
     voxcpm2 = _load_module("voxcpm.model.voxcpm2", SRC / "voxcpm" / "model" / "voxcpm2.py")
-    return voxcpm.VoxCPMModel, voxcpm2.VoxCPM2Model
+    return voxcpm2.VoxCPM2Model
 
 
 class DummyModel:
@@ -114,10 +113,10 @@ class DummyModel:
         return []
 
 
-@pytest.mark.parametrize("module_name", ["v1", "v2"])
+@pytest.mark.parametrize("module_name", ["v2"])
 def test_load_lora_weights_accepts_tensor_only_legacy_checkpoints(monkeypatch, tmp_path, module_name):
-    VoxCPMModel, VoxCPM2Model = bootstrap_repo_modules(monkeypatch)
-    cls = VoxCPMModel if module_name == "v1" else VoxCPM2Model
+    VoxCPM2Model = bootstrap_repo_modules(monkeypatch)
+    cls = VoxCPM2Model
 
     ckpt_path = tmp_path / "lora_weights.ckpt"
     torch.save({"state_dict": {"fake": torch.zeros(1)}}, ckpt_path)
@@ -128,10 +127,10 @@ def test_load_lora_weights_accepts_tensor_only_legacy_checkpoints(monkeypatch, t
     assert skipped == ["fake"]
 
 
-@pytest.mark.parametrize("module_name", ["v1", "v2"])
+@pytest.mark.parametrize("module_name", ["v2"])
 def test_load_lora_weights_rejects_malicious_pickle_payloads(monkeypatch, tmp_path, module_name):
-    VoxCPMModel, VoxCPM2Model = bootstrap_repo_modules(monkeypatch)
-    cls = VoxCPMModel if module_name == "v1" else VoxCPM2Model
+    VoxCPM2Model = bootstrap_repo_modules(monkeypatch)
+    cls = VoxCPM2Model
 
     ckpt_path = tmp_path / "lora_weights.ckpt"
     marker_path = tmp_path / f"{module_name}-marker.txt"

@@ -127,12 +127,7 @@ def validate_prompt_related_args(args, parser, prompt_text: str | None):
 
 
 def validate_reference_support(args, parser):
-    if not getattr(args, "reference_audio", None):
-        return
-
-    arch = detect_model_architecture(args)
-    if arch == "voxcpm":
-        parser.error("--reference-audio is only supported with VoxCPM2 models.")
+    pass
 
 
 def validate_design_args(args, parser):
@@ -181,7 +176,7 @@ def load_model(args):
     lora_config = None
     lora_weights_path = getattr(args, "lora_path", None)
     if lora_weights_path:
-        from voxcpm.model.voxcpm import LoRAConfig
+        from voxcpm.model.voxcpm2 import LoRAConfig
 
         lora_config = LoRAConfig(
             enable_lm=not args.lora_disable_lm,
@@ -631,6 +626,10 @@ def main():
         return cmd_validate(args, parser)
 
     validate_ranges(args, parser)
+
+    arch = detect_model_architecture(args)
+    if arch == "voxcpm":
+        parser.error("Legacy VoxCPM v1/v1.5 is no longer supported.")
 
     if args.command == "design":
         if not args.text:

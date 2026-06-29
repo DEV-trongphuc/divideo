@@ -6,8 +6,7 @@ import tempfile
 import numpy as np
 from typing import Generator, Optional
 from huggingface_hub import snapshot_download
-from .model.voxcpm import VoxCPMModel, LoRAConfig
-from .model.voxcpm2 import VoxCPM2Model
+from .model.voxcpm2 import VoxCPM2Model, LoRAConfig
 from .model.utils import next_and_close
 
 
@@ -21,6 +20,7 @@ class VoxCPM:
         device: str | None = None,
         lora_config: Optional[LoRAConfig] = None,
         lora_weights_path: Optional[str] = None,
+        dtype: str | None = None,
     ):
         """Initialize VoxCPM TTS pipeline.
 
@@ -66,18 +66,11 @@ class VoxCPM:
                 optimize=optimize,
                 device=device,
                 lora_config=lora_config,
+                dtype=dtype,
             )
             print("Loaded VoxCPM2Model", file=sys.stderr)
-        elif arch == "voxcpm":
-            self.tts_model = VoxCPMModel.from_local(
-                voxcpm_model_path,
-                optimize=optimize,
-                device=device,
-                lora_config=lora_config,
-            )
-            print("Loaded VoxCPMModel", file=sys.stderr)
         else:
-            raise ValueError(f"Unsupported architecture: {arch}")
+            raise ValueError(f"Unsupported architecture: {arch}. Legacy VoxCPM v1/v1.5 is no longer supported.")
 
         # Load LoRA weights if path is provided
         if lora_weights_path is not None:
@@ -94,7 +87,7 @@ class VoxCPM:
         else:
             self.denoiser = None
         if optimize:
-            print("Warm up VoxCPMModel...", file=sys.stderr)
+            print("Warm up VoxCPM2Model...", file=sys.stderr)
             self.tts_model.generate(
                 target_text="Hello, this is the first test sentence.",
                 max_len=10,
@@ -234,9 +227,7 @@ class VoxCPM:
         if (prompt_wav_path is None) != (prompt_text is None):
             raise ValueError("prompt_wav_path and prompt_text must both be provided or both be None")
 
-        is_v2 = isinstance(self.tts_model, VoxCPM2Model)
-        if reference_wav_path is not None and not is_v2:
-            raise ValueError("reference_wav_path is only supported with VoxCPM2 models")
+        # reference_wav_path is supported as we only have VoxCPM2 models
 
         text = text.replace("\n", " ")
         text = re.sub(r"\s+", " ", text)
@@ -302,12 +293,12 @@ class VoxCPM:
             if streaming:
                 try:
                     for wav, _, _ in generate_result:
-                        yield wav.squeeze(0).cpu().numpy()
+                        yield wav.squeeze(0).cpu().float().numpy()
                 finally:
                     generate_result.close()
             else:
                 wav, _, _ = next_and_close(generate_result)
-                yield wav.squeeze(0).cpu().numpy()
+                yield wav.squeeze(0).cpu().float().numpy()
 
         finally:
             for tmp_path in temp_files:
@@ -318,7 +309,7 @@ class VoxCPM:
                         pass
 
     # ------------------------------------------------------------------ #
-    # LoRA Interface (delegated to VoxCPMModel)
+    # LoRA Interface (delegated to VoxCPM2Model)
     # ------------------------------------------------------------------ #
     def load_lora(self, lora_weights_path: str) -> tuple:
         """Load LoRA weights from a checkpoint file.

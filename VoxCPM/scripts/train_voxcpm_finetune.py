@@ -29,9 +29,7 @@ except ImportError:
 
 import json
 
-from voxcpm.model import VoxCPMModel, VoxCPM2Model
-from voxcpm.model.voxcpm import LoRAConfig as LoRAConfigV1
-from voxcpm.model.voxcpm2 import LoRAConfig as LoRAConfigV2
+from voxcpm.model import VoxCPM2Model, LoRAConfig
 from voxcpm.training import (
     Accelerator,
     BatchProcessor,
@@ -93,11 +91,11 @@ def train(
     # Auto-detect model architecture from config.json
     with open(os.path.join(pretrained_path, "config.json"), "r", encoding="utf-8") as _f:
         _arch = json.load(_f).get("architecture", "voxcpm").lower()
-    _model_cls = VoxCPM2Model if _arch == "voxcpm2" else VoxCPMModel
-    LoRAConfig = LoRAConfigV2 if _arch == "voxcpm2" else LoRAConfigV1
+    if _arch != "voxcpm2":
+        raise ValueError(f"Unsupported architecture: {_arch}. Only voxcpm2 is supported for training.")
     if accelerator.rank == 0:
-        print(f"Detected architecture: {_arch} -> {_model_cls.__name__}", file=sys.stderr)
-    base_model = _model_cls.from_local(
+        print(f"Detected architecture: {_arch} -> VoxCPM2Model", file=sys.stderr)
+    base_model = VoxCPM2Model.from_local(
         pretrained_path, optimize=False, training=True, lora_config=LoRAConfig(**lora) if lora else None
     )
     tokenizer = base_model.text_tokenizer

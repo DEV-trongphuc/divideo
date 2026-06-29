@@ -821,7 +821,7 @@ def download_weights_thread():
         from huggingface_hub import snapshot_download
         print("[+] Downloading VoxCPM model weights via huggingface_hub...")
         snapshot_download(
-            repo_id="openbmb/VoxCPM",
+            repo_id="openbmb/VoxCPM2",
             local_dir="./checkpoints/VoxCPM"
         )
         VOXCPM_DOWNLOAD_STATUS["status"] = "completed"

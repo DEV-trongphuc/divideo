@@ -46,9 +46,20 @@ def init_voxcpm(checkpoint_dir="./checkpoints/VoxCPM"):
             voxcpm_model_path=checkpoint_dir,
             enable_denoiser=enable_denoiser,
             optimize=False,
-            device=device_override
+            device=device_override,
+            dtype="float16"
         )
         print("[+] VoxCPM loaded successfully!", file=sys.stderr)
+        import gc
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        if sys.platform == "win32":
+            try:
+                import ctypes
+                ctypes.windll.psapi.EmptyWorkingSet(-1)
+            except Exception:
+                pass
         return True
     except Exception as e:
         print(f"[-] Failed to initialize VoxCPM: {e}", file=sys.stderr)
@@ -258,7 +269,11 @@ def ensure_voice_cache(reference_audio_path):
                     num_samples_res = int(len(audio) * 16000 / sr)
                     audio = scipy.signal.resample(audio, num_samples_res)
                     
-                audio_tensor = torch.from_numpy(audio).float().unsqueeze(0).to(model.device)
+                try:
+                    vae_dtype = next(audio_vae.parameters()).dtype
+                except StopIteration:
+                    vae_dtype = torch.float32
+                audio_tensor = torch.from_numpy(audio).to(device=model.device, dtype=vae_dtype).unsqueeze(0)
                 
                 patch_size = getattr(model, "patch_size", 4)
                 chunk_size = getattr(audio_vae, "chunk_size", 16)
@@ -380,11 +395,34 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
                     audio_array = audio_array / max_val * 0.95
                 
                 sf.write(output_path, audio_array, sample_rate)
+                
+                # Free memory after successful generation
+                import gc
+                gc.collect()
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+                if sys.platform == "win32":
+                    try:
+                        import ctypes
+                        ctypes.windll.psapi.EmptyWorkingSet(-1)
+                    except Exception:
+                        pass
                 return True
             except Exception as e:
                 print(f"[-] VoxCPM synthesis attempt {attempt} failed: {e}", file=sys.stderr)
                 traceback.print_exc()
                 last_err = e
+                # Free memory after failure before retry
+                import gc
+                gc.collect()
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+                if sys.platform == "win32":
+                    try:
+                        import ctypes
+                        ctypes.windll.psapi.EmptyWorkingSet(-1)
+                    except Exception:
+                        pass
                 if attempt < max_retries:
                     time.sleep(1.0) # Wait 1 second before retrying
         

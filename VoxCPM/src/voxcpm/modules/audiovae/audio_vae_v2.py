@@ -466,6 +466,11 @@ class AudioVAE(nn.Module):
             "audio" : Tensor[B x 1 x length]
                 Decoded audio data.
         """
+        try:
+            vae_dtype = next(self.parameters()).dtype
+        except StopIteration:
+            vae_dtype = torch.float32
+        z = z.to(vae_dtype)
         if self.sr_bin_boundaries is not None:
             # use default output sample rate
             if sr_cond is None:
@@ -496,6 +501,12 @@ class AudioVAE(nn.Module):
         """
         if audio_data.ndim == 2:
             audio_data = audio_data.unsqueeze(1)
+
+        try:
+            vae_dtype = next(self.parameters()).dtype
+        except StopIteration:
+            vae_dtype = torch.float32
+        audio_data = audio_data.to(vae_dtype)
 
         audio_data = self.preprocess(audio_data, sample_rate)
         return self.encoder(audio_data)["mu"]

@@ -7,12 +7,12 @@
     "script": "Bạn lướt web, thêm hàng vào giỏ, tắt tab, tắt máy. Hôm sau mở lại: Giỏ hàng vẫn nguyên vẹn! Phép thuật gì đây? Tất cả nhờ một chiếc bánh quy tí hon: HTTP Cookie. Hôm nay, chúng ta cùng mổ xẻ cơ chế hoạt động của nó.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "audioPath": "/kichban/video35/mp3/slide_cookie_intro.mp3",
+    "duration": 17.83,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "833d40b478913f655821af32aff68ff7"
   },
   {
     "id": "slide_cookie_stateless",
@@ -22,12 +22,12 @@
     "script": "Mặc định, HTTP là stateless. Trình duyệt gửi request thêm giày vào giỏ. Server trả về OK. Giây tiếp theo, bạn F5 xem giỏ hàng. Server lạnh lùng hỏi: Ủa bạn là ai? Tôi không biết bạn! Giống như một nhân viên thu ngân mất trí nhớ sau mỗi giao dịch.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "audioPath": "/kichban/video35/mp3/slide_cookie_stateless.mp3",
+    "duration": 21.5,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "09c57371f18f3ddf70899dcb9b256518"
   },
   {
     "id": "slide_cookie_header",
@@ -37,12 +37,12 @@
     "script": "Để khắc phục, server gửi kèm header đặc biệt: Set-Cookie: session_id bằng xyz trong phản hồi. Trình duyệt lập tức nhận lấy chiếc bánh quy này và cất vào ngăn tủ bảo mật. Từ nay, bạn đã có một chiếc thẻ thành viên để định danh.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 14.0,
+    "audioPath": "/kichban/video35/mp3/slide_cookie_header.mp3",
+    "duration": 18.62,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "76af2c8aaf999647c84633e87f4b2c7a"
   },
   {
     "id": "slide_cookie_tracking",
@@ -52,12 +52,12 @@
     "script": "Ở các request tiếp theo, trình duyệt tự động đính kèm header Cookie: session_id bằng xyz. Server nhận request, soi cookie, đối chiếu database: A, đây là giỏ hàng của bạn A! Giỏ hàng được phục hồi ngay lập tức mà bạn không cần đăng nhập lại.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "audioPath": "/kichban/video35/mp3/slide_cookie_tracking.mp3",
+    "duration": 18.0,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "4b8dc929a6f128f9c1896bc1b598f7cf"
   },
   {
     "id": "slide_cookie_security",
@@ -67,12 +67,12 @@
     "script": "Vì cookie giữ phiên đăng nhập, hacker luôn muốn đánh cắp nó bằng tấn công XSS. Để phòng thủ, lập trình viên cần bật cờ HttpOnly để chặn Javascript đọc cookie, và Secure để chỉ truyền qua HTTPS. Hai lá chắn thép bảo vệ phiên của bạn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 16.0,
+    "audioPath": "/kichban/video35/mp3/slide_cookie_security.mp3",
+    "duration": 16.7,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "ab8af43f559c7198a125d50c9ef61bcc"
   },
   {
     "id": "slide_cookie_outro",
@@ -82,12 +82,12 @@
     "script": "Tóm lại, cookie hoạt động như một tấm thẻ nhớ thông minh giúp web stateless trở nên có trạng thái. Giữ cookie an toàn bằng HttpOnly và Secure chính là bảo vệ tài khoản của bạn khỏi tay hacker.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 13.0,
+    "audioPath": "/kichban/video35/mp3/slide_cookie_outro.mp3",
+    "duration": 12.38,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "4311bd3df7e44b756de5f80373447868"
   },
   {
     "id": "slide_cookie_follow",
@@ -97,11 +97,11 @@
     "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 10.0,
+    "audioPath": "/kichban/video35/mp3/slide_cookie_follow.mp3",
+    "duration": 6.79,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "31b5ab7adcc111313c7e4d8499df9f39"
   }
 ]

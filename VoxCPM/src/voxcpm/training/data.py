@@ -6,7 +6,7 @@ import torch
 from datasets import Audio, Dataset, DatasetDict, load_dataset
 from torch.utils.data import Dataset as TorchDataset
 
-from ..model.voxcpm import VoxCPMConfig
+from ..model.voxcpm2 import VoxCPMConfig
 from ..modules.audiovae import AudioVAE
 from .packers import AudioFeatureProcessingPacker
 
