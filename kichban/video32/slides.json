@@ -12,7 +12,7 @@
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "eaadf8d8d28c2ee4d60aed6050b4854f"
   },
   {
     "id": "slide_jwt_1b",
@@ -23,11 +23,11 @@
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
     "audioPath": "/kichban/video32/mp3/slide_jwt_1b.mp3",
-    "duration": 9.0,
+    "duration": 7.08,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "7e50bc38952b1e8ac346d3b456acb9fa"
   },
   {
     "id": "slide_jwt_structure",
@@ -37,12 +37,12 @@
     "script": "Một mã JWT luôn có 3 phần được phân tách bằng dấu chấm. Phần màu đỏ là Header chứa thuật toán mã hóa. Phần màu xanh là Payload chứa thông tin của bạn như username, role. Và phần màu xanh lá là Signature - chữ ký số bảo mật của hệ thống.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 18.0,
+    "audioPath": "/kichban/video32/mp3/slide_jwt_structure.mp3",
+    "duration": 16.04,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "56d823309307029ca7de844138faa8f6"
   },
   {
     "id": "slide_jwt_verification",
@@ -52,12 +52,12 @@
     "script": "Mỗi khi bạn gửi request kèm JWT lên, Server không cần tốn thời gian truy vấn database hay Redis. Nó chỉ cần dùng khóa bí mật của mình, tính toán lại chữ ký và đối chiếu. Nếu khớp, request được chấp nhận ngay lập tức.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 16.0,
+    "audioPath": "/kichban/video32/mp3/slide_jwt_verification.mp3",
+    "duration": 16.52,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "585e6fafd0eec178e7703116b74edd9e"
   },
   {
     "id": "slide_jwt_hack",
@@ -67,12 +67,12 @@
     "script": "Nếu một hacker cố tình sửa thông tin trong token, ví dụ thay đổi role thành admin hòng chiếm quyền. Khi gửi lên, Server tính lại chữ ký và phát hiện sự sai lệch ngay lập tức. Chữ ký số không khớp, request bị chặn đứng và báo lỗi đỏ rực.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 18.0,
+    "audioPath": "/kichban/video32/mp3/slide_jwt_hack.mp3",
+    "duration": 15.88,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "95c6d88e5fdfdc191c77751152944f5d"
   },
   {
     "id": "slide_jwt_outro",
@@ -82,12 +82,12 @@
     "script": "Nhờ cơ chế stateless này, hệ thống của bạn có thể chịu tải hàng triệu người dùng mà không bị nghẽn ở bước truy vấn session database.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 10.0,
+    "audioPath": "/kichban/video32/mp3/slide_jwt_outro.mp3",
+    "duration": 8.84,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "2f4dab9ecf14c0bd5792969155fecb39"
   },
   {
     "id": "slide_jwt_follow",
@@ -97,11 +97,11 @@
     "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 10.0,
+    "audioPath": "/kichban/video32/mp3/slide_jwt_follow.mp3",
+    "duration": 7.08,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "31b5ab7adcc111313c7e4d8499df9f39"
   }
 ]

@@ -115,7 +115,10 @@ async function run() {
                 await sleep(500); // Poll every 500ms for more accurate slide timing
                 const status = await get(`${API_BASE}/api/synthesize-all/status?script=${script}&project=${PROJECT}`);
                 
-                if (status.status === 'processing') {
+                if (status.status === 'loading_model') {
+                    slideStartTime = Date.now(); // reset timer constantly during load
+                    process.stdout.write(`\r[WAIT] Đang tải mô hình AI đọc giọng (VoxCPM) lên GPU...`);
+                } else if (status.status === 'processing') {
                     if (status.current > lastCurrent) {
                         const elapsed = (Date.now() - slideStartTime) / 1000;
                         

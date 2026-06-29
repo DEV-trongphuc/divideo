@@ -149,6 +149,38 @@ def normalize_text_for_tts(text):
         
     return re.sub(r'\b[A-Za-z0-9_]+\b', replace_word, text)
 
+def simple_spectral_denoise(file_path):
+    """Pure Python spectral subtraction noise reduction (no external DLL dependencies)."""
+    import soundfile as sf
+    import librosa
+    import scipy.signal
+    import numpy as np
+
+    # Load audio at 16000Hz mono
+    audio, sr = librosa.load(file_path, sr=16000, mono=True)
+    
+    # Compute Short-Time Fourier Transform (STFT)
+    f, t, Zxx = scipy.signal.stft(audio, fs=sr, nperseg=512)
+    
+    # Estimate noise profile from the first 12 frames (usually silence/background noise at start)
+    noise_estimation = np.mean(np.abs(Zxx[:, :12]), axis=1, keepdims=True)
+    
+    # Perform spectral subtraction
+    magnitude = np.abs(Zxx)
+    phase = np.angle(Zxx)
+    
+    # Subtract noise floor (over-subtraction factor 1.8 to clean background hiss)
+    subtracted_magnitude = magnitude - 1.8 * noise_estimation
+    subtracted_magnitude = np.maximum(subtracted_magnitude, 0.02 * magnitude)
+    
+    # Reconstruct and inverse STFT
+    Zxx_clean = subtracted_magnitude * np.exp(1j * phase)
+    _, audio_clean = scipy.signal.istft(Zxx_clean, fs=sr)
+    
+    # Save clean audio back to the file path
+    sf.write(file_path, audio_clean, sr)
+    return file_path
+
 
 def ensure_voice_cache(reference_audio_path):
     if not reference_audio_path or not reference_audio_path.endswith(".wav"):
@@ -165,6 +197,36 @@ def ensure_voice_cache(reference_audio_path):
         import soundfile as sf
         import librosa
         import torch
+        import shutil
+        
+        denoised_ok = False
+        global voxcpm_model
+        # Use ZipEnhancer denoiser to clean the reference WAV file before caching
+        if voxcpm_model is not None and getattr(voxcpm_model, 'denoiser', None) is not None:
+            print(f"[+] Denoising reference audio {reference_audio_path} before caching...", flush=True)
+            temp_clean_path = reference_audio_path[:-4] + "_clean.wav"
+            try:
+                voxcpm_model.denoiser.enhance(reference_audio_path, temp_clean_path)
+                if os.path.exists(temp_clean_path):
+                    shutil.move(temp_clean_path, reference_audio_path)
+                    print("[+] Reference audio denoised successfully via ZipEnhancer!", flush=True)
+                    denoised_ok = True
+            except Exception as denoise_err:
+                print(f"[-] Failed to denoise reference audio with ZipEnhancer: {denoise_err}.", flush=True)
+                if os.path.exists(temp_clean_path):
+                    try:
+                        os.remove(temp_clean_path)
+                    except:
+                        pass
+        
+        # Fallback to pure Python spectral subtraction denoiser if ZipEnhancer failed or was skipped
+        if not denoised_ok:
+            try:
+                print(f"[+] Running fallback python spectral subtraction denoiser for {reference_audio_path}...", flush=True)
+                simple_spectral_denoise(reference_audio_path)
+                print("[+] Fallback python denoising completed successfully!", flush=True)
+            except Exception as fallback_err:
+                print(f"[-] Fallback python denoiser failed: {fallback_err}. Proceeding with original audio.", flush=True)
         
         print(f"[+] Cache not found for {reference_audio_path}. Automating slice & cache generation...")
         
@@ -178,8 +240,6 @@ def ensure_voice_cache(reference_audio_path):
             print(f"[+] Slicing reference audio {reference_audio_path} to first 10 seconds...")
             data = data[:num_samples]
             sf.write(reference_audio_path, data, samplerate)
-            
-        global voxcpm_model
         if voxcpm_model is not None and hasattr(voxcpm_model, 'tts_model'):
             model = voxcpm_model.tts_model
             audio_vae = getattr(model, "audio_vae", None)
@@ -285,9 +345,9 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
                             reference_audio=reference_audio_path
                         )
                     else:
-                        # Auto tune synthesis steps & denoising based on CUDA availability
-                        steps = 10 if torch.cuda.is_available() else 6
-                        denoise_flag = torch.cuda.is_available()
+                        # Set 8 steps on GPU (balanced speed/quality) and 6 steps on CPU
+                        steps = 8 if torch.cuda.is_available() else 6
+                        denoise_flag = False  # Bypassed post-denoiser since the cached .pt file is already pre-denoised
                         print(f"[+] VoxCPM generating with timesteps={steps}, denoise={denoise_flag}")
                         
                         audio_array = voxcpm_model.generate(

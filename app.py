@@ -455,6 +455,23 @@ def synthesize_all_thread(script_name, slides, project_name="TurnioDEV"):
     TTS_SYNTHESIS_STATUS["current"] = 0
     TTS_SYNTHESIS_STATUS["total"] = len(slides)
     TTS_SYNTHESIS_STATUS["error"] = None
+
+    # Check if VoxCPM model pre-loading is needed
+    needs_voxcpm = False
+    for slide in slides:
+        text = slide.get("voiceText", slide.get("script", "")).strip()
+        ref_voice = slide.get("refVoice", "")
+        if text and ref_voice:
+            needs_voxcpm = True
+            break
+
+    import tts_handler
+    if needs_voxcpm and tts_handler.voxcpm_model is None:
+        TTS_SYNTHESIS_STATUS["status"] = "loading_model"
+        print("[+] Pre-loading VoxCPM voice cloning model to prevent timer pollution...")
+        init_voxcpm()
+        print("[+] VoxCPM model loaded successfully. Starting slide timers...")
+        TTS_SYNTHESIS_STATUS["status"] = "processing"
     
     project_folder = get_project_folder(project_name)
     mp3_dir = os.path.join(project_folder, script_name, "mp3")
