@@ -40,6 +40,10 @@
         'slide_v36_contact_sync', 'slide_v36_social_graph', 'slide_v36_privacy_shield'
     ];
 
+    function initIcons() {
+        if (window.lucide) window.lucide.createIcons();
+    }
+
     // ── GFX RENDERER ───────────────────────────────────────────────────────────
     function renderGfx(slideId, canvas, isPlaying, getSlideDuration, slide) {
         const needsTemplate = canvas.getAttribute('data-sim-template') !== slideId || canvas.innerHTML === '';

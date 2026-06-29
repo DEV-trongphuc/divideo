@@ -210,11 +210,11 @@ def save_slides(slides, script_name="video1", project_name="TurnioDEV"):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(slides, f, ensure_ascii=False, indent=2)
 
-# Startup Initialization of VoxCPM in background (Disabled by default to save 5.4GB RAM. It will lazy-load dynamically when voice cloning is requested)
-# def start_voxcpm_async():
-#     init_voxcpm()
-# 
-# threading.Thread(target=start_voxcpm_async, daemon=True).start()
+# Startup Initialization of VoxCPM in background
+def start_voxcpm_async():
+    init_voxcpm()
+
+threading.Thread(target=start_voxcpm_async, daemon=True).start()
 
 # API Endpoints
 @app.route("/")

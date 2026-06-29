@@ -1819,8 +1819,8 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
     if (subtitleBox) {
         if (slide.script) {
             const duration = getSlideDuration(slide);
-            // If playing, use active chunk by elapsed time. If paused/idle, show the full script!
-            const activeChunk = isPlaying ? getActiveSubtitleChunk(slide.script, animTime + 0.3, duration) : slide.script;
+            // Introduce a 0.3s lead time so subtitles appear slightly ahead of narration
+            const activeChunk = getActiveSubtitleChunk(slide.script, animTime + 0.3, duration);
             let scriptHTML = formatSubtitleHTML(activeChunk);
             // Highlight keywords in bottom subtitle script directly from plugin data
             if (window.VideoPlugin && window.VideoPlugin.keywordsData && window.VideoPlugin.keywordsData[slide.id]) {
@@ -1828,7 +1828,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                 const isFirstSlide = (slideIndex === 0);
                 if (!isFirstSlide) {
                     window.VideoPlugin.keywordsData[slide.id].forEach(kw => {
-                        const isActive = isPlaying ? (animTime >= kw.start && animTime <= kw.end) : true; // Highlight all keywords when paused/idle
+                        const isActive = animTime >= kw.start && animTime <= kw.end;
                         if (kw.text) {
                             const escText = kw.text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
                             const re = new RegExp('(' + escText + ')', 'gi');
