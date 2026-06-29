@@ -7,12 +7,12 @@
     "script": "Bạn dùng Google Search, Gmail, Google Maps suốt 20 năm qua mà không tốn một đồng nào. Vậy ai đang trả tiền cho tất cả những máy chủ, đường truyền và kỹ sư khổng lồ đó? Câu trả lời là: các nhà quảng cáo.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "audioPath": "/kichban/video37/mp3/slide_v37_hook.mp3",
+    "duration": 13.99,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "fd0e005cc008e2e70b09a536478ca6b4"
   },
   {
     "id": "slide_v37_you_are_product",
@@ -22,12 +22,12 @@
     "script": "Khi bạn dùng các dịch vụ miễn phí, Google âm thầm ghi nhận: Bạn tìm kiếm gì, xem YouTube gì, đi đâu qua Maps. Từ đó, họ xây dựng một hồ sơ chân dung cực kỳ chi tiết về tuổi tác, giới tính, sở thích và nhu cầu mua sắm của bạn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "audioPath": "/kichban/video37/mp3/slide_v37_you_are_product.mp3",
+    "duration": 16.39,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "736533a4aadb2fd2d6ad89007c198928"
   },
   {
     "id": "slide_v37_ad_auction",
@@ -37,12 +37,12 @@
     "script": "Ngay khi bạn gõ cụm từ tìm kiếm, một cuộc đấu giá chớp nhoáng diễn ra trong chưa đầy 100 mili-giây. Các nhãn hàng cạnh tranh nhau, gửi giá thầu tự động để giành quyền hiển thị quảng cáo của họ trên màn hình của bạn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "audioPath": "/kichban/video37/mp3/slide_v37_ad_auction.mp3",
+    "duration": 13.82,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "038a542bab998f5c595bf991d79377b8"
   },
   {
     "id": "slide_v37_sponsored_ads",
@@ -52,12 +52,12 @@
     "script": "Kết quả là các liên kết được tài trợ xuất hiện ngay đầu trang tìm kiếm. Khi bạn nhấp vào, nhà quảng cáo sẽ trả tiền cho Google. Mô hình này gọi là Pay-Per-Click — Google chỉ nhận tiền khi bạn thực sự tương tác.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "audioPath": "/kichban/video37/mp3/slide_v37_sponsored_ads.mp3",
+    "duration": 13.82,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "3a5d5270aaf356fd1bd87fe03551e386"
   },
   {
     "id": "slide_v37_adsense_network",
@@ -67,12 +67,12 @@
     "script": "Không chỉ trên trang tìm kiếm, Google còn phân phối quảng cáo lên hàng triệu trang web và ứng dụng khác qua mạng lưới AdSense. Họ đóng vai trò trung gian kết nối nhà quảng cáo với chủ website và chia sẻ doanh thu.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "audioPath": "/kichban/video37/mp3/slide_v37_adsense_network.mp3",
+    "duration": 12.07,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "ea606e381a6b5daef8e77d73bd766968"
   },
   {
     "id": "slide_v37_recap",
@@ -82,12 +82,12 @@
     "script": "Tóm lại, Google miễn phí cho bạn để đổi lấy sự chú ý và dữ liệu hành vi. Dữ liệu đó được bán cho các nhà quảng cáo dưới dạng nhắm mục tiêu chính xác, tạo nên doanh thu hơn 200 tỷ đô mỗi năm.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.0,
+    "audioPath": "/kichban/video37/mp3/slide_v37_recap.mp3",
+    "duration": 11.9,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "458dd21ac7d280cbfc7ddf0aab42307e"
   },
   {
     "id": "slide_v37_outro",
@@ -97,11 +97,11 @@
     "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 8.0,
+    "audioPath": "/kichban/video37/mp3/slide_v37_outro.mp3",
+    "duration": 7.27,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "31b5ab7adcc111313c7e4d8499df9f39"
   }
 ]

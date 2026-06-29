@@ -378,8 +378,8 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
                             reference_audio=reference_audio_path
                         )
                     else:
-                        # Set 8 steps on GPU (balanced speed/quality) and 6 steps on CPU
-                        steps = 8 if torch.cuda.is_available() else 6
+                        # Set 8 steps on GPU and CPU for balanced speed and quality
+                        steps = 8
                         denoise_flag = False  # Bypassed post-denoiser since the cached .pt file is already pre-denoised
                         print(f"[+] VoxCPM generating with timesteps={steps}, denoise={denoise_flag}")
                         

@@ -7,12 +7,12 @@
     "script": "Giải mã Video Call: Làm thế nào các ứng dụng nén dung lượng video 1000 lần để cuộc gọi luôn mượt mà?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 4.0,
+    "audioPath": "/kichban/video39/mp3/slide_v39_1.mp3",
+    "duration": 6.79,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "05aa7b19f43ebde783b09e4180f03a37"
   },
   {
     "id": "slide_v39_2",
@@ -22,12 +22,12 @@
     "script": "Mỗi giây gọi video HD gửi đi 30 bức ảnh sắc nét. Nếu truyền dữ liệu thô, mạng 4G của bạn sẽ sập ngay lập tức vì quá tải. Làm thế nào các ứng dụng nén dung lượng 1000 lần mà hình ảnh vẫn mượt mà?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 13.64,
+    "audioPath": "/kichban/video39/mp3/slide_v39_2.mp3",
+    "duration": 12.72,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "a123633e47bf43a3a605c20bcce73dbb"
   },
   {
     "id": "slide_v39_3",
@@ -37,12 +37,12 @@
     "script": "Bí mật nằm ở 'Sự dư thừa thời gian'. Khi bạn nói chuyện, hậu cảnh phía sau như bức tường hay cái ghế hoàn toàn đứng yên, chỉ có khuôn mặt và khuôn miệng của bạn chuyển động. Gửi đi hậu cảnh đứng yên lặp đi lặp lại là cực kỳ lãng phí.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 15.08,
+    "audioPath": "/kichban/video39/mp3/slide_v39_3.mp3",
+    "duration": 15.6,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "8404a7218346f94505d0ebb3155a716a"
   },
   {
     "id": "slide_v39_4",
@@ -52,12 +52,12 @@
     "script": "Để bắt đầu, camera chụp một bức ảnh tĩnh đầy đủ gọi là I-Frame. Đây là khung hình chứa toàn bộ chi tiết điểm ảnh như một tấm ảnh chụp thông thường. I-Frame nặng nhất nhưng là mốc tham chiếu cho các khung hình sau.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 13.96,
+    "audioPath": "/kichban/video39/mp3/slide_v39_4.mp3",
+    "duration": 14.47,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "2f934885078afca9b9a15e1444f242b6"
   },
   {
     "id": "slide_v39_5",
@@ -67,12 +67,12 @@
     "script": "Thay vì gửi tiếp các ảnh đầy đủ, camera chỉ gửi các khung hình P-Frame. Khung hình này không chứa hậu cảnh, mà chỉ chứa các toạ độ chuyển động và điểm ảnh mới thay đổi của môi hay mắt bạn. Dung lượng giảm đến 90%.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 14.76,
+    "audioPath": "/kichban/video39/mp3/slide_v39_5.mp3",
+    "duration": 12.55,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "1ca95dacc0eade7fc73529bd318dac38"
   },
   {
     "id": "slide_v39_6",
@@ -82,12 +82,12 @@
     "script": "Nhưng nếu có người đi qua phía sau, hay bạn vừa đi bộ vừa gọi video thì sao? Thuật toán sẽ quét chuyển động đó, chỉ gửi tọa độ thay đổi của người đi qua. Còn nếu di chuyển quá nhanh, dữ liệu tăng vọt sẽ khiến cuộc gọi bị mờ hoặc vỡ hình để duy trì kết nối.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 21.5,
+    "audioPath": "/kichban/video39/mp3/slide_v39_6.mp3",
+    "duration": 15.74,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "0cdaf07c30768f77bbdb480c1fd88402"
   },
   {
     "id": "slide_v39_7",
@@ -97,12 +97,12 @@
     "script": "Ngoài ra, còn có khung hình B-Frame. Nó thông minh hơn khi tham chiếu cả khung hình quá khứ lẫn tương lai để bù đắp các điểm ảnh bị che khuất, giúp chuyển động mượt mà hơn nữa với dung lượng tối giản nhất.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 13.0,
+    "audioPath": "/kichban/video39/mp3/slide_v39_7.mp3",
+    "duration": 12.72,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "f421adc1fbf702e781fe79dd9f664080"
   },
   {
     "id": "slide_v39_8",
@@ -112,12 +112,12 @@
     "script": "Các khung hình này được sắp xếp theo chuỗi GOP tuần tự: I, B, B, P, B, B, P. Sự kết hợp nhịp nhàng này giúp luồng video HD nén cực gọn để truyền qua sóng 4G/5G mà mắt người vẫn cảm thấy mượt mà không độ trễ.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 10.0,
+    "audioPath": "/kichban/video39/mp3/slide_v39_8.mp3",
+    "duration": 13.2,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "ae758c4a43d63bd1f06355895bd17c58"
   },
   {
     "id": "slide_v39_9",
@@ -127,11 +127,11 @@
     "script": "Hãy nhấn tim, chia sẻ video và Follow kênh Turnio chấm dev để cùng học thêm nhiều kiến thức thú vị mỗi ngày nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 10.0,
+    "audioPath": "/kichban/video39/mp3/slide_v39_9.mp3",
+    "duration": 7.27,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "31b5ab7adcc111313c7e4d8499df9f39"
   }
 ]
