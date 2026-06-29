@@ -1,0 +1,653 @@
+/* video73.css - Wi-Fi MITM Attack Simulator Styles (Scaled for Mobile 9:16 Viewport with Rich Animations) */
+
+:root {
+    --v73-bg: #0b0f19;
+    --v73-panel: rgba(15, 23, 42, 0.8);
+    --v73-border: rgba(255, 255, 255, 0.08);
+    --v73-cyan: #06b6d4;
+    --v73-yellow: #eab308;
+    --v73-red: #ef4444;
+    --v73-green: #10b981;
+}
+
+/* Force the title header and keyword tags to shift up to utilize top space and clear subtitles */
+.layout-custom-sim-view[data-slide-id^="slide_wifi_"] .sim-scene-header {
+    margin-top: -50px !important;
+}
+
+.layout-custom-sim-view[data-slide-id^="slide_wifi_"] .keywords-panel {
+    top: 110px !important;
+}
+
+.layout-custom-sim-view[data-slide-id^="slide_wifi_"] .keywords-panel:has(.ai-keyword-tag:nth-child(3)) {
+    top: 80px !important;
+}
+
+/* Adjust the main canvas body to be exactly 35px from top */
+.layout-custom-sim-view .sim-canvas-body[data-sim-template^="slide_wifi_"] {
+    margin-top: 35px !important;
+}
+
+.v73-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: transparent;
+    overflow: visible;
+}
+
+.v73-scene-content {
+    position: relative;
+    width: 100%;
+    height: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: visible;
+}
+
+/* ── PHONE MOCKUPS (SLIDE 1 & SLIDE 2) ───────────────────────────────────────── */
+.v73-phone-mockup {
+    width: 480px;
+    height: 800px;
+    background: #000;
+    border: 12px solid #2d3748;
+    border-radius: 54px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 25px rgba(6, 182, 212, 0.1);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px; /* Shifted up from 140px to balance slide hook layout */
+    transition: transform 0.1s;
+}
+
+/* Haptic shake keyframe for message receive notification */
+@keyframes v73-phone-shake {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-6px) rotate(-0.5deg); }
+    20%, 40%, 60%, 80% { transform: translateX(6px) rotate(0.5deg); }
+}
+
+/* Wi-Fi App GFX */
+.v73-phone-header {
+    background: #111827;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+    padding: 24px 20px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.v73-phone-time {
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.v73-phone-battery {
+    font-size: 18px;
+    color: #fff;
+}
+
+.v73-phone-body {
+    flex: 1;
+    background: #090d16;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    position: relative;
+    transition: background 0.4s;
+}
+
+.v73-phone-body.glitch-active {
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, #090d16 80%);
+}
+
+/* Browser Mockup inside phone */
+.v73-browser-url-bar {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-family: monospace;
+    font-size: 16px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.v73-browser-content {
+    flex: 1;
+    width: 100%;
+    border: 1.5px dashed rgba(255,255,255,0.08);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Custom SVG WiFi icon styling */
+.v73-wifi-pulsar {
+    width: 140px;
+    height: 140px;
+    color: var(--v73-cyan);
+    transition: color 0.4s, filter 0.4s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v73-wifi-svg-icon {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    fill: none;
+}
+
+.v73-wifi-bar {
+    opacity: 0.35;
+    transition: opacity 0.3s, fill 0.4s, stroke 0.4s;
+}
+
+/* Sequential signal strength propagation animation */
+@keyframes v73-wifi-signal-flow {
+    0% { opacity: 0.35; }
+    35% { opacity: 1; filter: drop-shadow(0 0 5px currentColor); }
+    100% { opacity: 0.35; }
+}
+
+.v73-wifi-bar.b0 { fill: currentColor; stroke: none; animation: v73-wifi-signal-flow 1.8s infinite; }
+.v73-wifi-bar.b1 { animation: v73-wifi-signal-flow 1.8s infinite 0.3s; }
+.v73-wifi-bar.b2 { animation: v73-wifi-signal-flow 1.8s infinite 0.6s; }
+.v73-wifi-bar.b3 { animation: v73-wifi-signal-flow 1.8s infinite 0.9s; }
+
+/* Concentric sonar pulsing waves around wifi icon */
+.v73-sonar-wave {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--v73-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: border-color 0.4s;
+}
+
+.v73-sonar-wave.s1 {
+    width: 150px; height: 150px;
+    animation: v73-sonar 2.5s infinite linear;
+}
+
+.v73-sonar-wave.s2 {
+    width: 150px; height: 150px;
+    animation: v73-sonar 2.5s infinite linear 1.25s;
+}
+
+@keyframes v73-sonar {
+    0% { width: 100px; height: 100px; opacity: 0.6; }
+    100% { width: 340px; height: 340px; opacity: 0; }
+}
+
+.v73-wifi-hacker-skull {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    font-size: 96px;
+    color: var(--v73-red);
+    filter: drop-shadow(0 0 30px var(--v73-red));
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
+
+/* Wi-Fi Settings row items (Slide 2) */
+.v73-wifi-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.v73-wifi-row {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.v73-wifi-row-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.v73-wifi-row-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: #64748b;
+}
+
+.v73-wifi-row.wifi-active {
+    background: rgba(6, 182, 212, 0.08);
+    border-color: var(--v73-cyan);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+}
+
+.v73-wifi-row.wifi-hijacked-highlight {
+    background: rgba(239, 68, 68, 0.08) !important;
+    border-color: var(--v73-red) !important;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.2) !important;
+}
+
+.v73-wifi-check {
+    font-size: 22px;
+    color: transparent;
+    font-weight: bold;
+}
+
+.v73-wifi-check.checked {
+    color: var(--v73-cyan);
+}
+
+.v73-wifi-check.checked-red {
+    color: var(--v73-red) !important;
+}
+
+/* ── MITM NETWORK FLOW BOARD (SLIDE 3) ─────────────────────────────────────── */
+.v73-mitm-board {
+    width: 820px;
+    height: 750px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 2.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 36px;
+    padding: 44px;
+    box-sizing: border-box;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(25px);
+    margin-top: 140px;
+    position: relative;
+}
+
+.v73-mitm-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.v73-mitm-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.v73-mitm-icon {
+    font-size: 110px;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
+}
+
+.v73-mitm-lbl {
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+.v73-mitm-node.client .v73-mitm-icon {
+    color: var(--v73-cyan);
+    filter: drop-shadow(0 0 25px rgba(6,182,212,0.4));
+}
+.v73-mitm-node.client .v73-mitm-lbl {
+    border-color: var(--v73-cyan);
+    color: var(--v73-cyan);
+}
+
+.v73-mitm-node.hacker {
+    margin-top: 100px;
+}
+.v73-mitm-node.hacker .v73-mitm-icon {
+    color: var(--v73-red);
+    filter: drop-shadow(0 0 25px rgba(239,68,68,0.4));
+}
+.v73-mitm-node.hacker .v73-mitm-lbl {
+    border-color: var(--v73-red);
+    color: var(--v73-red);
+}
+
+.v73-mitm-node.server .v73-mitm-icon {
+    color: var(--v73-green);
+    filter: drop-shadow(0 0 25px rgba(16,185,129,0.4));
+}
+.v73-mitm-node.server .v73-mitm-lbl {
+    border-color: var(--v73-green);
+    color: var(--v73-green);
+}
+
+/* SVG Dotted curves for MITM flows */
+.v73-mitm-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.v73-mitm-path {
+    fill: none;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    transition: opacity 0.4s, stroke 0.4s;
+}
+
+.v73-mitm-path.direct {
+    stroke: var(--v73-cyan);
+    stroke-dasharray: 10 8;
+    animation: v73-dash-scroll 25s infinite linear;
+}
+
+.v73-mitm-path.hijacked {
+    stroke: var(--v73-red);
+    stroke-dasharray: 10 8;
+    opacity: 0;
+    animation: v73-dash-scroll 25s infinite linear;
+}
+
+@keyframes v73-dash-scroll {
+    to { stroke-dashoffset: -1000; }
+}
+
+/* Floating flowing packets */
+.v73-mitm-packet {
+    position: absolute;
+    background: var(--v73-cyan);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 15px var(--v73-cyan);
+    z-index: 8;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.1s;
+}
+
+.v73-mitm-packet.packet-fake {
+    background: var(--v73-red);
+    box-shadow: 0 0 15px var(--v73-red);
+}
+
+/* ── HTTP VS HTTPS COMPARISON (SLIDE 4) ─────────────────────────────────────── */
+.v73-comp-board {
+    width: 820px;
+    height: 750px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 140px;
+    z-index: 10;
+}
+
+.v73-comp-col {
+    width: 390px;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.06);
+    border-radius: 36px;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s, border-color 0.4s;
+}
+
+.v73-comp-col.http-side {
+    border-color: rgba(239, 68, 68, 0.15);
+}
+
+.v73-comp-col.http-side.alert-active {
+    background: rgba(239, 68, 68, 0.05);
+    border-color: var(--v73-red);
+    box-shadow: 0 0 35px rgba(239, 68, 68, 0.15);
+}
+
+.v73-comp-col.https-side {
+    border-color: rgba(6, 182, 212, 0.15);
+}
+
+.v73-comp-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: monospace;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 2px solid rgba(255,255,255,0.06);
+    padding-bottom: 14px;
+}
+
+.v73-comp-lbl {
+    font-size: 14px;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.v73-packet-card {
+    flex: 1;
+    background: #090d16;
+    border: 1.5px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+    margin: 24px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.v73-packet-envelope {
+    font-size: 72px;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.05));
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.v73-packet-lock {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    font-size: 32px;
+    filter: drop-shadow(0 0 10px var(--v73-yellow));
+}
+
+/* Decryption scanner laser inside envelope */
+.v73-envelope-laser {
+    position: absolute;
+    left: 0; right: 0;
+    height: 3px;
+    background: var(--v73-red);
+    box-shadow: 0 0 10px var(--v73-red);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.v73-envelope-laser.green-laser {
+    background: var(--v73-green) !important;
+    box-shadow: 0 0 10px var(--v73-green) !important;
+}
+
+.v73-packet-data {
+    font-family: monospace;
+    font-size: 20px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 14px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.v73-packet-data.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.v73-text-plain {
+    color: var(--v73-red);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(239,68,68,0.3);
+}
+
+.v73-text-cryptic {
+    color: var(--v73-yellow);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(234,179,8,0.3);
+}
+
+/* ── VPN TUNNEL SHIELD SCREEN (SLIDE 5) ─────────────────────────────────────── */
+.v73-vpn-board {
+    width: 820px;
+    height: 750px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 2.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 36px;
+    padding: 44px;
+    box-sizing: border-box;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(25px);
+    margin-top: 140px;
+    position: relative;
+    overflow: visible;
+}
+
+/* Glowing VPN Holographic Pipe/Tunnel */
+.v73-vpn-tunnel {
+    position: absolute;
+    top: 50%;
+    left: 120px;
+    right: 120px;
+    height: 70px;
+    transform: translateY(-50%);
+    background: linear-gradient(to right, rgba(6, 182, 212, 0.05) 0%, rgba(6, 182, 212, 0.15) 50%, rgba(6, 182, 212, 0.05) 100%);
+    border: 3px solid rgba(6, 182, 212, 0.35);
+    border-radius: 35px;
+    box-shadow: 0 0 35px rgba(6, 182, 212, 0.2), inset 0 0 20px rgba(6, 182, 212, 0.1);
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+    overflow: hidden;
+}
+
+.v73-vpn-tunnel::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    animation: v73-tunnel-sweep 3s infinite linear;
+}
+
+@keyframes v73-tunnel-sweep {
+    to { left: 100%; }
+}
+
+.v73-vpn-shield {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+    font-size: 64px;
+    color: var(--v73-green);
+    filter: drop-shadow(0 0 20px var(--v73-green));
+    z-index: 8;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Electron orbit loop around the VPN shield */
+.v73-vpn-shield::after {
+    content: '';
+    position: absolute;
+    top: -12px; left: -12px; right: -12px; bottom: -12px;
+    border: 2px dashed rgba(16, 185, 129, 0.4);
+    border-radius: 50%;
+    animation: v73-orbit 6s infinite linear;
+}
+
+@keyframes v73-orbit {
+    to { transform: rotate(360deg); }
+}
+
+/* Defensive targets circular bounce rings (ripple blast) */
+.v73-shield-blast {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3.5px solid var(--v73-green);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.v73-shield-blast.active-blast {
+    animation: v73-blast-wave 1s infinite linear;
+}
+
+@keyframes v73-blast-wave {
+    0% { width: 40px; height: 40px; opacity: 1; }
+    100% { width: 180px; height: 180px; opacity: 0; }
+}
+
+/* Floating cursor icon */
+.v73-cursor {
+    position: absolute;
+    top: 375px;
+    left: 410px;
+    transform: translate(-50%, -50%);
+    font-size: 44px;
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 0.25s, transform 0.25s ease-out;
+}

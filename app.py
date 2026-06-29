@@ -547,8 +547,15 @@ def synthesize_all_thread(script_name, slides, project_name="TurnioDEV"):
                 
             duration = 10.0
             try:
-                import librosa
-                duration = float(librosa.get_duration(path=mp3_path))
+                import re
+                cmd_dur = [ffmpeg_path, "-i", mp3_path]
+                res_dur = subprocess.run(cmd_dur, capture_output=True, text=True, encoding="utf-8", errors="ignore")
+                match_dur = re.search(r"Duration:\s*(\d+):(\d+):(\d+\.\d+)", res_dur.stderr)
+                if match_dur:
+                    h_dur = int(match_dur.group(1))
+                    m_dur = int(match_dur.group(2))
+                    s_dur = float(match_dur.group(3))
+                    duration = h_dur * 3600 + m_dur * 60 + s_dur
             except Exception as duration_err:
                 print(f"[-] Error parsing audio duration: {duration_err}", file=sys.stderr)
                 

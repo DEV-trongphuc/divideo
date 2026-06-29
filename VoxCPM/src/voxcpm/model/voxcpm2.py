@@ -1159,8 +1159,8 @@ class VoxCPM2Model(nn.Module):
         pytorch_model_path = os.path.join(path, "pytorch_model.bin")
 
         if os.path.exists(safetensors_path) and SAFETENSORS_AVAILABLE:
-            print(f"Loading model from safetensors: {safetensors_path}", file=sys.stderr)
-            model_state_dict = load_file(safetensors_path)
+            print(f"Loading model from safetensors to {device or 'cpu'}: {safetensors_path}", file=sys.stderr)
+            model_state_dict = load_file(safetensors_path, device=device if device else "cpu")
         elif os.path.exists(pytorch_model_path):
             print(f"Loading model from pytorch_model.bin: {pytorch_model_path}", file=sys.stderr)
             checkpoint = torch.load(

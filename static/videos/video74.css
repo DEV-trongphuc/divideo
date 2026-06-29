@@ -1,0 +1,766 @@
+/* video74.css - SMS Brandname Spoofing Simulator Styles (Scaled for Mobile 9:16 Viewport with Rich Animations) */
+
+:root {
+    --v74-bg: #0b0f19;
+    --v74-panel: rgba(15, 23, 42, 0.8);
+    --v74-border: rgba(255, 255, 255, 0.08);
+    --v74-cyan: #06b6d4;
+    --v74-yellow: #eab308;
+    --v74-red: #ef4444;
+    --v74-green: #10b981;
+}
+
+/* Force the title header and keyword tags to shift up to utilize top space and clear subtitles */
+.layout-custom-sim-view[data-slide-id^="slide_sms_"] .sim-scene-header {
+    margin-top: -50px !important;
+}
+
+.layout-custom-sim-view[data-slide-id^="slide_sms_"] .keywords-panel {
+    top: 110px !important;
+}
+
+.layout-custom-sim-view[data-slide-id^="slide_sms_"] .keywords-panel:has(.ai-keyword-tag:nth-child(3)) {
+    top: 80px !important;
+}
+
+/* Adjust the main canvas body to be exactly 35px from top */
+.layout-custom-sim-view .sim-canvas-body[data-sim-template^="slide_sms_"] {
+    margin-top: 35px !important;
+}
+
+.v74-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: transparent;
+    overflow: visible;
+}
+
+.v74-scene-content {
+    position: relative;
+    width: 100%;
+    height: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: visible;
+}
+
+/* ── PHONE MOCKUP (SLIDE 1 & SLIDE 5) ────────────────────────────────────────── */
+.v74-phone-mockup {
+    width: 480px;
+    height: 800px;
+    background: #000;
+    border: 12px solid #2d3748;
+    border-radius: 54px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 25px rgba(6, 182, 212, 0.1);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px; /* Shifted up from 140px to balance slide hook layout */
+    transition: transform 0.1s;
+}
+
+/* Haptic shake keyframe for message receive notification */
+@keyframes v74-phone-shake {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-6px) rotate(-0.5deg); }
+    20%, 40%, 60%, 80% { transform: translateX(6px) rotate(0.5deg); }
+}
+
+/* SMS App GFX */
+.v74-sms-header {
+    background: #111827;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+    padding: 24px 0 16px;
+    text-align: center;
+    position: relative;
+}
+
+.v74-sms-back {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: var(--v74-cyan);
+}
+
+.v74-sms-sender-title {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.v74-sms-sender-subtitle {
+    font-size: 14px;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.v74-sms-body {
+    flex: 1;
+    background: #090d16;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.v74-sms-bubble {
+    max-width: 85%;
+    padding: 16px 20px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 19px;
+    line-height: 1.5;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.v74-sms-bubble.incoming {
+    background: #1f2937;
+    color: #f3f4f6;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.v74-sms-bubble.phishing {
+    border: 2px solid var(--v74-red);
+    background: rgba(239, 68, 68, 0.08);
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.15);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.v74-sms-phish-link {
+    color: #3b82f6;
+    text-decoration: underline;
+    font-weight: bold;
+    word-break: break-all;
+}
+
+/* Alert badge on phishing message */
+.v74-phish-badge {
+    position: absolute;
+    top: -15px;
+    right: 15px;
+    background: var(--v74-red);
+    color: #fff;
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--v74-red);
+    letter-spacing: 0.5px;
+    animation: v74-alert-pulse 1s infinite alternate;
+}
+
+@keyframes v74-alert-pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+/* ── IMSI CATCHER BOARD (SLIDE 2) ────────────────────────────────────────── */
+.v74-imsi-board {
+    width: 800px;
+    height: 750px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 2.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 36px;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    margin-top: 140px;
+    position: relative;
+}
+
+.v74-imsi-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.v74-station-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    z-index: 10;
+}
+
+.v74-station-icon {
+    font-size: 110px;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
+    position: relative;
+}
+
+.v74-station-label {
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    color: #fff;
+    text-align: center;
+}
+
+.v74-station-node.real .v74-station-icon {
+    color: var(--v74-cyan);
+    filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.35));
+}
+.v74-station-node.real .v74-station-label {
+    border-color: var(--v74-cyan);
+    color: var(--v74-cyan);
+}
+
+.v74-station-node.fake .v74-station-icon {
+    color: var(--v74-red);
+    filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.35));
+}
+.v74-station-node.fake .v74-station-label {
+    border-color: var(--v74-red);
+    color: var(--v74-red);
+}
+
+.v74-center-phone {
+    font-size: 160px;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+    z-index: 10;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Pulsing waves from fake station */
+.v74-pulse-wave {
+    position: absolute;
+    border: 3px solid var(--v74-red);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 5;
+}
+
+.v74-pulse-wave.w1 {
+    width: 60px; height: 60px;
+    animation: v74-wave-out 2s infinite linear;
+}
+.v74-pulse-wave.w2 {
+    width: 60px; height: 60px;
+    animation: v74-wave-out 2s infinite linear 1s;
+}
+
+@keyframes v74-wave-out {
+    0% { width: 40px; height: 40px; opacity: 1; transform: scale(1); }
+    100% { width: 480px; height: 480px; opacity: 0; transform: scale(1.1); }
+}
+
+/* SVG Line paths between phone and towers */
+.v74-line-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 2;
+}
+
+.v74-connection-line {
+    fill: none;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    transition: stroke 0.4s, opacity 0.4s;
+}
+
+.v74-connection-line.real-line {
+    stroke: var(--v74-cyan);
+    stroke-dasharray: 10 8;
+    animation: v74-dash-scroll 20s infinite linear;
+}
+
+.v74-connection-line.fake-line {
+    stroke: var(--v74-red);
+    stroke-dasharray: 10 8;
+    opacity: 0;
+    animation: v74-dash-scroll-reverse 20s infinite linear;
+}
+
+@keyframes v74-dash-scroll {
+    to { stroke-dashoffset: -1000; }
+}
+@keyframes v74-dash-scroll-reverse {
+    to { stroke-dashoffset: 1000; }
+}
+
+/* Moving signal packets along lines */
+.v74-line-packet {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 8;
+    opacity: 0;
+    transition: left 0.1s linear, top 0.1s linear;
+}
+
+.v74-line-packet.real-packet {
+    background: var(--v74-cyan);
+    box-shadow: 0 0 10px var(--v74-cyan);
+}
+
+.v74-line-packet.fake-packet {
+    background: var(--v74-red);
+    box-shadow: 0 0 10px var(--v74-red);
+}
+
+/* ── HACKER CONTROL PANEL (SLIDE 3) ──────────────────────────────────────── */
+.v74-control-panel {
+    width: 800px;
+    height: 750px;
+    background: rgba(15, 23, 42, 0.9);
+    border: 3px solid rgba(239, 68, 68, 0.35);
+    border-radius: 36px;
+    padding: 44px;
+    box-sizing: border-box;
+    box-shadow: 0 35px 85px rgba(0, 0, 0, 0.75), inset 0 0 30px rgba(239, 68, 68, 0.05);
+    margin-top: 140px;
+    color: #fff;
+    font-family: monospace;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.v74-panel-header {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--v74-red);
+    text-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+    border-bottom: 2px solid rgba(239, 68, 68, 0.2);
+    padding-bottom: 18px;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.v74-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.v74-field-label {
+    font-size: 18px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.v74-field-input {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.v74-field-input.sender-id-input {
+    border-color: var(--v74-yellow);
+    color: var(--v74-yellow);
+    text-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
+    font-weight: bold;
+}
+
+.v74-btn-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #7f1d1d 0%, #ef4444 100%);
+    border: 2px solid #ef4444;
+    border-radius: 16px;
+    padding: 22px 0;
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+    letter-spacing: 2px;
+    transition: transform 0.2s, background 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Red loading progress bar wrapper */
+.v74-loading-bar-wrap {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 10px;
+    display: none;
+}
+
+.v74-loading-bar-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--v74-red);
+    box-shadow: 0 0 10px var(--v74-red);
+    transition: width 0.1s linear;
+}
+
+.v74-btn-submit.btn-active {
+    background: linear-gradient(135deg, #b91c1c 0%, #f43f5e 100%);
+    box-shadow: 0 0 35px var(--v74-red);
+}
+
+/* Transmitted packet visual floater */
+.v74-packet-flow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+    background: var(--v74-yellow);
+    border: 2px solid #fff;
+    border-radius: 16px;
+    padding: 14px 28px;
+    color: #000;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0 0 25px var(--v74-yellow);
+    opacity: 0;
+    z-index: 100;
+    white-space: nowrap;
+}
+
+/* ── OS STRING MATCHING (SLIDE 4) ────────────────────────────────────────── */
+.v74-match-board {
+    width: 800px;
+    height: 750px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 36px;
+    padding: 44px;
+    box-sizing: border-box;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    margin-top: 140px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.v74-compare-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    position: relative;
+    height: 180px;
+}
+
+.v74-comp-card {
+    width: 230px;
+    height: 150px;
+    background: rgba(31, 41, 55, 0.85);
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    box-sizing: border-box;
+    transition: transform 0.3s;
+}
+
+.v74-comp-card.c1 {
+    border-color: var(--v74-yellow);
+    box-shadow: 0 0 15px rgba(234, 179, 8, 0.1);
+}
+
+.v74-comp-card.c2 {
+    border-color: var(--v74-cyan);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.1);
+}
+
+.v74-card-lbl {
+    font-size: 16px;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.v74-card-val {
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.v74-c1-val {
+    color: var(--v74-yellow) !important;
+}
+.v74-c2-val {
+    color: var(--v74-cyan) !important;
+}
+
+.v74-operator-box {
+    font-size: 40px;
+    color: #64748b;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.v74-match-result {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+    background: var(--v74-green);
+    color: #fff;
+    font-family: monospace;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 14px 36px;
+    border-radius: 40px;
+    box-shadow: 0 0 35px var(--v74-green);
+    z-index: 30;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Connecting laser line SVG for comparison */
+.v74-compare-laser-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.v74-match-laser {
+    fill: none;
+    stroke: var(--v74-cyan);
+    stroke-width: 4px;
+    stroke-linecap: round;
+    stroke-dasharray: 8 6;
+    animation: v74-dash-scroll 6s infinite linear;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.v74-match-laser.left-laser {
+    stroke: var(--v74-yellow);
+}
+
+/* Thread list display on matcher board */
+.v74-threads-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.v74-thread-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    opacity: 0.65;
+    transition: background 0.3s, opacity 0.3s, border-color 0.3s;
+}
+
+.v74-thread-item.highlighted-item {
+    background: rgba(16, 185, 129, 0.08);
+    border-color: var(--v74-green);
+    opacity: 1;
+}
+
+.v74-thread-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.v74-thread-icon {
+    font-size: 26px;
+}
+
+.v74-thread-name {
+    font-weight: bold;
+    color: #fff;
+}
+
+.v74-thread-meta {
+    font-size: 16px;
+    color: #64748b;
+}
+
+/* ── PREVENTION COMPARATOR SPLIT (SLIDE 5) ────────────────────────────────── */
+.v74-prevention-container {
+    width: 820px;
+    height: 750px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 140px;
+    z-index: 10;
+}
+
+.v74-prev-col {
+    width: 390px;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.06);
+    border-radius: 36px;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.v74-prev-col.danger-side {
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.v74-prev-col.danger-side.alert-active {
+    background: rgba(239, 68, 68, 0.05);
+    border-color: var(--v74-red);
+}
+
+.v74-prev-col.secure-side {
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.v74-prev-hdr {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: monospace;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 2px solid rgba(255,255,255,0.06);
+    padding-bottom: 14px;
+}
+
+.v74-danger-text { color: var(--v74-red); }
+.v74-secure-text { color: var(--v74-green); }
+
+.v74-app-screen-mock {
+    flex: 1;
+    background: #090d16;
+    border: 2px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+}
+
+/* App Smart OTP design */
+.v74-smart-otp-container {
+    background: rgba(16, 185, 129, 0.04);
+    border: 2px solid rgba(16, 185, 129, 0.2);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.v74-smart-otp-shield {
+    font-size: 64px;
+    color: var(--v74-green);
+    filter: drop-shadow(0 0 15px rgba(16,185,129,0.3));
+    position: relative;
+}
+
+/* Electron orbit loop around the Smart OTP shield */
+.v74-smart-otp-shield::after {
+    content: '';
+    position: absolute;
+    top: -12px; left: -12px; right: -12px; bottom: -12px;
+    border: 2px dashed rgba(16, 185, 129, 0.4);
+    border-radius: 50%;
+    animation: v74-orbit 6s infinite linear;
+}
+
+@keyframes v74-orbit {
+    to { transform: rotate(360deg); }
+}
+
+.v74-smart-otp-code {
+    font-family: monospace;
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 4px;
+    border-bottom: 2px dashed rgba(255,255,255,0.2);
+    padding-bottom: 8px;
+}
+
+.v74-app-btn {
+    width: 100%;
+    background: var(--v74-green);
+    color: #fff;
+    padding: 14px 0;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(16,185,129,0.25);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.v74-app-btn.btn-confirm-active {
+    background: #059669;
+    box-shadow: 0 0 25px var(--v74-green);
+}
+
+.v74-hazard-line {
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 4px;
+    background: var(--v74-red);
+    box-shadow: 0 0 15px var(--v74-red);
+    transform: rotate(-35deg) scale(1.1);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Floating cursors */
+.v74-cursor {
+    position: absolute;
+    font-size: 40px;
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 0.25s, transform 0.25s ease-out;
+}

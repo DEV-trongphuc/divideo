@@ -1,0 +1,863 @@
+/* video75.css - Memory Powers of 2 Simulator Styles (Scaled for Mobile 9:16 Viewport with Rich Animations) */
+
+:root {
+    --v75-bg: #0b0f19;
+    --v75-panel: rgba(15, 23, 42, 0.8);
+    --v75-border: rgba(255, 255, 255, 0.08);
+    --v75-cyan: #8b5cf6; /* Changed to Electric Violet */
+    --v75-yellow: #eab308;
+    --v75-red: #ef4444;
+    --v75-green: #a78bfa; /* Changed to Light Violet */
+    --v75-purple: #8b5cf6;
+}
+
+/* Force the title header and keyword tags to shift up to utilize top space and clear subtitles */
+.layout-custom-sim-view[data-slide-id^="slide_mem_"] .sim-scene-header {
+    margin-top: -50px !important;
+}
+
+.layout-custom-sim-view[data-slide-id^="slide_mem_"] .keywords-panel {
+    top: 110px !important;
+}
+
+.layout-custom-sim-view[data-slide-id^="slide_mem_"] .keywords-panel:has(.ai-keyword-tag:nth-child(3)) {
+    top: 80px !important;
+}
+
+/* Adjust the main canvas body to be exactly 35px from top */
+.layout-custom-sim-view .sim-canvas-body[data-sim-template^="slide_mem_"] {
+    margin-top: 35px !important;
+}
+
+.v75-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: transparent;
+    overflow: visible;
+}
+
+.v75-scene-content {
+    position: relative;
+    width: 100%;
+    height: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: visible;
+}
+
+/* ── SLIDE 1: POWERS OF 2 CARDS (SSD/SILICON CHIP MOCKUP) ────────────────────── */
+.v75-cards-board {
+    width: 800px;
+    height: 750px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: none;
+    backdrop-filter: none;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.v75-panel-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255,255,255,0.06);
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #94a3b8;
+}
+
+.v75-cards-grid {
+    flex: 1;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.v75-formula-panel {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: rgba(139, 92, 246, 0.04);
+    border: 2px dashed rgba(139, 92, 246, 0.2);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.v75-formula-row {
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #64748b;
+}
+
+.v75-formula-row span:first-child {
+    color: #a78bfa;
+}
+
+.v75-formula-row span:last-child {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(167, 139, 250, 0.4);
+}
+
+.v75-card-box {
+    width: 320px;
+    height: 180px;
+    background: #121026; /* Deep indigo silicon board */
+    border: 2px solid rgba(139, 92, 246, 0.15); /* Electric violet border */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 12px 30px rgba(0,0,0,0.4);
+    padding-bottom: 12px;
+}
+
+/* SSD Gold pins contact connector */
+.v75-card-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 16px; right: 16px;
+    height: 8px;
+    background: repeating-linear-gradient(to right, #fbbf24 0px, #fbbf24 3px, transparent 3px, transparent 6px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Silicon controller core chip */
+.v75-card-chip-core {
+    position: absolute;
+    top: 15px; right: 15px;
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, #4c1d95, #1e1b4b);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    color: rgba(167, 139, 250, 0.5);
+    font-family: monospace;
+    font-weight: bold;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.6);
+}
+
+.v75-card-box.active-pow {
+    border-color: #8b5cf6;
+    box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.08), 0 0 25px rgba(139, 92, 246, 0.25);
+}
+
+.v75-card-box.focus-off {
+    filter: grayscale(1) opacity(0.35) !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: none !important;
+}
+
+.v75-card-num {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255,255,255,0.1);
+    z-index: 5;
+}
+
+.v75-card-box.active-pow .v75-card-num {
+    color: #a78bfa;
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.v75-card-lbl {
+    font-size: 16px;
+    color: #64748b;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 5;
+}
+
+.v75-card-box.card-target-err {
+    border-color: rgba(239, 68, 68, 0.3);
+    background: #111827;
+    opacity: 0;
+    transform: scale(0.6);
+}
+
+.v75-card-box.card-target-err.err-active {
+    border-color: var(--v75-red) !important;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Big red cross line strike */
+.v75-cross-strike {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom right, transparent 46%, var(--v75-red) 48%, var(--v75-red) 52%, transparent 54%),
+                linear-gradient(to bottom left, transparent 46%, var(--v75-red) 48%, var(--v75-red) 52%, transparent 54%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 12;
+    pointer-events: none;
+}
+
+/* Cyber compatibility error tooltip pop up */
+.v75-error-tooltip {
+    position: absolute;
+    bottom: 25px;
+    background: rgba(239, 68, 68, 0.95);
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 15px;
+    color: #fff;
+    box-shadow: 0 0 20px var(--v75-red);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    z-index: 100;
+}
+
+.v75-error-tooltip.show-err {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── SLIDE 2: BINARY ADDRESS BUS ───────────────────────────────────────────── */
+.v75-binary-board {
+    width: 800px;
+    height: 750px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: none;
+    backdrop-filter: none;
+    margin-top: 90px;
+    position: relative;
+}
+
+.v75-binary-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100% - 50px);
+    position: relative;
+}
+
+/* ── SLIDE 2: BINARY ADDRESS BUS ───────────────────────────────────────────── */
+.v75-binary-board {
+    width: 800px;
+    height: 750px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 2.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 36px;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(25px);
+    margin-top: 140px;
+    position: relative;
+}
+
+.v75-binary-layout {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Left: switches column (Absolute positioned) */
+.v75-switches-col {
+    position: absolute;
+    left: 20px;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 150px;
+    z-index: 10;
+}
+
+.v75-switch-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.v75-switch-box {
+    width: 130px;
+    height: 64px;
+    background: #1e293b;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 32px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.v75-switch-box::after {
+    content: '0';
+    position: absolute;
+    top: 6px; left: 8px;
+    width: 48px; height: 48px;
+    background: #64748b;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 20px;
+    transition: left 0.3s, background 0.3s, content 0.3s;
+}
+
+.v75-switch-box.switch-on {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--v75-green);
+}
+
+.v75-switch-box.switch-on::after {
+    content: '1';
+    left: 70px;
+    background: var(--v75-green);
+    box-shadow: 0 0 15px var(--v75-green);
+}
+
+/* Middle: Decoder core chip (Absolute positioned) */
+.v75-decoder-center {
+    position: absolute;
+    left: 280px;
+    top: 210px;
+    width: 160px;
+    height: 160px;
+    z-index: 10;
+}
+
+.v75-decoder-chip {
+    width: 150px;
+    height: 150px;
+    background: #0f172a;
+    border: 3px solid var(--v75-green);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.25), inset 0 0 15px rgba(16, 185, 129, 0.1);
+}
+
+/* Right: LED Output memory nodes (Absolute positioned) */
+.v75-led-matrix {
+    position: absolute;
+    left: 490px;
+    top: 100px;
+    width: 250px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    z-index: 10;
+}
+
+.v75-led-node {
+    background: rgba(255,255,255,0.03);
+    border: 2px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: monospace;
+    font-size: 16px;
+    color: #64748b;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.v75-led-node.led-active {
+    border-color: var(--v75-yellow);
+    background: rgba(234, 179, 8, 0.06);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(234, 179, 8, 0.15);
+}
+
+.v75-led-bulb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #334155;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.v75-led-node.led-active .v75-led-bulb {
+    background: var(--v75-yellow);
+    box-shadow: 0 0 10px var(--v75-yellow);
+}
+
+/* Neon expanding halo ring for active LED */
+.v75-led-halo {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; height: 100%;
+    border: 2px solid var(--v75-yellow);
+    border-radius: 16px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.v75-led-node.led-active .v75-led-halo {
+    animation: v75-halo-ripple 1.5s infinite ease-out;
+}
+
+@keyframes v75-halo-ripple {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0; }
+}
+
+/* Interactive binary decoded value bubble */
+.v75-decoded-bubble {
+    position: absolute;
+    top: -45px;
+    left: 0; right: 0;
+    margin: 0 auto;
+    width: fit-content;
+    background: var(--v75-yellow);
+    border-radius: 8px;
+    padding: 6px 12px;
+    color: #000;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: monospace;
+    opacity: 0;
+    transition: opacity 0.25s, transform 0.25s;
+    transform: translateY(10px);
+    white-space: nowrap;
+    z-index: 20;
+}
+
+.v75-decoded-bubble.show-dec {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* SVG Connection wires */
+.v75-binary-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.v75-wire-line {
+    fill: none;
+    stroke: #475569; /* Brighter slate grey for visibility when off */
+    stroke-width: 4px;
+    transition: stroke 0.3s, stroke-width 0.3s;
+}
+
+.v75-wire-line.wire-active {
+    stroke: var(--v75-green);
+    stroke-width: 5px;
+}
+
+/* Flowing electron particle dots */
+.v75-electron-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--v75-green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--v75-green);
+    opacity: 0;
+    z-index: 5;
+}
+
+/* ── SLIDE 3: GRID WASTED SPACE ────────────────────────────────────────────── */
+.v75-wasted-board {
+    width: 800px;
+    height: 750px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: none;
+    backdrop-filter: none;
+    margin-top: 90px;
+    position: relative;
+    overflow: visible;
+}
+
+.v75-cell-grid {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    gap: 8px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.v75-grid-cell {
+    width: 100%;
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.v75-grid-cell.cell-usable {
+    background: var(--v75-cyan);
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+}
+
+.v75-grid-cell.cell-wasted {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: var(--v75-red);
+    animation: v75-glitch-flicker 2s infinite alternate;
+}
+
+@keyframes v75-glitch-flicker {
+    0%, 100% { background: rgba(239, 68, 68, 0.15); }
+    50% { background: rgba(239, 68, 68, 0.35); box-shadow: inset 0 0 8px var(--v75-red); }
+}
+
+.v75-wasted-overlay {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.95), #b91c1c);
+    border: 2.5px solid #fff;
+    border-radius: 20px;
+    padding: 24px 48px;
+    color: #fff;
+    font-family: monospace;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 0 40px var(--v75-red);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    z-index: 20;
+    text-align: center;
+}
+
+.v75-wasted-overlay.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ── SLIDE 4: OVER-PROVISIONING ─────────────────────────────────────────────── */
+.v75-prov-board {
+    width: 800px;
+    height: 750px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: none;
+    backdrop-filter: none;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: visible;
+}
+
+.v75-chip-container {
+    flex: 1;
+    width: 100%;
+    background: #090d16;
+    border: 2px dashed rgba(255,255,255,0.08);
+    border-radius: 28px;
+    margin: 20px 0;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.v75-partition {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: width 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+}
+
+.v75-partition.part-usable {
+    width: 100%;
+    background: linear-gradient(to right, rgba(6, 182, 212, 0.05), rgba(6, 182, 212, 0.15));
+    border-right: 3px solid var(--v75-cyan);
+}
+
+.v75-partition.part-spare {
+    width: 0%;
+    background: linear-gradient(to right, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.3));
+    overflow: hidden;
+}
+
+.v75-partition-lbl {
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.v75-partition-desc {
+    font-size: 16px;
+    color: #64748b;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.v75-barrier-laser {
+    position: absolute;
+    top: 0; bottom: 0; right: -2px;
+    width: 4px;
+    background: var(--v75-yellow);
+    box-shadow: 0 0 15px var(--v75-yellow);
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 10;
+}
+
+.v75-barrier-laser.show {
+    opacity: 1;
+}
+
+.v75-shield-icon {
+    font-size: 80px;
+    color: var(--v75-green);
+    filter: drop-shadow(0 0 20px var(--v75-green));
+    opacity: 0;
+    transform: scale(0.6);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-top: 15px;
+    position: relative;
+}
+
+/* Floating repair nodes representing block optimization */
+.v75-repair-sparkle {
+    position: absolute;
+    font-size: 22px;
+    color: var(--v75-green);
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* ── FLOATING CURSOR ────────────────────────────────────────────────────────── */
+.v75-cursor {
+    position: absolute;
+    top: 375px;
+    left: 410px;
+    transform: translate(-50%, -50%);
+    font-size: 44px;
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 0.25s, transform 0.25s ease-out;
+}
+
+/* ── SLIDE 5: VERTICAL FLOATING SUMMARY CARDS ────────────────────────────────── */
+.v75-summary-container {
+    width: 680px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 140px;
+    z-index: 10;
+}
+
+.v75-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    padding: 45px 50px;
+    min-height: 220px;
+    box-sizing: border-box;
+    background: rgba(15, 23, 42, 0.75);
+    border: 2.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    backdrop-filter: blur(20px);
+    transition: all 0.4s ease;
+    position: relative;
+    opacity: 1; /* Always visible */
+    transform: translateY(0); /* Static layout */
+}
+
+.v75-summary-card.focus-off {
+    filter: grayscale(1) opacity(0.25) !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: none !important;
+}
+
+.v75-summary-card#v75-sum-1 {
+    border-color: rgba(6, 182, 212, 0.15);
+}
+
+.v75-summary-card#v75-sum-1.active-sum {
+    border-color: var(--v75-cyan);
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.2);
+}
+
+.v75-summary-card#v75-sum-2 {
+    border-color: rgba(234, 179, 8, 0.15);
+}
+
+.v75-summary-card#v75-sum-2.active-sum {
+    border-color: var(--v75-yellow);
+    box-shadow: 0 0 25px rgba(234, 179, 8, 0.2);
+}
+
+.v75-sum-icon {
+    font-size: 90px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
+}
+
+.v75-sum-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.v75-sum-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.v75-summary-card#v75-sum-1.active-sum .v75-sum-title {
+    color: var(--v75-cyan);
+}
+
+.v75-summary-card#v75-sum-2.active-sum .v75-sum-title {
+    color: var(--v75-yellow);
+}
+
+.v75-sum-desc {
+    font-size: 18px;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+
+/* ── SLIDE 2: POWERS OF 2 MATH FORMULAS ───────────────────────────────────────── */
+.v75-math-board {
+    width: 800px;
+    height: 750px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: none;
+    backdrop-filter: none;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.v75-formula-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 620px;
+}
+
+.v75-formula-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    font-family: monospace;
+    font-size: 32px;
+    font-weight: bold;
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+.v75-formula-item span:first-child {
+    color: #8b5cf6;
+}
+
+.v75-formula-item span:last-child {
+    color: #94a3b8;
+}
+
+.v75-formula-item.active-formula {
+    background: rgba(139, 92, 246, 0.06);
+    border-color: #8b5cf6;
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.2);
+}
+
+.v75-formula-item.active-formula span:first-child {
+    color: #a78bfa;
+    text-shadow: 0 0 10px rgba(167, 139, 250, 0.6);
+}
+
+.v75-formula-item.active-formula span:last-child {
+    color: #fff;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.v75-formula-item.focus-off {
+    filter: grayscale(1) opacity(0.2) !important;
+    border-color: rgba(255, 255, 255, 0.03) !important;
+    box-shadow: none !important;
+}
+
+/* ── TRANSPARENT BORDERLESS BOARD OVERRIDES ─────────────────────────────────── */
+.v75-cards-board,
+.v75-math-board,
+.v75-binary-board,
+.v75-wasted-board,
+.v75-prov-board {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+
+

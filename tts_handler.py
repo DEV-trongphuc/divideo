@@ -37,8 +37,9 @@ def init_voxcpm(checkpoint_dir="./checkpoints/VoxCPM"):
         import torch
         # Auto detect GPU: prefer CUDA (RTX cards) over CPU
         device_override = "cuda" if torch.cuda.is_available() else "cpu"
-        # Enable denoiser (audio cleaner) if CUDA is available for higher quality
-        enable_denoiser = torch.cuda.is_available()
+        # Disable ZipEnhancer model loading to save massive RAM and GPU memory.
+        # Fallback python spectral subtraction will be used instead.
+        enable_denoiser = False
         
         print(f"[+] VoxCPM config: device={device_override}, denoiser={enable_denoiser}")
         voxcpm_model = VoxCPM(
@@ -152,12 +153,17 @@ def normalize_text_for_tts(text):
 def simple_spectral_denoise(file_path):
     """Pure Python spectral subtraction noise reduction (no external DLL dependencies)."""
     import soundfile as sf
-    import librosa
     import scipy.signal
     import numpy as np
 
-    # Load audio at 16000Hz mono
-    audio, sr = librosa.load(file_path, sr=16000, mono=True)
+    # Load audio using soundfile instead of librosa
+    audio, sr = sf.read(file_path)
+    if audio.ndim > 1:
+        audio = audio.mean(axis=1)
+    if sr != 16000:
+        num_samples = int(len(audio) * 16000 / sr)
+        audio = scipy.signal.resample(audio, num_samples)
+        sr = 16000
     
     # Compute Short-Time Fourier Transform (STFT)
     f, t, Zxx = scipy.signal.stft(audio, fs=sr, nperseg=512)
@@ -195,9 +201,9 @@ def ensure_voice_cache(reference_audio_path):
         
     try:
         import soundfile as sf
-        import librosa
         import torch
         import shutil
+        import scipy.signal
         
         denoised_ok = False
         global voxcpm_model
@@ -240,13 +246,19 @@ def ensure_voice_cache(reference_audio_path):
             print(f"[+] Slicing reference audio {reference_audio_path} to first 10 seconds...")
             data = data[:num_samples]
             sf.write(reference_audio_path, data, samplerate)
+            
         if voxcpm_model is not None and hasattr(voxcpm_model, 'tts_model'):
             model = voxcpm_model.tts_model
             audio_vae = getattr(model, "audio_vae", None)
             if audio_vae is not None:
                 print(f"[+] Encoding reference audio using initialized AudioVAE...")
-                audio, sr = librosa.load(reference_audio_path, sr=16000, mono=True)
-                audio_tensor = torch.from_numpy(audio).unsqueeze(0).to(model.device)
+                audio = data
+                sr = samplerate
+                if sr != 16000:
+                    num_samples_res = int(len(audio) * 16000 / sr)
+                    audio = scipy.signal.resample(audio, num_samples_res)
+                    
+                audio_tensor = torch.from_numpy(audio).float().unsqueeze(0).to(model.device)
                 
                 patch_size = getattr(model, "patch_size", 4)
                 chunk_size = getattr(audio_vae, "chunk_size", 16)
