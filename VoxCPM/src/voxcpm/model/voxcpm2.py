@@ -1119,6 +1119,42 @@ class VoxCPM2Model(nn.Module):
         with open(os.path.join(path, "config.json"), "r", encoding="utf-8") as _cfg_f:
             config = VoxCPMConfig.model_validate_json(_cfg_f.read())
         tokenizer = LlamaTokenizerFast.from_pretrained(path)
+        # 1. Load VAE and Model weights on CPU first to avoid virtual memory and safe_open conflicts
+        audiovae_safetensors_path = os.path.join(path, "audiovae.safetensors")
+        audiovae_pth_path = os.path.join(path, "audiovae.pth")
+        if os.path.exists(audiovae_safetensors_path) and SAFETENSORS_AVAILABLE:
+            print(f"Loading AudioVAE from safetensors: {audiovae_safetensors_path}", file=sys.stderr)
+            vae_state_dict = load_file(audiovae_safetensors_path, device="cpu")
+        elif os.path.exists(audiovae_pth_path):
+            print(f"Loading AudioVAE from pytorch: {audiovae_pth_path}", file=sys.stderr)
+            checkpoint = torch.load(
+                audiovae_pth_path,
+                map_location="cpu",
+                weights_only=True,
+            )
+            vae_state_dict = checkpoint.get("state_dict", checkpoint)
+        else:
+            raise FileNotFoundError(
+                f"AudioVAE checkpoint not found. Expected either {audiovae_safetensors_path} or {audiovae_pth_path}"
+            )
+
+        safetensors_path = os.path.join(path, "model.safetensors")
+        pytorch_model_path = os.path.join(path, "pytorch_model.bin")
+        if os.path.exists(safetensors_path) and SAFETENSORS_AVAILABLE:
+            print(f"Loading model from safetensors: {safetensors_path}", file=sys.stderr)
+            model_state_dict = load_file(safetensors_path, device="cpu")
+        elif os.path.exists(pytorch_model_path):
+            print(f"Loading model from pytorch_model.bin: {pytorch_model_path}", file=sys.stderr)
+            checkpoint = torch.load(
+                pytorch_model_path,
+                map_location="cpu",
+                weights_only=True,
+            )
+            model_state_dict = checkpoint.get("state_dict", checkpoint)
+        else:
+            raise FileNotFoundError(f"Model file not found. Expected either {safetensors_path} or {pytorch_model_path}")
+
+        # 2. Set default device to GPU and default dtype to bfloat16/float16
         resolved_device = resolve_runtime_device(device, config.device)
         lm_dtype = get_dtype(config.dtype)
         
@@ -1137,26 +1173,8 @@ class VoxCPM2Model(nn.Module):
             torch.set_default_dtype(prev_dtype)
             if resolved_device == "cuda" and hasattr(torch, "set_default_device"):
                 torch.set_default_device(prev_device)
-        # Try to load AudioVAE from safetensors first, fallback to pytorch
-        audiovae_safetensors_path = os.path.join(path, "audiovae.safetensors")
-        audiovae_pth_path = os.path.join(path, "audiovae.pth")
-        if os.path.exists(audiovae_safetensors_path) and SAFETENSORS_AVAILABLE:
-            print(f"Loading AudioVAE from safetensors: {audiovae_safetensors_path}", file=sys.stderr)
-            vae_state_dict = load_file(audiovae_safetensors_path, device="cpu")
-        elif os.path.exists(audiovae_pth_path):
-            print(f"Loading AudioVAE from pytorch: {audiovae_pth_path}", file=sys.stderr)
-            checkpoint = torch.load(
-                audiovae_pth_path,
-                map_location="cpu",
-                weights_only=True,
-            )
-            vae_state_dict = checkpoint.get("state_dict", checkpoint)
-        else:
-            raise FileNotFoundError(
-                f"AudioVAE checkpoint not found. Expected either {audiovae_safetensors_path} or {audiovae_pth_path}"
-            )
+
         if not training:
-            lm_dtype = get_dtype(model.config.dtype)
             model = model.to(device=model.device, dtype=lm_dtype)
         else:  # training mode
             model = model.to(model.device)
@@ -1167,15 +1185,11 @@ class VoxCPM2Model(nn.Module):
                 if lora_config is not None:
                     if "lora" not in name:  # freeze non-LoRA weights
                         param.requires_grad = False
-        model.audio_vae = model.audio_vae.to(device=model.device, dtype=torch.float32)
+                        continue
+        model.audio_vae = model.audio_vae.to(device=model.device, dtype=lm_dtype)
 
-        # Try to load from safetensors first, fallback to pytorch_model.bin
-        safetensors_path = os.path.join(path, "model.safetensors")
-        pytorch_model_path = os.path.join(path, "pytorch_model.bin")
-
+        # 3. Copy weights layer-by-layer, popping and freeing CPU memory immediately
         model_state = model.state_dict()
-
-        # 1. Load and copy VAE weights first
         with torch.no_grad():
             for kw in list(vae_state_dict.keys()):
                 val = vae_state_dict.pop(kw)
@@ -1185,41 +1199,17 @@ class VoxCPM2Model(nn.Module):
                 del val
             vae_state_dict.clear()
             del vae_state_dict
-            import gc
-            gc.collect()
 
-        # 2. Open safetensors with safe_open and copy one-by-one
-        if os.path.exists(safetensors_path) and SAFETENSORS_AVAILABLE:
-            print(f"Streaming model from safetensors: {safetensors_path}", file=sys.stderr)
-            from safetensors import safe_open
-            with safe_open(safetensors_path, framework="pt", device="cpu") as f:
-                with torch.no_grad():
-                    for name in f.keys():
-                        val = f.get_tensor(name)
-                        if name in model_state:
-                            model_state[name].copy_(val.to(device=model_state[name].device, dtype=model_state[name].dtype))
-                        del val
-        elif os.path.exists(pytorch_model_path):
-            print(f"Loading model from pytorch_model.bin: {pytorch_model_path}", file=sys.stderr)
-            checkpoint = torch.load(
-                pytorch_model_path,
-                map_location="cpu",
-                weights_only=True,
-            )
-            model_state_dict = checkpoint.get("state_dict", checkpoint)
-            # Copy weights to model state_dict directly to save CPU memory peak
-            with torch.no_grad():
-                for name in list(model_state_dict.keys()):
-                    val = model_state_dict.pop(name)
-                    if name in model_state:
-                        model_state[name].copy_(val.to(device=model_state[name].device, dtype=model_state[name].dtype))
-                    del val
+            for name in list(model_state_dict.keys()):
+                val = model_state_dict.pop(name)
+                if name in model_state:
+                    model_state[name].copy_(val.to(device=model_state[name].device, dtype=model_state[name].dtype))
+                del val
             model_state_dict.clear()
             del model_state_dict
+            
             import gc
             gc.collect()
-        else:
-            raise FileNotFoundError(f"Model file not found. Expected either {safetensors_path} or {pytorch_model_path}")
         
         if training:
             return model
