@@ -62,7 +62,7 @@
                         </div>
                         <!-- Message 2: Genuine -->
                         <div class="v74-sms-bubble incoming" style="animation: v74-fade-up 0.5s forwards 0.3s; animation-fill-mode: both;">
-                            Ma OTP cua quy khach la 495028. Hieu luc trong 3 phut.
+                            Ma OTP cua quy khach la <span class="v74-otp-blur">495028</span>. Hieu luc trong 3 phut.
                         </div>
                         <!-- Message 3: Fake Phishing Link -->
                         <div class="v74-sms-bubble incoming phishing" id="v74-sms-phish">
@@ -77,30 +77,64 @@
         else if (slideId === 'slide_sms_imsi_catcher') {
             canvas.innerHTML = sceneWrap(`
                 <div class="v74-imsi-board">
+                    <!-- Status Header Badge -->
+                    <div class="v74-status-badge secure" id="v74-imsi-status">AN TOÀN: ĐANG KẾT NỐI TRẠM THẬT</div>
+
                     <div class="v74-imsi-grid">
                         <!-- Left: Real Cellular Tower -->
                         <div class="v74-station-node real">
-                            <div class="v74-station-icon">🗼</div>
+                            <div class="v74-antenna-mast-g">
+                                <div class="v74-tower-base"></div>
+                                <div class="v74-tower-body"></div>
+                                <div class="v74-tower-emitter"></div>
+                                <div class="v74-signal-ring s1"></div>
+                                <div class="v74-signal-ring s2"></div>
+                                <div class="v74-signal-ring s3"></div>
+                            </div>
                             <div class="v74-station-label">Trạm Thật (Vina/Viettel)</div>
                         </div>
 
                         <!-- Center: Victim's Smartphone -->
-                        <div class="v74-center-phone" id="v74-victim-phone">📱</div>
+                        <div class="v74-victim-phone-device" id="v74-victim-phone">
+                            <div class="v74-phone-notch-g"></div>
+                            <div class="v74-phone-screen-g">
+                                <div class="v74-phone-sim-status">
+                                    <span class="v74-phone-sim-carrier" id="v74-sim-carrier-name">RealNet</span>
+                                    <span class="v74-phone-sim-bars" id="v74-sim-bars-icon" style="color: var(--v74-cyan)">📶</span>
+                                </div>
+                                <div class="v74-phone-inner-content">
+                                    <div class="v74-phone-lock-icon" id="v74-phone-lock-status">🔒</div>
+                                    <div class="v74-phone-slide-text" id="v74-phone-conn-status" style="color: var(--v74-cyan)">Đã kết nối</div>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Right: Hacker Catcher (Rogue base station) -->
                         <div class="v74-station-node fake">
-                            <div class="v74-station-icon">🚗📶
-                                <div class="v74-pulse-wave w1" style="top:20px; left:20px;"></div>
-                                <div class="v74-pulse-wave w2" style="top:20px; left:20px;"></div>
+                            <div class="v74-hacker-vehicle-g">
+                                <div class="v74-hacker-car">
+                                    <div class="v74-car-cabin"></div>
+                                    <div class="v74-car-chassis">
+                                        <div class="v74-car-wheel w-left"></div>
+                                        <div class="v74-car-wheel w-right"></div>
+                                    </div>
+                                    <div class="v74-car-antenna-pole">
+                                        <div class="v74-car-dish">📡</div>
+                                    </div>
+                                </div>
+                                <!-- Expanding threat pulses -->
+                                <div class="v74-threat-wave tw1" id="v74-wave-1"></div>
+                                <div class="v74-threat-wave tw2" id="v74-wave-2"></div>
+                                <div class="v74-threat-wave tw3" id="v74-wave-3"></div>
                             </div>
                             <div class="v74-station-label">Trạm Giả (IMSI Catcher)</div>
                         </div>
                     </div>
 
-                    <!-- SVG Connection Lines -->
+                    <!-- SVG Connection Lines (Adjusted Y to 300 for height 600px) -->
                     <svg class="v74-line-svg">
-                        <line class="v74-connection-line real-line" id="v74-line-real" x1="400" y1="375" x2="150" y2="375" />
-                        <line class="v74-connection-line fake-line" id="v74-line-fake" x1="400" y1="375" x2="650" y2="375" />
+                        <line class="v74-connection-line real-line" id="v74-line-real" x1="400" y1="300" x2="160" y2="300" />
+                        <line class="v74-connection-line fake-line" id="v74-line-fake" x1="400" y1="300" x2="640" y2="300" />
                     </svg>
 
                     <!-- Moving packet flow along lines -->
@@ -162,8 +196,8 @@
 
                     <!-- Laser beam paths for matching -->
                     <svg class="v74-compare-laser-svg">
-                        <line class="v74-match-laser left-laser" id="v74-laser-l" x1="230" y1="135" x2="400" y2="135" />
-                        <line class="v74-match-laser right-laser" id="v74-laser-r" x1="570" y1="135" x2="400" y2="135" />
+                        <line class="v74-match-laser left-laser" id="v74-laser-l" x1="230" y1="210" x2="400" y2="210" />
+                        <line class="v74-match-laser right-laser" id="v74-laser-r" x1="570" y1="210" x2="400" y2="210" />
                     </svg>
 
                     <div class="v74-compare-row">
@@ -296,55 +330,178 @@
             const lineReal = canvas.querySelector('#v74-line-real');
             const lineFake = canvas.querySelector('#v74-line-fake');
             const phone = canvas.querySelector('#v74-victim-phone');
-            const waves = canvas.querySelectorAll('.v74-pulse-wave');
+            const carrierName = canvas.querySelector('#v74-sim-carrier-name');
+            const barsIcon = canvas.querySelector('#v74-sim-bars-icon');
+            const lockStatus = canvas.querySelector('#v74-phone-lock-status');
+            const connStatus = canvas.querySelector('#v74-phone-conn-status');
+            const waves = canvas.querySelectorAll('.v74-threat-wave');
+            const realRings = canvas.querySelectorAll('.v74-signal-ring');
+            const statusBadge = canvas.querySelector('#v74-imsi-status');
             const packR = canvas.querySelector('#v74-packet-r');
             const packF = canvas.querySelector('#v74-packet-f');
 
-            if (progress < 0.45) {
-                // Connected to Real tower
+            if (progress < 0.35) {
+                // Phase 1a: Secure normal connection
+                if (statusBadge) {
+                    statusBadge.textContent = 'AN TOÀN: ĐANG KẾT NỐI TRẠM THẬT';
+                    statusBadge.className = 'v74-status-badge secure';
+                }
                 if (lineReal) {
                     lineReal.style.opacity = '1';
                     lineReal.style.strokeWidth = '4px';
                 }
                 if (lineFake) lineFake.style.opacity = '0';
-                if (phone) phone.style.transform = 'translateX(-30px) scale(1)';
+                
+                if (phone) {
+                    phone.style.transform = 'translateX(-40px) scale(1)';
+                    phone.style.borderColor = 'var(--v74-cyan)';
+                    phone.style.boxShadow = '0 20px 40px rgba(0,0,0,0.6), 0 0 25px rgba(6, 182, 212, 0.4)';
+                }
+                
+                if (carrierName) carrierName.textContent = 'VinaPhone';
+                if (barsIcon) {
+                    barsIcon.textContent = '📶';
+                    barsIcon.style.color = 'var(--v74-cyan)';
+                }
+                if (lockStatus) lockStatus.textContent = '🔒';
+                if (connStatus) {
+                    connStatus.textContent = 'ĐÃ KẾT NỐI';
+                    connStatus.style.color = 'var(--v74-cyan)';
+                }
+                
                 waves.forEach(w => w.style.display = 'none');
+                realRings.forEach(r => {
+                    r.style.display = 'block';
+                    r.style.opacity = '1';
+                });
 
                 // Real packets traveling
                 if (packR) {
                     packR.style.opacity = '1';
                     const run = (progress * 6) % 1.0;
-                    packR.style.left = `${150 + run * 250}px`; // from x2 to x1
-                    packR.style.top = '368px';
+                    packR.style.left = `${160 + run * 200}px`; 
+                    packR.style.top = '293px';
+                }
+                if (packF) packF.style.opacity = '0';
+            }
+            else if (progress >= 0.35 && progress < 0.45) {
+                // Phase 1b: Rogue tower starts emitting waves to override signal
+                if (statusBadge) {
+                    statusBadge.textContent = 'CẢNH BÁO: TRẠM GIẢ ĐANG PHÁT SÓNG ĐÈ';
+                    statusBadge.className = 'v74-status-badge warning';
+                }
+                if (lineReal) {
+                    lineReal.style.opacity = '1';
+                    lineReal.style.strokeWidth = '4px';
+                }
+                if (lineFake) lineFake.style.opacity = '0';
+                
+                if (phone) {
+                    phone.style.transform = 'translateX(-40px) scale(1)';
+                    phone.style.borderColor = 'var(--v74-cyan)';
+                    phone.style.boxShadow = '0 20px 40px rgba(0,0,0,0.6), 0 0 25px rgba(6, 182, 212, 0.4)';
+                }
+                
+                if (carrierName) carrierName.textContent = 'VinaPhone';
+                if (barsIcon) {
+                    barsIcon.textContent = '📶';
+                    barsIcon.style.color = 'var(--v74-cyan)';
+                }
+                if (lockStatus) lockStatus.textContent = '🔒';
+                if (connStatus) {
+                    connStatus.textContent = 'SÓNG YẾU...';
+                    connStatus.style.color = 'var(--v74-yellow)';
+                }
+                
+                // Show rogue waves clashing
+                waves.forEach(w => w.style.display = 'block');
+                realRings.forEach(r => {
+                    r.style.display = 'block';
+                    r.style.opacity = '0.5'; // weakening
+                });
+
+                // Real packets traveling slower/fading
+                if (packR) {
+                    packR.style.opacity = '0.6';
+                    const run = (progress * 6) % 1.0;
+                    packR.style.left = `${160 + run * 200}px`; 
+                    packR.style.top = '293px';
                 }
                 if (packF) packF.style.opacity = '0';
             }
             else if (progress >= 0.45 && progress < 0.55) {
-                // Snapping / Shaking transition
+                // Phase 2: Searching / Shaking transition
+                if (statusBadge) {
+                    statusBadge.textContent = 'CẢNH BÁO: ĐIỆN THOẠI BỊ MẤT TÍN HIỆU';
+                    statusBadge.className = 'v74-status-badge warning';
+                }
                 const shake = (Math.floor(progress * 40) % 2 === 0) ? -6 : 6;
-                if (phone) phone.style.transform = `translateX(${shake}px) scale(1.05)`;
-                if (lineReal) lineReal.style.opacity = '0.3';
-                if (lineFake) lineFake.style.opacity = '0.3';
+                if (phone) {
+                    phone.style.transform = `translateX(${shake}px) scale(1.05)`;
+                    phone.style.borderColor = 'var(--v74-yellow)';
+                    phone.style.boxShadow = '0 20px 40px rgba(0,0,0,0.6), 0 0 25px rgba(234, 179, 8, 0.4)';
+                }
+                
+                if (carrierName) carrierName.textContent = 'Tìm mạng...';
+                if (barsIcon) {
+                    barsIcon.textContent = '📡';
+                    barsIcon.style.color = 'var(--v74-yellow)';
+                }
+                if (lockStatus) lockStatus.textContent = '⚠️';
+                if (connStatus) {
+                    connStatus.textContent = 'MẤT KẾT NỐI';
+                    connStatus.style.color = 'var(--v74-yellow)';
+                }
+                
+                if (lineReal) lineReal.style.opacity = '0.2';
+                if (lineFake) lineFake.style.opacity = '0.2';
                 if (packR) packR.style.opacity = '0';
                 if (packF) packF.style.opacity = '0';
+                
+                waves.forEach(w => w.style.display = 'block');
+                realRings.forEach(r => r.style.display = 'none');
             }
             else {
-                // Connected to Fake tower (red alert)
-                if (lineReal) lineReal.style.opacity = '0';
-                if (lineFake) {
-                    lineFake.style.opacity = '1';
-                    lineFake.style.strokeWidth = '6px';
+                // Phase 3: Hijacked by Rogue Station (red alert)
+                if (statusBadge) {
+                    statusBadge.textContent = 'NGUY HIỂM: ĐÃ BỊ KẾT NỐI VÀO TRẠM GIẢ';
+                    statusBadge.className = 'v74-status-badge danger';
                 }
-                if (phone) phone.style.transform = 'translateX(60px) scale(1)';
+                if (lineReal) {
+                    lineReal.style.opacity = '0';
+                    if (lineFake) {
+                        lineFake.style.opacity = '1';
+                        lineFake.style.strokeWidth = '6px';
+                    }
+                }
+                
+                if (phone) {
+                    phone.style.transform = 'translateX(60px) scale(1)';
+                    phone.style.borderColor = 'var(--v74-red)';
+                    phone.style.boxShadow = '0 20px 40px rgba(0,0,0,0.6), 0 0 25px rgba(239, 68, 68, 0.5)';
+                }
+                
+                if (carrierName) carrierName.textContent = 'Mạng lạ (GSM)';
+                if (barsIcon) {
+                    barsIcon.textContent = '📶';
+                    barsIcon.style.color = 'var(--v74-red)';
+                }
+                if (lockStatus) lockStatus.textContent = '🔓';
+                if (connStatus) {
+                    connStatus.textContent = 'KẾT NỐI KHÔNG AN TOÀN';
+                    connStatus.style.color = 'var(--v74-red)';
+                }
+                
                 waves.forEach(w => w.style.display = 'block');
+                realRings.forEach(r => r.style.display = 'none');
 
                 // Fake packets traveling
                 if (packR) packR.style.opacity = '0';
                 if (packF) {
                     packF.style.opacity = '1';
                     const run = ((progress - 0.55) * 6) % 1.0;
-                    packF.style.left = `${650 - run * 250}px`; // from x2 to x1
-                    packF.style.top = '368px';
+                    packF.style.left = `${640 - run * 200}px`; // from fake tower (640) to phone (440)
+                    packF.style.top = '293px'; // 300 - 7
                 }
             }
         }
@@ -520,7 +677,7 @@
                 if (progress >= 0.52 && progress < 0.72) {
                     const p = (progress - 0.52) / 0.2;
                     cursor.style.opacity = '1';
-                    cursor.style.transform = `translate(${180 - p * 180}px, ${220 - p * 220}px)`; // moves to confirm button
+                    cursor.style.transform = `translate(${180 - p * 180}px, ${150 - p * 150}px)`; // moves to confirm button (adjusted for compact cards)
                 } else if (progress >= 0.72 && progress < 0.85) {
                     cursor.style.opacity = '1';
                     cursor.style.transform = 'translate(0px, 0px) scale(0.95)'; // clicking

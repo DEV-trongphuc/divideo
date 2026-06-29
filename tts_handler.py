@@ -41,9 +41,8 @@ def init_voxcpm(checkpoint_dir="./checkpoints/VoxCPM"):
             torch.backends.cuda.matmul.allow_tf32 = True
             torch.backends.cudnn.allow_tf32 = True
             print("[+] Enabled TF32 (TensorFloat-32) for accelerated generation.")
-        # Disable ZipEnhancer model loading to save massive RAM and GPU memory.
-        # Fallback python spectral subtraction will be used instead.
-        enable_denoiser = False
+        # Enable denoiser (audio cleaner) if CUDA is available for higher quality
+        enable_denoiser = torch.cuda.is_available()
         
         print(f"[+] VoxCPM config: device={device_override}, denoiser={enable_denoiser}")
         voxcpm_model = VoxCPM(
@@ -380,7 +379,7 @@ def synthesize_audio(text, output_path, reference_audio_path=None, voice_prefere
                     else:
                         # Set 8 steps on GPU and CPU for balanced speed and quality
                         steps = 8
-                        denoise_flag = False  # Bypassed post-denoiser since the cached .pt file is already pre-denoised
+                        denoise_flag = torch.cuda.is_available()  # Enable denoising if CUDA is available for higher quality
                         print(f"[+] VoxCPM generating with timesteps={steps}, denoise={denoise_flag}")
                         
                         audio_array = voxcpm_model.generate(

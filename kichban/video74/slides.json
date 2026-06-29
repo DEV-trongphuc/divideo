@@ -7,12 +7,12 @@
     "script": "Một ngày đẹp trời, bạn nhận được tin nhắn từ ngân hàng yêu cầu nhấp vào link để xác thực tài khoản. Điều kinh khủng là tin nhắn này nằm chung một hộp thoại với các tin nhắn thật trước đó. Tại sao kẻ xấu làm được điều này?",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 14.0,
+    "audioPath": "/kichban/video74/mp3/slide_sms_hook.mp3",
+    "duration": 13.2,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "7ae1fe054dd7efc2c4de1f4b5a21ac3c"
   },
   {
     "id": "slide_sms_imsi_catcher",
@@ -22,12 +22,12 @@
     "script": "Kẻ xấu sử dụng một bộ thiết bị phát sóng di động giả mạo chuyên dụng. Nó phát ra sóng vô tuyến cực mạnh để đè lên sóng của trạm viễn thông thật xung quanh, lừa điện thoại của bạn tự động kết nối vào nó.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 13.5,
+    "audioPath": "/kichban/video74/mp3/slide_sms_imsi_catcher.mp3",
+    "duration": 11.11,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "6ff29b91bcfab6476dc87f0d78b86cfd"
   },
   {
     "id": "slide_sms_transmission",
@@ -37,12 +37,12 @@
     "script": "Giao thức mạng GSM truyền thống không có cơ chế xác thực nguồn gửi. Kẻ xấu có thể tự do điền bất kỳ chữ nào vào ô Người gửi (Sender ID) - ví dụ như chữ Vietcombank - rồi phát thẳng tới điện thoại của bạn.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 14.0,
+    "audioPath": "/kichban/video74/mp3/slide_sms_transmission.mp3",
+    "duration": 11.76,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "5a674f884ebcd0f907129d8c22e07d67"
   },
   {
     "id": "slide_sms_grouping",
@@ -52,27 +52,27 @@
     "script": "Khi nhận tin nhắn, hệ điều hành điện thoại chỉ đơn giản so khớp chuỗi ký tự tên người gửi. Thấy chữ Vietcombank, nó tự động gom tin nhắn giả này vào luồng tin nhắn thật chứa các OTP trước đó.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 13.5,
+    "audioPath": "/kichban/video74/mp3/slide_sms_grouping.mp3",
+    "duration": 11.42,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "64aa38e398001eb7d0622431b315f559"
   },
   {
     "id": "slide_sms_prevention",
     "layout": "custom",
     "title": "Phòng Thủ Thông Minh:<br>Chuyển Sang Smart OTP Trên App",
     "subtitle": "🛡️ ACTIVE PRIVACY • APP-BASED MULTI-FACTOR AUTH",
-    "script": "Để tự bảo vệ, tuyệt đối không bao giờ nhấp vào link trong tin nhắn SMS. Hãy chuyển sang sử dụng Smart OTP xác thực ngay trên ứng dụng ngân hàng chính thức thay vì dựa vào mã OTP gửi qua SMS truyền thống.",
+    "script": "Để tự bảo vệ, tuyệt đối không bao giờ nhấp vào link trong tin nhắn SMS. Hãy sử dụng Smart OTP hoặc chỉ dùng tin nhắn để nhận mã OTP và tuyệt đối không chia sẻ cho bất kỳ ai. Ngân hàng không gửi bất kỳ đường link lạ nào ngoài các đường link chính thức, và bạn tuyệt đối không nhấp vào bất kỳ đường link nào khi không phải bạn đang chủ động giao dịch hoặc có sự hướng dẫn từ nhân viên ngân hàng.",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 14.5,
+    "audioPath": "/kichban/video74/mp3/slide_sms_prevention.mp3",
+    "duration": 22.15,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "9d0c5ab5b1bd6fa349331d9d77cb53bc"
   },
   {
     "id": "slide_sms_outro",
@@ -82,11 +82,11 @@
     "script": "Hãy cảnh giác với mọi tin nhắn khẩn cấp. Nhớ tim, chia sẻ và Follow kênh Turnio chấm dev để cùng nâng cao cảnh giác và học thêm nhiều kiến thức công nghệ hữu ích nhé!",
     "voice": "google-vi-VN-Neural2-D",
     "refVoice": "default_voxcpm",
-    "audioPath": "",
-    "duration": 11.0,
+    "audioPath": "/kichban/video74/mp3/slide_sms_outro.mp3",
+    "duration": 9.84,
     "cards": [],
     "code": "",
     "diagram": [],
-    "scriptHash": ""
+    "scriptHash": "c77c88e2f4b4e223f64c35bdbe367350"
   }
 ]
