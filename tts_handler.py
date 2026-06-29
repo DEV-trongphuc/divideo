@@ -131,6 +131,8 @@ def normalize_text_for_tts(text):
     text = re.sub(r'\bQR\s*Code\b', 'Quy Rờ Code', text, flags=re.IGNORECASE)
     text = re.sub(r'\bQR\b', 'Quy Rờ', text, flags=re.IGNORECASE)
     text = re.sub(r'\bQ\s+R\b', 'Quy Rờ', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bXSS\b', 'X S S', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bhttponly\b', 'HTTP only', text, flags=re.IGNORECASE)
     
     # Levels (Cấp độ L/M/Q/H or Cấp độ sửa lỗi L/M/Q/H)
     def replace_level(match):
