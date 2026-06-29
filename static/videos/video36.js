@@ -753,7 +753,7 @@
     // ── PUBLIC API ─────────────────────────────────────────────────────────────
     window.VideoPlugin = {
         scriptName: 'video36',
-        topic: 'Tại sao Facebook biết bạn mới gặp ai?',
+        topic: 'Facebook biết bạn gặp ai?',
         episodeNum: 36,
         customSlideIds: customSlideIds,
         keywordsData: keywordsData,

@@ -1814,13 +1814,13 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
         statusText = 'Playing';
         codeOutput = '';
     }
-    // Sync simulation voice script to the bottom subtitle box    // Sync simulation voice script to the bottom subtitle box
+    // Sync simulation voice script to the bottom subtitle box
     const subtitleBox = document.getElementById('canvas-subtitle-box');
     if (subtitleBox) {
         if (slide.script) {
             const duration = getSlideDuration(slide);
-            // Introduce a 0.3s lead time so subtitles appear slightly ahead of narration
-            const activeChunk = getActiveSubtitleChunk(slide.script, animTime + 0.3, duration);
+            // If playing, use active chunk by elapsed time. If paused/idle, show the full script!
+            const activeChunk = isPlaying ? getActiveSubtitleChunk(slide.script, animTime + 0.3, duration) : slide.script;
             let scriptHTML = formatSubtitleHTML(activeChunk);
             // Highlight keywords in bottom subtitle script directly from plugin data
             if (window.VideoPlugin && window.VideoPlugin.keywordsData && window.VideoPlugin.keywordsData[slide.id]) {
@@ -1828,7 +1828,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
                 const isFirstSlide = (slideIndex === 0);
                 if (!isFirstSlide) {
                     window.VideoPlugin.keywordsData[slide.id].forEach(kw => {
-                        const isActive = animTime >= kw.start && animTime <= kw.end;
+                        const isActive = isPlaying ? (animTime >= kw.start && animTime <= kw.end) : true; // Highlight all keywords when paused/idle
                         if (kw.text) {
                             const escText = kw.text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
                             const re = new RegExp('(' + escText + ')', 'gi');
@@ -4364,15 +4364,26 @@ function playSlideAudio(slideIdx) {
     }
     let audioPlayedSuccessfully = false;
     let audioFailed = false;
+
+    // Safety timeout: if audio doesn't start within 1.5s, fall back to silent play
+    const audioTimeout = setTimeout(() => {
+        if (slide.audioPath && !audioPlayedSuccessfully) {
+            console.warn("Audio load timeout, falling back to silent play");
+            audioFailed = true;
+        }
+    }, 1500);
+
     // Check if generated audio exists
     if (slide.audioPath) {
         currentAudioElement.src = slide.audioPath + "?t=" + new Date().getTime();
         currentAudioElement.load();
         currentAudioElement.play().then(() => {
             audioPlayedSuccessfully = true;
+            clearTimeout(audioTimeout);
         }).catch(e => {
             console.warn("Audio play failed, playing silently:", e);
             audioFailed = true;
+            clearTimeout(audioTimeout);
         });
         currentAudioElement.onended = () => {
             if (isPlaying && currentSlideIndex === slideIdx) {
