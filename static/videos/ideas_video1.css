@@ -1,0 +1,1384 @@
+/* IDEAS Theme & Simulation Stylesheets */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --ideas-primary: #b31400;
+    --ideas-primary-dark: #8c1000;
+    --ideas-primary-light: #ab0e00;
+    --ideas-navy: #111729;
+    --ideas-navy-dark: #090d16;
+    --ideas-gold: #ffffff;
+    --ideas-gold-light: #ffffff;
+    
+    --ideas-grad-primary: linear-gradient(135deg, #8c1000 0%, #ab0e00 100%);
+    --ideas-grad-navy: linear-gradient(135deg, #111729 0%, #090d16 100%);
+    --ideas-grad-gold: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+    
+    --ideas-bg-glass: rgba(17, 23, 41, 0.85);
+    --ideas-border-glass: rgba(255, 255, 255, 0.15);
+    --ideas-border-glow: rgba(255, 255, 255, 0.35);
+}
+
+/* Force canvas red background gradient */
+#tiktok-canvas {
+    background: radial-gradient(circle at center, #700c00 0%, #150200 100%) !important;
+}
+
+/* --- Spacing & Container Shifts (from AGENTS.md rules) --- */
+.ideas-zoom-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* start at the top */
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+}
+
+.ideas-scene-content {
+    margin-top: 140px; /* shift mockups/cards 140px down from the top edge */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    overflow: visible;
+}
+
+/* Header Overrides */
+.ideas-zoom-container .sim-scene-header {
+    margin-top: -55px !important; /* shift the header text up */
+    margin-bottom: 25px !important;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+}
+
+.ideas-zoom-container .sim-scene-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 34px !important;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 5px 0 0 0;
+    letter-spacing: -0.5px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.ideas-label-accent {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ideas-gold-light);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ideas-label-accent i {
+    width: 18px;
+    height: 18px;
+}
+
+/* --- Slide 1: INTRO (Full-bleed & Badges) --- */
+.intro-container .ideas-scene-content {
+    margin-top: 200px;
+}
+
+.ideas-intro-bg-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.ideas-intro-bg-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.45;
+}
+
+.ideas-intro-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(20, 2, 2, 0.94) 0%, rgba(120, 12, 0, 0.55) 50%, rgba(20, 2, 2, 0.98) 100%);
+    z-index: 2;
+}
+
+.ideas-intro-card {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 650px; /* within mockup limits */
+    background: rgba(17, 23, 41, 0.85);
+    border: 2px solid rgba(179, 20, 0, 0.35);
+    border-radius: 28px;
+    padding: 45px 35px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+}
+
+.ideas-logo-badge {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+    background: var(--ideas-primary);
+    padding: 6px 16px;
+    border-radius: 99px;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 10px rgba(179, 20, 0, 0.35);
+}
+
+.ideas-brand-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 35px 0;
+}
+
+.ideas-logo-wrap {
+    width: 130px;
+    height: 130px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+
+.ideas-logo-wrap img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.ideas-logo-connector {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--ideas-gold-light);
+}
+
+.ideas-glow-red {
+    box-shadow: 0 0 25px rgba(179, 20, 0, 0.5);
+    border: 3px solid var(--ideas-primary);
+}
+
+.ideas-glow-gold {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    border: 3px solid var(--ideas-gold);
+}
+
+.ideas-hero-headings h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+}
+
+.ideas-title-glow {
+    background: linear-gradient(to right, #ffffff, #ffb3aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ideas-hero-headings p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ideas-gold-light);
+    letter-spacing: 2.5px;
+}
+
+/* Floating side badges (positioned using top to prevent overlap) */
+.ideas-floating-badge {
+    position: absolute;
+    background: linear-gradient(135deg, #b31400 0%, #d81e06 100%);
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    padding: 10px 24px;
+    border-radius: 99px;
+    box-shadow: 0 10px 25px rgba(179, 20, 0, 0.5);
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ideas-floating-badge.fb-left { left: 6%; }
+.ideas-floating-badge.fb-right { right: 6%; }
+#fb-badge-1 { top: 520px; }
+#fb-badge-2 { top: 620px; }
+#fb-badge-3 { top: 720px; }
+
+
+/* --- Slide 2: ACCREDITATION (Active Grid) --- */
+.ideas-accreditation-board {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 520px;
+    overflow: visible;
+}
+
+.ideas-acc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.ideas-acc-card {
+    background: var(--ideas-bg-glass);
+    border: 2px solid var(--ideas-border-glass);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.ideas-acc-card.active {
+    border-color: var(--ideas-gold-light);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.35), 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.acc-logo-wrap {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.acc-logo-wrap img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.ideas-acc-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.ideas-acc-card.active h3 {
+    color: var(--ideas-gold-light);
+}
+
+.ideas-acc-card p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+
+.ideas-acc-card.active p {
+    color: #ffffff;
+}
+
+.acc-glow-ring {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border: 2px solid var(--ideas-gold-light);
+    border-radius: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.ideas-acc-card.active .acc-glow-ring {
+    opacity: 1;
+    animation: borderPulse 2s infinite;
+}
+
+@keyframes borderPulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.02); opacity: 0.2; }
+}
+
+
+/* --- Slide 3: SUPPORT (Hỗ trợ học tập) --- */
+.ideas-support-scene {
+    width: 800px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ideas-support-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+    margin-top: 10px;
+    overflow: visible;
+}
+
+.ideas-phone-mockup {
+    width: 330px;
+    height: 480px;
+    background: #0f172a;
+    border: 8px solid #334155;
+    border-radius: 36px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-status-bar {
+    height: 35px;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    font-family: sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: 600;
+    z-index: 100;
+}
+
+.phone-status-bar .notch {
+    width: 120px;
+    height: 18px;
+    background: #334155;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.phone-signals {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.phone-screen-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.phone-tab-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #1e293b;
+    animation: screenFadeIn 0.3s forwards;
+}
+
+@keyframes screenFadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.ideas-phone-mockup .app-header {
+    height: 45px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ideas-phone-mockup .app-body {
+    flex: 1;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* LMS Screen */
+.screen-lms .app-header { background: #3b82f6; }
+.screen-lms .course-card {
+    background: #0f172a;
+    border-radius: 12px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    overflow: hidden;
+}
+
+.screen-lms .course-banner {
+    background: #3b82f6;
+    padding: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.screen-lms .course-info {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.progress-bar-wrap {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #10b981;
+    border-radius: 99px;
+}
+
+.next-class {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.class-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.class-time {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3b82f6;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.join-btn {
+    background: #10b981;
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.25);
+}
+
+/* Chat Screen */
+.header-ideas { background: var(--ideas-navy); }
+.chat-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.chat-title-wrap {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 8px;
+}
+
+.chat-name { font-size: 13px; font-weight: 700; color: #ffffff; }
+.chat-status { font-size: 10px; color: #10b981; font-weight: normal; }
+
+.chat-messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+}
+
+.chat-bubble {
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 85%;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.chat-bubble.incoming {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+.chat-bubble.outgoing {
+    background: var(--ideas-primary);
+    color: #ffffff;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+.chat-bubble.typing {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 14px;
+}
+
+.chat-bubble.typing span {
+    width: 6px;
+    height: 6px;
+    background: #94a3b8;
+    border-radius: 50%;
+    display: inline-block;
+    animation: typingBounce 1.3s infinite ease-in-out;
+}
+
+.chat-bubble.typing span:nth-child(2) { animation-delay: 0.2s; }
+.chat-bubble.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-4px); }
+}
+
+/* Finance Screen */
+.header-finance { background: var(--ideas-navy); }
+.finance-body {
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.bank-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.bank-logo-row .ideas-txt { color: var(--ideas-primary-light); }
+.bank-logo-row .x-sign { color: #64748b; }
+.bank-logo-row .bank-txt { color: #0284c7; }
+
+.credit-card-mockup {
+    width: 100%;
+    height: 130px;
+    background: linear-gradient(135deg, #1e1b4b 0%, #311005 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card-chip {
+    width: 32px;
+    height: 24px;
+    background: var(--ideas-gold);
+    border-radius: 4px;
+}
+
+.card-number {
+    font-family: monospace;
+    font-size: 15px;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.card-holder {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    color: #94a3b8;
+    letter-spacing: 1px;
+}
+
+.card-brand {
+    align-self: flex-end;
+    font-style: italic;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.finance-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+}
+
+.status-txt {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.status-desc {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+/* Right side features list */
+.ideas-support-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.support-card-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 16px 20px;
+    transition: all 0.4s ease;
+}
+
+.support-card-row.active {
+    background: var(--ideas-bg-glass);
+    border-color: var(--ideas-border-glow);
+    box-shadow: 0 0 20px rgba(179, 20, 0, 0.2), 0 10px 25px rgba(0,0,0,0.4);
+    transform: translateX(-8px);
+}
+
+.row-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.row-icon i { width: 26px; height: 26px; }
+
+.ideas-bg-red { background: var(--ideas-grad-primary); }
+.ideas-bg-gold { background: var(--ideas-grad-gold); }
+.ideas-bg-navy { background: var(--ideas-grad-navy); }
+
+.row-text h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.row-text p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    line-height: 1.45;
+}
+
+.support-card-row.active .row-text h3 { color: var(--ideas-gold-light); }
+.support-card-row.active .row-text p { color: #ffffff; }
+
+
+/* --- Slide 4: PROGRAMS OVERVIEW (3D Carousel) --- */
+.ideas-programs-board {
+    width: 800px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.ideas-carousel-viewport {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    perspective: 1200px; /* enables 3D depth */
+}
+
+.ideas-carousel-viewport .ideas-program-card {
+    position: absolute;
+    width: 330px;
+    height: 380px;
+    background: var(--ideas-bg-glass);
+    border: 2px solid var(--ideas-border-glass);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+    padding: 0;
+    overflow: hidden;
+}
+
+.ideas-program-card .card-image-header {
+    width: 100%;
+    height: 155px;
+    overflow: hidden;
+    border-bottom: 2px solid var(--ideas-primary);
+}
+
+.ideas-program-card .card-image-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ideas-program-card .card-body-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+.ideas-program-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.card-accent-badge {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3px 10px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+}
+
+.ideas-program-card p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    color: #cbd5e1;
+    line-height: 1.45;
+    margin: 0;
+    min-height: 65px;
+}
+
+/* Featured styles */
+.ideas-program-card.featured {
+    border-color: var(--ideas-gold);
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.3), 0 20px 45px rgba(0, 0, 0, 0.55);
+}
+
+.ideas-program-card.featured h3 {
+    color: var(--ideas-gold-light);
+}
+
+.featured-glow-ring {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 28px;
+    border: 2px solid var(--ideas-gold);
+    animation: featuredGlowPulse 2.5s infinite;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.ideas-program-card.featured .featured-glow-ring {
+    opacity: 1;
+}
+
+@keyframes featuredGlowPulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.02); opacity: 0.3; }
+    100% { transform: scale(1.04); opacity: 0; }
+}
+
+.featured-badge {
+    position: absolute;
+    top: -14px;
+    left: 28%;
+    background: var(--ideas-grad-gold);
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 99px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+.ideas-bg-red {
+    background: var(--ideas-primary) !important;
+}
+
+
+/* --- Slide 5: CREDIBILITY (Uy tín đối ngoại & Chứng thư) --- */
+.ideas-credibility-scene {
+    width: 800px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.ideas-credibility-body {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    margin-top: 10px;
+    overflow: visible;
+}
+
+.ideas-credibility-body .credibility-card {
+    flex: 1;
+    background: var(--ideas-bg-glass);
+    border: 2px solid var(--ideas-border-glass);
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    transition: all 0.5s ease;
+}
+
+.credibility-card .card-img-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 2px solid var(--ideas-primary);
+}
+
+.credibility-card .card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.credibility-card .card-content {
+    padding: 18px;
+}
+
+.credibility-card .card-content h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ideas-gold-light);
+    margin-bottom: 6px;
+}
+
+.credibility-card .card-content p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    color: #cbd5e1;
+    line-height: 1.45;
+}
+
+/* Degree Mockup on Slide 5 */
+.degree-mockup {
+    width: 100%;
+    height: 200px;
+    background: #fdfdfd;
+    border-bottom: 2px solid var(--ideas-primary);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-family: 'Outfit', sans-serif;
+    color: #1e293b;
+    box-sizing: border-box;
+}
+
+.degree-header {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #7f1d1d;
+}
+
+.degree-title {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: #1e293b;
+}
+
+.degree-recipient {
+    font-size: 15px;
+    font-style: italic;
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-top: 8px;
+    border-bottom: 1px dashed #cbd5e1;
+    width: 60%;
+    text-align: center;
+}
+
+.degree-stamp {
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #ef4444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    font-weight: bold;
+    color: #ef4444;
+    transform: rotate(-15deg);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stamp-circle {
+    text-transform: uppercase;
+    font-size: 6px;
+    text-align: center;
+}
+
+.stamp-vietnam {
+    border-top: 1px solid #ef4444;
+    padding-top: 1px;
+    margin-top: 1px;
+}
+
+
+/* --- Slide 6: CTA (Kêu gọi hành động & Nhận xét) --- */
+.ideas-cta-scene {
+    width: 800px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ideas-cta-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.ideas-testimonials-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+}
+
+.testimonial-bubble {
+    flex: 1;
+    background: var(--ideas-bg-glass);
+    border: 1.5px solid var(--ideas-border-glass);
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: all 0.5s ease;
+}
+
+.testimonial-bubble img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--ideas-primary);
+}
+
+.testi-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.testi-text strong {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    color: var(--ideas-gold-light);
+}
+
+.testi-text p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    margin-top: 2px;
+    font-style: italic;
+    line-height: 1.35;
+}
+
+.ideas-cta-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    opacity: 0;
+}
+
+.ideas-pricing-tag {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.ideas-pricing-tag strong {
+    color: var(--ideas-gold-light);
+    font-size: 28px;
+}
+
+.ideas-btn-glow-gold {
+    background: var(--ideas-grad-gold);
+    color: #111729;
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    border: none;
+    border-radius: 99px;
+    padding: 14px 38px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+    animation: ctaPulse 2s infinite;
+}
+
+@keyframes ctaPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4); }
+    50% { transform: scale(1.04); box-shadow: 0 15px 40px rgba(255, 255, 255, 0.6); }
+}
+
+
+/* --- Highlight Active Subtitle Keywords Classes --- */
+.active-ideas-red {
+    color: #ff523b !important;
+    text-shadow: 0 0 10px rgba(255, 82, 59, 0.4);
+    font-weight: 800 !important;
+}
+
+.active-ideas-gold {
+    color: var(--ideas-gold-light) !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    font-weight: 800 !important;
+}
+
+/* --- Split Comparison Slides (Slide 4 & 5) --- */
+.ideas-split-comparison {
+    width: 800px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.ideas-split-body {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+    margin-top: 10px;
+    overflow: visible;
+}
+
+.ideas-split-col {
+    flex: 1;
+    overflow: visible;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ideas-split-card {
+    background: var(--ideas-bg-glass);
+    border: 2px solid var(--ideas-border-glass);
+    border-radius: 24px;
+    padding: 28px 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.ideas-split-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--ideas-gold-light);
+    margin: 0 0 20px 0;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    padding-bottom: 10px;
+}
+
+.ideas-split-card.emba-theme h3 {
+    color: #ff523b;
+    border-bottom-color: rgba(255, 82, 59, 0.25);
+}
+
+.ideas-split-card.mscai-theme h3 {
+    color: #ff523b;
+    border-bottom-color: rgba(255, 82, 59, 0.25);
+}
+
+.ideas-split-card.mbainai-theme h3 {
+    color: var(--ideas-gold-light);
+    border-bottom-color: rgba(255, 255, 255, 0.25);
+}
+
+.ideas-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ideas-bullet-list li {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ideas-bullet-list li i {
+    width: 20px;
+    height: 20px;
+    color: var(--ideas-gold-light);
+    flex-shrink: 0;
+}
+
+.emba-theme .ideas-bullet-list li i {
+    color: #ff523b;
+}
+
+.mscai-theme .ideas-bullet-list li i {
+    color: #ff523b;
+}
+
+/* --- Slide 6: Ecosystem Grid --- */
+.ideas-ecosystem-scene {
+    width: 800px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.ideas-eco-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+    overflow: visible;
+}
+
+.ideas-eco-box {
+    background: var(--ideas-bg-glass);
+    border: 2px solid var(--ideas-border-glass);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 160px;
+    box-sizing: border-box;
+}
+
+.eco-icon-wrap {
+    width: 50px;
+    height: 50px;
+    background: var(--ideas-grad-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.eco-icon-wrap i {
+    width: 24px;
+    height: 24px;
+}
+
+.ideas-eco-box:nth-child(even) .eco-icon-wrap {
+    background: var(--ideas-grad-gold);
+}
+
+.ideas-eco-box h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+}
+
+.ideas-eco-box p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    color: #cbd5e1;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* --- Slide 7: Workshops Horizontal Cards --- */
+.ideas-workshops-scene {
+    width: 800px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.ideas-workshops-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+    overflow: visible;
+}
+
+.ideas-workshop-card {
+    flex: 1;
+    background: var(--ideas-bg-glass);
+    border: 2px solid var(--ideas-border-glass);
+    border-radius: 22px;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    opacity: 0;
+    transform: scale(0.8) translateY(15px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 330px;
+    box-sizing: border-box;
+}
+
+.ws-icon-wrap {
+    width: 64px;
+    height: 64px;
+    background: var(--ideas-grad-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    margin-bottom: 18px;
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.25);
+}
+
+.ws-icon-wrap i {
+    width: 28px;
+    height: 28px;
+}
+
+.ideas-workshop-card:nth-child(2) .ws-icon-wrap {
+    background: var(--ideas-grad-primary);
+    box-shadow: 0 6px 15px rgba(179, 20, 0, 0.25);
+}
+
+.ideas-workshop-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+}
+
+.ideas-workshop-card p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    color: #cbd5e1;
+    line-height: 1.45;
+    margin: 0;
+}

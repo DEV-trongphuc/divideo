@@ -63,11 +63,11 @@
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" />
                                 </div>
                             </div>
-                            <div class="v36-glass-card" style="text-align: center; width: 440px; padding: 18px 24px; margin-top: 15px; border: 1.5px solid rgba(24, 119, 242, 0.4); background: rgba(10, 12, 15, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55);">
-                                <div style="margin-bottom: 8px; font-size: 14px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(24, 119, 242, 0.4); background: rgba(24, 119, 242, 0.1); color: #1877f2; border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
-                                    <i data-lucide="facebook" style="width: 14px; height: 14px; color: #1877f2;"></i> Proximity Tracking
+                            <div class="v36-glass-card" style="text-align: center; width: 620px; padding: 24px 32px; margin-top: 50px; border: 1.5px solid rgba(24, 119, 242, 0.4); background: rgba(10, 12, 15, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px rgba(0,0,0,0.55);">
+                                <div style="margin-bottom: 15px; font-size: 18px; padding: 6px 14px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(24, 119, 242, 0.4); background: rgba(24, 119, 242, 0.1); color: #1877f2; border-radius: 99px; font-weight: 600; text-transform: uppercase; font-family: monospace;">
+                                    <i data-lucide="facebook" style="width: 18px; height: 18px; color: #1877f2;"></i> Proximity Tracking
                                 </div>
-                                <div style="font-family:'Fira Code', monospace; font-size: 15px; font-weight: bold; color: #1877f2; line-height: 1.45;">
+                                <div style="font-family:'Fira Code', monospace; font-size: 26px; font-weight: bold; color: var(--text-gold); line-height: 1.45;">
                                     Gợi ý kết bạn: Phải chăng Facebook đang nghe lén điện thoại của bạn?
                                 </div>
                             </div>
@@ -154,54 +154,51 @@
                 canvas.innerHTML = `
                     <div class="v36-scene-wrapper" style="zoom:0.88; gap:40px; display:flex; align-items:center; justify-content:center;">
                         <!-- Coordinates Map -->
-                        <div class="v36-glass-card" style="width:450px; height:480px; padding:20px; display:flex; flex-direction:column; box-sizing:border-box;">
-                            <div style="font-size:18px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">📍 Bản đồ tọa độ thực tế</div>
-                            <div style="flex:1; position:relative; margin-top:15px; border-radius:12px; overflow:hidden; background:#070a12; border:1px solid rgba(255,255,255,0.04);">
+                        <div class="v36-glass-card" style="width:450px; height:480px; padding:20px; display:flex; flex-direction:column; box-sizing:border-box; flex-shrink:0;">
+                            <div style="font-size:22px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">📍 Bản đồ tọa độ thực tế</div>
+                            <div style="flex:1; position:relative; margin-top:15px; border-radius:12px; overflow:hidden; background:#070a12; border:1px solid rgba(255,255,255,0.04); height:330px;">
                                 <div class="v36-map-grid"></div>
                                 
                                 <!-- Proximity boundary circles -->
-                                <div class="v36-proximity-circle" style="position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); border:2px dashed rgba(56, 189, 248, 0.35); border-radius:50%; width:200px; height:200px;"></div>
+                                <div class="v36-proximity-circle" style="position:absolute; left:205px; top:165px; transform:translate(-50%, -50%); border:2px dashed rgba(56, 189, 248, 0.35); border-radius:50%; width:220px; height:220px;"></div>
                                 
                                 <!-- Node A -->
-                                <div class="v36-user-node-s2 node-a" style="position:absolute; left:44%; top:48%; transform:translate(-50%, -50%); z-index:5; text-align:center;">
-                                    <span style="font-size:32px;">👦</span>
-                                    <div style="font-size:12px; background:rgba(0,0,0,0.65); padding:2px 6px; border-radius:4px; margin-top:2px; font-weight:600;">User A</div>
+                                <div class="v36-user-node-s2 node-a" style="position:absolute; left:30%; top:50%; transform:translate(-50%, -50%); z-index:5; text-align:center;">
+                                    <span style="font-size:36px;">👦</span>
+                                    <div style="font-size:16px; background:rgba(0,0,0,0.65); padding:3px 8px; border-radius:4px; margin-top:4px; font-weight:bold; white-space:nowrap;">User A</div>
                                 </div>
                                 <!-- Node B -->
-                                <div class="v36-user-node-s2 node-b" style="position:absolute; left:56%; top:52%; transform:translate(-50%, -50%); z-index:5; text-align:center;">
-                                    <span style="font-size:32px;">👧</span>
-                                    <div style="font-size:12px; background:rgba(0,0,0,0.65); padding:2px 6px; border-radius:4px; margin-top:2px; font-weight:600;">User B</div>
+                                <div class="v36-user-node-s2 node-b" style="position:absolute; left:70%; top:50%; transform:translate(-50%, -50%); z-index:5; text-align:center;">
+                                    <span style="font-size:36px;">👧</span>
+                                    <div style="font-size:16px; background:rgba(0,0,0,0.65); padding:3px 8px; border-radius:4px; margin-top:4px; font-weight:bold; white-space:nowrap;">User B</div>
                                 </div>
                                 
                                 <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;">
-                                    <line class="v36-s2-line" x1="198" y1="230" x2="252" y2="250" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6 4" style="opacity:0; transition:opacity 0.4s;"></line>
+                                    <line class="v36-s2-line" x1="123" y1="165" x2="238" y2="165" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6 4" style="opacity:0; transition:opacity 0.4s;"></line>
                                 </svg>
                             </div>
                         </div>
 
                         <!-- DB Log and Bluetooth Scan -->
-                        <div class="v36-glass-card" style="width:430px; height:480px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                        <div class="v36-glass-card" style="width:430px; height:480px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box; flex-shrink:0;">
                             <div>
-                                <div style="font-size:18px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">🔍 Đối chiếu dữ liệu vị trí</div>
+                                <div style="font-size:22px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">🔍 Đối chiếu dữ liệu vị trí</div>
                                 <div style="margin-top:20px;">
                                     <table class="v36-db-table">
                                         <thead>
                                             <tr>
-                                                <th>THIẾT BỊ</th>
-                                                <th>GPS LAT / LONG</th>
-                                                <th>BLUETOOTH SIGNAL</th>
+                                                <th style="width: 35%;">THIẾT BỊ</th>
+                                                <th style="width: 65%;">TỌA ĐỘ GPS</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class="row-a">
                                                 <td>User A</td>
                                                 <td class="gps-a" style="font-family:monospace;">Đang lấy...</td>
-                                                <td class="bt-a">Đang quét...</td>
                                             </tr>
                                             <tr class="row-b">
                                                 <td>User B</td>
                                                 <td class="gps-b" style="font-family:monospace;">Đang lấy...</td>
-                                                <td class="bt-b">Đang quét...</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -211,8 +208,7 @@
                             <div class="v36-glass-card" style="padding:15px; background:rgba(255,255,255,0.02); display:flex; align-items:center; gap:12px; border-color:rgba(255,255,255,0.05);">
                                 <div class="v36-led-dot active-scanning s2-led"></div>
                                 <div style="text-align:left; flex:1;">
-                                    <div style="font-size:12px; font-weight:bold; color:rgba(255,255,255,0.4); text-transform:uppercase;">Trạng thái khớp</div>
-                                    <div class="v36-s2-result-text" style="font-size:15px; font-weight:bold; margin-top:2px;">Tìm kiếm tín hiệu trùng lặp...</div>
+                                    <div class="v36-s2-result-text" style="font-size:18px; font-weight:bold; margin-top:2px;">Tìm kiếm tín hiệu trùng lặp...</div>
                                 </div>
                             </div>
                         </div>
@@ -225,7 +221,7 @@
                 canvas.innerHTML = `
                     <div class="v36-scene-wrapper" style="zoom:0.88; gap:40px; display:flex; align-items:center; justify-content:center;">
                         <!-- Connection flow graph -->
-                        <div class="v36-glass-card" style="width:480px; height:480px; padding:20px; display:flex; flex-direction:column; box-sizing:border-box;">
+                        <div class="v36-glass-card" style="width:480px; height:480px; padding:20px; display:flex; flex-direction:column; box-sizing:border-box; flex-shrink:0;">
                             <div style="font-size:18px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">📡 Kết nối Wi-Fi & SSID chung</div>
                             
                             <div style="flex:1; position:relative; margin-top:15px; border-radius:12px; overflow:hidden; background:#070a12; border:1px solid rgba(255,255,255,0.04);">
@@ -264,7 +260,7 @@
                         </div>
 
                         <!-- Console monitor -->
-                        <div class="v36-glass-card" style="width:400px; height:480px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                        <div class="v36-glass-card" style="width:400px; height:480px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box; flex-shrink:0;">
                             <div>
                                 <div style="font-size:18px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">📋 Network log console</div>
                                 <div style="background:rgba(0,0,0,0.45); border-radius:10px; padding:15px; border:1px solid rgba(255,255,255,0.05); font-family:monospace; font-size:13px; line-height:1.6; color:#a2a8b3; height:240px; margin-top:20px; overflow:hidden; text-align:left;" class="v36-network-console">
@@ -289,60 +285,57 @@
                 canvas.innerHTML = `
                     <div class="v36-scene-wrapper" style="zoom:0.88; gap:40px; display:flex; align-items:center; justify-content:center;">
                         <!-- Contact graph map -->
-                        <div class="v36-glass-card" style="width:450px; height:480px; padding:20px; display:flex; flex-direction:column; box-sizing:border-box;">
-                            <div style="font-size:18px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">👥 Sơ đồ liên kết danh bạ</div>
+                        <div class="v36-glass-card" style="width:450px; height:480px; padding:20px; display:flex; flex-direction:column; box-sizing:border-box; flex-shrink:0;">
+                            <div style="font-size:22px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">👥 Sơ đồ liên kết danh bạ</div>
                             
-                            <div style="flex:1; position:relative; margin-top:15px; border-radius:12px; overflow:hidden; background:#070a12; border:1px solid rgba(255,255,255,0.04);">
+                            <div style="flex:1; position:relative; margin-top:15px; border-radius:12px; overflow:hidden; background:#070a12; border:1px solid rgba(255,255,255,0.04); height:330px;">
                                 <!-- User C (Mutual friend) -->
-                                <div class="v36-user-node-s4 node-c" style="position:absolute; left:50%; top:25%; transform:translate(-50%,-50%); z-index:10; text-align:center;">
-                                    <div class="v36-graph-node" style="margin:0 auto; border-color:#f59e0b;">👦</div>
-                                    <div style="font-size:13px; font-weight:bold; margin-top:4px; color:#f59e0b; white-space:nowrap;">Bạn chung (User C)</div>
+                                <div class="v36-user-node-s4 node-c" style="position:absolute; left:205px; top:70px; transform:translate(-50%,-50%); z-index:10; text-align:center;">
+                                    <div class="v36-graph-node" style="margin:0 auto; border-color:#f59e0b; width:56px; height:56px; font-size:24px;">👦</div>
+                                    <div style="font-size:16px; font-weight:bold; margin-top:6px; color:#f59e0b; white-space:nowrap;">Bạn chung (User C)</div>
                                 </div>
 
                                 <!-- User A -->
-                                <div class="v36-user-node-s4 node-a" style="position:absolute; left:25%; top:70%; transform:translate(-50%,-50%); z-index:10; text-align:center;">
-                                    <div class="v36-graph-node" style="margin:0 auto;">👦</div>
-                                    <div style="font-size:13px; font-weight:bold; margin-top:4px;">Bạn (User A)</div>
+                                <div class="v36-user-node-s4 node-a" style="position:absolute; left:100px; top:230px; transform:translate(-50%,-50%); z-index:10; text-align:center;">
+                                    <div class="v36-graph-node" style="margin:0 auto; width:56px; height:56px; font-size:24px;">👦</div>
+                                    <div style="font-size:16px; font-weight:bold; margin-top:6px; white-space:nowrap;">Bạn (User A)</div>
                                 </div>
                                 <!-- User B -->
-                                <div class="v36-user-node-s4 node-b" style="position:absolute; left:75%; top:70%; transform:translate(-50%,-50%); z-index:10; text-align:center;">
-                                    <div class="v36-graph-node" style="margin:0 auto;">👧</div>
-                                    <div style="font-size:13px; font-weight:bold; margin-top:4px;">Bạn mới (User B)</div>
+                                <div class="v36-user-node-s4 node-b" style="position:absolute; left:310px; top:230px; transform:translate(-50%,-50%); z-index:10; text-align:center;">
+                                    <div class="v36-graph-node" style="margin:0 auto; width:56px; height:56px; font-size:24px;">👧</div>
+                                    <div style="font-size:16px; font-weight:bold; margin-top:6px; white-space:nowrap;">Bạn mới (User B)</div>
                                 </div>
 
                                 <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;">
-                                    <line class="v36-s4-line-ca" x1="225" y1="125" x2="112" y2="335" stroke="rgba(255,255,255,0.15)" stroke-width="2.5"></line>
-                                    <line class="v36-s4-line-cb" x1="225" y1="125" x2="338" y2="335" stroke="rgba(255,255,255,0.15)" stroke-width="2.5"></line>
-                                    <path class="v36-s4-line-ab" d="M 112 335 L 338 335" fill="none" stroke="#f43f5e" stroke-width="3" stroke-dasharray="6 4" style="opacity:0; transition:opacity 0.4s;"></path>
+                                    <line class="v36-s4-line-ca" x1="205" y1="70" x2="100" y2="230" stroke="rgba(255,255,255,0.15)" stroke-width="3"></line>
+                                    <line class="v36-s4-line-cb" x1="205" y1="70" x2="310" y2="230" stroke="rgba(255,255,255,0.15)" stroke-width="3"></line>
+                                    <line class="v36-s4-line-ab" x1="100" y1="230" x2="310" y2="230" stroke="#f43f5e" stroke-width="3.5" stroke-dasharray="6 4" style="opacity:0; transition:opacity 0.4s;"></line>
                                 </svg>
                                 
-                                <div class="v36-s4-packet-ca" style="position:absolute; width:10px; height:10px; border-radius:50%; background:#f59e0b; opacity:0; left:225px; top:125px; transform:translate(-50%,-50%); z-index:5;"></div>
-                                <div class="v36-s4-packet-cb" style="position:absolute; width:10px; height:10px; border-radius:50%; background:#f59e0b; opacity:0; left:225px; top:125px; transform:translate(-50%,-50%); z-index:5;"></div>
+                                <div class="v36-s4-packet-ca" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#f59e0b; opacity:0; left:205px; top:70px; transform:translate(-50%,-50%); z-index:5;"></div>
+                                <div class="v36-s4-packet-cb" style="position:absolute; width:12px; height:12px; border-radius:50%; background:#f59e0b; opacity:0; left:205px; top:70px; transform:translate(-50%,-50%); z-index:5;"></div>
                             </div>
                         </div>
 
                         <!-- Table DB query match contacts -->
-                        <div class="v36-glass-card" style="width:430px; height:480px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                        <div class="v36-glass-card" style="width:430px; height:480px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box; flex-shrink:0;">
                             <div>
-                                <div style="font-size:18px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">📁 Đồng bộ danh bạ của User C</div>
+                                <div style="font-size:22px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">📁 Đồng bộ danh bạ của User C</div>
                                 <div style="margin-top:20px;">
                                     <table class="v36-db-table">
                                         <thead>
                                             <tr>
-                                                <th>DANH BẠ UPLOAD</th>
-                                                <th>SỐ ĐIỆN THOẠI</th>
-                                                <th>KẾT QUẢ</th>
+                                                <th style="width: 55%;">DANH BẠ UPLOAD</th>
+                                                <th style="width: 45%;">KẾT QUẢ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class="row-contact-a">
                                                 <td>"User A - Đại học"</td>
-                                                <td style="font-family:monospace;">090-345-6789</td>
                                                 <td class="status-a">Đang quét...</td>
                                             </tr>
                                             <tr class="row-contact-b">
                                                 <td>"User B - Highlands"</td>
-                                                <td style="font-family:monospace;">098-999-1234</td>
                                                 <td class="status-b">Đang quét...</td>
                                             </tr>
                                         </tbody>
@@ -353,8 +346,7 @@
                             <div class="v36-glass-card" style="padding:15px; background:rgba(255,255,255,0.02); display:flex; align-items:center; gap:12px; border-color:rgba(255,255,255,0.05);">
                                 <div class="v36-led-dot active-scanning s4-led"></div>
                                 <div style="text-align:left; flex:1;">
-                                    <div style="font-size:12px; font-weight:bold; color:rgba(255,255,255,0.4); text-transform:uppercase;">So khớp chéo (Cross-matching)</div>
-                                    <div class="v36-s4-result-text" style="font-size:15px; font-weight:bold; margin-top:2px;">Tìm kiếm mối liên kết ẩn...</div>
+                                    <div class="v36-s4-result-text" style="font-size:18px; font-weight:bold; margin-top:2px;">Tìm kiếm mối liên kết ẩn...</div>
                                 </div>
                             </div>
                         </div>
@@ -367,7 +359,7 @@
                 canvas.innerHTML = `
                     <div class="v36-scene-wrapper" style="zoom:0.88; gap:40px; display:flex; align-items:center; justify-content:center;">
                         <!-- Social Graph Network -->
-                        <div class="v36-glass-card" style="width:480px; height:480px; padding:20px; display:flex; flex-direction:column; box-sizing:border-box;">
+                        <div class="v36-glass-card" style="width:480px; height:480px; padding:20px; display:flex; flex-direction:column; box-sizing:border-box; flex-shrink:0;">
                             <div style="font-size:18px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">🕸️ Đồ thị quan hệ Social Graph</div>
                             
                             <div style="flex:1; position:relative; margin-top:15px; border-radius:12px; overflow:hidden; background:#070a12; border:1px solid rgba(255,255,255,0.04);">
@@ -398,7 +390,7 @@
                         </div>
 
                         <!-- Stats scoring table panel -->
-                        <div class="v36-glass-card" style="width:400px; height:480px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                        <div class="v36-glass-card" style="width:400px; height:480px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box; flex-shrink:0;">
                             <div>
                                 <div style="font-size:18px; font-weight:bold; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px; text-align:left;">🧠 Phân tích thuật toán Graph</div>
                                 <div style="margin-top:25px; display:flex; flex-direction:column; gap:16px;">
@@ -511,8 +503,8 @@
 
             // Move user B closer to A during slide
             if (userB) {
-                const startLeft = 56;
-                const endLeft = 51;
+                const startLeft = 70;
+                const endLeft = 58;
                 const currentLeft = startLeft - (startLeft - endLeft) * progress;
                 userB.style.left = `${currentLeft}%`;
             }
@@ -621,14 +613,14 @@
             // Packets fly from C to A and B
             if (progress > 0.1 && progress < 0.5) {
                 const t = (progress - 0.1) / 0.4;
-                // C -> A: 225, 125 -> 112, 335
-                const xa = 225 - (225 - 112) * t;
-                const ya = 125 + (335 - 125) * t;
+                // C -> A: 205, 70 -> 100, 230
+                const xa = 205 - (205 - 100) * t;
+                const ya = 70 + (230 - 70) * t;
                 if (packetCA) { packetCA.style.left = `${xa}px`; packetCA.style.top = `${ya}px`; packetCA.style.opacity = '1'; }
 
-                // C -> B: 225, 125 -> 338, 335
-                const xb = 225 + (338 - 225) * t;
-                const yb = 125 + (335 - 125) * t;
+                // C -> B: 205, 70 -> 310, 230
+                const xb = 205 + (310 - 205) * t;
+                const yb = 70 + (230 - 70) * t;
                 if (packetCB) { packetCB.style.left = `${xb}px`; packetCB.style.top = `${yb}px`; packetCB.style.opacity = '1'; }
             } else {
                 if (packetCA) packetCA.style.opacity = '0';

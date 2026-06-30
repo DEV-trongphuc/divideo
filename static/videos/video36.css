@@ -349,3 +349,91 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-12px); }
 }
+
+/* --- Graph Node & Network Elements --- */
+.v36-graph-node {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(13, 17, 28, 0.95);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+    box-sizing: border-box;
+}
+
+.v36-graph-node.active-user {
+    border-color: #38bdf8 !important;
+    color: #38bdf8 !important;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+}
+
+.v36-graph-node.active-match {
+    border-color: #34d399 !important;
+    color: #34d399 !important;
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.35);
+}
+
+.v36-user-node-s2, 
+.v36-user-node-s3, 
+.v36-user-node-s4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.v36-user-node-s4.node-c .v36-graph-node {
+    border: 2px solid #f59e0b;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.v36-user-node-s4.node-a .v36-graph-node {
+    border: 2px solid #38bdf8;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.v36-user-node-s4.node-b .v36-graph-node {
+    border: 2px solid #34d399;
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.3);
+}
+
+/* --- Database Table UI Styling --- */
+.v36-db-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.v36-db-table th {
+    text-align: left;
+    padding: 12px 10px;
+    font-size: 15px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+}
+
+.v36-db-table td {
+    padding: 15px 10px;
+    color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+.v36-db-table tr:last-child td {
+    border-bottom: none;
+}
+

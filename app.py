@@ -14,6 +14,7 @@ CORS(app)
 os.makedirs("static", exist_ok=True)
 os.makedirs("static/generated", exist_ok=True)
 os.makedirs("voices", exist_ok=True)
+os.makedirs("kichban_ideas", exist_ok=True)
 
 SLIDES_FILE = "slides.json"
 VOXCPM_DOWNLOAD_STATUS = {"status": "idle", "progress": 0, "error": None}
@@ -157,6 +158,75 @@ DEFAULT_SLIDES_MEMO = [
     }
 ]
 
+DEFAULT_SLIDES_IDEAS = [
+    {
+        "id": "slide_ideas_intro",
+        "title": "THẠC SĨ THỤY SĨ - SWISS UMEF",
+        "subtitle": "Chương trình đào tạo quốc tế chuẩn liên bang Thụy Sĩ tại Viện IDEAS",
+        "layout": "title",
+        "script": "Chào các bạn! Nếu bạn đang tìm kiếm một chương trình Thạc sĩ quốc tế danh giá từ Thụy Sĩ, thì Swiss UMEF và Viện IDEAS chính là người bạn đồng hành hoàn hảo.",
+        "voice": "google-vi-VN-Neural2-D",
+        "refVoice": "",
+        "audioPath": "",
+        "duration": 10.0,
+        "cards": [],
+        "code": "",
+        "diagram": []
+    },
+    {
+        "id": "slide_ideas_accreditation",
+        "title": "KIỂM ĐỊNH CHẤT LƯỢNG TOÀN CẦU",
+        "subtitle": "Được công nhận bởi các hội đồng kiểm định uy tín nhất thế giới",
+        "layout": "diagram",
+        "script": "Swiss UMEF tự hào là trường tư thục đầu tiên tại Geneva đạt kiểm định cấp liên bang bởi Hội đồng Kiểm định Thụy Sĩ SAC, cùng các chứng nhận quốc tế danh giá như IACBE, EduQua, và QS Stars.",
+        "voice": "google-vi-VN-Neural2-D",
+        "refVoice": "",
+        "audioPath": "",
+        "duration": 13.0,
+        "cards": [],
+        "code": "",
+        "diagram": [
+            {"id": "node_i1", "label": "Swiss UMEF Geneva", "type": "start"},
+            {"id": "node_i2", "label": "Kiểm định SAC (Liên bang)", "type": "success", "note": "Công nhận cao nhất"},
+            {"id": "node_i3", "label": "Kiểm định Quốc tế", "type": "process", "note": "IACBE & EduQua"},
+            {"id": "node_i4", "label": "QS Stars (4 Sao)", "type": "success", "note": "Giảng dạy xuất sắc"},
+            {"id": "node_i5", "label": "Bằng Thạc sĩ Quốc tế", "type": "success", "note": "Giá trị toàn cầu"}
+        ]
+    },
+    {
+        "id": "slide_ideas_support",
+        "title": "HỆ THỐNG HỖ TRỢ TOÀN DIỆN",
+        "subtitle": "Đồng hành cùng học viên Việt Nam từ học vụ đến tài chính",
+        "layout": "cards",
+        "script": "Viện IDEAS mang đến giải pháp hỗ trợ học tập vượt trội: Nền tảng LMS hiện đại, đội ngũ học vụ đồng hành trực tiếp, và giải pháp tài chính trả góp linh hoạt từ Sacombank.",
+        "voice": "google-vi-VN-Neural2-D",
+        "refVoice": "",
+        "audioPath": "",
+        "duration": 11.0,
+        "cards": [
+            {"icon": "monitor", "title": "Canvas LMS", "desc": "Học trực tuyến linh hoạt, hiện đại, tương thích mọi thiết bị."},
+            {"icon": "users", "title": "Học vụ 24/7", "desc": "Đội ngũ chuyên viên tư vấn đồng hành suốt chặng đường học tập."},
+            {"icon": "credit-card", "title": "Học phí 0%", "desc": "Hỗ trợ trả góp học phí lãi suất 0% liên kết cùng Sacombank."}
+        ],
+        "code": "",
+        "diagram": []
+    },
+    {
+        "id": "slide_ideas_programs",
+        "title": "CÁC CHƯƠNG TRÌNH THẠC SĨ",
+        "subtitle": "Bứt phá sự nghiệp trong kỷ nguyên số cùng các ngành học đón đầu xu thế",
+        "layout": "code",
+        "script": "Các chương trình đào tạo bao gồm: Thạc sĩ Quản trị Kinh doanh MBA, Executive MBA dành cho nhà quản lý, và đặc biệt là MBA in AI đón đầu làn sóng công nghệ.",
+        "voice": "google-vi-VN-Neural2-D",
+        "refVoice": "",
+        "audioPath": "",
+        "duration": 12.0,
+        "cards": [],
+        "code": "{\n  \"swiss_umef_master_programs\": [\n    {\n      \"name\": \"Online MBA\",\n      \"duration\": \"18 Months\",\n      \"focus\": \"Flexible Business Administration\"\n    },\n    {\n      \"name\": \"Executive MBA (EMBA)\",\n      \"duration\": \"18 Months\",\n      \"focus\": \"Strategic Leadership\"\n    },\n    {\n      \"name\": \"MBA in Artificial Intelligence\",\n      \"duration\": \"18 Months\",\n      \"focus\": \"Practical Enterprise AI\"\n    }\n  ]\n}",
+        "diagram": []
+    }
+]
+
 import re
 
 def sanitize_script_name(name):
@@ -169,6 +239,8 @@ def sanitize_script_name(name):
 def get_project_folder(project_name):
     if project_name == "DOMMemo":
         return "kichban_memo"
+    elif project_name == "IDEAS":
+        return "kichban_ideas"
     return "kichban"
 
 def get_slides_path(script_name, project_name="TurnioDEV"):
@@ -181,7 +253,12 @@ def get_slides_path(script_name, project_name="TurnioDEV"):
 def load_slides(script_name="video1", project_name="TurnioDEV"):
     path = get_slides_path(script_name, project_name)
     if not os.path.exists(path):
-        defaults = DEFAULT_SLIDES_MEMO if project_name == "DOMMemo" else DEFAULT_SLIDES
+        if project_name == "DOMMemo":
+            defaults = DEFAULT_SLIDES_MEMO
+        elif project_name == "IDEAS":
+            defaults = DEFAULT_SLIDES_IDEAS
+        else:
+            defaults = DEFAULT_SLIDES
         # Bootstrap: if loading video1 and root slides.json exists, use it.
         # Otherwise bootstrap from defaults.
         if project_name == "TurnioDEV" and script_name == "video1" and os.path.exists(SLIDES_FILE):
@@ -201,7 +278,12 @@ def load_slides(script_name="video1", project_name="TurnioDEV"):
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
-        defaults = DEFAULT_SLIDES_MEMO if project_name == "DOMMemo" else DEFAULT_SLIDES
+        if project_name == "DOMMemo":
+            defaults = DEFAULT_SLIDES_MEMO
+        elif project_name == "IDEAS":
+            defaults = DEFAULT_SLIDES_IDEAS
+        else:
+            defaults = DEFAULT_SLIDES
         return defaults
 
 def save_slides(slides, script_name="video1", project_name="TurnioDEV"):
@@ -228,6 +310,10 @@ def serve_kichban(filename):
 @app.route("/kichban_memo/<path:filename>")
 def serve_kichban_memo(filename):
     return send_from_directory("kichban_memo", filename)
+
+@app.route("/kichban_ideas/<path:filename>")
+def serve_kichban_ideas(filename):
+    return send_from_directory("kichban_ideas", filename)
 
 @app.route("/logo.png")
 def serve_logo():

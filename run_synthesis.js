@@ -5,7 +5,7 @@ const path = require('path');
 
 // Get video script from arguments, default to 'video19'
 const SCRIPT = process.argv[2] || 'video19';
-const API_BASE = 'http://127.0.0.1:5500';
+const API_BASE = 'http://127.0.0.1:5501';
 
 let flaskProcess = null;
 
@@ -165,8 +165,8 @@ async function main() {
         }
     });
 
-    // Wait for port 5500 to become active
-    console.log("[+] Đang chờ Flask server khởi động trên cổng 5500...");
+    // Wait for port 5501 to become active
+    console.log("[+] Đang chờ Flask server khởi động trên cổng 5501...");
     let retries = 30;
     while (retries > 0) {
         await sleep(1000);

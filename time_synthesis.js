@@ -1,6 +1,6 @@
 const http = require('http');
 
-const API_BASE = 'http://127.0.0.1:5500';
+const API_BASE = 'http://127.0.0.1:5501';
 const SCRIPT = 'video19';
 
 function post(url, data) {
@@ -106,7 +106,7 @@ async function run() {
         }
     } catch (error) {
         console.error(`\n[FATAL ERROR] Lỗi: ${error.message}`);
-        console.log("[HELP] Hãy chắc chắn Flask server đang chạy ở http://127.0.0.1:5500");
+        console.log("[HELP] Hãy chắc chắn Flask server đang chạy ở http://127.0.0.1:5501");
     }
     
     const totalTime = ((Date.now() - startTime) / 1000).toFixed(2);

@@ -83,7 +83,7 @@ async function run() {
         console.log(`[+] Đang bắt đầu xử lý kịch bản: ${script} (Project: ${PROJECT})`);
         
         // Load slides.json to get slide IDs for detailed logs
-        const folder = PROJECT === 'DOMMemo' ? 'kichban_memo' : 'kichban';
+        const folder = PROJECT === 'DOMMemo' ? 'kichban_memo' : (PROJECT === 'IDEAS' ? 'kichban_ideas' : 'kichban');
         const slidesPath = path.join(__dirname, folder, script, 'slides.json');
         let slides = [];
         if (fs.existsSync(slidesPath)) {

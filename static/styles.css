@@ -372,7 +372,7 @@ textarea.form-control {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-height: 150px;
+    max-height: 480px;
     overflow-y: auto;
     padding-right: 4px;
 }
@@ -5691,7 +5691,7 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
 }
 
 /* --- Mobile Responsive Layout Overrides --- */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .app-body {
         grid-template-columns: 1fr !important;
         grid-template-rows: auto auto !important;
@@ -5718,4 +5718,13 @@ audio.custom-audio-widget::-webkit-media-controls-time-remaining-display {
         overflow: visible !important;
         min-height: 500px !important;
     }
+}
+
+/* --- Aspect 4:5 Overrides for Viện IDEAS project --- */
+.video-canvas-16_9.aspect-4-5 {
+    height: 1350px !important;
+}
+
+.video-canvas-16_9.aspect-4-5.is-exporting-canvas {
+    height: 1350px !important;
 }

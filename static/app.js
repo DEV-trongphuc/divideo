@@ -238,6 +238,8 @@ function updateProjectBranding() {
     if (logoTag) {
         if (currentProject === 'DOMMemo') {
             logoTag.innerHTML = `DOM Memo`;
+        } else if (currentProject === 'IDEAS') {
+            logoTag.innerHTML = `IDEAS Education`;
         } else {
             logoTag.innerHTML = `Turnio.dev <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
         }
@@ -245,13 +247,15 @@ function updateProjectBranding() {
 
     const watermark = document.querySelector('.watermark');
     if (watermark) {
-        watermark.textContent = currentProject === 'DOMMemo' ? 'DOM Memo' : 'Turnio.dev';
+        watermark.textContent = currentProject === 'DOMMemo' ? 'DOM Memo' : (currentProject === 'IDEAS' ? 'IDEAS Education' : 'Turnio.dev');
     }
 
     const footerHandle = document.querySelector('.canvas-footer .footer-handle');
     if (footerHandle) {
         if (currentProject === 'DOMMemo') {
             footerHandle.innerHTML = `@DOM.Memo <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
+        } else if (currentProject === 'IDEAS') {
+            footerHandle.innerHTML = `@ideas.edu.vn <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
         } else {
             footerHandle.innerHTML = `@Turnio.dev <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
         }
@@ -261,6 +265,8 @@ function updateProjectBranding() {
     if (simUsername) {
         if (currentProject === 'DOMMemo') {
             simUsername.innerHTML = `DOM Memo <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
+        } else if (currentProject === 'IDEAS') {
+            simUsername.innerHTML = `IDEAS Education <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
         } else {
             simUsername.innerHTML = `Turnio.dev <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; flex-shrink: 0;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.941.1-1.358.275C14.77 2.57 13.5 1.7 12 1.7s-2.77.87-3.412 2.085C8.17 3.61 7.71 3.51 7.23 3.51c-2.11 0-3.82 1.78-3.82 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .941-.1 1.358-.275C9.23 21.43 10.5 22.3 12 22.3s2.77-.87 3.412-2.085c.417.175.878.275 1.358.275 2.11 0 3.82-1.78 3.82-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z" fill="#1d9bf0"/><path d="M9.88 16.61l-3.23-3.23 1.06-1.06 2.17 2.17 4.97-4.97 1.06 1.06-6.03 6.03z" fill="#fff"/></svg>`;
         }
@@ -268,37 +274,69 @@ function updateProjectBranding() {
 
     const musicMarquee = document.querySelector('.tiktok-sim-bottom .music-marquee');
     if (musicMarquee) {
-        musicMarquee.textContent = currentProject === 'DOMMemo' ? 'Nhạc nền gốc - DOM Memo' : 'Nhạc nền gốc - Turnio.dev';
+        musicMarquee.textContent = currentProject === 'DOMMemo' ? 'Nhạc nền gốc - DOM Memo' : (currentProject === 'IDEAS' ? 'Nhạc nền gốc - Swiss UMEF & IDEAS' : 'Nhạc nền gốc - Turnio.dev');
     }
 
     const avatarImg = document.querySelector('.tiktok-sim-right .avatar-img');
     if (avatarImg) {
-        avatarImg.textContent = currentProject === 'DOMMemo' ? 'D' : 'T';
+        avatarImg.textContent = currentProject === 'DOMMemo' ? 'D' : (currentProject === 'IDEAS' ? 'I' : 'T');
+    }
+
+    const canvas = document.getElementById('tiktok-canvas');
+    if (canvas) {
+        if (currentProject === 'IDEAS') {
+            canvas.style.background = 'radial-gradient(circle at center, #5c0b00 0%, #140200 100%)';
+        } else if (currentProject === 'DOMMemo') {
+            canvas.style.background = 'radial-gradient(circle at center, #1a0f30 0%, #05020c 100%)';
+        } else {
+            canvas.style.background = ''; // default CSS
+        }
+    }
+}
+
+// Populate script dropdown select
+function populateScriptSelect(scriptsList) {
+    const select = document.getElementById('script-select');
+    if (!select) return;
+    select.innerHTML = '';
+    scriptsList.forEach(scr => {
+        const opt = document.createElement('option');
+        opt.value = scr;
+        opt.textContent = scr;
+        select.appendChild(opt);
+    });
+    if (scriptsList.includes(currentScript)) {
+        select.value = currentScript;
+    } else if (scriptsList.length > 0) {
+        currentScript = scriptsList[0];
+        localStorage.setItem('currentScript', currentScript);
+        select.value = currentScript;
     }
 }
 
 // Fetch and load scripts list
 async function loadScriptList() {
+    const select = document.getElementById('script-select');
+    if (select) {
+        select.innerHTML = '<option value="">Đang tải...</option>';
+    }
     try {
         const response = await fetch(`${API_BASE}/api/scripts?project=${currentProject}`);
+        if (!response.ok) throw new Error('API server returned error');
         const scriptsList = await response.json();
-        const select = document.getElementById('script-select');
-        select.innerHTML = '';
-        scriptsList.forEach(scr => {
-            const opt = document.createElement('option');
-            opt.value = scr;
-            opt.textContent = scr;
-            select.appendChild(opt);
-        });
-        if (scriptsList.includes(currentScript)) {
-            select.value = currentScript;
-        } else if (scriptsList.length > 0) {
-            currentScript = scriptsList[0];
-            localStorage.setItem('currentScript', currentScript);
-            select.value = currentScript;
-        }
+        populateScriptSelect(scriptsList);
     } catch (err) {
-        console.error('Failed to load scripts list:', err);
+        console.warn('Failed to load scripts list from API, trying local fallback...', err);
+        try {
+            const projectFolder = currentProject === 'DOMMemo' ? 'kichban_memo' : (currentProject === 'IDEAS' ? 'kichban_ideas' : 'kichban');
+            const response = await fetch(`/${projectFolder}/scripts.json`);
+            if (!response.ok) throw new Error('Fallback scripts.json not found');
+            const scriptsList = await response.json();
+            populateScriptSelect(scriptsList);
+            console.log('[Offline Mode] Loaded scripts list successfully from:', `/${projectFolder}/scripts.json`);
+        } catch (fallbackErr) {
+            console.error('Failed to load scripts list from both API and local fallback:', fallbackErr);
+        }
     }
 }
 // Initialize Application
@@ -347,16 +385,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 5. Start visualizer animator
     animateVisualizer();
 });
-// Responsive scaling of 1080x1920 vertical canvas
+// Responsive scaling of 1080x1920 vertical canvas or 1080x1350 for 4:5
 function adjustCanvasScale() {
     const container = document.getElementById('canvas-scaler-box');
     const canvas = document.getElementById('tiktok-canvas');
     if (!container || !canvas) return;
     const contWidth = container.clientWidth;
     const contHeight = container.clientHeight;
-    // Design resolution for 9:16 vertical TikTok layout
+    
+    // Check if IDEAS project is active for 4:5 aspect ratio
+    const isIdeas = (currentProject === 'IDEAS');
     const designWidth = 1080;
-    const designHeight = 1920;
+    const designHeight = isIdeas ? 1350 : 1920;
+    
+    if (isIdeas) {
+        canvas.classList.add('aspect-4-5');
+    } else {
+        canvas.classList.remove('aspect-4-5');
+    }
+    
     // Compute scale to fit container vertically or horizontally
     const scale = Math.min(contWidth / designWidth, contHeight / designHeight) * 0.95;
     // Apply transform
@@ -366,6 +413,7 @@ function adjustCanvasScale() {
 async function fetchSlides() {
     try {
         const response = await fetch(`${API_BASE}/api/slides?project=${currentProject}&script=${currentScript}`);
+        if (!response.ok) throw new Error('API server returned error status');
         slides = await response.json();
         // Initialize Undo/Redo history
         undoStack = [JSON.stringify(slides)];
@@ -379,7 +427,27 @@ async function fetchSlides() {
         loadVideoScript(currentScript);
         checkActiveSynthesisProgress();
     } catch (err) {
-        console.error('Failed to fetch slides:', err);
+        console.warn('Failed to fetch slides from API, trying local fallback...', err);
+        try {
+            const projectFolder = currentProject === 'DOMMemo' ? 'kichban_memo' : (currentProject === 'IDEAS' ? 'kichban_ideas' : 'kichban');
+            const fallbackUrl = `/${projectFolder}/${currentScript}/slides.json`;
+            const response = await fetch(fallbackUrl);
+            if (!response.ok) throw new Error('Fallback slides.json not found');
+            slides = await response.json();
+            
+            undoStack = [JSON.stringify(slides)];
+            redoStack = [];
+            updateUndoRedoButtons();
+            renderSlideList();
+            renderActiveSlide();
+            renderTimeline();
+            updateEpisodeHeader();
+            initScriptTopic();
+            loadVideoScript(currentScript);
+            console.log('[Offline Mode] Loaded slides successfully from local static JSON:', fallbackUrl);
+        } catch (fallbackErr) {
+            console.error('Failed to load slides from both API and local fallback:', fallbackErr);
+        }
     }
 }
 // Fetch available voices
@@ -879,7 +947,7 @@ function setupEventListeners() {
             } catch (err) {
                 console.warn("Folder open API failed locally:", err);
             }
-            const projectFolder = currentProject === 'DOMMemo' ? 'kichban_memo' : 'kichban'; window.open(`${API_BASE}/${projectFolder}/${currentScript}/mp4/video.mp4`, '_blank');
+            const projectFolder = currentProject === 'DOMMemo' ? 'kichban_memo' : (currentProject === 'IDEAS' ? 'kichban_ideas' : 'kichban'); window.open(`/${projectFolder}/${currentScript}/mp4/video.mp4`, '_blank');
         });
     }
     // Open MP3 Folder button
@@ -1750,7 +1818,7 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
         window.VideoPlugin.renderGfx(slideId, canvas, isPlaying, getSlideDuration, slide);
         window.VideoPlugin.updateFrame(slideId, canvas, progress);
         
-        if (window.VideoPlugin.keywordsData && window.VideoPlugin.keywordsData[slideId]) {
+        if (window.VideoPlugin.keywordsData && window.VideoPlugin.keywordsData[slideId] && currentProject !== 'IDEAS') {
             const list = window.VideoPlugin.keywordsData[slideId];
             const slideIndex = slides.findIndex(s => s.id === slideId);
             const isFirstSlide = (slideIndex === 0);
@@ -1817,7 +1885,8 @@ function renderCustomSimulationSlide(slide, animTime, forceRebuild) {
     // Sync simulation voice script to the bottom subtitle box
     const subtitleBox = document.getElementById('canvas-subtitle-box');
     if (subtitleBox) {
-        if (slide.script) {
+        const isIdeas = (currentProject === 'IDEAS');
+        if (slide.script && !isIdeas) {
             const duration = getSlideDuration(slide);
             // Introduce a 0.3s lead time so subtitles appear slightly ahead of narration
             const activeChunk = getActiveSubtitleChunk(slide.script, animTime + 0.3, duration);
@@ -1878,10 +1947,10 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
             const iconWrap = document.createElement('div');
             if (isLastSlide) {
                 const isFollowed = (animTime > 2.0);
-                const logoSrc = currentProject === 'DOMMemo' ? `${API_BASE}/Dom_memo.png` : `${API_BASE}/logo.png`;
-                const avatarLetter = currentProject === 'DOMMemo' ? 'D' : 'T';
-                const avatarBg = currentProject === 'DOMMemo' ? '#8B5CF6' : '#F59E0B';
-                const avatarColor = currentProject === 'DOMMemo' ? '#fff' : '#000';
+                const logoSrc = currentProject === 'DOMMemo' ? `/Dom_memo.png` : (currentProject === 'IDEAS' ? `https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp` : `/logo.png`);
+                const avatarLetter = currentProject === 'DOMMemo' ? 'D' : (currentProject === 'IDEAS' ? 'I' : 'T');
+                const avatarBg = currentProject === 'DOMMemo' ? '#8B5CF6' : (currentProject === 'IDEAS' ? '#b31400' : '#F59E0B');
+                const avatarColor = (currentProject === 'DOMMemo' || currentProject === 'IDEAS') ? '#fff' : '#000';
                 iconWrap.className = 'title-slide-icon-wrapper last-slide-logo-wrapper';
                 iconWrap.innerHTML = `
                     <img src="${logoSrc}" crossorigin="anonymous" class="follow-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="logo">
@@ -2851,7 +2920,7 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
                                 </div>
                             ` : `
                                 <div class="spotify-profile-tab">
-                                    <div class="spotify-user-badge">${currentProject === 'DOMMemo' ? 'D' : 'T'}</div>
+                                    <div class="spotify-user-badge">${currentProject === 'DOMMemo' ? 'D' : (currentProject === 'IDEAS' ? 'I' : 'T')}</div>
                                 </div>
                             `}
                         </div>
@@ -2861,9 +2930,9 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
                                 <i data-lucide="music-4"></i>
                             </div>
                             <div class="spotify-playlist-info">
-                                <span class="playlist-tag">PLAYLIST CÃ NHÃ‚N</span>
+                                <span class="playlist-tag">PLAYLIST CÁ NHÂN</span>
                                 <h1 class="playlist-name-title">${playlistTitle}</h1>
-                                <p class="playlist-creator-desc">Táº¡o bá»Ÿi <strong>${currentProject === 'DOMMemo' ? '@DOM.Memo' : '@Turnio.dev'}</strong> â€¢ ${songs.length} bÃ i hÃ¡t</p>
+                                <p class="playlist-creator-desc">Tạo bởi <strong>${currentProject === 'DOMMemo' ? '@DOM.Memo' : (currentProject === 'IDEAS' ? '@ideas.edu.vn' : '@Turnio.dev')}</strong> • ${songs.length} bài hát</p>
                             </div>
                         </div>
                         <!-- Playlist Controls -->
@@ -2877,7 +2946,7 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
                         <div class="spotify-tracks-list">
                             <div class="tracks-list-header">
                                 <span class="track-col-index">#</span>
-                                <span class="track-col-title">TIÃŠU Äá»€</span>
+                                <span class="track-col-title">TIÊU ĐỀ</span>
                                 <span class="track-col-duration"><i data-lucide="clock"></i></span>
                             </div>
                             <div class="tracks-list-items">
@@ -2941,7 +3010,7 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
                         <div class="player-header-bar">
                             <button class="header-icon-btn"><i data-lucide="chevron-down"></i></button>
                             <div class="header-text-info">
-                                <span class="playing-from-tag">ÄANG PHÃT Tá»ª PLAYLIST</span>
+                                <span class="playing-from-tag">ĐANG PHÁT TỪ PLAYLIST</span>
                                 <span class="playing-playlist-name">${playlistTitle}</span>
                             </div>
                             <button class="header-icon-btn"><i data-lucide="more-vertical"></i></button>
@@ -3031,9 +3100,9 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
             wrapper.className = `layout-transition-view transition-theme-${theme}`;
             const header = document.createElement('div');
             header.className = 'transition-user-header';
-            const avatarLetter = currentProject === 'DOMMemo' ? 'D' : 'T';
-            const handleName = currentProject === 'DOMMemo' ? '@dom.memo' : '@turnio.dev';
-            const handleRole = currentProject === 'DOMMemo' ? 'â€¢ Tâm lý học' : 'â€¢ Backend';
+            const avatarLetter = currentProject === 'DOMMemo' ? 'D' : (currentProject === 'IDEAS' ? 'I' : 'T');
+            const handleName = currentProject === 'DOMMemo' ? '@dom.memo' : (currentProject === 'IDEAS' ? '@ideas.edu.vn' : '@turnio.dev');
+            const handleRole = currentProject === 'DOMMemo' ? '• Tâm lý học' : (currentProject === 'IDEAS' ? '• Giáo dục Thụy Sĩ' : '• Backend');
             header.innerHTML = `
                 <div class="transition-user-avatar">${avatarLetter}</div>
                 <div class="transition-user-handle">${handleName} <span>${handleRole}</span></div>
@@ -3315,19 +3384,19 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
                                 firstTd.textContent = count.toLocaleString('vi-VN');
                                 const secondTd = tr.querySelectorAll('td')[1];
                                 if (secondTd) {
-                                    secondTd.innerHTML = `<span style="color: var(--text-muted);">Äang duyá»‡t hÃ ng triá»‡u dÃ²ng...</span>`;
+                                    secondTd.innerHTML = `<span style="color: var(--text-muted);">Đang duyệt hàng triệu dòng...</span>`;
                                 }
                                 const thirdTd = tr.querySelectorAll('td')[2];
                                 if (thirdTd) {
-                                    thirdTd.innerHTML = `<span style="color: var(--gold-primary); font-weight: bold; animation: pulseIcon 0.8s infinite;">Äang tÃ¬m...</span>`;
+                                    thirdTd.innerHTML = `<span style="color: var(--gold-primary); font-weight: bold; animation: pulseIcon 0.8s infinite;">Đang tìm...</span>`;
                                 }
                             } else if (idx < activeRowIdx) {
                                 const nextNum = idx + 1 < rows.length ? parseInt(rows[idx + 1][0].replace(/[\.,]/g, ''), 10) : 1000000;
                                 firstTd.textContent = (nextNum - 1).toLocaleString('vi-VN');
                                 const secondTd = tr.querySelectorAll('td')[1];
-                                if (secondTd) secondTd.textContent = 'Bá» qua';
+                                if (secondTd) secondTd.textContent = 'Bỏ qua';
                                 const thirdTd = tr.querySelectorAll('td')[2];
-                                if (thirdTd) thirdTd.innerHTML = `<span style="color: var(--warning-red); font-weight: bold;">Sai - Bá» qua</span>`;
+                                if (thirdTd) thirdTd.innerHTML = `<span style="color: var(--warning-red); font-weight: bold;">Sai - Bỏ qua</span>`;
                             } else {
                                 firstTd.textContent = '...';
                                 const secondTd = tr.querySelectorAll('td')[1];
@@ -3343,9 +3412,9 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
                             if (thirdTd) {
                                 const cell = originalRow[2] || '';
                                 const cellLower = cell.toLowerCase();
-                                if (cellLower.includes('sai') || cellLower.includes('bá» qua')) {
+                                if (cellLower.includes('sai') || cellLower.includes('bỏ qua')) {
                                     thirdTd.innerHTML = `<span style="color: var(--warning-red); font-weight: bold;">${cell}</span>`;
-                                } else if (cellLower.includes('Ä‘Ãºng') || cellLower.includes('tÃ¬m tháº¥y')) {
+                                } else if (cellLower.includes('đúng') || cellLower.includes('tìm thấy')) {
                                     thirdTd.innerHTML = `<span style="color: var(--success-green); font-weight: bold;">${cell}</span>`;
                                 } else {
                                     thirdTd.textContent = cell;
@@ -3618,19 +3687,19 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
                                     firstTd.textContent = count.toLocaleString('vi-VN');
                                     const secondTd = tr.querySelectorAll('td')[1];
                                     if (secondTd) {
-                                        secondTd.innerHTML = `<span style="color: var(--text-muted);">Äang duyá»‡t hÃ ng triá»‡u dÃ²ng...</span>`;
+                                        secondTd.innerHTML = `<span style="color: var(--text-muted);">Đang duyệt hàng triệu dòng...</span>`;
                                     }
                                     const thirdTd = tr.querySelectorAll('td')[2];
                                     if (thirdTd) {
-                                        thirdTd.innerHTML = `<span style="color: var(--gold-primary); font-weight: bold; animation: pulseIcon 0.8s infinite;">Äang tÃ¬m...</span>`;
+                                        thirdTd.innerHTML = `<span style="color: var(--gold-primary); font-weight: bold; animation: pulseIcon 0.8s infinite;">Đang tìm...</span>`;
                                     }
                                 } else if (idx < activeRowIdx) {
                                     const nextNum = idx + 1 < rows.length ? parseInt(rows[idx + 1][0].replace(/[\.,]/g, ''), 10) : 1000000;
                                     firstTd.textContent = (nextNum - 1).toLocaleString('vi-VN');
                                     const secondTd = tr.querySelectorAll('td')[1];
-                                    if (secondTd) secondTd.textContent = 'Bá» qua';
+                                    if (secondTd) secondTd.textContent = 'Bỏ qua';
                                     const thirdTd = tr.querySelectorAll('td')[2];
-                                    if (thirdTd) thirdTd.innerHTML = `<span style="color: var(--warning-red); font-weight: bold;">Sai - Bá» qua</span>`;
+                                    if (thirdTd) thirdTd.innerHTML = `<span style="color: var(--warning-red); font-weight: bold;">Sai - Bỏ qua</span>`;
                                 } else {
                                     firstTd.textContent = '...';
                                     const secondTd = tr.querySelectorAll('td')[1];
@@ -3646,9 +3715,9 @@ function renderCanvasPreview(slide, animTime = 0, forceRebuild = true) {
                                 if (thirdTd) {
                                     const cell = originalRow[2] || '';
                                     const cellLower = cell.toLowerCase();
-                                    if (cellLower.includes('sai') || cellLower.includes('bá» qua')) {
+                                    if (cellLower.includes('sai') || cellLower.includes('bỏ qua')) {
                                         thirdTd.innerHTML = `<span style="color: var(--warning-red); font-weight: bold;">${cell}</span>`;
-                                    } else if (cellLower.includes('Ä‘Ãºng') || cellLower.includes('tÃ¬m tháº¥y')) {
+                                    } else if (cellLower.includes('đúng') || cellLower.includes('tìm thấy')) {
                                         thirdTd.innerHTML = `<span style="color: var(--success-green); font-weight: bold;">${cell}</span>`;
                                     } else {
                                         thirdTd.textContent = cell;
@@ -3997,11 +4066,11 @@ async function generateAudioForActiveSlide() {
         const m = Math.floor(elapsedSec / 60);
         const s = elapsedSec % 60;
         const timeStr = `${m}:${s.toString().padStart(2, '0')}`;
-        btn.innerHTML = `<i class="export-spinner" style="width:22px; height:22px; border-width: 2px;"></i> Äang táº¡o giá»ng máº«u... [${timeStr}]`;
+        btn.innerHTML = `<i class="export-spinner" style="width:22px; height:22px; border-width: 2px;"></i> Đang tạo giọng mẫu... [${timeStr}]`;
     }, 1000);
 
     // Initial text before first tick
-    btn.innerHTML = `<i class="export-spinner" style="width:22px; height:22px; border-width: 2px;"></i> Äang táº¡o giá»ng máº«u... [0:00]`;
+    btn.innerHTML = `<i class="export-spinner" style="width:22px; height:22px; border-width: 2px;"></i> Đang tạo giọng mẫu... [0:00]`;
 
     try {
         const response = await fetch(`${API_BASE}/api/synthesize`, {
@@ -4024,12 +4093,12 @@ async function generateAudioForActiveSlide() {
             renderActiveSlide();
             renderTimeline();
             await saveSlidesToServer();
-            alert(`Táº¡o giá»ng nÃ³i thÃ nh cÃ´ng sau ${Math.floor((Date.now() - startTime) / 1000)} giÃ¢y!`);
+            alert(`Tạo giọng nói thành công sau ${Math.floor((Date.now() - startTime) / 1000)} giây!`);
         } else {
-            alert('Lá»—i táº¡o giá»ng nÃ³i: ' + data.error);
+            alert('Lỗi tạo giọng nói: ' + data.error);
         }
     } catch (e) {
-        alert('YÃªu cáº§u tháº¥t báº¡i: ' + e.message);
+        alert('Yêu cầu thất bại: ' + e.message);
     } finally {
         clearInterval(timerInterval);
         btn.disabled = false;
@@ -4051,7 +4120,7 @@ async function checkActiveSynthesisProgress() {
             const btn = document.getElementById('generate-all-audio-btn');
             if (btn) {
                 btn.disabled = false;
-                btn.innerHTML = '<i data-lucide="mic"></i> Táº¡o giá»ng nÃ³i cho táº¥t cáº£ Slide';
+                btn.innerHTML = '<i data-lucide="mic"></i> Tạo giọng nói cho tất cả Slide';
                 if (typeof lucide !== 'undefined') lucide.createIcons();
             }
         }
@@ -4069,7 +4138,7 @@ function resumeSynthesisPolling(startTime, originalText) {
     const btn = document.getElementById('generate-all-audio-btn');
     if (!btn) return;
     if (!originalText) {
-        originalText = '<i data-lucide="mic"></i> Táº¡o giá»ng nÃ³i cho táº¥t cáº£ Slide';
+        originalText = '<i data-lucide="mic"></i> Tạo giọng nói cho tất cả Slide';
     }
     btn.disabled = true;
     synthesisPollInterval = setInterval(async () => {
@@ -4668,9 +4737,9 @@ async function checkActiveExportStatus() {
                         const statusDesc = statusBox.querySelector('p');
                         if (statusDesc) statusDesc.textContent = 'Hệ thống đang chạy qua các slide và thu âm âm thanh thực tế. Vui lòng không đóng tab.';
                         
-                        const projectFolder = currentProject === 'DOMMemo' ? 'kichban_memo' : 'kichban';
+                        const projectFolder = currentProject === 'DOMMemo' ? 'kichban_memo' : (currentProject === 'IDEAS' ? 'kichban_ideas' : 'kichban');
                         alert('Xuất video MP4 chất lượng cao thành công! (' + projectFolder + '/' + currentScript + '/mp4/video.mp4)');
-                        window.open(`${API_BASE}/${projectFolder}/${currentScript}/mp4/video.mp4`, '_blank');
+                        window.open(`/${projectFolder}/${currentScript}/mp4/video.mp4`, '_blank');
                     }, 500);
                 } else if (data.status === 'failed') {
                     statusBox.style.display = 'none';
@@ -4902,7 +4971,7 @@ function updateEpisodeHeader() {
         const num = parseInt(match[0], 10);
         epNumStr = String(num).padStart(3, '0');
     }
-    const prefix = currentProject === 'DOMMemo' ? 'MEMO DISPATCH' : 'TECH DISPATCH';
+    const prefix = currentProject === 'DOMMemo' ? 'MEMO DISPATCH' : (currentProject === 'IDEAS' ? 'IDEAS EDUCATION' : 'TECH DISPATCH');
     headerEp.textContent = `${prefix} \u00b7 EP. ${epNumStr}`;
     
     // Toggle Cloudflare logo visibility
@@ -4948,8 +5017,8 @@ function loadVideoScript(scriptName) {
     if (oldCss) oldCss.remove();
     window.VideoPlugin = null;
     if (!scriptName) return;
-    const filename = currentProject === 'DOMMemo' ? `dommemo_${scriptName}` : scriptName;
-    const basePath = `${API_BASE}/static/videos/${filename}`;
+    const filename = currentProject === 'DOMMemo' ? `dommemo_${scriptName}` : (currentProject === 'IDEAS' ? `ideas_${scriptName}` : scriptName);
+    const basePath = `/static/videos/${filename}`;
     const cacheBuster = `?t=${Date.now()}`;
     // Load CSS first
     const link = document.createElement('link');
@@ -4963,6 +5032,7 @@ function loadVideoScript(scriptName) {
     script.src = `${basePath}.js${cacheBuster}`;
     script.onload = () => {
         console.log(`[App] VideoPlugin loaded for: ${filename}`);
+        adjustCanvasScale();
         // Re-render current slide with plugin active
         if (slides[currentSlideIndex]) renderActiveSlide(true);
         updateEpisodeHeader();

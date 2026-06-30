@@ -16,7 +16,12 @@ def main():
     script_name = sys.argv[1]
     project_name = sys.argv[2] if len(sys.argv) > 2 else "TurnioDEV"
     
-    project_folder = "kichban_memo" if project_name == "DOMMemo" else "kichban"
+    if project_name == "DOMMemo":
+        project_folder = "kichban_memo"
+    elif project_name == "IDEAS":
+        project_folder = "kichban_ideas"
+    else:
+        project_folder = "kichban"
     slides_path = os.path.join(project_folder, script_name, "slides.json")
     status_path = os.path.join(project_folder, script_name, "export_status.json")
     mp4_dir = os.path.join(project_folder, script_name, "mp4")
@@ -95,7 +100,8 @@ def main():
         with sync_playwright() as p:
             update_status(5, "Đang khởi tạo trình duyệt ảo...")
             browser = p.chromium.launch(headless=True)
-            context = browser.new_context(viewport={"width": 1080, "height": 1920})
+            vh = 1350 if project_name == "IDEAS" else 1920
+            context = browser.new_context(viewport={"width": 1080, "height": vh})
             page = context.new_page()
             
             # Navigate to local dashboard

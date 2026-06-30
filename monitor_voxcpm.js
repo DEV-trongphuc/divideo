@@ -1,6 +1,6 @@
 const http = require('http');
 
-const SERVER_URL = 'http://127.0.0.1:5500';
+const SERVER_URL = 'http://127.0.0.1:5501';
 const VIDEOS = ['video8', 'video9', 'video10', 'video11', 'video12'];
 const POLL_INTERVAL_MS = 1500;
 
@@ -68,7 +68,7 @@ async function run() {
     // Test server connection
     try {
         await request('GET', '/api/voices');
-        console.log('✅ Kết nối máy chủ thành công (http://127.0.0.1:5500)');
+        console.log('✅ Kết nối máy chủ thành công (http://127.0.0.1:5501)');
     } catch (err) {
         console.error('❌ Không thể kết nối tới máy chủ Flask! Vui lòng chạy lệnh: python app.py trước.');
         process.exit(1);
