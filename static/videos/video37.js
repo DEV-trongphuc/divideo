@@ -158,7 +158,7 @@
         else if (slideId === 'slide_v37_ad_auction') {
             if (needsTemplate) {
                 canvas.innerHTML = sceneWrap(`
-                    <div class="v37-vertical-layout" style="zoom:1.0;">
+                    <div class="v37-vertical-layout" style="zoom:1.35; margin-top:-15px; gap:12px;">
                         <!-- Advertisers Bidding Cards -->
                         <div class="v37-bidders-row">
                             <!-- Brand A -->
@@ -188,11 +188,11 @@
                         </div>
 
                         <!-- Central Connection Vectors -->
-                        <div class="v37-vertical-connection">
+                        <div class="v37-vertical-connection" style="height:60px;">
                             <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2;">
-                                <path class="v37-s3-path-a v37-dash-path" d="M 70 0 L 220 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
-                                <path class="v37-s3-path-b v37-dash-path" d="M 220 0 L 220 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
-                                <path class="v37-s3-path-c v37-dash-path" d="M 370 0 L 220 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
+                                <path class="v37-s3-path-a v37-dash-path" d="M 70 0 L 220 55" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
+                                <path class="v37-s3-path-b v37-dash-path" d="M 220 0 L 220 55" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
+                                <path class="v37-s3-path-c v37-dash-path" d="M 370 0 L 220 55" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5"></path>
                             </svg>
                             <!-- Flying packets -->
                             <div class="v37-s3-packet-a" style="position:absolute; width:8px; height:8px; border-radius:50%; background:#3b82f6; opacity:0; left:70px; top:0; transform:translate(-50%,-50%); z-index:5;"></div>
@@ -534,19 +534,19 @@
             // Packets fly from top brands to central auction engine at the bottom: progress 0.1 to 0.45
             if (progress > 0.1 && progress < 0.45) {
                 const t = (progress - 0.1) / 0.35;
-                // A: 70, 0 -> 220, 30
+                // A: 70, 0 -> 220, 55
                 const xa = 70 + (220 - 70) * t;
-                const ya = 30 * t;
+                const ya = 55 * t;
                 if (pA) { pA.style.left = `${xa}px`; pA.style.top = `${ya}px`; pA.style.opacity = '1'; }
 
-                // B: 220, 0 -> 220, 30
+                // B: 220, 0 -> 220, 55
                 const xb = 220;
-                const yb = 30 * t;
+                const yb = 55 * t;
                 if (pB) { pB.style.left = `${xb}px`; pB.style.top = `${yb}px`; pB.style.opacity = '1'; }
 
-                // C: 370, 0 -> 220, 30
+                // C: 370, 0 -> 220, 55
                 const xc = 370 + (220 - 370) * t;
-                const yc = 30 * t;
+                const yc = 55 * t;
                 if (pC) { pC.style.left = `${xc}px`; pC.style.top = `${yc}px`; pC.style.opacity = '1'; }
             } else {
                 if (pA) pA.style.opacity = '0';

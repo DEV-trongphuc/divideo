@@ -703,7 +703,7 @@ def synthesize_all_thread(script_name, slides, project_name="TurnioDEV"):
 @app.route("/api/synthesize-all", methods=["POST"])
 def synthesize_all():
     global TTS_SYNTHESIS_STATUS
-    if TTS_SYNTHESIS_STATUS["status"] == "processing":
+    if TTS_SYNTHESIS_STATUS["status"] in ["processing", "loading_model"]:
         return jsonify({"error": "Tiến trình tạo giọng nói đang chạy. Vui lòng chờ..."}), 400
         
     data = request.json or {}
@@ -722,6 +722,15 @@ def synthesize_all():
             if ref_voice is not None:
                 slide["refVoice"] = ref_voice
         save_slides(slides, script_name, project_name)
+    
+    # Initialize status immediately to clear previous run state before starting thread
+    TTS_SYNTHESIS_STATUS = {
+        "status": "processing",
+        "progress": 0,
+        "current": 0,
+        "total": len(slides),
+        "error": None
+    }
     
     # Run in background thread
     threading.Thread(
@@ -742,8 +751,6 @@ def synthesize_all_status():
     slides = []
     if TTS_SYNTHESIS_STATUS["status"] == "completed":
         slides = load_slides(script_name, project_name)
-        # Reset state back to idle so we can synthesize again in the future
-        TTS_SYNTHESIS_STATUS = {"status": "idle", "progress": 0, "current": 0, "total": 0, "error": None}
         return jsonify({
             "status": "completed",
             "progress": 100,

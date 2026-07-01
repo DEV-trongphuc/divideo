@@ -110,6 +110,15 @@
         wrap.classList.add('visible');
     }
 
+    function placePacketOnCurve(wrap, start, end, tStart, tEnd, t) {
+        if (!wrap) return;
+        const tCurve = tStart + (tEnd - tStart) * t;
+        const pt = getPathPoint(start, end, tCurve);
+        wrap.style.left = `${pt.x}px`;
+        wrap.style.top = `${pt.y}px`;
+        wrap.classList.add('visible');
+    }
+
     function hidePacket(wrap) {
         if (wrap) {
             wrap.classList.remove('visible');
@@ -685,12 +694,8 @@
                     safeSetText(inputDisplay, 'Nhập tin nhắn...');
                     inputDisplay.classList.add('placeholder');
                 }
-                // Move packet halfway towards server
-                const halfS = {
-                    x: offA.x + (offS.x - offA.x) * 0.5,
-                    y: offA.y + (offS.y - offA.y) * 0.5
-                };
-                placePacket(pkt, offA, halfS, t);
+                // Move packet halfway towards server on curve (t goes from 0.0 to 0.5)
+                placePacketOnCurve(pkt, offA, offS, 0.0, 0.5, t);
                 safeSetText(pktLbl, '"xf#7d9!"');
                 safeSetText(status, '3. Gửi chuỗi ký tự rác đi qua mạng');
                 canvas.querySelectorAll('.v40-key').forEach(el => el.classList.remove('pressing'));
@@ -722,9 +727,9 @@
             const halfB = { x: offS.x + (offB.x - offS.x) * 0.5, y: offS.y + (offB.y - offS.y) * 0.5 };
 
             if (progress < 0.4) {
-                // Packet goes from halfway-A to Server
+                // Packet goes from halfway-A to Server on curve (t goes from 0.5 to 1.0)
                 const t = progress / 0.4;
-                placePacket(pkt, halfA, offS, t);
+                placePacketOnCurve(pkt, offA, offS, 0.5, 1.0, t);
                 safeSetText(pktLbl, '"xf#7d9!"');
                 safeSetText(status, '1. Gói tin khóa đi tới Server');
                 safeSetText(serverLog, 'Incoming packet...');
@@ -737,9 +742,9 @@
                 if (led && led.className !== 'v40-server-led active-red') led.className = 'v40-server-led active-red';
             }
             else {
-                // Packet leaves Server towards B (halfway)
+                // Packet leaves Server towards B (halfway) on curve (t goes from 0.0 to 0.5)
                 const t = (progress - 0.75) / 0.25;
-                placePacket(pkt, offS, halfB, t);
+                placePacketOnCurve(pkt, offS, offB, 0.0, 0.5, t);
                 safeSetText(pktLbl, '"xf#7d9!"');
                 safeSetText(status, '2. Server chỉ có thể chuyển tiếp gói tin đi');
                 if (led && led.className !== 'v40-server-led active') led.className = 'v40-server-led active';
@@ -765,9 +770,9 @@
             const halfB = { x: offS.x + (offB.x - offS.x) * 0.5, y: offS.y + (offB.y - offS.y) * 0.5 };
 
             if (progress < 0.45) {
-                // Packet goes from halfway to B
+                // Packet goes from halfway to B on curve (t goes from 0.5 to 1.0)
                 const t = progress / 0.45;
-                placePacket(pkt, halfB, offB, t);
+                placePacketOnCurve(pkt, offS, offB, 0.5, 1.0, t);
                 safeSetText(pktLbl, '"xf#7d9!"');
                 safeSetHTML(chatB, '');
                 safeSetText(status, '1. Gói tin khóa đến thiết bị B');

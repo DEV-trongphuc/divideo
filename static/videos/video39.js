@@ -57,6 +57,38 @@
     const faceIndices = [11, 12, 18, 19, 20, 21, 26, 27, 28, 29, 34, 35, 36, 37, 42, 43, 44, 45, 51, 52];
     const mouthIndices = [43, 44];
 
+    function avatarHTML(avatarId) {
+        const idAttr = avatarId ? `id="${avatarId}"` : '';
+        return `
+            <div class="v39-avatar-bg" ${idAttr}>
+                <div class="v39-avatar-hair"></div>
+                <div class="v39-avatar-head">
+                    <div class="v39-avatar-eyes-row">
+                        <div class="v39-avatar-eye left"></div>
+                        <div class="v39-avatar-eye right"></div>
+                    </div>
+                    <div class="v39-avatar-mouth"></div>
+                </div>
+                <div class="v39-avatar-shoulders"></div>
+            </div>
+        `;
+    }
+
+    function videoContainerHTML(gridId, cellPrefix, avatarId, isDelta = false) {
+        const deltaClass = isDelta ? 'delta-view' : '';
+        return `
+            <div class="v39-video-container ${deltaClass}">
+                <div class="v39-video-room-bg"></div>
+                <div class="v39-video-window"></div>
+                <div class="v39-video-chair"></div>
+                ${avatarHTML(avatarId)}
+                <div class="v39-pixel-grid" id="${gridId}">
+                    ${getGridCellsHTML(cellPrefix)}
+                </div>
+            </div>
+        `;
+    }
+
     // ── HTML TEMPLATES ─────────────────────────────────────────────────────────
     function renderGfx(slideId, canvas, isPlaying, getSlideDuration, slide) {
         const needsTemplate = canvas.getAttribute('data-sim-template') !== slideId || canvas.innerHTML === '';
@@ -123,22 +155,20 @@
                 <div class="v39-slide-container">
                     <!-- Pixel Grid representing Speaker Frame -->
                     <div style="position: relative;">
-                        <div class="v39-pixel-grid" id="v39-redundancy-grid">
-                            ${getGridCellsHTML('v39-redun')}
-                        </div>
-                        <div class="v39-glass" style="position: absolute; top: 12px; left: 12px; padding: 6px 12px; border-radius: 6px; font-size: 12px; color: rgba(255,255,255,0.7); font-family: monospace; font-weight: bold; letter-spacing: 0.5px;">CAMERA VIEW</div>
+                        ${videoContainerHTML('v39-redundancy-grid', 'v39-redun', 'v39-p3-avatar')}
+                        <div class="v39-glass" style="position: absolute; top: 12px; left: 12px; padding: 6px 12px; border-radius: 6px; font-size: 12px; color: rgba(255,255,255,0.7); font-family: monospace; font-weight: bold; letter-spacing: 0.5px; z-index: 10;">CAMERA VIEW</div>
                     </div>
 
                     <!-- Analysis Panel -->
-                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
-                        <div style="display: flex; justify-content: space-between; font-size: 18px;">
-                            <span style="color: rgba(255,255,255,0.5);">Trạng thái:</span>
-                            <span style="font-weight: bold; color: var(--compress-cyan);" class="v39-redun-status">Đang quét khung hình...</span>
+                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 20px 24px; display: flex; flex-direction: column; gap: 14px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 24px; align-items: center;">
+                            <span style="color: rgba(255,255,255,0.5); font-weight: 500;">Trạng thái:</span>
+                            <span style="font-weight: 800; color: var(--compress-cyan);" class="v39-redun-status">Đang quét khung hình...</span>
                         </div>
-                        <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
+                        <div style="width: 100%; height: 12px; background: rgba(255,255,255,0.08); border-radius: 6px; overflow: hidden; margin: 4px 0;">
                             <div class="v39-redun-progress" style="width: 0%; height: 100%; background: var(--compress-cyan); transition: width 0.1s linear;"></div>
                         </div>
-                        <div style="display: flex; justify-content: space-between; font-size: 14px; font-family: monospace; color: rgba(255,255,255,0.5); font-weight: bold;">
+                        <div style="display: flex; justify-content: space-between; font-size: 20px; font-family: monospace; color: rgba(255,255,255,0.5); font-weight: bold;">
                             <span class="v39-redun-static-pct">Hậu cảnh tĩnh: 0%</span>
                             <span class="v39-redun-action">Bỏ qua: 0%</span>
                         </div>
@@ -151,24 +181,30 @@
                 <div class="v39-slide-container">
                     <!-- Fully loaded Grid -->
                     <div style="position: relative;">
-                        <div class="v39-pixel-grid" id="v39-iframe-grid">
-                            ${getGridCellsHTML('v39-iframe')}
+                        <div class="v39-video-container">
+                            <div class="v39-video-room-bg"></div>
+                            <div class="v39-video-window"></div>
+                            <div class="v39-video-chair"></div>
+                            ${avatarHTML('v39-p4-avatar')}
+                            <div class="v39-pixel-grid" id="v39-iframe-grid">
+                                ${getGridCellsHTML('v39-iframe')}
+                            </div>
+                            <!-- Laser scan light -->
+                            <div class="v39-laser-scanner"></div>
                         </div>
-                        <!-- Laser scan light -->
-                        <div class="v39-laser-scanner"></div>
                     </div>
 
                     <!-- Stats Box -->
-                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
-                        <div style="display: flex; justify-content: space-between; font-size: 18px;">
-                            <span style="color: rgba(255,255,255,0.5);">Loại khung hình:</span>
-                            <span style="font-weight: bold; color: var(--compress-orange);">Intra-coded (I-Frame)</span>
+                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 24px; align-items: center;">
+                            <span style="color: rgba(255,255,255,0.5); font-weight: 500;">Loại khung hình:</span>
+                            <span style="font-weight: 800; color: var(--compress-orange);">Intra-coded (I-Frame)</span>
                         </div>
-                        <div style="display: flex; justify-content: space-between; font-size: 18px;">
-                            <span style="color: rgba(255,255,255,0.5);">Dung lượng:</span>
-                            <span style="font-weight: bold; color: #fff;" class="v39-iframe-size">100% (Khung thô gốc)</span>
+                        <div style="display: flex; justify-content: space-between; font-size: 24px; align-items: center;">
+                            <span style="color: rgba(255,255,255,0.5); font-weight: 500;">Dung lượng:</span>
+                            <span style="font-weight: 800; color: #fff;" class="v39-iframe-size">100% (Khung thô gốc)</span>
                         </div>
-                        <div style="font-size: 14px; color: rgba(255,255,255,0.5); text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; font-weight: 500;" class="v39-iframe-desc">
+                        <div style="font-size: 18px; color: rgba(255,255,255,0.5); text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; font-weight: bold;" class="v39-iframe-desc">
                             Đang quét ghi nhận toàn bộ chi tiết...
                         </div>
                     </div>
@@ -182,10 +218,16 @@
                     <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; position: relative; width: 100%;">
                         <!-- Left: I-Frame Reference -->
                         <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
-                            <div class="v39-pixel-grid" id="v39-pframe-ref" style="width: 310px; height: 310px; gap: 4px; padding: 8px;">
-                                ${getGridCellsHTML('v39-pframe-ref')}
+                            <div class="v39-video-container" style="width: 350px; height: 350px;">
+                                <div class="v39-video-room-bg"></div>
+                                <div class="v39-video-window"></div>
+                                <div class="v39-video-chair"></div>
+                                ${avatarHTML('v39-p5-avatar-ref')}
+                                <div class="v39-pixel-grid" id="v39-pframe-ref" style="width: 350px; height: 350px; gap: 5px; padding: 10px;">
+                                    ${getGridCellsHTML('v39-pframe-ref')}
+                                </div>
                             </div>
-                            <span style="font-size: 15px; color: var(--compress-orange); font-family: monospace; font-weight: bold; letter-spacing: 0.5px;">I-Frame (Mốc gốc)</span>
+                            <span style="font-size: 16px; color: var(--compress-orange); font-family: monospace; font-weight: bold; letter-spacing: 0.5px; margin-top: 4px;">I-Frame (Mốc gốc)</span>
                         </div>
 
                         <!-- Minus Sign -->
@@ -193,24 +235,30 @@
 
                         <!-- Right: P-Frame Delta -->
                         <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
-                            <div class="v39-pixel-grid" id="v39-pframe-delta" style="width: 310px; height: 310px; gap: 4px; padding: 8px;">
-                                ${getGridCellsHTML('v39-pframe-delta')}
+                            <div class="v39-video-container delta-view" style="width: 350px; height: 350px;">
+                                <div class="v39-video-room-bg"></div>
+                                <div class="v39-video-window"></div>
+                                <div class="v39-video-chair"></div>
+                                ${avatarHTML('v39-p5-avatar-delta')}
+                                <div class="v39-pixel-grid" id="v39-pframe-delta" style="width: 350px; height: 350px; gap: 5px; padding: 10px;">
+                                    ${getGridCellsHTML('v39-pframe-delta')}
+                                </div>
                             </div>
-                            <span style="font-size: 15px; color: var(--compress-magenta); font-family: monospace; font-weight: bold; letter-spacing: 0.5px;">P-Frame (Thay đổi)</span>
+                            <span style="font-size: 16px; color: var(--compress-magenta); font-family: monospace; font-weight: bold; letter-spacing: 0.5px; margin-top: 4px;">P-Frame (Thay đổi)</span>
                         </div>
                     </div>
 
                     <!-- Stats Box -->
-                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
-                        <div style="display: flex; justify-content: space-between; font-size: 18px;">
-                            <span style="color: rgba(255,255,255,0.5);">Tiết kiệm băng thông:</span>
-                            <span style="font-weight: bold; color: var(--compress-green);" class="v39-pframe-save">90% dung lượng</span>
+                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 24px; align-items: center;">
+                            <span style="color: rgba(255,255,255,0.5); font-weight: 500;">Tiết kiệm băng thông:</span>
+                            <span style="font-weight: 800; color: var(--compress-green);" class="v39-pframe-save">90% dung lượng</span>
                         </div>
-                        <div style="display: flex; justify-content: space-between; font-size: 18px;">
-                            <span style="color: rgba(255,255,255,0.5);">Dữ liệu truyền:</span>
-                            <span style="font-weight: bold; color: var(--compress-magenta);" class="v39-pframe-tx">Chỉ pixel cử động</span>
+                        <div style="display: flex; justify-content: space-between; font-size: 24px; align-items: center;">
+                            <span style="color: rgba(255,255,255,0.5); font-weight: 500;">Dữ liệu truyền:</span>
+                            <span style="font-weight: 800; color: var(--compress-magenta);" class="v39-pframe-tx">Chỉ pixel cử động</span>
                         </div>
-                        <div style="font-size: 14px; color: rgba(255,255,255,0.5); text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; font-weight: 500;" class="v39-pframe-desc">
+                        <div style="font-size: 18px; color: rgba(255,255,255,0.5); text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; font-weight: bold;" class="v39-pframe-desc">
                             Trừ đi các khối ảnh tĩnh trùng lặp...
                         </div>
                     </div>
@@ -222,32 +270,38 @@
                 <div class="v39-slide-container">
                     <!-- Grid area where block shifts and draws vectors -->
                     <div style="position: relative;">
-                        <div class="v39-pixel-grid" id="v39-vector-grid">
-                            ${getGridCellsHTML('v39-vec')}
+                        <div class="v39-video-container">
+                            <div class="v39-video-room-bg"></div>
+                            <div class="v39-video-window"></div>
+                            <div class="v39-video-chair"></div>
+                            ${avatarHTML('v39-p6-avatar')}
+                            <div class="v39-pixel-grid" id="v39-vector-grid">
+                                ${getGridCellsHTML('v39-vec')}
+                            </div>
+                            
+                            <!-- Dynamic SVG overlay for Motion Vector arrow (400x400 px container) -->
+                            <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10;" id="v39-vector-svg">
+                                <defs>
+                                    <marker id="v39-arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                                        <polygon points="0 0, 6 3, 0 6" fill="var(--compress-cyan)" />
+                                    </marker>
+                                </defs>
+                                <line class="v39-vector-line" x1="0" y1="0" x2="0" y2="0" stroke="var(--compress-cyan)" stroke-width="5" marker-end="url(#v39-arrowhead)" style="opacity: 0; transition: opacity 0.2s;" />
+                            </svg>
                         </div>
-                        
-                        <!-- Dynamic SVG overlay for Motion Vector arrow (400x400 px container, 50px cell pitch) -->
-                        <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10;" id="v39-vector-svg">
-                            <defs>
-                                <marker id="v39-arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                                    <polygon points="0 0, 6 3, 0 6" fill="var(--compress-cyan)" />
-                                </marker>
-                            </defs>
-                            <line class="v39-vector-line" x1="0" y1="0" x2="0" y2="0" stroke="var(--compress-cyan)" stroke-width="4.5" marker-end="url(#v39-arrowhead)" style="opacity: 0; transition: opacity 0.2s;" />
-                        </svg>
                     </div>
 
                     <!-- Codec block analysis -->
-                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
-                        <div style="display: flex; justify-content: space-between; font-size: 18px;">
-                            <span style="color: rgba(255,255,255,0.5);">Tìm kiếm lưới (Macroblock):</span>
-                            <span style="font-weight: bold; color: #fff;">Khối 16x16 / 8x8</span>
+                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 24px; align-items: center;">
+                            <span style="color: rgba(255,255,255,0.5); font-weight: 500;">Tìm kiếm lưới (Macroblock):</span>
+                            <span style="font-weight: 800; color: #fff;">Khối 16x16 / 8x8</span>
                         </div>
-                        <div style="display: flex; justify-content: space-between; font-size: 18px;">
-                            <span style="color: rgba(255,255,255,0.5);">Toạ độ vector:</span>
-                            <span style="font-weight: bold; color: var(--compress-cyan); font-family: monospace;" class="v39-vector-coords">[dx: 0, dy: 0]</span>
+                        <div style="display: flex; justify-content: space-between; font-size: 24px; align-items: center;">
+                            <span style="color: rgba(255,255,255,0.5); font-weight: 500;">Toạ độ vector:</span>
+                            <span style="font-weight: 800; color: var(--compress-cyan); font-family: monospace;" class="v39-vector-coords">[dx: 0, dy: 0]</span>
                         </div>
-                        <div style="font-size: 14px; color: rgba(255,255,255,0.5); text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; font-weight: 500;" class="v39-vector-desc">
+                        <div style="font-size: 18px; color: rgba(255,255,255,0.5); text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; font-weight: bold;" class="v39-vector-desc">
                             Bù chuyển động điểm ảnh thay vì vẽ lại...
                         </div>
                     </div>
@@ -261,10 +315,16 @@
                     <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px; position: relative; width: 100%;">
                         <!-- Left: Past Frame -->
                         <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
-                            <div class="v39-pixel-grid" id="v39-bframe-past" style="width: 190px; height: 190px; gap: 3px; padding: 6px;">
-                                ${getGridCellsHTML('v39-bf-past')}
+                            <div class="v39-video-container" style="width: 190px; height: 190px;">
+                                <div class="v39-video-room-bg"></div>
+                                <div class="v39-video-window"></div>
+                                <div class="v39-video-chair"></div>
+                                ${avatarHTML('v39-p7-avatar-past')}
+                                <div class="v39-pixel-grid" id="v39-bframe-past" style="width: 190px; height: 190px; gap: 3px; padding: 6px;">
+                                    ${getGridCellsHTML('v39-bf-past')}
+                                </div>
                             </div>
-                            <span style="font-size: 13px; color: var(--compress-orange); font-family: monospace; font-weight: bold;">I-Frame (Quá khứ)</span>
+                            <span style="font-size: 14px; color: var(--compress-orange); font-family: monospace; font-weight: bold; margin-top: 4px;">I-Frame (Quá khứ)</span>
                         </div>
 
                         <!-- arrow left-to-right -->
@@ -274,10 +334,16 @@
 
                         <!-- Middle: B-Frame -->
                         <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1.1;">
-                            <div class="v39-pixel-grid v39-glow-purple" id="v39-bframe-mid" style="width: 220px; height: 220px; gap: 3px; border-color: var(--compress-purple); padding: 8px;">
-                                ${getGridCellsHTML('v39-bf-mid')}
+                            <div class="v39-video-container v39-glow-purple" style="width: 220px; height: 220px; border-color: var(--compress-purple);">
+                                <div class="v39-video-room-bg"></div>
+                                <div class="v39-video-window"></div>
+                                <div class="v39-video-chair"></div>
+                                ${avatarHTML('v39-p7-avatar-mid')}
+                                <div class="v39-pixel-grid v39-glow-purple" id="v39-bframe-mid" style="width: 220px; height: 220px; gap: 3px; border-color: var(--compress-purple); padding: 8px;">
+                                    ${getGridCellsHTML('v39-bf-mid')}
+                                </div>
                             </div>
-                            <span style="font-size: 14px; color: var(--compress-purple); font-weight: bold; font-family: monospace;">B-Frame (Giải nén)</span>
+                            <span style="font-size: 15px; color: var(--compress-purple); font-weight: bold; font-family: monospace; margin-top: 4px;">B-Frame (Giải nén)</span>
                         </div>
 
                         <!-- arrow right-to-left -->
@@ -287,24 +353,30 @@
 
                         <!-- Right: Future Frame -->
                         <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
-                            <div class="v39-pixel-grid" id="v39-bframe-future" style="width: 190px; height: 190px; gap: 3px; padding: 6px;">
-                                ${getGridCellsHTML('v39-bf-fut')}
+                            <div class="v39-video-container" style="width: 190px; height: 190px;">
+                                <div class="v39-video-room-bg"></div>
+                                <div class="v39-video-window"></div>
+                                <div class="v39-video-chair"></div>
+                                ${avatarHTML('v39-p7-avatar-future')}
+                                <div class="v39-pixel-grid" id="v39-bframe-future" style="width: 190px; height: 190px; gap: 3px; padding: 6px;">
+                                    ${getGridCellsHTML('v39-bf-fut')}
+                                </div>
                             </div>
-                            <span style="font-size: 13px; color: var(--compress-magenta); font-family: monospace; font-weight: bold;">P-Frame (Tương lai)</span>
+                            <span style="font-size: 14px; color: var(--compress-magenta); font-family: monospace; font-weight: bold; margin-top: 4px;">P-Frame (Tương lai)</span>
                         </div>
                     </div>
 
                     <!-- Stats Box -->
-                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
-                        <div style="display: flex; justify-content: space-between; font-size: 18px;">
-                            <span style="color: rgba(255,255,255,0.5);">Nguồn tham chiếu:</span>
-                            <span style="font-weight: bold; color: var(--compress-purple);" class="v39-bf-ref-state">Tham chiếu cả 2 đầu</span>
+                    <div class="v39-glass" style="width: 100%; border-radius: 20px; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 24px; align-items: center;">
+                            <span style="color: rgba(255,255,255,0.5); font-weight: 500;">Nguồn tham chiếu:</span>
+                            <span style="font-weight: 800; color: var(--compress-purple);" class="v39-bf-ref-state">Tham chiếu cả 2 đầu</span>
                         </div>
-                        <div style="display: flex; justify-content: space-between; font-size: 18px;">
-                            <span style="color: rgba(255,255,255,0.5);">Độ nén tối đa:</span>
-                            <span style="font-weight: bold; color: var(--compress-green);">Mức nén cao nhất</span>
+                        <div style="display: flex; justify-content: space-between; font-size: 24px; align-items: center;">
+                            <span style="color: rgba(255,255,255,0.5); font-weight: 500;">Độ nén tối đa:</span>
+                            <span style="font-weight: 800; color: var(--compress-green);">Mức nén cao nhất</span>
                         </div>
-                        <div style="font-size: 14px; color: rgba(255,255,255,0.5); text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; font-weight: 500;" class="v39-bf-desc">
+                        <div style="font-size: 18px; color: rgba(255,255,255,0.5); text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; font-weight: bold;" class="v39-bf-desc">
                             Khôi phục các vùng bị che khuất nhờ nội suy...
                         </div>
                     </div>
@@ -396,6 +468,27 @@
 
     // ── ANIMATION UPDATE FRAME ─────────────────────────────────────────────────
     function updateFrame(slideId, canvas, progress) {
+        function animateAvatar(avatarEl, progress) {
+            if (!avatarEl) return;
+            const mouth = avatarEl.querySelector('.v39-avatar-mouth');
+            const eyes = avatarEl.querySelectorAll('.v39-avatar-eye');
+            
+            // Mouth talks
+            if (mouth) {
+                const open = Math.sin(progress * 45) > 0;
+                mouth.style.height = open ? '12px' : '4px';
+                mouth.style.borderRadius = open ? '50%' : '4px';
+            }
+            
+            // Eyes blink
+            const blink = (progress % 0.35 < 0.025);
+            eyes.forEach(eye => {
+                eye.style.height = blink ? '2px' : '10px';
+            });
+        }
+
+        const container = canvas.querySelector('.v39-simulation-layout');
+
         if (slideId === 'slide_v39_1') {
             // Slide 1 (Hook) is animated with CSS rotations automatically
             // No custom JS update needed, avoiding undefined slide variables
@@ -491,6 +584,9 @@
             const progBar = canvas.querySelector('.v39-redun-progress');
             const staticPctEl = canvas.querySelector('.v39-redun-static-pct');
             const actionEl = canvas.querySelector('.v39-redun-action');
+            const avatar = canvas.querySelector('#v39-p3-avatar');
+
+            if (avatar) animateAvatar(avatar, progress);
 
             if (progBar) progBar.style.width = `${progress * 100}%`;
 
@@ -556,6 +652,9 @@
             const sizeEl = canvas.querySelector('.v39-iframe-size');
             const descEl = canvas.querySelector('.v39-iframe-desc');
             const scanner = canvas.querySelector('.v39-laser-scanner');
+            const avatar = canvas.querySelector('#v39-p4-avatar');
+
+            if (avatar) animateAvatar(avatar, progress);
 
             if (scanner) {
                 // Link scanner vertical offset to progress
@@ -596,6 +695,11 @@
             const saveEl = canvas.querySelector('.v39-pframe-save');
             const txEl = canvas.querySelector('.v39-pframe-tx');
             const descEl = canvas.querySelector('.v39-pframe-desc');
+            const avatarRef = canvas.querySelector('#v39-p5-avatar-ref');
+            const avatarDelta = canvas.querySelector('#v39-p5-avatar-delta');
+
+            if (avatarRef) animateAvatar(avatarRef, progress);
+            if (avatarDelta) animateAvatar(avatarDelta, progress);
 
             // Left Grid: I-Frame Reference (Keep fully lit always)
             for (let i = 0; i < 64; i++) {
@@ -648,6 +752,19 @@
             const coordsEl = canvas.querySelector('.v39-vector-coords');
             const descEl = canvas.querySelector('.v39-vector-desc');
             const vectorLine = canvas.querySelector('.v39-vector-line');
+            const avatar = canvas.querySelector('#v39-p6-avatar');
+
+            if (avatar) {
+                animateAvatar(avatar, progress);
+                if (progress < 0.3) {
+                    avatar.style.transform = 'translateX(0px)';
+                } else if (progress >= 0.3 && progress < 0.7) {
+                    const t = (progress - 0.3) / 0.4;
+                    avatar.style.transform = `translateX(${t * 100}px)`; // Shift 100px (2 columns)
+                } else {
+                    avatar.style.transform = 'translateX(100px)';
+                }
+            }
 
             // Define block coordinates on grid.
             // Move block indices from original [27,28,35,36] to shifted [29,30,37,38]
@@ -687,14 +804,15 @@
                 }
             }
 
-            // Animate SVG vector arrow overlay (400x400 px container, 50px cell pitch)
+            // Animate SVG vector arrow overlay (400x400 px container)
             // Cell 27 center (col 3, row 3): x = 175, y = 175
             // Cell 29 center (col 5, row 3): x = 275, y = 175
             if (progress >= 0.5) {
                 if (vectorLine) {
                     vectorLine.setAttribute('x1', '175');
                     vectorLine.setAttribute('y1', '175');
-                    vectorLine.setAttribute('x2', '260'); // 275 - 15px ref for arrowhead
+                    const t = Math.min(1, (progress - 0.5) / 0.2); // grow arrow from 0.5 to 0.7 progress
+                    vectorLine.setAttribute('x2', `${175 + t * 85}`); // target 260
                     vectorLine.setAttribute('y2', '175');
                     vectorLine.style.opacity = '1';
                 }
@@ -711,6 +829,27 @@
             const descEl = canvas.querySelector('.v39-bf-desc');
             const arrowLeft = canvas.querySelector('.v39-bf-arrow-left');
             const arrowRight = canvas.querySelector('.v39-bf-arrow-right');
+
+            const avatarPast = canvas.querySelector('#v39-p7-avatar-past');
+            const avatarFuture = canvas.querySelector('#v39-p7-avatar-future');
+            const avatarMid = canvas.querySelector('#v39-p7-avatar-mid');
+
+            if (avatarPast) {
+                avatarPast.style.transform = 'translateX(-20px)';
+                animateAvatar(avatarPast, progress);
+            }
+            if (avatarFuture) {
+                avatarFuture.style.transform = 'translateX(20px)';
+                animateAvatar(avatarFuture, progress);
+            }
+            if (avatarMid) {
+                if (progress < 0.45) {
+                    avatarMid.style.opacity = '0.04';
+                } else {
+                    avatarMid.style.opacity = '1';
+                    animateAvatar(avatarMid, progress);
+                }
+            }
 
             // Render Past Reference (I-Frame: fully lit)
             for (let i = 0; i < 64; i++) {
